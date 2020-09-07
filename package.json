@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build",
+    "clean": "lerna run --parallel clean",
+    "bootstrap": "yarn",
+    "bootstrap:undo": "lerna clean --yes",
+    "bootstrap:upgrade": "yarn upgrade-interactive --latest"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "license": "MIT"
+}
