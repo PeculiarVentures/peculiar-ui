@@ -1,0 +1,36 @@
+{
+  "name": "@peculiar/react-components",
+  "private": false,
+  "version": "0.0.0",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "esnext": "dist/esnext/index.js",
+  "typings": "dist/types/index.d.ts",
+  "scripts": {
+    "storybook": "start-storybook -p 3000",
+    "build:storybook": "build-storybook -c .storybook -o public",
+    "build": "yarn build:esm && yarn build:cjs && yarn build:esnext",
+    "build:esm": "tsc -p .",
+    "build:cjs": "tsc -p . -m commonjs --outDir dist/cjs",
+    "build:esnext": "tsc -p . -t esnext --outDir dist/esnext"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
+    "clsx": "^1.1.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.1.17",
+    "@storybook/addon-controls": "^6.1.16",
+    "@storybook/addon-docs": "^6.1.16",
+    "@storybook/addon-viewport": "^6.1.17",
+    "@storybook/react": "^6.1.16",
+    "awesome-typescript-loader": "^5.2.1",
+    "react-docgen-typescript": "^1.21.0",
+    "storybook-addon-performance": "^0.14.0",
+    "typescript": "^4.1.3"
+  }
+}
