@@ -29,3 +29,14 @@ jobs:
       - run: yarn install
       - run: yarn lint
       - run: yarn build
+
+      - name: Deploy prepare
+        if: github.ref == 'refs/heads/main'
+        run: yarn --cwd packages/react-components build:storybook
+
+      - name: Deploy to gh-pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/react-components/public
