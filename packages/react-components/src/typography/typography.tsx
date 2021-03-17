@@ -13,6 +13,7 @@ type BaseProps = {
     's2' |
     'b1' |
     'b2' |
+    'b3' |
     'btn1' |
     'btn2' |
     'c1' |
