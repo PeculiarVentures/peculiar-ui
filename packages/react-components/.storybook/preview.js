@@ -1,5 +1,5 @@
 import { withPerformance } from 'storybook-addon-performance';
-import { ThemeProvider } from '../src/theme_provider';
+import { ThemeProvider } from '../src/styles';
 
 export const decorators = [
   withPerformance,
