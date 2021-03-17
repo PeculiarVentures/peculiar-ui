@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Button } from './index';
 
-export const Base = (args) => (
+export const Playground = (args: any) => (
   <Button
     {...args}
   />
-)
+);
 
-Base.args = { children: 'Hello' };
+Playground.args = { children: 'Hello' };
 
 export default {
   title: 'Components/Button',

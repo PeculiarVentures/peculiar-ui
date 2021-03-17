@@ -1,17 +1,20 @@
 module.exports = {
   stories: [
-    '../src/**/*.stories.(tsx)',
+    '../src/**/*.story.tsx',
   ],
   addons: [
     '@storybook/addon-docs',
     '@storybook/addon-controls',
     '@storybook/addon-a11y',
     '@storybook/addon-viewport',
+    '@storybook/addon-actions',
     'storybook-addon-performance',
   ],
   typescript: {
-    check: false,
-    checkOptions: {},
+    check: true,
+    checkOptions: {
+      eslint: true,
+    },
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
