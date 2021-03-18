@@ -7,7 +7,14 @@ export const Playground = (args: any) => (
   />
 );
 
-Playground.args = { children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur' };
+Playground.args = {
+  children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
+  borderWidth: 4,
+  borderRadius: 4,
+  borderStyle: 'solid',
+  background: 'primary-tint-3',
+  borderColor: 'secondary-tint-3',
+};
 
 export default {
   title: 'Components/Box',
