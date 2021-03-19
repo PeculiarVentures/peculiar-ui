@@ -8,7 +8,7 @@ type BaseProps = {
   background?: ColorType;
   borderColor?: ColorType;
   borderWidth?: number;
-  borderStyle?: ('solid' | 'dashed' | 'dotted');
+  borderStyle?: ('solid' | 'dashed');
   borderPosition?: ('horizontal' | 'vertical' | 'top' | 'right' | 'bottom' | 'left');
   borderRadius?: number,
   'data-testid'?: string;

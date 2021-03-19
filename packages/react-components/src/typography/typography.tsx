@@ -1,24 +1,9 @@
 import * as React from 'react';
-import { css, cx, ColorType } from '../styles';
+import { css, cx, ColorType, TypographyType } from '../styles';
 
 type BaseProps = {
   children: React.ReactNode;
-  variant?: (
-    'h1' |
-    'h2' |
-    'h3' |
-    'h4' |
-    'h5' |
-    's1' |
-    's2' |
-    'b1' |
-    'b2' |
-    'b3' |
-    'btn1' |
-    'btn2' |
-    'c1' |
-    'c2'
-  );
+  variant?: TypographyType;
   color?: ColorType;
   className?: string;
   as?: React.ElementType,

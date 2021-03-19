@@ -49,3 +49,41 @@ export type ColorType = (
   'gray-1' |
   'white'
 );
+
+export type ShadowType = (
+  'light-low' |
+  'light-medium' |
+  'light-hight' |
+  'dark-medium' |
+  'dark-hight'
+);
+
+export type TypographyPropertiesType = {
+  weight: string;
+  size: string;
+  height: string;
+  spacing: string;
+};
+
+export type TypographyType = (
+  'h1' |
+  'h2' |
+  'h3' |
+  'h4' |
+  'h5' |
+  's1' |
+  's2' |
+  'b1' |
+  'b2' |
+  'b3' |
+  'btn1' |
+  'btn2' |
+  'c1' |
+  'c2'
+);
+
+export type ThemeType = {
+  palette: Record<ColorType, string>;
+  shadows: Record<ShadowType, string>;
+  typography: Record<TypographyType, TypographyPropertiesType>;
+};
