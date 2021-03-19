@@ -11,11 +11,12 @@ type BaseProps = {
   borderStyle?: ('solid' | 'dashed' | 'dotted');
   borderPosition?: ('horizontal' | 'vertical' | 'top' | 'right' | 'bottom' | 'left');
   borderRadius?: number,
+  'data-testid'?: string;
 };
 
 type BoxProps = BaseProps & React.HTMLAttributes<HTMLElement>;
 
-const stylesBase = css({
+const stylesBase = () => css({
   label: 'Box',
 });
 
@@ -67,7 +68,7 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref?: any) =>
   return React.createElement(as || 'div', {
     ref,
     className: cx(
-      stylesBase,
+      stylesBase(),
       (background && css({
         label: `background-${background}`,
         background: `var(--pv-color-${background})`,

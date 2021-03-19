@@ -8,11 +8,12 @@ type BaseProps = {
   variant?: ('primary' | 'secondary' | 'tertiary' | 'danger');
   size?: ('small' | 'medium' | 'large');
   className?: string;
+  'data-testid'?: string;
 };
 
 type ButtonProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const stylesBase = css({
+const stylesBase = () => css({
   label: 'Button',
   fontFamily: 'inherit',
   outline: 'none',
@@ -27,28 +28,28 @@ const stylesBase = css({
   },
 });
 
-const stylesSizeSmall = css({
+const stylesSizeSmall = () => css({
   label: 'small',
   height: 32,
   minWidth: 32,
   padding: '0 10px',
 });
 
-const stylesSizeMedium = css({
+const stylesSizeMedium = () => css({
   label: 'medium',
   height: 35,
   minWidth: 35,
   padding: '0 15px',
 });
 
-const stylesSizeLarge = css({
+const stylesSizeLarge = () => css({
   label: 'large',
   height: 40,
   minWidth: 40,
   padding: '0 20px',
 });
 
-const stylesVariantPrimary = css({
+const stylesVariantPrimary = () => css({
   label: 'primary',
   color: 'var(--pv-color-white)',
   backgroundColor: 'var(--pv-color-primary)',
@@ -71,7 +72,7 @@ const stylesVariantPrimary = css({
   },
 });
 
-const stylesVariantSecondary = css({
+const stylesVariantSecondary = () => css({
   label: 'secondary',
   color: 'var(--pv-color-black)',
   backgroundColor: 'transparent',
@@ -92,7 +93,7 @@ const stylesVariantSecondary = css({
   },
 });
 
-const stylesVariantDanger = css({
+const stylesVariantDanger = () => css({
   label: 'danger',
   color: 'var(--pv-color-white)',
   backgroundColor: 'var(--pv-color-danger)',
@@ -115,7 +116,7 @@ const stylesVariantDanger = css({
   },
 });
 
-const stylesVariantTertiary = css({
+const stylesVariantTertiary = () => css({
   label: 'tertiary',
   color: 'var(--pv-color-secondary)',
   backgroundColor: 'transparent',
@@ -149,14 +150,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
       ref={ref}
       type="button"
       className={cx({
-        [stylesBase]: true,
-        [stylesSizeSmall]: size === 'small',
-        [stylesSizeMedium]: size === 'medium',
-        [stylesSizeLarge]: size === 'large',
-        [stylesVariantPrimary]: variant === 'primary',
-        [stylesVariantSecondary]: variant === 'secondary',
-        [stylesVariantDanger]: variant === 'danger',
-        [stylesVariantTertiary]: variant === 'tertiary',
+        [stylesBase()]: true,
+        [stylesSizeSmall()]: size === 'small',
+        [stylesSizeMedium()]: size === 'medium',
+        [stylesSizeLarge()]: size === 'large',
+        [stylesVariantPrimary()]: variant === 'primary',
+        [stylesVariantSecondary()]: variant === 'secondary',
+        [stylesVariantDanger()]: variant === 'danger',
+        [stylesVariantTertiary()]: variant === 'tertiary',
       }, className)}
       {...other}
     >

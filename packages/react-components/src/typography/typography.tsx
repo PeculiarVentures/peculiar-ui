@@ -22,11 +22,12 @@ type BaseProps = {
   color?: ColorType;
   className?: string;
   as?: React.ElementType,
+  'data-testid'?: string;
 };
 
 type TypographyProps = BaseProps & React.HTMLAttributes<HTMLElement>;
 
-const stylesBase = css({
+const stylesBase = () => css({
   label: 'Typography',
   margin: 0,
   padding: 0,
@@ -53,7 +54,7 @@ export const Typography = React.forwardRef<HTMLElement, TypographyProps>((props,
   return React.createElement(as || asComponent, {
     ref,
     className: cx(
-      stylesBase,
+      stylesBase(),
       css({
         label: variant,
         fontWeight: `var(--pv-text-${variant}-weight)`,

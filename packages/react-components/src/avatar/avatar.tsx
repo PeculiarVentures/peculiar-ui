@@ -9,11 +9,12 @@ type BaseProps = {
   alt?: string;
   src?: string;
   background?: ColorType;
+  'data-testid'?: string;
 };
 
 type AvatarProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 
-const stylesBase = css({
+const stylesBase = () => css({
   label: 'Avatar',
   userSelect: 'none',
   overflow: 'hidden',
@@ -23,25 +24,25 @@ const stylesBase = css({
   justifyContent: 'center',
 });
 
-const stylesSizeSmall = css({
+const stylesSizeSmall = () => css({
   label: 'small',
   height: 30,
   width: 30,
 });
 
-const stylesSizeMedium = css({
+const stylesSizeMedium = () => css({
   label: 'medium',
   height: 35,
   width: 35,
 });
 
-const stylesSizeLarge = css({
+const stylesSizeLarge = () => css({
   label: 'large',
   height: 40,
   width: 40,
 });
 
-const stylesImg = css({
+const stylesImg = () => css({
   label: 'img',
   color: 'transparent',
   width: '100%',
@@ -108,7 +109,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref?
       <img
         src={src}
         alt={alt}
-        className={stylesImg}
+        className={stylesImg()}
       />
     );
   } else if (childrenProp != null) {
@@ -126,10 +127,10 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref?
       ref={ref}
       className={cx(
         {
-          [stylesBase]: true,
-          [stylesSizeSmall]: size === 'small',
-          [stylesSizeMedium]: size === 'medium',
-          [stylesSizeLarge]: size === 'large',
+          [stylesBase()]: true,
+          [stylesSizeSmall()]: size === 'small',
+          [stylesSizeMedium()]: size === 'medium',
+          [stylesSizeLarge()]: size === 'large',
         },
         (background && css({
           label: `background-${background}`,

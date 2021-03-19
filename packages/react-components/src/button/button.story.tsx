@@ -7,7 +7,9 @@ export const Playground = (args: any) => (
   />
 );
 
-Playground.args = { children: 'Hello' };
+Playground.args = {
+  children: 'Hello',
+};
 
 export default {
   title: 'Components/Button',
