@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { css, cx, ColorType, TypographyType } from '../styles';
+import {
+  css,
+  cx,
+  ColorType,
+  TypographyType,
+} from '../styles';
 
 type BaseProps = {
   children: React.ReactNode;
