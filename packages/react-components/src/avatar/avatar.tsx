@@ -112,13 +112,28 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref?
         className={stylesImg()}
       />
     );
-  } else if (childrenProp != null) {
+  } else if (childrenProp) {
     children = (
       <Typography
         color="white"
       >
         {childrenProp}
       </Typography>
+    );
+  } else {
+    children = (
+      <svg
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 10 13"
+        width={10}
+      >
+        <path
+          d="M2.998 3.174c0 1.594 1 2.674 2 2.674s2-1.08 2-2.674c0-1.595-1-2.674-2-2.674s-2 1.08-2 2.674zM5 8.858c-1.249 0-2.383-.448-3.308-1.146C.95 8.064.5 8.878.5 9.812v2.12h9V9.81c0-.918-.46-1.746-1.193-2.098C7.383 8.41 6.25 8.858 5 8.858z"
+          fill="#fff"
+          stroke="#fff"
+        />
+      </svg>
     );
   }
 

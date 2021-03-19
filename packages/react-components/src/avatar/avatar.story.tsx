@@ -7,9 +7,7 @@ export const Playground = (args: any) => (
   />
 );
 
-Playground.args = {
-  src: 'https://material-ui.com/static/images/avatar/1.jpg',
-};
+Playground.args = {};
 
 export default {
   title: 'Components/Avatar',
