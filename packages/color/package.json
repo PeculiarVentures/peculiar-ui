@@ -1,0 +1,45 @@
+{
+  "name": "@peculiar/color",
+  "private": false,
+  "version": "0.0.1",
+  "author": "PeculiarVentures Team",
+  "description": "Library for color manipulation and conversion in JavaScript.",
+  "keywords": [
+    "color",
+    "rgb",
+    "hex",
+    "hsb",
+    "palette"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "esnext": "dist/esnext/index.js",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PeculiarVentures/peculiar-ui.git",
+    "directory": "packages/color"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "yarn build:esm && yarn build:cjs && yarn build:esnext",
+    "build:esm": "tsc -p tsconfig.build.json",
+    "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/cjs",
+    "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
+    "clean": "rimraf public dist"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=12.x"
+  },
+  "license": "MIT"
+}
