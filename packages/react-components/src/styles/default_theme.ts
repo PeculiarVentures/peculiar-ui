@@ -1,71 +1,34 @@
 import { ThemeType } from './types';
+import {
+  grayscale,
+  primary,
+  secondary,
+  danger,
+  additional,
+} from './colors';
 
 export const defaultTheme: ThemeType = {
   palette: {
     /**
      * primary
      */
-    'primary-tint-5': '#EFFFEC',
-    'primary-tint-4': '#CCF2C7',
-    'primary-tint-3': '#ADE5A5',
-    'primary-tint-2': '#8FD787',
-    'primary-tint-1': '#75CA6B',
-    primary: '#5EBC54',
-    'primary-shade-1': '#41A03D',
-    'primary-shade-2': '#2B852B',
-    'primary-shade-3': '#176B1C',
-    'primary-shade-4': '#094F0F',
-    'primary-shade-5': '#003506',
+    ...primary,
     /**
      * secondary
      */
-    'secondary-tint-5': '#EBF0FF',
-    'secondary-tint-4': '#C5D8FC',
-    'secondary-tint-3': '#A2C0FA',
-    'secondary-tint-2': '#7CAAF8',
-    'secondary-tint-1': '#5993F6',
-    secondary: '#377FF4',
-    'secondary-shade-1': '#265CCD',
-    'secondary-shade-2': '#173EA7',
-    'secondary-shade-3': '#0C247F',
-    'secondary-shade-4': '#051159',
-    'secondary-shade-5': '#010632',
+    ...secondary,
     /**
      * danger
      */
-    'danger-tint-5': '#FFEBEB',
-    'danger-tint-4': '#F8C5C5',
-    'danger-tint-3': '#F2A3A2',
-    'danger-tint-2': '#EB827F',
-    'danger-tint-1': '#E56360',
-    danger: '#DE4641',
-    'danger-shade-1': '#BC332C',
-    'danger-shade-2': '#9B251C',
-    'danger-shade-3': '#77180F',
-    'danger-shade-4': '#550E06',
-    'danger-shade-5': '#340700',
+    ...danger,
     /**
      * additional
      */
-    success: '#33CC99',
-    attention: '#F7A831',
-    'extra-1': '#826FF6',
-    'extra-2': '#DC6CDF',
+    ...additional,
     /**
      * grayscale
      */
-    black: '#293033',
-    'gray-10': '#5C666A',
-    'gray-9': '#8F999E',
-    'gray-8': '#C4C8CC',
-    'gray-7': '#CDD1D5',
-    'gray-6': '#D8DBDE',
-    'gray-5': '#E3E5E8',
-    'gray-4': '#EAEDF2',
-    'gray-3': '#EFF1F6',
-    'gray-2': '#F4F7FC',
-    'gray-1': '#FBFCFD',
-    white: '#FFFFFF',
+    ...grayscale,
   },
   shadows: {
     'light-low':
