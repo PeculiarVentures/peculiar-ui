@@ -30,22 +30,22 @@ const stylesBase = () => css({
 
 const stylesSizeSmall = () => css({
   label: 'small',
-  height: 32,
-  minWidth: 32,
+  height: '32px',
+  minWidth: '32px',
   padding: '0 10px',
 });
 
 const stylesSizeMedium = () => css({
   label: 'medium',
-  height: 35,
-  minWidth: 35,
+  height: '35px',
+  minWidth: '35px',
   padding: '0 15px',
 });
 
 const stylesSizeLarge = () => css({
   label: 'large',
-  height: 40,
-  minWidth: 40,
+  height: '40px',
+  minWidth: '40px',
   padding: '0 20px',
 });
 
@@ -158,7 +158,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
         [stylesVariantSecondary()]: variant === 'secondary',
         [stylesVariantDanger()]: variant === 'danger',
         [stylesVariantTertiary()]: variant === 'tertiary',
-      }, className)}
+        [className]: !!className,
+      })}
       {...other}
     >
       <Typography

@@ -20,7 +20,6 @@ type TypographyProps = BaseProps & React.HTMLAttributes<HTMLElement>;
 const stylesBase = () => css({
   label: 'Typography',
   margin: 0,
-  padding: 0,
 });
 
 export const Typography = React.forwardRef<HTMLElement, TypographyProps>((props, ref?: any) => {
