@@ -49,80 +49,128 @@ PaletteItem.defaultProps = {
   light: false,
 };
 
-export const Palette = (args: any) => {
-  const rgb = args.color
-    .replace('rgba(', '')
-    .replace(')', '')
-    .split(',');
-  const color = new Color([Number(rgb[0]), Number(rgb[1]), Number(rgb[2])]);
-  const palette = color.palette();
+const PaletteList = (props: { palette: any }) => {
+  const { palette } = props;
 
   return (
-    <>
-      <div>
-        <PaletteItem
-          name="tint5"
-          color={palette.tint5}
-        />
-        <PaletteItem
-          name="tint4"
-          color={palette.tint4}
-        />
-        <PaletteItem
-          name="tint3"
-          color={palette.tint3}
-        />
-        <PaletteItem
-          name="tint2"
-          color={palette.tint2}
-        />
-        <PaletteItem
-          name="tint1"
-          color={palette.tint1}
-        />
-        <PaletteItem
-          name="base"
-          color={palette.base}
-          light
-        />
-        <PaletteItem
-          name="shade1"
-          color={palette.shade1}
-          light
-        />
-        <PaletteItem
-          name="shade2"
-          color={palette.shade2}
-          light
-        />
-        <PaletteItem
-          name="shade3"
-          color={palette.shade3}
-          light
-        />
-        <PaletteItem
-          name="shade4"
-          color={palette.shade4}
-          light
-        />
-        <PaletteItem
-          name="shade5"
-          color={palette.shade5}
-          light
-        />
-      </div>
-    </>
+    <div
+      style={{
+        width: '100%',
+      }}
+    >
+      <PaletteItem
+        name="tint5"
+        color={palette.tint5}
+      />
+      <PaletteItem
+        name="tint4"
+        color={palette.tint4}
+      />
+      <PaletteItem
+        name="tint3"
+        color={palette.tint3}
+      />
+      <PaletteItem
+        name="tint2"
+        color={palette.tint2}
+      />
+      <PaletteItem
+        name="tint1"
+        color={palette.tint1}
+      />
+      <PaletteItem
+        name="base"
+        color={palette.base}
+        light
+      />
+      <PaletteItem
+        name="shade1"
+        color={palette.shade1}
+        light
+      />
+      <PaletteItem
+        name="shade2"
+        color={palette.shade2}
+        light
+      />
+      <PaletteItem
+        name="shade3"
+        color={palette.shade3}
+        light
+      />
+      <PaletteItem
+        name="shade4"
+        color={palette.shade4}
+        light
+      />
+      <PaletteItem
+        name="shade5"
+        color={palette.shade5}
+        light
+      />
+    </div>
+  );
+};
+
+const rgbaColorStringToArray = (rgb: string) => (
+  rgb
+    .replace('rgba(', '')
+    .replace(')', '')
+    .split(',')
+);
+
+export const Palette = (args: any) => {
+  const primaryRgb = rgbaColorStringToArray(args.colorPrimary);
+  const secondaryRgb = rgbaColorStringToArray(args.colorSecondary);
+  const wrongRgb = rgbaColorStringToArray(args.colorWrong);
+
+  const primary = new Color([
+    Number(primaryRgb[0]),
+    Number(primaryRgb[1]),
+    Number(primaryRgb[2]),
+  ]);
+  const secondary = new Color([
+    Number(secondaryRgb[0]),
+    Number(secondaryRgb[1]),
+    Number(secondaryRgb[2]),
+  ]);
+  const wrong = new Color([
+    Number(wrongRgb[0]),
+    Number(wrongRgb[1]),
+    Number(wrongRgb[2]),
+  ]);
+
+  const palette = {
+    primary: primary.palette(),
+    secondary: secondary.palette(),
+    wrong: wrong.palette(),
+  };
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+      }}
+    >
+      <PaletteList palette={palette.primary} />
+      <PaletteList palette={palette.secondary} />
+      <PaletteList palette={palette.wrong} />
+    </div>
   );
 };
 
 Palette.args = {
-  color: 'rgba(94,188,84,1)',
+  colorPrimary: 'rgba(94,188,84,1)',
+  colorSecondary: 'rgba(55,127,244,1)',
+  colorWrong: 'rgba(222,70,65,1)',
 };
 
 export default {
   title: 'Palette',
   argTypes: {
-    color: { control: 'color' },
+    colorPrimary: { control: 'color' },
+    colorSecondary: { control: 'color' },
+    colorWrong: { control: 'color' },
   },
   parameters: {
     previewTabs: {
