@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const RGB_MAX = 255;
 const HUE_MAX = 360;
 const SV_MAX = 100;
