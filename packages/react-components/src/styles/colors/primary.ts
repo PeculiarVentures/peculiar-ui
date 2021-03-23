@@ -1,13 +1,17 @@
+import { Color } from '@peculiar/color';
+
+const palette = new Color('#5EBC54').palette();
+
 export const primary = {
-  'primary-tint-5': '#EFFFEC',
-  'primary-tint-4': '#CCF2C7',
-  'primary-tint-3': '#ADE5A5',
-  'primary-tint-2': '#8FD787',
-  'primary-tint-1': '#75CA6B',
-  primary: '#5EBC54',
-  'primary-shade-1': '#41A03D',
-  'primary-shade-2': '#2B852B',
-  'primary-shade-3': '#176B1C',
-  'primary-shade-4': '#094F0F',
-  'primary-shade-5': '#003506',
+  'primary-tint-5': palette['tint-5'].toHexString(),
+  'primary-tint-4': palette['tint-4'].toHexString(),
+  'primary-tint-3': palette['tint-3'].toHexString(),
+  'primary-tint-2': palette['tint-2'].toHexString(),
+  'primary-tint-1': palette['tint-1'].toHexString(),
+  primary: palette.base.toHexString(),
+  'primary-shade-1': palette['shade-1'].toHexString(),
+  'primary-shade-2': palette['shade-2'].toHexString(),
+  'primary-shade-3': palette['shade-3'].toHexString(),
+  'primary-shade-4': palette['shade-4'].toHexString(),
+  'primary-shade-5': palette['shade-5'].toHexString(),
 };
