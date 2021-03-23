@@ -4,17 +4,17 @@ import { rgbToHex } from './rgb_to_hex';
 import { hsbToRgb } from './hsb_to_rgb';
 
 type PaletteTypes = (
-  'tint-5' |
-  'tint-4' |
-  'tint-3' |
-  'tint-2' |
-  'tint-1' |
+  'tint5' |
+  'tint4' |
+  'tint3' |
+  'tint2' |
+  'tint1' |
   'base' |
-  'shade-1' |
-  'shade-2' |
-  'shade-3' |
-  'shade-4' |
-  'shade-5'
+  'shade1' |
+  'shade2' |
+  'shade3' |
+  'shade4' |
+  'shade5'
 );
 
 export class Color {
@@ -97,17 +97,17 @@ export class Color {
     }
 
     return {
-      'tint-5': tints[4],
-      'tint-4': tints[3],
-      'tint-3': tints[2],
-      'tint-2': tints[1],
-      'tint-1': tints[0],
+      tint5: tints[4],
+      tint4: tints[3],
+      tint3: tints[2],
+      tint2: tints[1],
+      tint1: tints[0],
       base: this,
-      'shade-1': shades[0],
-      'shade-2': shades[1],
-      'shade-3': shades[2],
-      'shade-4': shades[3],
-      'shade-5': shades[4],
+      shade1: shades[0],
+      shade2: shades[1],
+      shade3: shades[2],
+      shade4: shades[3],
+      shade5: shades[4],
     };
   }
 }
