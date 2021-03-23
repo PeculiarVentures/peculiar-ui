@@ -38,7 +38,7 @@ import { Color } from '@peculiar/color';
 
 const color = new Color('#5EBC54');
 
-color.palette() // => Color[];
+color.palette() // => Record<PaletteTypes, Color>;
 ```
 
 ## 📝 License
