@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { css, cx } from '../styles';
-import { Typography } from '../typography';
+import { Typography } from '../Typography';
 
 type BaseProps = {
   children: React.ReactNode;
@@ -136,7 +136,7 @@ const stylesVariantTertiary = () => css({
   },
 });
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref?: any) => {
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     variant,
     size,

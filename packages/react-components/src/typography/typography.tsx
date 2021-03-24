@@ -22,7 +22,7 @@ const stylesBase = () => css({
   margin: 0,
 });
 
-export const Typography = React.forwardRef<HTMLElement, TypographyProps>((props, ref?: any) => {
+export const Typography = React.forwardRef<HTMLElement, TypographyProps>((props, ref) => {
   const {
     variant,
     className,

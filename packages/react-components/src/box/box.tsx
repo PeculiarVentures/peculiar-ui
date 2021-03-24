@@ -20,7 +20,7 @@ const stylesBase = () => css({
   label: 'Box',
 });
 
-export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref?: any) => {
+export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
   const {
     className,
     as,

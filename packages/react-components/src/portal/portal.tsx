@@ -22,3 +22,5 @@ export const Portal: React.FC<BaseProps> = (props) => {
 
   return mountNode ? ReactDOM.createPortal(children, mountNode) : mountNode;
 };
+
+Portal.displayName = 'Portal';

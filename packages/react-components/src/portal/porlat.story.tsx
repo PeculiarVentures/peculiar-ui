@@ -17,9 +17,7 @@ export default {
   argTypes: {
     children: { control: 'text' },
     container: {
-      table: {
-        disable: true,
-      },
+      control: false,
     },
   },
 };

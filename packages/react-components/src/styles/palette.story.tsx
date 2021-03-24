@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Color } from '@peculiar/color';
-import { Typography } from '../typography';
+import { Typography } from '../Typography';
 
 const PaletteItem = (props: { color: Color; name: string; light?: boolean; }) => {
   const { color, name, light } = props;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { css, cx, ColorType } from '../styles';
-import { Typography } from '../typography';
+import { Typography } from '../Typography';
 
 type BaseProps = {
   children?: React.ReactNode;
@@ -89,7 +89,7 @@ function useLoaded(src: string) {
   return loaded;
 }
 
-export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref?: any) => {
+export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
   const {
     className,
     children: childrenProp,
