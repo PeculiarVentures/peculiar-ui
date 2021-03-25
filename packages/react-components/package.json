@@ -21,13 +21,13 @@
     "directory": "packages/react-components"
   },
   "scripts": {
-    "dev": "start-storybook -p 3000",
+    "dev": "start-storybook -p 3000 -s ./.storybook/static",
     "prebuild": "yarn clean",
     "build": "yarn build:esm && yarn build:cjs && yarn build:esnext",
     "build:esm": "tsc -p tsconfig.build.json",
     "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/cjs",
     "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
-    "build:storybook": "build-storybook -o public",
+    "build:storybook": "build-storybook -o public -s ./.storybook/static",
     "clean": "rimraf public dist themes"
   },
   "peerDependencies": {
