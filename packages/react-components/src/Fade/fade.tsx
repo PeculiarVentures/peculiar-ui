@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { TransitionProps } from 'react-transition-group/Transition';
 import { Transition } from 'react-transition-group';
 
-type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
+export type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onEnter' |
   'onEntered' |
   'onEntering' |
@@ -36,7 +36,6 @@ export const Fade: React.FC<FadeProps> = (props) => {
     <Transition
       in={inProp}
       timeout={timeout}
-      appear
       onEnter={onEnter}
       onEntered={onEntered}
       onEntering={onEntering}

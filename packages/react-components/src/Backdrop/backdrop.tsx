@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { Fade } from '../Fade';
+import { Fade, BaseTransitionProps } from '../Fade';
 import { css, cx } from '../styles';
 
 type BaseProps = {
+  open: boolean;
   className?: string;
   invisible?: boolean;
-  open: boolean;
   transitionDuration?: number;
 };
 
-type BackdropProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type BackdropProps = BaseProps & BaseTransitionProps & React.HTMLAttributes<HTMLDivElement>;
 
 const stylesBase = () => css({
   label: 'Backdrop',
@@ -34,6 +34,12 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
     invisible,
     open,
     transitionDuration,
+    onEnter,
+    onEntered,
+    onEntering,
+    onExit,
+    onExited,
+    onExiting,
     ...other
   } = props;
 
@@ -41,6 +47,12 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
     <Fade
       in={open}
       timeout={transitionDuration}
+      onEnter={onEnter}
+      onEntered={onEntered}
+      onEntering={onEntering}
+      onExit={onExit}
+      onExited={onExited}
+      onExiting={onExiting}
     >
       <div
         ref={ref}
@@ -49,6 +61,7 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
           [stylesInvisible()]: invisible,
           [className]: !!className,
         })}
+        aria-hidden="true"
         {...other}
       />
     </Fade>
