@@ -6,3 +6,4 @@ export * from './Portal';
 export * from './Fade';
 export * from './Backdrop';
 export * from './styles';
+export * from './hooks';
