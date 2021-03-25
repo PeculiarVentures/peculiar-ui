@@ -15,6 +15,7 @@ type BaseProps = {
   in?: boolean;
   timeout?: number;
   children: React.ReactElement;
+  finalOpacity?: number;
 };
 
 type FadeProps = BaseProps & BaseTransitionProps;
@@ -24,6 +25,7 @@ export const Fade: React.FC<FadeProps> = (props) => {
     timeout,
     in: inProp,
     children,
+    finalOpacity,
     onEnter,
     onEntered,
     onEntering,
@@ -46,7 +48,7 @@ export const Fade: React.FC<FadeProps> = (props) => {
       {(state) => (
         React.cloneElement(children, {
           style: {
-            opacity: (state === 'entering' || state === 'entered') ? 1 : 0,
+            opacity: (state === 'entering' || state === 'entered') ? finalOpacity : 0,
             transition: `opacity ${timeout}ms`,
             visibility: state === 'exited' && !inProp ? 'hidden' : undefined,
             ...children.props.style,
@@ -61,4 +63,5 @@ Fade.displayName = 'Fade';
 
 Fade.defaultProps = {
   timeout: 300,
+  finalOpacity: 1,
 };

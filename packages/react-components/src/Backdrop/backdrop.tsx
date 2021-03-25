@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Fade, BaseTransitionProps } from '../Fade';
+import { Box } from '../Box';
 import { css, cx } from '../styles';
 
 type BaseProps = {
@@ -7,9 +8,16 @@ type BaseProps = {
   className?: string;
   invisible?: boolean;
   transitionDuration?: number;
+  variant?: ('light' | 'medium' | 'heavy');
 };
 
 type BackdropProps = BaseProps & BaseTransitionProps & React.HTMLAttributes<HTMLDivElement>;
+
+const variants = {
+  light: 0.1,
+  medium: 0.5,
+  heavy: 0.9,
+};
 
 const stylesBase = () => css({
   label: 'Backdrop',
@@ -19,7 +27,6 @@ const stylesBase = () => css({
   bottom: 0,
   top: 0,
   left: 0,
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
   WebkitTapHighlightColor: 'transparent',
 });
 
@@ -34,6 +41,7 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
     invisible,
     open,
     transitionDuration,
+    variant,
     onEnter,
     onEntered,
     onEntering,
@@ -53,9 +61,11 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
       onExit={onExit}
       onExited={onExited}
       onExiting={onExiting}
+      finalOpacity={variants[variant]}
     >
-      <div
+      <Box
         ref={ref}
+        background="black"
         className={cx({
           [stylesBase()]: true,
           [stylesInvisible()]: invisible,
@@ -72,4 +82,5 @@ Backdrop.displayName = 'Backdrop';
 
 Backdrop.defaultProps = {
   open: true,
+  variant: 'medium',
 };

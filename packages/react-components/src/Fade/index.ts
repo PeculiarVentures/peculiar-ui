@@ -1,1 +1,2 @@
-export { Fade, BaseTransitionProps } from './fade';
+export { Fade } from './fade';
+export type { BaseTransitionProps } from './fade';
