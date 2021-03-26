@@ -1,12 +1,11 @@
 /**
  * HEX color to RGB color.
  * @example
- *  hexToRgb('#fff') // =>
+ *  hexToRgb('#FFFFFF') // =>
  */
 export function hexToRgb(hex: string): [r: number, g: number, b: number] {
   const rgb = hex
     .replace(/^#?/, '')
-    .replace(/([a-f\d])([a-f\d])([a-f\d])$/i, (_, r, g, b) => `${r}${r}${g}${g}${b}${b}`)
     .match(/.{2}/g)
     .map((value) => parseInt(value, 16));
 
