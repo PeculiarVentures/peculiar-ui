@@ -1,5 +1,5 @@
 export { grayscale } from './grayscale';
-export { primary } from './primary';
-export { secondary } from './secondary';
-export { danger } from './danger';
+export { primary, generatePrimaryColors } from './primary';
+export { secondary, generateSecondaryColors } from './secondary';
+export { danger, generateDangerColors } from './danger';
 export { additional } from './additional';

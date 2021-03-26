@@ -5,7 +5,7 @@ import { Typography } from '../Typography';
 type BaseProps = {
   children: React.ReactNode;
   disabled?: boolean;
-  variant?: ('primary' | 'secondary' | 'tertiary' | 'danger');
+  variant?: ('primary' | 'secondary' | 'tertiary' | 'wrong');
   size?: ('small' | 'medium' | 'large');
   className?: string;
   'data-testid'?: string;
@@ -93,7 +93,7 @@ const stylesVariantSecondary = () => css({
   },
 });
 
-const stylesVariantDanger = () => css({
+const stylesVariantWrong = () => css({
   label: 'danger',
   color: 'var(--pv-color-white)',
   backgroundColor: 'var(--pv-color-danger)',
@@ -156,7 +156,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
         [stylesSizeLarge()]: size === 'large',
         [stylesVariantPrimary()]: variant === 'primary',
         [stylesVariantSecondary()]: variant === 'secondary',
-        [stylesVariantDanger()]: variant === 'danger',
+        [stylesVariantWrong()]: variant === 'wrong',
         [stylesVariantTertiary()]: variant === 'tertiary',
         [className]: !!className,
       })}
