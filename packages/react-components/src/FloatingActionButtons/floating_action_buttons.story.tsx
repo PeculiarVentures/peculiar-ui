@@ -8,7 +8,7 @@ export const Playground = (args: any) => (
 );
 
 Playground.args = {
-  children: '+',
+  children: '?',
 };
 
 export default {
@@ -19,7 +19,7 @@ export default {
     variant: {
       control: {
         type: 'select',
-        options: { extended: 'extended', default: undefined },
+        options: { default: undefined, extended: 'extended' },
       },
     },
   },

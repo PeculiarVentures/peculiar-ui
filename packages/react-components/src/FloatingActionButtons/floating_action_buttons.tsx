@@ -30,6 +30,9 @@ const stylesBase = () => css({
   width: '55px',
   padding: 0,
   overflow: 'hidden',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
 const stylesVariantExtended = () => css({
@@ -83,6 +86,13 @@ const stylesColorSecondary = () => css({
   },
 });
 
+const stylesLabel = () => css({
+  width: '100%',
+  display: 'inherit',
+  alignItems: 'inherit',
+  justifyContent: 'inherit',
+});
+
 export const Fab = React.forwardRef<HTMLButtonElement, FabProps>((props, ref) => {
   const {
     variant,
@@ -91,16 +101,6 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>((props, ref) =>
     children,
     ...other
   } = props;
-
-  const content = variant !== 'extended'
-    ? children
-    : (
-      <Typography
-        variant="btn1"
-      >
-        {children}
-      </Typography>
-    );
 
   return (
     <button
@@ -115,7 +115,12 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>((props, ref) =>
       })}
       {...other}
     >
-      {content}
+      <Typography
+        variant="btn1"
+        className={stylesLabel()}
+      >
+        {children}
+      </Typography>
     </button>
   );
 });
