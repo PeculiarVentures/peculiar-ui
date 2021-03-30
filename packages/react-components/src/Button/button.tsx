@@ -1,31 +1,12 @@
 import * as React from 'react';
 import { css, cx } from '../styles';
-import { Typography } from '../Typography';
+import { ButtonBase, ButtonBaseProps } from '../ButtonBase';
 
-type BaseProps = {
-  children: React.ReactNode;
-  disabled?: boolean;
-  variant?: ('primary' | 'secondary' | 'tertiary' | 'wrong');
-  size?: ('small' | 'medium' | 'large');
-  className?: string;
-  'data-testid'?: string;
-};
-
-type ButtonProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
+type ButtonProps = ButtonBaseProps;
 
 const stylesBase = () => css({
   label: 'Button',
-  fontFamily: 'inherit',
-  outline: 'none',
-  cursor: 'pointer',
-  boxSizing: 'border-box',
   borderRadius: '4px',
-  border: '1px solid transparent',
-  transition: 'background-color 200ms, color 200ms, box-shadow 200ms, border-color 200ms',
-  '&:disabled': {
-    cursor: 'not-allowed',
-    boxShadow: 'none',
-  },
 });
 
 const stylesSizeSmall = () => css({
@@ -49,104 +30,16 @@ const stylesSizeLarge = () => css({
   padding: '0 20px',
 });
 
-const stylesVariantPrimary = () => css({
-  label: 'primary',
-  color: 'var(--pv-color-white)',
-  backgroundColor: 'var(--pv-color-primary)',
-  boxShadow: 'var(--pv-shadow-light-low)',
-  '&:not(:disabled)': {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-primary-tint-1)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-primary-tint-2)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-primary-tint-2)',
-      boxShadow: 'var(--pv-shadow-light-medium)',
-    },
-  },
-  '&:disabled': {
-    color: 'var(--pv-color-gray-8)',
-    backgroundColor: 'var(--pv-color-gray-4)',
-  },
-});
-
-const stylesVariantSecondary = () => css({
-  label: 'secondary',
-  color: 'var(--pv-color-black)',
-  backgroundColor: 'transparent',
-  borderColor: 'var(--pv-color-gray-8)',
-  '&:not(:disabled)': {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-gray-3)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-gray-4)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-gray-5)',
-    },
-  },
-  '&:disabled': {
-    color: 'var(--pv-color-gray-7)',
-  },
-});
-
-const stylesVariantWrong = () => css({
-  label: 'danger',
-  color: 'var(--pv-color-white)',
-  backgroundColor: 'var(--pv-color-danger)',
-  boxShadow: 'var(--pv-shadow-light-low)',
-  '&:not(:disabled)': {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-danger-tint-1)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-danger-tint-2)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-danger-tint-2)',
-      boxShadow: 'var(--pv-shadow-light-medium)',
-    },
-  },
-  '&:disabled': {
-    color: 'var(--pv-color-gray-8)',
-    backgroundColor: 'var(--pv-color-gray-4)',
-  },
-});
-
-const stylesVariantTertiary = () => css({
-  label: 'tertiary',
-  color: 'var(--pv-color-secondary)',
-  backgroundColor: 'transparent',
-  '&:not(:disabled)': {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-secondary-tint-5)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-secondary-tint-4)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-secondary-tint-3)',
-    },
-  },
-  '&:disabled': {
-    color: 'var(--pv-color-gray-7)',
-  },
-});
-
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
-    variant,
-    size,
-    className,
     children,
+    className,
+    size,
     ...other
   } = props;
 
   return (
-    <button
+    <ButtonBase
       ref={ref}
       type="button"
       className={cx({
@@ -154,20 +47,13 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
         [stylesSizeSmall()]: size === 'small',
         [stylesSizeMedium()]: size === 'medium',
         [stylesSizeLarge()]: size === 'large',
-        [stylesVariantPrimary()]: variant === 'primary',
-        [stylesVariantSecondary()]: variant === 'secondary',
-        [stylesVariantWrong()]: variant === 'wrong',
-        [stylesVariantTertiary()]: variant === 'tertiary',
         [className]: !!className,
       })}
+      size={size}
       {...other}
     >
-      <Typography
-        variant={size === 'small' ? 'btn2' : 'btn1'}
-      >
-        {children}
-      </Typography>
-    </button>
+      {children}
+    </ButtonBase>
   );
 });
 
