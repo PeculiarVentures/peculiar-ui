@@ -15,10 +15,10 @@ const stylesBase = () => css({
 
 const stylesSizeSmall = (circled?: boolean) => css({
   label: 'small',
-  height: '32px',
-  minWidth: '32px',
+  height: '30px',
+  minWidth: '30px',
   padding: '0 10px',
-  borderRadius: circled ? '32px' : undefined,
+  borderRadius: circled ? '30px' : undefined,
 });
 
 const stylesSizeMedium = (circled?: boolean) => css({
