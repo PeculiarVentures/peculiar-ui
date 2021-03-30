@@ -16,11 +16,5 @@ export default {
   component: Fab,
   argTypes: {
     children: { control: 'text' },
-    variant: {
-      control: {
-        type: 'select',
-        options: { default: undefined, extended: 'extended' },
-      },
-    },
   },
 };
