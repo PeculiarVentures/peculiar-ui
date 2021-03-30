@@ -49,7 +49,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
   return (
     <ButtonBase
       ref={ref}
-      type="button"
       className={cx({
         [stylesBase()]: true,
         [stylesSizeSmall(circled)]: size === 'small',
