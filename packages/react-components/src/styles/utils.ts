@@ -7,7 +7,7 @@ import {
 } from './types';
 import { injectGlobal } from './css';
 import {
-  generateDangerColors,
+  generateWrongColors,
   generateSecondaryColors,
   generatePrimaryColors,
 } from './colors';
@@ -65,7 +65,7 @@ export const setTheme = (theme: ThemeType) => {
 type BaseColorsType = {
   primary?: string;
   secondary?: string;
-  danger?: string;
+  wrong?: string;
 };
 
 export const setThemeFromBaseColors = (colors: BaseColorsType) => {
@@ -74,7 +74,7 @@ export const setThemeFromBaseColors = (colors: BaseColorsType) => {
       palette: {
         ...(colors.primary && generatePrimaryColors(colors.primary)),
         ...(colors.secondary && generateSecondaryColors(colors.secondary)),
-        ...(colors.danger && generateDangerColors(colors.danger)),
+        ...(colors.wrong && generateWrongColors(colors.wrong)),
       },
     } as any),
   });

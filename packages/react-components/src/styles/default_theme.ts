@@ -3,7 +3,7 @@ import {
   grayscale,
   primary,
   secondary,
-  danger,
+  wrong,
   additional,
 } from './colors';
 
@@ -18,9 +18,9 @@ export const defaultTheme: ThemeType = {
      */
     ...secondary,
     /**
-     * danger
+     * wrong
      */
-    ...danger,
+    ...wrong,
     /**
      * additional
      */

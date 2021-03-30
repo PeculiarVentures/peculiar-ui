@@ -21,17 +21,17 @@ export type ColorType = (
   'secondary-shade-3' |
   'secondary-shade-4' |
   'secondary-shade-5' |
-  'danger-tint-5' |
-  'danger-tint-4' |
-  'danger-tint-3' |
-  'danger-tint-2' |
-  'danger-tint-1' |
-  'danger' |
-  'danger-shade-1' |
-  'danger-shade-2' |
-  'danger-shade-3' |
-  'danger-shade-4' |
-  'danger-shade-5' |
+  'wrong-tint-5' |
+  'wrong-tint-4' |
+  'wrong-tint-3' |
+  'wrong-tint-2' |
+  'wrong-tint-1' |
+  'wrong' |
+  'wrong-shade-1' |
+  'wrong-shade-2' |
+  'wrong-shade-3' |
+  'wrong-shade-4' |
+  'wrong-shade-5' |
   'success' |
   'attention' |
   'extra-1' |
