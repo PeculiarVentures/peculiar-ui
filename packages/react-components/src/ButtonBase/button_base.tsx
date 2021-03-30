@@ -17,7 +17,7 @@ type BaseProps = {
     'large'
   );
   className?: string;
-  'data-testid'?: string;
+  dataTestId?: string;
 };
 
 export type ButtonBaseProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -129,6 +129,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
     size,
     className,
     children,
+    dataTestId,
     ...other
   } = props;
 
@@ -144,6 +145,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
         [stylesVariantTertiary()]: variant === 'tertiary',
         [className]: !!className,
       })}
+      data-testid={dataTestId}
       {...other}
     >
       <Typography

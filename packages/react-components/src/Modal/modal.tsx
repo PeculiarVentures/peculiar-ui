@@ -9,6 +9,7 @@ type BaseProps = {
   className?: string;
   onBackdropClick?: () => void;
   transitionDuration?: number;
+  dataTestId?: string;
 };
 
 type ModalProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
@@ -35,6 +36,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
     open,
     onBackdropClick,
     transitionDuration,
+    dataTestId,
     ...other
   } = props;
   const [exited, setExited] = React.useState(true);
@@ -50,6 +52,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
         })}
         role="presentation"
         aria-hidden={!open}
+        data-testid={dataTestId}
         {...other}
       >
         <Backdrop

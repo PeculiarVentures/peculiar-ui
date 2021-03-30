@@ -16,6 +16,7 @@ type BaseProps = {
    * Callback fired when the component requests to be closed.
    */
   onClose?: () => void;
+  dataTestId?: string;
 };
 
 type DrawerProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
@@ -37,6 +38,7 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
     open,
     transitionDuration,
     onClose,
+    dataTestId,
     ...other
   } = props;
 
@@ -46,6 +48,7 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
       open={open}
       transitionDuration={transitionDuration}
       onBackdropClick={onClose}
+      dataTestId={dataTestId}
     >
       <Slide
         in={open}

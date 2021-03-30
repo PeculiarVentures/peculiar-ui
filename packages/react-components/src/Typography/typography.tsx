@@ -12,7 +12,7 @@ type BaseProps = {
   color?: ColorType;
   className?: string;
   as?: React.ElementType,
-  'data-testid'?: string;
+  dataTestId?: string;
 };
 
 type TypographyProps = BaseProps & React.HTMLAttributes<HTMLElement>;
@@ -28,6 +28,7 @@ export const Typography = React.forwardRef<HTMLElement, TypographyProps>((props,
     className,
     as,
     color,
+    dataTestId,
     ...other
   } = props;
   let asComponent = 'p';
@@ -57,6 +58,7 @@ export const Typography = React.forwardRef<HTMLElement, TypographyProps>((props,
       })),
       className,
     ),
+    'data-testid': dataTestId,
     ...other,
   });
 });
