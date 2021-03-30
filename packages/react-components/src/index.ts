@@ -5,5 +5,6 @@ export * from './Drawer';
 export * from './Fab';
 export * from './Typography';
 export * from './Portal';
+export * from './Select';
 export * from './styles';
 export * from './hooks';
