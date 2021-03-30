@@ -8,11 +8,11 @@ export const Playground = (args: any) => (
 );
 
 Playground.args = {
-  children: '?',
+  children: '+',
 };
 
 export default {
-  title: 'Components/Floating Action Buttons',
+  title: 'Components/FloatingActionButton',
   component: Fab,
   argTypes: {
     children: { control: 'text' },
