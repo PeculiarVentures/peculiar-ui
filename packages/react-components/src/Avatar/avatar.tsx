@@ -9,7 +9,7 @@ type BaseProps = {
   alt?: string;
   src?: string;
   background?: ColorType;
-  'data-testid'?: string;
+  dataTestId?: string;
 };
 
 type AvatarProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
@@ -97,6 +97,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
     alt,
     src,
     background,
+    dataTestId,
     ...other
   } = props;
   const loaded = useLoaded(src);
@@ -153,6 +154,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
         })),
         className,
       )}
+      data-testid={dataTestId}
       {...other}
     >
       {children}
