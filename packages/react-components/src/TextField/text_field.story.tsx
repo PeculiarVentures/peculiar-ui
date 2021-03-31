@@ -1,34 +1,20 @@
 import * as React from 'react';
-import { Select } from './index';
+import { TextField } from './index';
 
 export const Playground = (args: any) => (
-  <Select
+  <TextField
     {...args}
   />
 );
 
 Playground.args = {
-  options: [
-    {
-      value: '10',
-      label: 'Ten',
-    },
-    {
-      value: '20',
-      label: 'Twenty',
-    },
-    {
-      value: '30',
-      label: 'Thirty',
-    },
-  ],
+  placeholder: 'Placeholder',
 };
 
 export default {
-  title: 'Components/Select',
-  component: Select,
+  title: 'Components/TextField',
+  component: TextField,
   argTypes: {
-    options: { control: false },
     inputProps: { control: false },
     inputRef: { control: false },
     onChange: { control: false },
