@@ -112,33 +112,17 @@ const PaletteList = (props: { palette: any }) => {
   );
 };
 
-const rgbaColorStringToArray = (rgb: string) => (
-  rgb
-    .replace('rgba(', '')
-    .replace(')', '')
-    .split(',')
-);
+type PalettrArgs = {
+  colorPrimary: string;
+  colorSecondary: string;
+  colorWrong: string;
+};
 
-export const Palette = (args: any) => {
-  const primaryRgb = rgbaColorStringToArray(args.colorPrimary);
-  const secondaryRgb = rgbaColorStringToArray(args.colorSecondary);
-  const wrongRgb = rgbaColorStringToArray(args.colorWrong);
-
-  const primary = new Color([
-    Number(primaryRgb[0]),
-    Number(primaryRgb[1]),
-    Number(primaryRgb[2]),
-  ]);
-  const secondary = new Color([
-    Number(secondaryRgb[0]),
-    Number(secondaryRgb[1]),
-    Number(secondaryRgb[2]),
-  ]);
-  const wrong = new Color([
-    Number(wrongRgb[0]),
-    Number(wrongRgb[1]),
-    Number(wrongRgb[2]),
-  ]);
+export const Palette = (args: PalettrArgs) => {
+  const { colorPrimary, colorSecondary, colorWrong } = args;
+  const primary = new Color(colorPrimary);
+  const secondary = new Color(colorSecondary);
+  const wrong = new Color(colorWrong);
 
   const palette = {
     primary: primary.palette(),
@@ -160,9 +144,9 @@ export const Palette = (args: any) => {
 };
 
 Palette.args = {
-  colorPrimary: 'rgba(94,188,84,1)',
-  colorSecondary: 'rgba(55,127,244,1)',
-  colorWrong: 'rgba(222,70,65,1)',
+  colorPrimary: '#5ebc54',
+  colorSecondary: '#377ff4',
+  colorWrong: '#de4641',
 };
 
 export default {
