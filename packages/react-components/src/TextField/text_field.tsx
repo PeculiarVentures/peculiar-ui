@@ -66,7 +66,6 @@ const stylesInputBase = () => css({
   label: 'TextField',
   fontFamily: 'inherit',
   outline: 'none',
-  cursor: 'pointer',
   boxSizing: 'border-box',
   width: '100%',
   borderRadius: '4px',
