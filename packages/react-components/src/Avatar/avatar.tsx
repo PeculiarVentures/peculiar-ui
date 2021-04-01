@@ -140,6 +140,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
 
   return (
     <div
+      {...other}
       ref={ref}
       className={cx(
         {
@@ -155,7 +156,6 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
         className,
       )}
       data-testid={dataTestId}
-      {...other}
     >
       {children}
     </div>

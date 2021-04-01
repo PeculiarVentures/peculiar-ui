@@ -161,10 +161,10 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
 
   return (
     <div
+      {...other}
       ref={ref}
       data-testid={dataTestId}
       className={className}
-      {...other}
     >
       {label && (
         <label

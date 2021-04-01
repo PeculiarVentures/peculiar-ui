@@ -55,12 +55,12 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
         timeout={transitionDuration}
       >
         <Box
+          {...other}
           background="white"
           className={cx({
             [stylesBase()]: true,
             [className]: !!className,
           })}
-          {...other}
         >
           {children}
         </Box>

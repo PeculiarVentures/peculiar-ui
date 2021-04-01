@@ -67,6 +67,7 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
   };
 
   return React.createElement(as || 'div', {
+    ...other,
     ref,
     className: cx(
       stylesBase(),
@@ -86,7 +87,6 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
       className,
     ),
     'data-testid': dataTestId,
-    ...other,
   });
 });
 

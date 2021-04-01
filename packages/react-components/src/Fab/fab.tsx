@@ -21,13 +21,13 @@ export const Fab = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref)
 
   return (
     <ButtonBase
+      {...other}
       ref={ref}
       className={cx({
         [stylesBase()]: true,
         [className]: !!className,
       })}
       size="large"
-      {...other}
     >
       {children}
     </ButtonBase>

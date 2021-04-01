@@ -56,13 +56,13 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsBaseProps>((props, ref)
 
   return (
     <div
+      {...other}
       ref={ref}
       role="tablist"
       className={cx({
         [stylesBase()]: true,
         [className]: !!className,
       })}
-      {...other}
     >
       {children}
     </div>

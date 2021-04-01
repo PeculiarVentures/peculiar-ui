@@ -44,6 +44,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
   return (
     <Portal>
       <div
+        {...other}
         ref={ref}
         className={cx({
           [stylesBase()]: true,
@@ -53,7 +54,6 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
         role="presentation"
         aria-hidden={!open}
         data-testid={dataTestId}
-        {...other}
       >
         <Backdrop
           open={open}

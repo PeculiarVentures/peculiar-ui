@@ -135,6 +135,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
 
   return (
     <button
+      {...other}
       ref={ref}
       type="button"
       className={cx({
@@ -146,7 +147,6 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
         [className]: !!className,
       })}
       data-testid={dataTestId}
-      {...other}
     >
       <Typography
         variant={size === 'small' ? 'btn2' : 'btn1'}

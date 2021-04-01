@@ -64,6 +64,7 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
       finalOpacity={variants[variant]}
     >
       <Box
+        {...other}
         ref={ref}
         background="black"
         className={cx({
@@ -72,7 +73,6 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
           [className]: !!className,
         })}
         aria-hidden="true"
-        {...other}
       />
     </Fade>
   );

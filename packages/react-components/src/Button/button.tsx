@@ -48,6 +48,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
 
   return (
     <ButtonBase
+      {...other}
       ref={ref}
       className={cx({
         [stylesBase()]: true,
@@ -57,7 +58,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
         [className]: !!className,
       })}
       size={size}
-      {...other}
     >
       {children}
     </ButtonBase>

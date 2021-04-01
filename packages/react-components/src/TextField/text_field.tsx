@@ -160,10 +160,10 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
 
   return (
     <div
+      {...other}
       ref={ref}
       data-testid={dataTestId}
       className={className}
-      {...other}
     >
       {label && (
         <label
@@ -181,6 +181,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         </label>
       )}
       <input
+        {...inputProps}
         type="text"
         disabled={disabled}
         defaultValue={defaultValue}
@@ -201,7 +202,6 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         onChange={onChange}
         placeholder={placeholder}
         readOnly={readOnly}
-        {...inputProps}
       />
       {error && errorText && (
         <Typography
