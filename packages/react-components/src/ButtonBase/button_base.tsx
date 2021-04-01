@@ -41,13 +41,13 @@ const stylesVariantPrimary = () => css({
   color: 'var(--pv-color-white)',
   backgroundColor: 'var(--pv-color-primary)',
   boxShadow: 'var(--pv-shadow-light-low)',
-  '&:hover': {
-    backgroundColor: 'var(--pv-color-primary-tint-1)',
-  },
-  '&:focus': {
-    backgroundColor: 'var(--pv-color-primary-tint-2)',
-  },
   '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-primary-tint-1)',
+    },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-primary-tint-2)',
+    },
     '&:active': {
       backgroundColor: 'var(--pv-color-primary-tint-2)',
       boxShadow: 'var(--pv-shadow-light-medium)',
@@ -64,13 +64,13 @@ const stylesVariantSecondary = () => css({
   color: 'var(--pv-color-black)',
   backgroundColor: 'transparent',
   borderColor: 'var(--pv-color-gray-8)',
-  '&:hover': {
-    backgroundColor: 'var(--pv-color-gray-3)',
-  },
-  '&:focus': {
-    backgroundColor: 'var(--pv-color-gray-4)',
-  },
   '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-gray-3)',
+    },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-gray-4)',
+    },
     '&:active': {
       backgroundColor: 'var(--pv-color-gray-5)',
     },
@@ -85,13 +85,13 @@ const stylesVariantWrong = () => css({
   color: 'var(--pv-color-white)',
   backgroundColor: 'var(--pv-color-wrong)',
   boxShadow: 'var(--pv-shadow-light-low)',
-  '&:hover': {
-    backgroundColor: 'var(--pv-color-wrong-tint-1)',
-  },
-  '&:focus': {
-    backgroundColor: 'var(--pv-color-wrong-tint-2)',
-  },
   '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-wrong-tint-1)',
+    },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-wrong-tint-2)',
+    },
     '&:active': {
       backgroundColor: 'var(--pv-color-wrong-tint-2)',
       boxShadow: 'var(--pv-shadow-light-medium)',
@@ -107,13 +107,13 @@ const stylesVariantTertiary = () => css({
   label: 'tertiary',
   color: 'var(--pv-color-secondary)',
   backgroundColor: 'transparent',
-  '&:hover': {
-    backgroundColor: 'var(--pv-color-secondary-tint-5)',
-  },
-  '&:focus': {
-    backgroundColor: 'var(--pv-color-secondary-tint-4)',
-  },
   '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-secondary-tint-5)',
+    },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-secondary-tint-4)',
+    },
     '&:active': {
       backgroundColor: 'var(--pv-color-secondary-tint-3)',
     },
