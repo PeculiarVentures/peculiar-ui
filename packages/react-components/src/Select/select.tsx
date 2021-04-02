@@ -85,7 +85,6 @@ const stylesInputBase = () => css({
   '&:hover': {
     backgroundColor: 'var(--pv-color-gray-3)',
     borderColor: 'var(--pv-color-gray-7)',
-    color: 'var(--pv-color-gray-9)',
   },
   '&:disabled': {
     cursor: 'not-allowed',

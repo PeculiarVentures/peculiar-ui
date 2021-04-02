@@ -20,6 +20,16 @@ const stylesBase = () => css({
   label: 'Box',
 });
 
+const stylesBackground = (color: ColorType) => css({
+  label: color,
+  background: `var(--pv-color-${color})`,
+});
+
+const stylesBorderColor = (color: ColorType) => css({
+  label: color,
+  borderColor: `var(--pv-color-${color})`,
+});
+
 export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
   const {
     className,
@@ -69,23 +79,16 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
   return React.createElement(as || 'div', {
     ...other,
     ref,
-    className: cx(
-      stylesBase(),
-      (background && css({
-        label: `background-${background}`,
-        background: `var(--pv-color-${background})`,
-      })),
-      (borderColor && css({
-        label: `borderColor-${borderColor}`,
-        borderColor: `var(--pv-color-${borderColor})`,
-      })),
-      css({
-        borderWidth: getBorderWidth(),
-        borderStyle,
-        borderRadius,
-      }),
-      className,
-    ),
+    className: cx({
+      [stylesBase()]: true,
+      [stylesBackground(background)]: !!background,
+      [stylesBorderColor(borderColor)]: !!borderColor,
+      [className]: !!className,
+    }, css({
+      borderWidth: getBorderWidth(),
+      borderStyle,
+      borderRadius,
+    })),
     'data-testid': dataTestId,
   });
 });

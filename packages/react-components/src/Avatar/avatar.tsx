@@ -52,6 +52,11 @@ const stylesImg = () => css({
   textIndent: 10000,
 });
 
+const stylesBackground = (color: ColorType) => css({
+  label: color,
+  background: `var(--pv-color-${color})`,
+});
+
 function useLoaded(src: string) {
   const [loaded, setLoaded] = React.useState('');
 
@@ -142,19 +147,14 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
     <div
       {...other}
       ref={ref}
-      className={cx(
-        {
-          [stylesBase()]: true,
-          [stylesSizeSmall()]: size === 'small',
-          [stylesSizeMedium()]: size === 'medium',
-          [stylesSizeLarge()]: size === 'large',
-        },
-        (background && css({
-          label: `background-${background}`,
-          background: `var(--pv-color-${background})`,
-        })),
-        className,
-      )}
+      className={cx({
+        [stylesBase()]: true,
+        [stylesSizeSmall()]: size === 'small',
+        [stylesSizeMedium()]: size === 'medium',
+        [stylesSizeLarge()]: size === 'large',
+        [stylesBackground(background)]: !!background,
+        [className]: !!className,
+      })}
       data-testid={dataTestId}
     >
       {children}
