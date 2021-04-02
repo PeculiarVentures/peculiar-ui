@@ -4,10 +4,22 @@ import { Portal } from '../Portal';
 import { css, cx } from '../styles';
 
 type BaseProps = {
+  /**
+   * The content of the component.
+   */
   children: React.ReactNode;
+  /**
+   * If `true`, the modal is open.
+   */
   open: boolean;
   className?: string;
+  /**
+   * Callback fired when the backdrop is clicked.
+   */
   onBackdropClick?: () => void;
+  /**
+   * The duration for the transition, in milliseconds.
+   */
   transitionDuration?: number;
   dataTestId?: string;
 };

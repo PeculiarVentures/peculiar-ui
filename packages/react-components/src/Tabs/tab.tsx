@@ -12,6 +12,9 @@ type BaseProps = {
    */
   id: string;
   className?: string;
+  /**
+   * If `true`, the tab will be disabled.
+   */
   disabled?: boolean;
   /**
    * Callback fired when the value changes.

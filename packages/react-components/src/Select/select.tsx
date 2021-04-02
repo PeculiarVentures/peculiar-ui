@@ -11,6 +11,9 @@ type BaseProps = {
    * If `true`, the component is disabled.
    */
   disabled?: boolean;
+  /**
+   * The size of the select.
+   */
   size?: (
     'small' |
     'medium' |
@@ -30,7 +33,13 @@ type BaseProps = {
    * The id of the `input` element.
    */
   id?: string;
+  /**
+   * The label of the input. It is only used for layout.
+   */
   label?: string;
+  /**
+   * Callback fired when the value is changed.
+   */
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   /**
    * The value of the `input` element, required for a controlled component.

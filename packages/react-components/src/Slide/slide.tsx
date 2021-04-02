@@ -12,9 +12,21 @@ type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
 )>;
 
 type BaseProps = {
+  /**
+   * If `true`, the component will transition in.
+   */
   in?: boolean;
+  /**
+   * The duration for the transition, in milliseconds.
+   */
   timeout?: number;
+  /**
+   * A single child content element.
+   */
   children: React.ReactElement;
+  /**
+   * Direction the child node will enter from.
+   */
   direction?: ('right');
 };
 

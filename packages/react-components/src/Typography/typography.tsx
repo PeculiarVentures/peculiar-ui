@@ -7,10 +7,19 @@ import {
 } from '../styles';
 
 type BaseProps = {
+  /**
+   * The content of the component.
+   */
   children: React.ReactNode;
+  /**
+   * The variant to use.
+   */
   variant?: TypographyType;
   color?: ColorType;
   className?: string;
+  /**
+   * The component used for the root node. Either a string to use a DOM element or a component.
+   */
   as?: React.ElementType,
   dataTestId?: string;
   /**

@@ -2,8 +2,14 @@ import * as React from 'react';
 import { css, cx, ColorType } from '../styles';
 
 type BaseProps = {
+  /**
+   * The content of the component.
+   */
   children?: React.ReactNode;
   className?: string;
+  /**
+   * The component used for the root node. Either a string to use a DOM element or a component.
+   */
   as?: React.ElementType,
   background?: ColorType;
   borderColor?: ColorType;

@@ -4,9 +4,18 @@ import { Box } from '../Box';
 import { css, cx } from '../styles';
 
 type BaseProps = {
+  /**
+   * If `true`, the backdrop is open.
+   */
   open: boolean;
   className?: string;
+  /**
+   * If `true`, the backdrop is invisible.
+   */
   invisible?: boolean;
+  /**
+   * The duration for the transition, in milliseconds.
+   */
   transitionDuration?: number;
   variant?: ('light' | 'medium' | 'heavy');
 };
@@ -83,4 +92,5 @@ Backdrop.displayName = 'Backdrop';
 Backdrop.defaultProps = {
   open: true,
   variant: 'medium',
+  invisible: false,
 };

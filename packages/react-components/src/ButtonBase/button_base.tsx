@@ -3,14 +3,26 @@ import { css, cx } from '../styles';
 import { Typography } from '../Typography';
 
 type BaseProps = {
+  /**
+   * The content of the component.
+   */
   children: React.ReactNode;
+  /**
+   * If `true`, the button will be disabled.
+   */
   disabled?: boolean;
+  /**
+   * The variant to use.
+   */
   variant?: (
     'primary' |
     'secondary' |
     'tertiary' |
     'wrong'
   );
+  /**
+   * The size of the button.
+   */
   size?: (
     'small' |
     'medium' |

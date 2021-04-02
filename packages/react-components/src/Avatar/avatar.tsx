@@ -3,10 +3,20 @@ import { css, cx, ColorType } from '../styles';
 import { Typography } from '../Typography';
 
 type BaseProps = {
+  /**
+   * Used to render icon or text elements inside the Avatar
+   * if `src` is not set. This can be an element, or just a string.
+   */
   children?: React.ReactNode;
   className?: string;
   size?: ('small' | 'medium' | 'large');
+  /**
+   * Used in combination with `src` to provide an alt attribute for the rendered `img` element.
+   */
   alt?: string;
+  /**
+   * The `src` attribute for the `img` element.
+   */
   src?: string;
   background?: ColorType;
   dataTestId?: string;

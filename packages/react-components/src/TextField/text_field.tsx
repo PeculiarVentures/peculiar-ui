@@ -7,6 +7,9 @@ type BaseProps = {
    * If `true`, the component is disabled.
    */
   disabled?: boolean;
+  /**
+   * The size of the input.
+   */
   size?: (
     'small' |
     'medium' |
@@ -26,7 +29,13 @@ type BaseProps = {
    * The id of the `input` element.
    */
   id?: string;
+  /**
+   * The label of the input. It is only used for layout.
+   */
   label?: string;
+  /**
+   * Callback fired when the value is changed.
+   */
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   /**
    * The value of the `input` element, required for a controlled component.
@@ -57,6 +66,10 @@ type BaseProps = {
    */
   error?: boolean;
   errorText?: string;
+  /**
+   * It prevents the user from changing the value of
+   * the field (not from interacting with the field).
+   */
   readOnly?: boolean;
 };
 

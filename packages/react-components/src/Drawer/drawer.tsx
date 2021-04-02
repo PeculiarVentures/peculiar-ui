@@ -5,12 +5,18 @@ import { Box } from '../Box';
 import { css, cx } from '../styles';
 
 type BaseProps = {
+  /**
+   * The content of the component.
+   */
   children?: React.ReactNode;
   /**
    * If `true`, the component is shown.
    */
   open?: boolean;
   className?: string;
+  /**
+   * The duration for the transition, in milliseconds.
+   */
   transitionDuration?: number;
   /**
    * Callback fired when the component requests to be closed.
