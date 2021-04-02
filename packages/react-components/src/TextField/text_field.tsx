@@ -138,7 +138,7 @@ const stylesInputSizeLarge = () => css({
 
 const stylesLabel = () => css({
   label: 'TextFieldLabel',
-  marginBottom: '8px',
+  marginBottom: '2px',
   display: 'inline-block',
 });
 
@@ -185,8 +185,9 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
           })}
         >
           <Typography
-            variant="s2"
             as="span"
+            variant="c2"
+            color="gray-10"
           >
             {label}
           </Typography>
