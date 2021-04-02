@@ -22,6 +22,8 @@ type TabsBaseProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onC
 
 const stylesBase = () => css({
   label: 'Tabs',
+  whiteSpace: 'nowrap',
+  overflowX: 'auto',
 });
 
 export const Tabs = React.forwardRef<HTMLDivElement, TabsBaseProps>((props, ref) => {
