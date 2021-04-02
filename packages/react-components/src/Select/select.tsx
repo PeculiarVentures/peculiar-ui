@@ -135,7 +135,7 @@ const stylesInputSizeLarge = () => css({
 
 const stylesLabel = () => css({
   label: 'SelectLabel',
-  marginBottom: '8px',
+  marginBottom: '2px',
   display: 'inline-block',
 });
 
@@ -182,8 +182,9 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
           })}
         >
           <Typography
-            variant="s2"
             as="span"
+            variant="c2"
+            color="gray-10"
           >
             {label}
           </Typography>
