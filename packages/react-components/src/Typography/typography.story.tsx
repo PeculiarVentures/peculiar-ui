@@ -7,7 +7,9 @@ export const Playground = (args: any) => (
   />
 );
 
-Playground.args = { children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur' };
+Playground.args = {
+  children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
+};
 
 export default {
   title: 'Components/Typography',

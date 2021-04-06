@@ -7,7 +7,7 @@ type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onEntered' |
   'onEntering' |
   'onExit' |
-  'onExited'|
+  'onExited' |
   'onExiting'
 )>;
 
