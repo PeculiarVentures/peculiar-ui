@@ -19,9 +19,9 @@ type ChipProps = {
    * If `true`, the chip will be selected.
    */
   selected: boolean;
-   /**
-   * Used to render icon elements inside the Chip
-   */
+  /**
+  * Used to render icon elements inside the Chip
+  */
   icon?: React.ReactNode;
   className?: string;
   dataTestId?: string;
