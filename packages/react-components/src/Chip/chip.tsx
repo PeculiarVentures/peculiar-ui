@@ -43,7 +43,7 @@ const stylesBase = () => css({
   height: '30px',
   backgroundColor: 'transparent',
   color: 'var(--pv-color-gray-9)',
-  transition: 'background-color 200ms, color 200ms, box-shadow 200ms, border-color 200ms',
+  transition: 'background-color 200ms, color 200ms, border-color 200ms',
   '&:not(:disabled)': {
     '&:hover': {
       backgroundColor: 'var(--pv-color-gray-3)',
