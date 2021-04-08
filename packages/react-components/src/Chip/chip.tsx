@@ -2,7 +2,7 @@ import * as React from 'react';
 import { css, cx } from '../styles';
 import { Typography } from '../Typography';
 
-type ChipProps = {
+type BaseProps = {
   /**
    * The content of the component.
    */
@@ -14,7 +14,7 @@ type ChipProps = {
   /**
    * The variant to use.
    */
-  variant?: ('filter' | 'input');
+  variant?: ('choice' | 'filter');
   /**
    * If `true`, the chip will be selected.
    */
@@ -27,13 +27,14 @@ type ChipProps = {
   dataTestId?: string;
 };
 
+type ChipProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
+
 const stylesBase = () => css({
   label: 'Chip',
   display: 'flex',
   alignItems: 'center',
   fontFamily: 'inherit',
   outline: 'none',
-  cursor: 'pointer',
   boxSizing: 'border-box',
   borderStyle: 'solid',
   borderWidth: '1px',
@@ -44,6 +45,16 @@ const stylesBase = () => css({
   backgroundColor: 'transparent',
   color: 'var(--pv-color-gray-9)',
   transition: 'background-color 200ms, color 200ms, border-color 200ms',
+  '&:disabled': {
+    cursor: 'not-allowed',
+    color: 'var(--pv-color-gray-7)',
+    borderColor: 'var(--pv-color-gray-4)',
+    backgroundColor: 'transparent',
+  },
+});
+
+const stylesEffects = () => css({
+  cursor: 'pointer',
   '&:not(:disabled)': {
     '&:hover': {
       backgroundColor: 'var(--pv-color-gray-3)',
@@ -60,19 +71,12 @@ const stylesBase = () => css({
       borderColor: 'var(--pv-color-gray-9)',
     },
   },
-  '&:disabled': {
-    cursor: 'not-allowed',
-    color: 'var(--pv-color-gray-7)',
-    borderColor: 'var(--pv-color-gray-4)',
-    backgroundColor: 'transparent',
-  },
 });
 
-const stylesInputSelected = () => css({
+const stylesChoiceSelected = () => css({
   backgroundColor: 'var(--pv-color-secondary-tint-5)',
   color: 'var(--pv-color-secondary)',
   borderColor: 'var(--pv-color-secondary-tint-3)',
-  pointerEvents: 'none',
 });
 
 const stylesFilterSelected = () => css({
@@ -97,8 +101,8 @@ export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>((props, ref) 
     selected,
     icon,
   } = props;
-  const isInput = variant === 'input';
-  const Icon = !isInput && selected && icon && (
+  const isChoice = variant === 'choice';
+  const Icon = !isChoice && selected && icon && (
     <div className={stylesIcon()}>
       {icon}
     </div>
@@ -111,11 +115,12 @@ export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>((props, ref) 
       type="button"
       className={cx({
         [stylesBase()]: true,
-        [stylesInputSelected()]: selected && isInput,
-        [stylesFilterSelected()]: selected && !isInput,
+        [stylesChoiceSelected()]: selected && isChoice,
+        [stylesFilterSelected()]: selected && !isChoice,
+        [stylesEffects()]: !selected || !isChoice,
         [className]: !!className,
       })}
-      tabIndex={selected && isInput ? -1 : 1}
+      tabIndex={selected && isChoice ? -1 : 1}
       data-testid={dataTestId}
     >
       {Icon}
@@ -132,5 +137,5 @@ Chip.displayName = 'Chip';
 
 Chip.defaultProps = {
   disabled: false,
-  variant: 'input',
+  variant: 'choice',
 };
