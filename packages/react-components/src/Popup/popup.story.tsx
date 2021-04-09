@@ -5,19 +5,19 @@ export const Playground = (args: any) => (
   <Popup
     {...args}
   >
-    <button type="button">Hello</button>
+    <div>World</div>
   </Popup>
 );
 
 Playground.args = {
-  anchorEl: (<div>World</div>),
+  anchorEl: (<button type="button">Hello</button>),
 };
 
 export default {
   title: 'Components/Popup',
   component: Popup,
   argTypes: {
-    children: { control: 'text' },
-    anchorEl: { control: false },
+    children: { control: false },
+    anchorEl: { control: 'text' },
   },
 };

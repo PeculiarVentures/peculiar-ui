@@ -7,8 +7,8 @@ type BaseProps = {
   children: React.ReactElement;
   anchorEl: React.ReactElement;
   placement?: Placement;
-  open: boolean;
-  disablePortal: boolean;
+  open?: boolean;
+  disablePortal?: boolean;
 };
 
 export const Popup: React.FC<BaseProps> = (props) => {
@@ -16,7 +16,8 @@ export const Popup: React.FC<BaseProps> = (props) => {
     children, anchorEl, placement, open, disablePortal,
   } = props;
   const referenceElement = React.useRef();
-  const childNode = React.cloneElement(children, { ref: referenceElement });
+  // TODO: Think about `ref` margins
+  const anchorNode = React.cloneElement(anchorEl, { ref: referenceElement });
   const [popperElement, setPopperElement] = useState(null);
   const { styles, attributes } = usePopper(
     referenceElement.current,
@@ -25,7 +26,7 @@ export const Popup: React.FC<BaseProps> = (props) => {
   );
   const popper = (
     <div ref={setPopperElement} style={styles.popper} {...attributes.popper}>
-      {anchorEl}
+      {children}
     </div>
   );
   const popup = () => {
@@ -38,7 +39,7 @@ export const Popup: React.FC<BaseProps> = (props) => {
 
   return (
     <>
-      {childNode}
+      {anchorNode}
       {open && popup()}
     </>
   );
