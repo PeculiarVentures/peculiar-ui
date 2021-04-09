@@ -13,3 +13,4 @@ export * from './TextField';
 export * from './Typography';
 export * from './styles';
 export * from './hooks';
+export * from './Popup';
