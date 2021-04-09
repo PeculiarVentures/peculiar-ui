@@ -11,13 +11,15 @@ type BaseProps = {
   disablePortal?: boolean;
 };
 
-export const Popup: React.FC<BaseProps> = (props) => {
+type PopupProps = BaseProps & React.HTMLAttributes<HTMLElement>;
+
+export const Popup: React.FC<PopupProps> = (props) => {
   const {
-    children, anchorEl, placement, open, disablePortal,
+    children, anchorEl, placement, open, disablePortal, ...other
   } = props;
   const referenceElement = React.useRef();
   // TODO: Think about `ref` margins
-  const anchorNode = React.cloneElement(anchorEl, { ref: referenceElement });
+  const anchorNode = React.cloneElement(anchorEl, { ref: referenceElement, ...other });
   const [popperElement, setPopperElement] = useState(null);
   const { styles, attributes } = usePopper(
     referenceElement.current,
