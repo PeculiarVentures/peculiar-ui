@@ -13,7 +13,7 @@ export const Playground = (args: any) => (
 );
 
 Playground.args = {
-  title: 'Button',
+  title: 'Tooltip content',
 };
 
 export default {

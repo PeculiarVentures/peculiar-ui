@@ -4,33 +4,43 @@ import { usePopper } from 'react-popper';
 import { Portal } from '../Portal';
 
 type BaseProps = {
-  children: React.ReactElement;
-  anchorEl: React.ReactElement;
+  children: React.ReactNode;
+  anchorEl?: Element;
   placement?: Placement;
   open?: boolean;
   disablePortal?: boolean;
 };
 
-type PopupProps = BaseProps & React.HTMLAttributes<HTMLElement>;
+type PopupProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 
 export const Popup: React.FC<PopupProps> = (props) => {
   const {
-    children, anchorEl, placement, open, disablePortal, ...other
+    children,
+    anchorEl,
+    placement,
+    open,
+    disablePortal,
+    ...other
   } = props;
-  const referenceElement = React.useRef();
-  // TODO: Think about `ref` margins
-  const anchorNode = React.cloneElement(anchorEl, { ref: referenceElement, ...other });
   const [popperElement, setPopperElement] = useState(null);
   const { styles, attributes } = usePopper(
-    referenceElement.current,
+    anchorEl,
     popperElement,
     { placement },
   );
+
   const popper = (
-    <div ref={setPopperElement} style={styles.popper} {...attributes.popper}>
+    <div
+      {...other}
+      ref={setPopperElement}
+      style={styles.popper}
+      role="tooltip"
+      {...attributes.popper}
+    >
       {children}
     </div>
   );
+
   const popup = () => {
     if (!disablePortal) {
       return <Portal>{popper}</Portal>;
@@ -39,12 +49,7 @@ export const Popup: React.FC<PopupProps> = (props) => {
     return popper;
   };
 
-  return (
-    <>
-      {anchorNode}
-      {open && popup()}
-    </>
-  );
+  return open ? popup() : null;
 };
 
 Popup.displayName = 'Popup';
