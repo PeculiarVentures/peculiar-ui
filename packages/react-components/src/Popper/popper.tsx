@@ -11,9 +11,9 @@ type BaseProps = {
   disablePortal?: boolean;
 };
 
-type PopupProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type PopperProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 
-export const Popup: React.FC<PopupProps> = (props) => {
+export const Popper: React.FC<PopperProps> = (props) => {
   const {
     children,
     anchorEl,
@@ -29,7 +29,7 @@ export const Popup: React.FC<PopupProps> = (props) => {
     { placement },
   );
 
-  const popper = (
+  const tooltip = (
     <div
       {...other}
       ref={setPopperElement}
@@ -41,19 +41,23 @@ export const Popup: React.FC<PopupProps> = (props) => {
     </div>
   );
 
-  const popup = () => {
+  const render = () => {
     if (!disablePortal) {
-      return <Portal>{popper}</Portal>;
+      return (
+        <Portal>
+          {tooltip}
+        </Portal>
+      );
     }
 
-    return popper;
+    return tooltip;
   };
 
-  return open ? popup() : null;
+  return open ? render() : null;
 };
 
-Popup.displayName = 'Popup';
+Popper.displayName = 'Popper';
 
-Popup.defaultProps = {
+Popper.defaultProps = {
   placement: 'bottom',
 };

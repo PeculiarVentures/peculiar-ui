@@ -1,35 +1,88 @@
 import React from 'react';
 import { Placement } from '@popperjs/core';
-import { Popup } from '../Popup';
-import { css, cx } from '../styles';
+import { Popper } from '../Popper';
+import { Box } from '../Box';
+import { Typography } from '../Typography';
+import { css, cx, keyframes } from '../styles';
 
 type BaseProps = {
+  /**
+   * Tooltip reference element.
+   */
   children: React.ReactElement;
-  title: React.ReactElement;
+  /**
+   * Tooltip title.
+   */
+  title: React.ReactNode;
+  /**
+   * Tooltip placement.
+   */
   placement?: Placement;
   className?: string;
+  /**
+   * Do not respond to focus events.
+   */
   disableFocusListener?: boolean,
+  /**
+   * Do not respond to hover events.
+   */
   disableHoverListener?: boolean;
+  /**
+   * Do not respond to long press touch events.
+   */
   disableTouchListener?: boolean;
-  disableInteractive?: boolean;
+  /**
+   * Makes a tooltip interactive, i.e. will not close when the user hovers over the tooltip.
+   */
+  interactive?: boolean;
+  /**
+   * The size of the tooltip.
+   */
+  size?: ('small' | 'large');
+  /**
+   * The color of the tooltip.
+   */
+  color?: ('black' | 'white');
 };
+
+type TooltipProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+
+const stylesKeyframesOpacity = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const stylesTooltip = () => css({
   label: 'Tooltip',
-  color: 'var(--pv-color-white)',
-  backgroundColor: 'var(--pv-color-gray-10)',
   boxShadow: 'var(--pv-shadow-light-low)',
-  margin: '5px',
-  padding: '7px 10px',
-  borderRadius: '4px',
+  margin: '14px',
+  zIndex: 1500,
+  maxWidth: '300px',
+  wordWrap: 'break-word',
+  fontSize: 0,
+  animation: `${stylesKeyframesOpacity} 300ms`,
 });
 
-const stylesPopup = (disableInteractive?: boolean) => css({
-  label: 'Popup',
-  pointerEvents: disableInteractive ? 'none' : 'auto',
+const stylesSizeSmall = () => css({
+  label: 'small',
+  padding: '5px 8px',
 });
 
-export const Tooltip: React.FC<BaseProps> = (props) => {
+const stylesSizeLarge = () => css({
+  label: 'large',
+  padding: '8px 10px',
+});
+
+const stylesPopper = (interactive?: boolean) => css({
+  label: 'Popper',
+  pointerEvents: interactive ? 'auto' : 'none',
+});
+
+export const Tooltip: React.FC<TooltipProps> = (props) => {
   const {
     children,
     title,
@@ -38,7 +91,10 @@ export const Tooltip: React.FC<BaseProps> = (props) => {
     disableFocusListener,
     disableHoverListener,
     disableTouchListener,
-    disableInteractive,
+    interactive,
+    size,
+    color,
+    ...other
   } = props;
   const [open, setOpen] = React.useState(false);
   const childRef = React.useRef();
@@ -68,13 +124,16 @@ export const Tooltip: React.FC<BaseProps> = (props) => {
     clearTimeout(enterTimer.current);
     clearTimeout(leaveTimer.current);
 
-    leaveTimer.current = setTimeout(() => {
-      setOpen(false);
-    }, 0);
+    leaveTimer.current = setTimeout(
+      () => {
+        setOpen(false);
+      },
+      0,
+    );
   };
 
-  const popupProps: any = {};
-  const childrenProps: any = {
+  const popperProps: React.HTMLAttributes<HTMLDivElement> = {};
+  const childrenProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> = {
     ref: childRef,
   };
 
@@ -87,9 +146,9 @@ export const Tooltip: React.FC<BaseProps> = (props) => {
     childrenProps.onMouseOver = handleEnter;
     childrenProps.onMouseLeave = handleLeave;
 
-    if (!disableInteractive) {
-      popupProps.onMouseOver = handleEnter;
-      popupProps.onMouseLeave = handleLeave;
+    if (interactive) {
+      popperProps.onMouseOver = handleEnter;
+      popperProps.onMouseLeave = handleLeave;
     }
   }
 
@@ -97,33 +156,44 @@ export const Tooltip: React.FC<BaseProps> = (props) => {
     childrenProps.onFocus = handleEnter;
     childrenProps.onBlur = handleLeave;
 
-    if (!disableInteractive) {
-      popupProps.onFocus = handleEnter;
-      popupProps.onBlur = handleLeave;
+    if (interactive) {
+      popperProps.onFocus = handleEnter;
+      popperProps.onBlur = handleLeave;
     }
   }
 
   return (
     <>
       {React.cloneElement(children, childrenProps)}
-      <Popup
+      <Popper
         anchorEl={childRef.current}
         open={open}
         placement={placement}
         className={cx({
-          [stylesPopup(disableInteractive)]: true,
+          [stylesPopper(interactive)]: true,
         })}
-        {...popupProps}
+        {...popperProps}
       >
-        <div
+        <Box
+          {...other}
+          background={color === 'black' ? 'gray-10' : 'white'}
+          borderRadius={4}
           className={cx({
             [stylesTooltip()]: true,
+            [stylesSizeSmall()]: size === 'small',
+            [stylesSizeLarge()]: size === 'large',
             [className]: !!className,
           })}
         >
-          {title}
-        </div>
-      </Popup>
+          <Typography
+            as="span"
+            variant={size === 'small' ? 'c2' : 'b3'}
+            color={color === 'black' ? 'white' : 'black'}
+          >
+            {title}
+          </Typography>
+        </Box>
+      </Popper>
     </>
   );
 };
@@ -132,4 +202,6 @@ Tooltip.displayName = 'Tooltip';
 
 Tooltip.defaultProps = {
   placement: 'bottom',
+  size: 'small',
+  color: 'black',
 };
