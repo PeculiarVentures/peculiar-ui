@@ -60,7 +60,6 @@ const stylesTooltip = () => css({
   label: 'Tooltip',
   boxShadow: 'var(--pv-shadow-light-low)',
   margin: '14px',
-  zIndex: 1500,
   maxWidth: '300px',
   wordWrap: 'break-word',
   fontSize: 0,
@@ -80,6 +79,7 @@ const stylesSizeLarge = () => css({
 const stylesPopper = (interactive?: boolean) => css({
   label: 'Popper',
   pointerEvents: interactive ? 'auto' : 'none',
+  zIndex: 1500,
 });
 
 export const Tooltip: React.FC<TooltipProps> = (props) => {
