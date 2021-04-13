@@ -8,9 +8,9 @@ type BaseProps = {
   children?: React.ReactNode;
   className?: string;
   /**
-   * The component used for the root node. Either a string to use a DOM element or a component.
+   * The component used for the root node.
    */
-  as?: React.ElementType,
+  component?: React.ElementType;
   background?: ColorType;
   borderColor?: ColorType;
   borderWidth?: number;
@@ -39,7 +39,7 @@ const stylesBorderColor = (color: ColorType) => css({
 export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
   const {
     className,
-    as,
+    component: componentProp,
     background,
     borderColor,
     borderWidth,
@@ -82,25 +82,29 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
     return borderWidth;
   };
 
-  return React.createElement(as || 'div', {
-    ...other,
-    ref,
-    className: cx({
-      [stylesBase()]: true,
-      [stylesBackground(background)]: !!background,
-      [stylesBorderColor(borderColor)]: !!borderColor,
-      [className]: !!className,
-    }, css({
-      borderWidth: getBorderWidth(),
-      borderStyle,
-      borderRadius,
-    })),
-    'data-testid': dataTestId,
-  });
+  const Component = componentProp || 'div';
+
+  return (
+    <Component
+      {...other}
+      ref={ref}
+      className={cx({
+        [stylesBase()]: true,
+        [stylesBackground(background)]: !!background,
+        [stylesBorderColor(borderColor)]: !!borderColor,
+        [className]: !!className,
+      }, css({
+        borderWidth: getBorderWidth(),
+        borderStyle,
+        borderRadius,
+      }))}
+      data-testid={dataTestId}
+    />
+  );
 });
 
 Box.displayName = 'Box';
 
 Box.defaultProps = {
-  as: 'div',
+  component: 'div',
 };

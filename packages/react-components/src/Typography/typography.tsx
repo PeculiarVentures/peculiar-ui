@@ -10,17 +10,13 @@ type BaseProps = {
   /**
    * The content of the component.
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * The variant to use.
    */
   variant?: TypographyType;
   color?: ColorType;
   className?: string;
-  /**
-   * The component used for the root node. Either a string to use a DOM element or a component.
-   */
-  as?: React.ElementType,
   dataTestId?: string;
   /**
    * If `true`, the text will not wrap, but instead will truncate with a text overflow ellipsis.
@@ -28,6 +24,10 @@ type BaseProps = {
    * (the element needs to have a width in order to overflow).
    */
   noWrap?: boolean;
+  /**
+   * The component used for the root node.
+   */
+  component?: React.ElementType;
 };
 
 type TypographyProps = BaseProps & React.HTMLAttributes<HTMLElement>;
@@ -61,34 +61,45 @@ export const Typography = React.forwardRef<HTMLElement, TypographyProps>((props,
   const {
     variant,
     className,
-    as,
     color,
     dataTestId,
     noWrap,
+    component: componentProp,
     ...other
   } = props;
-  let asComponent = 'p';
 
-  if (/h/.test(variant)) {
-    asComponent = variant;
-  } else if (/s/.test(variant)) {
-    asComponent = 'h6';
-  } else if (/btn/.test(variant)) {
-    asComponent = 'span';
-  }
+  const getTagFromVariantProp = () => {
+    if (/h/.test(variant)) {
+      return variant as string;
+    }
 
-  return React.createElement(as || asComponent, {
-    ...other,
-    ref,
-    className: cx({
-      [stylesBase()]: true,
-      [stylesVariant(variant)]: !!variant,
-      [stylesColor(color)]: !!color,
-      [stylesNoWrap()]: noWrap,
-      [className]: !!className,
-    }),
-    'data-testid': dataTestId,
-  });
+    if (/s/.test(variant)) {
+      return 'h6';
+    }
+
+    if (/btn/.test(variant)) {
+      return 'span';
+    }
+
+    return 'p';
+  };
+
+  const Component = componentProp || getTagFromVariantProp();
+
+  return (
+    <Component
+      {...other}
+      ref={ref}
+      className={cx({
+        [stylesBase()]: true,
+        [stylesVariant(variant)]: !!variant,
+        [stylesColor(color)]: !!color,
+        [stylesNoWrap()]: noWrap,
+        [className]: !!className,
+      })}
+      data-testid={dataTestId}
+    />
+  );
 });
 
 Typography.displayName = 'Typography';

@@ -182,7 +182,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
           })}
         >
           <Typography
-            as="span"
+            component="span"
             variant="c2"
             color="gray-10"
           >

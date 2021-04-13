@@ -98,7 +98,7 @@ export const Tab = React.forwardRef<HTMLButtonElement, TabBaseProps>((props, ref
     >
       <Typography
         variant="s2"
-        as="span"
+        component="span"
         color={color}
       >
         {children}
