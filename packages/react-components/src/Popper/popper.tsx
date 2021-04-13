@@ -4,10 +4,25 @@ import { usePopper } from 'react-popper';
 import { Portal } from '../Portal';
 
 type BaseProps = {
+  /**
+   * Popper render node.
+   */
   children: React.ReactNode;
+  /**
+   * It's used to set the position of the popper.
+   */
   anchorEl?: Element;
+  /**
+   * Popper placement.
+   */
   placement?: Placement;
+  /**
+   * If `true`, the popper is visible.
+   */
   open?: boolean;
+  /**
+   * Disable the portal behavior. The children stay within it's parent DOM hierarchy.
+   */
   disablePortal?: boolean;
 };
 

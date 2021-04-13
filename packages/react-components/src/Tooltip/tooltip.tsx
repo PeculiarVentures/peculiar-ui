@@ -45,7 +45,7 @@ type BaseProps = {
   color?: ('black' | 'white');
 };
 
-type TooltipProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type TooltipProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
 
 const stylesKeyframesOpacity = keyframes`
   from {
