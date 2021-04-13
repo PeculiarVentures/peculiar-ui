@@ -29,7 +29,7 @@ type ModalProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 const stylesBase = () => css({
   label: 'Modal',
   position: 'fixed',
-  zIndex: 1000,
+  zIndex: 1300,
   right: 0,
   bottom: 0,
   top: 0,

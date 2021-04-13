@@ -40,7 +40,7 @@ const stylesBase = () => css({
 });
 
 const stylesInvisible = () => css({
-  labe: 'invisible',
+  label: 'invisible',
   backgroundColor: 'transparent',
 });
 
