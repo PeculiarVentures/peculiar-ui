@@ -21,6 +21,6 @@ export default {
   component: Box,
   argTypes: {
     children: { control: 'text' },
-    as: { control: 'text' },
+    component: { control: false },
   },
 };
