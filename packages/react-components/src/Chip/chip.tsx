@@ -19,10 +19,6 @@ type BaseProps = {
    * If `true`, the chip will be selected.
    */
   selected: boolean;
-  /**
-  * Used to render icon elements inside the Chip
-  */
-  icon?: React.ReactNode;
   className?: string;
   dataTestId?: string;
 };
@@ -31,7 +27,7 @@ type ChipProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const stylesBase = () => css({
   label: 'Chip',
-  display: 'flex',
+  display: 'inline-flex',
   alignItems: 'center',
   fontFamily: 'inherit',
   outline: 'none',
@@ -99,17 +95,20 @@ export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>((props, ref) 
     disabled,
     variant,
     selected,
-    icon,
+    ...other
   } = props;
   const isChoice = variant === 'choice';
-  const Icon = !isChoice && selected && icon && (
+  const Icon = !isChoice && selected && (
     <div className={stylesIcon()}>
-      {icon}
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" width="20px">
+        <path fill="currentColor" d="M3.6 9.7l4.9 4.6c.4.4 1 .4 1.4 0l5.9-7v-.6l-.4-.3a.4.4 0 00-.6 0L9.1 13 4.5 8.8a.4.4 0 00-.6 0l-.3.3c-.2.2-.2.5 0 .6z" />
+      </svg>
     </div>
   );
 
   return (
     <button
+      {...other}
       disabled={disabled}
       ref={ref}
       type="button"
@@ -120,7 +119,7 @@ export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>((props, ref) 
         [stylesEffects()]: !selected || !isChoice,
         [className]: !!className,
       })}
-      tabIndex={selected && isChoice ? -1 : 1}
+      tabIndex={selected && isChoice ? -1 : other.tabIndex}
       data-testid={dataTestId}
     >
       {Icon}
