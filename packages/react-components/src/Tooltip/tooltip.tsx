@@ -51,7 +51,7 @@ type BaseProps = {
 
 type TooltipProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
 
-const stylesKeyframesOpacity = keyframes`
+const stylesKeyframeOpacity = keyframes`
   from {
     opacity: 0;
   }
@@ -67,7 +67,7 @@ const stylesTooltip = () => css({
   maxWidth: '300px',
   wordWrap: 'break-word',
   fontSize: 0,
-  animation: `${stylesKeyframesOpacity} 300ms`,
+  animation: `${stylesKeyframeOpacity} 300ms`,
 });
 
 const stylesSizeSmall = () => css({
