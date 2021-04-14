@@ -43,6 +43,10 @@ type BaseProps = {
    * The color of the tooltip.
    */
   color?: ('black' | 'white');
+  /**
+   * Disable the portal behavior. The children stay within it's parent DOM hierarchy.
+   */
+  disablePortal?: boolean;
 };
 
 type TooltipProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
@@ -94,6 +98,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     interactive,
     size,
     color,
+    disablePortal,
     ...other
   } = props;
   const [open, setOpen] = React.useState(false);
@@ -172,6 +177,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
         className={cx({
           [stylesPopper(interactive)]: true,
         })}
+        disablePortal={disablePortal}
         {...popperProps}
       >
         <Box
@@ -203,5 +209,6 @@ Tooltip.displayName = 'Tooltip';
 Tooltip.defaultProps = {
   placement: 'bottom',
   size: 'small',
-  color: 'black',
+  color: 'white',
+  disablePortal: true,
 };
