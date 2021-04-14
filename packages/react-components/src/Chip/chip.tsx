@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { css, cx } from '../styles';
 import { Typography } from '../Typography';
+import { CheckmarkIcon } from '../icons';
 
 type BaseProps = {
   /**
@@ -19,6 +20,9 @@ type BaseProps = {
    * If `true`, the chip will be selected.
    */
   selected: boolean;
+  /**
+   * The className of the component.
+   */
   className?: string;
   dataTestId?: string;
 };
@@ -36,11 +40,12 @@ const stylesBase = () => css({
   borderWidth: '1px',
   borderColor: 'var(--pv-color-gray-6)',
   borderRadius: '15px',
-  padding: '0 15px',
+  padding: '0 10px',
   height: '30px',
   backgroundColor: 'transparent',
   color: 'var(--pv-color-gray-9)',
   transition: 'background-color 200ms, color 200ms, border-color 200ms',
+  margin: '0 5px',
   '&:disabled': {
     cursor: 'not-allowed',
     color: 'var(--pv-color-gray-7)',
@@ -50,6 +55,7 @@ const stylesBase = () => css({
 });
 
 const stylesEffects = () => css({
+  label: 'effects',
   cursor: 'pointer',
   '&:not(:disabled)': {
     '&:hover': {
@@ -70,18 +76,21 @@ const stylesEffects = () => css({
 });
 
 const stylesChoiceSelected = () => css({
+  label: 'choice-selected',
   backgroundColor: 'var(--pv-color-secondary-tint-5)',
   color: 'var(--pv-color-secondary)',
   borderColor: 'var(--pv-color-secondary-tint-3)',
 });
 
 const stylesFilterSelected = () => css({
+  label: 'filter-selected',
   backgroundColor: 'var(--pv-color-gray-4)',
   color: 'var(--pv-color-black)',
   borderColor: 'var(--pv-color-gray-7)',
 });
 
 const stylesIcon = () => css({
+  label: 'Chip-icon',
   marginRight: '10px',
   display: 'flex',
   alignItems: 'center',
@@ -95,14 +104,14 @@ export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>((props, ref) 
     disabled,
     variant,
     selected,
+    tabIndex,
     ...other
   } = props;
   const isChoice = variant === 'choice';
-  const Icon = !isChoice && selected && (
-    <div className={stylesIcon()}>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" width="20px">
-        <path fill="currentColor" d="M3.6 9.7l4.9 4.6c.4.4 1 .4 1.4 0l5.9-7v-.6l-.4-.3a.4.4 0 00-.6 0L9.1 13 4.5 8.8a.4.4 0 00-.6 0l-.3.3c-.2.2-.2.5 0 .6z" />
-      </svg>
+
+  const Icon = selected && !isChoice && (
+    <div className={cx(stylesIcon())}>
+      <CheckmarkIcon />
     </div>
   );
 
@@ -119,7 +128,7 @@ export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>((props, ref) 
         [stylesEffects()]: !selected || !isChoice,
         [className]: !!className,
       })}
-      tabIndex={selected && isChoice ? -1 : other.tabIndex}
+      tabIndex={selected && isChoice ? -1 : tabIndex}
       data-testid={dataTestId}
     >
       {Icon}
