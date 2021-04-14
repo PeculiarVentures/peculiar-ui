@@ -19,7 +19,7 @@ type BaseProps = {
   /**
    * If `true`, the chip will be selected.
    */
-  selected: boolean;
+  selected?: boolean;
   /**
    * The className of the component.
    */
