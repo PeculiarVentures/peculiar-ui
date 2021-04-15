@@ -28,6 +28,9 @@ type BaseProps = {
     'medium' |
     'large'
   );
+  /**
+   * The className of the component.
+   */
   className?: string;
   dataTestId?: string;
 };
@@ -142,6 +145,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
     className,
     children,
     dataTestId,
+    type = 'button',
     ...other
   } = props;
 
@@ -149,7 +153,8 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
     <button
       {...other}
       ref={ref}
-      type="button"
+      // eslint-disable-next-line react/button-has-type
+      type={type}
       className={cx({
         [stylesBase()]: true,
         [stylesVariantPrimary()]: variant === 'primary',

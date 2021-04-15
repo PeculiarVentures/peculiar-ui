@@ -15,12 +15,14 @@ type BaseProps = {
     'medium' |
     'large'
   );
+  /**
+   * The className of the component.
+   */
   className?: string;
-  dataTestId?: string;
   /**
    * Attributes applied to the `input` element.
    */
-  inputProps?: React.SelectHTMLAttributes<HTMLInputElement>;
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
   /**
    * The default value. Use when the component is not controlled.
    */
@@ -71,6 +73,11 @@ type BaseProps = {
    * the field (not from interacting with the field).
    */
   readOnly?: boolean;
+  /**
+   * Type of the `input` element.
+   */
+  type?: React.InputHTMLAttributes<HTMLInputElement>['type'];
+  dataTestId?: string;
 };
 
 type TextFieldProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
@@ -167,6 +174,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
     errorText,
     autoFocus,
     readOnly,
+    type = 'text',
     ...other
   } = props;
 
@@ -195,7 +203,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
       )}
       <input
         {...inputProps}
-        type="text"
+        type={type}
         disabled={disabled}
         defaultValue={defaultValue}
         id={id}
