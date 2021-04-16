@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { TransitionProps } from 'react-transition-group/Transition';
 import { Transition } from 'react-transition-group';
+import { useMergedRef } from '../hooks';
 
 type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onEnter' |
@@ -28,15 +29,20 @@ type BaseProps = {
    * Direction the child node will enter from.
    */
   direction?: ('right');
+  /**
+   * Perform the enter transition when it first mounts if `in` is also `true`.
+   */
+  appear?: boolean;
 };
 
 type SlideProps = BaseProps & BaseTransitionProps;
 
-export const Slide: React.FC<SlideProps> = (props) => {
+export const Slide = React.forwardRef<any, SlideProps>((props, ref) => {
   const {
     timeout,
     in: inProp,
     children,
+    appear,
     onEnter,
     onEntered,
     onEntering,
@@ -44,11 +50,13 @@ export const Slide: React.FC<SlideProps> = (props) => {
     onExited,
     onExiting,
   } = props;
+  const multiRef = useMergedRef(children.props.ref, ref);
 
   return (
     <Transition
       in={inProp}
       timeout={timeout}
+      appear={appear}
       onEnter={onEnter}
       onEntered={onEntered}
       onEntering={onEntering}
@@ -64,15 +72,17 @@ export const Slide: React.FC<SlideProps> = (props) => {
             visibility: state === 'exited' && !inProp ? 'hidden' : undefined,
             ...children.props.style,
           },
+          ref: multiRef,
         })
       )}
     </Transition>
   );
-};
+});
 
 Slide.displayName = 'Slide';
 
 Slide.defaultProps = {
   timeout: 300,
   direction: 'right',
+  appear: true,
 };

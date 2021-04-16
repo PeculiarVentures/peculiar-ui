@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { TransitionProps } from 'react-transition-group/Transition';
 import { Transition } from 'react-transition-group';
+import { useMergedRef } from '../hooks';
 
 export type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onEnter' |
@@ -25,16 +26,21 @@ type BaseProps = {
    */
   children: React.ReactElement;
   finalOpacity?: number;
+  /**
+   * Perform the enter transition when it first mounts if `in` is also `true`.
+   */
+  appear?: boolean;
 };
 
 type FadeProps = BaseProps & BaseTransitionProps;
 
-export const Fade: React.FC<FadeProps> = (props) => {
+export const Fade = React.forwardRef<any, FadeProps>((props, ref) => {
   const {
     timeout,
     in: inProp,
     children,
     finalOpacity,
+    appear,
     onEnter,
     onEntered,
     onEntering,
@@ -42,11 +48,13 @@ export const Fade: React.FC<FadeProps> = (props) => {
     onExited,
     onExiting,
   } = props;
+  const multiRef = useMergedRef(children.props.ref, ref);
 
   return (
     <Transition
       in={inProp}
       timeout={timeout}
+      appear={appear}
       onEnter={onEnter}
       onEntered={onEntered}
       onEntering={onEntering}
@@ -62,15 +70,17 @@ export const Fade: React.FC<FadeProps> = (props) => {
             visibility: state === 'exited' && !inProp ? 'hidden' : undefined,
             ...children.props.style,
           },
+          ref: multiRef,
         })
       )}
     </Transition>
   );
-};
+});
 
 Fade.displayName = 'Fade';
 
 Fade.defaultProps = {
   timeout: 300,
   finalOpacity: 1,
+  appear: true,
 };
