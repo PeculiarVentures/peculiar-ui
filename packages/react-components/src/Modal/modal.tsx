@@ -1,13 +1,14 @@
 import * as React from 'react';
+import { FocusTrap } from '../FocusTrap';
 import { Backdrop } from '../Backdrop';
 import { Portal } from '../Portal';
 import { css, cx } from '../styles';
 
 type BaseProps = {
   /**
-   * The content of the component.
+   * A single child content element.
    */
-  children: React.ReactNode;
+  children: React.ReactElement;
   /**
    * If `true`, the modal is open.
    */
@@ -74,7 +75,11 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
           onExited={() => setExited(true)}
           transitionDuration={transitionDuration}
         />
-        {children}
+        <FocusTrap
+          open={open}
+        >
+          {children}
+        </FocusTrap>
       </div>
     </Portal>
   );

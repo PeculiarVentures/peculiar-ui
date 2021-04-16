@@ -6,13 +6,13 @@ import { css, cx } from '../styles';
 
 type BaseProps = {
   /**
-   * The content of the component.
-   */
-  children?: React.ReactNode;
-  /**
    * If `true`, the component is shown.
    */
-  open?: boolean;
+  open: boolean;
+  /**
+   * The content of the component.
+   */
+  children: React.ReactNode;
   className?: string;
   /**
    * The duration for the transition, in milliseconds.
@@ -25,7 +25,7 @@ type BaseProps = {
   dataTestId?: string;
 };
 
-type DrawerProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type DrawerProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 
 const stylesBase = () => css({
   label: 'Drawer',
@@ -67,6 +67,7 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
             [stylesBase()]: true,
             [className]: !!className,
           })}
+          tabIndex={-1}
         >
           {children}
         </Box>
@@ -77,6 +78,4 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
 
 Drawer.displayName = 'Drawer';
 
-Drawer.defaultProps = {
-  open: false,
-};
+Drawer.defaultProps = {};
