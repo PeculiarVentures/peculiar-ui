@@ -67,6 +67,7 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
             [stylesBase()]: true,
             [className]: !!className,
           })}
+          tabIndex={-1}
         >
           {children}
         </Box>

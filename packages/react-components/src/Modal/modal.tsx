@@ -1,5 +1,5 @@
 import * as React from 'react';
-import FocusTrap from 'focus-trap-react';
+import { FocusTrap } from '../FocusTrap';
 import { Backdrop } from '../Backdrop';
 import { Portal } from '../Portal';
 import { css, cx } from '../styles';
@@ -75,7 +75,9 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
           onExited={() => setExited(true)}
           transitionDuration={transitionDuration}
         />
-        <FocusTrap>
+        <FocusTrap
+          open={open}
+        >
           {children}
         </FocusTrap>
       </div>

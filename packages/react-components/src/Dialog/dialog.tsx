@@ -28,6 +28,7 @@ export const Dialog: React.FC<BaseProps> = (props) => {
           role="dialog"
           background="white"
           borderRadius={4}
+          tabIndex={-1}
         >
           {children}
         </Box>
