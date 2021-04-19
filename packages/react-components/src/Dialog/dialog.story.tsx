@@ -36,6 +36,7 @@ export default {
   component: Dialog,
   argTypes: {
     children: { control: false },
+    component: { control: false },
   },
   parameters: { actions: { argTypesRegex: '^on.*' } },
 };

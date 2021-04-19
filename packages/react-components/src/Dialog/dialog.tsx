@@ -14,6 +14,10 @@ type BaseProps = {
    */
   children: React.ReactNode;
   /**
+   * The component used for the Dialog container.
+   */
+  component?: React.ElementType;
+  /**
    * The className of Dialog container.
    */
   className?: string;
@@ -72,9 +76,10 @@ const stylesModal = () => css({
 
 export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref) => {
   const {
-    children,
-    className,
     open,
+    children,
+    component: componentProp,
+    className,
     fullScreen,
     transitionDuration,
     disableBackdropClick,
@@ -114,6 +119,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
             [className]: !!className,
           })}
           tabIndex={-1}
+          component={componentProp}
         >
           {children}
         </Box>
@@ -125,7 +131,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
 Dialog.displayName = 'Dialog';
 
 Dialog.defaultProps = {
-  transitionDuration: 300,
+  transitionDuration: 225,
   fullScreen: false,
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
