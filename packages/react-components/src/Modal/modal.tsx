@@ -128,7 +128,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
 Modal.displayName = 'Modal';
 
 Modal.defaultProps = {
-  transitionDuration: 300,
+  transitionDuration: 225,
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
 };

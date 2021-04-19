@@ -95,7 +95,7 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
 Drawer.displayName = 'Drawer';
 
 Drawer.defaultProps = {
-  transitionDuration: 300,
+  transitionDuration: 225,
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
 };

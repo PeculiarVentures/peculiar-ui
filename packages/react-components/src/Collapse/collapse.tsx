@@ -29,9 +29,9 @@ type BaseProps = {
 
 type CollapseProps = BaseProps & BaseTransitionProps & React.HTMLAttributes<HTMLDivElement>;
 
-const stylesBase = () => css({
+const stylesBase = (timeout: number) => css({
   label: 'Collapse',
-  transition: 'height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+  transition: `height ${timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
   overflowY: 'hidden',
   height: 0,
 });
@@ -135,7 +135,7 @@ export const Collapse: React.FC<CollapseProps> = (props) => {
         <div
           {...other}
           className={cx({
-            [stylesBase()]: true,
+            [stylesBase(timeout)]: true,
             [stylesEntered()]: state === 'entered',
             [stylesHidden()]: state === 'exited' && !inProp,
             [className]: !!className,
@@ -156,5 +156,5 @@ export const Collapse: React.FC<CollapseProps> = (props) => {
 Collapse.displayName = 'Collapse';
 
 Collapse.defaultProps = {
-  timeout: 300,
+  timeout: 225,
 };

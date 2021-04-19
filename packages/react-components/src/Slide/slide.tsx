@@ -82,7 +82,7 @@ export const Slide = React.forwardRef<any, SlideProps>((props, ref) => {
 Slide.displayName = 'Slide';
 
 Slide.defaultProps = {
-  timeout: 300,
+  timeout: 225,
   direction: 'right',
   appear: true,
 };

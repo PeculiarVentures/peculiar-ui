@@ -67,7 +67,7 @@ const stylesTooltip = () => css({
   maxWidth: '300px',
   wordWrap: 'break-word',
   fontSize: 0,
-  animation: `${stylesKeyframeOpacity} 300ms`,
+  animation: `${stylesKeyframeOpacity} 225ms`,
 });
 
 const stylesSizeSmall = () => css({

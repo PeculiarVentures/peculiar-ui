@@ -80,7 +80,7 @@ export const Fade = React.forwardRef<any, FadeProps>((props, ref) => {
 Fade.displayName = 'Fade';
 
 Fade.defaultProps = {
-  timeout: 300,
+  timeout: 225,
   finalOpacity: 1,
   appear: true,
 };

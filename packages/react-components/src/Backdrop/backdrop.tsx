@@ -92,5 +92,5 @@ Backdrop.displayName = 'Backdrop';
 Backdrop.defaultProps = {
   variant: 'medium',
   invisible: false,
-  transitionDuration: 300,
+  transitionDuration: 225,
 };
