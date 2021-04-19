@@ -13,11 +13,22 @@ type BaseProps = {
    * The content of the component.
    */
   children: React.ReactNode;
+  /**
+   * The className of Drawer container.
+   */
   className?: string;
   /**
    * The duration for the transition, in milliseconds.
    */
   transitionDuration?: number;
+  /**
+   * If `true`, clicking the backdrop will not fire the `onClose` callback.
+   */
+  disableBackdropClick?: boolean;
+  /**
+   * If `true`, hitting escape will not fire the `onClose` callback.
+   */
+  disableEscapeKeyDown?: boolean;
   /**
    * Callback fired when the component requests to be closed.
    */
@@ -35,6 +46,7 @@ const stylesBase = () => css({
   top: 0,
   right: 0,
   overflowY: 'auto',
+  outline: 'none',
 });
 
 export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
@@ -43,6 +55,8 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
     className,
     open,
     transitionDuration,
+    disableBackdropClick,
+    disableEscapeKeyDown,
     onClose,
     dataTestId,
     ...other
@@ -53,8 +67,10 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
       ref={ref}
       open={open}
       transitionDuration={transitionDuration}
-      onBackdropClick={onClose}
+      onClose={onClose}
       dataTestId={dataTestId}
+      disableBackdropClick={disableBackdropClick}
+      disableEscapeKeyDown={disableEscapeKeyDown}
     >
       <Slide
         in={open}
@@ -78,4 +94,8 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
 
 Drawer.displayName = 'Drawer';
 
-Drawer.defaultProps = {};
+Drawer.defaultProps = {
+  transitionDuration: 300,
+  disableBackdropClick: false,
+  disableEscapeKeyDown: false,
+};

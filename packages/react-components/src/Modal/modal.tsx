@@ -13,15 +13,26 @@ type BaseProps = {
    * If `true`, the modal is open.
    */
   open: boolean;
-  className?: string;
   /**
-   * Callback fired when the backdrop is clicked.
+   * The className of the component.
    */
-  onBackdropClick?: () => void;
+  className?: string;
   /**
    * The duration for the transition, in milliseconds.
    */
   transitionDuration?: number;
+  /**
+   * If `true`, clicking the backdrop will not fire the `onClose` callback.
+   */
+  disableBackdropClick?: boolean;
+  /**
+   * If `true`, hitting escape will not fire the `onClose` callback.
+   */
+  disableEscapeKeyDown?: boolean;
+  /**
+   * Callback fired when the component requests to be closed.
+   */
+  onClose?: () => void;
   dataTestId?: string;
 };
 
@@ -47,12 +58,40 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
     children,
     className,
     open,
-    onBackdropClick,
     transitionDuration,
+    disableBackdropClick,
+    disableEscapeKeyDown,
+    onClose,
     dataTestId,
     ...other
   } = props;
   const [exited, setExited] = React.useState(true);
+
+  const handleBackdropClick = () => {
+    if (disableBackdropClick) {
+      return;
+    }
+
+    if (onClose) {
+      onClose();
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (disableEscapeKeyDown) {
+      return;
+    }
+
+    if (event.key !== 'Escape') {
+      return;
+    }
+
+    event.stopPropagation();
+
+    if (onClose) {
+      onClose();
+    }
+  };
 
   return (
     <Portal>
@@ -67,10 +106,11 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
         role="presentation"
         aria-hidden={!open}
         data-testid={dataTestId}
+        onKeyDown={handleKeyDown}
       >
         <Backdrop
           open={open}
-          onClick={onBackdropClick}
+          onClick={handleBackdropClick}
           onEnter={() => setExited(false)}
           onExited={() => setExited(true)}
           transitionDuration={transitionDuration}
@@ -87,4 +127,8 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
 
 Modal.displayName = 'Modal';
 
-Modal.defaultProps = {};
+Modal.defaultProps = {
+  transitionDuration: 300,
+  disableBackdropClick: false,
+  disableEscapeKeyDown: false,
+};

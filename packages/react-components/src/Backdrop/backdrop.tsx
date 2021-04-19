@@ -90,7 +90,7 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
 Backdrop.displayName = 'Backdrop';
 
 Backdrop.defaultProps = {
-  open: true,
   variant: 'medium',
   invisible: false,
+  transitionDuration: 300,
 };

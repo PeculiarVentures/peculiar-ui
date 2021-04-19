@@ -13,6 +13,9 @@ type BaseProps = {
    * Dialog children, usually the included sub-components.
    */
   children: React.ReactNode;
+  /**
+   * The className of Dialog container.
+   */
   className?: string;
   /**
    * The duration for the transition, in milliseconds.
@@ -22,6 +25,14 @@ type BaseProps = {
    * If `true`, the dialog will be full-screen.
    */
   fullScreen?: boolean;
+  /**
+   * If `true`, clicking the backdrop will not fire the `onClose` callback.
+   */
+  disableBackdropClick?: boolean;
+  /**
+   * If `true`, hitting escape will not fire the `onClose` callback.
+   */
+  disableEscapeKeyDown?: boolean;
   /**
    * Callback fired when the component requests to be closed.
    */
@@ -66,8 +77,10 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
     open,
     fullScreen,
     transitionDuration,
-    onClose,
+    disableBackdropClick,
+    disableEscapeKeyDown,
     dataTestId,
+    onClose,
     ...other
   } = props;
 
@@ -80,9 +93,11 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
       ref={ref}
       open={open}
       transitionDuration={transitionDuration}
-      onBackdropClick={onClose}
+      onClose={onClose}
       dataTestId={dataTestId}
       className={cx(stylesModal())}
+      disableBackdropClick={disableBackdropClick}
+      disableEscapeKeyDown={disableEscapeKeyDown}
     >
       <Fade
         in={open}
@@ -110,5 +125,8 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
 Dialog.displayName = 'Dialog';
 
 Dialog.defaultProps = {
+  transitionDuration: 300,
   fullScreen: false,
+  disableBackdropClick: false,
+  disableEscapeKeyDown: false,
 };
