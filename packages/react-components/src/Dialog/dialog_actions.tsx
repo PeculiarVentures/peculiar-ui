@@ -1,9 +1,14 @@
 import React from 'react';
-import { Box } from '../Box';
 import { css, cx } from '../styles';
 
 type BaseProps = {
+  /**
+   * The content of the component.
+   */
   children?: React.ReactNode;
+  /**
+   * The className of the component.
+   */
   className?: string;
 };
 
@@ -29,20 +34,16 @@ export const DialogActions = React.forwardRef<HTMLDivElement, DialogActionsProps
   } = props;
 
   return (
-    <Box
+    <div
       {...other}
       ref={ref}
       className={cx({
         [stylesBase()]: true,
         [className]: !!className,
       })}
-      borderColor="gray-5"
-      borderWidth={1}
-      borderStyle="solid"
-      borderPosition="top"
     >
       {children}
-    </Box>
+    </div>
   );
 });
 

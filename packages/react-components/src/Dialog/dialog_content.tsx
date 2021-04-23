@@ -1,9 +1,20 @@
 import React from 'react';
+import { Box } from '../Box';
 import { css, cx } from '../styles';
 
 type BaseProps = {
+  /**
+   * The content of the component.
+   */
   children?: React.ReactNode;
+  /**
+   * The className of the component.
+   */
   className?: string;
+  /**
+   * Display the top and bottom dividers.
+   */
+  dividers?: boolean;
 };
 
 type DialogContentProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
@@ -19,23 +30,30 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
   const {
     children,
     className,
+    dividers,
     ...other
   } = props;
 
   return (
-    <div
+    <Box
       {...other}
       ref={ref}
       className={cx({
         [stylesBase()]: true,
         [className]: !!className,
       })}
+      borderColor="gray-5"
+      borderWidth={dividers ? 1 : 0}
+      borderStyle="solid"
+      borderPosition="horizontal"
     >
       {children}
-    </div>
+    </Box>
   );
 });
 
 DialogContent.displayName = 'DialogContent';
 
-DialogContent.defaultProps = {};
+DialogContent.defaultProps = {
+  dividers: true,
+};
