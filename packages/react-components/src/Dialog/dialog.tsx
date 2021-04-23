@@ -14,10 +14,6 @@ type BaseProps = {
    */
   children: React.ReactNode;
   /**
-   * The component used for the Dialog container.
-   */
-  component?: React.ElementType;
-  /**
    * The className of Dialog container.
    */
   className?: string;
@@ -41,6 +37,14 @@ type BaseProps = {
    * Callback fired when the component requests to be closed.
    */
   onClose?: () => void;
+  /**
+   * The size of the dialog.
+   */
+  size?: (
+    'small' |
+    'medium' |
+    'large'
+  );
   dataTestId?: string;
 };
 
@@ -48,7 +52,6 @@ type DialogProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'child
 
 const stylesBase = () => css({
   label: 'Dialog',
-  maxWidth: '640px',
   width: '100%',
   display: 'flex',
   maxHeight: 'calc(100% - 60px)',
@@ -57,6 +60,21 @@ const stylesBase = () => css({
   position: 'relative',
   outline: 'none',
   boxShadow: 'var(--pv-shadow-dark-hight)',
+});
+
+const stylesSizeSmall = () => css({
+  label: 'small',
+  maxWidth: '310px',
+});
+
+const stylesSizeMedium = () => css({
+  label: 'medium',
+  maxWidth: '640px',
+});
+
+const stylesSizeLarge = () => css({
+  label: 'large',
+  maxWidth: '1024px',
 });
 
 const stylesFullScreen = () => css({
@@ -78,7 +96,6 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
   const {
     open,
     children,
-    component: componentProp,
     className,
     fullScreen,
     transitionDuration,
@@ -86,6 +103,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
     disableEscapeKeyDown,
     dataTestId,
     onClose,
+    size,
     ...other
   } = props;
 
@@ -115,11 +133,13 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
           borderRadius={fullScreen ? 0 : 4}
           className={cx({
             [stylesBase()]: true,
+            [stylesSizeSmall()]: size === 'small',
+            [stylesSizeMedium()]: size === 'medium',
+            [stylesSizeLarge()]: size === 'large',
             [stylesFullScreen()]: fullScreen,
             [className]: !!className,
           })}
           tabIndex={-1}
-          component={componentProp}
         >
           {children}
         </Box>
@@ -135,4 +155,5 @@ Dialog.defaultProps = {
   fullScreen: false,
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
+  size: 'medium',
 };
