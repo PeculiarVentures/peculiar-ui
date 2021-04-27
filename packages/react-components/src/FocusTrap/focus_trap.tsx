@@ -10,30 +10,31 @@ type BaseProps = {
    * If true, focus will be locked.
    */
   open: boolean;
-  /**
-   * If `true`, the trap focus will not automatically
-   * shift focus to itself when it opens.
-   */
-  // TODO: Need to implement.
-  disableAutoFocus?: boolean;
 };
 
-// TODO: Add handler for error from `FocusTrapReact` for container without interactive elements.
 export const FocusTrap: React.FC<BaseProps> = (props) => {
   const {
     children,
     open,
   } = props;
+  const fallbackRef = React.useRef(null);
 
   return (
-    <FocusTrapReact
-      active={open}
-      focusTrapOptions={{
-        clickOutsideDeactivates: true,
-      }}
-    >
-      {children}
-    </FocusTrapReact>
+    <>
+      <div
+        tabIndex={-1}
+        ref={fallbackRef}
+      />
+      <FocusTrapReact
+        active={open}
+        focusTrapOptions={{
+          clickOutsideDeactivates: true,
+          fallbackFocus: () => fallbackRef.current,
+        }}
+      >
+        {children}
+      </FocusTrapReact>
+    </>
   );
 };
 
