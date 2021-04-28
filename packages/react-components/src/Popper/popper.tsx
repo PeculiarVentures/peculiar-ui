@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
-import { Placement } from '@popperjs/core';
+import React from 'react';
+import type { Placement } from '@popperjs/core';
 import { usePopper } from 'react-popper';
 import { Portal } from '../Portal';
 
 type BaseProps = {
+  /**
+   * If `true`, the popper is visible.
+   */
+  open: boolean;
   /**
    * Popper render node.
    */
@@ -16,10 +20,6 @@ type BaseProps = {
    * Popper placement.
    */
   placement?: Placement;
-  /**
-   * If `true`, the popper is visible.
-   */
-  open?: boolean;
   /**
    * Disable the portal behavior. The children stay within it's parent DOM hierarchy.
    */
@@ -37,7 +37,7 @@ export const Popper: React.FC<PopperProps> = (props) => {
     disablePortal,
     ...other
   } = props;
-  const [popperElement, setPopperElement] = useState(null);
+  const [popperElement, setPopperElement] = React.useState(null);
   const { styles, attributes } = usePopper(
     anchorEl,
     popperElement,
