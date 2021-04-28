@@ -107,10 +107,6 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
     ...other
   } = props;
 
-  if (!open) {
-    return null;
-  }
-
   return (
     <Modal
       ref={ref}

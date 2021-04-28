@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FocusTrap } from '../FocusTrap';
-import { Backdrop } from '../Backdrop';
+import { Backdrop, BackdropProps } from '../Backdrop';
 import { Portal } from '../Portal';
 import { css, cx } from '../styles';
 
@@ -34,6 +34,18 @@ type BaseProps = {
    */
   onClose?: () => void;
   dataTestId?: string;
+  /**
+   * Always keep the children in the DOM.
+   */
+  keepMounted?: boolean;
+  /**
+   * Props applied to the `Backdrop` element.
+   */
+  backdropProps?: Partial<BackdropProps>;
+  /**
+   * If `true`, the modal will not prevent focus from leaving the modal while open.
+   */
+  disableEnforceFocus?: boolean;
 };
 
 type ModalProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
@@ -63,9 +75,16 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
     disableEscapeKeyDown,
     onClose,
     dataTestId,
+    keepMounted,
+    backdropProps,
+    disableEnforceFocus,
     ...other
   } = props;
   const [exited, setExited] = React.useState(true);
+
+  if (!keepMounted && !open) {
+    return null;
+  }
 
   const handleBackdropClick = () => {
     if (disableBackdropClick) {
@@ -109,6 +128,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
         onKeyDown={handleKeyDown}
       >
         <Backdrop
+          {...backdropProps}
           open={open}
           onClick={handleBackdropClick}
           onEnter={() => setExited(false)}
@@ -116,7 +136,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
           transitionDuration={transitionDuration}
         />
         <FocusTrap
-          open={open}
+          open={disableEnforceFocus ? false : open}
         >
           {children}
         </FocusTrap>
@@ -131,4 +151,6 @@ Modal.defaultProps = {
   transitionDuration: 225,
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
+  keepMounted: false,
+  disableEnforceFocus: false,
 };
