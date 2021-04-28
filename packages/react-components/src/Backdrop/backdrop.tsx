@@ -8,6 +8,9 @@ type BaseProps = {
    * If `true`, the backdrop is open.
    */
   open: boolean;
+  /**
+   * The className of the component.
+   */
   className?: string;
   /**
    * If `true`, the backdrop is invisible.
@@ -20,7 +23,7 @@ type BaseProps = {
   variant?: ('light' | 'medium' | 'heavy');
 };
 
-type BackdropProps = BaseProps & BaseTransitionProps & React.HTMLAttributes<HTMLDivElement>;
+export type BackdropProps = BaseProps & BaseTransitionProps & React.HTMLAttributes<HTMLDivElement>;
 
 const variants = {
   light: 0.1,
