@@ -45,6 +45,7 @@ const stylesBase = () => css({
   boxSizing: 'border-box',
   border: '1px solid transparent',
   transition: 'background-color 200ms, color 200ms, box-shadow 200ms, border-color 200ms',
+  userSelect: 'none',
   '&:disabled': {
     cursor: 'not-allowed',
     boxShadow: 'none',
