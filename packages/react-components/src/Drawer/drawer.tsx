@@ -71,6 +71,7 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
       dataTestId={dataTestId}
       disableBackdropClick={disableBackdropClick}
       disableEscapeKeyDown={disableEscapeKeyDown}
+      keepMounted
     >
       <Slide
         in={open}
