@@ -9,6 +9,8 @@ export * from './Drawer';
 export * from './Fab';
 export * from './Fade';
 export * from './LinearProgress';
+export * from './Menu';
+export * from './Popover';
 export * from './Portal';
 export * from './Select';
 export * from './Slide';
