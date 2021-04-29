@@ -48,16 +48,6 @@ object-assign
  * Released under the MIT License.
  */
 
-/*!
-* focus-trap 6.3.0
-* @license MIT, https://github.com/focus-trap/focus-trap/blob/master/LICENSE
-*/
-
-/*!
-* tabbable 5.2.0
-* @license MIT, https://github.com/focus-trap/tabbable/blob/master/LICENSE
-*/
-
 /*! axe v4.1.4
  * Copyright (c) 2021 Deque Systems, Inc.
  *
