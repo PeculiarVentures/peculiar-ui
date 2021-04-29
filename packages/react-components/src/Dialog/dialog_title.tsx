@@ -29,7 +29,7 @@ export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((p
   } = props;
 
   return (
-    <div
+    <header
       {...other}
       ref={ref}
       className={cx({
@@ -44,7 +44,7 @@ export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((p
       >
         {children}
       </Typography>
-    </div>
+    </header>
   );
 });
 

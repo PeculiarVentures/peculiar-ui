@@ -34,7 +34,7 @@ export const DialogActions = React.forwardRef<HTMLDivElement, DialogActionsProps
   } = props;
 
   return (
-    <div
+    <footer
       {...other}
       ref={ref}
       className={cx({
@@ -43,7 +43,7 @@ export const DialogActions = React.forwardRef<HTMLDivElement, DialogActionsProps
       })}
     >
       {children}
-    </div>
+    </footer>
   );
 });
 
