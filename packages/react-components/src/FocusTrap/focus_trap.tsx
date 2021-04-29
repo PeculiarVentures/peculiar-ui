@@ -1,5 +1,5 @@
 import * as React from 'react';
-import FocusTrapReact from 'focus-trap-react';
+import FocusLock from 'react-focus-lock';
 
 type BaseProps = {
   /**
@@ -17,24 +17,14 @@ export const FocusTrap: React.FC<BaseProps> = (props) => {
     children,
     open,
   } = props;
-  const fallbackRef = React.useRef(null);
 
   return (
-    <>
-      <div
-        tabIndex={-1}
-        ref={fallbackRef}
-      />
-      <FocusTrapReact
-        active={open}
-        focusTrapOptions={{
-          clickOutsideDeactivates: true,
-          fallbackFocus: () => fallbackRef.current,
-        }}
-      >
-        {children}
-      </FocusTrapReact>
-    </>
+    <FocusLock
+      disabled={!open}
+      returnFocus
+    >
+      {children}
+    </FocusLock>
   );
 };
 
