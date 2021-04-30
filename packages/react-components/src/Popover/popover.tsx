@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Placement } from '@popperjs/core';
 import { usePopper } from 'react-popper';
-import { Modal } from '../Modal';
+import { Modal, ModalProps } from '../Modal';
 import { Box } from '../Box';
 import { Fade } from '../Fade';
 import { css, cx } from '../styles';
@@ -31,9 +31,13 @@ type BaseProps = {
    * If `true`, the modal will not prevent focus from leaving the modal while open.
    */
   disableEnforceFocus?: boolean;
+  /**
+   * Props applied to the `Modal` element.
+   */
+  modalProps?: Partial<ModalProps>;
 };
 
-type PopoverProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type PopoverProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 
 const stylesBase = () => css({
   label: 'Popover',
@@ -56,6 +60,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>((props, re
     onClose,
     className,
     disableEnforceFocus,
+    modalProps,
     ...other
   } = props;
 
@@ -68,6 +73,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>((props, re
 
   return (
     <Modal
+      {...modalProps}
       ref={ref}
       open={open}
       onClose={onClose}

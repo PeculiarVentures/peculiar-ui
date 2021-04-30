@@ -48,7 +48,7 @@ type BaseProps = {
   disableEnforceFocus?: boolean;
 };
 
-type ModalProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+export type ModalProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 
 const stylesBase = () => css({
   label: 'Modal',

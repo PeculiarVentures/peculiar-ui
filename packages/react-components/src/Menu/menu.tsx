@@ -1,5 +1,5 @@
 import React from 'react';
-import { Popover } from '../Popover';
+import { Popover, PopoverProps } from '../Popover';
 import { Typography } from '../Typography';
 import { css, cx } from '../styles';
 
@@ -22,9 +22,13 @@ type BaseProps = {
    * Callback fired when the component requests to be closed.
    */
   onClose?: () => void;
+  /**
+   * Props applied to the `Popover` element.
+   */
+  popoverProps?: Partial<PopoverProps>;
 };
 
-type MenuProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type MenuProps = BaseProps;
 
 const stylesMenuList = () => css({
   label: 'Menu-list',
@@ -67,13 +71,32 @@ const stylesMenuItem = () => css({
   },
 });
 
+const stylesPopper = () => css({
+  label: 'Menu-popover',
+  '&[data-popper-placement^="bottom"]': {
+    margin: '14px 0px',
+  },
+  '&[data-popper-placement^="top"]': {
+    margin: '14px 0px',
+  },
+  '&[data-popper-placement^="right"]': {
+    margin: '0px 14px',
+  },
+  '&[data-popper-placement^="left"]': {
+    margin: '0px 14px',
+  },
+});
+
 export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
   const {
     children,
     options,
     onClose,
-    ...other
+    popoverProps = {},
   } = props;
+  const {
+    className,
+  } = popoverProps;
   const [open, setOpen] = React.useState(false);
   const childRef = React.useRef(null);
 
@@ -116,11 +139,15 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
     <>
       {React.cloneElement(children, childrenProps)}
       <Popover
-        {...other}
+        {...popoverProps}
         ref={ref}
         open={open}
         anchorEl={childRef.current}
         onClose={handlePopoverClose}
+        className={cx({
+          [stylesPopper()]: true,
+          [className]: !!className,
+        })}
       >
         <div
           role="menu"

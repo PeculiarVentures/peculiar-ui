@@ -18,6 +18,9 @@ type BaseProps = {
    * Tooltip placement.
    */
   placement?: Placement;
+  /**
+   * The className of the component.
+   */
   className?: string;
   /**
    * Do not respond to focus events.
@@ -63,7 +66,6 @@ const stylesKeyframeOpacity = keyframes`
 const stylesTooltip = () => css({
   label: 'Tooltip',
   boxShadow: 'var(--pv-shadow-light-low)',
-  margin: '14px',
   maxWidth: '300px',
   wordWrap: 'break-word',
   fontSize: 0,
@@ -84,6 +86,18 @@ const stylesPopper = (interactive?: boolean) => css({
   label: 'Popper',
   pointerEvents: interactive ? 'auto' : 'none',
   zIndex: 1500,
+  '&[data-popper-placement^="bottom"]': {
+    margin: '14px 0px',
+  },
+  '&[data-popper-placement^="top"]': {
+    margin: '14px 0px',
+  },
+  '&[data-popper-placement^="right"]': {
+    margin: '0px 14px',
+  },
+  '&[data-popper-placement^="left"]': {
+    margin: '0px 14px',
+  },
 });
 
 export const Tooltip: React.FC<TooltipProps> = (props) => {
