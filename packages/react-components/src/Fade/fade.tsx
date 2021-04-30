@@ -49,7 +49,7 @@ export const Fade = React.forwardRef<any, FadeProps>((props, ref) => {
     onExiting,
   } = props;
   const nodeRef = React.useRef(null);
-  const multiRef = useMergedRef(children.props.ref, ref, nodeRef);
+  const multiRef = useMergedRef((children as any).ref, ref, nodeRef);
 
   const handleEnter = (isAppearing: boolean) => {
     // reading a dimension prop will cause the browser to recalculate,

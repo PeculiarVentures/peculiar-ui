@@ -50,19 +50,31 @@ export const Slide = React.forwardRef<any, SlideProps>((props, ref) => {
     onExited,
     onExiting,
   } = props;
-  const multiRef = useMergedRef(children.props.ref, ref);
+  const nodeRef = React.useRef(null);
+  const multiRef = useMergedRef((children as any).ref, ref, nodeRef);
+
+  const handleEnter = (isAppearing: boolean) => {
+    // reading a dimension prop will cause the browser to recalculate,
+    // which will let our animations work
+    nodeRef.current.offsetHeight; // eslint-disable-line @typescript-eslint/no-unused-expressions
+
+    if (onEnter) {
+      onEnter(isAppearing);
+    }
+  };
 
   return (
     <Transition
       in={inProp}
       timeout={timeout}
       appear={appear}
-      onEnter={onEnter}
+      onEnter={handleEnter}
       onEntered={onEntered}
       onEntering={onEntering}
       onExit={onExit}
       onExited={onExited}
       onExiting={onExiting}
+      nodeRef={nodeRef}
     >
       {(state) => (
         React.cloneElement(children, {
