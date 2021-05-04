@@ -4,6 +4,14 @@ import { ButtonBase, ButtonBaseProps } from '../ButtonBase';
 
 type BaseProps = {
   circled?: boolean;
+  /**
+   * Element placed before the children.
+   */
+  startIcon?: React.ReactNode;
+  /**
+   * Element placed after the children.
+   */
+  endIcon?: React.ReactNode;
 };
 
 type ButtonProps = BaseProps & ButtonBaseProps;
@@ -37,14 +45,44 @@ const stylesSizeLarge = (circled?: boolean) => css({
   borderRadius: circled ? '40px' : undefined,
 });
 
+const stylesStartIcon = () => css({
+  label: 'Button-startIcon',
+  marginRight: '5px',
+  display: 'inherit',
+});
+
+const stylesEndIcon = () => css({
+  label: 'Button-endIcon',
+  marginLeft: '5px',
+  display: 'inherit',
+});
+
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     children,
     className,
     size,
     circled,
+    startIcon: startIconProp,
+    endIcon: endIconProp,
     ...other
   } = props;
+
+  const startIcon = startIconProp && (
+    <span
+      className={cx(stylesStartIcon())}
+    >
+      {startIconProp}
+    </span>
+  );
+
+  const endIcon = endIconProp && (
+    <span
+      className={cx(stylesEndIcon())}
+    >
+      {endIconProp}
+    </span>
+  );
 
   return (
     <ButtonBase
@@ -59,7 +97,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
       })}
       size={size}
     >
+      {startIcon}
       {children}
+      {endIcon}
     </ButtonBase>
   );
 });

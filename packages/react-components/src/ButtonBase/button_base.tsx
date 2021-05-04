@@ -47,6 +47,10 @@ const stylesBase = () => css({
   transition: 'background-color 200ms, color 200ms, box-shadow 200ms, border-color 200ms',
   userSelect: 'none',
   whiteSpace: 'nowrap',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  verticalAlign: 'middle',
   '&:disabled': {
     cursor: 'not-allowed',
     boxShadow: 'none',
@@ -140,6 +144,14 @@ const stylesVariantTertiary = () => css({
   },
 });
 
+const stylesLabel = () => css({
+  label: 'ButtonBase-label',
+  width: '100%',
+  display: 'inherit',
+  alignItems: 'inherit',
+  justifyContent: 'inherit',
+});
+
 export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((props, ref) => {
   const {
     variant,
@@ -169,6 +181,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
     >
       <Typography
         variant={size === 'small' ? 'btn2' : 'btn1'}
+        className={cx(stylesLabel())}
       >
         {children}
       </Typography>

@@ -8,7 +8,7 @@ export const Playground = (args: any) => (
 );
 
 Playground.args = {
-  children: 'Hello',
+  children: 'Action',
 };
 
 export default {
@@ -16,5 +16,7 @@ export default {
   component: Button,
   argTypes: {
     children: { control: 'text' },
+    startIcon: { control: false },
+    endIcon: { control: false },
   },
 };
