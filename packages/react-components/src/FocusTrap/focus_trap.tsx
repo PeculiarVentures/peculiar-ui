@@ -28,7 +28,7 @@ export const FocusTrap: React.FC<BaseProps> = (props) => {
       <FocusTrapReact
         active={open}
         focusTrapOptions={{
-          clickOutsideDeactivates: true,
+          clickOutsideDeactivates: false,
           fallbackFocus: () => fallbackRef.current,
         }}
       >
