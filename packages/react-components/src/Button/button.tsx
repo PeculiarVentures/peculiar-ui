@@ -12,37 +12,53 @@ type BaseProps = {
    * Element placed after the children.
    */
   endIcon?: React.ReactNode;
+  /**
+   * Specify if the button doesn't have padding.
+   */
+  withoutPadding?: boolean;
 };
 
-type ButtonProps = BaseProps & ButtonBaseProps;
+export type ButtonProps = BaseProps & ButtonBaseProps;
 
 const stylesBase = () => css({
   label: 'Button',
   borderRadius: '4px',
 });
 
-const stylesSizeSmall = (circled?: boolean) => css({
+const stylesSizeSmall = (props: ButtonProps) => css({
   label: 'small',
   height: '30px',
   minWidth: '30px',
-  padding: '0 10px',
-  borderRadius: circled ? '30px' : undefined,
+  ...(props.circled && {
+    borderRadius: '30px',
+  }),
+  ...(!props.withoutPadding && {
+    padding: '0 10px',
+  }),
 });
 
-const stylesSizeMedium = (circled?: boolean) => css({
+const stylesSizeMedium = (props: ButtonProps) => css({
   label: 'medium',
   height: '35px',
   minWidth: '35px',
-  padding: '0 15px',
-  borderRadius: circled ? '35px' : undefined,
+  ...(props.circled && {
+    borderRadius: '35px',
+  }),
+  ...(!props.withoutPadding && {
+    padding: '0 15px',
+  }),
 });
 
-const stylesSizeLarge = (circled?: boolean) => css({
+const stylesSizeLarge = (props: ButtonProps) => css({
   label: 'large',
   height: '40px',
   minWidth: '40px',
-  padding: '0 20px',
-  borderRadius: circled ? '40px' : undefined,
+  ...(props.circled && {
+    borderRadius: '40px',
+  }),
+  ...(!props.withoutPadding && {
+    padding: '0 20px',
+  }),
 });
 
 const stylesStartIcon = () => css({
@@ -65,6 +81,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
     circled,
     startIcon: startIconProp,
     endIcon: endIconProp,
+    withoutPadding,
     ...other
   } = props;
 
@@ -90,9 +107,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
       ref={ref}
       className={cx({
         [stylesBase()]: true,
-        [stylesSizeSmall(circled)]: size === 'small',
-        [stylesSizeMedium(circled)]: size === 'medium',
-        [stylesSizeLarge(circled)]: size === 'large',
+        [stylesSizeSmall(props)]: size === 'small',
+        [stylesSizeMedium(props)]: size === 'medium',
+        [stylesSizeLarge(props)]: size === 'large',
         [className]: !!className,
       })}
       size={size}
@@ -108,6 +125,7 @@ Button.displayName = 'Button';
 
 Button.defaultProps = {
   disabled: false,
-  variant: 'primary',
+  variant: 'text',
+  color: 'default',
   size: 'medium',
 };

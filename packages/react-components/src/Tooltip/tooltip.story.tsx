@@ -7,7 +7,9 @@ export const Playground = (args: any) => (
     <Tooltip
       {...args}
     >
-      <Button variant="primary">Hello</Button>
+      <Button>
+        Action
+      </Button>
     </Tooltip>
   </div>
 );

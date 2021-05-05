@@ -2,7 +2,17 @@ import * as React from 'react';
 import { css, cx } from '../styles';
 import { ButtonBase, ButtonBaseProps } from '../ButtonBase';
 
-type ButtonProps = Omit<ButtonBaseProps, 'size'>;
+type BaseProps = {
+  /**
+   * The variant to use.
+   */
+  variant?: (
+    'contained' |
+    'outlined'
+  );
+};
+
+type FabProps = BaseProps & Omit<ButtonBaseProps, 'size' | 'variant'>;
 
 const stylesBase = () => css({
   label: 'Fab',
@@ -12,7 +22,7 @@ const stylesBase = () => css({
   padding: '10px',
 });
 
-export const Fab = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+export const Fab = React.forwardRef<HTMLButtonElement, FabProps>((props, ref) => {
   const {
     className,
     children,
@@ -38,5 +48,6 @@ Fab.displayName = 'Fab';
 
 Fab.defaultProps = {
   disabled: false,
-  variant: 'primary',
+  variant: 'contained',
+  color: 'primary',
 };

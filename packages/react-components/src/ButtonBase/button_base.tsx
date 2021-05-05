@@ -15,10 +15,18 @@ type BaseProps = {
    * The variant to use.
    */
   variant?: (
+    'contained' |
+    'outlined' |
+    'text'
+  );
+  /**
+   * The color of the component.
+   */
+  color?: (
     'primary' |
     'secondary' |
-    'tertiary' |
-    'wrong'
+    'wrong' |
+    'default'
   );
   /**
    * The size of the button.
@@ -51,96 +59,125 @@ const stylesBase = () => css({
   alignItems: 'center',
   justifyContent: 'center',
   verticalAlign: 'middle',
+  backgroundColor: 'transparent',
+  padding: 0,
   '&:disabled': {
     cursor: 'not-allowed',
     boxShadow: 'none',
   },
 });
 
-const stylesVariantPrimary = () => css({
-  label: 'primary',
-  color: 'var(--pv-color-white)',
-  backgroundColor: 'var(--pv-color-primary)',
-  boxShadow: 'var(--pv-shadow-light-low)',
-  '&:not(:disabled)': {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-primary-tint-1)',
+const stylesVariantText = (props: ButtonBaseProps) => css({
+  label: `text-${props.color}`,
+  ...(props.color === 'default' && ({
+    color: 'var(--pv-color-black)',
+    '&:not(:disabled)': {
+      '&:hover': {
+        backgroundColor: 'var(--pv-color-gray-3)',
+      },
+      '&:focus': {
+        backgroundColor: 'var(--pv-color-gray-4)',
+      },
+      '&:active': {
+        backgroundColor: 'var(--pv-color-gray-5)',
+      },
     },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-primary-tint-2)',
+  })),
+  ...(props.color !== 'default' && ({
+    color: `var(--pv-color-${props.color})`,
+    '&:not(:disabled)': {
+      '&:hover': {
+        backgroundColor: `var(--pv-color-${props.color}-tint-5)`,
+      },
+      '&:focus': {
+        backgroundColor: `var(--pv-color-${props.color}-tint-4)`,
+      },
+      '&:active': {
+        backgroundColor: `var(--pv-color-${props.color}-tint-3)`,
+      },
     },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-primary-tint-2)',
-      boxShadow: 'var(--pv-shadow-light-medium)',
-    },
+  })),
+  '&:disabled': {
+    color: 'var(--pv-color-gray-7)',
   },
+});
+
+const stylesVariantContained = (props: ButtonBaseProps) => css({
+  label: `outlined-${props.color}`,
+  boxShadow: 'var(--pv-shadow-light-low)',
+  ...(props.color === 'default' && ({
+    backgroundColor: 'var(--pv-color-gray-8)',
+    color: 'var(--pv-color-black)',
+    '&:not(:disabled)': {
+      '&:hover': {
+        backgroundColor: 'var(--pv-color-gray-7)',
+      },
+      '&:focus': {
+        backgroundColor: 'var(--pv-color-gray-6)',
+      },
+      '&:active': {
+        backgroundColor: 'var(--pv-color-gray-5)',
+        boxShadow: 'var(--pv-shadow-light-medium)',
+      },
+    },
+  })),
+  ...(props.color !== 'default' && ({
+    backgroundColor: `var(--pv-color-${props.color})`,
+    color: 'var(--pv-color-white)',
+    '&:not(:disabled)': {
+      '&:hover': {
+        backgroundColor: `var(--pv-color-${props.color}-tint-1)`,
+      },
+      '&:focus': {
+        backgroundColor: `var(--pv-color-${props.color}-tint-2)`,
+      },
+      '&:active': {
+        backgroundColor: `var(--pv-color-${props.color}-tint-2)`,
+        boxShadow: 'var(--pv-shadow-light-medium)',
+      },
+    },
+  })),
   '&:disabled': {
     color: 'var(--pv-color-gray-8)',
     backgroundColor: 'var(--pv-color-gray-4)',
   },
 });
 
-const stylesVariantSecondary = () => css({
-  label: 'secondary',
-  color: 'var(--pv-color-black)',
-  backgroundColor: 'transparent',
-  borderColor: 'var(--pv-color-gray-8)',
-  '&:not(:disabled)': {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-gray-3)',
+const stylesVariantOutlined = (props: ButtonBaseProps) => css({
+  label: `contained-${props.color}`,
+  ...(props.color === 'default' && ({
+    color: 'var(--pv-color-black)',
+    borderColor: 'var(--pv-color-gray-8)',
+    '&:not(:disabled)': {
+      '&:hover': {
+        backgroundColor: 'var(--pv-color-gray-3)',
+      },
+      '&:focus': {
+        backgroundColor: 'var(--pv-color-gray-4)',
+      },
+      '&:active': {
+        backgroundColor: 'var(--pv-color-gray-5)',
+      },
     },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-gray-4)',
+  })),
+  ...(props.color !== 'default' && ({
+    color: `var(--pv-color-${props.color})`,
+    borderColor: `var(--pv-color-${props.color}-tint-2)`,
+    '&:not(:disabled)': {
+      '&:hover': {
+        backgroundColor: `var(--pv-color-${props.color}-tint-5)`,
+      },
+      '&:focus': {
+        backgroundColor: `var(--pv-color-${props.color}-tint-4)`,
+      },
+      '&:active': {
+        backgroundColor: `var(--pv-color-${props.color}-tint-3)`,
+      },
     },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-gray-5)',
-    },
-  },
-  '&:disabled': {
-    color: 'var(--pv-color-gray-7)',
-  },
-});
-
-const stylesVariantWrong = () => css({
-  label: 'wrong',
-  color: 'var(--pv-color-white)',
-  backgroundColor: 'var(--pv-color-wrong)',
-  boxShadow: 'var(--pv-shadow-light-low)',
-  '&:not(:disabled)': {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-wrong-tint-1)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-wrong-tint-2)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-wrong-tint-2)',
-      boxShadow: 'var(--pv-shadow-light-medium)',
-    },
-  },
+  })),
   '&:disabled': {
     color: 'var(--pv-color-gray-8)',
-    backgroundColor: 'var(--pv-color-gray-4)',
-  },
-});
-
-const stylesVariantTertiary = () => css({
-  label: 'tertiary',
-  color: 'var(--pv-color-secondary)',
-  backgroundColor: 'transparent',
-  '&:not(:disabled)': {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-secondary-tint-5)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-secondary-tint-4)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-secondary-tint-3)',
-    },
-  },
-  '&:disabled': {
-    color: 'var(--pv-color-gray-7)',
+    borderColor: 'var(--pv-color-gray-4)',
   },
 });
 
@@ -155,6 +192,7 @@ const stylesLabel = () => css({
 export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((props, ref) => {
   const {
     variant,
+    color,
     size,
     className,
     children,
@@ -171,10 +209,9 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
       type={type}
       className={cx({
         [stylesBase()]: true,
-        [stylesVariantPrimary()]: variant === 'primary',
-        [stylesVariantSecondary()]: variant === 'secondary',
-        [stylesVariantWrong()]: variant === 'wrong',
-        [stylesVariantTertiary()]: variant === 'tertiary',
+        [stylesVariantText(props)]: variant === 'text',
+        [stylesVariantContained(props)]: variant === 'contained',
+        [stylesVariantOutlined(props)]: variant === 'outlined',
         [className]: !!className,
       })}
       data-testid={dataTestId}
@@ -191,4 +228,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
 
 ButtonBase.displayName = 'ButtonBase';
 
-ButtonBase.defaultProps = {};
+ButtonBase.defaultProps = {
+  variant: 'text',
+  color: 'default',
+};

@@ -1,13 +1,36 @@
 import * as React from 'react';
 import { Button } from './index';
+import { CheckmarkIcon } from '../icons';
 
-export const Playground = (args: any) => (
+export const Default = (args: any) => (
   <Button
     {...args}
   />
 );
 
-Playground.args = {
+export const IconStart = (args: any) => (
+  <Button
+    {...args}
+    startIcon={(<CheckmarkIcon />)}
+  />
+);
+
+export const IconEnd = (args: any) => (
+  <Button
+    {...args}
+    endIcon={(<CheckmarkIcon />)}
+  />
+);
+
+Default.args = {
+  children: 'Action',
+};
+
+IconStart.args = {
+  children: 'Action',
+};
+
+IconEnd.args = {
   children: 'Action',
 };
 

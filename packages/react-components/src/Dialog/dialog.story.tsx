@@ -19,10 +19,10 @@ export const Playground = (args: any) => (
       laudantium alias molestias doloremque error dolorum.
     </DialogContent>
     <DialogActions>
-      <Button variant="secondary">
+      <Button>
         Cancel
       </Button>
-      <Button>
+      <Button variant="contained" color="primary">
         Ok
       </Button>
     </DialogActions>

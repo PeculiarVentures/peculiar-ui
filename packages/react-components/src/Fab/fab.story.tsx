@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Fab } from './index';
+import { CheckmarkIcon } from '../icons';
 
 export const Playground = (args: any) => (
   <Fab
@@ -8,13 +9,13 @@ export const Playground = (args: any) => (
 );
 
 Playground.args = {
-  children: '+',
+  children: <CheckmarkIcon />,
 };
 
 export default {
   title: 'Components/FloatingActionButton',
   component: Fab,
   argTypes: {
-    children: { control: 'text' },
+    children: { control: false },
   },
 };
