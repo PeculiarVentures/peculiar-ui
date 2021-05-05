@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import { css, cx } from '../styles';
 import { Button, ButtonProps } from '../Button';
 
 type BaseProps = {};
@@ -28,6 +27,6 @@ IconButton.displayName = 'IconButton';
 
 IconButton.defaultProps = {
   disabled: false,
-  color: 'primary',
+  color: 'default',
   size: 'medium',
 };
