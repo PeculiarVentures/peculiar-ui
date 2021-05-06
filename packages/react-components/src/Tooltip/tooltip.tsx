@@ -87,16 +87,16 @@ const stylesPopper = (interactive?: boolean) => css({
   pointerEvents: interactive ? 'auto' : 'none',
   zIndex: 1500,
   '&[data-popper-placement^="bottom"]': {
-    margin: '14px 0px',
+    padding: '14px 0px',
   },
   '&[data-popper-placement^="top"]': {
-    margin: '14px 0px',
+    padding: '14px 0px',
   },
   '&[data-popper-placement^="right"]': {
-    margin: '0px 14px',
+    padding: '0px 14px',
   },
   '&[data-popper-placement^="left"]': {
-    margin: '0px 14px',
+    padding: '0px 14px',
   },
 });
 
