@@ -96,6 +96,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
   } = props;
   const {
     className,
+    modalProps = {},
   } = popoverProps;
   const [open, setOpen] = React.useState(false);
   const childRef = React.useRef(null);
@@ -140,6 +141,10 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
       {React.cloneElement(children, childrenProps)}
       <Popover
         {...popoverProps}
+        modalProps={{
+          ...modalProps,
+          disableAutoFocus: true,
+        }}
         ref={ref}
         open={open}
         anchorEl={childRef.current}

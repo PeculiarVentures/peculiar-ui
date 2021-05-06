@@ -33,7 +33,6 @@ type BaseProps = {
    * Callback fired when the component requests to be closed.
    */
   onClose?: () => void;
-  dataTestId?: string;
   /**
    * Always keep the children in the DOM.
    */
@@ -46,6 +45,13 @@ type BaseProps = {
    * If `true`, the modal will not prevent focus from leaving the modal while open.
    */
   disableEnforceFocus?: boolean;
+  /**
+   * If `true`, the trap focus will not automatically shift focus
+   * to first interactive element when it opens,
+   * and replace it to the last focused element when it closes.
+   */
+  disableAutoFocus?: boolean;
+  dataTestId?: string;
 };
 
 export type ModalProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
@@ -70,11 +76,12 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
     transitionDuration,
     disableBackdropClick,
     disableEscapeKeyDown,
-    onClose,
-    dataTestId,
     keepMounted,
     backdropProps,
     disableEnforceFocus,
+    disableAutoFocus,
+    onClose,
+    dataTestId,
     ...other
   } = props;
   const [exited, setExited] = React.useState(true);
@@ -134,6 +141,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
         />
         <FocusTrap
           open={disableEnforceFocus ? false : open}
+          disableAutoFocus={disableAutoFocus}
         >
           {children}
         </FocusTrap>
