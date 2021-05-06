@@ -5,23 +5,13 @@ type BaseProps = {};
 
 type IconButtonProps = BaseProps & Omit<ButtonProps, 'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'>;
 
-export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => {
-  const {
-    className,
-    children,
-    ...other
-  } = props;
-
-  return (
-    <Button
-      {...other}
-      ref={ref}
-      withoutPadding
-    >
-      {children}
-    </Button>
-  );
-});
+export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => (
+  <Button
+    {...props}
+    ref={ref}
+    withoutPadding
+  />
+));
 
 IconButton.displayName = 'IconButton';
 
