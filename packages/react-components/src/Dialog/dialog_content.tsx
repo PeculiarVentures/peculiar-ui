@@ -46,6 +46,7 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
       borderWidth={dividers ? 1 : 0}
       borderStyle="solid"
       borderPosition="horizontal"
+      data-key="dialog.content"
     >
       {children}
     </Box>

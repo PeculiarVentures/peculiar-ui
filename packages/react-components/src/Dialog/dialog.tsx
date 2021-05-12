@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal } from '../Modal';
 import { Box } from '../Box';
 import { Fade } from '../Fade';
+import { CircularProgress } from '../CircularProgress';
 import { css, cx } from '../styles';
 
 type BaseProps = {
@@ -46,11 +47,15 @@ type BaseProps = {
     'large'
   );
   dataTestId?: string;
+  /**
+   * If `true`, the dialog will be show CircularProgress component and disable all interactions.
+   */
+  loading?: boolean;
 };
 
 type DialogProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 
-const stylesBase = () => css({
+const stylesBase = (loading?: boolean) => css({
   label: 'Dialog',
   width: '100%',
   display: 'flex',
@@ -60,6 +65,17 @@ const stylesBase = () => css({
   position: 'relative',
   outline: 'none',
   boxShadow: 'var(--pv-shadow-dark-hight)',
+  overflow: 'hidden',
+  border: 0,
+  padding: 0,
+  ...(loading && {
+    '[data-key="dialog.content"]': {
+      opacity: 0.5,
+    },
+    '[data-key="dialog.actions"]': {
+      opacity: 0.5,
+    },
+  }),
 });
 
 const stylesSizeSmall = () => css({
@@ -92,6 +108,15 @@ const stylesModal = () => css({
   justifyContent: 'center',
 });
 
+const stylesLoading = () => css({
+  label: 'Dialog-loading',
+  position: 'absolute',
+  inset: '0px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
 export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref) => {
   const {
     open,
@@ -101,9 +126,10 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
     transitionDuration,
     disableBackdropClick,
     disableEscapeKeyDown,
-    dataTestId,
-    onClose,
     size,
+    loading,
+    onClose,
+    dataTestId,
     ...other
   } = props;
 
@@ -115,8 +141,11 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
       onClose={onClose}
       dataTestId={dataTestId}
       className={cx(stylesModal())}
-      disableBackdropClick={disableBackdropClick}
-      disableEscapeKeyDown={disableEscapeKeyDown}
+      disableBackdropClick={loading || disableBackdropClick}
+      disableEscapeKeyDown={loading || disableEscapeKeyDown}
+      backdropProps={{
+        invisible: fullScreen,
+      }}
     >
       <Fade
         in={open}
@@ -128,7 +157,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
           background="white"
           borderRadius={fullScreen ? 0 : 4}
           className={cx({
-            [stylesBase()]: true,
+            [stylesBase(loading)]: true,
             [stylesSizeSmall()]: size === 'small',
             [stylesSizeMedium()]: size === 'medium',
             [stylesSizeLarge()]: size === 'large',
@@ -136,8 +165,16 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
             [className]: !!className,
           })}
           tabIndex={-1}
+          component="fieldset"
+          // @ts-ignore
+          disabled={loading}
         >
           {children}
+          {loading && (
+            <Box className={cx(stylesLoading())}>
+              <CircularProgress />
+            </Box>
+          )}
         </Box>
       </Fade>
     </Modal>

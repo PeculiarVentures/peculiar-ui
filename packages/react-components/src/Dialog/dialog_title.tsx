@@ -36,6 +36,7 @@ export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((p
         [stylesBase()]: true,
         [className]: !!className,
       })}
+      data-key="dialog.title"
     >
       <Typography
         variant="h4"

@@ -41,6 +41,7 @@ export const DialogActions = React.forwardRef<HTMLDivElement, DialogActionsProps
         [stylesBase()]: true,
         [className]: !!className,
       })}
+      data-key="dialog.actions"
     >
       {children}
     </footer>
