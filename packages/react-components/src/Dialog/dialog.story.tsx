@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { TextField } from '../TextField';
 import { Button } from '../Button';
 import {
   Dialog,
@@ -7,29 +8,44 @@ import {
   DialogActions,
 } from './index';
 
-export const Playground = (args: any) => (
+const Template = (args: any) => (
   <Dialog {...args}>
     <DialogTitle>
-      Hello
+      Sign in
     </DialogTitle>
     <DialogContent>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Illum vitae veritatis iure explicabo labore temporibus sint iste officiis,
-      amet asperiores recusandae illo, adipisci repellendus,
-      laudantium alias molestias doloremque error dolorum.
+      <div>
+        <TextField
+          label="Email"
+          type="email"
+          id="email"
+        />
+      </div>
+      <div>
+        <TextField
+          label="Password"
+          type="password"
+          id="password"
+        />
+      </div>
     </DialogContent>
     <DialogActions>
       <Button>
         Cancel
       </Button>
       <Button variant="contained" color="primary">
-        Ok
+        Send
       </Button>
     </DialogActions>
   </Dialog>
 );
 
-Playground.args = {};
+export const Playground = Template.bind({});
+
+Playground.args = {
+  size: 'small',
+};
+Playground.parameters = {};
 
 export default {
   title: 'Components/Dialog',
