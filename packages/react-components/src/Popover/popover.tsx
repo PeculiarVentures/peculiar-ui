@@ -28,10 +28,6 @@ type BaseProps = {
    */
   onClose?: () => void;
   /**
-   * If `true`, the modal will not prevent focus from leaving the modal while open.
-   */
-  disableEnforceFocus?: boolean;
-  /**
    * Props applied to the `Modal` element.
    */
   modalProps?: Partial<ModalProps>;
@@ -44,7 +40,7 @@ const stylesBase = () => css({
   outline: 0,
   maxWidth: 'calc(100% - 32px)',
   minWidth: '16px',
-  maxHeight: 'calc(100% - 32px)',
+  maxHeight: '224px',
   minHeight: '16px',
   overflowX: 'hidden',
   overflowY: 'auto',
@@ -59,7 +55,6 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>((props, re
     placement,
     onClose,
     className,
-    disableEnforceFocus,
     modalProps,
     ...other
   } = props;
@@ -80,7 +75,6 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>((props, re
       backdropProps={{
         invisible: true,
       }}
-      disableEnforceFocus={disableEnforceFocus}
     >
       <Fade
         in={open}
@@ -109,5 +103,4 @@ Popover.displayName = 'Popover';
 
 Popover.defaultProps = {
   placement: 'bottom-end',
-  disableEnforceFocus: false,
 };
