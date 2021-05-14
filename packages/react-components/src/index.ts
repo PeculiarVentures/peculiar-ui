@@ -4,6 +4,7 @@ export * from './Button';
 export * from './Chip';
 export * from './CircularProgress';
 export * from './Collapse';
+export * from './ComboBox';
 export * from './Dialog';
 export * from './Drawer';
 export * from './Fab';
