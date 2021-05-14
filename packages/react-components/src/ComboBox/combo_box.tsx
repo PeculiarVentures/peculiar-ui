@@ -142,6 +142,13 @@ const stylesLabel = () => css({
   display: 'inline-block',
 });
 
+const stylesCheckbox = () => css({
+  label: 'ComboBox-checkbox',
+  width: '20px',
+  height: '20px',
+  margin: '0px 10px 0 5px',
+});
+
 export const ComboBox = React.forwardRef<HTMLDivElement, ComboBoxProps>((props, ref) => {
   const {
     options,
@@ -223,6 +230,7 @@ export const ComboBox = React.forwardRef<HTMLDivElement, ComboBoxProps>((props, 
           checked={isSelected}
           tabIndex={-1}
           readOnly
+          className={cx(stylesCheckbox())}
         />
         <Typography
           variant="b3"
