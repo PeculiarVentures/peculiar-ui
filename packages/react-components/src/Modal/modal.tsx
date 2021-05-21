@@ -51,7 +51,7 @@ type BaseProps = {
    * and replace it to the last focused element when it closes.
    */
   disableAutoFocus?: boolean;
-  dataTestId?: string;
+  'data-testid'?: string;
 };
 
 export type ModalProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
@@ -81,7 +81,6 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
     disableEnforceFocus,
     disableAutoFocus,
     onClose,
-    dataTestId,
     ...other
   } = props;
   const [exited, setExited] = React.useState(true);
@@ -128,7 +127,6 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
         })}
         role="presentation"
         aria-hidden={!open}
-        data-testid={dataTestId}
         onKeyDown={handleKeyDown}
       >
         <Backdrop

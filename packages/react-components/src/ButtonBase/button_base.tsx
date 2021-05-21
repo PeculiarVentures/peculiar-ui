@@ -40,7 +40,7 @@ type BaseProps = {
    * The className of the component.
    */
   className?: string;
-  dataTestId?: string;
+  'data-testid'?: string;
 };
 
 export type ButtonBaseProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -196,7 +196,6 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
     size,
     className,
     children,
-    dataTestId,
     type = 'button',
     ...other
   } = props;
@@ -214,7 +213,6 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
         [stylesVariantOutlined(props)]: variant === 'outlined',
         [className]: !!className,
       })}
-      data-testid={dataTestId}
     >
       <Typography
         variant={size === 'small' ? 'btn2' : 'btn1'}

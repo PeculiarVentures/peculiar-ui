@@ -33,7 +33,7 @@ type BaseProps = {
    * Callback fired when the component requests to be closed.
    */
   onClose?: () => void;
-  dataTestId?: string;
+  'data-testid'?: string;
 };
 
 type DrawerProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
@@ -58,7 +58,7 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
     disableBackdropClick,
     disableEscapeKeyDown,
     onClose,
-    dataTestId,
+    'data-testid': dataTestId,
     ...other
   } = props;
 
@@ -68,7 +68,7 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
       open={open}
       transitionDuration={transitionDuration}
       onClose={onClose}
-      dataTestId={dataTestId}
+      data-testid={dataTestId}
       disableBackdropClick={disableBackdropClick}
       disableEscapeKeyDown={disableEscapeKeyDown}
       keepMounted

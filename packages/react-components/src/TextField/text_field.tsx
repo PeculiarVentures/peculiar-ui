@@ -77,10 +77,10 @@ type BaseProps = {
    * Type of the `input` element.
    */
   type?: React.InputHTMLAttributes<HTMLInputElement>['type'];
-  dataTestId?: string;
+  'data-testid'?: string;
 };
 
-type TextFieldProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type TextFieldProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
 const stylesInputBase = () => css({
   label: 'TextField',
@@ -160,7 +160,6 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
     className,
     label,
     onChange,
-    dataTestId,
     inputProps,
     disabled,
     defaultValue,
@@ -182,7 +181,6 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
     <div
       {...other}
       ref={ref}
-      data-testid={dataTestId}
       className={className}
     >
       {label && (

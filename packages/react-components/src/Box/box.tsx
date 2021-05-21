@@ -17,7 +17,7 @@ type BaseProps = {
   borderStyle?: ('solid' | 'dashed');
   borderPosition?: ('horizontal' | 'vertical' | 'top' | 'right' | 'bottom' | 'left');
   borderRadius?: number,
-  dataTestId?: string;
+  'data-testid'?: string;
 };
 
 type BoxProps = BaseProps & React.HTMLAttributes<HTMLElement>;
@@ -46,7 +46,6 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
     borderStyle,
     borderPosition,
     borderRadius,
-    dataTestId,
     ...other
   } = props;
 
@@ -98,7 +97,6 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
         borderStyle,
         borderRadius,
       }))}
-      data-testid={dataTestId}
     />
   );
 });

@@ -20,7 +20,7 @@ type BaseProps = {
     'large'
   );
   className?: string;
-  dataTestId?: string;
+  'data-testid'?: string;
   /**
    * Attributes applied to the `input` element.
    */
@@ -72,7 +72,7 @@ type BaseProps = {
   errorText?: string;
 };
 
-type SelectProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type SelectProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
 const stylesInputBase = () => css({
   label: 'Select',
@@ -151,7 +151,6 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
     className,
     label,
     onChange,
-    dataTestId,
     inputProps,
     disabled,
     defaultValue,
@@ -171,7 +170,6 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
     <div
       {...other}
       ref={ref}
-      data-testid={dataTestId}
       className={className}
     >
       {label && (

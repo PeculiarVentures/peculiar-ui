@@ -24,7 +24,7 @@ type BaseProps = {
    * The className of the component.
    */
   className?: string;
-  dataTestId?: string;
+  'data-testid'?: string;
 };
 
 type ChipProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -100,7 +100,6 @@ export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>((props, ref) 
   const {
     children,
     className,
-    dataTestId,
     disabled,
     variant,
     selected,
@@ -129,7 +128,6 @@ export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>((props, ref) 
         [className]: !!className,
       })}
       tabIndex={selected && isChoice ? -1 : tabIndex}
-      data-testid={dataTestId}
     >
       {Icon}
       <Typography

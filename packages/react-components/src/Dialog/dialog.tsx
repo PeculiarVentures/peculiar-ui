@@ -46,7 +46,7 @@ type BaseProps = {
     'medium' |
     'large'
   );
-  dataTestId?: string;
+  'data-testid'?: string;
   /**
    * If `true`, the dialog will be show CircularProgress component and disable all interactions.
    */
@@ -129,7 +129,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
     size,
     loading,
     onClose,
-    dataTestId,
+    'data-testid': dataTestId,
     ...other
   } = props;
 
@@ -139,7 +139,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
       open={open}
       transitionDuration={transitionDuration}
       onClose={onClose}
-      dataTestId={dataTestId}
+      data-testid={dataTestId}
       className={cx(stylesModal())}
       disableBackdropClick={loading || disableBackdropClick}
       disableEscapeKeyDown={loading || disableEscapeKeyDown}

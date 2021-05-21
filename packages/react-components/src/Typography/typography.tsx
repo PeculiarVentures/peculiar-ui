@@ -17,7 +17,7 @@ type BaseProps = {
   variant?: TypographyType;
   color?: ColorType;
   className?: string;
-  dataTestId?: string;
+  'data-testid'?: string;
   /**
    * If `true`, the text will not wrap, but instead will truncate with a text overflow ellipsis.
    * Note that text overflow can only happen with block or inline-block level elements
@@ -62,7 +62,6 @@ export const Typography = React.forwardRef<HTMLElement, TypographyProps>((props,
     variant,
     className,
     color,
-    dataTestId,
     noWrap,
     component: componentProp,
     ...other
@@ -97,7 +96,6 @@ export const Typography = React.forwardRef<HTMLElement, TypographyProps>((props,
         [stylesNoWrap()]: noWrap,
         [className]: !!className,
       })}
-      data-testid={dataTestId}
     />
   );
 });
