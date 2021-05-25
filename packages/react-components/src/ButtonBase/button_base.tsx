@@ -26,6 +26,7 @@ type BaseProps = {
     'primary' |
     'secondary' |
     'wrong' |
+    'white' |
     'default'
   );
   /**
@@ -83,7 +84,21 @@ const stylesVariantText = (props: ButtonBaseProps) => css({
       },
     },
   })),
-  ...(props.color !== 'default' && ({
+  ...(props.color === 'white' && ({
+    color: `var(--pv-color-${props.color})`,
+    '&:not(:disabled)': {
+      '&:hover': {
+        backgroundColor: 'var(--pv-color-gray-7)',
+      },
+      '&:focus': {
+        backgroundColor: 'var(--pv-color-gray-8)',
+      },
+      '&:active': {
+        backgroundColor: 'var(--pv-color-gray-9)',
+      },
+    },
+  })),
+  ...(props.color !== 'default' && props.color !== 'white' && ({
     color: `var(--pv-color-${props.color})`,
     '&:not(:disabled)': {
       '&:hover': {
@@ -121,7 +136,23 @@ const stylesVariantContained = (props: ButtonBaseProps) => css({
       },
     },
   })),
-  ...(props.color !== 'default' && ({
+  ...(props.color === 'white' && ({
+    backgroundColor: 'var(--pv-color-white)',
+    color: 'var(--pv-color-black)',
+    '&:not(:disabled)': {
+      '&:hover': {
+        backgroundColor: 'var(--pv-color-gray-7)',
+      },
+      '&:focus': {
+        backgroundColor: 'var(--pv-color-gray-6)',
+      },
+      '&:active': {
+        backgroundColor: 'var(--pv-color-gray-5)',
+        boxShadow: 'var(--pv-shadow-light-medium)',
+      },
+    },
+  })),
+  ...(props.color !== 'default' && props.color !== 'white' && ({
     backgroundColor: `var(--pv-color-${props.color})`,
     color: 'var(--pv-color-white)',
     '&:not(:disabled)': {
@@ -160,7 +191,22 @@ const stylesVariantOutlined = (props: ButtonBaseProps) => css({
       },
     },
   })),
-  ...(props.color !== 'default' && ({
+  ...(props.color === 'white' && ({
+    color: 'var(--pv-color-white)',
+    borderColor: 'var(--pv-color-white)',
+    '&:not(:disabled)': {
+      '&:hover': {
+        backgroundColor: 'var(--pv-color-gray-7)',
+      },
+      '&:focus': {
+        backgroundColor: 'var(--pv-color-gray-8)',
+      },
+      '&:active': {
+        backgroundColor: 'var(--pv-color-gray-9)',
+      },
+    },
+  })),
+  ...(props.color !== 'default' && props.color !== 'white' && ({
     color: `var(--pv-color-${props.color})`,
     borderColor: `var(--pv-color-${props.color}-tint-2)`,
     '&:not(:disabled)': {
