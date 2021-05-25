@@ -8,7 +8,13 @@ type BaseProps = {
    * if `src` is not set. This can be an element, or just a string.
    */
   children?: React.ReactNode;
+  /**
+   * The className of the component.
+   */
   className?: string;
+  /**
+   * The size of the avatar.
+   */
   size?: ('small' | 'medium' | 'large');
   /**
    * Used in combination with `src` to provide an alt attribute for the rendered `img` element.
