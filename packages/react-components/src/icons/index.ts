@@ -1,1 +1,1 @@
-export { CheckmarkIcon } from './checkmark_icon';
+export { CheckIcon } from './check_icon';

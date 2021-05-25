@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css, cx } from '../styles';
 import { Typography } from '../Typography';
-import { CheckmarkIcon } from '../icons';
+import { CheckIcon } from '../icons';
 
 type BaseProps = {
   /**
@@ -110,7 +110,7 @@ export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>((props, ref) 
 
   const Icon = selected && !isChoice && (
     <div className={cx(stylesIcon())}>
-      <CheckmarkIcon />
+      <CheckIcon />
     </div>
   );
 

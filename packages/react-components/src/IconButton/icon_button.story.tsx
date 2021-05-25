@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IconButton } from './index';
-import { CheckmarkIcon } from '../icons';
+import { CheckIcon } from '../icons';
 
 export const Playground = (args: any) => (
   <IconButton
@@ -9,7 +9,7 @@ export const Playground = (args: any) => (
 );
 
 Playground.args = {
-  children: <CheckmarkIcon />,
+  children: <CheckIcon />,
 };
 
 export default {

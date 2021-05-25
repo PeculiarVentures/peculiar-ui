@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button } from './index';
-import { CheckmarkIcon } from '../icons';
+import { CheckIcon } from '../icons';
 
 export const Default = (args: any) => (
   <Button
@@ -11,14 +11,14 @@ export const Default = (args: any) => (
 export const IconStart = (args: any) => (
   <Button
     {...args}
-    startIcon={(<CheckmarkIcon />)}
+    startIcon={(<CheckIcon />)}
   />
 );
 
 export const IconEnd = (args: any) => (
   <Button
     {...args}
-    endIcon={(<CheckmarkIcon />)}
+    endIcon={(<CheckIcon />)}
   />
 );
 
