@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '../Box';
-import { Typography } from '../Typography';
 import { Collapse } from '../Collapse';
+import { Alert } from '../Alert';
 import { css, cx } from '../styles';
 
 type BaseProps = {
@@ -34,9 +34,7 @@ const stylesBase = () => css({
 
 const stylesError = () => css({
   label: 'DialogContent-error',
-  minHeight: '60px',
-  padding: '20px 15px',
-  boxSizing: 'border-box',
+  padding: '10px 15px',
 });
 
 const stylesCollapse = () => css({
@@ -70,18 +68,13 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
         in={Boolean(error)}
         className={cx(stylesCollapse())}
       >
-        <Box
-          background="wrong-tint-5"
-          borderRadius={4}
+        <Alert
+          color="wrong"
+          disableIcon
           className={cx(stylesError())}
         >
-          <Typography
-            color="wrong"
-            variant="b3"
-          >
-            {error}
-          </Typography>
-        </Box>
+          {error}
+        </Alert>
       </Collapse>
       {children}
     </Box>
