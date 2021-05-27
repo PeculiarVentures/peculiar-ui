@@ -26,9 +26,20 @@ jobs:
             */*/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: yarn install
-      - run: yarn lint
-      - run: yarn build
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Build
+        run: yarn build
+
+      - name: Check types
+        run: yarn check:types
+
+      - name: Test
+        run: yarn test:unit:coverage
 
       - name: Deploy prepare
         if: github.ref == 'refs/heads/main'
