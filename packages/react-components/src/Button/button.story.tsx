@@ -2,36 +2,27 @@ import * as React from 'react';
 import { Button } from './index';
 import { CheckIcon } from '../icons';
 
-export const Default = (args: any) => (
+const Template = (args: any) => (
   <Button
     {...args}
   />
 );
 
-export const IconStart = (args: any) => (
-  <Button
-    {...args}
-    startIcon={(<CheckIcon />)}
-  />
-);
-
-export const IconEnd = (args: any) => (
-  <Button
-    {...args}
-    endIcon={(<CheckIcon />)}
-  />
-);
-
+export const Default = Template.bind({});
 Default.args = {
   children: 'Action',
 };
 
+export const IconStart = Template.bind({});
 IconStart.args = {
   children: 'Action',
+  startIcon: <CheckIcon />,
 };
 
+export const IconEnd = Template.bind({});
 IconEnd.args = {
   children: 'Action',
+  endIcon: <CheckIcon />,
 };
 
 export default {

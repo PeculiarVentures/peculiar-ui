@@ -1,13 +1,24 @@
 import * as React from 'react';
 import { css, cx, ColorType } from '../styles';
 import { Typography } from '../Typography';
+import { Box } from '../Box';
 
 type BaseProps = {
   /**
-   * Used to render icon or text elements inside the Avatar
-   * if `src` is not set. This can be an element, or just a string.
+   * The name of the person in the avatar.
+   *
+   * - If `src` has loaded, the name will be used as the `alt` attribute of the `img`.
+   * - If `src` is not loaded, the name will be used to create the initials.
    */
-  children?: React.ReactNode;
+  name?: string;
+  /**
+   * Function to get the initials to display
+   */
+  getInitials?: (name: string) => string;
+  /**
+   * The `src` attribute for the `img` element.
+   */
+  src?: string;
   /**
    * The className of the component.
    */
@@ -17,18 +28,17 @@ type BaseProps = {
    */
   size?: ('small' | 'medium' | 'large');
   /**
-   * Used in combination with `src` to provide an alt attribute for the rendered `img` element.
+   * The color of component background.
    */
-  alt?: string;
-  /**
-   * The `src` attribute for the `img` element.
-   */
-  src?: string;
   background?: ColorType;
+  /**
+   * The color of initials text.
+   */
+  color?: ColorType;
   'data-testid'?: string;
 };
 
-type AvatarProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type AvatarProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 
 const stylesBase = () => css({
   label: 'Avatar',
@@ -68,11 +78,6 @@ const stylesImg = () => css({
   textIndent: 10000,
 });
 
-const stylesBackground = (color: ColorType) => css({
-  label: color,
-  background: `var(--pv-color-${color})`,
-});
-
 function useLoaded(src: string) {
   const [loaded, setLoaded] = React.useState('');
 
@@ -110,35 +115,47 @@ function useLoaded(src: string) {
   return loaded;
 }
 
+function initials(name: string) {
+  const [firstName, lastName] = name.split(' ');
+
+  return firstName && lastName
+    ? `${firstName.charAt(0)}${lastName.charAt(0)}`
+    : firstName.charAt(0);
+}
+
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
   const {
     className,
-    children: childrenProp,
     size,
-    alt,
     src,
+    name,
+    getInitials = initials,
     background,
+    color,
     ...other
   } = props;
   const loaded = useLoaded(src);
   const hasImg = src;
   const hasImgNotFailing = hasImg && loaded !== 'error';
+
   let children = null;
 
   if (hasImgNotFailing) {
     children = (
       <img
         src={src}
-        alt={alt}
+        alt={name}
         className={stylesImg()}
       />
     );
-  } else if (childrenProp) {
+  } else if (name && getInitials) {
     children = (
       <Typography
-        color="white"
+        color={color}
+        aria-label={name}
+        role="img"
       >
-        {childrenProp}
+        {getInitials(name)}
       </Typography>
     );
   } else {
@@ -148,6 +165,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 10 13"
         width={10}
+        role="img"
       >
         <path
           d="M2.998 3.174c0 1.594 1 2.674 2 2.674s2-1.08 2-2.674c0-1.595-1-2.674-2-2.674s-2 1.08-2 2.674zM5 8.858c-1.249 0-2.383-.448-3.308-1.146C.95 8.064.5 8.878.5 9.812v2.12h9V9.81c0-.918-.46-1.746-1.193-2.098C7.383 8.41 6.25 8.858 5 8.858z"
@@ -159,7 +177,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
   }
 
   return (
-    <div
+    <Box
       {...other}
       ref={ref}
       className={cx({
@@ -167,12 +185,12 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
         [stylesSizeSmall()]: size === 'small',
         [stylesSizeMedium()]: size === 'medium',
         [stylesSizeLarge()]: size === 'large',
-        [stylesBackground(background)]: !!background,
         [className]: !!className,
       })}
+      background={background}
     >
       {children}
-    </div>
+    </Box>
   );
 });
 
@@ -181,4 +199,5 @@ Avatar.displayName = 'Avatar';
 Avatar.defaultProps = {
   size: 'medium',
   background: 'gray-7',
+  color: 'white',
 };
