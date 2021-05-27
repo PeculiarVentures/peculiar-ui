@@ -28,7 +28,10 @@
     "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/cjs",
     "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
     "build:storybook": "build-storybook -o public -s ./.storybook/static",
-    "clean": "rimraf public dist themes"
+    "clean": "rimraf public dist themes",
+    "test:unit": "jest --passWithNoTests --watchAll",
+    "test:unit:coverage": "yarn test:unit --coverage --watchAll=false",
+    "check:types": "tsc --noEmit"
   },
   "peerDependencies": {
     "react": "^17.0.1",
@@ -51,14 +54,21 @@
     "@storybook/addon-viewport": "^6.2.7",
     "@storybook/react": "^6.2.7",
     "@storybook/theming": "^6.2.7",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.1.9",
+    "@types/jest": "^26.0.23",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "awesome-typescript-loader": "^5.2.1",
+    "jest": "^26.6.3",
+    "jest-watch-typeahead": "^0.6.3",
     "react": "^17.0.1",
     "react-docgen-typescript": "^1.22.0",
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
     "storybook-addon-performance": "^0.15.2",
+    "ts-jest": "^26.5.6",
     "typescript": "^4.2.4"
   },
   "publishConfig": {

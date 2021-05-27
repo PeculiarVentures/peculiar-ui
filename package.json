@@ -4,12 +4,16 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna run build",
-    "clean": "lerna run --parallel clean",
     "bootstrap": "yarn",
     "bootstrap:undo": "lerna clean --yes",
     "bootstrap:upgrade": "yarn upgrade-interactive --latest",
+    "clean": "lerna run --parallel clean",
+
+    "build": "yarn workspaces run build",
+    "test:unit:coverage": "yarn workspaces run test:unit:coverage",
+    "check:types": "yarn workspaces run check:types",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+
     "prepare": "yarn build",
     "publish:version": "lerna publish",
     "publish:canary": "lerna publish --canary"
