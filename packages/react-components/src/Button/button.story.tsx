@@ -32,5 +32,6 @@ export default {
     children: { control: 'text' },
     startIcon: { control: false },
     endIcon: { control: false },
+    component: { control: false },
   },
 };

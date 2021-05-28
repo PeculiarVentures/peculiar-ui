@@ -41,6 +41,10 @@ type BaseProps = {
    * The className of the component.
    */
   className?: string;
+  /**
+   * The component used for the root node.
+   */
+  component?: React.ElementType;
   'data-testid'?: string;
 };
 
@@ -243,11 +247,14 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
     className,
     children,
     type = 'button',
+    component: componentProp,
     ...other
   } = props;
 
+  const Component = componentProp || 'button';
+
   return (
-    <button
+    <Component
       {...other}
       ref={ref}
       // eslint-disable-next-line react/button-has-type
@@ -266,7 +273,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
       >
         {children}
       </Typography>
-    </button>
+    </Component>
   );
 });
 
@@ -275,4 +282,5 @@ ButtonBase.displayName = 'ButtonBase';
 ButtonBase.defaultProps = {
   variant: 'text',
   color: 'default',
+  component: 'button',
 };

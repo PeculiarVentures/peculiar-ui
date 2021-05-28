@@ -6,6 +6,9 @@ type BaseProps = {
    * The content of the component.
    */
   children?: React.ReactNode;
+  /**
+   * The className of the component.
+   */
   className?: string;
   /**
    * The component used for the root node.
