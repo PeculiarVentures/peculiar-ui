@@ -66,6 +66,7 @@ const stylesBase = () => css({
   verticalAlign: 'middle',
   backgroundColor: 'transparent',
   padding: 0,
+  textDecoration: 'none',
   '&:disabled': {
     cursor: 'not-allowed',
     boxShadow: 'none',
