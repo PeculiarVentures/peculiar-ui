@@ -67,7 +67,7 @@ export const Tab = React.forwardRef<HTMLButtonElement, TabBaseProps>((props, ref
     onChange,
     ...other
   } = props;
-  let color: ColorType = 'gray-9';
+  let color: ColorType = 'gray-10';
 
   if (disabled) {
     color = 'gray-7';
