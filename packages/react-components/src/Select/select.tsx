@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { css, cx } from '../styles';
 import { Typography } from '../Typography';
+import { ArrowDropDownIcon } from '../icons';
 
 type BaseProps = {
   options: {
@@ -19,8 +20,10 @@ type BaseProps = {
     'medium' |
     'large'
   );
+  /**
+   * The className of the component.
+   */
   className?: string;
-  'data-testid'?: string;
   /**
    * Attributes applied to the `input` element.
    */
@@ -37,10 +40,6 @@ type BaseProps = {
    * The label of the input. It is only used for layout.
    */
   label?: string;
-  /**
-   * Callback fired when the value is changed.
-   */
-  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   /**
    * The value of the `input` element, required for a controlled component.
    */
@@ -70,19 +69,24 @@ type BaseProps = {
    */
   error?: boolean;
   errorText?: string;
+  /**
+   * Callback fired when the value is changed.
+   */
+  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
+  'data-testid'?: string;
 };
 
 type SelectProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
 const stylesInputBase = () => css({
-  label: 'Select',
+  label: 'Select-input',
   fontFamily: 'inherit',
   outline: 'none',
   cursor: 'pointer',
   boxSizing: 'border-box',
   width: '100%',
   borderRadius: '4px',
-  padding: '0 36px 0 10px',
+  padding: '0 34px 0 10px',
   color: 'var(--pv-color-black)',
   backgroundColor: 'var(--pv-color-gray-1)',
   borderStyle: 'solid',
@@ -134,14 +138,34 @@ const stylesInputSizeLarge = () => css({
 });
 
 const stylesLabel = () => css({
-  label: 'SelectLabel',
+  label: 'Select-label',
   marginBottom: '2px',
   display: 'inline-block',
 });
 
 const stylesError = () => css({
-  label: 'SelectError',
+  label: 'Select-error',
   marginTop: '2px',
+});
+
+const stylesInputContainer = () => css({
+  label: 'Select-container',
+  position: 'relative',
+});
+
+const stylesInputArrowIcon = () => css({
+  label: 'Select-arrow-icon',
+  position: 'absolute',
+  right: '0px',
+  top: 'calc(50% - 12px)',
+  pointerEvents: 'none',
+  margin: '0px 5px',
+  color: 'var(--pv-color-gray-10)',
+});
+
+const stylesInputArrowIconDisabled = () => css({
+  label: 'disabled',
+  color: 'var(--pv-color-gray-7)',
 });
 
 export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
@@ -188,40 +212,49 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
           </Typography>
         </label>
       )}
-      <select
-        disabled={disabled}
-        defaultValue={defaultValue}
-        id={id}
-        value={value}
-        required={required}
-        name={name}
-        ref={inputRef}
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        autoFocus={autoFocus}
-        className={cx({
-          [stylesInputBase()]: true,
-          [stylesInputSizeSmall()]: size === 'small',
-          [stylesInputSizeMedium()]: size === 'medium',
-          [stylesInputSizeLarge()]: size === 'large',
-        })}
-        aria-invalid={error || undefined}
-        onChange={onChange}
-        {...inputProps}
-      >
-        {placeholder && (
-          <option value="">
-            {placeholder}
-          </option>
-        )}
-        {options.map((option) => (
-          <option
-            key={option.value}
-            value={option.value}
-          >
-            {option.label}
-          </option>
-        ))}
-      </select>
+      <div className={cx(stylesInputContainer())}>
+        <select
+          disabled={disabled}
+          defaultValue={defaultValue}
+          id={id}
+          value={value}
+          required={required}
+          name={name}
+          ref={inputRef}
+          // eslint-disable-next-line jsx-a11y/no-autofocus
+          autoFocus={autoFocus}
+          className={cx({
+            [stylesInputBase()]: true,
+            [stylesInputSizeSmall()]: size === 'small',
+            [stylesInputSizeMedium()]: size === 'medium',
+            [stylesInputSizeLarge()]: size === 'large',
+          })}
+          aria-invalid={error || undefined}
+          onChange={onChange}
+          {...inputProps}
+        >
+          {placeholder && (
+            <option value="">
+              {placeholder}
+            </option>
+          )}
+          {options.map((option) => (
+            <option
+              key={option.value}
+              value={option.value}
+            >
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <ArrowDropDownIcon
+          className={cx({
+            [stylesInputArrowIcon()]: true,
+            [stylesInputArrowIconDisabled()]: disabled,
+          })}
+          aria-hidden
+        />
+      </div>
       {error && errorText && (
         <Typography
           variant="c2"

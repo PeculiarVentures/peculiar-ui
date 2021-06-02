@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { IconButton } from '../IconButton';
-import { InfoIcon, TimesIcon } from '../icons';
+import { InfoIcon, CloseIcon } from '../icons';
 import { css, cx, ColorType } from '../styles';
 
 type BaseProps = {
@@ -115,7 +115,7 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) =
           circled
           onClick={onClose}
         >
-          <TimesIcon />
+          <CloseIcon />
         </IconButton>
       )}
     </Box>

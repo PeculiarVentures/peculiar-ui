@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css, cx } from '../styles';
 import { Typography } from '../Typography';
-import { TimesSmallIcon } from '../icons';
+import { CloseSmallIcon } from '../icons';
 
 type BaseProps = {
   /**
@@ -178,7 +178,7 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => 
     }
 
     return (
-      <TimesSmallIcon {...baseIconProps} />
+      <CloseSmallIcon {...baseIconProps} />
     );
   };
 

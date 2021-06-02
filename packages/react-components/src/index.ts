@@ -11,6 +11,7 @@ export * from './Drawer';
 export * from './Fab';
 export * from './Fade';
 export * from './IconButton';
+export * from './icons';
 export * from './LinearProgress';
 export * from './Menu';
 export * from './Popover';
