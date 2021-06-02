@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Popover } from '../Popover';
 import { Typography } from '../Typography';
 import { Chip } from '../Chip';
+import { ArrowDropDownIcon } from '../icons';
 import { useMergedRef } from '../hooks';
 import { css, cx } from '../styles';
 
@@ -47,6 +48,9 @@ const stylesInputBase = () => css({
   textOverflow: 'ellipsis',
   cursor: 'pointer',
   userSelect: 'none',
+  position: 'relative',
+  minHeight: '40px',
+  padding: '2px 34px 2px 2px',
   '&::placeholder': {
     color: 'var(--pv-color-gray-9)',
   },
@@ -76,12 +80,6 @@ const stylesInputBase = () => css({
   lineHeight: 'var(--pv-text-c1-height)',
   letterSpacing: 'var(--pv-text-c1-spacing)',
 } as any);
-
-const stylesInputSizeLarge = () => css({
-  label: 'large',
-  minHeight: '40px',
-  padding: '2px',
-});
 
 const stylesChipsContainer = () => css({
   label: 'ComboBox-chips-container',
@@ -147,6 +145,16 @@ const stylesCheckbox = () => css({
   width: '20px',
   height: '20px',
   margin: '0px 10px 0 5px',
+});
+
+const stylesInputArrowIcon = () => css({
+  label: 'ComboBox-arrow-icon',
+  position: 'absolute',
+  right: '0px',
+  top: 'calc(50% - 12px)',
+  pointerEvents: 'none',
+  margin: '0px 5px',
+  color: 'var(--pv-color-gray-10)',
 });
 
 export const ComboBox = React.forwardRef<HTMLDivElement, ComboBoxProps>((props, ref) => {
@@ -312,12 +320,13 @@ export const ComboBox = React.forwardRef<HTMLDivElement, ComboBoxProps>((props, 
           aria-haspopup="listbox"
           onClick={handleRootClick}
           onKeyDown={handleRootKeyDown}
-          className={cx({
-            [stylesInputBase()]: true,
-            [stylesInputSizeLarge()]: true,
-          })}
+          className={cx(stylesInputBase())}
         >
           {renderSelectedValues()}
+          <ArrowDropDownIcon
+            className={cx(stylesInputArrowIcon())}
+            aria-hidden
+          />
         </div>
         {renderHiddenInputs()}
       </div>
