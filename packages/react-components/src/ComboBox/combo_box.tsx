@@ -257,8 +257,8 @@ export const ComboBox = React.forwardRef<HTMLDivElement, ComboBoxProps>((props, 
     return (
       <Chip
         key={value}
-        selected
         className={cx(stylesChip())}
+        onDelete={handleMenuItemClick(option)}
       >
         {label}
       </Chip>

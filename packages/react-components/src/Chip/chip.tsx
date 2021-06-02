@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css, cx } from '../styles';
 import { Typography } from '../Typography';
-import { CheckIcon } from '../icons';
+import { TimesSmallIcon } from '../icons';
 
 type BaseProps = {
   /**
@@ -13,129 +13,197 @@ type BaseProps = {
    */
   disabled?: boolean;
   /**
+   * Override the default delete icon element. Shown only if `onDelete` is set.
+   */
+  deleteIcon?: React.ReactElement;
+  /**
    * The variant to use.
    */
-  variant?: ('choice' | 'filter');
+  variant?: ('contained' | 'outlined');
   /**
-   * If `true`, the chip will be selected.
+   * The color of the component.
    */
-  selected?: boolean;
+  color?: ('secondary' | 'wrong');
   /**
    * The className of the component.
    */
   className?: string;
+  /**
+   * Callback function fired when the delete icon is clicked. If set, the delete icon will be shown.
+   */
+  onDelete?: React.MouseEventHandler<HTMLElement>;
+  /**
+   * Callback function fired when the component is clicked. If set, the component will be clickable.
+   */
+  onClick?: React.MouseEventHandler<HTMLElement>;
   'data-testid'?: string;
 };
 
-type ChipProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
+type ChipProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 
 const stylesBase = () => css({
   label: 'Chip',
   display: 'inline-flex',
-  alignItems: 'center',
   fontFamily: 'inherit',
-  outline: 'none',
+  outline: '0',
   boxSizing: 'border-box',
-  borderStyle: 'solid',
-  borderWidth: '1px',
-  borderColor: 'var(--pv-color-gray-6)',
   borderRadius: '15px',
   padding: '0 10px',
   height: '30px',
   backgroundColor: 'transparent',
-  color: 'var(--pv-color-gray-9)',
-  transition: 'background-color 200ms, color 200ms, border-color 200ms',
+  transition: 'background-color 200ms, color 200ms, border-color 200ms, box-shadow 200ms',
   margin: '0 5px',
-  '&:disabled': {
-    cursor: 'not-allowed',
-    color: 'var(--pv-color-gray-7)',
-    borderColor: 'var(--pv-color-gray-4)',
-    backgroundColor: 'transparent',
-  },
+  cursor: 'default',
+  border: '1px solid transparent',
+  verticalAlign: 'middle',
+  justifyContent: 'center',
+  alignItems: 'center',
+  whiteSpace: 'nowrap',
+  textDecoration: 'none',
 });
 
-const stylesEffects = () => css({
-  label: 'effects',
+const stylesDisabled = () => css({
+  label: 'disabled',
+  pointerEvents: 'none',
+});
+
+const stylesClickable = () => css({
+  label: 'clickable',
   cursor: 'pointer',
-  '&:not(:disabled)': {
+  userSelect: 'none',
+  WebkitTapHighlightColor: 'transparent',
+});
+
+const stylesVariantContained = (props: ChipProps) => css({
+  label: 'contained',
+  backgroundColor: `var(--pv-color-${props.color})`,
+  color: 'var(--pv-color-white)',
+  ...(typeof props.onClick === 'function' && !props.disabled && {
     '&:hover': {
-      backgroundColor: 'var(--pv-color-gray-3)',
-      color: 'var(--pv-color-gray-9)',
+      backgroundColor: `var(--pv-color-${props.color}-tint-1)`,
     },
     '&:focus': {
-      backgroundColor: 'var(--pv-color-gray-5)',
-      color: 'var(--pv-color-black)',
-      borderColor: 'var(--pv-color-gray-9)',
+      backgroundColor: `var(--pv-color-${props.color}-tint-2)`,
     },
     '&:active': {
-      backgroundColor: 'var(--pv-color-gray-4)',
-      color: 'var(--pv-color-gray-9)',
-      borderColor: 'var(--pv-color-gray-9)',
+      backgroundColor: `var(--pv-color-${props.color}-tint-2)`,
+      boxShadow: 'var(--pv-shadow-light-medium)',
     },
+  }),
+  ...(props.disabled && {
+    color: 'var(--pv-color-gray-8)',
+    backgroundColor: 'var(--pv-color-gray-4)',
+  }),
+});
+
+const stylesVariantOutlined = (props: ChipProps) => css({
+  label: 'outlined',
+  backgroundColor: 'transparent',
+  color: `var(--pv-color-${props.color})`,
+  borderColor: `var(--pv-color-${props.color}-tint-2)`,
+  ...(typeof props.onClick === 'function' && !props.disabled && {
+    '&:hover': {
+      backgroundColor: `var(--pv-color-${props.color}-tint-5)`,
+    },
+    '&:focus': {
+      backgroundColor: `var(--pv-color-${props.color}-tint-4)`,
+    },
+    '&:active': {
+      backgroundColor: `var(--pv-color-${props.color}-tint-3)`,
+    },
+  }),
+  ...(props.disabled && {
+    color: 'var(--pv-color-gray-8)',
+    borderColor: 'var(--pv-color-gray-4)',
+  }),
+});
+
+const stylesDeleteAction = () => css({
+  label: 'delete',
+  width: '24px',
+  height: '24px',
+  cursor: 'pointer',
+  WebkitTapHighlightColor: 'transparent',
+  margin: '0px -5px 0 5px',
+  transition: 'opacity 200ms',
+  opacity: '0.6',
+  '&:hover': {
+    opacity: '1',
   },
 });
 
-const stylesChoiceSelected = () => css({
-  label: 'choice-selected',
-  backgroundColor: 'var(--pv-color-secondary-tint-5)',
-  color: 'var(--pv-color-secondary)',
-  borderColor: 'var(--pv-color-secondary-tint-3)',
-});
-
-const stylesFilterSelected = () => css({
-  label: 'filter-selected',
-  backgroundColor: 'var(--pv-color-gray-4)',
-  color: 'var(--pv-color-black)',
-  borderColor: 'var(--pv-color-gray-7)',
-});
-
-const stylesIcon = () => css({
-  label: 'Chip-icon',
-  marginRight: '10px',
-  display: 'flex',
-  alignItems: 'center',
-});
-
-export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>((props, ref) => {
+export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
   const {
     children,
-    className,
     disabled,
+    deleteIcon,
     variant,
-    selected,
-    tabIndex,
+    color,
+    className,
+    onClick,
+    onDelete,
     ...other
   } = props;
-  const isChoice = variant === 'choice';
+  const clickable = Boolean(onClick);
 
-  const Icon = selected && !isChoice && (
-    <div className={cx(stylesIcon())}>
-      <CheckIcon />
-    </div>
-  );
+  const baseProps = {
+    role: clickable ? 'button' : undefined,
+    'aria-disabled': disabled ? true : undefined,
+    tabIndex: clickable && !disabled ? 0 : undefined,
+    onClick,
+  };
+
+  const handleDeleteClick = (event: React.MouseEvent<HTMLElement>) => {
+    // Stop the event from bubbling up to the `Chip`.
+    event.stopPropagation();
+
+    if (onDelete) {
+      onDelete(event);
+    }
+  };
+
+  const renderDeleteAction = () => {
+    if (!onDelete) {
+      return null;
+    }
+
+    const baseIconProps = {
+      'aria-hidden': true,
+      className: cx(stylesDeleteAction()),
+      onClick: handleDeleteClick,
+    };
+
+    if (deleteIcon) {
+      return React.cloneElement(deleteIcon, baseIconProps);
+    }
+
+    return (
+      <TimesSmallIcon {...baseIconProps} />
+    );
+  };
 
   return (
-    <button
+    <div
       {...other}
-      disabled={disabled}
+      {...baseProps}
       ref={ref}
-      type="button"
       className={cx({
         [stylesBase()]: true,
-        [stylesChoiceSelected()]: selected && isChoice,
-        [stylesFilterSelected()]: selected && !isChoice,
-        [stylesEffects()]: !selected || !isChoice,
+        [stylesDisabled()]: disabled,
+        [stylesClickable()]: clickable && !disabled,
+        [stylesVariantContained(props)]: variant !== 'outlined',
+        [stylesVariantOutlined(props)]: variant === 'outlined',
         [className]: !!className,
       })}
-      tabIndex={selected && isChoice ? -1 : tabIndex}
     >
-      {Icon}
       <Typography
         variant="b3"
+        component="span"
       >
         {children}
       </Typography>
-    </button>
+      {renderDeleteAction()}
+    </div>
   );
 });
 
@@ -143,5 +211,6 @@ Chip.displayName = 'Chip';
 
 Chip.defaultProps = {
   disabled: false,
-  variant: 'choice',
+  variant: 'contained',
+  color: 'secondary',
 };
