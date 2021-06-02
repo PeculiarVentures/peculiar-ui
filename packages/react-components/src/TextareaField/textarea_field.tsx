@@ -22,7 +22,7 @@ type BaseProps = {
   /**
    * Attributes applied to the `input` element.
    */
-  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+  inputProps?: React.InputHTMLAttributes<HTMLTextAreaElement>;
   /**
    * The default value. Use when the component is not controlled.
    */
@@ -38,7 +38,7 @@ type BaseProps = {
   /**
    * Callback fired when the value is changed.
    */
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
   /**
    * The value of the `input` element, required for a controlled component.
    */
@@ -58,7 +58,7 @@ type BaseProps = {
   /**
    * Pass a ref to the `input` element.
    */
-  inputRef?: React.ForwardedRef<HTMLInputElement>;
+  inputRef?: React.ForwardedRef<HTMLTextAreaElement>;
   /**
    * If `true`, the `input` element is focused during the first mount.
    */
@@ -73,23 +73,19 @@ type BaseProps = {
    * the field (not from interacting with the field).
    */
   readOnly?: boolean;
-  /**
-   * Type of the `input` element.
-   */
-  type?: React.InputHTMLAttributes<HTMLInputElement>['type'];
   'data-testid'?: string;
 };
 
-type TextFieldProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type TextareaFieldProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
 const stylesInputBase = () => css({
-  label: 'TextField',
+  label: 'TextareaField',
   fontFamily: 'inherit',
   outline: 'none',
   boxSizing: 'border-box',
   width: '100%',
   borderRadius: '4px',
-  padding: '0 10px',
+  padding: '5px 10px',
   color: 'var(--pv-color-black)',
   backgroundColor: 'var(--pv-color-gray-1)',
   borderStyle: 'solid',
@@ -98,6 +94,7 @@ const stylesInputBase = () => css({
   transition: 'background-color 200ms, color 200ms, border-color 200ms',
   display: 'block',
   appearance: 'none',
+  resize: 'none',
   '&::placeholder': {
     color: 'var(--pv-color-gray-9)',
   },
@@ -130,31 +127,31 @@ const stylesInputBase = () => css({
 
 const stylesInputSizeSmall = () => css({
   label: 'small',
-  height: '30px',
+  minHeight: '60px',
 });
 
 const stylesInputSizeMedium = () => css({
   label: 'medium',
-  height: '35px',
+  minHeight: '70px',
 });
 
 const stylesInputSizeLarge = () => css({
   label: 'large',
-  height: '40px',
+  minHeight: '80px',
 });
 
 const stylesLabel = () => css({
-  label: 'TextField-label',
+  label: 'TextareaField-label',
   marginBottom: '2px',
   display: 'inline-block',
 });
 
 const stylesError = () => css({
-  label: 'TextField-error',
+  label: 'TextareaField-error',
   marginTop: '2px',
 });
 
-export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props, ref) => {
+export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps>((props, ref) => {
   const {
     size,
     className,
@@ -173,7 +170,6 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
     errorText,
     autoFocus,
     readOnly,
-    type = 'text',
     ...other
   } = props;
 
@@ -199,9 +195,8 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
           </Typography>
         </label>
       )}
-      <input
+      <textarea
         {...inputProps}
-        type={type}
         disabled={disabled}
         defaultValue={defaultValue}
         id={id}
@@ -237,9 +232,9 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
   );
 });
 
-TextField.displayName = 'TextField';
+TextareaField.displayName = 'TextareaField';
 
-TextField.defaultProps = {
+TextareaField.defaultProps = {
   disabled: false,
   size: 'medium',
 };
