@@ -69,7 +69,7 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
         className={cx(stylesCollapse())}
       >
         <Alert
-          color="wrong"
+          variant="wrong"
           disableIcon
           className={cx(stylesError())}
         >

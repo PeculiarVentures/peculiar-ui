@@ -2,8 +2,13 @@ import * as React from 'react';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { IconButton } from '../IconButton';
-import { InfoIcon, CloseIcon } from '../icons';
-import { css, cx, ColorType } from '../styles';
+import {
+  CloseCircleIcon,
+  WarningIcon,
+  CheckCircleIcon,
+  CloseIcon,
+} from '../icons';
+import { css, cx } from '../styles';
 
 type BaseProps = {
   /**
@@ -17,8 +22,7 @@ type BaseProps = {
   /**
    * The color of the component.
    */
-  color?: (
-    'info' |
+  variant?: (
     'wrong' |
     'attention' |
     'success'
@@ -40,18 +44,25 @@ const stylesBase = () => css({
   label: 'Alert',
   width: '100%',
   display: 'flex',
-  boxShadow: 'var(--pv-shadow-dark-medium)',
   padding: '10px 20px',
   boxSizing: 'border-box',
 });
 
-const stylesIcon = () => css({
+const stylesIcon = (variant: BaseProps['variant']) => css({
   label: 'Alert-icon',
   marginRight: '10px',
-  color: 'var(--pv-color-white)',
   width: '24px',
   display: 'flex',
   padding: '3px 0px',
+  ...(variant === 'wrong' && {
+    color: 'var(--pv-color-wrong)',
+  }),
+  ...(variant === 'attention' && {
+    color: 'var(--pv-color-attention)',
+  }),
+  ...(variant === 'success' && {
+    color: 'var(--pv-color-success)',
+  }),
 });
 
 const stylesText = () => css({
@@ -63,19 +74,33 @@ const stylesText = () => css({
 export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
   const {
     children,
-    color,
+    variant,
     className,
     disableIcon,
     onClose,
     ...other
   } = props;
 
-  const getBackgroundColor = (): ColorType => {
-    if (color === 'wrong' || color === 'success' || color === 'attention') {
-      return color;
+  const renderIcon = () => {
+    if (variant === 'wrong') {
+      return (
+        <CloseCircleIcon />
+      );
     }
 
-    return 'secondary';
+    if (variant === 'attention') {
+      return (
+        <WarningIcon />
+      );
+    }
+
+    if (variant === 'success') {
+      return (
+        <CheckCircleIcon />
+      );
+    }
+
+    return null;
   };
 
   return (
@@ -84,34 +109,30 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) =
       ref={ref}
       role="alert"
       borderRadius={4}
-      background={getBackgroundColor()}
+      background={variant === 'wrong' ? 'wrong-tint-5' : 'black'}
       className={cx({
         [stylesBase()]: true,
         [className]: !!className,
       })}
     >
       {!disableIcon && (
-        <div
-          className={cx({
-            [stylesIcon()]: true,
-          })}
-        >
-          <InfoIcon />
+        <div className={cx(stylesIcon(variant))}>
+          {renderIcon()}
         </div>
       )}
       <Typography
         variant="b3"
-        color="white"
+        color={variant === 'wrong' ? 'wrong' : 'white'}
         className={cx({
           [stylesText()]: true,
         })}
       >
         {children}
       </Typography>
-      {typeof onClose === 'function' && (
+      {onClose && (
         <IconButton
           size="small"
-          color="white"
+          color={variant === 'wrong' ? 'wrong' : 'white'}
           circled
           onClick={onClose}
         >
@@ -125,5 +146,5 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) =
 Alert.displayName = 'Alert';
 
 Alert.defaultProps = {
-  color: 'info',
+  disableIcon: true,
 };

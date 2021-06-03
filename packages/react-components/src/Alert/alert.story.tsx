@@ -6,6 +6,11 @@ export const Playground = (args: any) => (
     <Alert
       {...args}
     />
+    <br />
+    <Alert
+      {...args}
+      onClose={undefined}
+    />
   </>
 );
 
