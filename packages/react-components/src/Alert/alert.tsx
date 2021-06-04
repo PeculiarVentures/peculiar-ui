@@ -38,7 +38,7 @@ type BaseProps = {
   'data-testid'?: string;
 };
 
-type AlertProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type AlertProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 
 const stylesBase = () => css({
   label: 'Alert',
