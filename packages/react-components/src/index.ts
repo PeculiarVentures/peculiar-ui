@@ -21,6 +21,7 @@ export * from './Slide';
 export * from './Tabs';
 export * from './TextareaField';
 export * from './TextField';
+export * from './Toast';
 export * from './Tooltip';
 export * from './Typography';
 export * from './styles';
