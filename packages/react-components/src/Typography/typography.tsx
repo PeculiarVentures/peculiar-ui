@@ -6,7 +6,7 @@ import {
   TypographyType,
 } from '../styles';
 
-type BaseProps = {
+export type TypographyBaseProps = {
   /**
    * The content of the component.
    */
@@ -30,7 +30,7 @@ type BaseProps = {
   component?: React.ElementType;
 };
 
-type TypographyProps = BaseProps & React.HTMLAttributes<HTMLElement>;
+export type TypographyProps = TypographyBaseProps & React.HTMLAttributes<HTMLElement>;
 
 const stylesBase = () => css({
   label: 'Typography',
