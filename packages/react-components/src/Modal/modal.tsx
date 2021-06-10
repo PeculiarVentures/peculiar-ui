@@ -60,7 +60,10 @@ const stylesBase = () => css({
   label: 'Modal',
   position: 'fixed',
   zIndex: 1300,
-  inset: '0px',
+  top: 0,
+  bottom: 0,
+  right: 0,
+  left: 0,
 });
 
 const stylesHidden = () => css({
