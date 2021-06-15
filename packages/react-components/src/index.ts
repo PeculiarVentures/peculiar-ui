@@ -2,6 +2,7 @@ export * from './Alert';
 export * from './Avatar';
 export * from './Box';
 export * from './Button';
+export * from './Checkbox';
 export * from './Chip';
 export * from './CircularProgress';
 export * from './Collapse';
