@@ -19,6 +19,7 @@ export * from './Popover';
 export * from './Portal';
 export * from './Select';
 export * from './Slide';
+export * from './Slider';
 export * from './Tabs';
 export * from './TextareaField';
 export * from './TextField';
