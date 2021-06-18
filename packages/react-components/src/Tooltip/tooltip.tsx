@@ -186,7 +186,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
       {React.cloneElement(children, childrenProps)}
       <Popper
         anchorEl={childRef.current}
-        open={open}
+        open={title && open}
         placement={placement}
         className={cx({
           [stylesPopper(interactive)]: true,
