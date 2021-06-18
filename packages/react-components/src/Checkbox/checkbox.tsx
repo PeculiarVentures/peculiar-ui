@@ -50,8 +50,8 @@ const stylesBase = () => css({
   label: 'Checkbox',
   cursor: 'pointer',
   display: 'inline-flex',
-  width: '30px',
-  height: '30px',
+  width: '20px',
+  height: '20px',
   borderRadius: '50%',
   justifyContent: 'center',
   alignItems: 'center',
@@ -98,6 +98,15 @@ const stylesControl = () => css({
   height: '20px',
   position: 'relative',
   color: 'var(--pv-color-white)',
+  '&:after': {
+    top: '-10px',
+    left: '-10px',
+    right: '-10px',
+    bottom: '-10px',
+    content: '""',
+    position: 'absolute',
+    borderRadius: '50%',
+  },
 });
 
 const stylesIcon = () => css({
