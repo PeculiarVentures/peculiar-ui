@@ -44,7 +44,7 @@ type BaseProps = {
   'data-testid'?: string;
 };
 
-export type CheckboxProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor'>;
+export type CheckboxProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 
 const stylesBase = () => css({
   label: 'Checkbox',
