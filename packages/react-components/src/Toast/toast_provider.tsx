@@ -32,8 +32,8 @@ export const ToastProvider: React.FC<BaseProps> = (props) => {
   const [toasts, setToasts] = React.useState<ToastType[]>([]);
   const [queue, setQueue] = React.useState<ToastType[]>([]);
 
-  const addToast = (options: BaseToastType) => {
-    const id = options.id || `${Date.now()}${Math.random()}}`;
+  const addToast = React.useCallback((options: BaseToastType) => {
+    const id = options.id || `${Date.now()}${Math.random()}`;
     const newToast: ToastType = {
       ...options,
       id,
@@ -65,15 +65,16 @@ export const ToastProvider: React.FC<BaseProps> = (props) => {
       ...prevState,
       newToast,
     ]));
-  };
+  }, [toasts, queue]);
 
-  const removeToast = (id: string) => {
+  const removeToast = React.useCallback((id: string) => {
     const inToasts = toasts.findIndex((item: ToastType) => item.id === id);
 
     if (inToasts > -1 && queue.length) {
       return setQueue((prevQueue) => {
         setToasts((prevToasts) => {
           const newList = [...prevToasts];
+
           newList.splice(inToasts, 1);
           newList.push(prevQueue[0]);
 
@@ -95,7 +96,7 @@ export const ToastProvider: React.FC<BaseProps> = (props) => {
     }
 
     return undefined;
-  };
+  }, [toasts, queue]);
 
   const removeAllToasts = () => {
     setToasts([]);

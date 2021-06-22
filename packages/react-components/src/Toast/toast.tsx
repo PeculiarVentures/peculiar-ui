@@ -28,11 +28,11 @@ type BaseProps = {
 export const Toast: React.FC<BaseProps> = (props) => {
   const {
     id,
-    onClose,
     duration,
     isClosable,
     alertProps,
     children,
+    onClose,
   } = props;
 
   const handleClose = () => {
@@ -69,5 +69,5 @@ export const Toast: React.FC<BaseProps> = (props) => {
 Toast.displayName = 'Toast';
 
 Toast.defaultProps = {
-  duration: 5000,
+  duration: 4000,
 };
