@@ -2,6 +2,7 @@ import * as React from 'react';
 import { css, cx, ColorType } from '../styles';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
+import { useImage } from '../hooks';
 
 type BaseProps = {
   /**
@@ -12,7 +13,7 @@ type BaseProps = {
    */
   name?: string;
   /**
-   * Function to get the initials to display
+   * Function to get the initials to display.
    */
   getInitials?: (name: string) => string;
   /**
@@ -78,43 +79,6 @@ const stylesImg = () => css({
   textIndent: 10000,
 });
 
-function useLoaded(src: string) {
-  const [loaded, setLoaded] = React.useState('');
-
-  React.useEffect(() => {
-    if (!src) {
-      return undefined;
-    }
-
-    setLoaded('');
-
-    let active = true;
-    const image = new Image();
-
-    image.src = src;
-    image.onload = () => {
-      if (!active) {
-        return;
-      }
-
-      setLoaded('loaded');
-    };
-    image.onerror = () => {
-      if (!active) {
-        return;
-      }
-
-      setLoaded('error');
-    };
-
-    return () => {
-      active = false;
-    };
-  }, [src]);
-
-  return loaded;
-}
-
 function initials(name: string) {
   const [firstName, lastName] = name.split(' ');
 
@@ -134,13 +98,14 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
     color,
     ...other
   } = props;
-  const loaded = useLoaded(src);
-  const hasImg = src;
-  const hasImgNotFailing = hasImg && loaded !== 'error';
+  const status = useImage({ src });
+  const hasLoaded = status === 'loaded';
+  const showImage = src && hasLoaded;
+  const showInitials = name && getInitials;
 
   let children = null;
 
-  if (hasImgNotFailing) {
+  if (showImage) {
     children = (
       <img
         src={src}
@@ -148,7 +113,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
         className={stylesImg()}
       />
     );
-  } else if (name && getInitials) {
+  } else if (showInitials) {
     children = (
       <Typography
         color={color}

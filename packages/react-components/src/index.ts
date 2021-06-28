@@ -13,6 +13,7 @@ export * from './Fab';
 export * from './Fade';
 export * from './IconButton';
 export * from './icons';
+export * from './Image';
 export * from './LinearProgress';
 export * from './Menu';
 export * from './Popover';
