@@ -8,7 +8,7 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-viewport',
     '@storybook/addon-actions',
-    'storybook-addon-performance',
+    // 'storybook-addon-performance/register',
   ],
   typescript: {
     check: true,
