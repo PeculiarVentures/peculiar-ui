@@ -38,7 +38,7 @@ type BaseProps = {
   'data-testid'?: string;
 };
 
-export type SliderProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type SliderProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'defaultValue'>;
 
 const stylesBase = () => css({
   label: 'Slider',

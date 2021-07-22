@@ -29,6 +29,6 @@ export default {
   title: 'Components/Image',
   component: Image,
   argTypes: {
-    fallback: { controls: false },
+    fallback: { control: false },
   },
 };
