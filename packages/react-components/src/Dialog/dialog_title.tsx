@@ -1,6 +1,8 @@
 import React from 'react';
 import { Typography } from '../Typography';
 import { css, cx } from '../styles';
+import { IconButton } from '../IconButton';
+import { CloseIcon } from '../icons';
 
 type BaseProps = {
   /**
@@ -11,6 +13,10 @@ type BaseProps = {
    * The className of the component.
    */
   className?: string;
+  /**
+   * Callback fired when the component requests to be closed.
+   */
+  onClose?: () => void;
 };
 
 type DialogTitleProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
@@ -18,13 +24,21 @@ type DialogTitleProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 const stylesBase = () => css({
   label: 'DialogTitle',
   padding: '20px 20px 10px',
+  display: 'flex',
   flex: '0 0 auto',
+  justifyContent: 'space-between',
+});
+
+const stylesCloseButton = () => css({
+  label: 'DialogTitle-close',
+  marginLeft: '10px',
 });
 
 export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((props, ref) => {
   const {
     children,
     className,
+    onClose,
     ...other
   } = props;
 
@@ -44,6 +58,16 @@ export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((p
       >
         {children}
       </Typography>
+
+      {onClose && (
+        <IconButton
+          size="small"
+          onClick={onClose}
+          className={cx(stylesCloseButton())}
+        >
+          <CloseIcon />
+        </IconButton>
+      )}
     </header>
   );
 });
