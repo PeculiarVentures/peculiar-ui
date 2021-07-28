@@ -31,7 +31,7 @@ const stylesBase = () => css({
 
 const stylesCloseButton = () => css({
   label: 'DialogTitle-close',
-  marginLeft: '10px',
+  margin: '0 -5px 0 10px',
 });
 
 export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((props, ref) => {
