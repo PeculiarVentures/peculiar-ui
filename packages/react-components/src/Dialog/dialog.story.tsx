@@ -10,7 +10,9 @@ import {
 
 const Template = (args: any) => (
   <Dialog {...args}>
-    <DialogTitle>
+    <DialogTitle
+      onClose={() => { }}
+    >
       Sign in
     </DialogTitle>
     <DialogContent>
