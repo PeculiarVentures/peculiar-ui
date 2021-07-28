@@ -12,6 +12,7 @@ const Template = (args: any) => (
   <Dialog {...args}>
     <DialogTitle
       onClose={() => { }}
+      tooltipTitle="Close"
     >
       Sign in
     </DialogTitle>
