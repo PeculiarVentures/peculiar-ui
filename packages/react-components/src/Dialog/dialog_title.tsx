@@ -3,7 +3,6 @@ import { Typography } from '../Typography';
 import { css, cx } from '../styles';
 import { IconButton } from '../IconButton';
 import { CloseIcon } from '../icons';
-import { Tooltip } from '../Tooltip';
 
 type BaseProps = {
   /**
@@ -14,10 +13,6 @@ type BaseProps = {
    * The className of the component.
    */
   className?: string;
-  /**
-   * Tooltip title.
-   */
-  tooltipTitle?: string;
   /**
    * Callback fired when the component requests to be closed.
    */
@@ -36,15 +31,13 @@ const stylesBase = () => css({
 
 const stylesCloseButton = () => css({
   label: 'DialogTitle-close',
-  marginLeft: '10px',
-  marginRight: '-5px',
+  margin: '0 -5px 0 10px',
 });
 
 export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((props, ref) => {
   const {
     children,
     className,
-    tooltipTitle,
     onClose,
     ...other
   } = props;
@@ -67,19 +60,13 @@ export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((p
       </Typography>
 
       {onClose && (
-        <Tooltip
+        <IconButton
           size="small"
-          title={tooltipTitle}
-          disablePortal={false}
+          onClick={onClose}
+          className={cx(stylesCloseButton())}
         >
-          <IconButton
-            size="small"
-            onClick={onClose}
-            className={cx(stylesCloseButton())}
-          >
-            <CloseIcon />
-          </IconButton>
-        </Tooltip>
+          <CloseIcon />
+        </IconButton>
       )}
     </header>
   );
