@@ -63,6 +63,20 @@ const Test = () => {
         type="button"
         onClick={() => {
           toast.addToast({
+            message: 'This is a pending message!',
+            isClosable: true,
+            variant: 'pending',
+            disableIcon: false,
+          });
+        }}
+      >
+        Show pending toast
+      </button>
+      <br />
+      <button
+        type="button"
+        onClick={() => {
+          toast.addToast({
             message: 'This is an error message!',
             duration: null,
           });

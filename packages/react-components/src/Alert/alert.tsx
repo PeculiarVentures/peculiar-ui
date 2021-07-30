@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { IconButton } from '../IconButton';
+import { CircularProgress } from '../CircularProgress';
 import {
   CloseCircleIcon,
   WarningIcon,
@@ -20,12 +21,13 @@ type BaseProps = {
    */
   className?: string;
   /**
-   * The color of the component.
+   * The type of the component.
    */
   variant?: (
     'wrong' |
     'attention' |
-    'success'
+    'success' |
+    'pending'
   );
   /**
    * If `true`, the start icon will be hidden.
@@ -54,6 +56,8 @@ const stylesIcon = (variant: BaseProps['variant']) => css({
   width: '24px',
   display: 'flex',
   padding: '3px 0px',
+  justifyContent: 'center',
+  alignItems: 'center',
   ...(variant === 'wrong' && {
     color: 'var(--pv-color-wrong)',
   }),
@@ -97,6 +101,12 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) =
     if (variant === 'success') {
       return (
         <CheckCircleIcon />
+      );
+    }
+
+    if (variant === 'pending') {
+      return (
+        <CircularProgress size="small" color="secondary" />
       );
     }
 
