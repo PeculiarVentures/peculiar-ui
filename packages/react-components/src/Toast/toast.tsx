@@ -14,7 +14,7 @@ type BaseProps = {
   /**
    * The delay before the toast hides (in milliseconds). If set to `null`, toast will never dismiss.
    */
-  duration?: number;
+  duration?: number | null;
   /**
    * If `true`, toast will show a close button.
    */
@@ -40,7 +40,7 @@ export const Toast: React.FC<BaseProps> = (props) => {
   };
 
   React.useEffect(() => {
-    if (Number.isInteger(duration)) {
+    if (duration > 0) {
       const timeout = window.setTimeout(
         handleClose,
         duration,

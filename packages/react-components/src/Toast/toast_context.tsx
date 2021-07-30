@@ -20,9 +20,9 @@ export type BaseToastType = {
   isClosable?: boolean;
   /**
    * The delay before the toast hides (in milliseconds).
-   * If set to `undefined`, toast will never dismiss.
+   * If set to `null`, toast will never dismiss.
    */
-  duration?: number;
+  duration?: number | null;
   /**
    * The `id` of the toast. Mostly used when you need to prevent duplicate.
    * By default, we generate a unique `id` for each toast.
