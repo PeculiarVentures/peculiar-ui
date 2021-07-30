@@ -40,7 +40,7 @@ export const Toast: React.FC<BaseProps> = (props) => {
   };
 
   React.useEffect(() => {
-    if (duration !== null) {
+    if (Number.isInteger(duration)) {
       const timeout = window.setTimeout(
         handleClose,
         duration,

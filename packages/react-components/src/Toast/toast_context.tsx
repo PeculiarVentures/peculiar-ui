@@ -19,7 +19,8 @@ export type BaseToastType = {
    */
   isClosable?: boolean;
   /**
-   * The delay before the toast hides (in milliseconds). If set to `null`, toast will never dismiss.
+   * The delay before the toast hides (in milliseconds).
+   * If set to `undefined`, toast will never dismiss.
    */
   duration?: number;
   /**
