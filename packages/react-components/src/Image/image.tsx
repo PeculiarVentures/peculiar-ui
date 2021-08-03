@@ -38,6 +38,7 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>((props, ref)
         ref={ref}
         alt={alt}
         src={src}
+        className={className}
       />
     );
   }
