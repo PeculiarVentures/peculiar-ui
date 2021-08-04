@@ -11,6 +11,9 @@ type BaseProps = {
    * The value of the currently selected `Tab`.
    */
   value: string;
+  /**
+   * The className of the component.
+   */
   className?: string;
   /**
    * Callback fired when the value changes.

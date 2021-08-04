@@ -32,5 +32,6 @@ export default {
     children: { control: false },
     value: { control: false },
   },
+  subcomponents: { Tab },
   parameters: { actions: { argTypesRegex: '^on.*' } },
 };

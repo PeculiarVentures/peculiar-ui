@@ -11,15 +11,23 @@ type BaseProps = {
    * Unique identifier used to control which tab is selected.
    */
   id: string;
+  /**
+   * The className of the component.
+   */
   className?: string;
   /**
    * If `true`, the tab will be disabled.
    */
   disabled?: boolean;
   /**
+   * The component used for the root node.
+   */
+  component?: React.ElementType;
+  /**
    * Callback fired when the value changes.
    */
   onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
+  'data-testid'?: string;
 };
 
 export type TabBaseProps = BaseProps & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onChange'>;
@@ -37,6 +45,9 @@ const stylesBase = () => css({
   padding: '0 15px',
   backgroundColor: 'transparent',
   transition: 'background-color 200ms, color 200ms, border-color 200ms',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   '&:disabled': {
     cursor: 'not-allowed',
   },
@@ -64,9 +75,11 @@ export const Tab = React.forwardRef<HTMLButtonElement, TabBaseProps>((props, ref
     id,
     // @ts-ignore
     selected,
+    component: componentProp,
     onChange,
     ...other
   } = props;
+  const Component = componentProp || 'button';
   let color: ColorType = 'gray-10';
 
   if (disabled) {
@@ -82,7 +95,7 @@ export const Tab = React.forwardRef<HTMLButtonElement, TabBaseProps>((props, ref
   };
 
   return (
-    <button
+    <Component
       {...other}
       type="button"
       ref={ref}
@@ -103,7 +116,7 @@ export const Tab = React.forwardRef<HTMLButtonElement, TabBaseProps>((props, ref
       >
         {children}
       </Typography>
-    </button>
+    </Component>
   );
 });
 
@@ -111,4 +124,5 @@ Tab.displayName = 'Tab';
 
 Tab.defaultProps = {
   disabled: false,
+  component: 'button',
 };
