@@ -18,6 +18,7 @@ export * from './LinearProgress';
 export * from './Menu';
 export * from './Popover';
 export * from './Portal';
+export * from './Radio';
 export * from './Select';
 export * from './Slide';
 export * from './Slider';
