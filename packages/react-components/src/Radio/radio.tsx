@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box } from '../Box';
-import { CheckIcon } from '../icons';
+import { DotIcon } from '../icons';
 import { useId } from '../hooks';
 import { css, cx } from '../styles';
 
@@ -22,7 +22,7 @@ type BaseProps = {
    */
   className?: string;
   /**
-   * If `true`, the checkbox will be disabled.
+   * If `true`, the radio will be disabled.
    */
   disabled?: boolean;
   /**
@@ -38,16 +38,20 @@ type BaseProps = {
    */
   checkedIcon?: React.ReactElement;
   /**
+   * Name attribute of the `input` element.
+   */
+  name?: string;
+  /**
    * Callback fired when the state is changed.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   'data-testid'?: string;
 };
 
-export type CheckboxProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type RadioProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 
 const stylesBase = () => css({
-  label: 'Checkbox',
+  label: 'Radio',
   cursor: 'pointer',
   display: 'inline-flex',
   width: '20px',
@@ -63,21 +67,20 @@ const stylesBaseDisabled = () => css({
 });
 
 const stylesInput = () => css({
-  label: 'Checkbox-input',
+  label: 'Radio-input',
   overflow: 'hidden',
   width: '100%',
   height: '100%',
   margin: 0,
   padding: 0,
   cursor: 'inherit',
-  borderRadius: '2px',
+  borderRadius: '50%',
   borderWidth: '2px',
   borderStyle: 'solid',
   appearance: 'none',
   borderColor: 'var(--pv-color-gray-9)',
   backgroundColor: 'transparent',
   '&:checked': {
-    backgroundColor: 'var(--pv-color-primary)',
     borderColor: 'var(--pv-color-primary-shade-1)',
     '+ [aria-hidden]': {
       opacity: 1,
@@ -86,18 +89,20 @@ const stylesInput = () => css({
   '&:disabled': {
     borderColor: 'var(--pv-color-gray-6)',
     '&:checked': {
-      backgroundColor: 'var(--pv-color-gray-6)',
       borderColor: 'var(--pv-color-gray-7)',
+    },
+    '+ [aria-hidden]': {
+      color: 'var(--pv-color-gray-6)',
     },
   },
 });
 
 const stylesControl = () => css({
-  label: 'Checkbox-control',
+  label: 'Radio-control',
   width: '20px',
   height: '20px',
   position: 'relative',
-  color: 'var(--pv-color-white)',
+  color: 'var(--pv-color-primary)',
   '&:after': {
     top: '-10px',
     left: '-10px',
@@ -110,7 +115,7 @@ const stylesControl = () => css({
 });
 
 const stylesIcon = () => css({
-  label: 'Checkbox-icon',
+  label: 'Radio-icon',
   display: 'block',
   position: 'absolute',
   top: 0,
@@ -120,7 +125,7 @@ const stylesIcon = () => css({
   opacity: 0,
 });
 
-export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
+export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref) => {
   const {
     checked,
     defaultChecked,
@@ -130,6 +135,7 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
     disabled,
     id: idProp,
     checkedIcon,
+    name,
     onChange,
     ...other
   } = props;
@@ -146,7 +152,7 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
     }
 
     return (
-      <CheckIcon
+      <DotIcon
         {...baseIconProps}
       />
     );
@@ -169,7 +175,8 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
       >
         <input
           {...inputProps}
-          type="checkbox"
+          type="radio"
+          name={name}
           id={id}
           checked={checked}
           defaultChecked={defaultChecked}
@@ -184,6 +191,6 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
   );
 });
 
-Checkbox.displayName = 'Checkbox';
+Radio.displayName = 'Radio';
 
-Checkbox.defaultProps = {};
+Radio.defaultProps = {};
