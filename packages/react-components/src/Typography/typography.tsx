@@ -15,9 +15,14 @@ export type TypographyBaseProps = {
    * The variant to use.
    */
   variant?: TypographyType;
+  /**
+   * The color of the component.
+   */
   color?: ColorType;
+  /**
+   * The className of the component.
+   */
   className?: string;
-  'data-testid'?: string;
   /**
    * If `true`, the text will not wrap, but instead will truncate with a text overflow ellipsis.
    * Note that text overflow can only happen with block or inline-block level elements
@@ -28,6 +33,7 @@ export type TypographyBaseProps = {
    * The component used for the root node.
    */
   component?: React.ElementType;
+  'data-testid'?: string;
 };
 
 export type TypographyProps = TypographyBaseProps & React.HTMLAttributes<HTMLElement>;
@@ -104,4 +110,5 @@ Typography.displayName = 'Typography';
 
 Typography.defaultProps = {
   variant: 'b1',
+  color: 'black',
 };
