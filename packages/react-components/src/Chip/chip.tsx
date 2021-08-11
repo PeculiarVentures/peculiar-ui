@@ -199,6 +199,7 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => 
       <Typography
         variant="b3"
         component="span"
+        color="inherit"
       >
         {children}
       </Typography>

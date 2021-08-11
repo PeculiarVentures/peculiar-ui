@@ -271,6 +271,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
       <Typography
         variant={size === 'small' ? 'btn2' : 'btn1'}
         className={cx(stylesLabel())}
+        color="inherit"
       >
         {children}
       </Typography>

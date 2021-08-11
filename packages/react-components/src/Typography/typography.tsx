@@ -18,7 +18,7 @@ export type TypographyBaseProps = {
   /**
    * The color of the component.
    */
-  color?: ColorType;
+  color?: ColorType | 'inherit';
   /**
    * The className of the component.
    */
@@ -43,7 +43,7 @@ const stylesBase = () => css({
   margin: 0,
 });
 
-const stylesVariant = (variant: TypographyType) => css({
+const stylesVariant = (variant: TypographyBaseProps['variant']) => css({
   label: variant,
   fontWeight: `var(--pv-text-${variant}-weight)`,
   fontSize: `var(--pv-text-${variant}-size)`,
@@ -51,9 +51,9 @@ const stylesVariant = (variant: TypographyType) => css({
   letterSpacing: `var(--pv-text-${variant}-spacing)`,
 } as any);
 
-const stylesColor = (color: ColorType) => css({
+const stylesColor = (color: TypographyBaseProps['color']) => css({
   label: color,
-  color: `var(--pv-color-${color})`,
+  color: color === 'inherit' ? 'inherit' : `var(--pv-color-${color})`,
 });
 
 const stylesNoWrap = () => css({
