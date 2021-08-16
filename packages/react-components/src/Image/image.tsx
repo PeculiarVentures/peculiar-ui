@@ -7,7 +7,11 @@ type BaseProps = {
    */
   src?: string;
   /**
-   * Fallback element to show if image is loading or image fails.
+   * Fallback element to show if image is loading.
+   */
+  loading?: React.ReactElement;
+  /**
+   * Fallback element to show if image fails.
    */
   fallback?: React.ReactElement;
   /**
@@ -24,11 +28,13 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>((props, ref)
     className,
     src,
     fallback,
+    loading,
     alt,
     ...other
   } = props;
   const status = useImage({ src });
   const hasLoaded = status === 'loaded';
+  const hasError = status === 'failed';
   const showImage = src && hasLoaded;
 
   if (showImage) {
@@ -43,8 +49,12 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>((props, ref)
     );
   }
 
-  if (fallback) {
+  if (fallback && hasError) {
     return fallback;
+  }
+
+  if (loading) {
+    return loading;
   }
 
   return null;

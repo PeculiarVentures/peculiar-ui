@@ -30,5 +30,6 @@ export default {
   component: Image,
   argTypes: {
     fallback: { control: false },
+    loading: { control: false },
   },
 };
