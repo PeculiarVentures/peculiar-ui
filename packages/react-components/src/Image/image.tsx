@@ -21,7 +21,7 @@ type BaseProps = {
   'data-testid'?: string;
 };
 
-type ImageProps = BaseProps & React.ImgHTMLAttributes<HTMLImageElement>;
+type ImageProps = BaseProps & Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'loading'>;
 
 export const Image = React.forwardRef<HTMLImageElement, ImageProps>((props, ref) => {
   const {
