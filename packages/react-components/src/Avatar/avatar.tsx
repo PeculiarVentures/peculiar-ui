@@ -53,20 +53,20 @@ const stylesBase = () => css({
 
 const stylesSizeSmall = () => css({
   label: 'small',
-  height: 30,
-  width: 30,
+  height: 'var(--pv-size-base-6)',
+  width: 'var(--pv-size-base-6)',
 });
 
 const stylesSizeMedium = () => css({
   label: 'medium',
-  height: 35,
-  width: 35,
+  height: 'var(--pv-size-base-7)',
+  width: 'var(--pv-size-base-7)',
 });
 
 const stylesSizeLarge = () => css({
   label: 'large',
-  height: 40,
-  width: 40,
+  height: 'var(--pv-size-base-8)',
+  width: 'var(--pv-size-base-8)',
 });
 
 const stylesImg = () => css({

@@ -23,7 +23,7 @@ type DialogTitleProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 
 const stylesBase = () => css({
   label: 'DialogTitle',
-  padding: '20px 20px 10px',
+  padding: 'var(--pv-size-base-4) var(--pv-size-base-4) var(--pv-size-base-2)',
   display: 'flex',
   flex: '0 0 auto',
   justifyContent: 'space-between',
@@ -31,7 +31,7 @@ const stylesBase = () => css({
 
 const stylesCloseButton = () => css({
   label: 'DialogTitle-close',
-  margin: '0 -5px 0 10px',
+  margin: '0 calc(var(--pv-size-base) * -1) 0 var(--pv-size-base-2)',
 });
 
 export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((props, ref) => {

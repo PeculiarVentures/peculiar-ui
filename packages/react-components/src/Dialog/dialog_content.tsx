@@ -28,17 +28,17 @@ type DialogContentProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 const stylesBase = () => css({
   label: 'DialogContent',
   flex: '1 1 auto',
-  padding: '15px 20px',
+  padding: 'var(--pv-size-base-3) var(--pv-size-base-4)',
   overflowY: 'auto',
 });
 
 const stylesError = () => css({
   label: 'DialogContent-error',
-  padding: '10px 15px',
+  padding: 'var(--pv-size-base-2) var(--pv-size-base-3)',
 });
 
 const stylesCollapse = () => css({
-  margin: '-10px -15px 10px',
+  margin: 'calc(var(--pv-size-base-2) * -1) calc(var(--pv-size-base-3) * -1) var(--pv-size-base-2)',
 });
 
 export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>((props, ref) => {

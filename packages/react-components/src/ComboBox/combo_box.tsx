@@ -49,8 +49,8 @@ const stylesInputBase = () => css({
   cursor: 'pointer',
   userSelect: 'none',
   position: 'relative',
-  minHeight: '40px',
-  padding: '2px 34px 2px 2px',
+  minHeight: 'var(--pv-size-base-8)',
+  padding: 'var(--pv-size-base-half) calc(var(--pv-size-base-2) + 24px) var(--pv-size-base-half) var(--pv-size-base-half)',
   '&::placeholder': {
     color: 'var(--pv-color-gray-9)',
   },
@@ -94,18 +94,18 @@ const stylesChip = () => css({
 
 const stylesMenuList = () => css({
   label: 'ComboBox-menu-list',
-  padding: '7px 0px',
+  padding: 'var(--pv-size-base-2) 0px',
   outline: 'none',
   minWidth: '220px',
 });
 
 const stylesMenuItem = () => css({
   label: 'ComboBox-menu-item',
-  padding: '0px 10px',
+  padding: '0px var(--pv-size-base-2)',
   fontFamily: 'inherit',
   outline: 'none',
   width: '100%',
-  height: '35px',
+  height: 'var(--pv-size-base-7)',
   display: 'flex',
   textAlign: 'left',
   alignItems: 'center',
@@ -142,9 +142,9 @@ const stylesLabel = () => css({
 
 const stylesCheckbox = () => css({
   label: 'ComboBox-checkbox',
-  width: '20px',
-  height: '20px',
-  margin: '0px 10px 0 5px',
+  width: 'var(--pv-size-base-4)',
+  height: 'var(--pv-size-base-4)',
+  margin: '0px var(--pv-size-base-2) 0 var(--pv-size-base)',
 });
 
 const stylesInputArrowIcon = () => css({
@@ -153,7 +153,7 @@ const stylesInputArrowIcon = () => css({
   right: '0px',
   top: 'calc(50% - 12px)',
   pointerEvents: 'none',
-  margin: '0px 5px',
+  margin: '0px var(--pv-size-base)',
   color: 'var(--pv-color-gray-10)',
 });
 

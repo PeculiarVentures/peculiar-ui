@@ -32,17 +32,17 @@ type MenuProps = BaseProps;
 
 const stylesMenuList = () => css({
   label: 'Menu-list',
-  padding: '7px 0px',
+  padding: 'var(--pv-size-base-2) 0px',
   outline: 'none',
 });
 
 const stylesMenuItem = () => css({
   label: 'Menu-item',
-  padding: '0px 10px',
+  padding: '0px var(--pv-size-base-2)',
   fontFamily: 'inherit',
   outline: 'none',
   width: '100%',
-  height: '35px',
+  height: 'var(--pv-size-base-7)',
   display: 'flex',
   textAlign: 'left',
   alignItems: 'center',
@@ -74,16 +74,16 @@ const stylesMenuItem = () => css({
 const stylesPopper = () => css({
   label: 'Menu-popover',
   '&[data-popper-placement^="bottom"]': {
-    margin: '14px 0px',
+    margin: 'var(--pv-size-base-3) 0px',
   },
   '&[data-popper-placement^="top"]': {
-    margin: '14px 0px',
+    margin: 'var(--pv-size-base-3) 0px',
   },
   '&[data-popper-placement^="right"]': {
-    margin: '0px 14px',
+    margin: '0px var(--pv-size-base-3)',
   },
   '&[data-popper-placement^="left"]': {
-    margin: '0px 14px',
+    margin: '0px var(--pv-size-base-3)',
   },
 });
 

@@ -6,6 +6,7 @@ import {
   wrong,
   additional,
 } from './colors';
+import { base } from './sizes';
 
 export const defaultTheme: ThemeType = {
   palette: {
@@ -169,5 +170,11 @@ export const defaultTheme: ThemeType = {
       height: '15px',
       spacing: '0.5px',
     },
+  },
+  size: {
+    /**
+     * base
+     */
+    ...base,
   },
 };

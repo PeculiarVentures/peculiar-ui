@@ -86,7 +86,7 @@ const stylesInputBase = () => css({
   boxSizing: 'border-box',
   width: '100%',
   borderRadius: '4px',
-  padding: '0 34px 0 10px',
+  padding: '0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2)',
   color: 'var(--pv-color-black)',
   backgroundColor: 'var(--pv-color-gray-1)',
   borderStyle: 'solid',
@@ -124,17 +124,17 @@ const stylesInputBase = () => css({
 
 const stylesInputSizeSmall = () => css({
   label: 'small',
-  height: '30px',
+  height: 'var(--pv-size-base-6)',
 });
 
 const stylesInputSizeMedium = () => css({
   label: 'medium',
-  height: '35px',
+  height: 'var(--pv-size-base-7)',
 });
 
 const stylesInputSizeLarge = () => css({
   label: 'large',
-  height: '40px',
+  height: 'var(--pv-size-base-8)',
 });
 
 const stylesLabel = () => css({
@@ -159,7 +159,7 @@ const stylesInputArrowIcon = () => css({
   right: '0px',
   top: 'calc(50% - 12px)',
   pointerEvents: 'none',
-  margin: '0px 5px',
+  margin: '0px var(--pv-size-base)',
   color: 'var(--pv-color-gray-10)',
 });
 

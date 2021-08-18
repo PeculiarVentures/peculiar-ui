@@ -61,7 +61,7 @@ const stylesBase = (loading?: boolean) => css({
   display: 'flex',
   maxHeight: 'calc(100% - 60px)',
   flexDirection: 'column',
-  margin: '30px',
+  margin: 'var(--pv-size-base-6)',
   position: 'relative',
   outline: 'none',
   boxShadow: 'var(--pv-shadow-dark-hight)',
