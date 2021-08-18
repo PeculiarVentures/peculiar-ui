@@ -4,6 +4,7 @@ import {
   ShadowType,
   TypographyType,
   TypographyPropertiesType,
+  SizeType,
 } from './types';
 import { injectGlobal } from './css';
 import {
@@ -11,11 +12,15 @@ import {
   generateSecondaryColors,
   generatePrimaryColors,
 } from './colors';
+import {
+  generateBaseSize,
+} from './sizes';
 
 const prefix = 'pv';
 const palettePrefix = `${prefix}-color`;
 const shadowPrefix = `${prefix}-shadow`;
 const typographyPrefix = `${prefix}-text`;
+const sizePrefix = `${prefix}-size`;
 
 export const createCSSVariablesFromTheme = (theme: ThemeType) => {
   const variables: Record<string, string> = {};
@@ -53,6 +58,16 @@ export const createCSSVariablesFromTheme = (theme: ThemeType) => {
       });
   }
 
+  /**
+   * Size
+   */
+  if (theme.size) {
+    Object.keys(theme.size)
+      .forEach((sizeName: SizeType) => {
+        variables[`--${sizePrefix}-${sizeName}`] = theme.size[sizeName];
+      });
+  }
+
   return variables;
 };
 
@@ -68,14 +83,20 @@ type BaseColorsType = {
   wrong?: string;
 };
 
-export const setThemeFromBaseColors = (colors: BaseColorsType) => {
+type BaseOptionsType = {
+  colors?: BaseColorsType;
+  size?: number;
+};
+
+export const setThemeFromBaseOptions = (options: BaseOptionsType) => {
   injectGlobal({
     html: createCSSVariablesFromTheme({
-      palette: {
-        ...(colors.primary && generatePrimaryColors(colors.primary)),
-        ...(colors.secondary && generateSecondaryColors(colors.secondary)),
-        ...(colors.wrong && generateWrongColors(colors.wrong)),
+      palette: options.colors && {
+        ...(options.colors.primary && generatePrimaryColors(options.colors.primary)),
+        ...(options.colors.secondary && generateSecondaryColors(options.colors.secondary)),
+        ...(options.colors.wrong && generateWrongColors(options.colors.wrong)),
       },
+      size: options.size && generateBaseSize(options.size),
     } as any),
   });
 };
