@@ -37,14 +37,14 @@ const stylesBase = (color: ('primary' | 'secondary')) => css({
 
 const stylesBaseSmall = () => css({
   label: 'small',
-  height: '16px',
-  width: '16px',
+  height: 'var(--pv-size-base-3)',
+  width: 'var(--pv-size-base-3)',
 });
 
 const stylesBaseLarge = () => css({
   label: 'large',
-  height: '30px',
-  width: '30px',
+  height: 'var(--pv-size-base-6)',
+  width: 'var(--pv-size-base-6)',
 });
 
 const stylesProgress = () => css({

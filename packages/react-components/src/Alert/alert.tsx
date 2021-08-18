@@ -46,16 +46,16 @@ const stylesBase = () => css({
   label: 'Alert',
   width: '100%',
   display: 'flex',
-  padding: '10px 20px',
+  padding: 'var(--pv-size-base-2) var(--pv-size-base-4)',
   boxSizing: 'border-box',
 });
 
 const stylesIcon = (variant: BaseProps['variant']) => css({
   label: 'Alert-icon',
-  marginRight: '10px',
+  marginRight: 'var(--pv-size-base-2)',
   width: '24px',
   display: 'flex',
-  padding: '3px 0px',
+  padding: 'var(--pv-size-base-half) 0px',
   justifyContent: 'center',
   alignItems: 'center',
   ...(variant === 'wrong' && {
@@ -71,7 +71,7 @@ const stylesIcon = (variant: BaseProps['variant']) => css({
 
 const stylesText = () => css({
   label: 'Alert-text',
-  padding: '5px 0px',
+  padding: 'var(--pv-size-base) 0px',
   flex: '1',
 });
 

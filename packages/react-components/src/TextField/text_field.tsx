@@ -36,10 +36,6 @@ type BaseProps = {
    */
   label?: string;
   /**
-   * Callback fired when the value is changed.
-   */
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  /**
    * The value of the `input` element, required for a controlled component.
    */
   value?: string;
@@ -77,6 +73,10 @@ type BaseProps = {
    * Type of the `input` element.
    */
   type?: React.InputHTMLAttributes<HTMLInputElement>['type'];
+  /**
+   * Callback fired when the value is changed.
+   */
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   'data-testid'?: string;
 };
 
@@ -89,7 +89,7 @@ const stylesInputBase = () => css({
   boxSizing: 'border-box',
   width: '100%',
   borderRadius: '4px',
-  padding: '0 10px',
+  padding: '0 var(--pv-size-base-2)',
   color: 'var(--pv-color-black)',
   backgroundColor: 'var(--pv-color-gray-1)',
   borderStyle: 'solid',
@@ -130,17 +130,17 @@ const stylesInputBase = () => css({
 
 const stylesInputSizeSmall = () => css({
   label: 'small',
-  height: '30px',
+  height: 'var(--pv-size-base-6)',
 });
 
 const stylesInputSizeMedium = () => css({
   label: 'medium',
-  height: '35px',
+  height: 'var(--pv-size-base-7)',
 });
 
 const stylesInputSizeLarge = () => css({
   label: 'large',
-  height: '40px',
+  height: 'var(--pv-size-base-8)',
 });
 
 const stylesLabel = () => css({
@@ -159,7 +159,6 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
     size,
     className,
     label,
-    onChange,
     inputProps,
     disabled,
     defaultValue,
@@ -174,6 +173,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
     autoFocus,
     readOnly,
     type = 'text',
+    onChange,
     ...other
   } = props;
 

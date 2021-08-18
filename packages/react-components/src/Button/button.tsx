@@ -27,49 +27,49 @@ const stylesBase = () => css({
 
 const stylesSizeSmall = (props: ButtonProps) => css({
   label: 'small',
-  height: '30px',
-  minWidth: '30px',
+  height: 'var(--pv-size-base-6)',
+  minWidth: 'var(--pv-size-base-6)',
   ...(props.circled && {
-    borderRadius: '30px',
+    borderRadius: 'var(--pv-size-base-6)',
   }),
   ...(!props.withoutPadding && {
-    padding: '0 10px',
+    padding: '0 var(--pv-size-base-2)',
   }),
 });
 
 const stylesSizeMedium = (props: ButtonProps) => css({
   label: 'medium',
-  height: '35px',
-  minWidth: '35px',
+  height: 'var(--pv-size-base-7)',
+  minWidth: 'var(--pv-size-base-7)',
   ...(props.circled && {
-    borderRadius: '35px',
+    borderRadius: 'var(--pv-size-base-7)',
   }),
   ...(!props.withoutPadding && {
-    padding: '0 15px',
+    padding: '0 var(--pv-size-base-3)',
   }),
 });
 
 const stylesSizeLarge = (props: ButtonProps) => css({
   label: 'large',
-  height: '40px',
-  minWidth: '40px',
+  height: 'var(--pv-size-base-8)',
+  minWidth: 'var(--pv-size-base-8)',
   ...(props.circled && {
-    borderRadius: '40px',
+    borderRadius: 'var(--pv-size-base-8)',
   }),
   ...(!props.withoutPadding && {
-    padding: '0 20px',
+    padding: '0 var(--pv-size-base-4)',
   }),
 });
 
 const stylesStartIcon = () => css({
   label: 'Button-startIcon',
-  marginRight: '5px',
+  marginRight: 'var(--pv-size-base)',
   display: 'inherit',
 });
 
 const stylesEndIcon = () => css({
   label: 'Button-endIcon',
-  marginLeft: '5px',
+  marginLeft: 'var(--pv-size-base)',
   display: 'inherit',
 });
 

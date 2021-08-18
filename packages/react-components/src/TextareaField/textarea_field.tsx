@@ -85,7 +85,7 @@ const stylesInputBase = () => css({
   boxSizing: 'border-box',
   width: '100%',
   borderRadius: '4px',
-  padding: '5px 10px',
+  padding: 'var(--pv-size-base) var(--pv-size-base-2)',
   color: 'var(--pv-color-black)',
   backgroundColor: 'var(--pv-color-gray-1)',
   borderStyle: 'solid',
@@ -127,17 +127,17 @@ const stylesInputBase = () => css({
 
 const stylesInputSizeSmall = () => css({
   label: 'small',
-  minHeight: '60px',
+  minHeight: 'var(--pv-size-base-12)',
 });
 
 const stylesInputSizeMedium = () => css({
   label: 'medium',
-  minHeight: '70px',
+  minHeight: 'var(--pv-size-base-14)',
 });
 
 const stylesInputSizeLarge = () => css({
   label: 'large',
-  minHeight: '80px',
+  minHeight: 'var(--pv-size-base-16)',
 });
 
 const stylesLabel = () => css({

@@ -54,8 +54,8 @@ const stylesBase = () => css({
   label: 'Radio',
   cursor: 'pointer',
   display: 'inline-flex',
-  width: '20px',
-  height: '20px',
+  width: 'var(--pv-size-base-4)',
+  height: 'var(--pv-size-base-4)',
   borderRadius: '50%',
   justifyContent: 'center',
   alignItems: 'center',
@@ -99,8 +99,8 @@ const stylesInput = () => css({
 
 const stylesControl = () => css({
   label: 'Radio-control',
-  width: '20px',
-  height: '20px',
+  width: 'var(--pv-size-base-4)',
+  height: 'var(--pv-size-base-4)',
   position: 'relative',
   color: 'var(--pv-color-primary)',
   '&:after': {

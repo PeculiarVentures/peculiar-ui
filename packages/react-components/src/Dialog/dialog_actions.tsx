@@ -16,13 +16,13 @@ type DialogActionsProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 
 const stylesBase = () => css({
   label: 'DialogActions',
-  padding: '15px 20px 20px',
+  padding: 'var(--pv-size-base-3) var(--pv-size-base-4) var(--pv-size-base-4)',
   flex: '0 0 auto',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
   '& > :not(:first-of-type)': {
-    marginLeft: '10px',
+    marginLeft: 'var(--pv-size-base-2)',
   },
 });
 

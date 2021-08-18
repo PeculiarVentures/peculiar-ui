@@ -17,9 +17,9 @@ type FabProps = BaseProps & Omit<ButtonBaseProps, 'size' | 'variant'>;
 const stylesBase = () => css({
   label: 'Fab',
   borderRadius: '50%',
-  height: '55px',
-  width: '55px',
-  padding: '10px',
+  height: 'var(--pv-size-base-11)',
+  width: 'var(--pv-size-base-11)',
+  padding: 'var(--pv-size-base-2)',
 });
 
 export const Fab = React.forwardRef<HTMLButtonElement, FabProps>((props, ref) => {
