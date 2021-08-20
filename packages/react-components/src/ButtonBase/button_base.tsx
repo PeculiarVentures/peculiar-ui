@@ -73,159 +73,165 @@ const stylesBase = () => css({
   },
 });
 
-const stylesVariantText = (props: ButtonBaseProps) => css({
-  label: `text-${props.color}`,
-  ...(props.color === 'default' && ({
-    color: 'var(--pv-color-black)',
-    '&:not(:disabled)': {
-      '&:hover': {
-        backgroundColor: 'var(--pv-color-gray-3)',
-      },
-      '&:focus': {
-        backgroundColor: 'var(--pv-color-gray-4)',
-      },
-      '&:active': {
-        backgroundColor: 'var(--pv-color-gray-5)',
-      },
+const stylesVariantTextColorDefault = () => css({
+  color: 'var(--pv-color-black)',
+  '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-gray-3)',
     },
-  })),
-  ...(props.color === 'white' && ({
-    color: `var(--pv-color-${props.color})`,
-    '&:not(:disabled)': {
-      '&:hover': {
-        backgroundColor: 'var(--pv-color-gray-7)',
-      },
-      '&:focus': {
-        backgroundColor: 'var(--pv-color-gray-8)',
-      },
-      '&:active': {
-        backgroundColor: 'var(--pv-color-gray-9)',
-      },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-gray-4)',
     },
-  })),
-  ...(props.color !== 'default' && props.color !== 'white' && ({
-    color: `var(--pv-color-${props.color})`,
-    '&:not(:disabled)': {
-      '&:hover': {
-        backgroundColor: `var(--pv-color-${props.color}-tint-5)`,
-      },
-      '&:focus': {
-        backgroundColor: `var(--pv-color-${props.color}-tint-4)`,
-      },
-      '&:active': {
-        backgroundColor: `var(--pv-color-${props.color}-tint-3)`,
-      },
+    '&:active': {
+      backgroundColor: 'var(--pv-color-gray-5)',
     },
-  })),
+  },
+});
+
+const stylesVariantTextColorWhite = () => css({
+  color: 'var(--pv-color-white)',
+  '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-gray-7)',
+    },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-gray-8)',
+    },
+    '&:active': {
+      backgroundColor: 'var(--pv-color-gray-9)',
+    },
+  },
+});
+
+const stylesVariantTextColor = (color: BaseProps['color']) => css({
+  color: `var(--pv-color-${color})`,
+  '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: `var(--pv-color-${color}-tint-5)`,
+    },
+    '&:focus': {
+      backgroundColor: `var(--pv-color-${color}-tint-4)`,
+    },
+    '&:active': {
+      backgroundColor: `var(--pv-color-${color}-tint-3)`,
+    },
+  },
+});
+
+const stylesVariantText = () => css({
   '&:disabled': {
     color: 'var(--pv-color-gray-7)',
   },
 });
 
-const stylesVariantContained = (props: ButtonBaseProps) => css({
-  label: `outlined-${props.color}`,
+const stylesVariantContainedColorDefault = () => css({
+  backgroundColor: 'var(--pv-color-gray-8)',
+  color: 'var(--pv-color-black)',
+  '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-gray-7)',
+    },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-gray-6)',
+    },
+    '&:active': {
+      backgroundColor: 'var(--pv-color-gray-5)',
+      boxShadow: 'var(--pv-shadow-light-medium)',
+    },
+  },
+});
+
+const stylesVariantContainedColorWhite = () => css({
+  backgroundColor: 'var(--pv-color-white)',
+  color: 'var(--pv-color-black)',
+  '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-gray-7)',
+    },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-gray-6)',
+    },
+    '&:active': {
+      backgroundColor: 'var(--pv-color-gray-5)',
+      boxShadow: 'var(--pv-shadow-light-medium)',
+    },
+  },
+});
+
+const stylesVariantContainedColor = (color: BaseProps['color']) => css({
+  backgroundColor: `var(--pv-color-${color})`,
+  color: 'var(--pv-color-white)',
+  '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: `var(--pv-color-${color}-tint-1)`,
+    },
+    '&:focus': {
+      backgroundColor: `var(--pv-color-${color}-tint-2)`,
+    },
+    '&:active': {
+      backgroundColor: `var(--pv-color-${color}-tint-2)`,
+      boxShadow: 'var(--pv-shadow-light-medium)',
+    },
+  },
+});
+
+const stylesVariantContained = () => css({
   boxShadow: 'var(--pv-shadow-light-low)',
-  ...(props.color === 'default' && ({
-    backgroundColor: 'var(--pv-color-gray-8)',
-    color: 'var(--pv-color-black)',
-    '&:not(:disabled)': {
-      '&:hover': {
-        backgroundColor: 'var(--pv-color-gray-7)',
-      },
-      '&:focus': {
-        backgroundColor: 'var(--pv-color-gray-6)',
-      },
-      '&:active': {
-        backgroundColor: 'var(--pv-color-gray-5)',
-        boxShadow: 'var(--pv-shadow-light-medium)',
-      },
-    },
-  })),
-  ...(props.color === 'white' && ({
-    backgroundColor: 'var(--pv-color-white)',
-    color: 'var(--pv-color-black)',
-    '&:not(:disabled)': {
-      '&:hover': {
-        backgroundColor: 'var(--pv-color-gray-7)',
-      },
-      '&:focus': {
-        backgroundColor: 'var(--pv-color-gray-6)',
-      },
-      '&:active': {
-        backgroundColor: 'var(--pv-color-gray-5)',
-        boxShadow: 'var(--pv-shadow-light-medium)',
-      },
-    },
-  })),
-  ...(props.color !== 'default' && props.color !== 'white' && ({
-    backgroundColor: `var(--pv-color-${props.color})`,
-    color: 'var(--pv-color-white)',
-    '&:not(:disabled)': {
-      '&:hover': {
-        backgroundColor: `var(--pv-color-${props.color}-tint-1)`,
-      },
-      '&:focus': {
-        backgroundColor: `var(--pv-color-${props.color}-tint-2)`,
-      },
-      '&:active': {
-        backgroundColor: `var(--pv-color-${props.color}-tint-2)`,
-        boxShadow: 'var(--pv-shadow-light-medium)',
-      },
-    },
-  })),
   '&:disabled': {
     color: 'var(--pv-color-gray-8)',
     backgroundColor: 'var(--pv-color-gray-4)',
   },
 });
 
-const stylesVariantOutlined = (props: ButtonBaseProps) => css({
-  label: `contained-${props.color}`,
-  ...(props.color === 'default' && ({
-    color: 'var(--pv-color-black)',
-    borderColor: 'var(--pv-color-gray-8)',
-    '&:not(:disabled)': {
-      '&:hover': {
-        backgroundColor: 'var(--pv-color-gray-3)',
-      },
-      '&:focus': {
-        backgroundColor: 'var(--pv-color-gray-4)',
-      },
-      '&:active': {
-        backgroundColor: 'var(--pv-color-gray-5)',
-      },
+const stylesVariantOutlinedColorDefault = () => css({
+  color: 'var(--pv-color-black)',
+  borderColor: 'var(--pv-color-gray-8)',
+  '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-gray-3)',
     },
-  })),
-  ...(props.color === 'white' && ({
-    color: 'var(--pv-color-white)',
-    borderColor: 'var(--pv-color-white)',
-    '&:not(:disabled)': {
-      '&:hover': {
-        backgroundColor: 'var(--pv-color-gray-7)',
-      },
-      '&:focus': {
-        backgroundColor: 'var(--pv-color-gray-8)',
-      },
-      '&:active': {
-        backgroundColor: 'var(--pv-color-gray-9)',
-      },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-gray-4)',
     },
-  })),
-  ...(props.color !== 'default' && props.color !== 'white' && ({
-    color: `var(--pv-color-${props.color})`,
-    borderColor: `var(--pv-color-${props.color}-tint-2)`,
-    '&:not(:disabled)': {
-      '&:hover': {
-        backgroundColor: `var(--pv-color-${props.color}-tint-5)`,
-      },
-      '&:focus': {
-        backgroundColor: `var(--pv-color-${props.color}-tint-4)`,
-      },
-      '&:active': {
-        backgroundColor: `var(--pv-color-${props.color}-tint-3)`,
-      },
+    '&:active': {
+      backgroundColor: 'var(--pv-color-gray-5)',
     },
-  })),
+  },
+});
+
+const stylesVariantOutlinedColorWhite = () => css({
+  color: 'var(--pv-color-white)',
+  borderColor: 'var(--pv-color-white)',
+  '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-gray-7)',
+    },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-gray-8)',
+    },
+    '&:active': {
+      backgroundColor: 'var(--pv-color-gray-9)',
+    },
+  },
+});
+
+const stylesVariantOutlinedColor = (color: BaseProps['color']) => css({
+  color: `var(--pv-color-${color})`,
+  borderColor: `var(--pv-color-${color}-tint-2)`,
+  '&:not(:disabled)': {
+    '&:hover': {
+      backgroundColor: `var(--pv-color-${color}-tint-5)`,
+    },
+    '&:focus': {
+      backgroundColor: `var(--pv-color-${color}-tint-4)`,
+    },
+    '&:active': {
+      backgroundColor: `var(--pv-color-${color}-tint-3)`,
+    },
+  },
+});
+
+const stylesVariantOutlined = () => css({
   '&:disabled': {
     color: 'var(--pv-color-gray-8)',
     borderColor: 'var(--pv-color-gray-4)',
@@ -247,6 +253,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
     size,
     className,
     children,
+    disabled,
     type = 'button',
     component: componentProp,
     ...other
@@ -260,11 +267,25 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
       ref={ref}
       // eslint-disable-next-line react/button-has-type
       type={type}
+      disabled={disabled}
       className={cx({
         [stylesBase()]: true,
-        [stylesVariantText(props)]: variant === 'text',
-        [stylesVariantContained(props)]: variant === 'contained',
-        [stylesVariantOutlined(props)]: variant === 'outlined',
+
+        [stylesVariantTextColorDefault()]: variant === 'text' && color === 'default',
+        [stylesVariantTextColorWhite()]: variant === 'text' && color === 'white',
+        [stylesVariantTextColor(color)]: variant === 'text' && !['white', 'default'].includes(color),
+        [stylesVariantText()]: variant === 'text',
+
+        [stylesVariantContainedColorDefault()]: variant === 'contained' && color === 'default',
+        [stylesVariantContainedColorWhite()]: variant === 'contained' && color === 'white',
+        [stylesVariantContainedColor(color)]: variant === 'contained' && !['white', 'default'].includes(color),
+        [stylesVariantContained()]: variant === 'contained',
+
+        [stylesVariantOutlinedColorDefault()]: variant === 'outlined' && color === 'default',
+        [stylesVariantOutlinedColorWhite()]: variant === 'outlined' && color === 'white',
+        [stylesVariantOutlinedColor(color)]: variant === 'outlined' && !['white', 'default'].includes(color),
+        [stylesVariantOutlined()]: variant === 'outlined',
+
         [className]: !!className,
       })}
     >

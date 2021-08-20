@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button, ButtonProps } from '../Button';
 import { Tooltip } from '../Tooltip';
+import { css, cx } from '../styles';
 
 type BaseProps = {
   /**
@@ -11,8 +12,16 @@ type BaseProps = {
 
 type IconButtonProps = BaseProps & Omit<ButtonProps, 'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'>;
 
+const stylesBase = () => css({
+  '--pv-color-black': 'var(--pv-color-gray-9)',
+});
+
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => {
-  const { title, ...other } = props;
+  const {
+    title,
+    className,
+    ...other
+  } = props;
 
   const component = (
     <Button
@@ -20,6 +29,10 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
       {...other}
       ref={ref}
       withoutPadding
+      className={cx({
+        [stylesBase()]: true,
+        [className]: !!className,
+      })}
     />
   );
 
