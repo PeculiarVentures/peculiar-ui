@@ -2,6 +2,7 @@ import React from 'react';
 import { Placement } from '@popperjs/core';
 import { Popper } from '../Popper';
 import { Box } from '../Box';
+import { useMergedRef } from '../hooks';
 import { Typography } from '../Typography';
 import { css, cx, keyframes } from '../styles';
 
@@ -116,7 +117,8 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     ...other
   } = props;
   const [open, setOpen] = React.useState(false);
-  const childRef = React.useRef();
+  const nodeRef = React.useRef(null);
+  const multiRef = useMergedRef((children as any).ref, nodeRef);
   const enterTimer = React.useRef<any>();
   const leaveTimer = React.useRef<any>();
 
@@ -153,7 +155,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
 
   const popperProps: React.HTMLAttributes<HTMLDivElement> = {};
   const childrenProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> = {
-    ref: childRef,
+    ref: multiRef,
   };
 
   if (!disableTouchListener) {
@@ -185,7 +187,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     <>
       {React.cloneElement(children, childrenProps)}
       <Popper
-        anchorEl={childRef.current}
+        anchorEl={nodeRef.current}
         open={title && open}
         placement={placement}
         className={cx({
