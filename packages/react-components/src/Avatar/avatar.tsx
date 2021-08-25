@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { css, cx, ColorType } from '../styles';
-import { Typography } from '../Typography';
+import { Typography, TypographyProps } from '../Typography';
 import { Box } from '../Box';
 import { useImage } from '../hooks';
 
@@ -24,6 +24,10 @@ type BaseProps = {
    * The className of the component.
    */
   className?: string;
+  /**
+   * Props applied to the `Typography` element.
+   */
+  typographyProps?: Partial<TypographyProps>;
   /**
    * The size of the avatar.
    */
@@ -96,6 +100,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
     getInitials = initials,
     background,
     color,
+    typographyProps,
     ...other
   } = props;
   const status = useImage({ src });
@@ -116,6 +121,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
   } else if (showInitials) {
     children = (
       <Typography
+        {...typographyProps}
         color={color}
         aria-label={name}
         role="img"
