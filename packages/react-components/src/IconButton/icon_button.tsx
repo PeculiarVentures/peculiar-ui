@@ -20,12 +20,14 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
   const {
     title,
     className,
+    disabled,
     ...other
   } = props;
 
   const component = (
     <Button
       aria-label={title}
+      disabled={disabled}
       {...other}
       ref={ref}
       withoutPadding
@@ -36,7 +38,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
     />
   );
 
-  if (!title) {
+  if (!title || disabled) {
     return component;
   }
 
