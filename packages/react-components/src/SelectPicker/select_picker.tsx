@@ -196,10 +196,18 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
       if (elementBottom > scrollBottom) {
         listboxNode.scrollTop = elementBottom - listboxNode.clientHeight;
       } else if (
-        element.offsetTop - element.offsetHeight * options.length < listboxNode.scrollTop
+        element.offsetTop - element.offsetHeight < listboxNode.scrollTop
       ) {
-        listboxNode.scrollTop = element.offsetTop - element.offsetHeight * options.length;
+        listboxNode.scrollTop = element.offsetTop - element.offsetHeight * 1.6;
       }
+
+      // if (elementBottom > scrollBottom) {
+      //   listboxNode.scrollTop = elementBottom - listboxNode.clientHeight;
+      // } else if (
+      //   element.offsetTop - element.offsetHeight * sortedList.length < listboxNode.scrollTop
+      // ) {
+      //   listboxNode.scrollTop = element.offsetTop - element.offsetHeight * sortedList.length;
+      // }
     }
   };
 
@@ -276,6 +284,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
   };
 
   const handlePopoverClose = () => {
+    setFilter(undefined);
     setOpen(false);
   };
 
@@ -289,7 +298,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
     option: OptionType,
     index: number,
   ) => () => {
-    setOpen(false);
+    handlePopoverClose();
 
     if (onChange) {
       onChange(option.value);
@@ -302,7 +311,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
     const { key } = event;
 
     if (key === 'Tab') {
-      setOpen(false);
+      handlePopoverClose();
 
       return;
     }
@@ -329,18 +338,25 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
       // Avoid the Modal to handle the event.
       event.stopPropagation();
 
-      setOpen(false);
+      handlePopoverClose();
     } else if (key === 'Enter') {
       if (highlightedIndexRef.current !== -1) {
-        const option = options[highlightedIndexRef.current];
+        const option = sortedList[highlightedIndexRef.current];
 
-        setOpen(false);
+        handlePopoverClose();
 
         event.preventDefault();
 
+        for (let i = 0; i < options.length; i += 1) {
+          if (option.value === options[i].value) {
+            highlightedIndexRef.current = i;
+          }
+        }
+
+        setTextFieldValue(option.label);
+
         if (onChange) {
           onChange(option.value);
-          setTextFieldValue(option.label);
         }
       }
     }
@@ -488,7 +504,6 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
             type="search"
             disabled={loading || !!error}
             onChange={handleChangeSearch}
-            value={filter}
           />
         </Box>
         {renderList()}
