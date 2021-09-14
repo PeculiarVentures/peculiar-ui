@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Popover, PopoverProps } from '../Popover';
-import { AutoList } from './auto_list';
-import { AutoListItem } from './auto_list_item';
+import { SelectPickerList } from './select_picker_list';
+import { SelectPickerItem } from './select_picker_item';
 import { cx, css } from '../styles';
 import {
   Box,
@@ -46,7 +46,7 @@ type HighlightedType = {
   index?: number;
 };
 
-type AutoMenuProps = BaseProps;
+type SelectPickerProps = BaseProps;
 
 const stylesBase = () => css({
   label: 'Menu',
@@ -78,7 +78,7 @@ const stylesLoading = () => css({
   padding: '7px 10px',
 });
 
-export const AutoMenu = React.forwardRef<HTMLDivElement, AutoMenuProps>((props, ref) => {
+export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>((props, ref) => {
   const {
     options,
     onChange,
@@ -404,24 +404,24 @@ export const AutoMenu = React.forwardRef<HTMLDivElement, AutoMenuProps>((props, 
     }
 
     return (
-      <AutoList
+      <SelectPickerList
         ref={measuredListboxRef}
       >
         {sortedList.map((option, index) => {
           const isSelect = index === highlightedIndexRef.current;
 
           return (
-            <AutoListItem
+            <SelectPickerItem
               key={option.label}
               onClick={handleMenuItemClick(option, index)}
               index={index}
               selected={isSelect}
             >
               {option.label}
-            </AutoListItem>
+            </SelectPickerItem>
           );
         })}
-      </AutoList>
+      </SelectPickerList>
     );
   };
 
@@ -489,6 +489,6 @@ export const AutoMenu = React.forwardRef<HTMLDivElement, AutoMenuProps>((props, 
   );
 });
 
-AutoMenu.displayName = 'AutoMenu';
+SelectPicker.displayName = 'SelectPicker';
 
-AutoMenu.defaultProps = {};
+SelectPicker.defaultProps = {};

@@ -6,17 +6,20 @@ type BaseProps = {
   onKeyDown?: React.KeyboardEventHandler<HTMLUListElement>;
 };
 
-type AutoListProps = BaseProps;
+type SelectPickerListProps = BaseProps;
 
 const stylesBase = () => css({
-  label: 'Menu-list',
+  label: 'Select-picker-list',
   padding: '7px 0px',
   outline: 'none',
   margin: 0,
   overflow: 'auto',
 });
 
-export const AutoList = React.forwardRef<HTMLUListElement, AutoListProps>((props, ref) => {
+export const SelectPickerList = React.forwardRef<HTMLUListElement, SelectPickerListProps>((
+  props,
+  ref,
+) => {
   const { children } = props;
 
   return (
@@ -34,6 +37,6 @@ export const AutoList = React.forwardRef<HTMLUListElement, AutoListProps>((props
   );
 });
 
-AutoList.displayName = 'AutoList';
+SelectPickerList.displayName = 'SelectPickerList';
 
-AutoList.defaultProps = {};
+SelectPickerList.defaultProps = {};

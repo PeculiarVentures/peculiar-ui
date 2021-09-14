@@ -10,7 +10,7 @@ type BaseProps = {
   selected?: boolean;
 };
 
-type AutoListItemProps = BaseProps;
+type SelectPickerItemProps = BaseProps;
 
 const stylesBase = () => css({
   label: 'Menu-item',
@@ -44,7 +44,10 @@ const stylesBase = () => css({
   },
 });
 
-export const AutoListItem = React.forwardRef<HTMLLIElement, AutoListItemProps>((props, ref) => {
+export const SelectPickerItem = React.forwardRef<HTMLLIElement, SelectPickerItemProps>((
+  props,
+  ref,
+) => {
   const {
     children, disabled, onClick, index, selected,
   } = props;
@@ -79,6 +82,6 @@ export const AutoListItem = React.forwardRef<HTMLLIElement, AutoListItemProps>((
   );
 });
 
-AutoListItem.displayName = 'AutoListItem';
+SelectPickerItem.displayName = 'SelectPickerItem';
 
-AutoListItem.defaultProps = {};
+SelectPickerItem.defaultProps = {};

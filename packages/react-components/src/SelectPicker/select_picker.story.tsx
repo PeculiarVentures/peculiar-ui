@@ -1,11 +1,11 @@
 /* eslint-disable react/destructuring-assignment */
 import * as React from 'react';
-import { AutoMenu } from './index';
+import { SelectPicker } from './index';
 import { Button } from '../Button';
 
 export const Playground = (args: any) => (
   <>
-    <AutoMenu
+    <SelectPicker
       {...args}
       onChange={(data) => console.log(data)}
       // defaultValue="save_profile"
@@ -46,8 +46,8 @@ export const Playground = (args: any) => (
 Playground.args = {};
 
 export default {
-  title: 'Components/AutoMenu',
-  component: AutoMenu,
+  title: 'Components/SelectPicker',
+  component: SelectPicker,
   argTypes: {
     children: { control: false },
     options: { control: false },
