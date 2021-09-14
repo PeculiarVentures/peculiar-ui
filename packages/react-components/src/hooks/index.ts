@@ -4,3 +4,4 @@ export { useClipboard, UseClipboardOptions } from './use_clipboard';
 export { useControllableState, UseControllableStateProps } from './use_controllable';
 export { useId } from './use_id';
 export { useImage } from './use_image';
+export { useWindowEventListener } from './use_window_event_listener';
