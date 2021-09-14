@@ -78,6 +78,13 @@ const stylesLoading = () => css({
   padding: '7px 10px',
 });
 
+const stylesTextField = () => css({
+  label: 'TextField',
+  '*::selection': {
+    backgroundColor: 'transparent',
+  },
+});
+
 export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>((props, ref) => {
   const {
     options,
@@ -444,6 +451,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
         aria-haspopup="menu"
         aria-expanded={String(open) as any}
         className={cx({
+          [stylesTextField()]: true,
           [className]: !!className,
         })}
       />
