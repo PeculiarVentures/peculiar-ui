@@ -102,13 +102,13 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
 
   const filterList = () => {
     if (filter) {
-      return options.filter((option) => option.label.toLowerCase().includes(filter));
+      return options.filter((option) => option.label.toLowerCase().includes(filter.toLowerCase()));
     }
 
     return options;
   };
 
-  const sortedList = useMemo(filterList, [filter, loading]);
+  const sortedList = useMemo(filterList, [filter, open, loading]);
 
   const validOptionIndex = (data: Pick<HighlightedType, 'index' | 'direction'>) => {
     const { index, direction } = data;
@@ -275,7 +275,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
   const handleChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
 
-    setFilter(value.toLowerCase());
+    setFilter(value);
   };
 
   const handleMenuItemClick = (
@@ -476,11 +476,11 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
           })}
         >
           <TextField
-            placeholder="search"
             size="medium"
             type="search"
             disabled={loading || !!error}
             onChange={handleChangeSearch}
+            value={filter}
           />
         </Box>
         {renderList()}
