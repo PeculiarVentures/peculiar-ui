@@ -14,7 +14,7 @@ type SelectPickerItemProps = BaseProps;
 
 const stylesBase = () => css({
   label: 'Menu-item',
-  padding: '0px 10px',
+  padding: '0px 16px',
   fontFamily: 'inherit',
   outline: 'none',
   width: '100%',

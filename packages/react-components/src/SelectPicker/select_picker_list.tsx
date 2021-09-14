@@ -10,7 +10,7 @@ type SelectPickerListProps = BaseProps;
 
 const stylesBase = () => css({
   label: 'Select-picker-list',
-  padding: '7px 6px',
+  padding: '7px 0',
   outline: 'none',
   margin: 0,
   overflow: 'auto',
