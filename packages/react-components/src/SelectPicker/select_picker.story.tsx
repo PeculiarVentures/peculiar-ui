@@ -111,7 +111,7 @@ export const Playground = (args: any) => (
     onChange={(data) => console.log(data)}
     options={top100Films.map((film) => ({
       label: film.title,
-      value: film.year,
+      value: film.year + Math.random(),
     }))}
   />
 );

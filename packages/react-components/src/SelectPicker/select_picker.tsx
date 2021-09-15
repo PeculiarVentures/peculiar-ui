@@ -200,14 +200,6 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
       ) {
         listboxNode.scrollTop = element.offsetTop - element.offsetHeight * 1.6;
       }
-
-      // if (elementBottom > scrollBottom) {
-      //   listboxNode.scrollTop = elementBottom - listboxNode.clientHeight;
-      // } else if (
-      //   element.offsetTop - element.offsetHeight * sortedList.length < listboxNode.scrollTop
-      // ) {
-      //   listboxNode.scrollTop = element.offsetTop - element.offsetHeight * sortedList.length;
-      // }
     }
   };
 
@@ -340,7 +332,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
 
       handlePopoverClose();
     } else if (key === 'Enter') {
-      if (highlightedIndexRef.current !== -1) {
+      if (highlightedIndexRef.current !== -1 && sortedList[highlightedIndexRef.current]) {
         const option = sortedList[highlightedIndexRef.current];
 
         handlePopoverClose();
