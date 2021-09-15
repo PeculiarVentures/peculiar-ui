@@ -1,24 +1,23 @@
-/* eslint-disable react/destructuring-assignment */
 import * as React from 'react';
-import { Menu } from './index';
+import { Menu, MenuProps } from './index';
 import { Button } from '../Button';
 
-export const Playground = (args: any) => (
+export const Playground = (args: MenuProps) => (
   <Menu
     {...args}
     options={[
       {
         label: 'Print',
         disabled: true,
-        onClick: () => alert('print'),
+        onClick: () => console.log('print'),
       },
       {
         label: 'Save to my profile',
-        onClick: () => alert('save'),
+        onClick: () => console.log('save'),
       },
       {
         label: 'Delete',
-        onClick: () => alert('delete'),
+        onClick: () => console.log('delete'),
       },
     ]}
   >
@@ -36,6 +35,7 @@ export default {
   argTypes: {
     children: { control: false },
     options: { control: false },
+    popoverProps: { control: false },
   },
   parameters: { actions: { argTypesRegex: '^on.*' } },
 };

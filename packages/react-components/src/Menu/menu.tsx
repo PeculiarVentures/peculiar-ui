@@ -3,11 +3,14 @@ import { Popover, PopoverProps } from '../Popover';
 import { Typography } from '../Typography';
 import { css, cx } from '../styles';
 
-type OptionType = {
+type OptionBaseProps = {
   label: string;
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  component?: React.ElementType;
 };
+
+type OptionProps = OptionBaseProps & Omit<React.AllHTMLAttributes<HTMLElement>, 'className' | 'children'>;
 
 type BaseProps = {
   /**
@@ -17,7 +20,7 @@ type BaseProps = {
   /**
    * Menu contents.
    */
-  options: OptionType[];
+  options: OptionProps[];
   /**
    * Callback fired when the component requests to be closed.
    */
@@ -28,7 +31,7 @@ type BaseProps = {
   popoverProps?: Partial<PopoverProps>;
 };
 
-type MenuProps = BaseProps;
+export type MenuProps = BaseProps;
 
 const stylesMenuList = () => css({
   label: 'Menu-list',
@@ -114,7 +117,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
   };
 
   const handleMenuItemClick = (
-    option: OptionType,
+    option: OptionProps,
   ) => (
     event: React.MouseEvent<HTMLButtonElement>,
   ) => {
@@ -161,23 +164,36 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
             [stylesMenuList()]: true,
           })}
         >
-          {options.map((option) => (
-            <button
-              key={option.label}
-              type="button"
-              role="menuitem"
-              className={cx(stylesMenuItem())}
-              onClick={handleMenuItemClick(option)}
-              disabled={option.disabled}
-            >
-              <Typography
-                variant="b3"
-                color="inherit"
+          {options.map((option, index) => {
+            const {
+              component,
+              disabled,
+              label,
+              ...other
+            } = option;
+            const Component = component || 'button';
+
+            return (
+              <Component
+                {...other}
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
+                type="button"
+                role="menuitem"
+                className={cx(stylesMenuItem())}
+                onClick={handleMenuItemClick(option)}
+                disabled={disabled}
               >
-                {option.label}
-              </Typography>
-            </button>
-          ))}
+                <Typography
+                  variant="b3"
+                  color="inherit"
+                  component="span"
+                >
+                  {label}
+                </Typography>
+              </Component>
+            );
+          })}
         </div>
       </Popover>
     </>

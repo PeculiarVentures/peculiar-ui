@@ -1,1 +1,1 @@
-export { Menu } from './menu';
+export { Menu, MenuProps } from './menu';
