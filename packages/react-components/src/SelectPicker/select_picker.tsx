@@ -19,10 +19,6 @@ type OptionType = {
 
 type BaseProps = {
   /**
-   * Menu reference element.
-   */
-  children: React.ReactElement;
-  /**
    * Menu contents.
    */
   options: OptionType[];
@@ -366,6 +362,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
     if (loading) {
       return (
         <div
+          data-testid="loading-list"
           className={cx({
             [stylesLoading()]: true,
           })}
@@ -381,6 +378,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
     if (error) {
       return (
         <div
+          data-testid="error-list"
           className={cx({
             [stylesContent()]: true,
           })}
@@ -393,6 +391,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
     if (!options.length) {
       return (
         <div
+          data-testid="empty-list"
           className={cx({
             [stylesContent()]: true,
           })}
@@ -409,6 +408,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
     if (!sortedList.length) {
       return (
         <div
+          data-testid="not-match-list"
           className={cx({
             [stylesContent()]: true,
           })}
@@ -427,6 +427,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
     return (
       <SelectPickerList
         ref={measuredListboxRef}
+        data-testid="select-picker-list"
       >
         {sortedList.map((option, index) => {
           const isSelect = index === highlightedIndexRef.current;
@@ -468,6 +469,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
           [stylesTextField()]: true,
           [className]: !!className,
         })}
+        data-testid="select-picker"
       />
       <Popover
         {...popoverProps}
@@ -498,6 +500,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
           })}
         >
           <TextField
+            data-testid="search-text-field"
             size="medium"
             type="search"
             disabled={loading || !!error}
