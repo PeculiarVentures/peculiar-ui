@@ -196,9 +196,9 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
       if (elementBottom > scrollBottom) {
         listboxNode.scrollTop = elementBottom - listboxNode.clientHeight;
       } else if (
-        element.offsetTop - element.offsetHeight < listboxNode.scrollTop
+        element.offsetTop - element.offsetHeight - 90 < listboxNode.scrollTop
       ) {
-        listboxNode.scrollTop = element.offsetTop - element.offsetHeight * 1.6;
+        listboxNode.scrollTop = element.offsetTop - element.offsetHeight - 90;
       }
     }
   };
@@ -253,9 +253,15 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
     if (node !== null) {
       listboxRef.current = node;
 
+      for (let i = 0; i < sortedList.length; i += 1) {
+        if (textFieldValue === sortedList[i].label) {
+          highlightedIndexRef.current = i;
+        }
+      }
+
       setHighlightedIndex({ index: highlightedIndexRef.current });
     }
-  }, [open]);
+  }, [open, filter]);
 
   const prepareDefaultValue = () => {
     if (highlightedIndexRef.current === -1) {
