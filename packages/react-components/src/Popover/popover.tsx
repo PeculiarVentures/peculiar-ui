@@ -40,10 +40,8 @@ const stylesBase = () => css({
   outline: 0,
   maxWidth: 'calc(100% - 32px)',
   minWidth: '16px',
-  maxHeight: '224px',
+  maxHeight: 'calc(100% - 32px)',
   minHeight: '16px',
-  overflowX: 'hidden',
-  overflowY: 'auto',
   boxShadow: 'var(--pv-shadow-light-low)',
 });
 

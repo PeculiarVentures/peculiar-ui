@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import * as React from 'react';
 import { SelectPicker } from './index';
 
@@ -105,25 +104,18 @@ const top100Films = [
   { title: 'Monty Python and the Holy Grail', year: 1975 },
 ];
 
-export const Playground = (args: any) => (
+const Template = () => (
   <SelectPicker
-    {...args}
-    onChange={(data) => console.log(data)}
-    options={top100Films.map((film) => ({
-      label: film.title,
-      value: film.year + Math.random(),
-    }))}
+    options={top100Films}
+    getOptionLabel={(option: any) => option.title}
   />
 );
 
+export const Playground = Template.bind({});
 Playground.args = {};
 
 export default {
   title: 'Components/SelectPicker',
   component: SelectPicker,
-  argTypes: {
-    children: { control: false },
-    options: { control: false },
-  },
   parameters: { actions: { argTypesRegex: '^on.*' } },
 };

@@ -1,121 +1,144 @@
-import React, { useMemo } from 'react';
-import { Popover, PopoverProps } from '../Popover';
-import { SelectPickerList } from './select_picker_list';
-import { SelectPickerItem } from './select_picker_item';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+} from 'react';
+import { Popover } from '../Popover';
+import { TextField } from '../TextField';
+import { useControllableState } from '../hooks';
 import { cx, css } from '../styles';
-import {
-  Box,
-  CircularProgress,
-  TextField,
-  Typography,
-  useWindowEventListener,
-} from '..';
 
-type OptionType = {
-  label: string;
-  value: string;
-  // disabled?: boolean;
-};
+type ReasonType = ('auto' | 'mouse' | 'keyboard');
+type DirectionType = ('next' | 'previous');
+type DiffType = (number | 'reset' | 'start' | 'end');
 
-type BaseProps = {
-  /**
-   * Menu contents.
-   */
-  options: OptionType[];
-  /**
-   * Props applied to the `Popover` element.
-   */
-  popoverProps?: Partial<PopoverProps>;
-  placeholder?: string;
-  defaultValue?: string;
+type FilterOptionsType = <T>(
+  options: ReadonlyArray<T>,
+  value: string,
+  getOptionLabel: (option: T) => string,
+) => ReadonlyArray<T>;
+
+export type SelectPickerProps<T> = {
+  options: ReadonlyArray<T>;
+  getOptionLabel: (option: T) => string;
+  disabled?: boolean;
   loading?: boolean;
-  error?: string | React.ReactNode;
-  notMatch?: string | React.ReactNode;
-  onChange: (label: string) => void;
+  loadingText?: React.ReactNode;
+  noOptionsText?: React.ReactNode;
+  filterOptions?: FilterOptionsType;
+  onChange?: (event: React.SyntheticEvent, value: T) => void;
+  defaultValue?: T;
+  value?: T;
 };
 
-type HighlightedType = {
-  diff: number | 'start' | 'end';
-  direction: 'next' | 'previous';
-  reason?: string;
-  event?: Event
-  index?: number;
+const defaultFilterOptions: FilterOptionsType = (options, value, getOptionLabel) => {
+  if (!options || !options.length) {
+    return [];
+  }
+
+  return options.filter((option) => {
+    const labelValue = getOptionLabel(option).trim().toLowerCase();
+    const searchValue = value.trim().toLowerCase();
+
+    return labelValue.includes(searchValue);
+  });
 };
 
-type SelectPickerProps = BaseProps;
-
-const stylesBase = () => css({
-  label: 'Menu',
-  display: 'flex',
-  flexDirection: 'column',
-  overflowY: 'hidden',
-  width: '300px',
-  maxHeight: '450px',
+const stylesInputSearch = () => css({
+  label: 'InputSearch',
+  padding: '10px',
 });
 
-const stylesSearchWrapper = () => css({
-  label: 'Search-wrapper',
-  padding: '16px 16px 12px',
+const stylesPopper = () => css({
+  label: 'Popper',
+  width: 300,
 });
 
-const stylesContent = () => css({
-  label: 'Content',
-  display: 'flex',
-  justifyContent: 'center',
-  padding: '7px 10px',
+const stylesListBox = () => css({
+  label: 'ListBox',
+  padding: 0,
+  maxHeight: '40vh',
+  overflowY: 'auto',
+  margin: 0,
+  listStyleType: 'none',
+  position: 'relative',
 });
 
-const stylesLoading = () => css({
-  label: 'Loading',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '100px',
-  padding: '7px 10px',
-});
-
-const stylesTextField = () => css({
-  label: 'TextField',
-  '*::selection': {
-    backgroundColor: 'transparent',
+const stylesOption = () => css({
+  label: 'Option',
+  '&[aria-selected="true"]': {
+    backgroundColor: 'yellow',
+  },
+  '&[data-focused="true"]': {
+    backgroundColor: 'red',
   },
 });
 
-export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>((props, ref) => {
+export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (props) => {
   const {
     options,
-    onChange,
+    getOptionLabel,
+    disabled,
     loading,
+    loadingText,
+    noOptionsText,
+    filterOptions = defaultFilterOptions,
+    onChange,
     defaultValue,
-    placeholder,
-    error,
-    notMatch,
-    popoverProps = {},
+    value: valueProp,
   } = props;
-  const {
-    className,
-    modalProps = {},
-  } = popoverProps;
-  const [open, setOpen] = React.useState(false);
-  const [filter, setFilter] = React.useState<string | undefined>();
-  const [textFieldValue, setTextFieldValue] = React.useState<string | undefined>();
-  const childRef = React.useRef(null);
-  const highlightedIndexRef = React.useRef(-1);
+
+  const [open, setOpen] = useState<boolean>(false);
+  const [searchValue, setSearchValue] = useState<string>('');
+
+  const rootRef = useRef(null);
   const listboxRef = React.useRef(null);
+  const highlightedIndexRef = useRef(-1);
 
-  const filterList = () => {
-    if (filter) {
-      return options.filter((option) => option.label.toLowerCase().includes(filter.toLowerCase()));
-    }
+  const [value, setValue] = useControllableState({
+    value: valueProp,
+    defaultValue,
+  });
 
-    return options;
+  const filteredOptions = open
+    ? filterOptions(options, searchValue, getOptionLabel)
+    : [];
+
+  const handleClose = () => {
+    setOpen(false);
+    setSearchValue('');
   };
 
-  const sortedList = useMemo(filterList, [filter, open, loading]);
+  const handleRootClick = () => {
+    setOpen(true);
+  };
 
-  const validOptionIndex = (data: Pick<HighlightedType, 'index' | 'direction'>) => {
-    const { index, direction } = data;
+  const handleRootKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    event.stopPropagation();
 
+    if (event.key === 'Enter') {
+      setOpen(true);
+    }
+  };
+
+  const selectNewValue = (event: React.SyntheticEvent, option: any) => {
+    setValue(option);
+
+    handleClose();
+
+    if (onChange) {
+      onChange(event, option);
+    }
+  };
+
+  const handleOptionClick = (event: React.MouseEvent<HTMLLIElement>) => {
+    const index = Number(event.currentTarget.getAttribute('data-option-index'));
+
+    selectNewValue(event, filteredOptions[index]);
+  };
+
+  function validOptionIndex(index: number, direction: DirectionType) {
     if (!listboxRef.current || index === -1) {
       return -1;
     }
@@ -125,7 +148,7 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
     while (true) {
       // Out of range
       if (
-        (direction === 'next' && nextFocus === options.length)
+        (direction === 'next' && nextFocus === filteredOptions.length)
         || (direction === 'previous' && nextFocus === -1)
       ) {
         return -1;
@@ -133,83 +156,74 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
 
       const option = listboxRef.current.querySelector(`[data-option-index="${nextFocus}"]`);
 
-      // Same logic as MenuList.js
-      const nextFocusDisabled = !option
-        || option.disabled
-        || option.getAttribute('aria-disabled') === 'true';
-
-      if (nextFocusDisabled) {
+      if ((option && !option.hasAttribute('tabindex'))) {
         // Move to the next element.
         nextFocus += direction === 'next' ? 1 : -1;
       } else {
         return nextFocus;
       }
     }
-  };
+  }
 
-  const setHighlightedIndex = (data: Pick<HighlightedType, 'index' | 'reason' | 'event'>) => {
-    const { index, reason } = data;
-
+  const setHighlightedIndex = (index: number, reason: ReasonType = 'auto') => {
     highlightedIndexRef.current = index;
 
-    if (!listboxRef.current) {
+    const listboxNode = listboxRef.current;
+
+    if (!listboxNode) {
       return;
     }
 
-    const prev = listboxRef.current.querySelector('[role="menuitem"][data-focus="true"]');
+    const prevOptionNode = listboxNode.querySelector('[role="option"][data-focused="true"]');
 
-    if (prev) {
-      prev.removeAttribute('data-focus');
+    if (prevOptionNode) {
+      prevOptionNode.setAttribute('data-focused', 'false');
     }
 
-    const listboxNode = listboxRef.current.parentElement.querySelector('[role="menu"]');
-
-    // "No results"
+    // No results.
     if (!listboxNode) {
       return;
     }
 
     if (index === -1) {
       listboxNode.scrollTop = 0;
-
       return;
     }
 
-    const option = listboxRef.current.querySelector(`[data-option-index="${index}"]`);
+    const nextOptionNode = listboxNode.querySelector(`[data-option-index="${index}"]`);
 
-    if (!option) {
+    if (!nextOptionNode) {
       return;
     }
 
-    option.setAttribute('data-focus', 'true');
+    nextOptionNode.setAttribute('data-focused', 'true');
 
+    // Scroll active descendant into view.
     if (listboxNode.scrollHeight > listboxNode.clientHeight && reason !== 'mouse') {
-      const element = option;
-
       const scrollBottom = listboxNode.clientHeight + listboxNode.scrollTop;
-      const elementBottom = element.offsetTop + element.offsetHeight;
+      const elementBottom = nextOptionNode.offsetTop + nextOptionNode.offsetHeight;
 
       if (elementBottom > scrollBottom) {
         listboxNode.scrollTop = elementBottom - listboxNode.clientHeight;
       } else if (
-        element.offsetTop - element.offsetHeight - 90 < listboxNode.scrollTop
+        nextOptionNode.offsetTop - nextOptionNode.offsetHeight * 0 < listboxNode.scrollTop
       ) {
-        listboxNode.scrollTop = element.offsetTop - element.offsetHeight - 90;
+        listboxNode.scrollTop = nextOptionNode.offsetTop - nextOptionNode.offsetHeight * 0;
       }
     }
   };
 
-  const changeHighlightedIndex = (data: HighlightedType) => {
-    const {
-      diff, direction, reason, event,
-    } = data;
-
+  const changeHighlightedIndex = (diff: DiffType, direction: DirectionType = 'next', reason: ReasonType = 'auto') => {
     if (!open) {
       return;
     }
 
     const getNextIndex = () => {
-      const maxIndex = sortedList.length - 1;
+      const maxIndex = filteredOptions.length - 1;
+
+      if (diff === 'reset') {
+        return -1;
+      }
 
       if (diff === 'start') {
         return 0;
@@ -222,7 +236,11 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
       const newIndex = highlightedIndexRef.current + diff;
 
       if (newIndex < 0) {
-        if (Math.abs(diff) > 1) {
+        if (newIndex === -1) {
+          return -1;
+        }
+
+        if ((highlightedIndexRef.current !== -1) || Math.abs(diff) > 1) {
           return 0;
         }
 
@@ -230,6 +248,10 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
       }
 
       if (newIndex > maxIndex) {
+        if (newIndex === maxIndex + 1) {
+          return -1;
+        }
+
         if (Math.abs(diff) > 1) {
           return maxIndex;
         }
@@ -240,210 +262,146 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
       return newIndex;
     };
 
-    const nextIndex = validOptionIndex({ index: getNextIndex(), direction });
+    const nextIndex = validOptionIndex(getNextIndex(), direction);
 
-    setHighlightedIndex({ index: nextIndex, reason, event });
+    setHighlightedIndex(nextIndex, reason);
   };
 
-  const measuredListboxRef = React.useCallback((node) => {
-    if (node !== null) {
-      listboxRef.current = node;
-
-      for (let i = 0; i < sortedList.length; i += 1) {
-        if (textFieldValue === sortedList[i].label) {
-          highlightedIndexRef.current = i;
-        }
-      }
-
-      setHighlightedIndex({ index: highlightedIndexRef.current });
-    }
-  }, [open, filter]);
-
-  const prepareDefaultValue = () => {
-    if (highlightedIndexRef.current === -1) {
-      for (let i = 0; i < options.length; i += 1) {
-        if (defaultValue === options[i].value) {
-          highlightedIndexRef.current = i;
-
-          return options[i].label;
-        }
-      }
-    }
-
-    return '';
-  };
-
-  const handleChildClick = () => {
-    setOpen(true);
-  };
-
-  const handlePopoverClose = () => {
-    setFilter(undefined);
-    setOpen(false);
-  };
-
-  const handleChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-
-    setFilter(value);
-  };
-
-  const handleMenuItemClick = (
-    option: OptionType,
-    index: number,
-  ) => () => {
-    handlePopoverClose();
-
-    if (onChange) {
-      onChange(option.value);
-      setTextFieldValue(option.label);
-      highlightedIndexRef.current = index;
-    }
-  };
-
-  const handleChildKeyDown = (event: KeyboardEvent) => {
-    const { key } = event;
-
-    if (key === 'Tab') {
-      handlePopoverClose();
-
-      return;
-    }
-
+  const syncHighlightedIndex = useCallback(() => {
     if (!open) {
       return;
     }
 
-    if (key === 'ArrowDown') {
-      event.preventDefault();
+    if (filteredOptions.length === 0 || value == null) {
+      changeHighlightedIndex('reset');
 
-      changeHighlightedIndex({
-        diff: 1, direction: 'next', reason: 'keyboard', event,
-      });
-    } else if (key === 'ArrowUp') {
-      event.preventDefault();
+      return;
+    }
 
-      changeHighlightedIndex({
-        diff: -1, direction: 'previous', reason: 'keyboard', event,
-      });
-    } else if (key === 'Escape') {
-      // Avoid Opera to exit fullscreen mode.
-      event.preventDefault();
-      // Avoid the Modal to handle the event.
-      event.stopPropagation();
+    if (!listboxRef.current) {
+      return;
+    }
 
-      handlePopoverClose();
-    } else if (key === 'Enter') {
-      if (highlightedIndexRef.current !== -1 && sortedList[highlightedIndexRef.current]) {
-        const option = sortedList[highlightedIndexRef.current];
+    if (value != null) {
+      const optionIndex = filteredOptions.findIndex((optionItem) => optionItem === value);
 
-        handlePopoverClose();
+      if (optionIndex === -1) {
+        changeHighlightedIndex('reset');
+      } else {
+        setHighlightedIndex(optionIndex);
+      }
 
-        event.preventDefault();
+      return;
+    }
 
-        for (let i = 0; i < options.length; i += 1) {
-          if (option.value === options[i].value) {
-            highlightedIndexRef.current = i;
+    // Prevent the highlighted index to leak outside the boundaries.
+    if (highlightedIndexRef.current >= filteredOptions.length - 1) {
+      setHighlightedIndex(filteredOptions.length - 1);
+
+      return;
+    }
+
+    setHighlightedIndex(highlightedIndexRef.current);
+  }, [
+    filteredOptions.length,
+    value,
+    open,
+    searchValue,
+  ]);
+
+  const handleListboxRef = (node: HTMLUListElement) => {
+    listboxRef.current = node;
+
+    if (!node) {
+      return;
+    }
+
+    syncHighlightedIndex();
+  };
+
+  const handleInputSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+  };
+
+  const handleInputSearchKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    // Wait until IME is settled.
+    if (event.which !== 229) {
+      switch (event.key) {
+        case 'ArrowDown':
+          // Prevent cursor move
+          event.preventDefault();
+
+          changeHighlightedIndex(1, 'next', 'keyboard');
+          break;
+
+        case 'ArrowUp':
+          // Prevent cursor move
+          event.preventDefault();
+
+          changeHighlightedIndex(-1, 'previous', 'keyboard');
+          break;
+
+        case 'Enter':
+          // Avoid early form validation, let the end-users continue filling the form.
+          event.preventDefault();
+
+          if (highlightedIndexRef.current !== -1 && open) {
+            const option = filteredOptions[highlightedIndexRef.current];
+
+            selectNewValue(event, option);
           }
-        }
+          break;
 
-        setTextFieldValue(option.label);
-
-        if (onChange) {
-          onChange(option.value);
-        }
+        default:
       }
     }
   };
 
-  useWindowEventListener('keydown', handleChildKeyDown);
+  useEffect(() => {
+    syncHighlightedIndex();
+  }, [syncHighlightedIndex]);
 
-  const renderList = () => {
+  const renderPopoverContent = () => {
     if (loading) {
-      return (
-        <div
-          data-testid="loading-list"
-          className={cx({
-            [stylesLoading()]: true,
-          })}
-        >
-          <CircularProgress
-            size="small"
-            color="secondary"
-          />
-        </div>
-      );
+      return loadingText;
     }
 
-    if (error) {
-      return (
-        <div
-          data-testid="error-list"
-          className={cx({
-            [stylesContent()]: true,
-          })}
-        >
-          {error}
-        </div>
-      );
-    }
-
-    if (!options.length) {
-      return (
-        <div
-          data-testid="empty-list"
-          className={cx({
-            [stylesContent()]: true,
-          })}
-        >
-          <Typography
-            variant="b3"
-          >
-            Empty list
-          </Typography>
-        </div>
-      );
-    }
-
-    if (!sortedList.length) {
-      return (
-        <div
-          data-testid="not-match-list"
-          className={cx({
-            [stylesContent()]: true,
-          })}
-        >
-          {notMatch || (
-            <Typography
-              variant="b3"
-            >
-              Not match found
-            </Typography>
-          )}
-        </div>
-      );
+    if (!filteredOptions.length) {
+      return noOptionsText;
     }
 
     return (
-      <SelectPickerList
-        ref={measuredListboxRef}
-        data-testid="select-picker-list"
+      <ul
+        role="listbox"
+        tabIndex={-1}
+        ref={handleListboxRef}
+        className={cx({
+          [stylesListBox()]: true,
+        })}
       >
-        {sortedList.map((option, index) => {
-          const isSelect = index === highlightedIndexRef.current;
+        {filteredOptions.map((option, index) => {
+          const optionLabel = getOptionLabel(option);
+          const selected = option === value;
 
           return (
-            <SelectPickerItem
-              key={option.label}
-              onClick={handleMenuItemClick(option, index)}
-              index={index}
-              selected={isSelect}
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+            <li
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+              role="option"
+              tabIndex={-1}
+              onClick={handleOptionClick}
+              aria-selected={selected}
+              data-option-index={index}
+              className={cx({
+                [stylesOption()]: true,
+              })}
             >
-              {option.label}
-            </SelectPickerItem>
+              {optionLabel}
+            </li>
           );
         })}
-      </SelectPickerList>
+      </ul>
     );
   };
 
@@ -451,68 +409,48 @@ export const SelectPicker = React.forwardRef<HTMLDivElement, SelectPickerProps>(
     <>
       <TextField
         readOnly
-        defaultValue={prepareDefaultValue()}
-        placeholder={placeholder}
-        value={textFieldValue}
-        ref={childRef}
-        onClick={handleChildClick}
-        onKeyDown={(event) => {
-          event.stopPropagation();
-
-          if (event.key === 'Enter') {
-            handleChildClick();
-          }
+        value={value ? getOptionLabel(value) : ''}
+        onClick={handleRootClick}
+        onKeyDown={handleRootKeyDown}
+        disabled={disabled}
+        ref={rootRef}
+        inputProps={{
+          autoComplete: 'off',
+          autoCapitalize: 'none',
+          spellCheck: 'false',
         }}
-        aria-haspopup="menu"
-        aria-expanded={String(open) as any}
-        className={cx({
-          [stylesTextField()]: true,
-          [className]: !!className,
-        })}
-        data-testid="select-picker"
       />
       <Popover
-        {...popoverProps}
-        modalProps={{
-          onMouseDown: (event) => {
-            // Prevent blur
-            event.preventDefault();
-          },
-          ...modalProps,
-          disableEnforceFocus: false,
-        }}
-        ref={ref}
         open={open}
-        anchorEl={childRef.current}
-        onClose={handlePopoverClose}
+        anchorEl={rootRef.current}
+        onClose={handleClose}
         placement="bottom-start"
-        className={cx({
-          [stylesBase()]: true,
-        })}
+        className={stylesPopper()}
       >
-        <Box
-          borderColor="gray-4"
-          borderPosition="bottom"
-          borderStyle="solid"
-          borderWidth={1}
+        <div
           className={cx({
-            [stylesSearchWrapper()]: true,
+            [stylesInputSearch()]: true,
           })}
         >
           <TextField
-            data-testid="search-text-field"
-            size="medium"
             type="search"
-            disabled={loading || !!error}
-            onChange={handleChangeSearch}
+            onChange={handleInputSearchChange}
+            disabled={loading || !options.length}
+            onKeyDown={handleInputSearchKeyDown}
+            value={searchValue}
+            placeholder="Search"
           />
-        </Box>
-        {renderList()}
+        </div>
+        {renderPopoverContent()}
       </Popover>
     </>
   );
-});
+};
 
-SelectPicker.displayName = 'SelectPicker';
-
-SelectPicker.defaultProps = {};
+// @ts-ignore
+SelectPicker.defaultProps = {
+  disabled: false,
+  loading: false,
+  loadingText: 'Loading...',
+  noOptionsText: 'No options',
+};
