@@ -6,6 +6,9 @@ import React, {
 } from 'react';
 import { Popover } from '../Popover';
 import { TextField } from '../TextField';
+import { Typography } from '../Typography';
+import { Box } from '../Box';
+import { ArrowDropDownIcon } from '../icons';
 import { useControllableState } from '../hooks';
 import { cx, css } from '../styles';
 
@@ -20,16 +23,78 @@ type FilterOptionsType = <T>(
 ) => ReadonlyArray<T>;
 
 export type SelectPickerProps<T> = {
+  /**
+   * Array of options.
+   */
   options: ReadonlyArray<T>;
+  /**
+   * Used to determine the string value for a given option. It's used to fill the input.
+   */
   getOptionLabel: (option: T) => string;
+  /**
+   * If `true`, the component is disabled.
+   */
   disabled?: boolean;
+  /**
+   * If `true`, the component is in a loading state.
+   */
   loading?: boolean;
+  /**
+   * Text to display when in a loading state.
+   */
   loadingText?: React.ReactNode;
+  /**
+   * Text to display when there are no options.
+   */
   noOptionsText?: React.ReactNode;
-  filterOptions?: FilterOptionsType;
-  onChange?: (event: React.SyntheticEvent, value: T) => void;
+  /**
+   * The default value. Use when the component is not controlled.
+   */
   defaultValue?: T;
+  /**
+   * The value of the select.
+   */
   value?: T;
+  /**
+   * The id of the `input` element.
+   */
+  id?: string;
+  /**
+   * The short hint displayed in the `input` before the user enters a value.
+   */
+  placeholder?: string;
+  /**
+   * The short hint displayed in the search `input` before the user enters a value.
+   */
+  placeholderSearch?: string;
+  /**
+   * Name attribute of the `input` element.
+   */
+  name?: string;
+  /**
+   * If `true`, the `input` element is required.
+   */
+  required?: boolean;
+  /**
+   * The size of the input.
+   */
+  size?: (
+    'small' |
+    'medium' |
+    'large'
+  );
+  /**
+   * A filter function that determines the options that are eligible.
+   */
+  filterOptions?: FilterOptionsType;
+  /**
+   * Callback fired when the popup requests to be opened.
+   */
+  onOpen?: () => void;
+  /**
+   * Callback fired when the value changes.
+   */
+  onChange?: (event: React.SyntheticEvent, value: T) => void;
 };
 
 const defaultFilterOptions: FilterOptionsType = (options, value, getOptionLabel) => {
@@ -45,18 +110,36 @@ const defaultFilterOptions: FilterOptionsType = (options, value, getOptionLabel)
   });
 };
 
+/**
+ * Styles.
+ */
+const stylesRoot = () => css({
+  label: 'SelectPicker-root',
+  position: 'relative',
+});
+
+const stylesInput = () => css({
+  label: 'SelectPicker-input',
+  '*::selection': {
+    backgroundColor: 'transparent',
+  },
+  input: {
+    paddingRight: 'calc(var(--pv-size-base-2) + 24px)',
+  },
+});
+
 const stylesInputSearch = () => css({
-  label: 'InputSearch',
-  padding: '10px',
+  label: 'SelectPicker-input-search',
+  padding: 'var(--pv-size-base-2)',
 });
 
 const stylesPopper = () => css({
-  label: 'Popper',
+  label: 'SelectPicker-popper',
   width: 300,
 });
 
 const stylesListBox = () => css({
-  label: 'ListBox',
+  label: 'SelectPicker-listbox',
   padding: 0,
   maxHeight: '40vh',
   overflowY: 'auto',
@@ -65,15 +148,58 @@ const stylesListBox = () => css({
   position: 'relative',
 });
 
+const stylesListBoxState = () => css({
+  label: 'SelectPicker-listbox-state',
+  padding: 'var(--pv-size-base-3) var(--pv-size-base-2)',
+});
+
 const stylesOption = () => css({
-  label: 'Option',
-  '&[aria-selected="true"]': {
-    backgroundColor: 'yellow',
+  label: 'SelectPicker-option',
+  padding: '0px var(--pv-size-base-2)',
+  fontFamily: 'inherit',
+  outline: 'none',
+  width: '100%',
+  height: 'var(--pv-size-base-7)',
+  textDecoration: 'none',
+  userSelect: 'none',
+  cursor: 'pointer',
+  transition: 'background-color 200ms',
+  backgroundColor: 'transparent',
+  border: 'none',
+  color: 'var(--pv-color-black)',
+  boxSizing: 'border-box',
+  display: 'flex',
+  textAlign: 'left',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  '&:hover': {
+    backgroundColor: 'var(--pv-color-gray-3)',
   },
   '&[data-focused="true"]': {
-    backgroundColor: 'red',
+    backgroundColor: 'var(--pv-color-gray-4)',
+  },
+  '&[aria-selected="true"]': {
+    backgroundColor: 'var(--pv-color-gray-5)',
   },
 });
+
+const stylesInputArrowIcon = () => css({
+  label: 'Select-arrow-icon',
+  position: 'absolute',
+  right: '0px',
+  top: 'calc(50% - 12px)',
+  pointerEvents: 'none',
+  margin: '0px var(--pv-size-base)',
+  color: 'var(--pv-color-gray-10)',
+});
+
+const stylesInputArrowIconDisabled = () => css({
+  label: 'disabled',
+  color: 'var(--pv-color-gray-7)',
+});
+/**
+ *
+ */
 
 export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (props) => {
   const {
@@ -83,10 +209,17 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
     loading,
     loadingText,
     noOptionsText,
-    filterOptions = defaultFilterOptions,
-    onChange,
     defaultValue,
     value: valueProp,
+    id,
+    placeholder,
+    placeholderSearch,
+    name,
+    required,
+    size,
+    filterOptions = defaultFilterOptions,
+    onChange,
+    onOpen,
   } = props;
 
   const [open, setOpen] = useState<boolean>(false);
@@ -110,15 +243,24 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
     setSearchValue('');
   };
 
-  const handleRootClick = () => {
+  const handleInputClick = () => {
     setOpen(true);
+
+    if (onOpen) {
+      onOpen();
+    }
   };
 
-  const handleRootKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    event.stopPropagation();
-
+  const handleInputKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Enter') {
+      // Avoid early form validation, let the end-users continue filling the form.
+      event.preventDefault();
+
       setOpen(true);
+
+      if (onOpen) {
+        onOpen();
+      }
     }
   };
 
@@ -361,13 +503,28 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
     syncHighlightedIndex();
   }, [syncHighlightedIndex]);
 
+  const renderListBoxState = (text: React.ReactNode) => (
+    <div
+      className={cx(stylesListBoxState())}
+    >
+      {typeof text === 'string' ? (
+        <Typography
+          variant="b2"
+          color="gray-10"
+        >
+          {text}
+        </Typography>
+      ) : text}
+    </div>
+  );
+
   const renderPopoverContent = () => {
     if (loading) {
-      return loadingText;
+      return renderListBoxState(loadingText);
     }
 
     if (!filteredOptions.length) {
-      return noOptionsText;
+      return renderListBoxState(noOptionsText);
     }
 
     return (
@@ -375,9 +532,7 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
         role="listbox"
         tabIndex={-1}
         ref={handleListboxRef}
-        className={cx({
-          [stylesListBox()]: true,
-        })}
+        className={cx(stylesListBox())}
       >
         {filteredOptions.map((option, index) => {
           const optionLabel = getOptionLabel(option);
@@ -393,11 +548,15 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
               onClick={handleOptionClick}
               aria-selected={selected}
               data-option-index={index}
-              className={cx({
-                [stylesOption()]: true,
-              })}
+              className={cx(stylesOption())}
             >
-              {optionLabel}
+              <Typography
+                variant="b3"
+                color="inherit"
+                noWrap
+              >
+                {optionLabel}
+              </Typography>
             </li>
           );
         })}
@@ -407,19 +566,34 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
 
   return (
     <>
-      <TextField
-        readOnly
-        value={value ? getOptionLabel(value) : ''}
-        onClick={handleRootClick}
-        onKeyDown={handleRootKeyDown}
-        disabled={disabled}
-        ref={rootRef}
-        inputProps={{
-          autoComplete: 'off',
-          autoCapitalize: 'none',
-          spellCheck: 'false',
-        }}
-      />
+      <div className={stylesRoot()}>
+        <TextField
+          readOnly
+          value={value ? getOptionLabel(value) : ''}
+          disabled={disabled}
+          ref={rootRef}
+          inputProps={{
+            autoComplete: 'off',
+            autoCapitalize: 'none',
+            spellCheck: 'false',
+            onClick: handleInputClick,
+            onKeyDown: handleInputKeyDown,
+          }}
+          id={id}
+          placeholder={placeholder}
+          name={name}
+          required={required}
+          size={size}
+          className={stylesInput()}
+        />
+        <ArrowDropDownIcon
+          className={cx({
+            [stylesInputArrowIcon()]: true,
+            [stylesInputArrowIconDisabled()]: disabled,
+          })}
+          aria-hidden
+        />
+      </div>
       <Popover
         open={open}
         anchorEl={rootRef.current}
@@ -427,10 +601,11 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
         placement="bottom-start"
         className={stylesPopper()}
       >
-        <div
-          className={cx({
-            [stylesInputSearch()]: true,
-          })}
+        <Box
+          borderColor="gray-3"
+          borderPosition="bottom"
+          borderStyle="solid"
+          borderWidth={1}
         >
           <TextField
             type="search"
@@ -438,9 +613,10 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
             disabled={loading || !options.length}
             onKeyDown={handleInputSearchKeyDown}
             value={searchValue}
-            placeholder="Search"
+            placeholder={placeholderSearch}
+            className={stylesInputSearch()}
           />
-        </div>
+        </Box>
         {renderPopoverContent()}
       </Popover>
     </>
@@ -453,4 +629,5 @@ SelectPicker.defaultProps = {
   loading: false,
   loadingText: 'Loading...',
   noOptionsText: 'No options',
+  placeholderSearch: 'Search',
 };
