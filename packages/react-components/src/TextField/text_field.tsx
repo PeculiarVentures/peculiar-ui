@@ -80,7 +80,7 @@ type BaseProps = {
   'data-testid'?: string;
 };
 
-type TextFieldProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type TextFieldProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
 
 const stylesInputBase = () => css({
   label: 'TextField',
