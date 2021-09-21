@@ -684,7 +684,6 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
           <TextField
             type="search"
             onChange={handleInputSearchChange}
-            disabled={!options.length}
             onKeyDown={handleInputSearchKeyDown}
             value={searchValue}
             placeholder={placeholderSearch}
