@@ -621,6 +621,8 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
             [stylesInputSizeLarge()]: size === 'large',
           })}
           // @ts-ignore
+          type="button"
+          // @ts-ignore
           disabled={disabled}
         >
           {value ? getOptionLabel(value) : placeholder}
