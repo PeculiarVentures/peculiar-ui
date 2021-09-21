@@ -132,38 +132,39 @@ const stylesInput = () => css({
   transition: 'background-color 200ms, color 200ms, border-color 200ms',
   appearance: 'none',
   userSelect: 'none',
+  textAlign: 'left',
+  cursor: 'pointer',
   '&:hover': {
     backgroundColor: 'var(--pv-color-gray-3)',
     borderColor: 'var(--pv-color-gray-7)',
   },
-  '&:focus': {
-    backgroundColor: 'var(--pv-color-secondary-tint-5)',
-    borderColor: 'var(--pv-color-secondary-tint-3)',
-  },
-  '&[aria-disabled="true"]': {
+  '&:disabled': {
     cursor: 'not-allowed',
     backgroundColor: 'var(--pv-color-gray-1)',
     borderColor: 'var(--pv-color-gray-5)',
     color: 'var(--pv-color-gray-7)',
+  },
+  '&:not(:disabled)': {
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-secondary-tint-5)',
+      borderColor: 'var(--pv-color-secondary-tint-3)',
+    },
   },
 });
 
 const stylesInputSizeSmall = () => css({
   label: 'small',
   height: 'var(--pv-size-base-6)',
-  lineHeight: 'var(--pv-size-base-6)',
 });
 
 const stylesInputSizeMedium = () => css({
   label: 'medium',
   height: 'var(--pv-size-base-7)',
-  lineHeight: 'var(--pv-size-base-7)',
 });
 
 const stylesInputSizeLarge = () => css({
   label: 'large',
   height: 'var(--pv-size-base-8)',
-  lineHeight: 'var(--pv-size-base-8)',
 });
 
 const stylesNativeInput = () => css({
@@ -190,12 +191,12 @@ const stylesPopper = () => css({
 
 const stylesListBox = () => css({
   label: 'SelectPicker-listbox',
-  padding: 0,
   maxHeight: '40vh',
   overflowY: 'auto',
   margin: 0,
   listStyleType: 'none',
   position: 'relative',
+  padding: '10px 0',
 });
 
 const stylesListBoxState = () => css({
@@ -294,31 +295,10 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
   };
 
   const handleInputClick = () => {
-    if (disabled) {
-      return;
-    }
-
     setOpen(true);
 
     if (onOpen) {
       onOpen();
-    }
-  };
-
-  const handleInputKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (disabled) {
-      return;
-    }
-
-    if (event.key === 'Enter') {
-      // Avoid early form validation, let the end-users continue filling the form.
-      event.preventDefault();
-
-      setOpen(true);
-
-      if (onOpen) {
-        onOpen();
-      }
     }
   };
 
@@ -590,7 +570,7 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
         role="listbox"
         tabIndex={-1}
         ref={handleListboxRef}
-        className={cx(stylesListBox())}
+        className={stylesListBox()}
       >
         {filteredOptions.map((option, index) => {
           const optionLabel = getOptionLabel(option);
@@ -606,7 +586,7 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
               onClick={handleOptionClick}
               aria-selected={selected}
               data-option-index={index}
-              className={cx(stylesOption())}
+              className={stylesOption()}
             >
               <Typography
                 variant="b3"
@@ -627,15 +607,11 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
       <div className={stylesRoot()}>
         <Typography
           noWrap
-          component="div"
+          component="button"
           variant="c1"
-          role="button"
-          tabIndex={disabled ? undefined : 0}
           aria-haspopup="listbox"
           aria-expanded={open}
-          aria-disabled={disabled}
           onClick={handleInputClick}
-          onKeyDown={handleInputKeyDown}
           ref={rootRef}
           color={value ? 'black' : 'gray-9'}
           className={cx({
@@ -644,6 +620,8 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
             [stylesInputSizeMedium()]: size === 'medium',
             [stylesInputSizeLarge()]: size === 'large',
           })}
+          // @ts-ignore
+          disabled={disabled}
         >
           {value ? getOptionLabel(value) : placeholder}
         </Typography>
