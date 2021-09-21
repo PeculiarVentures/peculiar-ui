@@ -120,12 +120,62 @@ const stylesRoot = () => css({
 
 const stylesInput = () => css({
   label: 'SelectPicker-input',
-  '*::selection': {
-    backgroundColor: 'transparent',
+  outline: 'none',
+  boxSizing: 'border-box',
+  width: '100%',
+  borderRadius: '4px',
+  padding: '0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2)',
+  backgroundColor: 'var(--pv-color-gray-1)',
+  borderStyle: 'solid',
+  borderWidth: '1px',
+  borderColor: 'var(--pv-color-gray-8)',
+  transition: 'background-color 200ms, color 200ms, border-color 200ms',
+  appearance: 'none',
+  userSelect: 'none',
+  '&:hover': {
+    backgroundColor: 'var(--pv-color-gray-3)',
+    borderColor: 'var(--pv-color-gray-7)',
   },
-  input: {
-    paddingRight: 'calc(var(--pv-size-base-2) + 24px)',
+  '&:focus': {
+    backgroundColor: 'var(--pv-color-secondary-tint-5)',
+    borderColor: 'var(--pv-color-secondary-tint-3)',
   },
+  '&[aria-disabled="true"]': {
+    cursor: 'not-allowed',
+    backgroundColor: 'var(--pv-color-gray-1)',
+    borderColor: 'var(--pv-color-gray-5)',
+    color: 'var(--pv-color-gray-7)',
+  },
+});
+
+const stylesInputSizeSmall = () => css({
+  label: 'small',
+  height: 'var(--pv-size-base-6)',
+  lineHeight: 'var(--pv-size-base-6)',
+});
+
+const stylesInputSizeMedium = () => css({
+  label: 'medium',
+  height: 'var(--pv-size-base-7)',
+  lineHeight: 'var(--pv-size-base-7)',
+});
+
+const stylesInputSizeLarge = () => css({
+  label: 'large',
+  height: 'var(--pv-size-base-8)',
+  lineHeight: 'var(--pv-size-base-8)',
+});
+
+const stylesNativeInput = () => css({
+  label: 'SelectPicker-native-input',
+  bottom: 0,
+  left: 0,
+  height: '100%',
+  position: 'absolute',
+  opacity: 0,
+  pointerEvents: 'none',
+  width: '100%',
+  boxSizing: 'border-box',
 });
 
 const stylesInputSearch = () => css({
@@ -244,6 +294,10 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
   };
 
   const handleInputClick = () => {
+    if (disabled) {
+      return;
+    }
+
     setOpen(true);
 
     if (onOpen) {
@@ -252,6 +306,10 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
   };
 
   const handleInputKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (disabled) {
+      return;
+    }
+
     if (event.key === 'Enter') {
       // Avoid early form validation, let the end-users continue filling the form.
       event.preventDefault();
@@ -567,24 +625,40 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
   return (
     <>
       <div className={stylesRoot()}>
-        <TextField
-          readOnly
-          value={value ? getOptionLabel(value) : ''}
-          disabled={disabled}
+        <Typography
+          noWrap
+          component="div"
+          variant="c1"
+          role="button"
+          tabIndex={disabled ? undefined : 0}
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          aria-disabled={disabled}
+          onClick={handleInputClick}
+          onKeyDown={handleInputKeyDown}
           ref={rootRef}
-          inputProps={{
-            autoComplete: 'off',
-            autoCapitalize: 'none',
-            spellCheck: 'false',
-            onClick: handleInputClick,
-            onKeyDown: handleInputKeyDown,
-          }}
+          color={value ? 'black' : 'gray-9'}
+          className={cx({
+            [stylesInput()]: true,
+            [stylesInputSizeSmall()]: size === 'small',
+            [stylesInputSizeMedium()]: size === 'medium',
+            [stylesInputSizeLarge()]: size === 'large',
+          })}
+        >
+          {value ? getOptionLabel(value) : placeholder}
+        </Typography>
+        <input
+          type="text"
+          value={JSON.stringify(value) || ''}
+          tabIndex={-1}
+          aria-hidden="true"
+          className={stylesNativeInput()}
+          autoComplete="off"
           id={id}
-          placeholder={placeholder}
           name={name}
           required={required}
-          size={size}
-          className={stylesInput()}
+          onChange={() => {}}
+          disabled={disabled}
         />
         <ArrowDropDownIcon
           className={cx({
@@ -610,7 +684,7 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
           <TextField
             type="search"
             onChange={handleInputSearchChange}
-            disabled={loading || !options.length}
+            disabled={!options.length}
             onKeyDown={handleInputSearchKeyDown}
             value={searchValue}
             placeholder={placeholderSearch}
@@ -630,4 +704,5 @@ SelectPicker.defaultProps = {
   loadingText: 'Loading...',
   noOptionsText: 'No options',
   placeholderSearch: 'Search',
+  size: 'medium',
 };
