@@ -6,3 +6,4 @@ export { CheckCircleIcon } from './check_circle_icon';
 export { CloseCircleIcon } from './close_circle_icon';
 export { WarningIcon } from './warning_icon';
 export { DotIcon } from './dot_icon';
+export { PlusIcon } from './plus_icon';

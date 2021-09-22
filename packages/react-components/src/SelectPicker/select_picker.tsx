@@ -8,7 +8,8 @@ import { Popover } from '../Popover';
 import { TextField } from '../TextField';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
-import { ArrowDropDownIcon } from '../icons';
+import { Button } from '../Button';
+import { ArrowDropDownIcon, PlusIcon } from '../icons';
 import { useControllableState } from '../hooks';
 import { cx, css } from '../styles';
 
@@ -83,6 +84,18 @@ export type SelectPickerProps<T> = {
     'medium' |
     'large'
   );
+  /**
+   * Text to display when in the create `button` element.
+   */
+  createNewText?: string;
+  /**
+   * If `true`, the create `button` element will be shown.
+   */
+  allowCreateNew?: boolean;
+  /**
+   * Callback fired when the create `button` clicked.
+   */
+  onCreateNew?: () => void;
   /**
    * A filter function that determines the options that are eligible.
    */
@@ -235,7 +248,7 @@ const stylesOption = () => css({
 });
 
 const stylesInputArrowIcon = () => css({
-  label: 'Select-arrow-icon',
+  label: 'SelectPicker-arrow-icon',
   position: 'absolute',
   right: '0px',
   top: 'calc(50% - 12px)',
@@ -247,6 +260,14 @@ const stylesInputArrowIcon = () => css({
 const stylesInputArrowIconDisabled = () => css({
   label: 'disabled',
   color: 'var(--pv-color-gray-7)',
+});
+
+const stylesButtonCreateNew = () => css({
+  label: 'SelectPicker-button-create',
+  width: '100%',
+  borderRadius: 0,
+  justifyContent: 'left',
+  padding: '0px var(--pv-size-base-2)',
 });
 /**
  *
@@ -268,6 +289,9 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
     name,
     required,
     size,
+    createNewText,
+    allowCreateNew,
+    onCreateNew,
     filterOptions = defaultFilterOptions,
     onChange,
     onOpen,
@@ -316,6 +340,14 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
     const index = Number(event.currentTarget.getAttribute('data-option-index'));
 
     selectNewValue(event, filteredOptions[index]);
+  };
+
+  const handleAddNewClick = () => {
+    handleClose();
+
+    if (onCreateNew) {
+      onCreateNew();
+    }
   };
 
   function validOptionIndex(index: number, direction: DirectionType) {
@@ -671,6 +703,24 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
           />
         </Box>
         {renderPopoverContent()}
+        {allowCreateNew && (
+          <Box
+            borderColor="gray-3"
+            borderPosition="top"
+            borderStyle="solid"
+            borderWidth={1}
+          >
+            <Button
+              color="secondary"
+              className={stylesButtonCreateNew()}
+              textVariant="b3"
+              onClick={handleAddNewClick}
+              startIcon={<PlusIcon />}
+            >
+              {createNewText}
+            </Button>
+          </Box>
+        )}
       </Popover>
     </>
   );
@@ -682,6 +732,8 @@ SelectPicker.defaultProps = {
   loading: false,
   loadingText: 'Loading...',
   noOptionsText: 'No options',
+  createNewText: 'Create new',
   placeholderSearch: 'Search',
   size: 'medium',
+  allowCreateNew: false,
 };

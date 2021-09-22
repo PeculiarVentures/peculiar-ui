@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { css, cx } from '../styles';
+import { css, cx, TypographyType } from '../styles';
 import { Typography } from '../Typography';
 
 type BaseProps = {
@@ -19,6 +19,10 @@ type BaseProps = {
     'outlined' |
     'text'
   );
+  /**
+   * The variant of text to use.
+   */
+  textVariant?: TypographyType;
   /**
    * The color of the component.
    */
@@ -249,6 +253,7 @@ const stylesLabel = () => css({
 export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((props, ref) => {
   const {
     variant,
+    textVariant: textVariantProp,
     color,
     size,
     className,
@@ -260,6 +265,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
   } = props;
 
   const Component = componentProp || 'button';
+  const textVariant = textVariantProp || (size === 'small' ? 'btn2' : 'btn1');
 
   return (
     <Component
@@ -290,7 +296,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
       })}
     >
       <Typography
-        variant={size === 'small' ? 'btn2' : 'btn1'}
+        variant={textVariant}
         className={cx(stylesLabel())}
         color="inherit"
       >

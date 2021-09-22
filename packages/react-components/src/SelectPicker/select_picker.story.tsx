@@ -109,6 +109,7 @@ const Template = () => (
     options={top100Films}
     getOptionLabel={(option: any) => option.title}
     placeholder="Select a movie"
+    allowCreateNew
   />
 );
 
