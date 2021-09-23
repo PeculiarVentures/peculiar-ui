@@ -204,7 +204,7 @@ const stylesPopper = () => css({
 
 const stylesListBox = () => css({
   label: 'SelectPicker-listbox',
-  maxHeight: '40vh',
+  maxHeight: '36vh',
   overflowY: 'auto',
   margin: 0,
   listStyleType: 'none',
