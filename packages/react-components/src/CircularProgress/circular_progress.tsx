@@ -18,12 +18,33 @@ type BaseProps = {
 
 type CircularProgressProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 
-const stylesKeyframeProgress = keyframes`
+/**
+ * Styles.
+ */
+const SIZE = 44;
+const THICKNESS = 4;
+
+const circularRotateKeyframe = keyframes`
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+`;
+
+const circularDashKeyframe = keyframes`
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+  100% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -125px;
   }
 `;
 
@@ -33,6 +54,7 @@ const stylesBase = (color: ('primary' | 'secondary')) => css({
   position: 'relative',
   display: 'inline-block',
   color: `var(--pv-color-${color})`,
+  animation: `${circularRotateKeyframe} 1.4s linear infinite`,
 });
 
 const stylesBaseSmall = () => css({
@@ -47,28 +69,21 @@ const stylesBaseLarge = () => css({
   width: 'var(--pv-size-base-6)',
 });
 
-const stylesProgress = () => css({
-  label: 'CircularProgress-progress',
-  top: 0,
-  left: 0,
-  bottom: 0,
-  right: 0,
-  position: 'absolute',
-  borderRadius: '50%',
-  borderColor: 'currentColor transparent transparent',
-  borderStyle: 'solid',
-  animation: `${stylesKeyframeProgress} 1.3s cubic-bezier(0.53, 0.21, 0.29, 0.67) 0s infinite`,
+const stylesProgressSvg = () => css({
+  label: 'CircularProgress-svg',
+  display: 'block',
 });
 
-const stylesProgressSmall = () => css({
-  label: 'small',
-  borderWidth: '2px',
+const stylesProgressCircle = () => css({
+  label: 'CircularProgress-circle',
+  stroke: 'currentcolor',
+  strokeDasharray: '80px, 200px',
+  strokeDashoffset: 0,
+  animation: `${circularDashKeyframe} 1.4s ease-in-out infinite`,
 });
-
-const stylesProgressLarge = () => css({
-  label: 'large',
-  borderWidth: '4px',
-});
+/**
+ *
+ */
 
 export const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgressProps>(
   (props, ref) => {
@@ -89,14 +104,21 @@ export const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgres
           [stylesBaseLarge()]: size === 'large',
           [className]: !!className,
         })}
+        role="progressbar"
       >
-        <div
-          className={cx({
-            [stylesProgress()]: true,
-            [stylesProgressSmall()]: size === 'small',
-            [stylesProgressLarge()]: size === 'large',
-          })}
-        />
+        <svg
+          viewBox={`${SIZE / 2} ${SIZE / 2} ${SIZE} ${SIZE}`}
+          className={stylesProgressSvg()}
+        >
+          <circle
+            cx={SIZE}
+            cy={SIZE}
+            r={(SIZE - THICKNESS) / 2}
+            fill="none"
+            strokeWidth={THICKNESS}
+            className={stylesProgressCircle()}
+          />
+        </svg>
       </div>
     );
   },
