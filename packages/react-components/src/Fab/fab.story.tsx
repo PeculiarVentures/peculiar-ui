@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Fab } from './index';
-import { CheckIcon } from '../icons';
+import { PlusIcon } from '../icons';
 
 export const Playground = (args: any) => (
   <Fab
@@ -9,7 +9,7 @@ export const Playground = (args: any) => (
 );
 
 Playground.args = {
-  children: <CheckIcon />,
+  children: <PlusIcon />,
 };
 
 export default {
