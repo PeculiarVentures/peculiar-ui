@@ -76,7 +76,9 @@ PaletteItem.defaultProps = {
  */
 export const ColorPalettePrimary: React.FC = () => {
   const [color, setColor] = React.useState<string>();
+
   const palette = generatePrimaryColors(color);
+  const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setColor(event.target.value);
@@ -84,7 +86,7 @@ export const ColorPalettePrimary: React.FC = () => {
 
   return (
     <>
-      {Object.keys(palette).map((keyName) => (
+      {paletteKeys.map((keyName) => (
         <PaletteItem
           key={keyName}
           color={palette[keyName]}
@@ -102,7 +104,9 @@ export const ColorPalettePrimary: React.FC = () => {
  */
 export const ColorPaletteSecondary: React.FC = () => {
   const [color, setColor] = React.useState<string>();
+
   const palette = generateSecondaryColors(color);
+  const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setColor(event.target.value);
@@ -110,7 +114,7 @@ export const ColorPaletteSecondary: React.FC = () => {
 
   return (
     <>
-      {Object.keys(palette).map((keyName) => (
+      {paletteKeys.map((keyName) => (
         <PaletteItem
           key={keyName}
           color={palette[keyName]}
@@ -128,7 +132,9 @@ export const ColorPaletteSecondary: React.FC = () => {
  */
 export const ColorPaletteWrong: React.FC = () => {
   const [color, setColor] = React.useState<string>();
+
   const palette = generateWrongColors(color);
+  const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setColor(event.target.value);
@@ -136,7 +142,7 @@ export const ColorPaletteWrong: React.FC = () => {
 
   return (
     <>
-      {Object.keys(palette).map((keyName) => (
+      {paletteKeys.map((keyName) => (
         <PaletteItem
           key={keyName}
           color={palette[keyName]}
@@ -154,10 +160,11 @@ export const ColorPaletteWrong: React.FC = () => {
  */
 export const ColorPaletteAdditional: React.FC = () => {
   const palette = additional;
+  const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   return (
     <>
-      {Object.keys(palette).map((keyName) => (
+      {paletteKeys.map((keyName) => (
         <PaletteItem
           key={keyName}
           color={palette[keyName]}
@@ -174,10 +181,11 @@ export const ColorPaletteAdditional: React.FC = () => {
  */
 export const ColorPaletteGrayscale: React.FC = () => {
   const palette = grayscale;
+  const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   return (
     <>
-      {Object.keys(palette).map((keyName) => (
+      {paletteKeys.map((keyName) => (
         <PaletteItem
           key={keyName}
           color={palette[keyName]}
