@@ -16,11 +16,11 @@ import {
   generateBaseSize,
 } from './sizes';
 
-const prefix = 'pv';
-const palettePrefix = `${prefix}-color`;
-const shadowPrefix = `${prefix}-shadow`;
-const typographyPrefix = `${prefix}-text`;
-const sizePrefix = `${prefix}-size`;
+export const prefix = 'pv';
+export const palettePrefix = `${prefix}-color`;
+export const shadowPrefix = `${prefix}-shadow`;
+export const typographyPrefix = `${prefix}-text`;
+export const sizePrefix = `${prefix}-size`;
 
 export const createCSSVariablesFromTheme = (theme: ThemeType) => {
   const variables: Record<string, string> = {};
