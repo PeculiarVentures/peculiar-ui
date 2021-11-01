@@ -1,18 +1,18 @@
 import * as React from 'react';
 import { Typography } from './index';
 
-export const Playground = (args: any) => (
+export const Default = (args: any) => (
   <Typography
     {...args}
   />
 );
 
-Playground.args = {
+Default.args = {
   children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
 };
 
 export default {
-  title: 'Components/Typography',
+  title: 'Playground/Typography',
   component: Typography,
   argTypes: {
     children: { control: 'text' },
