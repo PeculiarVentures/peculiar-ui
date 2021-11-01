@@ -1,18 +1,18 @@
 import * as React from 'react';
 import { TextField } from './index';
 
-export const Playground = (args: any) => (
+export const Default = (args: any) => (
   <TextField
     {...args}
   />
 );
 
-Playground.args = {
+Default.args = {
   placeholder: 'Placeholder',
 };
 
 export default {
-  title: 'Components/TextField',
+  title: 'Playground/TextField',
   component: TextField,
   argTypes: {
     inputProps: { control: false },

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Box } from './index';
 
-export const Playground = (args: any) => (
+export const Default = (args: any) => (
   <Box
     {...args}
   />
 );
 
-Playground.args = {
+Default.args = {
   children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
   borderWidth: 4,
   borderRadius: 4,
@@ -17,7 +17,7 @@ Playground.args = {
 };
 
 export default {
-  title: 'Components/Box',
+  title: 'Playground/Box',
   component: Box,
   argTypes: {
     children: { control: 'text' },

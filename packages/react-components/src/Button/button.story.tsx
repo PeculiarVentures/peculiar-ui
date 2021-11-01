@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Button } from './index';
-import { CheckIcon } from '../icons';
 
 const Template = (args: any) => (
   <Button
@@ -13,20 +12,8 @@ Default.args = {
   children: 'Action',
 };
 
-export const IconStart = Template.bind({});
-IconStart.args = {
-  children: 'Action',
-  startIcon: <CheckIcon />,
-};
-
-export const IconEnd = Template.bind({});
-IconEnd.args = {
-  children: 'Action',
-  endIcon: <CheckIcon />,
-};
-
 export default {
-  title: 'Components/Button',
+  title: 'Playground/Button',
   component: Button,
   argTypes: {
     children: { control: 'text' },
