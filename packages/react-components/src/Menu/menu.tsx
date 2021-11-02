@@ -10,7 +10,7 @@ type OptionBaseProps = {
   component?: React.ElementType;
 };
 
-type OptionProps = OptionBaseProps & Omit<React.AllHTMLAttributes<HTMLElement>, 'className' | 'children'>;
+type OptionProps = OptionBaseProps & Omit<React.AllHTMLAttributes<HTMLElement>, 'children'>;
 
 type BaseProps = {
   /**
@@ -169,6 +169,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
               component,
               disabled,
               label,
+              className: classNameProp,
               ...other
             } = option;
             const Component = component || 'button';
@@ -180,7 +181,10 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
                 key={index}
                 type="button"
                 role="menuitem"
-                className={cx(stylesMenuItem())}
+                className={cx({
+                  [stylesMenuItem()]: true,
+                  [classNameProp]: !!classNameProp,
+                })}
                 onClick={handleMenuItemClick(option)}
                 disabled={disabled}
               >
