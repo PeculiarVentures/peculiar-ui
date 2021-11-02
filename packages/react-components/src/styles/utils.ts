@@ -1,8 +1,7 @@
 import flat from 'flat';
 import deepmerge from 'deepmerge';
 import { defaultTheme } from './default_theme';
-import type { ThemeType, ThemeOptionsType, ColorType } from './types';
-import { injectGlobal } from './css';
+import type { ThemeOptionsType, ColorType } from './types';
 import {
   generateWrongColors,
   generateSecondaryColors,
@@ -11,6 +10,7 @@ import {
 import {
   generateBaseSize,
 } from './sizes';
+import { eventManager, Event } from './event_manager';
 
 export const themeCSSVariablePrefix = 'pv';
 
@@ -43,8 +43,8 @@ export const createThemeCSSVariablesFromObject = (object: Record<string, any>) =
   return flatted;
 };
 
-export const setTheme = (theme: ThemeType) => {
-  injectGlobal({
-    html: createThemeCSSVariablesFromObject(theme),
-  });
+export const theme = {
+  useTheme: (options: ThemeOptionsType) => {
+    eventManager.emit(Event.Use, options);
+  },
 };

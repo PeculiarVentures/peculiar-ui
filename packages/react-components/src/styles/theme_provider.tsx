@@ -1,20 +1,42 @@
 import * as React from 'react';
-import { createTheme, setTheme } from './utils';
+import { Global } from '@emotion/core';
+import { createTheme, createThemeCSSVariablesFromObject } from './utils';
+import { eventManager, Event } from './event_manager';
+import type { ThemeOptionsType } from './types';
 
 type ThemeProviderProps = {
   children: React.ReactElement;
+  theme?: ThemeOptionsType;
 };
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
-  const { children } = props;
+  const {
+    children,
+    theme: themeProp,
+  } = props;
+  const [theme, setTheme] = React.useState(() => createTheme(themeProp));
 
   React.useEffect(() => {
-    const theme = createTheme();
+    eventManager
+      .on(Event.Use, (options) => {
+        setTheme(createTheme(options));
+      });
 
-    setTheme(theme);
+    return () => {
+      eventManager.list.clear();
+    };
   }, []);
 
-  return children;
+  return (
+    <>
+      <Global
+        styles={{
+          html: createThemeCSSVariablesFromObject(theme),
+        }}
+      />
+      {children}
+    </>
+  );
 };
 
 ThemeProvider.displayName = 'ThemeProvider';
