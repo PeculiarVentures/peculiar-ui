@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '../src/Typography';
-import { palettePrefix } from '../src/styles/utils';
+import { themeCSSVariablePrefix } from '../src/styles/utils';
 import {
   generatePrimaryColors,
   generateSecondaryColors,
@@ -91,7 +91,7 @@ export const ColorPalettePrimary: React.FC = () => {
           key={keyName}
           color={palette[keyName]}
           light={keyName.includes('shade') || !keyName.includes('-')}
-          name={`--${palettePrefix}-${keyName}`}
+          name={`--${themeCSSVariablePrefix}-${keyName}`}
           onChange={keyName === 'primary' ? handleChange : undefined}
         />
       ))}
@@ -119,7 +119,7 @@ export const ColorPaletteSecondary: React.FC = () => {
           key={keyName}
           color={palette[keyName]}
           light={keyName.includes('shade') || !keyName.includes('-')}
-          name={`--${palettePrefix}-${keyName}`}
+          name={`--${themeCSSVariablePrefix}-${keyName}`}
           onChange={keyName === 'secondary' ? handleChange : undefined}
         />
       ))}
@@ -147,7 +147,7 @@ export const ColorPaletteWrong: React.FC = () => {
           key={keyName}
           color={palette[keyName]}
           light={keyName.includes('shade') || !keyName.includes('-')}
-          name={`--${palettePrefix}-${keyName}`}
+          name={`--${themeCSSVariablePrefix}-${keyName}`}
           onChange={keyName === 'wrong' ? handleChange : undefined}
         />
       ))}
@@ -169,7 +169,7 @@ export const ColorPaletteAdditional: React.FC = () => {
           key={keyName}
           color={palette[keyName]}
           light
-          name={`--${palettePrefix}-${keyName}`}
+          name={`--${themeCSSVariablePrefix}-${keyName}`}
         />
       ))}
     </>
@@ -190,7 +190,7 @@ export const ColorPaletteGrayscale: React.FC = () => {
           key={keyName}
           color={palette[keyName]}
           light={keyName.includes('black')}
-          name={`--${palettePrefix}-${keyName}`}
+          name={`--${themeCSSVariablePrefix}-${keyName}`}
         />
       ))}
     </>

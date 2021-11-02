@@ -101,8 +101,15 @@ export type SizeType = (
 );
 
 export type ThemeType = {
-  palette: Record<ColorType, string>;
-  shadows: Record<ShadowType, string>;
-  typography: Record<TypographyType, TypographyPropertiesType>;
+  color: Record<ColorType, string>;
+  shadow: Record<ShadowType, string>;
+  text: Record<TypographyType, TypographyPropertiesType>;
   size: Record<SizeType, string>;
+};
+
+export type ThemeOptionsType = {
+  color?: Partial<Record<ColorType, string>>;
+  shadow?: Partial<ThemeType['shadow']>;
+  text?: Partial<ThemeType['text']>;
+  size?: number;
 };
