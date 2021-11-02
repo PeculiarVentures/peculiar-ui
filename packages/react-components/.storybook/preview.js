@@ -1,7 +1,7 @@
 // import { withPerformance } from 'storybook-addon-performance';
 import { addParameters, addDecorator } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
-import { ThemeProvider } from '../src/styles';
+import { ThemeProvider } from '../src';
 
 // export const decorators = [
 //   withPerformance,
