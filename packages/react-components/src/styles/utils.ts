@@ -1,11 +1,7 @@
-import {
-  ThemeType,
-  ColorType,
-  ShadowType,
-  TypographyType,
-  TypographyPropertiesType,
-  SizeType,
-} from './types';
+import flat from 'flat';
+import deepmerge from 'deepmerge';
+import { defaultTheme } from './default_theme';
+import type { ThemeType, ThemeOptionsType, ColorType } from './types';
 import { injectGlobal } from './css';
 import {
   generateWrongColors,
@@ -16,87 +12,39 @@ import {
   generateBaseSize,
 } from './sizes';
 
-export const prefix = 'pv';
-export const palettePrefix = `${prefix}-color`;
-export const shadowPrefix = `${prefix}-shadow`;
-export const typographyPrefix = `${prefix}-text`;
-export const sizePrefix = `${prefix}-size`;
+export const themeCSSVariablePrefix = 'pv';
 
-export const createCSSVariablesFromTheme = (theme: ThemeType) => {
-  const variables: Record<string, string> = {};
+export const createTheme = (options?: ThemeOptionsType) => {
+  const primary = generatePrimaryColors(options?.color?.primary);
+  const secondary = generateSecondaryColors(options?.color?.secondary);
+  const wrong = generateWrongColors(options?.color?.wrong);
+  const size = generateBaseSize(options?.size);
 
-  /**
-   * Palette
-   */
-  if (theme.palette) {
-    Object.keys(theme.palette)
-      .forEach((paletteName: ColorType) => {
-        variables[`--${palettePrefix}-${paletteName}`] = theme.palette[paletteName];
-      });
-  }
+  const partialTheme = deepmerge(options, {
+    color: {
+      ...primary,
+      ...secondary,
+      ...wrong,
+    } as Partial<Record<ColorType, string>>,
+    size,
+  });
 
-  /**
-   * Shadow
-   */
-  if (theme.shadows) {
-    Object.keys(theme.shadows)
-      .forEach((shadowName: ShadowType) => {
-        variables[`--${shadowPrefix}-${shadowName}`] = theme.shadows[shadowName];
-      });
-  }
+  return deepmerge(defaultTheme, partialTheme);
+};
 
-  /**
-   * Typography
-   */
-  if (theme.typography) {
-    Object.keys(theme.typography)
-      .forEach((typographyName: TypographyType) => {
-        Object.keys(theme.typography[typographyName])
-          .forEach((propertyName: keyof TypographyPropertiesType) => {
-            variables[`--${typographyPrefix}-${typographyName}-${propertyName}`] = theme.typography[typographyName][propertyName];
-          });
-      });
-  }
+export const createThemeCSSVariablesFromObject = (object: Record<string, any>) => {
+  const flatted = flat<typeof object, Record<string, string>>(
+    {
+      [`--${themeCSSVariablePrefix}`]: object,
+    },
+    { delimiter: '-' },
+  );
 
-  /**
-   * Size
-   */
-  if (theme.size) {
-    Object.keys(theme.size)
-      .forEach((sizeName: SizeType) => {
-        variables[`--${sizePrefix}-${sizeName}`] = theme.size[sizeName];
-      });
-  }
-
-  return variables;
+  return flatted;
 };
 
 export const setTheme = (theme: ThemeType) => {
   injectGlobal({
-    html: createCSSVariablesFromTheme(theme),
-  });
-};
-
-type BaseColorsType = {
-  primary?: string;
-  secondary?: string;
-  wrong?: string;
-};
-
-type BaseOptionsType = {
-  colors?: BaseColorsType;
-  size?: number;
-};
-
-export const setThemeFromBaseOptions = (options: BaseOptionsType) => {
-  injectGlobal({
-    html: createCSSVariablesFromTheme({
-      palette: options.colors && {
-        ...(options.colors.primary && generatePrimaryColors(options.colors.primary)),
-        ...(options.colors.secondary && generateSecondaryColors(options.colors.secondary)),
-        ...(options.colors.wrong && generateWrongColors(options.colors.wrong)),
-      },
-      size: options.size && generateBaseSize(options.size),
-    } as any),
+    html: createThemeCSSVariablesFromObject(theme),
   });
 };

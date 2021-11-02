@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { defaultTheme } from './default_theme';
-import { setTheme } from './utils';
+import { createTheme, setTheme } from './utils';
 
 type ThemeProviderProps = {
   children: React.ReactElement;
@@ -9,7 +8,11 @@ type ThemeProviderProps = {
 export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
   const { children } = props;
 
-  setTheme(defaultTheme);
+  React.useEffect(() => {
+    const theme = createTheme();
+
+    setTheme(theme);
+  }, []);
 
   return children;
 };

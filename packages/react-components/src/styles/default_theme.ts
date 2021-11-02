@@ -9,7 +9,7 @@ import {
 import { base } from './sizes';
 
 export const defaultTheme: ThemeType = {
-  palette: {
+  color: {
     /**
      * primary
      */
@@ -31,7 +31,7 @@ export const defaultTheme: ThemeType = {
      */
     ...grayscale,
   },
-  shadows: {
+  shadow: {
     'light-low':
       '0px 1px 3px rgba(85, 94, 98, 0.12), 0px 3px 3px rgba(85, 94, 98, 0.08), 0px 1px 7px rgba(85, 94, 98, 0.06)',
     'light-medium':
@@ -43,7 +43,7 @@ export const defaultTheme: ThemeType = {
     'dark-hight':
       '0px 1px 8px -2px rgba(85, 94, 98, 0.2), 0px 5px 10px 0.2px rgba(85, 94, 98, 0.3), 0px 15px 20px 0.2px rgba(85, 94, 98, 0.25)',
   },
-  typography: {
+  text: {
     /**
      * h1
      */
