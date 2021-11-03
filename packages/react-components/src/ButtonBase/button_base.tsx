@@ -164,7 +164,7 @@ const stylesVariantContainedColorWhite = () => css({
 
 const stylesVariantContainedColor = (color: BaseProps['color']) => css({
   backgroundColor: `var(--pv-color-${color})`,
-  color: 'var(--pv-color-white)',
+  color: `var(--pv-color-${color}-contrast)`,
   '&:not(:disabled)': {
     '&:hover': {
       backgroundColor: `var(--pv-color-${color}-tint-1)`,
