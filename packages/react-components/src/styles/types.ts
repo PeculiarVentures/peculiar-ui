@@ -47,7 +47,10 @@ export type ColorType = (
   'gray-3' |
   'gray-2' |
   'gray-1' |
-  'white'
+  'white' |
+  'primary-contrast' |
+  'secondary-contrast' |
+  'wrong-contrast'
 );
 
 export type ShadowType = (
