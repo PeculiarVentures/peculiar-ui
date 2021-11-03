@@ -31,7 +31,7 @@
     "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
     "clean": "rimraf public dist",
     "test:unit": "jest --passWithNoTests --watchAll",
-    "test:unit:coverage": "echo 'Test'",
+    "test:unit:coverage": "yarn test:unit --coverage --watchAll=false",
     "check:types": "tsc --noEmit"
   },
   "devDependencies": {
