@@ -1,6 +1,10 @@
 import React from 'react';
+import { Color } from '@peculiar/color';
 import { Typography } from '../src/Typography';
-import { themeCSSVariablePrefix } from '../src/styles/utils';
+import {
+  themeCSSVariablePrefix,
+  contrastThreshold,
+} from '../src/styles/utils';
 import {
   generatePrimaryColors,
   generateSecondaryColors,
@@ -12,7 +16,6 @@ import {
 type PaletteItemProps = {
   color: string;
   name: string;
-  light?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any;
 };
 
@@ -20,9 +23,10 @@ const PaletteItem: React.FC<PaletteItemProps> = (props) => {
   const {
     color,
     name,
-    light,
     onChange,
   } = props;
+
+  const textContrastRatio = new Color(color).getContrastRatio(grayscale.white);
 
   return (
     <div
@@ -37,7 +41,7 @@ const PaletteItem: React.FC<PaletteItemProps> = (props) => {
     >
       <Typography
         variant="c2"
-        color={light ? 'white' : 'black'}
+        color={textContrastRatio > contrastThreshold ? 'white' : 'black'}
       >
         {name}
       </Typography>
@@ -58,17 +62,13 @@ const PaletteItem: React.FC<PaletteItemProps> = (props) => {
         )}
         <Typography
           variant="c2"
-          color={light ? 'white' : 'black'}
+          color={textContrastRatio > contrastThreshold ? 'white' : 'black'}
         >
           {color}
         </Typography>
       </div>
     </div>
   );
-};
-
-PaletteItem.defaultProps = {
-  light: false,
 };
 
 /**
@@ -90,7 +90,6 @@ export const ColorPalettePrimary: React.FC = () => {
         <PaletteItem
           key={keyName}
           color={palette[keyName]}
-          light={keyName.includes('shade') || !keyName.includes('-')}
           name={`--${themeCSSVariablePrefix}-${keyName}`}
           onChange={keyName === 'primary' ? handleChange : undefined}
         />
@@ -118,7 +117,6 @@ export const ColorPaletteSecondary: React.FC = () => {
         <PaletteItem
           key={keyName}
           color={palette[keyName]}
-          light={keyName.includes('shade') || !keyName.includes('-')}
           name={`--${themeCSSVariablePrefix}-${keyName}`}
           onChange={keyName === 'secondary' ? handleChange : undefined}
         />
@@ -146,7 +144,6 @@ export const ColorPaletteWrong: React.FC = () => {
         <PaletteItem
           key={keyName}
           color={palette[keyName]}
-          light={keyName.includes('shade') || !keyName.includes('-')}
           name={`--${themeCSSVariablePrefix}-${keyName}`}
           onChange={keyName === 'wrong' ? handleChange : undefined}
         />
@@ -168,7 +165,6 @@ export const ColorPaletteAdditional: React.FC = () => {
         <PaletteItem
           key={keyName}
           color={palette[keyName]}
-          light
           name={`--${themeCSSVariablePrefix}-${keyName}`}
         />
       ))}
@@ -189,7 +185,6 @@ export const ColorPaletteGrayscale: React.FC = () => {
         <PaletteItem
           key={keyName}
           color={palette[keyName]}
-          light={keyName.includes('black')}
           name={`--${themeCSSVariablePrefix}-${keyName}`}
         />
       ))}
