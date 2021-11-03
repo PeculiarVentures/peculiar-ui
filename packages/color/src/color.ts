@@ -2,6 +2,7 @@ import { hexToRgb } from './hex_to_rgb';
 import { rgbToHsb } from './rgb_to_hsb';
 import { rgbToHex } from './rgb_to_hex';
 import { hsbToRgb } from './hsb_to_rgb';
+import { getContrastRatio } from './get_contrast_ratio';
 
 type PaletteTypes = (
   'tint5' |
@@ -46,6 +47,10 @@ export class Color {
 
   toRgb() {
     return [this.red, this.green, this.blue];
+  }
+
+  toRgbString() {
+    return `rgb(${this.toRgb().join(', ')})`;
   }
 
   toHsb() {
@@ -109,5 +114,9 @@ export class Color {
       shade4: shades[3],
       shade5: shades[4],
     };
+  }
+
+  getContrastRatio(color: string | [r: number, g: number, b: number]) {
+    return getContrastRatio([this.red, this.green, this.blue], color);
   }
 }

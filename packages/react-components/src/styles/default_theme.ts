@@ -14,14 +14,17 @@ export const defaultTheme: ThemeType = {
      * primary
      */
     ...primary,
+    'primary-contrast': grayscale.white,
     /**
      * secondary
      */
     ...secondary,
+    'secondary-contrast': grayscale.white,
     /**
      * wrong
      */
     ...wrong,
+    'wrong-contrast': grayscale.white,
     /**
      * additional
      */
