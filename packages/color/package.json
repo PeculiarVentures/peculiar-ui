@@ -30,12 +30,16 @@
     "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/cjs",
     "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
     "clean": "rimraf public dist",
-    "test:unit": "echo 'Test'",
+    "test:unit": "jest --passWithNoTests --watchAll",
     "test:unit:coverage": "echo 'Test'",
     "check:types": "tsc --noEmit"
   },
   "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.1",
+    "jest-watch-typeahead": "^1.0.0",
     "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.7",
     "typescript": "^4.2.4"
   },
   "publishConfig": {
