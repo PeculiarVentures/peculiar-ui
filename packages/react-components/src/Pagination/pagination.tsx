@@ -6,15 +6,20 @@ import {
   Button,
   IconButton,
 } from '..';
+import { ButtonBaseProps } from '../ButtonBase';
 import { css, cx, ColorType } from '../styles';
+
+type TRenderItem = ButtonBaseProps & {
+  element: number,
+};
 
 type BaseProps = {
   currentPage: number,
   pageCount: number,
-  renderItem?: (props: any) => React.ReactElement,
   className?: string,
-  onPageChange?: () => void,
   maxVisibleItems: 3 | 5 | 7 | 9
+  renderItem?: (props: TRenderItem) => React.ReactElement,
+  onPageChange?: () => void,
 };
 
 export const Pagination: React.FC<BaseProps> = (props) => {
@@ -57,6 +62,7 @@ export const Pagination: React.FC<BaseProps> = (props) => {
     <div className={className}>
       <IconButton
         size="small"
+        disabled={currentPage <= 1}
       >
         <ArrowLeftIcon />
       </IconButton>
@@ -66,6 +72,7 @@ export const Pagination: React.FC<BaseProps> = (props) => {
           size="small"
           withoutPadding
           color={number === currentPage ? 'primary' : 'default'}
+          component={(p) => renderItem({ ...p, element: number })}
         >
           {number}
         </Button>
@@ -73,6 +80,7 @@ export const Pagination: React.FC<BaseProps> = (props) => {
 
       <IconButton
         size="small"
+        disabled={currentPage >= pageCount}
       >
         <ArrowRightIcon />
       </IconButton>
