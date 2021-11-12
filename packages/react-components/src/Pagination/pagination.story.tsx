@@ -9,7 +9,8 @@ export const Default = (args: any) => (
 
 Default.args = {
   currentPage: 1,
-  pageCount: 10,
+  count: 101,
+  rowsPerPage: 20,
 };
 
 export default {

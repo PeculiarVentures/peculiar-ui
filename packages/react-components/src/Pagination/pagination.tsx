@@ -10,31 +10,37 @@ import { ButtonBaseProps } from '../ButtonBase';
 import { css, cx, ColorType } from '../styles';
 
 type TRenderItem = ButtonBaseProps & {
-  element: number,
+  page: number,
+  buttonType: 'prev' | 'next' | 'count',
 };
 
 type BaseProps = {
   currentPage: number,
-  pageCount: number,
+  count: number,
+  rowsPerPage: number,
   className?: string,
   maxVisibleItems: 3 | 5 | 7 | 9
   renderItem?: (props: TRenderItem) => React.ReactElement,
-  renderNavigation?: (props: TRenderItem) => React.ReactElement,
   onPageChange?: (page: number) => void,
 };
 
 export const Pagination: React.FC<BaseProps> = (props) => {
   const {
-    className,
+    count,
+    rowsPerPage = 1,
     currentPage,
-    pageCount,
     maxVisibleItems,
+    className,
     renderItem,
-    renderNavigation,
     onPageChange,
   } = props;
+  const pageCount = Math.ceil(count / rowsPerPage);
 
   const range = React.useMemo(() => {
+    if (pageCount < 3 || pageCount <= maxVisibleItems) {
+      return Array.from({ length: pageCount }, (_, i) => i + 1);
+    }
+
     const middleValue = Math.ceil(maxVisibleItems / 2);
     let offsetValue = currentPage - middleValue;
 
@@ -47,7 +53,7 @@ export const Pagination: React.FC<BaseProps> = (props) => {
     }
 
     return Array.from({ length: maxVisibleItems }, (_, i) => i + offsetValue + 1);
-  }, [currentPage]);
+  }, [currentPage, pageCount, maxVisibleItems]);
 
   const prevButtonValue = currentPage - 1;
   const nextButtonValue = currentPage + 1;
@@ -59,8 +65,8 @@ export const Pagination: React.FC<BaseProps> = (props) => {
         disabled={currentPage <= 1}
         onClick={() => onPageChange(prevButtonValue)}
         component={
-          renderNavigation
-            ? (p) => renderNavigation({ ...p, element: prevButtonValue })
+          renderItem
+            ? (p) => renderItem({ ...p, page: prevButtonValue, buttonType: 'prev' })
             : undefined
         }
       >
@@ -75,8 +81,8 @@ export const Pagination: React.FC<BaseProps> = (props) => {
           color={number === currentPage ? 'primary' : 'default'}
           onClick={() => onPageChange(number)}
           component={
-            renderNavigation
-              ? (p) => renderItem({ ...p, element: number })
+            renderItem
+              ? (p) => renderItem({ ...p, page: number, buttonType: 'count' })
               : undefined
           }
         >
@@ -89,8 +95,8 @@ export const Pagination: React.FC<BaseProps> = (props) => {
         disabled={currentPage >= pageCount}
         onClick={() => onPageChange(nextButtonValue)}
         component={
-          renderNavigation
-            ? (p) => renderNavigation({ ...p, element: nextButtonValue })
+          renderItem
+            ? (p) => renderItem({ ...p, page: nextButtonValue, buttonType: 'next' })
             : undefined
         }
       >
@@ -105,5 +111,6 @@ Pagination.displayName = 'Pagination';
 Pagination.defaultProps = {
   maxVisibleItems: 5,
   currentPage: 1,
-  pageCount: 1,
+  count: 1,
+  rowsPerPage: 1,
 };
