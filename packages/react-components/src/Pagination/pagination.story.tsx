@@ -15,6 +15,7 @@ Default.args = {
 
     return <a href={`/${element}`} {...p}>{element}</a>;
   },
+  onPageChange: (page: any) => console.log(page),
 };
 
 export default {
