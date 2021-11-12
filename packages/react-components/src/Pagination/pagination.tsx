@@ -27,35 +27,23 @@ export const Pagination: React.FC<BaseProps> = (props) => {
     className,
     currentPage,
     pageCount,
-    onPageChange,
     renderItem,
     maxVisibleItems,
   } = props;
 
-  console.log(
-    {
-      className,
-      currentPage,
-      pageCount,
-      onPageChange,
-      renderItem,
-      maxVisibleItems,
-    },
-  );
-
   const generateRange = (): number[] => {
-    const list = Array.from({ length: pageCount }, (_, i) => i + 1);
     const middleValue = Math.ceil(maxVisibleItems / 2);
+    let offsetValue = currentPage - middleValue;
 
     if (currentPage <= middleValue) {
-      return list.splice(0, maxVisibleItems);
+      offsetValue = 0;
     }
 
     if (currentPage + middleValue >= pageCount) {
-      return list.splice(pageCount - maxVisibleItems, maxVisibleItems);
+      offsetValue = pageCount - maxVisibleItems;
     }
 
-    return list.splice(currentPage - middleValue, maxVisibleItems);
+    return Array.from({ length: maxVisibleItems }, (_, i) => i + offsetValue + 1);
   };
 
   return (
@@ -69,6 +57,7 @@ export const Pagination: React.FC<BaseProps> = (props) => {
 
       {generateRange().map((number) => (
         <Button
+          key={number}
           size="small"
           withoutPadding
           color={number === currentPage ? 'primary' : 'default'}
