@@ -10,12 +10,6 @@ export const Default = (args: any) => (
 Default.args = {
   currentPage: 1,
   pageCount: 10,
-  renderItem: (p: any) => {
-    const { element } = p;
-
-    return <a href={`/${element}`} {...p}>{element}</a>;
-  },
-  onPageChange: (page: any) => console.log(page),
 };
 
 export default {
@@ -23,6 +17,6 @@ export default {
   component: Pagination,
   argTypes: {
     // children: { control: 'text' },
-    // component: { control: false },
+    // maxVisibleItems: { control: false },
   },
 };

@@ -19,6 +19,7 @@ type BaseProps = {
   className?: string,
   maxVisibleItems: 3 | 5 | 7 | 9
   renderItem?: (props: TRenderItem) => React.ReactElement,
+  renderNavigation?: (props: TRenderItem) => React.ReactElement,
   onPageChange?: (page: number) => void,
 };
 
@@ -29,6 +30,7 @@ export const Pagination: React.FC<BaseProps> = (props) => {
     pageCount,
     maxVisibleItems,
     renderItem,
+    renderNavigation,
     onPageChange,
   } = props;
 
@@ -47,12 +49,16 @@ export const Pagination: React.FC<BaseProps> = (props) => {
     return Array.from({ length: maxVisibleItems }, (_, i) => i + offsetValue + 1);
   }, [currentPage]);
 
+  const prevButtonValue = currentPage - 1;
+  const nextButtonValue = currentPage + 1;
+
   return (
     <div className={className}>
       <IconButton
         size="small"
         disabled={currentPage <= 1}
-        onClick={() => onPageChange(currentPage - 1)}
+        onClick={() => onPageChange(prevButtonValue)}
+        component={(p) => renderNavigation({ ...p, element: prevButtonValue })}
       >
         <ArrowLeftIcon />
       </IconButton>
@@ -73,7 +79,8 @@ export const Pagination: React.FC<BaseProps> = (props) => {
       <IconButton
         size="small"
         disabled={currentPage >= pageCount}
-        onClick={() => onPageChange(currentPage + 1)}
+        onClick={() => onPageChange(nextButtonValue)}
+        component={(p) => renderNavigation({ ...p, element: nextButtonValue })}
       >
         <ArrowRightIcon />
       </IconButton>
