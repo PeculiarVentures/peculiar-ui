@@ -2,9 +2,11 @@ import * as React from 'react';
 import { Pagination } from './index';
 
 export const Default = (args: any) => (
-  <Pagination
-    {...args}
-  />
+  <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+    <Pagination
+      {...args}
+    />
+  </div>
 );
 
 Default.args = {

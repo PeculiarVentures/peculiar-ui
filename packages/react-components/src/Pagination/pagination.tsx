@@ -8,7 +8,7 @@ import {
   Typography,
 } from '..';
 import { ButtonBaseProps } from '../ButtonBase';
-import { css, cx, ColorType } from '../styles';
+import { css, cx } from '../styles';
 
 type TRenderItem = ButtonBaseProps & {
   page: number,
@@ -34,6 +34,29 @@ type BaseProps = {
   onPageChange?: (page: number) => void,
   getItemAriaLabel?: (type: TTooltipsType) => string
 };
+
+const styleRoot = () => css({
+  label: 'Pagination',
+  display: 'flex',
+  alignItems: 'center',
+});
+
+const styleLabel = () => css({
+  label: 'Pagination-label',
+  marginRight: '20px',
+});
+
+const styleCountButton = () => css({
+  label: 'Pagination-count-button',
+  minWidth: 'auto',
+  padding: '0 5px',
+  color: 'var(--pv-color-gray-9)',
+});
+
+const styleActiveCountButton = () => css({
+  label: 'Pagination-active-count-button',
+  color: 'var(--pv-color-black)',
+});
 
 export const Pagination: React.FC<BaseProps> = (props) => {
   const {
@@ -76,18 +99,10 @@ export const Pagination: React.FC<BaseProps> = (props) => {
     const to = tempTo < count ? tempTo : count;
 
     if (labelDisplayedRows) {
-      return (
-        <Typography>
-          {labelDisplayedRows({ from, to, count })}
-        </Typography>
-      );
+      return labelDisplayedRows({ from, to, count });
     }
 
-    return (
-      <Typography>
-        {`Showing ${from}-${to} of ${count}`}
-      </Typography>
-    );
+    return `Showing ${from}-${to} of ${count}`;
   };
 
   const renderTooltip = (type: TTooltipsType): string => {
@@ -99,8 +114,21 @@ export const Pagination: React.FC<BaseProps> = (props) => {
   };
 
   return (
-    <div className={className}>
-      {renderLabel()}
+    <div
+      className={cx({
+        [styleRoot()]: true,
+        className: !!className,
+      })}
+    >
+      <Typography
+        variant="b3"
+        color="gray-9"
+        className={cx({
+          [styleLabel()]: true,
+        })}
+      >
+        {renderLabel()}
+      </Typography>
 
       <div>
         <IconButton
@@ -117,22 +145,29 @@ export const Pagination: React.FC<BaseProps> = (props) => {
           <ArrowLeftIcon />
         </IconButton>
 
-        {range.map((number) => (
-          <Button
-            key={number}
-            size="small"
-            withoutPadding
-            color={number === currentPage ? 'primary' : 'default'}
-            onClick={() => onPageChange(number)}
-            component={
-              renderItem
-                ? (p) => renderItem({ ...p, page: number, buttonType: 'count' })
-                : undefined
-            }
-          >
-            {number}
-          </Button>
-        ))}
+        {range.map((number) => {
+          const isActive = number === currentPage;
+
+          return (
+            <Button
+              key={number}
+              size="small"
+              onClick={() => onPageChange(number)}
+              component={
+                renderItem
+                  ? (p) => renderItem({ ...p, page: number, buttonType: 'count' })
+                  : undefined
+              }
+              className={cx({
+                [styleCountButton()]: true,
+                [styleActiveCountButton()]: isActive,
+              })}
+              textVariant={isActive ? 's2' : 'b3'}
+            >
+              {number}
+            </Button>
+          );
+        })}
 
         <IconButton
           size="small"
