@@ -44,6 +44,16 @@ const styleRoot = () => css({
 const styleLabel = () => css({
   label: 'Pagination-label',
   marginRight: '20px',
+  display: 'inline-flex',
+  flex: '1 1 auto',
+  justifyContent: 'flex-end',
+  width: '100px',
+});
+
+const styleControllerWrapper = () => css({
+  label: 'Pagination-label',
+  display: 'inline-flex',
+  flex: '0 0 auto',
 });
 
 const styleCountButton = () => css({
@@ -120,17 +130,25 @@ export const Pagination: React.FC<BaseProps> = (props) => {
         className: !!className,
       })}
     >
-      <Typography
-        variant="b3"
-        color="gray-9"
+      <div
         className={cx({
           [styleLabel()]: true,
         })}
       >
-        {renderLabel()}
-      </Typography>
+        <Typography
+          noWrap
+          variant="b3"
+          color="gray-9"
+        >
+          {renderLabel()}
+        </Typography>
+      </div>
 
-      <div>
+      <div
+        className={cx({
+          [styleControllerWrapper()]: true,
+        })}
+      >
         <IconButton
           size="small"
           disabled={currentPage <= 1}
