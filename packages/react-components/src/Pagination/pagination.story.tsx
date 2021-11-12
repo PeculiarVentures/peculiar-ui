@@ -11,6 +11,7 @@ Default.args = {
   currentPage: 1,
   count: 101,
   rowsPerPage: 20,
+  // labelDisplayedRows: ({ from, to, count }: any) => `Example ${from} to ${to}, summ ${count}`,
 };
 
 export default {
