@@ -13,13 +13,20 @@ Default.args = {
   rowsPerPage: 20,
   // labelDisplayedRows: ({ from, to, count }: any) => `Example ${from} to ${to}, summ ${count}`,
   // getItemAriaLabel: (type: any) => `Move to ${type}`,
+  // renderItem: (props: any) => {
+  //   const { page, children } = props;
+
+  //   return <a href={page} {...props}>{children}</a>;
+  // },
 };
 
 export default {
   title: 'Components/Pagination',
   component: Pagination,
   argTypes: {
-    // children: { control: 'text' },
-    // maxVisibleItems: { control: false },
+    labelDisplayedRows: { control: false },
+    getItemAriaLabel: { control: false },
+    renderItem: { control: false },
+    className: { control: 'text' },
   },
 };

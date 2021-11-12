@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
 import {
   ArrowLeftIcon,
@@ -10,29 +9,29 @@ import {
 import { ButtonBaseProps } from '../ButtonBase';
 import { css, cx } from '../styles';
 
-type TRenderItem = ButtonBaseProps & {
+type ButtonType = 'previous' | 'next' | 'count';
+
+type RenderItemType = ButtonBaseProps & {
   page: number,
-  buttonType: 'previous' | 'next' | 'count',
+  buttonType: ButtonType,
 };
 
-type TLabelDisplayedRows = {
+type LabelDisplayedRowsType = {
   from: number,
   to: number,
   count: number,
 };
-
-type TTooltipsType = 'next' | 'previous';
 
 type BaseProps = {
   count: number,
   currentPage: number,
   rowsPerPage: number,
   className?: string,
-  maxVisibleItems: 3 | 5 | 7 | 9,
-  labelDisplayedRows?: (props: TLabelDisplayedRows) => string,
-  renderItem?: (props: TRenderItem) => React.ReactElement,
+  maxVisiblePages: 3 | 5 | 7 | 9,
+  labelDisplayedRows?: (props: LabelDisplayedRowsType) => string,
+  renderItem?: (props: RenderItemType) => React.ReactElement,
   onPageChange?: (page: number) => void,
-  getItemAriaLabel?: (type: TTooltipsType) => string
+  getItemAriaLabel?: (type: ButtonType) => string
 };
 
 const styleRoot = () => css({
@@ -73,7 +72,7 @@ export const Pagination: React.FC<BaseProps> = (props) => {
     count,
     rowsPerPage = 1,
     currentPage,
-    maxVisibleItems,
+    maxVisiblePages,
     className,
     renderItem,
     onPageChange,
@@ -83,13 +82,14 @@ export const Pagination: React.FC<BaseProps> = (props) => {
   const pageCount = Math.ceil(count / rowsPerPage);
   const prevButtonValue = currentPage - 1;
   const nextButtonValue = currentPage + 1;
+  const Component = renderItem || 'button';
 
   const range = React.useMemo(() => {
-    if (pageCount < 3 || pageCount <= maxVisibleItems) {
+    if (pageCount < 3 || pageCount <= maxVisiblePages) {
       return Array.from({ length: pageCount }, (_, i) => i + 1);
     }
 
-    const middleValue = Math.ceil(maxVisibleItems / 2);
+    const middleValue = Math.ceil(maxVisiblePages / 2);
     let offsetValue = currentPage - middleValue;
 
     if (currentPage <= middleValue) {
@@ -97,11 +97,17 @@ export const Pagination: React.FC<BaseProps> = (props) => {
     }
 
     if (currentPage + middleValue >= pageCount) {
-      offsetValue = pageCount - maxVisibleItems;
+      offsetValue = pageCount - maxVisiblePages;
     }
 
-    return Array.from({ length: maxVisibleItems }, (_, i) => i + offsetValue + 1);
-  }, [currentPage, pageCount, maxVisibleItems]);
+    return Array.from({ length: maxVisiblePages }, (_, i) => i + offsetValue + 1);
+  }, [currentPage, pageCount, maxVisiblePages]);
+
+  const handleChange = (value: number) => {
+    if (onPageChange) {
+      onPageChange(value);
+    }
+  };
 
   const renderLabel = () => {
     const from = ((currentPage - 1) * rowsPerPage) + 1;
@@ -115,7 +121,7 @@ export const Pagination: React.FC<BaseProps> = (props) => {
     return `Showing ${from}-${to} of ${count}`;
   };
 
-  const renderTooltip = (type: TTooltipsType): string => {
+  const renderTooltip = (type: ButtonType): string => {
     if (getItemAriaLabel) {
       return getItemAriaLabel(type);
     }
@@ -152,37 +158,29 @@ export const Pagination: React.FC<BaseProps> = (props) => {
         <IconButton
           size="small"
           disabled={currentPage <= 1}
-          onClick={() => onPageChange(prevButtonValue)}
-          component={
-            renderItem
-              ? (p) => renderItem({ ...p, page: prevButtonValue, buttonType: 'previous' })
-              : undefined
-          }
+          onClick={() => handleChange(prevButtonValue)}
+          component={(p) => <Component {...p} page={prevButtonValue} buttonType="previous" />}
           title={renderTooltip('previous')}
         >
           <ArrowLeftIcon />
         </IconButton>
 
-        {range.map((number) => {
-          const isActive = number === currentPage;
+        {range.map((pageNumber) => {
+          const isActive = pageNumber === currentPage;
 
           return (
             <Button
-              key={number}
+              key={pageNumber}
               size="small"
-              onClick={() => onPageChange(number)}
-              component={
-                renderItem
-                  ? (p) => renderItem({ ...p, page: number, buttonType: 'count' })
-                  : undefined
-              }
+              onClick={() => handleChange(pageNumber)}
+              component={(p) => <Component {...p} page={pageNumber} buttonType="count" />}
               className={cx({
                 [styleCountButton()]: true,
                 [styleActiveCountButton()]: isActive,
               })}
               textVariant={isActive ? 's2' : 'b3'}
             >
-              {number}
+              {pageNumber}
             </Button>
           );
         })}
@@ -190,12 +188,10 @@ export const Pagination: React.FC<BaseProps> = (props) => {
         <IconButton
           size="small"
           disabled={currentPage >= pageCount}
-          onClick={() => onPageChange(nextButtonValue)}
-          component={
-            renderItem
-              ? (p) => renderItem({ ...p, page: nextButtonValue, buttonType: 'next' })
-              : undefined
-          }
+          onClick={() => handleChange(nextButtonValue)}
+          component={(p) => (
+            <Component {...p} page={nextButtonValue} buttonType="next" />
+          )}
           title={renderTooltip('next')}
         >
           <ArrowRightIcon />
@@ -208,7 +204,7 @@ export const Pagination: React.FC<BaseProps> = (props) => {
 Pagination.displayName = 'Pagination';
 
 Pagination.defaultProps = {
-  maxVisibleItems: 5,
+  maxVisiblePages: 5,
   currentPage: 1,
   count: 1,
   rowsPerPage: 1,
