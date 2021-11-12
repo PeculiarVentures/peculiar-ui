@@ -12,6 +12,7 @@ Default.args = {
   count: 101,
   rowsPerPage: 20,
   // labelDisplayedRows: ({ from, to, count }: any) => `Example ${from} to ${to}, summ ${count}`,
+  // getItemAriaLabel: (type: any) => `Move to ${type}`,
 };
 
 export default {
