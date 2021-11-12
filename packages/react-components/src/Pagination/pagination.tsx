@@ -58,7 +58,11 @@ export const Pagination: React.FC<BaseProps> = (props) => {
         size="small"
         disabled={currentPage <= 1}
         onClick={() => onPageChange(prevButtonValue)}
-        component={(p) => renderNavigation({ ...p, element: prevButtonValue })}
+        component={
+          renderNavigation
+            ? (p) => renderNavigation({ ...p, element: prevButtonValue })
+            : undefined
+        }
       >
         <ArrowLeftIcon />
       </IconButton>
@@ -69,8 +73,12 @@ export const Pagination: React.FC<BaseProps> = (props) => {
           size="small"
           withoutPadding
           color={number === currentPage ? 'primary' : 'default'}
-          component={(p) => renderItem({ ...p, element: number })}
           onClick={() => onPageChange(number)}
+          component={
+            renderNavigation
+              ? (p) => renderItem({ ...p, element: number })
+              : undefined
+          }
         >
           {number}
         </Button>
@@ -80,7 +88,11 @@ export const Pagination: React.FC<BaseProps> = (props) => {
         size="small"
         disabled={currentPage >= pageCount}
         onClick={() => onPageChange(nextButtonValue)}
-        component={(p) => renderNavigation({ ...p, element: nextButtonValue })}
+        component={
+          renderNavigation
+            ? (p) => renderNavigation({ ...p, element: nextButtonValue })
+            : undefined
+        }
       >
         <ArrowRightIcon />
       </IconButton>
