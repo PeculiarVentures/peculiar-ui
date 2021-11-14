@@ -133,8 +133,7 @@ export const Pagination: React.FC<BaseProps> = (props) => {
     <div
       className={cx({
         [styleRoot()]: true,
-        className: !!className,
-      })}
+      }, className)}
     >
       <div
         className={cx({
@@ -159,7 +158,14 @@ export const Pagination: React.FC<BaseProps> = (props) => {
           size="small"
           disabled={currentPage <= 1}
           onClick={() => handleChange(prevButtonValue)}
-          component={(p) => <Component {...p} page={prevButtonValue} buttonType="previous" />}
+          component={React.forwardRef((p, ref) => (
+            <Component
+              {...p}
+              ref={ref}
+              page={prevButtonValue}
+              buttonType="previous"
+            />
+          ))}
           title={renderTooltip('previous')}
         >
           <ArrowLeftIcon />
@@ -173,7 +179,13 @@ export const Pagination: React.FC<BaseProps> = (props) => {
               key={pageNumber}
               size="small"
               onClick={() => handleChange(pageNumber)}
-              component={(p) => <Component {...p} page={pageNumber} buttonType="count" />}
+              component={(p) => (
+                <Component
+                  {...p}
+                  page={pageNumber}
+                  buttonType="count"
+                />
+              )}
               className={cx({
                 [styleCountButton()]: true,
                 [styleActiveCountButton()]: isActive,
@@ -189,9 +201,14 @@ export const Pagination: React.FC<BaseProps> = (props) => {
           size="small"
           disabled={currentPage >= pageCount}
           onClick={() => handleChange(nextButtonValue)}
-          component={(p) => (
-            <Component {...p} page={nextButtonValue} buttonType="next" />
-          )}
+          component={React.forwardRef((p, ref) => (
+            <Component
+              {...p}
+              ref={ref}
+              page={nextButtonValue}
+              buttonType="next"
+            />
+          ))}
           title={renderTooltip('next')}
         >
           <ArrowRightIcon />

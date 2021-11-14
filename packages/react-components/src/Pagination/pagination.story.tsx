@@ -13,11 +13,11 @@ Default.args = {
   rowsPerPage: 20,
   // labelDisplayedRows: ({ from, to, count }: any) => `Example ${from} to ${to}, summ ${count}`,
   // getItemAriaLabel: (type: any) => `Move to ${type}`,
-  // renderItem: (props: any) => {
+  // renderItem: React.forwardRef((props: any, ref: any) => {
   //   const { page, children } = props;
 
-  //   return <a href={page} {...props}>{children}</a>;
-  // },
+  //   return <a href={page} ref={ref} {...props}>{children}</a>;
+  // }),
 };
 
 export default {
