@@ -51,6 +51,10 @@ type BaseProps = {
    * If `true`, the dialog will be show CircularProgress component and disable all interactions.
    */
   loading?: boolean;
+  /**
+   * The color of loading circle.
+   */
+  loaderColor?: ('primary' | 'secondary');
 };
 
 type DialogProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
@@ -128,6 +132,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
     disableEscapeKeyDown,
     size,
     loading,
+    loaderColor,
     onClose,
     'data-testid': dataTestId,
     ...other
@@ -172,7 +177,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
           {children}
           {loading && (
             <Box className={cx(stylesLoading())}>
-              <CircularProgress />
+              <CircularProgress color={loaderColor} />
             </Box>
           )}
         </Box>
@@ -189,4 +194,5 @@ Dialog.defaultProps = {
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
   size: 'medium',
+  loaderColor: 'secondary',
 };
