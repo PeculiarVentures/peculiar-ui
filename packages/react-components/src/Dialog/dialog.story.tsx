@@ -35,7 +35,7 @@ const Template = (args: any) => (
       <Button>
         Cancel
       </Button>
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="secondary">
         Send
       </Button>
     </DialogActions>
