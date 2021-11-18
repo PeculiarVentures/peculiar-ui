@@ -16,7 +16,7 @@ type BaseProps = {
   size?: ('small' | 'large');
 };
 
-type CircularProgressProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type CircularProgressProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 
 /**
  * Styles.

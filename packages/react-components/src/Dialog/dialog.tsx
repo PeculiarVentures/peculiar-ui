@@ -1,4 +1,5 @@
 import React from 'react';
+import type { CircularProgressProps } from '../CircularProgress';
 import { Modal } from '../Modal';
 import { Box } from '../Box';
 import { Fade } from '../Fade';
@@ -52,9 +53,9 @@ type BaseProps = {
    */
   loading?: boolean;
   /**
-   * The color of loading circle.
+   * The color of the CircularProgress component.
    */
-  loaderColor?: ('primary' | 'secondary');
+  loadingColor?: CircularProgressProps['color'];
 };
 
 type DialogProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
@@ -132,7 +133,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
     disableEscapeKeyDown,
     size,
     loading,
-    loaderColor,
+    loadingColor,
     onClose,
     'data-testid': dataTestId,
     ...other
@@ -177,7 +178,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
           {children}
           {loading && (
             <Box className={cx(stylesLoading())}>
-              <CircularProgress color={loaderColor} />
+              <CircularProgress color={loadingColor} />
             </Box>
           )}
         </Box>
@@ -194,5 +195,5 @@ Dialog.defaultProps = {
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
   size: 'medium',
-  loaderColor: 'secondary',
+  loadingColor: 'secondary',
 };
