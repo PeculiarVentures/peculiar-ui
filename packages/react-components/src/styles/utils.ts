@@ -11,7 +11,6 @@ import {
 import {
   generateBaseSize,
 } from './sizes';
-import { eventManager, Event } from './event_manager';
 
 export const themeCSSVariablePrefix = 'pv';
 export const contrastThreshold = 2;
@@ -55,10 +54,4 @@ export const createThemeCSSVariablesFromObject = (object: Record<string, any>) =
   );
 
   return flatted;
-};
-
-export const theme = {
-  useTheme: (options: ThemeOptionsType) => {
-    eventManager.emit(Event.Use, options);
-  },
 };

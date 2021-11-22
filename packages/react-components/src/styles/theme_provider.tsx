@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Global } from '@emotion/core';
 import { createTheme, createThemeCSSVariablesFromObject } from './utils';
-import { eventManager, Event } from './event_manager';
 import { defaultTheme } from './default_theme';
 import type { ThemeOptionsType } from './types';
 
@@ -15,20 +14,12 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
     children,
     theme: themeProp,
   } = props;
-  const [theme, setTheme] = React.useState(() => (
-    themeProp ? createTheme(themeProp) : defaultTheme
-  ));
 
-  React.useEffect(() => {
-    eventManager
-      .on(Event.Use, (options) => {
-        setTheme(createTheme(options));
-      });
+  const theme = React.useMemo(() => {
+    const output = themeProp ? createTheme(themeProp) : defaultTheme;
 
-    return () => {
-      eventManager.list.clear();
-    };
-  }, []);
+    return output;
+  }, [themeProp]);
 
   return (
     <>
