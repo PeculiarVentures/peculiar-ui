@@ -28,7 +28,7 @@ type BaseProps = {
   /**
    * Direction the child node will enter from.
    */
-  direction?: ('right');
+  direction?: ('right' | 'left' | 'up' | 'down');
   /**
    * Perform the enter transition when it first mounts if `in` is also `true`.
    */
@@ -49,8 +49,9 @@ export const Slide = React.forwardRef<any, SlideProps>((props, ref) => {
     onExit,
     onExited,
     onExiting,
+    direction,
   } = props;
-  const nodeRef = React.useRef(null);
+  const nodeRef = React.useRef<HTMLElement>(null);
   const multiRef = useMergedRef((children as any).ref, ref, nodeRef);
 
   const handleEnter = (isAppearing: boolean) => {
@@ -61,6 +62,38 @@ export const Slide = React.forwardRef<any, SlideProps>((props, ref) => {
     if (onEnter) {
       onEnter(isAppearing);
     }
+  };
+
+  const getTranslateExitValue = () => {
+    if (direction === 'right' || direction === 'left') {
+      return 'translateX(0px)';
+    }
+
+    if (direction === 'up' || direction === 'down') {
+      return 'translateY(0px)';
+    }
+
+    return undefined;
+  };
+
+  const getTranslateEnterValue = () => {
+    if (direction === 'right') {
+      return 'translateX(100%)';
+    }
+
+    if (direction === 'left') {
+      return 'translateX(-100%)';
+    }
+
+    if (direction === 'up') {
+      return 'translateY(-100%)';
+    }
+
+    if (direction === 'down') {
+      return 'translateY(100%)';
+    }
+
+    return undefined;
   };
 
   return (
@@ -79,7 +112,7 @@ export const Slide = React.forwardRef<any, SlideProps>((props, ref) => {
       {(state) => (
         React.cloneElement(children, {
           style: {
-            transform: (state === 'entering' || state === 'entered') ? 'translateX(0px)' : 'translateX(100%)',
+            transform: (state === 'entering' || state === 'entered') ? getTranslateExitValue() : getTranslateEnterValue(),
             transition: `transform ${timeout}ms`,
             visibility: state === 'exited' && !inProp ? 'hidden' : undefined,
             ...children.props.style,

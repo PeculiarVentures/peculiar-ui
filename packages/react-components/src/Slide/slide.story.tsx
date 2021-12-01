@@ -2,35 +2,20 @@ import * as React from 'react';
 import { Slide } from './index';
 import { Typography } from '../Typography';
 
-export const Playground = (args: any) => {
-  const {
-    in: inProp,
-    timeout,
-    children,
-  } = args;
-
-  return (
-    <Slide
-      in={inProp}
-      timeout={timeout}
+export const Playground = (args: any) => (
+  <Slide {...args}>
+    <Typography
+      variant="h1"
     >
-      <Typography
-        variant="h1"
-      >
-        {children}
-      </Typography>
-    </Slide>
-  );
-};
-
-Playground.args = {
-  children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
-};
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+    </Typography>
+  </Slide>
+);
 
 export default {
   title: 'Components/Animation/Slide',
   component: Slide,
   argTypes: {
-    children: { control: 'text' },
+    children: { control: false },
   },
 };
