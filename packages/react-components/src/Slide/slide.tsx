@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { TransitionProps } from 'react-transition-group/Transition';
-import { Transition, TransitionStatus } from 'react-transition-group';
+import { Transition } from 'react-transition-group';
 import { useMergedRef } from '../hooks';
 
 type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
@@ -64,31 +64,33 @@ export const Slide = React.forwardRef<any, SlideProps>((props, ref) => {
     }
   };
 
-  const transformValue = (state: TransitionStatus) => {
-    if (state === 'entering' || state === 'entered') {
-      if (direction === 'right' || direction === 'left') {
-        return 'translateX(0px)';
-      }
+  const getTranslateExitValue = () => {
+    if (direction === 'right' || direction === 'left') {
+      return 'translateX(0px)';
+    }
 
-      if (direction === 'up' || direction === 'down') {
-        return 'translateY(0px)';
-      }
-    } else {
-      if (direction === 'right') {
-        return 'translateX(100%)';
-      }
+    if (direction === 'up' || direction === 'down') {
+      return 'translateY(0px)';
+    }
 
-      if (direction === 'left') {
-        return 'translateX(-100%)';
-      }
+    return undefined;
+  };
 
-      if (direction === 'up') {
-        return 'translateY(-100%)';
-      }
+  const getTranslateEnterValue = () => {
+    if (direction === 'right') {
+      return 'translateX(100%)';
+    }
 
-      if (direction === 'down') {
-        return 'translateY(100%)';
-      }
+    if (direction === 'left') {
+      return 'translateX(-100%)';
+    }
+
+    if (direction === 'up') {
+      return 'translateY(-100%)';
+    }
+
+    if (direction === 'down') {
+      return 'translateY(100%)';
     }
 
     return undefined;
@@ -110,7 +112,7 @@ export const Slide = React.forwardRef<any, SlideProps>((props, ref) => {
       {(state) => (
         React.cloneElement(children, {
           style: {
-            transform: transformValue(state),
+            transform: (state === 'entering' || state === 'entered') ? getTranslateExitValue() : getTranslateEnterValue(),
             transition: `transform ${timeout}ms`,
             visibility: state === 'exited' && !inProp ? 'hidden' : undefined,
             ...children.props.style,
