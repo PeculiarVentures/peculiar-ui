@@ -103,9 +103,8 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
     typographyProps,
     ...other
   } = props;
-  const status = useImage({ src });
-  const hasLoaded = status === 'loaded';
-  const showImage = src && hasLoaded;
+  const { image } = useImage(src);
+  const showImage = image?.src;
   const showInitials = name && getInitials;
 
   let children = null;
