@@ -80,7 +80,7 @@ export const Fade = React.forwardRef<any, FadeProps>((props, ref) => {
         React.cloneElement(children, {
           style: {
             opacity: (state === 'entering' || state === 'entered') ? finalOpacity : 0,
-            transition: `opacity ${timeout}ms`,
+            transition: `opacity ${timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
             visibility: state === 'exited' && !inProp ? 'hidden' : undefined,
             ...children.props.style,
           },

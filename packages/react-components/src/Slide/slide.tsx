@@ -113,7 +113,7 @@ export const Slide = React.forwardRef<any, SlideProps>((props, ref) => {
         React.cloneElement(children, {
           style: {
             transform: (state === 'entering' || state === 'entered') ? getTranslateExitValue() : getTranslateEnterValue(),
-            transition: `transform ${timeout}ms`,
+            transition: `transform ${timeout}ms cubic-bezier(0, 0, 0.2, 1) 0ms`,
             visibility: state === 'exited' && !inProp ? 'hidden' : undefined,
             ...children.props.style,
           },
