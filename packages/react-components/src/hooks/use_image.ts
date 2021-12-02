@@ -1,8 +1,6 @@
 import {
   useState,
-  useEffect,
   useRef,
-  useCallback,
 } from 'react';
 import { useEnhancedEffect } from '../utils';
 
@@ -50,26 +48,17 @@ export function useImage(src: string, options: UseImageOptionsType = {}): UseIma
   const [status, setStatus] = useState<Status>('pending');
   const imageRef = useRef<UseImageReturnType['image']>();
 
-  const flush = () => {
-    if (imageRef.current) {
-      imageRef.current.onload = null;
-      imageRef.current.onerror = null;
-      imageRef.current = undefined;
-    }
-  };
-
-  const load = useCallback(() => {
+  useEnhancedEffect(() => {
     if (!src) {
-      return;
+      return undefined;
     }
 
-    flush();
+    setStatus('loading');
 
-    const img = new Image();
+    imageRef.current = new Image();
+    imageRef.current.src = src;
 
-    img.src = src;
-
-    img.onload = (event) => {
+    imageRef.current.onload = (event) => {
       setStatus('loaded');
 
       if (onLoad) {
@@ -77,8 +66,9 @@ export function useImage(src: string, options: UseImageOptionsType = {}): UseIma
       }
     };
 
-    img.onerror = (error) => {
-      flush();
+    imageRef.current.onerror = (error) => {
+      imageRef.current = undefined;
+
       setStatus('failed');
 
       if (onError) {
@@ -86,22 +76,10 @@ export function useImage(src: string, options: UseImageOptionsType = {}): UseIma
       }
     };
 
-    imageRef.current = img;
-  }, [src, onLoad, onError]);
-
-  useEffect(() => {
-    setStatus(src ? 'loading' : 'pending');
-  }, [src]);
-
-  useEnhancedEffect(() => {
-    if (status === 'loading') {
-      load();
-    }
-
     return () => {
-      flush();
+      imageRef.current = undefined;
     };
-  }, [status, load]);
+  }, [src]);
 
   return { status, image: imageRef.current };
 }
