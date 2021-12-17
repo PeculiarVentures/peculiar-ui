@@ -21,6 +21,7 @@ type BaseProps = {
    * The content of the error message.
    */
   error?: string;
+  pinnedContent?: React.ReactNode,
 };
 
 type DialogContentProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
@@ -28,8 +29,23 @@ type DialogContentProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 const stylesBase = () => css({
   label: 'DialogContent',
   flex: '1 1 auto',
-  padding: 'var(--pv-size-base-3) var(--pv-size-base-4)',
+  overflow: 'hidden',
+  display: 'flex',
+  flexDirection: 'column',
+  padding: 'var(--pv-size-base-3) 0 0',
+});
+
+const stylesPinned = () => css({
+  label: 'DialogPinnedContent',
+  padding: '0 var(--pv-size-base-4)',
+  flex: '0 0 auto',
+});
+
+const stylesScrolled = () => css({
+  label: 'DialogScrolledContent',
+  padding: '0 var(--pv-size-base-4) var(--pv-size-base-3)',
   overflowY: 'auto',
+  flex: '1 1 auto',
 });
 
 const stylesError = () => css({
@@ -47,6 +63,7 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
     className,
     dividers,
     error,
+    pinnedContent,
     ...other
   } = props;
 
@@ -64,19 +81,24 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
       borderPosition="horizontal"
       data-key="dialog.content"
     >
-      <Collapse
-        in={Boolean(error)}
-        className={cx(stylesCollapse())}
-      >
-        <Alert
-          variant="wrong"
-          disableIcon
-          className={cx(stylesError())}
+      <div className={cx(stylesPinned())}>
+        <Collapse
+          in={Boolean(error)}
+          className={cx(stylesCollapse())}
         >
-          {error}
-        </Alert>
-      </Collapse>
-      {children}
+          <Alert
+            variant="wrong"
+            disableIcon
+            className={cx(stylesError())}
+          >
+            {error}
+          </Alert>
+        </Collapse>
+        {pinnedContent}
+      </div>
+      <div className={cx(stylesScrolled())}>
+        {children}
+      </div>
     </Box>
   );
 });
