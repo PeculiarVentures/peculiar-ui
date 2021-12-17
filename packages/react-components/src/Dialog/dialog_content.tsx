@@ -21,6 +21,9 @@ type BaseProps = {
    * The content of the error message.
    */
   error?: string;
+  /**
+   * The content of pinned part.
+   */
   pinnedContent?: React.ReactNode,
 };
 
