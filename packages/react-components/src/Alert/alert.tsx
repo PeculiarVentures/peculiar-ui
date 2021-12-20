@@ -73,6 +73,7 @@ const stylesText = () => css({
   label: 'Alert-text',
   padding: 'var(--pv-size-base) 0px',
   flex: '1',
+  minHeight: 'var(--pv-text-b3-height)',
 });
 
 export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
