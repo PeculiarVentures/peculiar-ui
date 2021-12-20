@@ -43,7 +43,7 @@ const stylesScrolled = () => css({
   label: 'DialogScrolledContent',
   overflowY: 'auto',
   flex: '1 1 auto',
-  padding: 'var(--pv-size-base-3) var(--pv-size-base-4)',
+  padding: 'var(--pv-size-base-3) var(--pv-size-base-4) var(--pv-size-base-6) var(--pv-size-base-4)',
 });
 
 const stylesError = () => css({
