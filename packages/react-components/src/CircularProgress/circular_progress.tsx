@@ -5,7 +5,11 @@ type BaseProps = {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
-  color?: ('primary' | 'secondary');
+  color?: (
+    'primary' |
+    'secondary' |
+    'white'
+  );
   /**
    * The className of the component.
    */
@@ -48,7 +52,7 @@ const circularDashKeyframe = keyframes`
   }
 `;
 
-const stylesBase = (color: ('primary' | 'secondary')) => css({
+const stylesBase = (color: BaseProps['color']) => css({
   label: 'CircularProgress',
   overflow: 'hidden',
   position: 'relative',
