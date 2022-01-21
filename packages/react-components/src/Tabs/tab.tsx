@@ -20,6 +20,10 @@ type BaseProps = {
    */
   disabled?: boolean;
   /**
+   * The color of the component.
+   */
+  color?: ('black' | 'white');
+  /**
    * The component used for the root node.
    */
   component?: React.ElementType;
@@ -76,18 +80,32 @@ export const Tab = React.forwardRef<HTMLButtonElement, TabBaseProps>((props, ref
     id,
     // @ts-ignore
     selected,
+    color = 'black',
     component: componentProp,
     onChange,
     ...other
   } = props;
   const Component = componentProp || 'button';
-  let color: ColorType = 'gray-10';
 
-  if (disabled) {
-    color = 'gray-7';
-  } else if (selected) {
-    color = 'black';
-  }
+  const textColor: ColorType = React.useMemo(() => {
+    if (disabled) {
+      return 'gray-7';
+    }
+
+    if (color === 'white') {
+      if (selected) {
+        return 'white';
+      }
+
+      return 'gray-9';
+    }
+
+    if (selected) {
+      return 'black';
+    }
+
+    return 'gray-10';
+  }, [disabled, selected, color]);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (!selected && onChange) {
@@ -113,7 +131,7 @@ export const Tab = React.forwardRef<HTMLButtonElement, TabBaseProps>((props, ref
       <Typography
         variant="s2"
         component="span"
-        color={color}
+        color={textColor}
       >
         {children}
       </Typography>
@@ -126,4 +144,5 @@ Tab.displayName = 'Tab';
 Tab.defaultProps = {
   disabled: false,
   component: 'button',
+  color: 'black',
 };
