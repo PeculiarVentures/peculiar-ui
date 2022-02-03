@@ -56,7 +56,10 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
 IconButton.displayName = 'IconButton';
 
 IconButton.defaultProps = {
+  // eslint-disable-next-line react/default-props-match-prop-types
   disabled: false,
+  // eslint-disable-next-line react/default-props-match-prop-types
   color: 'default',
+  // eslint-disable-next-line react/default-props-match-prop-types
   size: 'medium',
 };

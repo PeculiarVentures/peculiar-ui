@@ -47,7 +47,9 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>((props, ref) =>
 Fab.displayName = 'Fab';
 
 Fab.defaultProps = {
+  // eslint-disable-next-line react/default-props-match-prop-types
   disabled: false,
   variant: 'contained',
+  // eslint-disable-next-line react/default-props-match-prop-types
   color: 'primary',
 };
