@@ -35,5 +35,4 @@ export default {
     onDelete: { control: false },
     onClick: { control: false },
   },
-  parameters: { actions: { argTypesRegex: '^on.*' } },
 };

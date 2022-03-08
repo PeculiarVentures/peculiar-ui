@@ -33,5 +33,4 @@ export default {
     inputRef: { control: false },
     onChange: { control: false },
   },
-  parameters: { actions: { argTypesRegex: '^on.*' } },
 };

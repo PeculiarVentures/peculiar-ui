@@ -24,5 +24,4 @@ export default {
   argTypes: {
     children: { control: 'text' },
   },
-  parameters: { actions: { argTypesRegex: '^on.*' } },
 };

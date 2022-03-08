@@ -119,5 +119,4 @@ Playground.args = {};
 export default {
   title: 'Components/SelectPicker',
   component: SelectPicker,
-  parameters: { actions: { argTypesRegex: '^on.*' } },
 };
