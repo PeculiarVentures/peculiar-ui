@@ -27,5 +27,4 @@ export default {
   argTypes: {
     children: { control: false },
   },
-  parameters: { actions: { argTypesRegex: '^on.*' } },
 };

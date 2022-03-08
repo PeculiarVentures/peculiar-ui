@@ -17,5 +17,4 @@ export default {
     inputProps: { control: false },
     checkedIcon: { control: false },
   },
-  parameters: { actions: { argTypesRegex: '^on.*' } },
 };

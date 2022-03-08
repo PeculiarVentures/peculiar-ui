@@ -13,5 +13,4 @@ Default.args = {};
 export default {
   title: 'Components/Slider',
   component: Slider,
-  parameters: { actions: { argTypesRegex: '^on.*' } },
 };

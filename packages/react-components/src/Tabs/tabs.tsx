@@ -38,26 +38,29 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsBaseProps>((props, ref)
     ...other
   } = props;
 
-  const children = React.Children.map(childrenProp, (child) => {
-    if (!React.isValidElement<typeof Tab>(child)) {
-      return null;
-    }
+  const children = React.Children.map(
+    childrenProp,
+    (child: React.ReactElement<TabBaseProps, typeof Tab>) => {
+      if (!React.isValidElement<typeof Tab>(child)) {
+        return null;
+      }
 
-    if (child.type.displayName !== 'Tab') {
-      console.error('Peculiar-UI: The Tabs component doesn\'t accept a Element as not a Tab.');
+      if (child.type.displayName !== 'Tab') {
+        console.error('Peculiar-UI: The Tabs component doesn\'t accept a Element as not a Tab.');
 
-      return null;
-    }
+        return null;
+      }
 
-    const childValue = child.props.id;
-    const selected = childValue === value;
+      const childValue = child.props.id;
+      const selected = childValue === value;
 
-    return React.cloneElement(child, {
-      // @ts-ignore
-      selected,
-      onChange,
-    });
-  });
+      return React.cloneElement(child, {
+        // @ts-ignore
+        selected,
+        onChange,
+      });
+    },
+  );
 
   return (
     <div

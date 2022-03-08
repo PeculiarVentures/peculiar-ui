@@ -36,7 +36,7 @@
     "check:types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.0",
+    "@types/jest": "^27.4.1",
     "jest": "^27.4.7",
     "jest-watch-typeahead": "^1.0.0",
     "rimraf": "^3.0.2",

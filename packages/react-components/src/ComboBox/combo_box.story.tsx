@@ -30,5 +30,4 @@ export default {
     options: { control: false },
     defaultValue: { control: false },
   },
-  parameters: { actions: { argTypesRegex: '^on.*' } },
 };

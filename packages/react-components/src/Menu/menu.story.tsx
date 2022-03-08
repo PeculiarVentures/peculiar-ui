@@ -37,5 +37,4 @@ export default {
     options: { control: false },
     popoverProps: { control: false },
   },
-  parameters: { actions: { argTypesRegex: '^on.*' } },
 };

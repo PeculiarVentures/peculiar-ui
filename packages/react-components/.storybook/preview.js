@@ -1,11 +1,6 @@
-// import { withPerformance } from 'storybook-addon-performance';
 import { addParameters, addDecorator } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { ThemeProvider } from '../src';
-
-// export const decorators = [
-//   withPerformance,
-// ];
 
 addDecorator((story) => (
   <ThemeProvider>
@@ -22,12 +17,10 @@ addParameters({
     ),
     page: DocsPage,
   },
-});
-
-export const parameters = {
-	options: {
-		storySort: {
+  options: {
+    storySort: {
 			order: ['Documentation', ['Introduction', 'Readme']],
 		},
-	},
-};
+  },
+  actions: { argTypesRegex: '^on.*' },
+});
