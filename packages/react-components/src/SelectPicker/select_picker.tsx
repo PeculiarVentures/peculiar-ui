@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-} from 'react';
+import React from 'react';
 import { Popover } from '../Popover';
 import { TextField } from '../TextField';
 import { Typography } from '../Typography';
@@ -297,12 +292,12 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
     onOpen,
   } = props;
 
-  const [open, setOpen] = useState<boolean>(false);
-  const [searchValue, setSearchValue] = useState<string>('');
+  const [open, setOpen] = React.useState<boolean>(false);
+  const [searchValue, setSearchValue] = React.useState<string>('');
 
-  const rootRef = useRef(null);
+  const rootRef = React.useRef(null);
   const listboxRef = React.useRef(null);
-  const highlightedIndexRef = useRef(-1);
+  const highlightedIndexRef = React.useRef(-1);
 
   const [value, setValue] = useControllableState({
     value: valueProp,
@@ -479,7 +474,7 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
     setHighlightedIndex(nextIndex, reason);
   };
 
-  const syncHighlightedIndex = useCallback(() => {
+  const syncHighlightedIndex = React.useCallback(() => {
     if (!open) {
       return;
     }
@@ -569,7 +564,7 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     syncHighlightedIndex();
   }, [syncHighlightedIndex]);
 
@@ -686,6 +681,7 @@ export const SelectPicker: <T>(props: SelectPickerProps<T>) => JSX.Element = (pr
         onClose={handleClose}
         placement="bottom-start"
         className={stylesPopper()}
+        allowUseSameWidth
       >
         <Box
           borderColor="gray-3"

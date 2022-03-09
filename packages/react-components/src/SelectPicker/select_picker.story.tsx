@@ -104,19 +104,30 @@ const top100Films = [
   { title: 'Monty Python and the Holy Grail', year: 1975 },
 ];
 
-const Template = () => (
+const Template = (args: any) => (
   <SelectPicker
-    options={top100Films}
-    getOptionLabel={(option: any) => option.title}
-    placeholder="Select a movie"
-    allowCreateNew
+    {...args}
   />
 );
 
 export const Playground = Template.bind({});
-Playground.args = {};
+Playground.args = {
+  options: top100Films,
+  getOptionLabel: (option: any) => option.title,
+  placeholder: 'Select a movie',
+  allowCreateNew: true,
+};
 
 export default {
   title: 'Components/SelectPicker',
   component: SelectPicker,
+  argTypes: {
+    options: { control: false },
+    getOptionLabel: { control: false },
+    loadingText: { control: false },
+    noOptionsText: { control: false },
+    defaultValue: { control: false },
+    value: { control: false },
+    filterOptions: { control: false },
+  },
 };
