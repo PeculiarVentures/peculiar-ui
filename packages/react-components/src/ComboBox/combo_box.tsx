@@ -339,6 +339,7 @@ export const ComboBox = React.forwardRef<HTMLDivElement, ComboBoxProps>((props, 
         anchorEl={rootRef.current}
         onClose={handlePopoverClose}
         placement="bottom-start"
+        allowUseSameWidth
       >
         <div
           role="listbox"
