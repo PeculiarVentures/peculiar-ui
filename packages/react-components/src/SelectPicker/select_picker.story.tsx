@@ -115,7 +115,6 @@ Playground.args = {
   options: top100Films,
   getOptionLabel: (option: any) => option.title,
   placeholder: 'Select a movie',
-  allowCreateNew: true,
 };
 
 export default {
@@ -124,8 +123,6 @@ export default {
   argTypes: {
     options: { control: false },
     getOptionLabel: { control: false },
-    loadingText: { control: false },
-    noOptionsText: { control: false },
     defaultValue: { control: false },
     value: { control: false },
     filterOptions: { control: false },
