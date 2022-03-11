@@ -6,9 +6,9 @@ import type { PopoverProps } from '../Popover';
 /**
  * Types.
  */
-type ReasonType = ('auto' | 'mouse' | 'keyboard');
-type DirectionType = ('next' | 'previous');
-type DiffType = (number | 'reset' | 'start' | 'end');
+export type AutocompleteHighlightChangeReason = ('auto' | 'mouse' | 'keyboard');
+export type AutocompleteHighlightChangeDirectionType = ('next' | 'previous');
+export type AutocompleteHighlightChangeDiffType = (number | 'reset' | 'start' | 'end');
 
 export type FilterOptionsType = <T>(
   options: ReadonlyArray<T>,
@@ -37,6 +37,28 @@ export type UseAutocompletePropsType<T> = {
    * The value of the select.
    */
   value?: T;
+  /**
+   * Callback fired when the popup requests to be closed.
+   */
+  onClose?: (event: React.SyntheticEvent) => void;
+  /**
+   * Callback fired when the popup requests to be opened.
+   */
+  onOpen?: (event: React.SyntheticEvent) => void;
+  /**
+   * Callback fired when the value changes.
+   */
+  onChange?: (
+    event: React.SyntheticEvent,
+    value: T,
+  ) => void;
+  /**
+   * Callback fired when the input value changes.
+   */
+  onInputChange?: (
+    event: React.SyntheticEvent,
+    value: string,
+  ) => void;
 };
 
 export type UseAutocompleteType = <T>(props: UseAutocompletePropsType<T>) => {
@@ -70,11 +92,15 @@ const defaultFilterOptions: FilterOptionsType = (options, value, getOptionLabel)
 export const useAutocomplete: UseAutocompleteType = (props) => {
   const {
     options,
+    defaultValue,
+    value: valueProp,
     // @ts-ignore
     getOptionLabel = (option) => option.label ?? option,
     filterOptions = defaultFilterOptions,
-    defaultValue,
-    value: valueProp,
+    onOpen,
+    onClose,
+    onInputChange,
+    onChange,
   } = props;
 
   const id = useId();
@@ -93,7 +119,7 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
     ? filterOptions(options, searchValue, getOptionLabel)
     : [];
 
-  const validOptionIndex = (index: number, direction: DirectionType) => {
+  const validOptionIndex = (index: number, direction: AutocompleteHighlightChangeDirectionType) => {
     if (!listboxRef.current || index === -1) {
       return -1;
     }
@@ -120,7 +146,7 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
     }
   };
 
-  const setHighlightedIndex = (index: number, reason: ReasonType = 'auto') => {
+  const setHighlightedIndex = (index: number, reason: AutocompleteHighlightChangeReason = 'auto') => {
     highlightedIndexRef.current = index;
 
     const listboxNode = listboxRef.current;
@@ -168,7 +194,11 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
     }
   };
 
-  const changeHighlightedIndex = (diff: DiffType, direction: DirectionType = 'next', reason: ReasonType = 'auto') => {
+  const changeHighlightedIndex = (
+    diff: AutocompleteHighlightChangeDiffType,
+    direction: AutocompleteHighlightChangeDirectionType = 'next',
+    reason: AutocompleteHighlightChangeReason = 'auto',
+  ) => {
     if (!popupOpen) {
       return;
     }
@@ -278,23 +308,48 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
     syncHighlightedIndex();
   }, [syncHighlightedIndex]);
 
-  const handleClick = () => {
+  const handleOpen = (event: React.SyntheticEvent) => {
     setPopupOpen(true);
+
+    if (onOpen) {
+      onOpen(event);
+    }
   };
 
-  const handleClose = () => {
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    handleOpen(event);
+  };
+
+  const handleClose = (event: React.SyntheticEvent) => {
+    if (!popupOpen) {
+      return;
+    }
+
     setPopupOpen(false);
     setSearchValue('');
+
+    if (onClose) {
+      onClose(event);
+    }
   };
 
-  const selectNewValue = (_: React.SyntheticEvent, option: any) => {
+  const selectNewValue = (event: React.SyntheticEvent, option: any) => {
     setValue(option);
+    handleClose(event);
 
-    handleClose();
+    if (onChange) {
+      onChange(event, option);
+    }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
+    const { value: valueInput } = event.target;
+
+    setSearchValue(valueInput);
+
+    if (onInputChange) {
+      onInputChange(event, valueInput);
+    }
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -333,8 +388,9 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
 
   const handleOptionClick = (event: React.MouseEvent<HTMLLIElement>) => {
     const index = Number(event.currentTarget.getAttribute('data-option-index'));
+    const option = filteredOptions[index];
 
-    selectNewValue(event, filteredOptions[index]);
+    selectNewValue(event, option);
   };
 
   return {

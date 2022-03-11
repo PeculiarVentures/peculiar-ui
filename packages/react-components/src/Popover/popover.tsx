@@ -25,7 +25,7 @@ type BaseProps = {
   /**
    * Callback fired when the component requests to be closed.
    */
-  onClose?: () => void;
+  onClose?: (event: React.SyntheticEvent) => void;
   /**
    * Props applied to the `Modal` element.
    */
