@@ -1,6 +1,7 @@
 import React from 'react';
 import { useId } from './use_id';
 import { useControllableState } from './use_controllable';
+import { useEventCallback } from './use_event_callback';
 import type { PopoverProps } from '../Popover';
 
 /**
@@ -16,27 +17,46 @@ export type FilterOptionsType = <T>(
   getOptionLabel: (option: T) => string,
 ) => T[];
 
-export type UseAutocompletePropsType<T> = {
+export type AutocompleteValue<T, Multiple> = Multiple extends
+| undefined
+| false
+  ? T
+  : T[];
+
+export type UseAutocompleteProps<T, Multiple extends boolean | undefined> = {
+  /**
+   * This prop is used to help implement the accessibility logic.
+   * If you don't provide an id it will fall back to a randomly generated one.
+   */
+  id?: string;
   /**
    * Array of options.
    */
   options: ReadonlyArray<T>;
   /**
+   * The default value. Use when the component is not controlled.
+   */
+  defaultValue?: AutocompleteValue<T, Multiple>;
+  /**
+   * The value of the select.
+   */
+  value?: AutocompleteValue<T, Multiple>;
+  /**
+   * If `true`, the popup won't close when a value is selected.
+   */
+  disableCloseOnSelect?: boolean;
+  /**
+   * If `true`, `value` must be an array and the menu will support multiple selections.
+   */
+  multiple?: Multiple;
+  /**
    * Used to determine the string value for a given option. It's used to fill the input.
    */
   getOptionLabel?: (option: T) => string;
   /**
-   * A filter function that determines the options that are eligible.
-   */
+  * A filter function that determines the options that are eligible.
+  */
   filterOptions?: FilterOptionsType;
-  /**
-   * The default value. Use when the component is not controlled.
-   */
-  defaultValue?: T;
-  /**
-   * The value of the select.
-   */
-  value?: T;
   /**
    * Callback fired when the popup requests to be closed.
    */
@@ -50,7 +70,7 @@ export type UseAutocompletePropsType<T> = {
    */
   onChange?: (
     event: React.SyntheticEvent,
-    value: T,
+    value: AutocompleteValue<T, Multiple>,
   ) => void;
   /**
    * Callback fired when the input value changes.
@@ -61,17 +81,6 @@ export type UseAutocompletePropsType<T> = {
   ) => void;
 };
 
-export type UseAutocompleteType = <T>(props: UseAutocompletePropsType<T>) => {
-  groupedOptions: T[];
-  value: T;
-  getOptionProps: (option: T, index: number) => React.HTMLAttributes<HTMLLIElement>;
-  getListboxProps: () => React.HTMLAttributes<HTMLUListElement>;
-  getRootProps: () => React.HTMLAttributes<HTMLDivElement>;
-  getInputProps: () => React.HTMLAttributes<HTMLInputElement>;
-  getPopoverProps: () => Pick<Required<PopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>
-  popupOpen: boolean;
-  id: string;
-};
 /**
  *
  */
@@ -89,11 +98,31 @@ const defaultFilterOptions: FilterOptionsType = (options, value, getOptionLabel)
   });
 };
 
-export const useAutocomplete: UseAutocompleteType = (props) => {
+// eslint-disable-next-line max-len
+export function useAutocomplete<T, Multiple extends boolean | undefined>(props: UseAutocompleteProps<T, Multiple>): {
+  groupedOptions: T[];
+  value: AutocompleteValue<T, Multiple>;
+  popupOpen: boolean;
+  id: string;
+  getOptionProps: (option: T, index: number) => React.HTMLAttributes<HTMLLIElement>;
+  getListboxProps: () => React.HTMLAttributes<HTMLUListElement>;
+  getRootProps: () => React.HTMLAttributes<HTMLDivElement>;
+  getInputProps: () => React.HTMLAttributes<HTMLInputElement>;
+  getPopoverProps: () => Pick<Required<PopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>;
+  getTagProps: (option: T, index: number) => {
+    key: number;
+    'data-tag-index': number;
+    tabIndex: -1;
+    onDelete: (event: React.SyntheticEvent) => void;
+  };
+} {
   const {
+    id: idProp,
     options,
-    defaultValue,
+    defaultValue = props.multiple ? [] as AutocompleteValue<T, Multiple> : null,
     value: valueProp,
+    disableCloseOnSelect = false,
+    multiple = false,
     // @ts-ignore
     getOptionLabel = (option) => option.label ?? option,
     filterOptions = defaultFilterOptions,
@@ -103,7 +132,7 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
     onChange,
   } = props;
 
-  const id = useId();
+  const id = useId(idProp);
   const anchorEl = React.useRef(null);
   const listboxRef = React.useRef(null);
   const highlightedIndexRef = React.useRef(-1);
@@ -146,7 +175,7 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
     }
   };
 
-  const setHighlightedIndex = (index: number, reason: AutocompleteHighlightChangeReason = 'auto') => {
+  const setHighlightedIndex = useEventCallback((index: number, reason: AutocompleteHighlightChangeReason = 'auto') => {
     highlightedIndexRef.current = index;
 
     const listboxNode = listboxRef.current;
@@ -161,40 +190,41 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
       prevOptionNode.setAttribute('data-focused', 'false');
     }
 
-    // No results.
-    if (!listboxNode) {
-      return;
-    }
-
     if (index === -1) {
       listboxNode.scrollTop = 0;
       return;
     }
 
-    const nextOptionNode = listboxNode.querySelector(`[data-option-index="${index}"]`);
+    const option = listboxNode.querySelector(`[data-option-index="${index}"]`);
 
-    if (!nextOptionNode) {
+    if (!option) {
       return;
     }
 
-    nextOptionNode.setAttribute('data-focused', 'true');
+    option.setAttribute('data-focused', 'true');
 
     // Scroll active descendant into view.
+    // Logic copied from https://www.w3.org/TR/wai-aria-practices/examples/listbox/js/listbox.js
+    //
+    // Consider this API instead once it has a better browser support:
+    // .scrollIntoView({ scrollMode: 'if-needed', block: 'nearest' });
     if (listboxNode.scrollHeight > listboxNode.clientHeight && reason !== 'mouse') {
+      const element = option;
+
       const scrollBottom = listboxNode.clientHeight + listboxNode.scrollTop;
-      const elementBottom = nextOptionNode.offsetTop + nextOptionNode.offsetHeight;
+      const elementBottom = element.offsetTop + element.offsetHeight;
 
       if (elementBottom > scrollBottom) {
         listboxNode.scrollTop = elementBottom - listboxNode.clientHeight;
       } else if (
-        nextOptionNode.offsetTop - nextOptionNode.offsetHeight * 0 < listboxNode.scrollTop
+        element.offsetTop - element.offsetHeight * 0 < listboxNode.scrollTop
       ) {
-        listboxNode.scrollTop = nextOptionNode.offsetTop - nextOptionNode.offsetHeight * 0;
+        listboxNode.scrollTop = element.offsetTop - element.offsetHeight * 0;
       }
     }
-  };
+  });
 
-  const changeHighlightedIndex = (
+  const changeHighlightedIndex = useEventCallback((
     diff: AutocompleteHighlightChangeDiffType,
     direction: AutocompleteHighlightChangeDirectionType = 'next',
     reason: AutocompleteHighlightChangeReason = 'auto',
@@ -250,14 +280,16 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
     const nextIndex = validOptionIndex(getNextIndex(), direction);
 
     setHighlightedIndex(nextIndex, reason);
-  };
+  });
 
   const syncHighlightedIndex = React.useCallback(() => {
     if (!popupOpen) {
       return;
     }
 
-    if (filteredOptions.length === 0 || value == null) {
+    const valueItem = Array.isArray(value) ? value[0] : value;
+
+    if (filteredOptions.length === 0 || valueItem == null) {
       changeHighlightedIndex('reset');
 
       return;
@@ -267,13 +299,13 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
       return;
     }
 
-    if (value != null) {
-      const optionIndex = filteredOptions.findIndex((optionItem) => optionItem === value);
+    if (valueItem != null) {
+      const itemIndex = filteredOptions.findIndex((o) => o === valueItem);
 
-      if (optionIndex === -1) {
+      if (itemIndex === -1) {
         changeHighlightedIndex('reset');
       } else {
-        setHighlightedIndex(optionIndex);
+        setHighlightedIndex(itemIndex);
       }
 
       return;
@@ -289,12 +321,15 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
     setHighlightedIndex(highlightedIndexRef.current);
   }, [
     filteredOptions.length,
-    value,
+    multiple ? false : value,
+    changeHighlightedIndex,
+    setHighlightedIndex,
     popupOpen,
     searchValue,
+    multiple,
   ]);
 
-  const handleListboxRef = (node: HTMLUListElement) => {
+  const handleListboxRef = useEventCallback((node: HTMLUListElement) => {
     listboxRef.current = node;
 
     if (!node) {
@@ -302,13 +337,17 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
     }
 
     syncHighlightedIndex();
-  };
+  });
 
   React.useEffect(() => {
     syncHighlightedIndex();
   }, [syncHighlightedIndex]);
 
   const handleOpen = (event: React.SyntheticEvent) => {
+    if (popupOpen) {
+      return;
+    }
+
     setPopupOpen(true);
 
     if (onOpen) {
@@ -333,12 +372,29 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
     }
   };
 
-  const selectNewValue = (event: React.SyntheticEvent, option: any) => {
-    setValue(option);
-    handleClose(event);
+  const selectNewValue = (event: React.SyntheticEvent, option: T) => {
+    let newValue: T | T[] = option;
+
+    if (multiple) {
+      newValue = Array.isArray(value) ? value.slice() : [];
+
+      const itemIndex = newValue.findIndex((v) => option === v);
+
+      if (itemIndex === -1) {
+        newValue.push(option);
+      } else {
+        newValue.splice(itemIndex, 1);
+      }
+    }
+
+    setValue(newValue as AutocompleteValue<T, Multiple>);
+
+    if (!disableCloseOnSelect) {
+      handleClose(event);
+    }
 
     if (onChange) {
-      onChange(event, option);
+      onChange(event, newValue as AutocompleteValue<T, Multiple>);
     }
   };
 
@@ -393,11 +449,16 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
     selectNewValue(event, option);
   };
 
+  const handleTagDelete = (option: T) => (event: React.SyntheticEvent) => {
+    selectNewValue(event, option);
+  };
+
   return {
     groupedOptions: filteredOptions,
     getRootProps: () => ({
-      onClick: handleClick,
       ref: anchorEl,
+      'aria-expanded': popupOpen,
+      onClick: handleClick,
     }),
     getListboxProps: () => ({
       ref: handleListboxRef,
@@ -410,11 +471,14 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
       value: searchValue,
       autoComplete: 'off',
       autoCapitalize: 'none',
+      autoCorrect: 'false',
       spellCheck: 'false',
       onChange: handleInputChange,
     }),
     getOptionProps: (option, index) => {
-      const selected = option === value;
+      const selected = (Array.isArray(value) ? value : [value]).some(
+        (v) => v != null && option === v,
+      );
 
       return {
         key: getOptionLabel(option),
@@ -432,8 +496,14 @@ export const useAutocomplete: UseAutocompleteType = (props) => {
       onClose: handleClose,
       onKeyDown: handleKeyDown,
     }),
+    getTagProps: (option, index) => ({
+      key: index,
+      'data-tag-index': index,
+      tabIndex: -1,
+      onDelete: handleTagDelete(option),
+    }),
     popupOpen,
     value,
     id,
   };
-};
+}
