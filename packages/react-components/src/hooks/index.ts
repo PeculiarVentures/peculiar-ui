@@ -5,4 +5,5 @@ export { useControllableState, UseControllableStateProps } from './use_controlla
 export { useId } from './use_id';
 export { useImage } from './use_image';
 export { useWindowEventListener } from './use_window_event_listener';
-export { useAutocomplete, UseAutocompletePropsType, UseAutocompleteType } from './use_autocomplete';
+export { useAutocomplete, UseAutocompletePropsType } from './use_autocomplete';
+export { useEventCallback } from './use_event_callback';
