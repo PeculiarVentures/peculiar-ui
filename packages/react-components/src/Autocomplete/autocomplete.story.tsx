@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SelectPicker } from './index';
+import { Autocomplete } from './index';
 
 const top100Films = [
   { title: 'The Shawshank Redemption', year: 1994 },
@@ -105,21 +105,29 @@ const top100Films = [
 ];
 
 const Template = (args: any) => (
-  <SelectPicker
+  <Autocomplete
     {...args}
   />
 );
 
-export const Playground = Template.bind({});
-Playground.args = {
+export const Default = Template.bind({});
+Default.args = {
   options: top100Films,
-  getOptionLabel: (option: any) => option.title,
   placeholder: 'Select a movie',
+  getOptionLabel: (option: any) => option.title,
+};
+
+export const Multiple = Template.bind({});
+Multiple.args = {
+  options: top100Films,
+  placeholder: 'Select a movie',
+  getOptionLabel: (option: any) => option.title,
+  multiple: true,
 };
 
 export default {
-  title: 'Components/SelectPicker',
-  component: SelectPicker,
+  title: 'Components/Autocomplete',
+  component: Autocomplete,
   argTypes: {
     options: { control: false },
     getOptionLabel: { control: false },

@@ -115,6 +115,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined>(props: 
     tabIndex: -1;
     onDelete: (event: React.SyntheticEvent) => void;
   };
+  getOptionLabel?: (option: T) => string;
 } {
   const {
     id: idProp,
@@ -502,6 +503,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined>(props: 
       tabIndex: -1,
       onDelete: handleTagDelete(option),
     }),
+    getOptionLabel,
     popupOpen,
     value,
     id,
