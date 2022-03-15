@@ -23,7 +23,7 @@ type BaseProps = {
   /**
    * The color of the component.
    */
-  color?: ('secondary' | 'wrong');
+  color?: ('secondary' | 'wrong' | 'default');
   /**
    * The className of the component.
    */
@@ -44,6 +44,7 @@ type ChipProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 const stylesBase = () => css({
   label: 'Chip',
   display: 'inline-flex',
+  maxWidth: '100%',
   fontFamily: 'inherit',
   outline: '0',
   boxSizing: 'border-box',
@@ -74,7 +75,7 @@ const stylesClickable = () => css({
   WebkitTapHighlightColor: 'transparent',
 });
 
-const stylesVariantContained = (props: ChipProps) => css({
+const stylesVariantContainedColorNotDefault = (props: ChipProps) => css({
   label: 'contained',
   backgroundColor: `var(--pv-color-${props.color})`,
   color: 'var(--pv-color-white)',
@@ -96,7 +97,28 @@ const stylesVariantContained = (props: ChipProps) => css({
   }),
 });
 
-const stylesVariantOutlined = (props: ChipProps) => css({
+const stylesVariantContainedColorDefault = (props: ChipProps) => css({
+  label: 'contained-default',
+  backgroundColor: 'var(--pv-color-gray-4)',
+  color: 'var(--pv-color-black)',
+  ...(typeof props.onClick === 'function' && !props.disabled && {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-gray-7)',
+    },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-gray-6)',
+    },
+    '&:active': {
+      backgroundColor: 'var(--pv-color-gray-5)',
+    },
+  }),
+  ...(props.disabled && {
+    color: 'var(--pv-color-gray-8)',
+    backgroundColor: 'var(--pv-color-gray-4)',
+  }),
+});
+
+const stylesVariantOutlinedColorNotDefault = (props: ChipProps) => css({
   label: 'outlined',
   backgroundColor: 'transparent',
   color: `var(--pv-color-${props.color})`,
@@ -118,6 +140,28 @@ const stylesVariantOutlined = (props: ChipProps) => css({
   }),
 });
 
+const stylesVariantOutlinedColorDefault = (props: ChipProps) => css({
+  label: 'outlined-default',
+  backgroundColor: 'transparent',
+  color: 'var(--pv-color-gray-10)',
+  borderColor: 'var(--pv-color-gray-6)',
+  ...(typeof props.onClick === 'function' && !props.disabled && {
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-gray-3)',
+    },
+    '&:focus': {
+      backgroundColor: 'var(--pv-color-gray-4)',
+    },
+    '&:active': {
+      backgroundColor: 'var(--pv-color-gray-5)',
+    },
+  }),
+  ...(props.disabled && {
+    color: 'var(--pv-color-gray-8)',
+    borderColor: 'var(--pv-color-gray-4)',
+  }),
+});
+
 const stylesDeleteAction = () => css({
   label: 'delete',
   width: '24px',
@@ -127,6 +171,7 @@ const stylesDeleteAction = () => css({
   margin: '0px calc(var(--pv-size-base) * -1) 0 var(--pv-size-base)',
   transition: 'opacity 200ms',
   opacity: '0.6',
+  flexShrink: 0,
   '&:hover': {
     opacity: '1',
   },
@@ -191,8 +236,14 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => 
         [stylesBase()]: true,
         [stylesDisabled()]: disabled,
         [stylesClickable()]: clickable && !disabled,
-        [stylesVariantContained(props)]: variant !== 'outlined',
-        [stylesVariantOutlined(props)]: variant === 'outlined',
+        ...(color !== 'default' && {
+          [stylesVariantContainedColorNotDefault(props)]: variant === 'contained',
+          [stylesVariantOutlinedColorNotDefault(props)]: variant === 'outlined',
+        }),
+        ...(color === 'default' && {
+          [stylesVariantContainedColorDefault(props)]: variant === 'contained',
+          [stylesVariantOutlinedColorDefault(props)]: variant === 'outlined',
+        }),
         [className]: !!className,
       })}
     >
@@ -200,6 +251,7 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => 
         variant="b3"
         component="span"
         color="inherit"
+        noWrap
       >
         {children}
       </Typography>
