@@ -30,7 +30,7 @@ export type AutocompleteGroupedOption<T> = {
   options: T[];
 };
 
-export type UseAutocompleteProps<T, Multiple extends boolean | undefined> = {
+export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undefined> = {
   /**
    * This prop is used to help implement the accessibility logic.
    * If you don't provide an id it will fall back to a randomly generated one.
@@ -92,7 +92,7 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined> = {
   ) => void;
 };
 
-export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined> = {
+export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined = undefined> = {
   groupedOptions: T[] | AutocompleteGroupedOption<T>[];
   value: AutocompleteValue<T, Multiple>;
   popupOpen: boolean;
@@ -127,7 +127,7 @@ const defaultFilterOptions: FilterOptionsType = (options, value, getOptionLabel)
   });
 };
 
-export function useAutocomplete<T, Multiple extends boolean | undefined>(
+export function useAutocomplete<T, Multiple extends boolean | undefined = undefined>(
   props: UseAutocompleteProps<T, Multiple>,
 ): UseAutocompleteReturnType<T, Multiple> {
   const {

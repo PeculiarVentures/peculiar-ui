@@ -22,7 +22,7 @@ export type AutocompleteRenderGroupParams = {
   children?: React.ReactNode;
 };
 
-export type AutocompleteProps<T, Multiple extends boolean | undefined> =
+export type AutocompleteProps<T, Multiple extends boolean | undefined = undefined> =
   UseAutocompleteProps<T, Multiple> & {
     /**
      * The short hint displayed in the `input` before the user enters a value.
@@ -244,7 +244,7 @@ const stylesGroupName = () => css({
  *
  */
 
-export function Autocomplete<T, Multiple extends boolean | undefined>(
+export function Autocomplete<T, Multiple extends boolean | undefined = undefined>(
   props: AutocompleteProps<T, Multiple>,
 ): JSX.Element {
   const {
