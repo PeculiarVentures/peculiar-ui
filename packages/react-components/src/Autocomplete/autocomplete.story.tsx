@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { SelectPicker } from './index';
+import { Autocomplete } from './index';
+import { Button } from '../Button';
 
 const top100Films = [
   { title: 'The Shawshank Redemption', year: 1994 },
@@ -105,27 +106,56 @@ const top100Films = [
 ];
 
 const Template = (args: any) => (
-  <SelectPicker
+  <Autocomplete
     {...args}
   />
 );
 
-export const Playground = Template.bind({});
-Playground.args = {
+export const Default = Template.bind({});
+Default.args = {
   options: top100Films,
-  getOptionLabel: (option: any) => option.title,
   placeholder: 'Select a movie',
-  allowCreateNew: true,
+  getOptionLabel: (option: any) => option.title,
+};
+
+export const Multiple = Template.bind({});
+Multiple.args = {
+  options: top100Films,
+  placeholder: 'Select a movie',
+  getOptionLabel: (option: any) => option.title,
+  multiple: true,
+};
+
+export const Grouped = Template.bind({});
+Grouped.args = {
+  options: top100Films.sort((a, b) => a.year - b.year),
+  placeholder: 'Select a movie',
+  getOptionLabel: (option: any) => option.title,
+  groupBy: (option: any) => option.year,
+};
+
+export const RootRender = Template.bind({});
+RootRender.args = {
+  options: top100Films,
+  placeholder: 'Select a movie',
+  getOptionLabel: (option: any) => option.title,
+  renderRoot: (props: any) => (
+    <Button
+      variant="text"
+      color="secondary"
+      {...props}
+    >
+      + Add film
+    </Button>
+  ),
 };
 
 export default {
-  title: 'Components/SelectPicker',
-  component: SelectPicker,
+  title: 'Components/Autocomplete',
+  component: Autocomplete,
   argTypes: {
     options: { control: false },
     getOptionLabel: { control: false },
-    loadingText: { control: false },
-    noOptionsText: { control: false },
     defaultValue: { control: false },
     value: { control: false },
     filterOptions: { control: false },

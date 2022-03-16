@@ -32,7 +32,7 @@ type BaseProps = {
   /**
    * Callback fired when the component requests to be closed.
    */
-  onClose?: () => void;
+  onClose?: (event: React.SyntheticEvent) => void;
   /**
    * Always keep the children in the DOM.
    */
@@ -92,13 +92,13 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
     return null;
   }
 
-  const handleBackdropClick = () => {
+  const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (disableBackdropClick) {
       return;
     }
 
     if (onClose) {
-      onClose();
+      onClose(event);
     }
   };
 
@@ -114,7 +114,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
     event.stopPropagation();
 
     if (onClose) {
-      onClose();
+      onClose(event);
     }
   };
 
