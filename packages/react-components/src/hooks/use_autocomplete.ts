@@ -23,6 +23,13 @@ export type AutocompleteValue<T, Multiple> = Multiple extends
   ? T
   : T[];
 
+export type AutocompleteGroupedOption<T> = {
+  key: number;
+  index: number;
+  group: string;
+  options: T[];
+};
+
 export type UseAutocompleteProps<T, Multiple extends boolean | undefined> = {
   /**
    * This prop is used to help implement the accessibility logic.
@@ -49,6 +56,10 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined> = {
    * If `true`, `value` must be an array and the menu will support multiple selections.
    */
   multiple?: Multiple;
+  /**
+   * If provided, the options will be grouped under the returned string.
+   */
+  groupBy?: (option: T) => string;
   /**
    * Used to determine the string value for a given option. It's used to fill the input.
    */
@@ -100,7 +111,7 @@ const defaultFilterOptions: FilterOptionsType = (options, value, getOptionLabel)
 
 // eslint-disable-next-line max-len
 export function useAutocomplete<T, Multiple extends boolean | undefined>(props: UseAutocompleteProps<T, Multiple>): {
-  groupedOptions: T[];
+  groupedOptions: T[] | AutocompleteGroupedOption<T>[];
   value: AutocompleteValue<T, Multiple>;
   popupOpen: boolean;
   id: string;
@@ -124,6 +135,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined>(props: 
     value: valueProp,
     disableCloseOnSelect = false,
     multiple = false,
+    groupBy,
     // @ts-ignore
     getOptionLabel = (option) => option.label ?? option,
     filterOptions = defaultFilterOptions,
@@ -218,9 +230,9 @@ export function useAutocomplete<T, Multiple extends boolean | undefined>(props: 
       if (elementBottom > scrollBottom) {
         listboxNode.scrollTop = elementBottom - listboxNode.clientHeight;
       } else if (
-        element.offsetTop - element.offsetHeight * 0 < listboxNode.scrollTop
+        element.offsetTop - element.offsetHeight * (groupBy ? 1.3 : 0) < listboxNode.scrollTop
       ) {
-        listboxNode.scrollTop = element.offsetTop - element.offsetHeight * 0;
+        listboxNode.scrollTop = element.offsetTop - element.offsetHeight * (groupBy ? 1.3 : 0);
       }
     }
   });
@@ -454,8 +466,29 @@ export function useAutocomplete<T, Multiple extends boolean | undefined>(props: 
     selectNewValue(event, option);
   };
 
+  let groupedOptions = filteredOptions;
+
+  if (groupBy) {
+    groupedOptions = filteredOptions.reduce((acc, option, index) => {
+      const group = groupBy(option);
+
+      if (acc.length > 0 && acc[acc.length - 1].group === group) {
+        acc[acc.length - 1].options.push(option);
+      } else {
+        acc.push({
+          key: index,
+          index,
+          group,
+          options: [option],
+        });
+      }
+
+      return acc;
+    }, []);
+  }
+
   return {
-    groupedOptions: filteredOptions,
+    groupedOptions,
     getRootProps: () => ({
       ref: anchorEl,
       'aria-expanded': popupOpen,

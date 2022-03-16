@@ -125,6 +125,14 @@ Multiple.args = {
   multiple: true,
 };
 
+export const Grouped = Template.bind({});
+Grouped.args = {
+  options: top100Films.sort((a, b) => a.year - b.year),
+  placeholder: 'Select a movie',
+  getOptionLabel: (option: any) => option.title,
+  groupBy: (option: any) => option.year,
+};
+
 export default {
   title: 'Components/Autocomplete',
   component: Autocomplete,

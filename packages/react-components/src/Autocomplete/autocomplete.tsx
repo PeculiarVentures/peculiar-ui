@@ -11,6 +11,13 @@ import { css, cx } from '../styles';
 /**
  * Types.
  */
+
+export type AutocompleteRenderGroupParams = {
+  key: string | number;
+  group: string;
+  children?: React.ReactNode;
+};
+
 export type AutocompleteProps<T, Multiple extends boolean | undefined> =
   UseAutocompleteProps<T, Multiple> & {
     /**
@@ -130,9 +137,13 @@ const stylesListBox = () => css({
   padding: '10px 0',
 });
 
-const stylesOption = () => css({
+const stylesOption = (inGroup: boolean) => css({
   label: 'Autocomplete-option',
-  padding: '0px var(--pv-size-base-2)',
+  ...(inGroup ? {
+    padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)',
+  } : {
+    padding: '0px var(--pv-size-base-2)',
+  }),
   fontFamily: 'inherit',
   outline: 'none',
   width: '100%',
@@ -210,6 +221,17 @@ const stylesNativeInput = () => css({
   width: '100%',
   boxSizing: 'border-box',
 });
+
+const stylesGroupList = () => css({
+  label: 'Autocomplete-group-list',
+  padding: 0,
+  listStyleType: 'none',
+});
+
+const stylesGroupName = () => css({
+  label: 'Autocomplete-group-name',
+  padding: 'var(--pv-size-base-2)',
+});
 /**
  *
  */
@@ -228,6 +250,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined>(props: Aut
     multiple,
     renderOption: renderOptionProp,
     getLimitTagsText = (more) => `${more} more`,
+    groupBy,
   } = props;
   const {
     id,
@@ -250,7 +273,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined>(props: Aut
   const defaultRenderOption: AutocompleteProps<T, Multiple>['renderOption'] = (propsOption, option) => (
     <li
       {...propsOption}
-      className={stylesOption()}
+      className={stylesOption(!!groupBy)}
     >
       <Typography
         variant="b3"
@@ -262,7 +285,20 @@ export function Autocomplete<T, Multiple extends boolean | undefined>(props: Aut
     </li>
   );
 
-  const renderOption = renderOptionProp || defaultRenderOption;
+  const renderGroup = (params: AutocompleteRenderGroupParams) => (
+    <li key={params.key}>
+      <Typography
+        variant="c1"
+        color="gray-10"
+        className={stylesGroupName()}
+      >
+        {params.group}
+      </Typography>
+      <ul className={stylesGroupList()}>
+        {params.children}
+      </ul>
+    </li>
+  );
 
   const renderValue = () => {
     if (!value || (Array.isArray(value) && value.length === 0)) {
@@ -303,6 +339,14 @@ export function Autocomplete<T, Multiple extends boolean | undefined>(props: Aut
     }
 
     return getOptionLabel(value as T);
+  };
+
+  const renderOption = renderOptionProp || defaultRenderOption;
+
+  const renderListOption = (option: T, index: number) => {
+    const optionProps = getOptionProps(option, index);
+
+    return renderOption(optionProps, option);
   };
 
   const renderedValue = renderValue();
@@ -397,9 +441,22 @@ export function Autocomplete<T, Multiple extends boolean | undefined>(props: Aut
             className={stylesListBox()}
             {...getListboxProps()}
           >
-            {groupedOptions.map((option, index) => (
-              renderOption(getOptionProps(option, index), option)
-            ))}
+            {groupedOptions
+              // @ts-ignore
+              .map((option, index) => {
+                if (groupBy && 'options' in option) {
+                  return renderGroup({
+                    key: option.key,
+                    group: option.group,
+                    // @ts-ignore
+                    children: option.options.map((option2, index2) => (
+                      renderListOption(option2, option.index + index2)
+                    )),
+                  });
+                }
+
+                return renderListOption(option as T, index);
+              })}
           </ul>
         )}
       </Popover>
