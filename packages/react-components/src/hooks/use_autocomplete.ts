@@ -92,6 +92,24 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined> = {
   ) => void;
 };
 
+export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined> = {
+  groupedOptions: T[] | AutocompleteGroupedOption<T>[];
+  value: AutocompleteValue<T, Multiple>;
+  popupOpen: boolean;
+  id: string;
+  getOptionProps: (option: T, index: number) => React.HTMLAttributes<HTMLLIElement>;
+  getListboxProps: () => React.HTMLAttributes<HTMLUListElement>;
+  getRootProps: () => React.HTMLAttributes<HTMLDivElement>;
+  getInputProps: () => React.HTMLAttributes<HTMLInputElement>;
+  getPopoverProps: () => Pick<Required<PopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>;
+  getTagProps: (option: T, index: number) => {
+    key: number;
+    'data-tag-index': number;
+    tabIndex: -1;
+    onDelete: (event: React.SyntheticEvent) => void;
+  };
+  getOptionLabel?: (option: T) => string;
+};
 /**
  *
  */
@@ -109,25 +127,9 @@ const defaultFilterOptions: FilterOptionsType = (options, value, getOptionLabel)
   });
 };
 
-// eslint-disable-next-line max-len
-export function useAutocomplete<T, Multiple extends boolean | undefined>(props: UseAutocompleteProps<T, Multiple>): {
-  groupedOptions: T[] | AutocompleteGroupedOption<T>[];
-  value: AutocompleteValue<T, Multiple>;
-  popupOpen: boolean;
-  id: string;
-  getOptionProps: (option: T, index: number) => React.HTMLAttributes<HTMLLIElement>;
-  getListboxProps: () => React.HTMLAttributes<HTMLUListElement>;
-  getRootProps: () => React.HTMLAttributes<HTMLDivElement>;
-  getInputProps: () => React.HTMLAttributes<HTMLInputElement>;
-  getPopoverProps: () => Pick<Required<PopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>;
-  getTagProps: (option: T, index: number) => {
-    key: number;
-    'data-tag-index': number;
-    tabIndex: -1;
-    onDelete: (event: React.SyntheticEvent) => void;
-  };
-  getOptionLabel?: (option: T) => string;
-} {
+export function useAutocomplete<T, Multiple extends boolean | undefined>(
+  props: UseAutocompleteProps<T, Multiple>,
+): UseAutocompleteReturnType<T, Multiple> {
   const {
     id: idProp,
     options,
@@ -488,10 +490,10 @@ export function useAutocomplete<T, Multiple extends boolean | undefined>(props: 
   }
 
   return {
-    groupedOptions,
     getRootProps: () => ({
       ref: anchorEl,
       'aria-expanded': popupOpen,
+      'aria-haspopup': 'listbox',
       onClick: handleClick,
     }),
     getListboxProps: () => ({
@@ -537,6 +539,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined>(props: 
       onDelete: handleTagDelete(option),
     }),
     getOptionLabel,
+    groupedOptions,
     popupOpen,
     value,
     id,

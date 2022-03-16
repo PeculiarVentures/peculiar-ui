@@ -1,5 +1,9 @@
 import React from 'react';
-import { UseAutocompleteProps, useAutocomplete } from '../hooks';
+import {
+  useAutocomplete,
+  UseAutocompleteProps,
+  AutocompleteValue,
+} from '../hooks';
 import { Popover } from '../Popover';
 import { TextField } from '../TextField';
 import { Typography } from '../Typography';
@@ -54,6 +58,10 @@ export type AutocompleteProps<T, Multiple extends boolean | undefined> =
      * If `true`, the `input` element is required.
      */
     required?: boolean;
+    /**
+     * Render the root element.
+     */
+    renderRoot?: (props: object, value: AutocompleteValue<T, Multiple>) => React.ReactNode;
     /**
      * Render the option, use `getOptionLabel` by default.
      */
@@ -183,7 +191,7 @@ const stylesListBoxState = () => css({
 
 const stylesPopover = () => css({
   label: 'Autocomplete-popover',
-  minWidth: 300,
+  minWidth: 240,
 });
 
 const stylesTagsList = () => css({
@@ -236,8 +244,9 @@ const stylesGroupName = () => css({
  *
  */
 
-// eslint-disable-next-line max-len
-export function Autocomplete<T, Multiple extends boolean | undefined>(props: AutocompleteProps<T, Multiple>): JSX.Element {
+export function Autocomplete<T, Multiple extends boolean | undefined>(
+  props: AutocompleteProps<T, Multiple>,
+): JSX.Element {
   const {
     placeholder,
     disableSearch,
@@ -248,6 +257,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined>(props: Aut
     name,
     required,
     multiple,
+    renderRoot: renderRootProp,
     renderOption: renderOptionProp,
     getLimitTagsText = (more) => `${more} more`,
     groupBy,
@@ -255,7 +265,6 @@ export function Autocomplete<T, Multiple extends boolean | undefined>(props: Aut
   const {
     id,
     value,
-    popupOpen,
     groupedOptions,
     getRootProps,
     getInputProps,
@@ -341,7 +350,47 @@ export function Autocomplete<T, Multiple extends boolean | undefined>(props: Aut
     return getOptionLabel(value as T);
   };
 
+  const renderedValue = renderValue();
+  const isValueEmpty = renderedValue === null;
+
+  const defaultRenderRoot: AutocompleteProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => (
+    <div className={stylesContainer()}>
+      <Typography
+        {...propsRoot}
+        noWrap
+        component="button"
+        variant="c1"
+        color={isValueEmpty ? 'gray-9' : 'black'}
+        className={cx({
+          [stylesRoot()]: true,
+          [stylesRootMultiple()]: multiple,
+        })}
+        // @ts-ignore
+        type="button"
+      >
+        {isValueEmpty ? placeholder : renderedValue}
+      </Typography>
+      <ArrowDropDownIcon
+        className={stylesInputArrowIcon()}
+        aria-hidden
+      />
+      <input
+        type="text"
+        value={JSON.stringify(valueRoot) || ''}
+        tabIndex={-1}
+        aria-hidden="true"
+        className={stylesNativeInput()}
+        autoComplete="off"
+        id={id}
+        name={name}
+        required={required}
+        onChange={() => {}}
+      />
+    </div>
+  );
+
   const renderOption = renderOptionProp || defaultRenderOption;
+  const renderRoot = renderRootProp || defaultRenderRoot;
 
   const renderListOption = (option: T, index: number) => {
     const optionProps = getOptionProps(option, index);
@@ -349,46 +398,9 @@ export function Autocomplete<T, Multiple extends boolean | undefined>(props: Aut
     return renderOption(optionProps, option);
   };
 
-  const renderedValue = renderValue();
-  const isValueEmpty = renderedValue === null;
-
   return (
     <>
-      <div className={stylesContainer()}>
-        <Typography
-          {...getRootProps()}
-          noWrap
-          component="button"
-          variant="c1"
-          aria-haspopup="listbox"
-          aria-expanded={popupOpen}
-          color={isValueEmpty ? 'gray-9' : 'black'}
-          className={cx({
-            [stylesRoot()]: true,
-            [stylesRootMultiple()]: multiple,
-          })}
-          // @ts-ignore
-          type="button"
-        >
-          {isValueEmpty ? placeholder : renderedValue}
-        </Typography>
-        <ArrowDropDownIcon
-          className={stylesInputArrowIcon()}
-          aria-hidden
-        />
-        <input
-          type="text"
-          value={JSON.stringify(value) || ''}
-          tabIndex={-1}
-          aria-hidden="true"
-          className={stylesNativeInput()}
-          autoComplete="off"
-          id={id}
-          name={name}
-          required={required}
-          onChange={() => {}}
-        />
-      </div>
+      {renderRoot(getRootProps(), value)}
 
       <Popover
         placement="bottom-start"

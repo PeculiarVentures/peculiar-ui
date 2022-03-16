@@ -5,5 +5,11 @@ export { useControllableState, UseControllableStateProps } from './use_controlla
 export { useId } from './use_id';
 export { useImage } from './use_image';
 export { useWindowEventListener } from './use_window_event_listener';
-export { useAutocomplete, UseAutocompleteProps } from './use_autocomplete';
+export {
+  useAutocomplete,
+  UseAutocompleteProps,
+  UseAutocompleteReturnType,
+  AutocompleteValue,
+  AutocompleteGroupedOption,
+} from './use_autocomplete';
 export { useEventCallback } from './use_event_callback';
