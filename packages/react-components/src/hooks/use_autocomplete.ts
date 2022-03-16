@@ -95,6 +95,7 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
 export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined = undefined> = {
   groupedOptions: T[] | AutocompleteGroupedOption<T>[];
   value: AutocompleteValue<T, Multiple>;
+  searchValue: string;
   popupOpen: boolean;
   id: string;
   getOptionProps: (option: T, index: number) => React.HTMLAttributes<HTMLLIElement>;
@@ -542,6 +543,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     groupedOptions,
     popupOpen,
     value,
+    searchValue,
     id,
   };
 }

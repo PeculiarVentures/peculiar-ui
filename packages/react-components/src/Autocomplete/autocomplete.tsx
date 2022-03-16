@@ -9,7 +9,8 @@ import { TextField } from '../TextField';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { Chip } from '../Chip';
-import { ArrowDropDownIcon } from '../icons';
+import { Button } from '../Button';
+import { ArrowDropDownIcon, PlusIcon } from '../icons';
 import { css, cx } from '../styles';
 
 /**
@@ -59,6 +60,14 @@ export type AutocompleteProps<T, Multiple extends boolean | undefined = undefine
      */
     required?: boolean;
     /**
+     * Text to display when in the create button element.
+     */
+    createOptionText?: string;
+    /**
+     * If `true`, the create button element will be shown.
+     */
+    allowCreateOption?: boolean;
+    /**
      * Render the root element.
      */
     renderRoot?: (props: object, value: AutocompleteValue<T, Multiple>) => React.ReactNode;
@@ -70,6 +79,10 @@ export type AutocompleteProps<T, Multiple extends boolean | undefined = undefine
      * The label to display when the tags are truncated (`limitTags`).
      */
     getLimitTagsText?: (more: number) => string;
+    /**
+     * Callback fired when the create button clicked.
+     */
+    onCreate?: (event: React.SyntheticEvent, value: string) => void;
   };
 /**
  *
@@ -240,6 +253,14 @@ const stylesGroupName = () => css({
   label: 'Autocomplete-group-name',
   padding: 'var(--pv-size-base-2)',
 });
+
+const stylesButtonCreateNew = () => css({
+  label: 'Autocomplete-button-create',
+  width: '100%',
+  borderRadius: 0,
+  justifyContent: 'left',
+  padding: '0px var(--pv-size-base-2)',
+});
 /**
  *
  */
@@ -257,14 +278,18 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
     name,
     required,
     multiple,
+    createOptionText,
+    allowCreateOption,
     renderRoot: renderRootProp,
     renderOption: renderOptionProp,
     getLimitTagsText = (more) => `${more} more`,
     groupBy,
+    onCreate,
   } = props;
   const {
     id,
     value,
+    searchValue,
     groupedOptions,
     getRootProps,
     getInputProps,
@@ -278,6 +303,16 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
     onChange,
     ...otherInputProps
   } = getInputProps();
+
+  const popoverProps = getPopoverProps();
+
+  const handleCreate = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (onCreate) {
+      onCreate(event, searchValue);
+    }
+
+    popoverProps.onClose(event);
+  };
 
   const defaultRenderOption: AutocompleteProps<T, Multiple>['renderOption'] = (propsOption, option) => (
     <li
@@ -405,7 +440,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
       <Popover
         placement="bottom-start"
         allowUseSameWidth
-        {...getPopoverProps()}
+        {...popoverProps}
         className={stylesPopover()}
       >
         {!disableSearch && (
@@ -471,6 +506,24 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
               })}
           </ul>
         )}
+        {allowCreateOption && !loading && (
+          <Box
+            borderColor="gray-3"
+            borderPosition="top"
+            borderStyle="solid"
+            borderWidth={1}
+          >
+            <Button
+              color="secondary"
+              className={stylesButtonCreateNew()}
+              textVariant="b3"
+              onClick={handleCreate}
+              startIcon={<PlusIcon />}
+            >
+              {createOptionText}
+            </Button>
+          </Box>
+        )}
       </Popover>
     </>
   );
@@ -484,4 +537,6 @@ Autocomplete.defaultProps = {
   loadingText: 'Loading...',
   limitTags: 2,
   required: false,
+  allowCreateOption: false,
+  createOptionText: 'Create new',
 };
