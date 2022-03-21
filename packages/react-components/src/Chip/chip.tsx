@@ -3,6 +3,9 @@ import { css, cx } from '../styles';
 import { Typography } from '../Typography';
 import { CloseSmallIcon } from '../icons';
 
+/**
+ * Types.
+ */
 type BaseProps = {
   /**
    * The content of the component.
@@ -29,6 +32,14 @@ type BaseProps = {
    */
   className?: string;
   /**
+   * Element placed before the children.
+   */
+  startContent?: React.ReactElement;
+  /**
+   * The component used for the root node.
+   */
+  component?: React.ElementType;
+  /**
    * Callback function fired when the delete icon is clicked. If set, the delete icon will be shown.
    */
   onDelete?: React.MouseEventHandler<HTMLElement>;
@@ -40,7 +51,13 @@ type BaseProps = {
 };
 
 type ChipProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+/**
+ *
+ */
 
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'Chip',
   display: 'inline-flex',
@@ -177,6 +194,15 @@ const stylesDeleteAction = () => css({
   },
 });
 
+const stylesStartContent = () => css({
+  label: 'Chip-startIcon',
+  marginRight: 'var(--pv-size-base)',
+  display: 'inherit',
+});
+/**
+ *
+ */
+
 export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
   const {
     children,
@@ -185,6 +211,8 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => 
     variant,
     color,
     className,
+    startContent: startContentProp,
+    component: componentProp,
     onClick,
     onDelete,
     ...other
@@ -227,8 +255,18 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => 
     );
   };
 
+  const startContent = startContentProp && (
+    <span
+      className={cx(stylesStartContent())}
+    >
+      {startContentProp}
+    </span>
+  );
+
+  const Component = componentProp || 'button';
+
   return (
-    <div
+    <Component
       {...other}
       {...baseProps}
       ref={ref}
@@ -247,6 +285,7 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => 
         [className]: !!className,
       })}
     >
+      {startContent}
       <Typography
         variant="b3"
         component="span"
@@ -256,7 +295,7 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => 
         {children}
       </Typography>
       {renderDeleteAction()}
-    </div>
+    </Component>
   );
 });
 
@@ -266,4 +305,5 @@ Chip.defaultProps = {
   disabled: false,
   variant: 'contained',
   color: 'secondary',
+  component: 'div',
 };

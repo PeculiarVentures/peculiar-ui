@@ -34,5 +34,7 @@ export default {
     deleteIcon: { control: false },
     onDelete: { control: false },
     onClick: { control: false },
+    startContent: { control: false },
+    component: { control: false },
   },
 };
