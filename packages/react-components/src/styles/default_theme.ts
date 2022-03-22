@@ -4,6 +4,7 @@ import {
   primary,
   secondary,
   wrong,
+  attention,
   additional,
 } from './colors';
 import { base } from './sizes';
@@ -26,13 +27,17 @@ export const defaultTheme: ThemeType = {
     ...wrong,
     'wrong-contrast': grayscale.white,
     /**
-     * additional
+     * attention
      */
-    ...additional,
+    ...attention,
     /**
      * grayscale
      */
     ...grayscale,
+    /**
+     * additional
+     */
+    ...additional,
   },
   shadow: {
     'light-low':

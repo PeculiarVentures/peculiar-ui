@@ -9,8 +9,9 @@ import {
   generatePrimaryColors,
   generateSecondaryColors,
   generateWrongColors,
-  additional,
+  generateAttentionColors,
   grayscale,
+  additional,
 } from '../src/styles/colors';
 
 type PaletteItemProps = {
@@ -153,10 +154,37 @@ export const ColorPaletteWrong: React.FC = () => {
 };
 
 /**
- * Palette additional section.
+ * Palette attention section.
  */
-export const ColorPaletteAdditional: React.FC = () => {
-  const palette = additional;
+export const ColorPaletteAttention: React.FC = () => {
+  const [color, setColor] = React.useState<string>();
+
+  const palette = generateAttentionColors(color);
+  const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setColor(event.target.value);
+  };
+
+  return (
+    <>
+      {paletteKeys.map((keyName) => (
+        <PaletteItem
+          key={keyName}
+          color={palette[keyName]}
+          name={`--${themeCSSVariablePrefix}-${keyName}`}
+          onChange={keyName === 'attention' ? handleChange : undefined}
+        />
+      ))}
+    </>
+  );
+};
+
+/**
+ * Palette grayscale section.
+ */
+export const ColorPaletteGrayscale: React.FC = () => {
+  const palette = grayscale;
   const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   return (
@@ -173,10 +201,10 @@ export const ColorPaletteAdditional: React.FC = () => {
 };
 
 /**
- * Palette grayscale section.
+ * Palette additional section.
  */
-export const ColorPaletteGrayscale: React.FC = () => {
-  const palette = grayscale;
+export const ColorPaletteAdditional: React.FC = () => {
+  const palette = additional;
   const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   return (

@@ -7,6 +7,7 @@ import {
   generateWrongColors,
   generateSecondaryColors,
   generatePrimaryColors,
+  generateAttentionColors,
 } from './colors';
 import {
   generateBaseSize,
@@ -19,6 +20,7 @@ export const createTheme = (options?: ThemeOptionsType) => {
   const primary = generatePrimaryColors(options?.color?.primary);
   const secondary = generateSecondaryColors(options?.color?.secondary);
   const wrong = generateWrongColors(options?.color?.wrong);
+  const attention = generateAttentionColors(options?.color?.attention);
   const size = generateBaseSize(options?.size);
 
   function getContrastText(background: string) {
@@ -35,6 +37,7 @@ export const createTheme = (options?: ThemeOptionsType) => {
       ...primary,
       ...secondary,
       ...wrong,
+      ...attention,
       'primary-contrast': getContrastText(primary.primary),
       'secondary-contrast': getContrastText(secondary.secondary),
       'wrong-contrast': getContrastText(wrong.wrong),
