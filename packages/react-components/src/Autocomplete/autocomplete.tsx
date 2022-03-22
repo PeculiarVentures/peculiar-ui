@@ -411,7 +411,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
       />
       <input
         type="text"
-        value={JSON.stringify(valueRoot) || ''}
+        value={isValueEmpty ? '' : JSON.stringify(valueRoot)}
         tabIndex={-1}
         aria-hidden="true"
         className={stylesNativeInput()}
