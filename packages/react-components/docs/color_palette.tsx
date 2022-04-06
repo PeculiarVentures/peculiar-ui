@@ -10,6 +10,7 @@ import {
   generateSecondaryColors,
   generateWrongColors,
   generateAttentionColors,
+  generateSuccessColors,
   grayscale,
   additional,
 } from '../src/styles/colors';
@@ -174,6 +175,33 @@ export const ColorPaletteAttention: React.FC = () => {
           color={palette[keyName]}
           name={`--${themeCSSVariablePrefix}-${keyName}`}
           onChange={keyName === 'attention' ? handleChange : undefined}
+        />
+      ))}
+    </>
+  );
+};
+
+/**
+ * Palette success section.
+ */
+export const ColorPaletteSuccess: React.FC = () => {
+  const [color, setColor] = React.useState<string>();
+
+  const palette = generateSuccessColors(color);
+  const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setColor(event.target.value);
+  };
+
+  return (
+    <>
+      {paletteKeys.map((keyName) => (
+        <PaletteItem
+          key={keyName}
+          color={palette[keyName]}
+          name={`--${themeCSSVariablePrefix}-${keyName}`}
+          onChange={keyName === 'success' ? handleChange : undefined}
         />
       ))}
     </>

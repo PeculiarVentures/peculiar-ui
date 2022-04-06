@@ -50,6 +50,18 @@ export type ColorType = (
   'attention-shade-3' |
   'attention-shade-4' |
   'attention-shade-5' |
+  // success
+  'success-tint-5' |
+  'success-tint-4' |
+  'success-tint-3' |
+  'success-tint-2' |
+  'success-tint-1' |
+  'success' |
+  'success-shade-1' |
+  'success-shade-2' |
+  'success-shade-3' |
+  'success-shade-4' |
+  'success-shade-5' |
   // grayscale
   'black' |
   'gray-10' |
@@ -64,7 +76,6 @@ export type ColorType = (
   'gray-1' |
   'white' |
   // additional
-  'success' |
   'extra-1' |
   'extra-2'
 );

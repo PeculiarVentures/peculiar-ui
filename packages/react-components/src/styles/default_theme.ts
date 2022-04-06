@@ -6,6 +6,7 @@ import {
   wrong,
   attention,
   additional,
+  success,
 } from './colors';
 import { base } from './sizes';
 
@@ -30,6 +31,10 @@ export const defaultTheme: ThemeType = {
      * attention
      */
     ...attention,
+    /**
+     * success
+     */
+    ...success,
     /**
      * grayscale
      */
