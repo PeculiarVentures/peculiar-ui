@@ -11,11 +11,11 @@ export type AutocompleteHighlightChangeReason = ('auto' | 'mouse' | 'keyboard');
 export type AutocompleteHighlightChangeDirectionType = ('next' | 'previous');
 export type AutocompleteHighlightChangeDiffType = (number | 'reset' | 'start' | 'end');
 
-export type FilterOptionsType = <T>(
+export type FilterOptionsType<T> = (
   options: ReadonlyArray<T>,
-  value: string,
+  inputValue: string,
   getOptionLabel: (option: T) => string,
-) => T[];
+) => ReadonlyArray<T>;
 
 export type AutocompleteValue<T, Multiple> = Multiple extends
 | undefined
@@ -67,7 +67,7 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
   /**
   * A filter function that determines the options that are eligible.
   */
-  filterOptions?: FilterOptionsType;
+  filterOptions?: FilterOptionsType<T>;
   /**
    * Callback fired when the popup requests to be closed.
    */
@@ -93,7 +93,7 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
 };
 
 export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined = undefined> = {
-  groupedOptions: T[] | AutocompleteGroupedOption<T>[];
+  groupedOptions: ReadonlyArray<T> | ReadonlyArray<AutocompleteGroupedOption<T>>;
   value: AutocompleteValue<T, Multiple>;
   searchValue: string;
   popupOpen: boolean;
@@ -115,14 +115,14 @@ export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined = 
  *
  */
 
-const defaultFilterOptions: FilterOptionsType = (options, value, getOptionLabel) => {
+const defaultFilterOptions: FilterOptionsType<any> = (options, inputValue, getOptionLabel) => {
   if (!options || !options.length) {
     return [];
   }
 
   return options.filter((option) => {
     const labelValue = getOptionLabel(option).trim().toLowerCase();
-    const searchValue = value.trim().toLowerCase();
+    const searchValue = inputValue.trim().toLowerCase();
 
     return labelValue.includes(searchValue);
   });
