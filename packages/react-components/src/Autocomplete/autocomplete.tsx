@@ -26,6 +26,10 @@ export type AutocompleteRenderGroupParams = {
 export type AutocompleteProps<T, Multiple extends boolean | undefined = undefined> =
   UseAutocompleteProps<T, Multiple> & {
     /**
+     * The className of the component.
+     */
+    className?: string;
+    /**
      * The short hint displayed in the `input` before the user enters a value.
      */
     placeholder?: string;
@@ -269,6 +273,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
   props: AutocompleteProps<T, Multiple>,
 ): JSX.Element {
   const {
+    className,
     placeholder,
     disableSearch,
     noOptionsText,
@@ -389,7 +394,9 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
   const isValueEmpty = renderedValue === null;
 
   const defaultRenderRoot: AutocompleteProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => (
-    <div className={stylesContainer()}>
+    <div
+      className={stylesContainer()}
+    >
       <Typography
         {...propsRoot}
         noWrap
@@ -399,6 +406,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
         className={cx({
           [stylesRoot()]: true,
           [stylesRootMultiple()]: multiple,
+          [className]: !!className,
         })}
         // @ts-ignore
         type="button"
