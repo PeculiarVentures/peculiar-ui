@@ -117,6 +117,7 @@ const stylesDot = () => css({
   transform: 'translate(calc(2px), -50%)',
   transition: 'transform 200ms',
   boxShadow: 'var(--pv-shadow-light-low)',
+  boxSizing: 'content-box',
 });
 
 export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, ref) => {
