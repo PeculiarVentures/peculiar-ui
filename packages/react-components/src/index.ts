@@ -22,6 +22,7 @@ export * from './Select';
 export * from './Autocomplete';
 export * from './Slide';
 export * from './Slider';
+export * from './Switch';
 export * from './Tabs';
 export * from './TextareaField';
 export * from './TextField';
