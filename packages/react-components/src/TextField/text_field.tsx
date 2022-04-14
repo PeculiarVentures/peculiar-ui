@@ -96,7 +96,7 @@ const stylesInputBase = () => css({
   borderWidth: '1px',
   borderColor: 'var(--pv-color-gray-8)',
   transition: 'background-color 200ms, color 200ms, border-color 200ms',
-  display: 'block',
+  display: 'inline-flex',
   appearance: 'none',
   '&::placeholder': {
     color: 'var(--pv-color-gray-9)',
@@ -124,7 +124,6 @@ const stylesInputBase = () => css({
 }, {
   fontWeight: 'var(--pv-text-c1-weight)',
   fontSize: 'var(--pv-text-c1-size)',
-  lineHeight: 'var(--pv-text-c1-height)',
   letterSpacing: 'var(--pv-text-c1-spacing)',
 } as any);
 
