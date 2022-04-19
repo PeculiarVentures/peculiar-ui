@@ -17,11 +17,7 @@ export type FilterOptionsType<T> = (
   getOptionLabel: (option: T) => string,
 ) => ReadonlyArray<T>;
 
-export type AutocompleteValue<T, Multiple> = Multiple extends
-| undefined
-| false
-  ? T
-  : T[];
+export type AutocompleteValue<T, Multiple> = Multiple extends | undefined | false ? T | null : T[];
 
 export type AutocompleteGroupedOption<T> = {
   key: number;
@@ -102,6 +98,7 @@ export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined = 
   getListboxProps: () => React.HTMLAttributes<HTMLUListElement>;
   getRootProps: () => React.HTMLAttributes<HTMLDivElement>;
   getInputProps: () => React.HTMLAttributes<HTMLInputElement>;
+  getClearProps: () => React.HTMLAttributes<HTMLDivElement>;
   getPopoverProps: () => Pick<Required<PopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>;
   getTagProps: (option: T, index: number) => {
     key: number;
@@ -109,7 +106,7 @@ export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined = 
     tabIndex: -1;
     onDelete: (event: React.SyntheticEvent) => void;
   };
-  getOptionLabel?: (option: T) => string;
+  getOptionLabel: (option: T) => string;
 };
 /**
  *
@@ -424,6 +421,17 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     }
   };
 
+  const handleClear = (event: React.MouseEvent<HTMLDivElement>) => {
+    const newValue = multiple ? [] as AutocompleteValue<T, Multiple> : null;
+
+    setSearchValue('');
+    setValue(newValue);
+
+    if (onChange) {
+      onChange(event, newValue);
+    }
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     // Wait until IME is settled.
     if (event.which !== 229) {
@@ -511,6 +519,10 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
       autoCorrect: 'false',
       spellCheck: 'false',
       onChange: handleInputChange,
+    }),
+    getClearProps: () => ({
+      tabIndex: -1,
+      onClick: handleClear,
     }),
     getOptionProps: (option, index) => {
       const selected = (Array.isArray(value) ? value : [value]).some(
