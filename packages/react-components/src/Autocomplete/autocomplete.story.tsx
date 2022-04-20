@@ -1,5 +1,7 @@
 import * as React from 'react';
+import type { Story } from '@storybook/react';
 import { Autocomplete } from './index';
+import { AutocompleteProps } from './autocomplete';
 import { Button } from '../Button';
 
 const top100Films = [
@@ -105,41 +107,43 @@ const top100Films = [
   { title: 'Monty Python and the Holy Grail', year: 1975 },
 ];
 
-const Template = (args: any) => (
+const Template: Story<any> = (args) => (
   <Autocomplete
     {...args}
   />
 );
 
-export const Default = Template.bind({});
+export const Default: Story<AutocompleteProps<{ title: string; year: number }>> = Template.bind({});
 Default.args = {
   options: top100Films,
   placeholder: 'Select a movie',
-  getOptionLabel: (option: any) => option.title,
+  getOptionLabel: (option) => option.title,
 };
 
-export const Multiple = Template.bind({});
+// eslint-disable-next-line max-len
+export const Multiple: Story<AutocompleteProps<{ title: string; year: number }, true>> = Template.bind({});
 Multiple.args = {
   options: top100Films,
   placeholder: 'Select a movie',
-  getOptionLabel: (option: any) => option.title,
+  getOptionLabel: (option) => option.title,
   multiple: true,
 };
 
-export const Grouped = Template.bind({});
+export const Grouped: Story<AutocompleteProps<{ title: string; year: number }>> = Template.bind({});
 Grouped.args = {
   options: top100Films.sort((a, b) => a.year - b.year),
   placeholder: 'Select a movie',
-  getOptionLabel: (option: any) => option.title,
-  groupBy: (option: any) => option.year,
+  getOptionLabel: (option) => option.title,
+  groupBy: (option) => option.year.toString(),
 };
 
-export const RootRender = Template.bind({});
+// eslint-disable-next-line max-len
+export const RootRender: Story<AutocompleteProps<{ title: string; year: number }>> = Template.bind({});
 RootRender.args = {
   options: top100Films,
   placeholder: 'Select a movie',
-  getOptionLabel: (option: any) => option.title,
-  renderRoot: (props: any) => (
+  getOptionLabel: (option) => option.title,
+  renderRoot: (props) => (
     <Button
       variant="text"
       color="secondary"
