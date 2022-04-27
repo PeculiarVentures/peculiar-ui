@@ -422,13 +422,10 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
   };
 
   const handleClear = (event: React.MouseEvent<HTMLDivElement>) => {
-    const newValue = multiple ? [] as AutocompleteValue<T, Multiple> : null;
-
     setSearchValue('');
-    setValue(newValue);
 
-    if (onChange) {
-      onChange(event, newValue);
+    if (onInputChange) {
+      onInputChange(event, '');
     }
   };
 
