@@ -78,6 +78,7 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
   onChange?: (
     event: React.SyntheticEvent,
     value: AutocompleteValue<T, Multiple>,
+    option: T,
   ) => void;
   /**
    * Callback fired when the input value changes.
@@ -407,7 +408,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     }
 
     if (onChange) {
-      onChange(event, newValue as AutocompleteValue<T, Multiple>);
+      onChange(event, newValue as AutocompleteValue<T, Multiple>, option);
     }
   };
 
