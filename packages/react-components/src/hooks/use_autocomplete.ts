@@ -401,9 +401,10 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     event: React.SyntheticEvent,
     option: T,
     index: number,
-    reason: AutocompleteChangeReason,
+    reasonProp: AutocompleteChangeReason,
   ) => {
     let newValue: T | T[] = option;
+    let reason = reasonProp;
 
     if (multiple) {
       newValue = Array.isArray(value) ? value.slice() : [];
@@ -414,6 +415,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
         newValue.push(option);
       } else {
         newValue.splice(itemIndex, 1);
+        reason = 'removeOption';
       }
     }
 
