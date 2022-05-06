@@ -10,8 +10,14 @@ import type { PopoverProps } from '../Popover';
 export type AutocompleteHighlightChangeReason = ('auto' | 'mouse' | 'keyboard');
 export type AutocompleteHighlightChangeDirectionType = ('next' | 'previous');
 export type AutocompleteHighlightChangeDiffType = (number | 'reset' | 'start' | 'end');
+export type AutocompleteChangeReason = ('selectOption' | 'removeOption');
 
-export type FilterOptionsType<T> = (
+export interface AutocompleteChangeDetails<T = string> {
+  option: T;
+  index: number;
+}
+
+export type AutocompleteFilterOptionsType<T> = (
   options: ReadonlyArray<T>,
   inputValue: string,
   getOptionLabel: (option: T) => string,
@@ -63,7 +69,7 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
   /**
   * A filter function that determines the options that are eligible.
   */
-  filterOptions?: FilterOptionsType<T>;
+  filterOptions?: AutocompleteFilterOptionsType<T>;
   /**
    * Callback fired when the popup requests to be closed.
    */
@@ -78,7 +84,8 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
   onChange?: (
     event: React.SyntheticEvent,
     value: AutocompleteValue<T, Multiple>,
-    option: T,
+    details: AutocompleteChangeDetails<T>,
+    reason: AutocompleteChangeReason,
   ) => void;
   /**
    * Callback fired when the input value changes.
@@ -113,7 +120,11 @@ export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined = 
  *
  */
 
-const defaultFilterOptions: FilterOptionsType<any> = (options, inputValue, getOptionLabel) => {
+const defaultFilterOptions: AutocompleteFilterOptionsType<any> = (
+  options,
+  inputValue,
+  getOptionLabel,
+) => {
   if (!options || !options.length) {
     return [];
   }
@@ -386,7 +397,12 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     }
   };
 
-  const selectNewValue = (event: React.SyntheticEvent, option: T) => {
+  const selectNewValue = (
+    event: React.SyntheticEvent,
+    option: T,
+    index: number,
+    reason: AutocompleteChangeReason,
+  ) => {
     let newValue: T | T[] = option;
 
     if (multiple) {
@@ -408,7 +424,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     }
 
     if (onChange) {
-      onChange(event, newValue as AutocompleteValue<T, Multiple>, option);
+      onChange(event, newValue as AutocompleteValue<T, Multiple>, { option, index }, reason);
     }
   };
 
@@ -455,7 +471,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
           if (highlightedIndexRef.current !== -1 && popupOpen) {
             const option = filteredOptions[highlightedIndexRef.current];
 
-            selectNewValue(event, option);
+            selectNewValue(event, option, highlightedIndexRef.current, 'selectOption');
           }
           break;
 
@@ -468,11 +484,11 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     const index = Number(event.currentTarget.getAttribute('data-option-index'));
     const option = filteredOptions[index];
 
-    selectNewValue(event, option);
+    selectNewValue(event, option, index, 'selectOption');
   };
 
-  const handleTagDelete = (option: T) => (event: React.SyntheticEvent) => {
-    selectNewValue(event, option);
+  const handleTagDelete = (option: T, index: number) => (event: React.SyntheticEvent) => {
+    selectNewValue(event, option, index, 'removeOption');
   };
 
   let groupedOptions = filteredOptions;
@@ -547,7 +563,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
       key: index,
       'data-tag-index': index,
       tabIndex: -1,
-      onDelete: handleTagDelete(option),
+      onDelete: handleTagDelete(option, index),
     }),
     getOptionLabel,
     groupedOptions,

@@ -11,5 +11,7 @@ export {
   UseAutocompleteReturnType,
   AutocompleteValue,
   AutocompleteGroupedOption,
+  AutocompleteChangeReason,
+  AutocompleteChangeDetails,
 } from './use_autocomplete';
 export { useEventCallback } from './use_event_callback';

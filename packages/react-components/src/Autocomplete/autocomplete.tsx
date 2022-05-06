@@ -16,7 +16,6 @@ import { css, cx } from '../styles';
 /**
  * Types.
  */
-
 export type AutocompleteRenderGroupParams = {
   key: string | number;
   group: string;
