@@ -55,6 +55,10 @@ export type AutocompleteProps<T, Multiple extends boolean | undefined = undefine
      */
     disableSearch?: boolean;
     /**
+     * If `true`, the autocomplete will be disabled.
+     */
+    disabled?: boolean;
+    /**
      * Name attribute of the `input` element.
      */
     name?: string;
@@ -121,13 +125,13 @@ const stylesRoot = () => css({
     backgroundColor: 'var(--pv-color-gray-3)',
     borderColor: 'var(--pv-color-gray-7)',
   },
-  '&:disabled': {
+  '&[aria-disabled="true"]': {
     cursor: 'not-allowed',
     backgroundColor: 'var(--pv-color-gray-1)',
     borderColor: 'var(--pv-color-gray-5)',
     color: 'var(--pv-color-gray-7)',
   },
-  '&:not(:disabled)': {
+  '&:not([aria-disabled="true"])': {
     '&:focus': {
       backgroundColor: 'var(--pv-color-secondary-tint-5)',
       borderColor: 'var(--pv-color-secondary-tint-3)',
@@ -149,6 +153,9 @@ const stylesInputArrowIcon = () => css({
   pointerEvents: 'none',
   margin: '0px var(--pv-size-base)',
   color: 'var(--pv-color-gray-10)',
+  '&[aria-disabled="true"]': {
+    color: 'var(--pv-color-gray-7)',
+  },
 });
 
 const stylesListBox = () => css({
@@ -275,6 +282,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
     className,
     placeholder,
     disableSearch,
+    disabled = false,
     noOptionsText,
     loading,
     loadingText,
@@ -401,6 +409,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
         noWrap
         component="button"
         variant="c1"
+        aria-disabled={disabled}
         color={isValueEmpty ? 'gray-9' : 'black'}
         className={cx({
           [stylesRoot()]: true,
@@ -414,6 +423,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
       </Typography>
       <ArrowDropDownIcon
         className={stylesInputArrowIcon()}
+        aria-disabled={disabled}
         aria-hidden
       />
       <input
@@ -421,12 +431,13 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
         value={isValueEmpty ? '' : JSON.stringify(valueRoot)}
         tabIndex={-1}
         aria-hidden="true"
+        disabled={disabled}
         className={stylesNativeInput()}
         autoComplete="off"
         id={id}
         name={name}
         required={required}
-        onChange={() => {}}
+        onChange={() => { }}
       />
     </div>
   );
