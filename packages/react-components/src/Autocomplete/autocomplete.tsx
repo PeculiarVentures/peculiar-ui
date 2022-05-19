@@ -55,6 +55,10 @@ export type AutocompleteProps<T, Multiple extends boolean | undefined = undefine
      */
     disableSearch?: boolean;
     /**
+     * If `true`, the autocomplete will be disabled.
+     */
+    disabled?: boolean;
+    /**
      * Name attribute of the `input` element.
      */
     name?: string;
@@ -149,6 +153,9 @@ const stylesInputArrowIcon = () => css({
   pointerEvents: 'none',
   margin: '0px var(--pv-size-base)',
   color: 'var(--pv-color-gray-10)',
+  '&[aria-disabled="true"]': {
+    color: 'var(--pv-color-gray-7)',
+  },
 });
 
 const stylesListBox = () => css({
@@ -275,6 +282,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
     className,
     placeholder,
     disableSearch,
+    disabled = false,
     noOptionsText,
     loading,
     loadingText,
@@ -414,6 +422,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
       </Typography>
       <ArrowDropDownIcon
         className={stylesInputArrowIcon()}
+        aria-disabled={disabled}
         aria-hidden
       />
       <input
@@ -421,12 +430,13 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
         value={isValueEmpty ? '' : JSON.stringify(valueRoot)}
         tabIndex={-1}
         aria-hidden="true"
+        disabled={disabled}
         className={stylesNativeInput()}
         autoComplete="off"
         id={id}
         name={name}
         required={required}
-        onChange={() => {}}
+        readOnly
       />
     </div>
   );
@@ -442,7 +452,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
 
   return (
     <>
-      {renderRoot(getRootProps(), value)}
+      {renderRoot({ ...getRootProps(), disabled }, value)}
 
       <Popover
         placement="bottom-start"
