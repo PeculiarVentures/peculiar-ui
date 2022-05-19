@@ -125,13 +125,13 @@ const stylesRoot = () => css({
     backgroundColor: 'var(--pv-color-gray-3)',
     borderColor: 'var(--pv-color-gray-7)',
   },
-  '&[aria-disabled="true"]': {
+  '&:disabled': {
     cursor: 'not-allowed',
     backgroundColor: 'var(--pv-color-gray-1)',
     borderColor: 'var(--pv-color-gray-5)',
     color: 'var(--pv-color-gray-7)',
   },
-  '&:not([aria-disabled="true"])': {
+  '&:not(:disabled)': {
     '&:focus': {
       backgroundColor: 'var(--pv-color-secondary-tint-5)',
       borderColor: 'var(--pv-color-secondary-tint-3)',
@@ -409,7 +409,6 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
         noWrap
         component="button"
         variant="c1"
-        aria-disabled={disabled}
         color={isValueEmpty ? 'gray-9' : 'black'}
         className={cx({
           [stylesRoot()]: true,
@@ -437,7 +436,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
         id={id}
         name={name}
         required={required}
-        onChange={() => { }}
+        readOnly
       />
     </div>
   );
@@ -453,7 +452,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
 
   return (
     <>
-      {renderRoot(getRootProps(), value)}
+      {renderRoot({ ...getRootProps(), disabled }, value)}
 
       <Popover
         placement="bottom-start"

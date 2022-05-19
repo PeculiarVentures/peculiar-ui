@@ -55,10 +55,6 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
    */
   disableCloseOnSelect?: boolean;
   /**
-   * If `true`, the popup will be unavailable.
-   */
-  disabled?: boolean;
-  /**
    * If `true`, `value` must be an array and the menu will support multiple selections.
    */
   multiple?: Multiple;
@@ -150,7 +146,6 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     defaultValue = props.multiple ? [] as AutocompleteValue<T, Multiple> : null,
     value: valueProp,
     disableCloseOnSelect = false,
-    disabled = false,
     multiple = false,
     groupBy,
     // @ts-ignore
@@ -386,9 +381,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
   };
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!disabled) {
-      handleOpen(event);
-    }
+    handleOpen(event);
   };
 
   const handleClose = (event: React.SyntheticEvent) => {
