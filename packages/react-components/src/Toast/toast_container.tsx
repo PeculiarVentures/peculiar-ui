@@ -18,6 +18,7 @@ const stylesBase = () => css({
   zIndex: 1300,
   width: '100%',
   maxWidth: '460px',
+  wordBreak: 'break-word',
   left: '50%',
   transform: 'translateX(-50%)',
   '& > * + *': {
