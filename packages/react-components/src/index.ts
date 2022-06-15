@@ -19,6 +19,7 @@ export * from './Popover';
 export * from './Portal';
 export * from './Radio';
 export * from './Select';
+export * from './Skeleton';
 export * from './Autocomplete';
 export * from './Slide';
 export * from './Slider';
