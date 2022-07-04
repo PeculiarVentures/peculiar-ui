@@ -436,7 +436,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
         id={id}
         name={name}
         required={required}
-        readOnly
+        onChange={() => {}}
       />
     </div>
   );
