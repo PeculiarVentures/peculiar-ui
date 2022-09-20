@@ -1,13 +1,17 @@
 import React from 'react';
 import { Popover, PopoverProps } from '../Popover';
 import { Typography } from '../Typography';
-import { css, cx } from '../styles';
+import { css, cx, TypographyType } from '../styles';
 
 type OptionBaseProps = {
   label: string;
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   component?: React.ElementType;
+  /**
+   * The variant of text to use.
+   */
+  textVariant?: TypographyType;
 };
 
 type OptionProps = OptionBaseProps & Omit<React.AllHTMLAttributes<HTMLElement>, 'children'>;
@@ -170,9 +174,11 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
               disabled,
               label,
               className: classNameProp,
+              textVariant: textVariantProp,
               ...other
             } = option;
             const Component = component || 'button';
+            const textVariant = textVariantProp || 'b3';
 
             return (
               <Component
@@ -189,7 +195,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
                 disabled={disabled}
               >
                 <Typography
-                  variant="b3"
+                  variant={textVariant}
                   color="inherit"
                   component="span"
                 >
