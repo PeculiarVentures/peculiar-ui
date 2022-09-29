@@ -2,6 +2,7 @@ import React from 'react';
 import {
   useAutocomplete,
   UseAutocompleteProps,
+  UseAutocompleteReturnType,
   AutocompleteValue,
 } from '../hooks';
 import { Popover } from '../Popover';
@@ -77,7 +78,11 @@ export type AutocompleteProps<T, Multiple extends boolean | undefined = undefine
     /**
      * Render the root element.
      */
-    renderRoot?: (props: object, value: AutocompleteValue<T, Multiple>) => React.ReactNode;
+    renderRoot?: (
+      props: object,
+      value: AutocompleteValue<T, Multiple>,
+      getTagProps: UseAutocompleteReturnType<T, Multiple>['getTagProps'],
+    ) => React.ReactNode;
     /**
      * Render the option, use `getOptionLabel` by default.
      */
@@ -452,7 +457,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
 
   return (
     <>
-      {renderRoot({ ...getRootProps(), disabled }, value)}
+      {renderRoot({ ...getRootProps(), disabled }, value, getTagProps)}
 
       <Popover
         placement="bottom-start"

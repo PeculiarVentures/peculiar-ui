@@ -2,7 +2,8 @@ import * as React from 'react';
 import type { Story } from '@storybook/react';
 import { Autocomplete } from './index';
 import { AutocompleteProps } from './autocomplete';
-import { Button } from '../Button';
+import { Chip } from '../Chip';
+import { IconButton } from '../IconButton';
 
 const top100Films = [
   { title: 'The Shawshank Redemption', year: 1994 },
@@ -138,20 +139,34 @@ Grouped.args = {
 };
 
 // eslint-disable-next-line max-len
-export const RootRender: Story<AutocompleteProps<{ title: string; year: number }>> = Template.bind({});
+export const RootRender: Story<AutocompleteProps<{ title: string; year: number }, true>> = Template.bind({});
 RootRender.args = {
   options: top100Films,
   placeholder: 'Select a movie',
   getOptionLabel: (option) => option.title,
-  renderRoot: (props) => (
-    <Button
-      variant="text"
-      color="secondary"
-      {...props}
-    >
-      + Add film
-    </Button>
+  renderRoot: (props, value, getTagProps) => (
+    <>
+      {value.map((v, index) => (
+        <Chip
+          {...getTagProps(v, index)}
+        >
+          {v.title}
+          (
+          {v.year}
+          )
+        </Chip>
+      ))}
+      <IconButton
+        {...props}
+        color="secondary"
+        circled
+        title="Add films"
+      >
+        +
+      </IconButton>
+    </>
   ),
+  multiple: true,
 };
 
 export default {
