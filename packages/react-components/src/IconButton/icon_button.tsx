@@ -1,22 +1,21 @@
 import * as React from 'react';
+import { forwardRef } from '../system';
+import { css, cx } from '../styles';
 import { Button, ButtonProps } from '../Button';
 import { Tooltip } from '../Tooltip';
-import { css, cx } from '../styles';
 
-type BaseProps = {
+type IconButtonProps = Omit<ButtonProps, 'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'> & {
   /**
    * The text that applied to `aria-label` attribute and Tooltip content.
    */
   title?: string;
 };
 
-type IconButtonProps = BaseProps & Omit<ButtonProps, 'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'>;
-
 const stylesBase = () => css({
   '--pv-color-black': 'var(--pv-color-gray-9)',
 });
 
-export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => {
+export const IconButton = forwardRef<IconButtonProps, 'button'>((props, ref) => {
   const {
     title,
     className,
@@ -56,10 +55,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
 IconButton.displayName = 'IconButton';
 
 IconButton.defaultProps = {
-  // eslint-disable-next-line react/default-props-match-prop-types
   disabled: false,
-  // eslint-disable-next-line react/default-props-match-prop-types
   color: 'default',
-  // eslint-disable-next-line react/default-props-match-prop-types
   size: 'medium',
 };

@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { forwardRef } from '../system';
 import { css, cx } from '../styles';
 import { ButtonBase, ButtonBaseProps } from '../ButtonBase';
 
-type BaseProps = {
+export type ButtonProps = ButtonBaseProps & {
   circled?: boolean;
   /**
    * Element placed before the children.
@@ -17,8 +18,6 @@ type BaseProps = {
    */
   withoutPadding?: boolean;
 };
-
-export type ButtonProps = BaseProps & ButtonBaseProps;
 
 const stylesBase = () => css({
   label: 'Button',
@@ -73,7 +72,7 @@ const stylesEndIcon = () => css({
   display: 'inherit',
 });
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
   const {
     children,
     className,

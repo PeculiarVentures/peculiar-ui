@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { forwardRef } from '../system';
 import { css, cx, TypographyType } from '../styles';
 import { Typography } from '../Typography';
 
-type BaseProps = {
+export type ButtonBaseProps = {
   /**
    * The content of the component.
    */
@@ -45,14 +46,8 @@ type BaseProps = {
    * The className of the component.
    */
   className?: string;
-  /**
-   * The component used for the root node.
-   */
-  component?: React.ElementType;
   'data-testid'?: string;
 };
-
-export type ButtonBaseProps = BaseProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const stylesBase = () => css({
   label: 'ButtonBase',
@@ -107,7 +102,7 @@ const stylesVariantTextColorWhite = () => css({
   },
 });
 
-const stylesVariantTextColor = (color: BaseProps['color']) => css({
+const stylesVariantTextColor = (color: ButtonBaseProps['color']) => css({
   color: `var(--pv-color-${color})`,
   '&:not(:disabled)': {
     '&:hover': {
@@ -162,7 +157,7 @@ const stylesVariantContainedColorWhite = () => css({
   },
 });
 
-const stylesVariantContainedColor = (color: BaseProps['color']) => css({
+const stylesVariantContainedColor = (color: ButtonBaseProps['color']) => css({
   backgroundColor: `var(--pv-color-${color})`,
   color: `var(--pv-color-${color}-contrast)`,
   '&:not(:disabled)': {
@@ -219,7 +214,7 @@ const stylesVariantOutlinedColorWhite = () => css({
   },
 });
 
-const stylesVariantOutlinedColor = (color: BaseProps['color']) => css({
+const stylesVariantOutlinedColor = (color: ButtonBaseProps['color']) => css({
   color: `var(--pv-color-${color})`,
   borderColor: `var(--pv-color-${color}-tint-2)`,
   '&:not(:disabled)': {
@@ -250,7 +245,7 @@ const stylesLabel = () => css({
   justifyContent: 'inherit',
 });
 
-export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((props, ref) => {
+export const ButtonBase = forwardRef<ButtonBaseProps, 'button'>((props, ref) => {
   const {
     variant,
     textVariant: textVariantProp,
@@ -260,11 +255,11 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>((
     children,
     disabled,
     type = 'button',
-    component: componentProp,
+    as,
     ...other
   } = props;
 
-  const Component = componentProp || 'button';
+  const Component = as || 'button';
   const textVariant = textVariantProp || (size === 'small' ? 'btn2' : 'btn1');
 
   return (
