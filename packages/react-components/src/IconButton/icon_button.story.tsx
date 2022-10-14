@@ -2,6 +2,15 @@ import * as React from 'react';
 import { IconButton } from './index';
 import { CheckIcon } from '../icons';
 
+export default {
+  title: 'Components/IconButton',
+  component: IconButton,
+  argTypes: {
+    children: { control: false },
+    as: { control: false },
+  },
+};
+
 const Template = (args: any) => (
   <IconButton
     {...args}
@@ -11,12 +20,3 @@ const Template = (args: any) => (
 );
 
 export const Playground = Template.bind({});
-
-export default {
-  title: 'Components/IconButton',
-  component: IconButton,
-  argTypes: {
-    children: { control: false },
-    component: { control: false },
-  },
-};
