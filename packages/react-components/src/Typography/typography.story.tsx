@@ -16,6 +16,6 @@ export default {
   component: Typography,
   argTypes: {
     children: { control: 'text' },
-    component: { control: false },
+    as: { control: false },
   },
 };

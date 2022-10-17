@@ -190,7 +190,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
           })}
         >
           <Typography
-            component="span"
+            as="span"
             variant="c2"
             color="gray-10"
           >

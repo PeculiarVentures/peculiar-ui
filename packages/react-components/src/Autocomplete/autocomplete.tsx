@@ -412,7 +412,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
       <Typography
         {...propsRoot}
         noWrap
-        component="button"
+        as="button"
         variant="c1"
         color={isValueEmpty ? 'gray-9' : 'black'}
         className={cx({
@@ -420,7 +420,6 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
           [stylesRootMultiple()]: multiple,
           [className]: !!className,
         })}
-        // @ts-ignore
         type="button"
       >
         {isValueEmpty ? placeholder : renderedValue}

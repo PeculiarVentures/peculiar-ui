@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { forwardRef } from '../system';
 import { css, cx, ColorType } from '../styles';
 import { Typography } from '../Typography';
 
-type BaseProps = {
+export type TabProps = {
   /**
    * The content of the component.
    */
@@ -24,17 +25,12 @@ type BaseProps = {
    */
   color?: ('black' | 'white');
   /**
-   * The component used for the root node.
-   */
-  component?: React.ElementType;
-  /**
    * Callback fired when the value changes.
    */
   onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
+  onClick?: never;
   'data-testid'?: string;
 };
-
-export type TabBaseProps = BaseProps & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onChange'>;
 
 const stylesBase = () => css({
   label: 'Tab',
@@ -72,20 +68,20 @@ const stylesBase = () => css({
   },
 });
 
-export const Tab = React.forwardRef<HTMLButtonElement, TabBaseProps>((props, ref) => {
+export const Tab = forwardRef<TabProps, 'button'>((props, ref) => {
   const {
     children,
     className,
     disabled,
     id,
+    color = 'black',
+    as = 'button',
+    onChange,
     // @ts-ignore
     selected,
-    color = 'black',
-    component: componentProp,
-    onChange,
     ...other
   } = props;
-  const Component = componentProp || 'button';
+  const Component = as || 'button';
 
   const textColor: ColorType = React.useMemo(() => {
     if (disabled) {
@@ -130,7 +126,7 @@ export const Tab = React.forwardRef<HTMLButtonElement, TabBaseProps>((props, ref
     >
       <Typography
         variant="s2"
-        component="span"
+        as="span"
         color={textColor}
       >
         {children}
@@ -143,6 +139,5 @@ Tab.displayName = 'Tab';
 
 Tab.defaultProps = {
   disabled: false,
-  component: 'button',
   color: 'black',
 };

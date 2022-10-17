@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { forwardRef } from '../system';
 import { css, cx } from '../styles';
 import { Typography } from '../Typography';
 import { CloseSmallIcon } from '../icons';
@@ -6,7 +7,7 @@ import { CloseSmallIcon } from '../icons';
 /**
  * Types.
  */
-type BaseProps = {
+export type ChipProps = {
   /**
    * The content of the component.
    */
@@ -36,10 +37,6 @@ type BaseProps = {
    */
   startContent?: React.ReactElement;
   /**
-   * The component used for the root node.
-   */
-  component?: React.ElementType;
-  /**
    * Callback function fired when the delete icon is clicked. If set, the delete icon will be shown.
    */
   onDelete?: React.MouseEventHandler<HTMLElement>;
@@ -49,8 +46,6 @@ type BaseProps = {
   onClick?: React.MouseEventHandler<HTMLElement>;
   'data-testid'?: string;
 };
-
-type ChipProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
  */
@@ -203,7 +198,7 @@ const stylesStartContent = () => css({
  *
  */
 
-export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
+export const Chip = forwardRef<ChipProps, 'div'>((props, ref) => {
   const {
     children,
     disabled,
@@ -212,7 +207,7 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => 
     color,
     className,
     startContent: startContentProp,
-    component: componentProp,
+    as = 'div',
     onClick,
     onDelete,
     ...other
@@ -263,7 +258,7 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => 
     </span>
   );
 
-  const Component = componentProp || 'button';
+  const Component = as || 'button';
 
   return (
     <Component
@@ -288,7 +283,7 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>((props, ref) => 
       {startContent}
       <Typography
         variant="b3"
-        component="span"
+        as="span"
         color="inherit"
         noWrap
       >
@@ -305,5 +300,4 @@ Chip.defaultProps = {
   disabled: false,
   variant: 'contained',
   color: 'secondary',
-  component: 'div',
 };

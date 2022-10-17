@@ -255,7 +255,7 @@ export const ButtonBase = forwardRef<ButtonBaseProps, 'button'>((props, ref) => 
     children,
     disabled,
     type = 'button',
-    as,
+    as = 'button',
     ...other
   } = props;
 
@@ -306,5 +306,4 @@ ButtonBase.displayName = 'ButtonBase';
 ButtonBase.defaultProps = {
   variant: 'text',
   color: 'default',
-  component: 'button',
 };

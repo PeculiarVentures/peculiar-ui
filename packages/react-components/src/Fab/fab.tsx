@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { forwardRef } from '../system';
 import { css, cx } from '../styles';
 import { ButtonBase, ButtonBaseProps } from '../ButtonBase';
 
-type BaseProps = {
+export type FabProps = Omit<ButtonBaseProps, 'size' | 'variant'> & {
   /**
    * The variant to use.
    */
@@ -12,8 +13,6 @@ type BaseProps = {
   );
 };
 
-type FabProps = BaseProps & Omit<ButtonBaseProps, 'size' | 'variant'>;
-
 const stylesBase = () => css({
   label: 'Fab',
   borderRadius: '50%',
@@ -22,7 +21,7 @@ const stylesBase = () => css({
   padding: 'var(--pv-size-base-2)',
 });
 
-export const Fab = React.forwardRef<HTMLButtonElement, FabProps>((props, ref) => {
+export const Fab = forwardRef<FabProps, 'button'>((props, ref) => {
   const {
     className,
     children,
@@ -47,9 +46,7 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>((props, ref) =>
 Fab.displayName = 'Fab';
 
 Fab.defaultProps = {
-  // eslint-disable-next-line react/default-props-match-prop-types
   disabled: false,
   variant: 'contained',
-  // eslint-disable-next-line react/default-props-match-prop-types
   color: 'primary',
 };
