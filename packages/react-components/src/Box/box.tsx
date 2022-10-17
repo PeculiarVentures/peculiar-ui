@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { forwardRef } from '../system';
 import { css, cx, ColorType } from '../styles';
 
-type BaseProps = {
+export type BoxProps = {
   /**
    * The content of the component.
    */
@@ -10,10 +11,6 @@ type BaseProps = {
    * The className of the component.
    */
   className?: string;
-  /**
-   * The component used for the root node.
-   */
-  component?: React.ElementType;
   background?: ColorType;
   borderColor?: ColorType;
   borderWidth?: number;
@@ -22,8 +19,6 @@ type BaseProps = {
   borderRadius?: number,
   'data-testid'?: string;
 };
-
-type BoxProps = BaseProps & React.HTMLAttributes<HTMLElement>;
 
 const stylesBase = () => css({
   label: 'Box',
@@ -39,10 +34,10 @@ const stylesBorderColor = (color: ColorType) => css({
   borderColor: `var(--pv-color-${color})`,
 });
 
-export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
+export const Box = forwardRef<BoxProps, 'div'>((props, ref) => {
   const {
     className,
-    component: componentProp,
+    as = 'div',
     background,
     borderColor,
     borderWidth,
@@ -84,7 +79,7 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
     return borderWidth;
   };
 
-  const Component = componentProp || 'div';
+  const Component = as || 'div';
 
   return (
     <Component
@@ -105,7 +100,3 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
 });
 
 Box.displayName = 'Box';
-
-Box.defaultProps = {
-  component: 'div',
-};

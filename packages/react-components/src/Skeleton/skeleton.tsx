@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { forwardRef } from '../system';
 import {
   css,
   cx,
@@ -7,7 +8,7 @@ import {
 } from '../styles';
 import { Box } from '../Box';
 
-type BaseProps = {
+export type SkeletonProps = {
   /**
    * Optional children to infer width and height from.
    */
@@ -31,8 +32,6 @@ type BaseProps = {
   background?: ColorType;
 };
 
-type SkeletonProps = BaseProps & Omit<React.HTMLAttributes<HTMLSpanElement>, 'width' | 'height' | 'children'>;
-
 /**
  * Styles.
  */
@@ -48,7 +47,7 @@ const pulseKeyframe = keyframes`
   }
 `;
 
-const stylesBase = (props: BaseProps) => css({
+const stylesBase = (props: SkeletonProps) => css({
   label: 'Skeleton',
   display: 'block',
   height: '1.2em',
@@ -90,22 +89,21 @@ const stylesBase = (props: BaseProps) => css({
  *
  */
 
-export const Skeleton = React.forwardRef<HTMLSpanElement, SkeletonProps>((props, ref) => {
+export const Skeleton = forwardRef<SkeletonProps, 'span'>((props, ref) => {
   const {
     children,
     height,
     width,
     variant,
     className,
-    background,
+    as = 'span',
     ...other
   } = props;
 
   return (
     <Box
       ref={ref}
-      background={background}
-      component="span"
+      as={as}
       className={cx({
         [stylesBase(props)]: true,
         [className]: !!className,

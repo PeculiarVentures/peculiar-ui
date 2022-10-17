@@ -25,7 +25,7 @@ export type ComponentWithAs<Component extends As, Props extends object = {}> = {
   displayName?: string;
   propTypes?: React.WeakValidationMap<any>;
   contextTypes?: React.ValidationMap<any>;
-  defaultProps?: Partial<any>;
+  defaultProps?: Partial<Props>;
   id?: string;
 };
 

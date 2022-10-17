@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { forwardRef } from '../system';
 import {
   css,
   cx,
@@ -6,7 +7,7 @@ import {
   TypographyType,
 } from '../styles';
 
-export type TypographyBaseProps = {
+export type TypographyProps = {
   /**
    * The content of the component.
    */
@@ -29,21 +30,15 @@ export type TypographyBaseProps = {
    * (the element needs to have a width in order to overflow).
    */
   noWrap?: boolean;
-  /**
-   * The component used for the root node.
-   */
-  component?: React.ElementType;
   'data-testid'?: string;
 };
-
-export type TypographyProps = TypographyBaseProps & React.HTMLAttributes<HTMLElement>;
 
 const stylesBase = () => css({
   label: 'Typography',
   margin: 0,
 });
 
-const stylesVariant = (variant: TypographyBaseProps['variant']) => css({
+const stylesVariant = (variant: TypographyProps['variant']) => css({
   label: variant,
   fontWeight: `var(--pv-text-${variant}-weight)`,
   fontSize: `var(--pv-text-${variant}-size)`,
@@ -51,7 +46,7 @@ const stylesVariant = (variant: TypographyBaseProps['variant']) => css({
   letterSpacing: `var(--pv-text-${variant}-spacing)`,
 } as any);
 
-const stylesColor = (color: TypographyBaseProps['color']) => css({
+const stylesColor = (color: TypographyProps['color']) => css({
   label: color,
   color: color === 'inherit' ? 'inherit' : `var(--pv-color-${color})`,
 });
@@ -63,13 +58,13 @@ const stylesNoWrap = () => css({
   textOverflow: 'ellipsis',
 });
 
-export const Typography = React.forwardRef<HTMLElement, TypographyProps>((props, ref) => {
+export const Typography = forwardRef<TypographyProps, 'p'>((props, ref) => {
   const {
     variant,
     className,
     color,
     noWrap,
-    component: componentProp,
+    as,
     ...other
   } = props;
 
@@ -89,7 +84,7 @@ export const Typography = React.forwardRef<HTMLElement, TypographyProps>((props,
     return 'p';
   };
 
-  const Component = componentProp || getTagFromVariantProp();
+  const Component = as || getTagFromVariantProp();
 
   return (
     <Component

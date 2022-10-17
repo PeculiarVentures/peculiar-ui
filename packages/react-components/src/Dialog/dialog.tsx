@@ -157,6 +157,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
         in={open}
         timeout={transitionDuration}
       >
+        {/* @ts-ignore */}
         <Box
           {...other}
           role="dialog"
@@ -171,8 +172,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
             [className]: !!className,
           })}
           tabIndex={-1}
-          component="fieldset"
-          // @ts-ignore
+          as="fieldset"
           disabled={loading}
         >
           {children}
