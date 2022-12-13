@@ -197,7 +197,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
                 <Typography
                   variant={textVariant}
                   color="inherit"
-                  as="span"
+                  component="span"
                 >
                   {label}
                 </Typography>

@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { forwardRef } from '../system';
+import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { css, cx, TypographyType } from '../styles';
 import { Typography } from '../Typography';
 
-export type ButtonBaseProps = {
+/**
+ * Types.
+ */
+export interface ButtonBaseOwnProps {
   /**
    * The content of the component.
    */
@@ -42,13 +45,25 @@ export type ButtonBaseProps = {
     'medium' |
     'large'
   );
-  /**
-   * The className of the component.
-   */
-  className?: string;
-  'data-testid'?: string;
-};
+}
 
+export interface ButtonBaseTypeMap<P = {}, D extends React.ElementType = 'button'> {
+  props: P & ButtonBaseOwnProps;
+  defaultComponent: D;
+}
+
+export type ButtonBaseProps<
+  D extends React.ElementType = ButtonBaseTypeMap['defaultComponent'],
+> = OverrideProps<ButtonBaseTypeMap<{}, D>, D> & {
+  component?: D;
+};
+/**
+ *
+ */
+
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'ButtonBase',
   fontFamily: 'inherit',
@@ -102,7 +117,7 @@ const stylesVariantTextColorWhite = () => css({
   },
 });
 
-const stylesVariantTextColor = (color: ButtonBaseProps['color']) => css({
+const stylesVariantTextColor = (color: ButtonBaseOwnProps['color']) => css({
   color: `var(--pv-color-${color})`,
   '&:not(:disabled)': {
     '&:hover': {
@@ -157,7 +172,7 @@ const stylesVariantContainedColorWhite = () => css({
   },
 });
 
-const stylesVariantContainedColor = (color: ButtonBaseProps['color']) => css({
+const stylesVariantContainedColor = (color: ButtonBaseOwnProps['color']) => css({
   backgroundColor: `var(--pv-color-${color})`,
   color: `var(--pv-color-${color}-contrast)`,
   '&:not(:disabled)': {
@@ -214,7 +229,7 @@ const stylesVariantOutlinedColorWhite = () => css({
   },
 });
 
-const stylesVariantOutlinedColor = (color: ButtonBaseProps['color']) => css({
+const stylesVariantOutlinedColor = (color: ButtonBaseOwnProps['color']) => css({
   color: `var(--pv-color-${color})`,
   borderColor: `var(--pv-color-${color}-tint-2)`,
   '&:not(:disabled)': {
@@ -244,8 +259,11 @@ const stylesLabel = () => css({
   alignItems: 'inherit',
   justifyContent: 'inherit',
 });
+/**
+ *
+ */
 
-export const ButtonBase = forwardRef<ButtonBaseProps, 'button'>((props, ref) => {
+export const ButtonBase = React.forwardRef<any, ButtonBaseProps>((props, ref) => {
   const {
     variant,
     textVariant: textVariantProp,
@@ -255,18 +273,17 @@ export const ButtonBase = forwardRef<ButtonBaseProps, 'button'>((props, ref) => 
     children,
     disabled,
     type = 'button',
-    as = 'button',
+    component,
     ...other
   } = props;
 
-  const Component = as || 'button';
+  const Component = component || 'button';
   const textVariant = textVariantProp || (size === 'small' ? 'btn2' : 'btn1');
 
   return (
     <Component
       {...other}
       ref={ref}
-      // eslint-disable-next-line react/button-has-type
       type={type}
       disabled={disabled}
       className={cx({
@@ -299,7 +316,7 @@ export const ButtonBase = forwardRef<ButtonBaseProps, 'button'>((props, ref) => 
       </Typography>
     </Component>
   );
-});
+}) as OverridableComponent<ButtonBaseTypeMap>;
 
 ButtonBase.displayName = 'ButtonBase';
 

@@ -412,7 +412,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
       <Typography
         {...propsRoot}
         noWrap
-        as="button"
+        component="button"
         variant="c1"
         color={isValueEmpty ? 'gray-9' : 'black'}
         className={cx({

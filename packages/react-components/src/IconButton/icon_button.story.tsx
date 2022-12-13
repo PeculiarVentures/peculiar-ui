@@ -7,7 +7,7 @@ export default {
   component: IconButton,
   argTypes: {
     children: { control: false },
-    as: { control: false },
+    component: { control: false },
   },
 };
 

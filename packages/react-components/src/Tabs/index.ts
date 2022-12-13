@@ -1,2 +1,6 @@
 export { Tabs } from './tabs';
-export { Tab } from './tab';
+export {
+  Tab,
+  TabOwnProps,
+  TabProps,
+} from './tab';

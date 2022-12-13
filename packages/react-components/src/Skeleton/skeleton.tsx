@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { forwardRef } from '../system';
+import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import {
   css,
   cx,
@@ -8,7 +8,10 @@ import {
 } from '../styles';
 import { Box } from '../Box';
 
-export type SkeletonProps = {
+/**
+ * Types.
+ */
+export interface SkeletonOwnProps {
   /**
    * Optional children to infer width and height from.
    */
@@ -25,12 +28,22 @@ export type SkeletonProps = {
    * The type of content that will be rendered.
    */
   variant?: ('text' | 'rect' | 'circle');
-  /**
-   * The className of the component.
-   */
-  className?: string;
   background?: ColorType;
+}
+
+export interface SkeletonTypeMap<P = {}, D extends React.ElementType = 'span'> {
+  props: P & SkeletonOwnProps;
+  defaultComponent: D;
+}
+
+export type SkeletonProps<
+  D extends React.ElementType = SkeletonTypeMap['defaultComponent'],
+> = OverrideProps<SkeletonTypeMap<{}, D>, D> & {
+  component?: D;
 };
+/**
+ *
+ */
 
 /**
  * Styles.
@@ -89,21 +102,19 @@ const stylesBase = (props: SkeletonProps) => css({
  *
  */
 
-export const Skeleton = forwardRef<SkeletonProps, 'span'>((props, ref) => {
+export const Skeleton = React.forwardRef<any, SkeletonProps>((props, ref) => {
   const {
     children,
     height,
     width,
     variant,
     className,
-    as = 'span',
     ...other
   } = props;
 
   return (
     <Box
-      ref={ref}
-      as={as}
+      ref={ref as React.Ref<any>}
       className={cx({
         [stylesBase(props)]: true,
         [className]: !!className,
@@ -113,7 +124,7 @@ export const Skeleton = forwardRef<SkeletonProps, 'span'>((props, ref) => {
       {children}
     </Box>
   );
-});
+}) as OverridableComponent<SkeletonTypeMap>;
 
 Skeleton.displayName = 'Skeleton';
 

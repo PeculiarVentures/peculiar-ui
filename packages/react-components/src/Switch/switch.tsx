@@ -146,7 +146,7 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
       })}
     >
       <Box
-        as="span"
+        component="span"
         className={cx(stylesControl())}
       >
         <input

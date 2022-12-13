@@ -1,1 +1,5 @@
-export { IconButton } from './icon_button';
+export {
+  IconButton,
+  IconButtonOwnProps,
+  IconButtonProps,
+} from './icon_button';

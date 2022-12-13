@@ -35,6 +35,6 @@ export default {
     onDelete: { control: false },
     onClick: { control: false },
     startContent: { control: false },
-    as: { control: false },
+    component: { control: false },
   },
 };

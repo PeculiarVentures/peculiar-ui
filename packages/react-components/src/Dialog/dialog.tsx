@@ -172,7 +172,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
             [className]: !!className,
           })}
           tabIndex={-1}
-          as="fieldset"
+          component="fieldset"
           disabled={loading}
         >
           {children}

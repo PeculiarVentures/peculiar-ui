@@ -164,7 +164,7 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
       })}
     >
       <Box
-        as="span"
+        component="span"
         className={cx(stylesControl())}
       >
         <input

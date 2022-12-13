@@ -187,7 +187,7 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
           })}
         >
           <Typography
-            as="span"
+            component="span"
             variant="c2"
             color="gray-10"
           >

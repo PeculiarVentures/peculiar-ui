@@ -8,7 +8,7 @@ export default {
     children: { control: 'text' },
     startIcon: { control: false },
     endIcon: { control: false },
-    as: { control: false },
+    component: { control: false },
   },
 };
 

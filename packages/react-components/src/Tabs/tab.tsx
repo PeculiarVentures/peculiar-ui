@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { forwardRef } from '../system';
+import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { css, cx, ColorType } from '../styles';
 import { Typography } from '../Typography';
 
-export type TabProps = {
+/**
+ * Types.
+ */
+export interface TabOwnProps {
   /**
    * The content of the component.
    */
@@ -12,10 +15,6 @@ export type TabProps = {
    * Unique identifier used to control which tab is selected.
    */
   id: string;
-  /**
-   * The className of the component.
-   */
-  className?: string;
   /**
    * If `true`, the tab will be disabled.
    */
@@ -29,9 +28,25 @@ export type TabProps = {
    */
   onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
   onClick?: never;
-  'data-testid'?: string;
-};
+}
 
+export interface TabTypeMap<P = {}, D extends React.ElementType = 'button'> {
+  props: P & TabOwnProps;
+  defaultComponent: D;
+}
+
+export type TabProps<
+  D extends React.ElementType = TabTypeMap['defaultComponent'],
+> = OverrideProps<TabTypeMap<{}, D>, D> & {
+  component?: D;
+};
+/**
+ *
+ */
+
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'Tab',
   fontFamily: 'inherit',
@@ -67,21 +82,24 @@ const stylesBase = () => css({
     },
   },
 });
+/**
+ *
+ */
 
-export const Tab = forwardRef<TabProps, 'button'>((props, ref) => {
+export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
   const {
     children,
     className,
     disabled,
     id,
     color = 'black',
-    as = 'button',
+    component,
     onChange,
     // @ts-ignore
     selected,
     ...other
   } = props;
-  const Component = as || 'button';
+  const Component = component || 'button';
 
   const textColor: ColorType = React.useMemo(() => {
     if (disabled) {
@@ -126,14 +144,14 @@ export const Tab = forwardRef<TabProps, 'button'>((props, ref) => {
     >
       <Typography
         variant="s2"
-        as="span"
+        component="span"
         color={textColor}
       >
         {children}
       </Typography>
     </Component>
   );
-});
+}) as OverridableComponent<TabTypeMap>;
 
 Tab.displayName = 'Tab';
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { forwardRef } from '../system';
+import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { css, cx } from '../styles';
 import { Typography } from '../Typography';
 import { CloseSmallIcon } from '../icons';
@@ -7,7 +7,7 @@ import { CloseSmallIcon } from '../icons';
 /**
  * Types.
  */
-export type ChipProps = {
+export interface ChipOwnProps {
   /**
    * The content of the component.
    */
@@ -29,10 +29,6 @@ export type ChipProps = {
    */
   color?: ('secondary' | 'wrong' | 'default');
   /**
-   * The className of the component.
-   */
-  className?: string;
-  /**
    * Element placed before the children.
    */
   startContent?: React.ReactElement;
@@ -44,7 +40,17 @@ export type ChipProps = {
    * Callback function fired when the component is clicked. If set, the component will be clickable.
    */
   onClick?: React.MouseEventHandler<HTMLElement>;
-  'data-testid'?: string;
+}
+
+export interface ChipTypeMap<P = {}, D extends React.ElementType = 'div'> {
+  props: P & ChipOwnProps;
+  defaultComponent: D;
+}
+
+export type ChipProps<
+  D extends React.ElementType = ChipTypeMap['defaultComponent'],
+> = OverrideProps<ChipTypeMap<{}, D>, D> & {
+  component?: D;
 };
 /**
  *
@@ -198,7 +204,7 @@ const stylesStartContent = () => css({
  *
  */
 
-export const Chip = forwardRef<ChipProps, 'div'>((props, ref) => {
+export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
   const {
     children,
     disabled,
@@ -207,7 +213,7 @@ export const Chip = forwardRef<ChipProps, 'div'>((props, ref) => {
     color,
     className,
     startContent: startContentProp,
-    as = 'div',
+    component,
     onClick,
     onDelete,
     ...other
@@ -258,7 +264,7 @@ export const Chip = forwardRef<ChipProps, 'div'>((props, ref) => {
     </span>
   );
 
-  const Component = as || 'button';
+  const Component = component || 'div';
 
   return (
     <Component
@@ -283,7 +289,7 @@ export const Chip = forwardRef<ChipProps, 'div'>((props, ref) => {
       {startContent}
       <Typography
         variant="b3"
-        as="span"
+        component="span"
         color="inherit"
         noWrap
       >
@@ -292,7 +298,7 @@ export const Chip = forwardRef<ChipProps, 'div'>((props, ref) => {
       {renderDeleteAction()}
     </Component>
   );
-});
+}) as OverridableComponent<ChipTypeMap>;
 
 Chip.displayName = 'Chip';
 

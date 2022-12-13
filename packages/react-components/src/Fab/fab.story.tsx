@@ -17,6 +17,6 @@ export default {
   component: Fab,
   argTypes: {
     children: { control: false },
-    as: { control: false },
+    component: { control: false },
   },
 };

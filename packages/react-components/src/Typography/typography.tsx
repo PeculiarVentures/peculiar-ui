@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { forwardRef } from '../system';
+import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import {
   css,
   cx,
@@ -7,7 +7,10 @@ import {
   TypographyType,
 } from '../styles';
 
-export type TypographyProps = {
+/**
+ * Types.
+ */
+export interface TypographyOwnProps {
   /**
    * The content of the component.
    */
@@ -21,18 +24,30 @@ export type TypographyProps = {
    */
   color?: ColorType | 'inherit';
   /**
-   * The className of the component.
-   */
-  className?: string;
-  /**
    * If `true`, the text will not wrap, but instead will truncate with a text overflow ellipsis.
    * Note that text overflow can only happen with block or inline-block level elements
    * (the element needs to have a width in order to overflow).
    */
   noWrap?: boolean;
-  'data-testid'?: string;
-};
+}
 
+export interface TypographyTypeMap<P = {}, D extends React.ElementType = 'p'> {
+  props: P & TypographyOwnProps;
+  defaultComponent: D;
+}
+
+export type TypographyProps<
+  D extends React.ElementType = TypographyTypeMap['defaultComponent'],
+> = OverrideProps<TypographyTypeMap<{}, D>, D> & {
+  component?: D;
+};
+/**
+ *
+ */
+
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'Typography',
   margin: 0,
@@ -57,34 +72,38 @@ const stylesNoWrap = () => css({
   whiteSpace: 'nowrap',
   textOverflow: 'ellipsis',
 });
+/**
+ *
+ */
 
-export const Typography = forwardRef<TypographyProps, 'p'>((props, ref) => {
+const variantMapping: Record<TypographyType, 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'> = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  s1: 'h6',
+  s2: 'h6',
+  b1: 'p',
+  b2: 'p',
+  b3: 'p',
+  btn1: 'span',
+  btn2: 'span',
+  c1: 'p',
+  c2: 'p',
+};
+
+export const Typography = React.forwardRef<any, TypographyProps>((props, ref) => {
   const {
     variant,
     className,
     color,
     noWrap,
-    as,
+    component,
     ...other
   } = props;
 
-  const getTagFromVariantProp = () => {
-    if (/h/.test(variant)) {
-      return variant as string;
-    }
-
-    if (/s/.test(variant)) {
-      return 'h6';
-    }
-
-    if (/btn/.test(variant)) {
-      return 'span';
-    }
-
-    return 'p';
-  };
-
-  const Component = as || getTagFromVariantProp();
+  const Component = component || variantMapping[variant] || 'p';
 
   return (
     <Component
@@ -99,7 +118,7 @@ export const Typography = forwardRef<TypographyProps, 'p'>((props, ref) => {
       })}
     />
   );
-});
+}) as OverridableComponent<TypographyTypeMap>;
 
 Typography.displayName = 'Typography';
 

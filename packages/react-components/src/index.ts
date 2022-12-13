@@ -32,3 +32,4 @@ export * from './Tooltip';
 export * from './Typography';
 export * from './styles';
 export * from './hooks';
+export * from './OverridableComponent';

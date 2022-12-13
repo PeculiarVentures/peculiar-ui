@@ -208,7 +208,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
           })}
         >
           <Typography
-            as="span"
+            component="span"
             variant={size === 'small' ? 'c2' : 'b3'}
             color={color === 'black' ? 'white' : 'black'}
           >

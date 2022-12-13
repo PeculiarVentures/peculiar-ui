@@ -1,1 +1,5 @@
-export { Chip } from './chip';
+export {
+  Chip,
+  ChipOwnProps,
+  ChipProps,
+} from './chip';

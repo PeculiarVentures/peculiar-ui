@@ -170,7 +170,7 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
       })}
     >
       <Box
-        as="span"
+        component="span"
         className={cx(stylesControl())}
       >
         <input

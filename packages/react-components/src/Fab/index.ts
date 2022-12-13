@@ -1,1 +1,5 @@
-export { Fab } from './fab';
+export {
+  Fab,
+  FabOwnProps,
+  FabProps,
+} from './fab';
