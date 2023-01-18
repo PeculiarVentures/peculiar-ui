@@ -11,6 +11,10 @@ export const PlusIcon: React.FC<IconProps> = (props) => (
     width="24px"
     height="24px"
   >
-    <path d="M6 12.5h12M12 18.5v-12" stroke="currentColor" strokeWidth="1.5" />
+    <path
+      d="M6 12.5h12M12 18.5v-12"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    />
   </svg>
 );

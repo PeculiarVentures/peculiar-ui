@@ -35,6 +35,7 @@ export function useClipboard(
 
   const onCopy = useCallback(() => {
     const didCopy = copy(text, copyOptions);
+
     setHasCopied(didCopy);
   }, [text, copyOptions]);
 

@@ -11,6 +11,11 @@ export const DotIcon: React.FC<IconProps> = (props) => (
     width="24px"
     height="24px"
   >
-    <circle cx="12" cy="12" r="6" fill="currentColor" />
+    <circle
+      cx="12"
+      cy="12"
+      r="6"
+      fill="currentColor"
+    />
   </svg>
 );

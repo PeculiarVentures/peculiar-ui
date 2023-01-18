@@ -280,9 +280,9 @@ const stylesButtonCreateNew = () => css({
  *
  */
 
-export function Autocomplete<T, Multiple extends boolean | undefined = undefined>(
+export const Autocomplete = <T, Multiple extends boolean | undefined = undefined>(
   props: AutocompleteProps<T, Multiple>,
-): JSX.Element {
+): JSX.Element => {
   const {
     className,
     placeholder,
@@ -512,6 +512,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
             {groupedOptions
               // @ts-ignore
               .map((option, index) => {
+                // @ts-ignore
                 if (groupBy && 'options' in option) {
                   return renderGroup({
                     key: option.key,
@@ -548,7 +549,7 @@ export function Autocomplete<T, Multiple extends boolean | undefined = undefined
       </Popover>
     </>
   );
-}
+};
 
 // @ts-ignore
 Autocomplete.defaultProps = {

@@ -134,6 +134,7 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
     ...other
   } = props;
   const id = useId(idProp);
+
   return (
     <label
       {...other}
