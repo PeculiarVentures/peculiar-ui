@@ -1,4 +1,10 @@
+/**
+ * @type {import('@storybook/react/types').StorybookConfig}
+ */
 module.exports = {
+  core: {
+    builder: 'webpack5',
+  },
   stories: [
     '../docs/**/*.story.mdx',
     '../src/**/*.story.tsx',
@@ -9,13 +15,9 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-viewport',
     '@storybook/addon-actions',
-    // 'storybook-addon-performance/register',
   ],
   typescript: {
     check: true,
-    checkOptions: {
-      eslint: true,
-    },
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
