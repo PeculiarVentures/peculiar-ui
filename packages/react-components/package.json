@@ -1,7 +1,7 @@
 {
   "name": "@peculiar/react-components",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "PeculiarVentures Team",
   "description": "A simple and customizable component library to build faster, beautiful, and more accessible React applications.",
   "keywords": [
@@ -42,7 +42,7 @@
   "dependencies": {
     "@emotion/core": "^10.1.1",
     "@emotion/css": "^11.7.1",
-    "@peculiar/color": "^0.0.1",
+    "@peculiar/color": "^0.1.0",
     "@popperjs/core": "^2.11.5",
     "@types/flat": "^5.0.2",
     "@types/react-transition-group": "^4.4.4",
@@ -60,10 +60,10 @@
     "@storybook/addon-controls": "^6.5.15",
     "@storybook/addon-docs": "^6.5.15",
     "@storybook/addon-viewport": "^6.5.15",
-    "@storybook/react": "^6.5.15",
-    "@storybook/theming": "^6.5.15",
     "@storybook/builder-webpack5": "^6.5.15",
     "@storybook/manager-webpack5": "^6.5.15",
+    "@storybook/react": "^6.5.15",
+    "@storybook/theming": "^6.5.15",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.5.0",
