@@ -76,6 +76,11 @@ export type AutocompleteProps<T, Multiple extends boolean | undefined = undefine
      */
     allowCreateOption?: boolean;
     /**
+     * If `true`, the `input` will indicate an error.
+     */
+    error?: boolean;
+    errorText?: string;
+    /**
      * Render the root element.
      */
     renderRoot?: (
@@ -137,6 +142,10 @@ const stylesRoot = () => css({
     color: 'var(--pv-color-gray-7)',
   },
   '&:not(:disabled)': {
+    '&[aria-invalid]': {
+      backgroundColor: 'var(--pv-color-wrong-tint-5)',
+      borderColor: 'var(--pv-color-wrong-tint-3)',
+    },
     '&:focus': {
       backgroundColor: 'var(--pv-color-secondary-tint-5)',
       borderColor: 'var(--pv-color-secondary-tint-3)',
@@ -276,6 +285,11 @@ const stylesButtonCreateNew = () => css({
   justifyContent: 'left',
   padding: '0px var(--pv-size-base-2)',
 });
+
+const stylesError = () => css({
+  label: 'TextField-error',
+  marginTop: '2px',
+});
 /**
  *
  */
@@ -297,6 +311,8 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
     multiple,
     createOptionText,
     allowCreateOption,
+    error,
+    errorText,
     renderRoot: renderRootProp,
     renderOption: renderOptionProp,
     getLimitTagsText = (more) => `${more} more`,
@@ -420,6 +436,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
           [stylesRootMultiple()]: multiple,
           [className]: !!className,
         })}
+        aria-invalid={error || undefined}
         type="button"
       >
         {isValueEmpty ? placeholder : renderedValue}
@@ -457,7 +474,17 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
   return (
     <>
       {renderRoot({ ...getRootProps(), disabled }, value, getTagProps)}
-
+      {error && errorText && (
+        <Typography
+          variant="c2"
+          color="wrong"
+          className={cx({
+            [stylesError()]: true,
+          })}
+        >
+          {errorText}
+        </Typography>
+      )}
       <Popover
         placement="bottom-start"
         allowUseSameWidth
