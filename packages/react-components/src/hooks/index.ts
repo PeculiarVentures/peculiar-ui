@@ -5,6 +5,7 @@ export { useControllableState, UseControllableStateProps } from './use_controlla
 export { useId } from './use_id';
 export { useImage } from './use_image';
 export { useWindowEventListener } from './use_window_event_listener';
+export { useIntersectionObserver } from './use_intersection_observer';
 export {
   useAutocomplete,
   UseAutocompleteProps,
