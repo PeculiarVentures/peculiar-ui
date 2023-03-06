@@ -28,7 +28,7 @@ export type IntersectionObserverHookResult = [
  *
  * ```jsx
  * function App(){
- *   const [refIntersecting, { isIntersecting }] = useImage("image.png")
+ *   const [refIntersecting, { isIntersecting }] = useIntersectionObserver();
  *   return (
  *      <div
  *        ref={refIntersecting}
