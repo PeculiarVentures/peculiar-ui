@@ -18,6 +18,26 @@ export type IntersectionObserverHookResult = [
  * React sensor hook that tracks the changes in
  * the intersection of a target element with an ancestor element
  * or with a top-level document's viewport.
+ *
+ * @returns
+ * the refCallback function to determine which item to observe
+ * @returns
+ * the isIntersecting value to detect observing item is intersecting
+ *
+ * @example
+ *
+ * ```jsx
+ * function App(){
+ *   const [refIntersecting, { isIntersecting }] = useImage("image.png")
+ *   return (
+ *      <div
+ *        ref={refIntersecting}
+ *      >
+ *        {isIntersecting ? 'I\'m in the viewport' : null}
+ *      </div>
+ *   );
+ * }
+ * ```
  */
 export function useIntersectionObserver(): IntersectionObserverHookResult {
   const nodeRef = React.useRef<IntersectionObserverHookRefCallbackNode>(null);
@@ -32,6 +52,7 @@ export function useIntersectionObserver(): IntersectionObserverHookResult {
   const refCallback = React.useCallback<IntersectionObserverHookRefCallback>(
     (node) => {
       if (node) {
+        intersectionObserver.init();
         nodeRef.current = node;
         intersectionObserver.add(node, setIntersecting);
       }
