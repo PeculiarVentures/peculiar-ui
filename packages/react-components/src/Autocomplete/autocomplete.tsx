@@ -30,6 +30,14 @@ export type AutocompleteProps<T, Multiple extends boolean | undefined = undefine
      */
     className?: string;
     /**
+     * The size of the root component.
+     */
+    size?: (
+      'small' |
+      'medium' |
+      'large'
+    );
+    /**
      * The short hint displayed in the `input` before the user enters a value.
      */
     placeholder?: string;
@@ -113,7 +121,7 @@ const stylesContainer = () => css({
   position: 'relative',
 });
 
-const stylesRoot = () => css({
+const stylesRoot = (size: AutocompleteProps<any>['size']) => css({
   label: 'Autocomplete-root',
   outline: 'none',
   boxSizing: 'border-box',
@@ -131,6 +139,12 @@ const stylesRoot = () => css({
   cursor: 'pointer',
   fontFamily: 'inherit',
   height: 'var(--pv-size-base-8)',
+  ...(size === 'small' && {
+    height: 'var(--pv-size-base-6)',
+  }),
+  ...(size === 'medium' && {
+    height: 'var(--pv-size-base-7)',
+  }),
   '&:hover': {
     backgroundColor: 'var(--pv-color-gray-3)',
     borderColor: 'var(--pv-color-gray-7)',
@@ -237,7 +251,7 @@ const stylesTagsList = () => css({
   width: '100%',
 });
 
-const stylesTag = (tagsLength: number, limitTags: number) => css({
+const stylesTag = (tagsLength: number, limitTags: number, size: AutocompleteProps<any>['size']) => css({
   label: 'Autocomplete-tag',
   borderRadius: '2px',
   borderColor: 'var(--pv-color-gray-7)',
@@ -247,6 +261,9 @@ const stylesTag = (tagsLength: number, limitTags: number) => css({
   }),
   ...(tagsLength > 1 && limitTags && {
     maxWidth: `calc(${100 / limitTags}% - var(--pv-size-base))`,
+  }),
+  ...(size === 'small' && {
+    height: 'var(--pv-size-base-5)',
   }),
 });
 
@@ -299,6 +316,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
 ): JSX.Element => {
   const {
     className,
+    size,
     placeholder,
     disableSearch,
     disabled = false,
@@ -396,7 +414,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
                 {...getTagProps(v, index)}
                 color="default"
                 variant="contained"
-                className={stylesTag(value.length, limitTags)}
+                className={stylesTag(value.length, limitTags, size)}
               >
                 {getOptionLabel(v)}
               </Chip>
@@ -432,7 +450,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
         variant="c1"
         color={isValueEmpty ? 'gray-9' : 'black'}
         className={cx({
-          [stylesRoot()]: true,
+          [stylesRoot(size)]: true,
           [stylesRootMultiple()]: multiple,
           [className]: !!className,
         })}
@@ -588,4 +606,5 @@ Autocomplete.defaultProps = {
   required: false,
   allowCreateOption: false,
   createOptionText: 'Create new',
+  size: 'large',
 };
