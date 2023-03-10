@@ -13,6 +13,13 @@ type BaseProps = {
    */
   defaultChecked?: boolean;
   /**
+   * The color of the component.
+   */
+  color?: (
+    'primary' |
+    'secondary'
+  );
+  /**
    * Attributes applied to the input element.
    */
   inputProps?: Omit<React.InputHTMLAttributes<HTMLInputElement>, 'className' | 'type'>;
@@ -61,7 +68,7 @@ const stylesBaseDisabled = () => css({
   cursor: 'not-allowed',
 });
 
-const stylesInput = () => css({
+const stylesInput = (props: BaseProps) => css({
   label: 'Switch-input',
   overflow: 'hidden',
   width: '100%',
@@ -73,7 +80,7 @@ const stylesInput = () => css({
   appearance: 'none',
   backgroundColor: 'var(--pv-color-gray-6)',
   '&:checked': {
-    backgroundColor: 'var(--pv-color-primary)',
+    backgroundColor: `var(--pv-color-${props.color})`,
     '+ [aria-hidden]': {
       transform: 'translate(calc(100% - 1px),-50%)',
     },
@@ -81,7 +88,7 @@ const stylesInput = () => css({
   '&:disabled': {
     opacity: 0.4,
     '&:checked': {
-      backgroundColor: 'var(--pv-color-primary-tint-3)',
+      backgroundColor: `var(--pv-color-${props.color}-tint-3)`,
       opacity: 0.6,
     },
     '+ [aria-hidden]': {
@@ -90,12 +97,12 @@ const stylesInput = () => css({
   },
 });
 
-const stylesControl = () => css({
+const stylesControl = (props: BaseProps) => css({
   label: 'Switch-control',
   width: 'var(--pv-size-base-7)',
   height: 'var(--pv-size-base-4)',
   position: 'relative',
-  color: 'var(--pv-color-primary)',
+  color: `var(--pv-color-${props.color})`,
   '&:after': {
     top: '-10px',
     left: '-10px',
@@ -124,6 +131,7 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
   const {
     checked,
     defaultChecked,
+    color = 'primary',
     required,
     inputProps,
     className,
@@ -148,7 +156,7 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
     >
       <Box
         component="span"
-        className={cx(stylesControl())}
+        className={cx(stylesControl(props))}
       >
         <input
           {...inputProps}
@@ -159,13 +167,13 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
           defaultChecked={defaultChecked}
           required={required}
           disabled={disabled}
-          className={cx(stylesInput())}
+          className={cx(stylesInput(props))}
           onChange={onChange}
         />
         <Box
           aria-hidden
           className={cx(stylesDot())}
-          background="primary-contrast"
+          background={`${color}-contrast`}
           borderColor="gray-3"
           borderWidth={1}
           borderStyle="solid"
@@ -178,4 +186,6 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
 
 Switch.displayName = 'Switch';
 
-Switch.defaultProps = {};
+Switch.defaultProps = {
+  color: 'primary',
+};
