@@ -1,8 +1,17 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Slide } from './index';
 import { Typography } from '../Typography';
 
-export const Playground = (args: any) => (
+export default {
+  title: 'Components/Animation/Slide',
+  component: Slide,
+  argTypes: {
+    children: { control: false },
+  },
+} as ComponentMeta<typeof Slide>;
+
+export const Playground: ComponentStory<typeof Slide> = (args) => (
   <Slide {...args}>
     <Typography
       variant="h1"
@@ -11,11 +20,3 @@ export const Playground = (args: any) => (
     </Typography>
   </Slide>
 );
-
-export default {
-  title: 'Components/Animation/Slide',
-  component: Slide,
-  argTypes: {
-    children: { control: false },
-  },
-};

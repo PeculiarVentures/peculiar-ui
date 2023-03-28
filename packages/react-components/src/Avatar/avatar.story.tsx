@@ -1,7 +1,14 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Avatar } from './index';
 
-const Template = (args: any) => (
+export default {
+  title: 'Components/Avatar',
+  component: Avatar,
+  argTypes: {},
+} as ComponentMeta<typeof Avatar>;
+
+const Template: ComponentStory<typeof Avatar> = (args) => (
   <Avatar
     {...args}
   />
@@ -24,9 +31,3 @@ Fallback.args = {
 };
 
 export const Playground = Template.bind({});
-
-export default {
-  title: 'Components/Avatar',
-  component: Avatar,
-  argTypes: {},
-};

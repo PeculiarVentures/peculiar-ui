@@ -1,21 +1,23 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Typography } from './index';
+import { Portal } from './index';
 
 export default {
-  title: 'Playground/Typography',
-  component: Typography,
+  title: 'Components/Portal',
+  component: Portal,
   argTypes: {
     children: { control: 'text' },
-    component: { control: false },
+    container: {
+      control: false,
+    },
   },
-} as ComponentMeta<typeof Typography>;
+} as ComponentMeta<typeof Portal>;
 
-export const Default: ComponentStory<typeof Typography> = (args) => (
-  <Typography
+export const Playground: ComponentStory<typeof Portal> = (args) => (
+  <Portal
     {...args}
   />
 );
-Default.args = {
+Playground.args = {
   children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
 };

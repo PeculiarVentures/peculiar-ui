@@ -1,8 +1,17 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Collapse } from './index';
 import { Typography } from '../Typography';
 
-export const Playground = (args: any) => {
+export default {
+  title: 'Components/Animation/Collapse',
+  component: Collapse,
+  argTypes: {
+    children: { control: 'text' },
+  },
+} as ComponentMeta<typeof Collapse>;
+
+export const Playground: ComponentStory<typeof Collapse> = (args) => {
   const {
     in: inProp,
     timeout,
@@ -22,15 +31,6 @@ export const Playground = (args: any) => {
     </Collapse>
   );
 };
-
 Playground.args = {
   children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
-};
-
-export default {
-  title: 'Components/Animation/Collapse',
-  component: Collapse,
-  argTypes: {
-    children: { control: 'text' },
-  },
 };

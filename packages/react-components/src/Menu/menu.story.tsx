@@ -1,8 +1,19 @@
 import * as React from 'react';
-import { Menu, MenuProps } from './index';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Menu } from './index';
 import { Button } from '../Button';
 
-export const Playground = (args: MenuProps) => (
+export default {
+  title: 'Components/Menu',
+  component: Menu,
+  argTypes: {
+    children: { control: false },
+    options: { control: false },
+    popoverProps: { control: false },
+  },
+} as ComponentMeta<typeof Menu>;
+
+export const Playground: ComponentStory<typeof Menu> = (args) => (
   <Menu
     {...args}
     options={[
@@ -26,15 +37,4 @@ export const Playground = (args: MenuProps) => (
     </Button>
   </Menu>
 );
-
 Playground.args = {};
-
-export default {
-  title: 'Components/Menu',
-  component: Menu,
-  argTypes: {
-    children: { control: false },
-    options: { control: false },
-    popoverProps: { control: false },
-  },
-};

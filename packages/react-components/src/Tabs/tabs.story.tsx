@@ -1,7 +1,18 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Tabs, Tab } from './index';
 
-export const Playground = (args: any) => {
+export default {
+  title: 'Components/Tabs',
+  component: Tabs,
+  argTypes: {
+    children: { control: false },
+    value: { control: false },
+  },
+  subcomponents: { Tab },
+} as ComponentMeta<typeof Tabs>;
+
+export const Playground: ComponentStory<typeof Tabs> = (args) => {
   const [value, setValue] = React.useState('home');
 
   return (
@@ -22,15 +33,4 @@ export const Playground = (args: any) => {
     </Tabs>
   );
 };
-
 Playground.args = {};
-
-export default {
-  title: 'Components/Tabs',
-  component: Tabs,
-  argTypes: {
-    children: { control: false },
-    value: { control: false },
-  },
-  subcomponents: { Tab },
-};

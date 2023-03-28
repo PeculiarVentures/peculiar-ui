@@ -1,14 +1,6 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Radio } from './index';
-
-const Template = (args: any) => (
-  <Radio
-    {...args}
-  />
-);
-
-export const Default = Template.bind({});
-Default.args = {};
 
 export default {
   title: 'Components/Radio',
@@ -17,4 +9,13 @@ export default {
     inputProps: { control: false },
     checkedIcon: { control: false },
   },
-};
+} as ComponentMeta<typeof Radio>;
+
+const Template: ComponentStory<typeof Radio> = (args) => (
+  <Radio
+    {...args}
+  />
+);
+
+export const Default = Template.bind({});
+Default.args = {};

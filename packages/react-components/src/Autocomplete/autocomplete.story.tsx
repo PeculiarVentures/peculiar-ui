@@ -1,11 +1,27 @@
 import * as React from 'react';
-import type { Story } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Autocomplete } from './index';
-import { AutocompleteProps } from './autocomplete';
 import { Chip } from '../Chip';
 import { IconButton } from '../IconButton';
 
-const top100Films = [
+export default {
+  title: 'Components/Autocomplete',
+  component: Autocomplete,
+  argTypes: {
+    options: { control: false },
+    getOptionLabel: { control: false },
+    defaultValue: { control: false },
+    value: { control: false },
+    filterOptions: { control: false },
+  },
+} as ComponentMeta<typeof Autocomplete>;
+
+type OptionFilmType = {
+  title: string;
+  year: number;
+};
+
+const top100Films: OptionFilmType[] = [
   { title: 'The Shawshank Redemption', year: 1994 },
   { title: 'The Godfather', year: 1972 },
   { title: 'The Godfather: Part II', year: 1974 },
@@ -108,21 +124,22 @@ const top100Films = [
   { title: 'Monty Python and the Holy Grail', year: 1975 },
 ];
 
-const Template: Story<any> = (args) => (
+const Template: ComponentStory<typeof Autocomplete<OptionFilmType>> = (args) => (
   <Autocomplete
     {...args}
   />
 );
 
-export const Default: Story<AutocompleteProps<{ title: string; year: number }>> = Template.bind({});
+export const Default = Template.bind({});
 Default.args = {
   options: top100Films,
   placeholder: 'Select a movie',
   getOptionLabel: (option) => option.title,
 };
 
-// eslint-disable-next-line max-len
-export const Multiple: Story<AutocompleteProps<{ title: string; year: number }, true>> = Template.bind({});
+// @ts-ignore
+export const Multiple: ComponentStory<typeof Autocomplete<OptionFilmType, true>> = Template
+  .bind({});
 Multiple.args = {
   options: top100Films,
   placeholder: 'Select a movie',
@@ -130,7 +147,7 @@ Multiple.args = {
   multiple: true,
 };
 
-export const Grouped: Story<AutocompleteProps<{ title: string; year: number }>> = Template.bind({});
+export const Grouped = Template.bind({});
 Grouped.args = {
   options: top100Films.sort((a, b) => a.year - b.year),
   placeholder: 'Select a movie',
@@ -138,8 +155,9 @@ Grouped.args = {
   groupBy: (option) => option.year.toString(),
 };
 
-// eslint-disable-next-line max-len
-export const RootRender: Story<AutocompleteProps<{ title: string; year: number }, true>> = Template.bind({});
+// @ts-ignore
+export const RootRender: ComponentStory<typeof Autocomplete<OptionFilmType, true>> = Template
+  .bind({});
 RootRender.args = {
   options: top100Films,
   placeholder: 'Select a movie',
@@ -167,16 +185,4 @@ RootRender.args = {
     </>
   ),
   multiple: true,
-};
-
-export default {
-  title: 'Components/Autocomplete',
-  component: Autocomplete,
-  argTypes: {
-    options: { control: false },
-    getOptionLabel: { control: false },
-    defaultValue: { control: false },
-    value: { control: false },
-    filterOptions: { control: false },
-  },
 };

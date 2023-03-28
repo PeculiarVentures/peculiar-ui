@@ -1,14 +1,6 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Switch } from './index';
-
-const Template = (args: any) => (
-  <Switch
-    {...args}
-  />
-);
-
-export const Default = Template.bind({});
-Default.args = {};
 
 export default {
   title: 'Components/Switch',
@@ -16,4 +8,13 @@ export default {
   argTypes: {
     inputProps: { control: false },
   },
-};
+} as ComponentMeta<typeof Switch>;
+
+const Template: ComponentStory<typeof Switch> = (args) => (
+  <Switch
+    {...args}
+  />
+);
+
+export const Default = Template.bind({});
+Default.args = {};

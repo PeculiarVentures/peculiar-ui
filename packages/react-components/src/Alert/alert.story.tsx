@@ -1,7 +1,16 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Alert } from './index';
 
-export const Playground = (args: any) => (
+export default {
+  title: 'Components/Alert',
+  component: Alert,
+  argTypes: {
+    children: { control: 'text' },
+  },
+} as ComponentMeta<typeof Alert>;
+
+export const Playground: ComponentStory<typeof Alert> = (args) => (
   <>
     <Alert
       {...args}
@@ -13,15 +22,6 @@ export const Playground = (args: any) => (
     />
   </>
 );
-
 Playground.args = {
   children: 'This is a message!',
-};
-
-export default {
-  title: 'Components/Alert',
-  component: Alert,
-  argTypes: {
-    children: { control: 'text' },
-  },
 };

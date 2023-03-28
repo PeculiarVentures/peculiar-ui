@@ -1,9 +1,18 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Drawer } from './index';
 import { Button } from '../Button';
 import { Typography } from '../Typography';
 
-export const Playground = (args: any) => (
+export default {
+  title: 'Components/Drawer',
+  component: Drawer,
+  argTypes: {
+    children: { control: false },
+  },
+} as ComponentMeta<typeof Drawer>;
+
+export const Playground: ComponentStory<typeof Drawer> = (args) => (
   <Drawer
     {...args}
     style={{
@@ -18,13 +27,4 @@ export const Playground = (args: any) => (
     </Button>
   </Drawer>
 );
-
 Playground.args = {};
-
-export default {
-  title: 'Components/Drawer',
-  component: Drawer,
-  argTypes: {
-    children: { control: false },
-  },
-};

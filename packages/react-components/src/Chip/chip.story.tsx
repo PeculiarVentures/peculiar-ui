@@ -1,7 +1,21 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Chip } from './index';
 
-export const Playground = (args: any) => (
+export default {
+  title: 'Components/Chip',
+  component: Chip,
+  argTypes: {
+    children: { control: false },
+    deleteIcon: { control: false },
+    onDelete: { control: false },
+    onClick: { control: false },
+    startContent: { control: false },
+    component: { control: false },
+  },
+} as ComponentMeta<typeof Chip>;
+
+export const Playground: ComponentStory<typeof Chip> = (args) => (
   <>
     <Chip
       {...args}
@@ -23,18 +37,4 @@ export const Playground = (args: any) => (
     </Chip>
   </>
 );
-
 Playground.args = {};
-
-export default {
-  title: 'Components/Chip',
-  component: Chip,
-  argTypes: {
-    children: { control: false },
-    deleteIcon: { control: false },
-    onDelete: { control: false },
-    onClick: { control: false },
-    startContent: { control: false },
-    component: { control: false },
-  },
-};

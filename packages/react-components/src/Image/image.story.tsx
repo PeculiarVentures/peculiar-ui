@@ -1,7 +1,17 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Image } from './index';
 
-const Template = (args: any) => (
+export default {
+  title: 'Components/Image',
+  component: Image,
+  argTypes: {
+    fallback: { control: false },
+    loading: { control: false },
+  },
+} as ComponentMeta<typeof Image>;
+
+const Template: ComponentStory<typeof Image> = (args) => (
   <Image
     {...args}
   />
@@ -24,12 +34,3 @@ Fallback.args = {
 };
 
 export const Playground = Template.bind({});
-
-export default {
-  title: 'Components/Image',
-  component: Image,
-  argTypes: {
-    fallback: { control: false },
-    loading: { control: false },
-  },
-};

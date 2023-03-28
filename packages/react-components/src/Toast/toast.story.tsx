@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { ToastProvider, useToast } from './index';
 
+export default {
+  title: 'Components/Toast',
+};
+
 const Test = () => {
   const toast = useToast();
 
@@ -102,9 +106,4 @@ export const Playground = () => (
     <Test />
   </ToastProvider>
 );
-
 Playground.args = {};
-
-export default {
-  title: 'Components/Toast',
-};

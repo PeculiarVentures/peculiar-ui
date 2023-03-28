@@ -1,15 +1,6 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextareaField } from './index';
-
-export const Playground = (args: any) => (
-  <TextareaField
-    {...args}
-  />
-);
-
-Playground.args = {
-  placeholder: 'Placeholder',
-};
 
 export default {
   title: 'Components/TextareaField',
@@ -19,4 +10,13 @@ export default {
     inputRef: { control: false },
     onChange: { control: false },
   },
+} as ComponentMeta<typeof TextareaField>;
+
+export const Playground: ComponentStory<typeof TextareaField> = (args) => (
+  <TextareaField
+    {...args}
+  />
+);
+Playground.args = {
+  placeholder: 'Placeholder',
 };

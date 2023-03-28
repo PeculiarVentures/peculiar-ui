@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconButton } from './index';
 import { CheckIcon } from '../icons';
 
@@ -9,9 +10,9 @@ export default {
     children: { control: false },
     component: { control: false },
   },
-};
+} as ComponentMeta<typeof IconButton>;
 
-const Template = (args: any) => (
+const Template: ComponentStory<typeof IconButton> = (args) => (
   <IconButton
     {...args}
   >
