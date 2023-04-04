@@ -29,10 +29,12 @@ export const ToastProvider: React.FC<BaseProps> = (props) => {
     toastContainerProps,
     maxToasts = 1,
   } = props;
-  const [toasts, setToasts] = React.useState<ToastType[]>([]);
-  const [queue, setQueue] = React.useState<ToastType[]>([]);
+  const [state, setState] = React.useState<{ toasts: ToastType[], queue: ToastType[] }>({
+    toasts: [],
+    queue: [],
+  });
 
-  const addToast = React.useCallback((options: BaseToastType) => {
+  const addToast = (options: BaseToastType) => {
     const id = options.id || `${Date.now()}${Math.random()}`;
     const newToast: ToastType = {
       ...options,
@@ -40,70 +42,83 @@ export const ToastProvider: React.FC<BaseProps> = (props) => {
       createdAt: Date.now(),
     };
 
-    const inQueue = queue.findIndex((item: ToastType) => item.id === id);
+    setState((prevState) => {
+      const inQueue = prevState.queue.findIndex((item: ToastType) => item.id === id);
 
-    if (inQueue > -1) {
-      return;
-    }
+      if (inQueue > -1) {
+        return prevState;
+      }
 
-    const inToasts = toasts.findIndex((item: ToastType) => item.id === id);
+      const inToasts = prevState.toasts.findIndex((item: ToastType) => item.id === id);
 
-    if (inToasts > -1) {
-      return;
-    }
+      if (inToasts > -1) {
+        return prevState;
+      }
 
-    if (toasts.length >= maxToasts) {
-      setQueue((prevState) => ([
-        ...prevState,
-        newToast,
-      ]));
+      if (prevState.toasts.length >= maxToasts) {
+        return {
+          toasts: prevState.toasts,
+          queue: [
+            ...prevState.queue,
+            newToast,
+          ],
+        };
+      }
 
-      return;
-    }
-
-    setToasts((prevState) => ([
-      ...prevState,
-      newToast,
-    ]));
-  }, [toasts, queue]);
-
-  const removeToast = React.useCallback((id: string) => {
-    const inToasts = toasts.findIndex((item: ToastType) => item.id === id);
-
-    if (inToasts > -1 && queue.length) {
-      return setQueue((prevQueue) => {
-        setToasts((prevToasts) => {
-          const newList = [...prevToasts];
-
-          newList.splice(inToasts, 1);
-          newList.push(prevQueue[0]);
-
-          return newList;
-        });
-
-        return prevQueue.slice(1, prevQueue.length);
-      });
-    }
-
-    if (inToasts > -1) {
-      return setToasts((prevToasts) => prevToasts.filter((item) => item.id !== id));
-    }
-
-    const inQueue = queue.findIndex((item: ToastType) => item.id === id);
-
-    if (inQueue > -1) {
-      return setQueue((prevQueue) => prevQueue.filter((item) => item.id !== id));
-    }
-
-    return undefined;
-  }, [toasts, queue]);
-
-  const removeAllToasts = () => {
-    setToasts([]);
-    setQueue([]);
+      return {
+        queue: prevState.queue,
+        toasts: [
+          ...prevState.toasts,
+          newToast,
+        ],
+      };
+    });
   };
 
-  const hasToasts = Boolean(toasts.length);
+  const removeToast = (id: string) => {
+    setState((prevState) => {
+      const inToasts = prevState.toasts.findIndex((item: ToastType) => item.id === id);
+
+      if (inToasts > -1 && prevState.queue.length) {
+        const newList = [...prevState.toasts];
+
+        newList.splice(inToasts, 1);
+        newList.push(prevState.queue[0]);
+
+        return {
+          queue: prevState.queue.slice(1, prevState.queue.length),
+          toasts: newList,
+        };
+      }
+
+      if (inToasts > -1) {
+        return {
+          queue: prevState.queue,
+          toasts: prevState.toasts.filter((item) => item.id !== id),
+        };
+      }
+
+      const inQueue = prevState.queue.findIndex((item: ToastType) => item.id === id);
+
+      if (inQueue > -1) {
+        return {
+          toasts: prevState.toasts,
+          queue: prevState.queue.filter((item) => item.id !== id),
+        };
+      }
+
+      return prevState;
+    });
+  };
+
+  const removeAllToasts = () => {
+    setState({
+      toasts: [],
+      queue: [],
+    });
+  };
+
+  const hasToasts = Boolean(state.toasts.length);
 
   return (
     <ToastContext.Provider
@@ -117,7 +132,7 @@ export const ToastProvider: React.FC<BaseProps> = (props) => {
       {hasToasts && (
         <Portal>
           <ToastContainer {...toastContainerProps}>
-            {toasts.map((toast) => (
+            {state.toasts.map((toast) => (
               <Toast
                 key={toast.id}
                 id={toast.id}
