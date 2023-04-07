@@ -47,7 +47,7 @@
     "@types/flat": "^5.0.2",
     "@types/react-transition-group": "^4.4.4",
     "copy-to-clipboard": "^3.3.1",
-    "deepmerge": "^4.2.2",
+    "deepmerge": "^4.3.1",
     "flat": "^5.0.2",
     "focus-trap": "^6.7.3",
     "nanoid": "^3.3.3",
