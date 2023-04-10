@@ -1,10 +1,10 @@
 import React from 'react';
-import { render } from '../test-utils';
+import { renderWithWrapper } from '../test-utils';
 import { Avatar } from '../index';
 
 describe('Avatar', () => {
   it('test', () => {
-    render((
+    renderWithWrapper((
       <Avatar />
     ));
   });
