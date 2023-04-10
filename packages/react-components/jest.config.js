@@ -9,4 +9,11 @@ module.exports = {
     "jest-watch-typeahead/filename",
     "jest-watch-typeahead/testname",
   ],
+  transform: {
+    "^.+\\.(ts|tsx)?$": "ts-jest",
+    "^.+\\.(js|jsx)$": "babel-jest",
+  },
+  "transformIgnorePatterns": [
+    "node_modules/(?!nanoid/.*)"
+  ],
 };
