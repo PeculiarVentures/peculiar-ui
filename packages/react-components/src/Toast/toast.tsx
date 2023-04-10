@@ -8,6 +8,10 @@ type BaseProps = {
    */
   id: string;
   /**
+   * The content of the component.
+   */
+  children: React.ReactNode;
+  /**
    * Callback fired when the component requests to be closed.
    */
   onClose: (id: string) => void;
