@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { TransitionProps, TransitionStatus } from 'react-transition-group/Transition';
+import type { TransitionProps } from 'react-transition-group/Transition';
 import { Transition } from 'react-transition-group';
 import { useMergedRef } from '../hooks';
 
@@ -76,7 +76,7 @@ export const Fade = React.forwardRef<any, FadeProps>((props, ref) => {
       nodeRef={nodeRef}
       {...other}
     >
-      {(state: TransitionStatus, childProps: any) => (
+      {(state) => (
         React.cloneElement(children, {
           style: {
             opacity: (state === 'entering' || state === 'entered') ? finalOpacity : 0,
@@ -85,7 +85,6 @@ export const Fade = React.forwardRef<any, FadeProps>((props, ref) => {
             ...children.props.style,
           },
           ref: multiRef,
-          ...childProps,
         })
       )}
     </Transition>
