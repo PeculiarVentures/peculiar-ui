@@ -39,7 +39,7 @@ export const FocusTrap: React.FC<BaseProps> = (props) => {
       clickOutsideDeactivates: false,
       allowOutsideClick: true,
       escapeDeactivates: false,
-      fallbackFocus: () => rootRef.current,
+      fallbackFocus: () => rootRef.current || 'body',
       ...(disableAutoFocus && {
         initialFocus: () => rootRef.current,
       }),
