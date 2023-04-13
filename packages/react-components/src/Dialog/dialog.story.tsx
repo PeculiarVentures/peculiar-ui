@@ -52,6 +52,7 @@ const Template: ComponentStory<typeof Dialog> = (args) => (
 );
 
 export const Playground = Template.bind({});
+
 Playground.args = {
   size: 'small',
 };
