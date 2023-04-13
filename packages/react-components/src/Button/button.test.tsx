@@ -1,5 +1,10 @@
 import React from 'react';
-import { fireEvent, renderWithWrapper as render, screen } from '../test-utils';
+import {
+  fireEvent,
+  userEvent,
+  renderWithWrapper as render,
+  screen,
+} from '../test-utils';
 import { Button } from '../index';
 import { PlusIcon } from '../icons';
 
@@ -11,6 +16,7 @@ describe('<Button />', () => {
 
     expect(button).toBeInTheDocument();
     expect(button).toHaveTextContent('Text');
+    expect(button.tagName).toBe('BUTTON');
     expect(button.getAttribute('class')).toMatch(/Button-medium/i);
   });
   it('should render a text button', () => {
@@ -58,15 +64,38 @@ describe('<Button />', () => {
     fireEvent.click(screen.getByRole('button'));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
+  it("shouldn't calls onClick when disabled has been passed to the component", () => {
+    const handleClick = jest.fn();
+
+    render(
+      <Button onClick={handleClick} disabled>
+        Click
+      </Button>,
+    );
+    fireEvent.click(screen.getByRole('button'));
+    expect(handleClick).not.toHaveBeenCalled();
+  });
   it('should have focus', async () => {
     render(<Button>Click</Button>);
 
     const button = screen.getByRole('button');
 
-    button.focus();
+    expect(document.activeElement).not.toEqual(button);
+    await userEvent.tab();
+    expect(document.activeElement).toEqual(button);
     expect(button).toHaveFocus();
   });
-  it('should render with another component', async () => {
+  it("shouldn't have focus when disabled has been passed to the component", async () => {
+    render(<Button disabled>Click</Button>);
+
+    const button = screen.getByRole('button');
+
+    expect(document.activeElement).not.toEqual(button);
+    await userEvent.tab();
+    expect(document.activeElement).not.toEqual(button);
+    expect(button).not.toHaveFocus();
+  });
+  it('should rendered as an anchor', () => {
     const href = 'https://test.com';
 
     render(
@@ -75,18 +104,33 @@ describe('<Button />', () => {
       </Button>,
     );
 
-    const link = screen.getByText('Link').closest('a');
+    const anchor = screen.getByRole('link');
 
-    expect(link).toHaveAttribute('href', href);
+    expect(anchor.tagName).toBe('A');
+    expect(anchor).toHaveAttribute('href', href);
   });
-  it('should be disabled', async () => {
+  it('should have focus when rendered as an anchor', async () => {
+    render(
+      <Button component="a" href="https://test.com">
+        Link
+      </Button>,
+    );
+
+    const anchor = screen.getByRole('link');
+
+    expect(document.activeElement).not.toEqual(anchor);
+    await userEvent.tab();
+    expect(document.activeElement).toEqual(anchor);
+    expect(anchor).toHaveFocus();
+  });
+  it('should be disabled', () => {
     render(<Button disabled>Text</Button>);
 
     const button = screen.getByRole('button');
 
     expect(button).toHaveAttribute('disabled');
   });
-  it('should have start icon', async () => {
+  it('should have start icon', () => {
     render(<Button startIcon={<PlusIcon />}>Text</Button>);
 
     const button = screen.getByRole('button');
@@ -95,7 +139,7 @@ describe('<Button />', () => {
       button.querySelector('span[class*="Button-startIcon"]'),
     ).toBeInTheDocument();
   });
-  it('should have end icon', async () => {
+  it('should have end icon', () => {
     render(<Button endIcon={<PlusIcon />}>Text</Button>);
 
     const button = screen.getByRole('button');
@@ -104,7 +148,7 @@ describe('<Button />', () => {
       button.querySelector('span[class*="Button-endIcon"]'),
     ).toBeInTheDocument();
   });
-  it('should have text variant', async () => {
+  it('should have text variant', () => {
     render(<Button textVariant="h1">Text</Button>);
 
     const heading = screen.getByRole('heading');
@@ -112,21 +156,21 @@ describe('<Button />', () => {
     expect(heading).toBeInTheDocument();
     expect(heading.getAttribute('class')).toMatch(/ButtonBase-label/i);
   });
-  it('should have class name', async () => {
+  it('should have class name', () => {
     render(<Button className="test-cls">Text</Button>);
 
     const button = screen.getByRole('button');
 
     expect(button.getAttribute('class')).toMatch(/test-cls/i);
   });
-  it('should have test id', async () => {
+  it('should have test id', () => {
     render(<Button data-testid="test-id">Text</Button>);
 
     const button = screen.getByRole('button');
 
     expect(button.getAttribute('data-testid')).toMatch(/test-id/i);
   });
-  it('should have title', async () => {
+  it('should have title', () => {
     render(<Button title="Test title">Text</Button>);
 
     const button = screen.getByRole('button');
