@@ -8,7 +8,7 @@ import {
 import { Button } from '../index';
 import { PlusIcon } from '../icons';
 
-describe('<Button />', () => {
+describe('Button render variants', () => {
   it('should render as default', () => {
     render(<Button>Text</Button>);
 
@@ -35,93 +35,6 @@ describe('<Button />', () => {
     const button = screen.getByRole('button');
 
     expect(button).not.toHaveStyle({ backgroundColor: 'transparent' });
-  });
-  it('should render a small size button', () => {
-    render(<Button size="small">Text</Button>);
-
-    const button = screen.getByRole('button');
-
-    expect(button.getAttribute('class')).toMatch(/Button-small/i);
-  });
-  it('should render a medium size button', () => {
-    render(<Button size="medium">Text</Button>);
-
-    const button = screen.getByRole('button');
-
-    expect(button.getAttribute('class')).toMatch(/Button-medium/i);
-  });
-  it('should render a large size button', () => {
-    render(<Button size="large">Text</Button>);
-
-    const button = screen.getByRole('button');
-
-    expect(button.getAttribute('class')).toMatch(/Button-large/i);
-  });
-  it('should calls onClick prop when clicked', () => {
-    const handleClick = jest.fn();
-
-    render(<Button onClick={handleClick}>Click</Button>);
-    fireEvent.click(screen.getByRole('button'));
-    expect(handleClick).toHaveBeenCalledTimes(1);
-  });
-  it("shouldn't calls onClick when disabled has been passed to the component", () => {
-    const handleClick = jest.fn();
-
-    render(
-      <Button onClick={handleClick} disabled>
-        Click
-      </Button>,
-    );
-    fireEvent.click(screen.getByRole('button'));
-    expect(handleClick).not.toHaveBeenCalled();
-  });
-  it('should have focus', async () => {
-    render(<Button>Click</Button>);
-
-    const button = screen.getByRole('button');
-
-    expect(document.activeElement).not.toEqual(button);
-    await userEvent.tab();
-    expect(document.activeElement).toEqual(button);
-    expect(button).toHaveFocus();
-  });
-  it("shouldn't have focus when disabled has been passed to the component", async () => {
-    render(<Button disabled>Click</Button>);
-
-    const button = screen.getByRole('button');
-
-    expect(document.activeElement).not.toEqual(button);
-    await userEvent.tab();
-    expect(document.activeElement).not.toEqual(button);
-    expect(button).not.toHaveFocus();
-  });
-  it('should rendered as an anchor', () => {
-    const href = 'https://test.com';
-
-    render(
-      <Button component="a" href={href}>
-        Link
-      </Button>,
-    );
-
-    const anchor = screen.getByRole('link');
-
-    expect(anchor.tagName).toBe('A');
-    expect(anchor).toHaveAttribute('href', href);
-  });
-  it('should have focus when rendered as an anchor', async () => {
-    render(
-      <Button component="a" href="https://test.com">
-        Link
-      </Button>,
-    );
-
-    const anchor = screen.getByRole('link');
-
-    expect(document.activeElement).not.toEqual(anchor);
-    await userEvent.tab();
-    expect(document.activeElement).toEqual(anchor);
-    expect(anchor).toHaveFocus();
   });
   it('should be disabled', () => {
     render(<Button disabled>Text</Button>);
@@ -176,5 +89,104 @@ describe('<Button />', () => {
     const button = screen.getByRole('button');
 
     expect(button.getAttribute('title')).toMatch(/Test title/i);
+  });
+});
+
+describe('Button render sizes', () => {
+  it('should render a small size button', () => {
+    render(<Button size="small">Text</Button>);
+
+    const button = screen.getByRole('button');
+
+    expect(button.getAttribute('class')).toMatch(/Button-small/i);
+  });
+  it('should render a medium size button', () => {
+    render(<Button size="medium">Text</Button>);
+
+    const button = screen.getByRole('button');
+
+    expect(button.getAttribute('class')).toMatch(/Button-medium/i);
+  });
+  it('should render a large size button', () => {
+    render(<Button size="large">Text</Button>);
+
+    const button = screen.getByRole('button');
+
+    expect(button.getAttribute('class')).toMatch(/Button-large/i);
+  });
+});
+
+describe('Button focus behaviour', () => {
+  it('should have focus', async () => {
+    render(<Button>Click</Button>);
+
+    const button = screen.getByRole('button');
+
+    expect(document.activeElement).not.toEqual(button);
+    await userEvent.tab();
+    expect(document.activeElement).toEqual(button);
+    expect(button).toHaveFocus();
+  });
+  it("shouldn't have focus when disabled has been passed to the component", async () => {
+    render(<Button disabled>Click</Button>);
+
+    const button = screen.getByRole('button');
+
+    expect(document.activeElement).not.toEqual(button);
+    await userEvent.tab();
+    expect(document.activeElement).not.toEqual(button);
+    expect(button).not.toHaveFocus();
+  });
+});
+
+describe('Button click behaviour', () => {
+  it('should calls onClick prop when clicked', () => {
+    const handleClick = jest.fn();
+
+    render(<Button onClick={handleClick}>Click</Button>);
+    fireEvent.click(screen.getByRole('button'));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+  it("shouldn't calls onClick when disabled has been passed to the component", () => {
+    const handleClick = jest.fn();
+
+    render(
+      <Button onClick={handleClick} disabled>
+        Click
+      </Button>,
+    );
+    fireEvent.click(screen.getByRole('button'));
+    expect(handleClick).not.toHaveBeenCalled();
+  });
+});
+
+describe('Button render as an anchor', () => {
+  it('should rendered as an anchor', () => {
+    const href = 'https://test.com';
+
+    render(
+      <Button component="a" href={href}>
+        Link
+      </Button>,
+    );
+
+    const anchor = screen.getByRole('link');
+
+    expect(anchor.tagName).toBe('A');
+    expect(anchor).toHaveAttribute('href', href);
+  });
+  it('should have focus when rendered as an anchor', async () => {
+    render(
+      <Button component="a" href="https://test.com">
+        Link
+      </Button>,
+    );
+
+    const anchor = screen.getByRole('link');
+
+    expect(document.activeElement).not.toEqual(anchor);
+    await userEvent.tab();
+    expect(document.activeElement).toEqual(anchor);
+    expect(anchor).toHaveFocus();
   });
 });
