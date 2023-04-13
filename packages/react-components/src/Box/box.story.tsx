@@ -16,6 +16,7 @@ export const Default: ComponentStory<typeof Box> = (args) => (
     {...args}
   />
 );
+
 Default.args = {
   children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
   borderWidth: 4,

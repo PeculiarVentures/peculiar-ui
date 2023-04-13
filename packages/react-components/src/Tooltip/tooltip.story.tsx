@@ -23,6 +23,7 @@ export const Playground: ComponentStory<typeof Tooltip> = (args) => (
     </Tooltip>
   </div>
 );
+
 Playground.args = {
   title: 'Tooltip content',
 };

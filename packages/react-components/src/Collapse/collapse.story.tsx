@@ -31,6 +31,7 @@ export const Playground: ComponentStory<typeof Collapse> = (args) => {
     </Collapse>
   );
 };
+
 Playground.args = {
   children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
 };

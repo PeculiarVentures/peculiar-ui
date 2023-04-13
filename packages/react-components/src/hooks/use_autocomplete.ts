@@ -217,6 +217,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
 
     if (index === -1) {
       listboxNode.scrollTop = 0;
+
       return;
     }
 

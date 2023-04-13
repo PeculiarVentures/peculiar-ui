@@ -22,6 +22,11 @@ module.exports = {
         'when': 'never'
       }
     }],
-    'react/jsx-props-no-spreading': 0
+    'react/jsx-props-no-spreading': 0,
+    'padding-line-between-statements': [
+      'error',
+      { blankLine: 'always', prev: '*', next: 'return' },
+      { blankLine: 'always', prev: '*', next: 'multiline-expression' },
+    ],
   },
 };

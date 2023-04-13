@@ -22,6 +22,7 @@ export const Playground: ComponentStory<typeof Alert> = (args) => (
     />
   </>
 );
+
 Playground.args = {
   children: 'This is a message!',
 };

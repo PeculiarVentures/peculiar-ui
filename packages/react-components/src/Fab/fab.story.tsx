@@ -17,6 +17,7 @@ export const Playground: ComponentStory<typeof Fab> = (args) => (
     {...args}
   />
 );
+
 Playground.args = {
   children: <PlusIcon />,
 };

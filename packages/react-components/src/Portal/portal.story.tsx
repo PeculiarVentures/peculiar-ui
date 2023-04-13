@@ -18,6 +18,7 @@ export const Playground: ComponentStory<typeof Portal> = (args) => (
     {...args}
   />
 );
+
 Playground.args = {
   children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
 };

@@ -18,12 +18,14 @@ const Template: ComponentStory<typeof Image> = (args) => (
 );
 
 export const Default = Template.bind({});
+
 Default.args = {
   src: 'https://bit.ly/dan-abramov',
   alt: 'Dan Abrahmov',
 };
 
 export const Fallback = Template.bind({});
+
 Fallback.args = {
   src: 'https://bit.ly/broken-link',
   fallback: (
