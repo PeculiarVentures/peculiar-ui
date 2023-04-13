@@ -17,6 +17,7 @@ export const Default: ComponentStory<typeof TextField> = (args) => (
     {...args}
   />
 );
+
 Default.args = {
   placeholder: 'Placeholder',
 };

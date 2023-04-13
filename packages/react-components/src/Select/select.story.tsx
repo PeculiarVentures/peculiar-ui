@@ -18,6 +18,7 @@ export const Playground: ComponentStory<typeof Select> = (args) => (
     {...args}
   />
 );
+
 Playground.args = {
   options: [
     {

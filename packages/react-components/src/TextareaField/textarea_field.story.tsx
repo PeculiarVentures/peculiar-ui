@@ -17,6 +17,7 @@ export const Playground: ComponentStory<typeof TextareaField> = (args) => (
     {...args}
   />
 );
+
 Playground.args = {
   placeholder: 'Placeholder',
 };

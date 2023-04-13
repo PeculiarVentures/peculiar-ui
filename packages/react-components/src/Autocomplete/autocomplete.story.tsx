@@ -131,6 +131,7 @@ const Template: ComponentStory<typeof Autocomplete<OptionFilmType>> = (args) => 
 );
 
 export const Default = Template.bind({});
+
 Default.args = {
   options: top100Films,
   placeholder: 'Select a movie',
@@ -140,6 +141,7 @@ Default.args = {
 // @ts-ignore
 export const Multiple: ComponentStory<typeof Autocomplete<OptionFilmType, true>> = Template
   .bind({});
+
 Multiple.args = {
   options: top100Films,
   placeholder: 'Select a movie',
@@ -148,6 +150,7 @@ Multiple.args = {
 };
 
 export const Grouped = Template.bind({});
+
 Grouped.args = {
   options: top100Films.sort((a, b) => a.year - b.year),
   placeholder: 'Select a movie',
@@ -158,6 +161,7 @@ Grouped.args = {
 // @ts-ignore
 export const RootRender: ComponentStory<typeof Autocomplete<OptionFilmType, true>> = Template
   .bind({});
+
 RootRender.args = {
   options: top100Films,
   placeholder: 'Select a movie',
