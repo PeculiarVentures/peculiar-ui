@@ -1,9 +1,8 @@
 import React from 'react';
-import { renderWithWrapper as render, screen } from '../test-utils';
+import { renderWithWrapper as render, screen, fireEvent } from '../test-utils';
 import { Image } from '../index';
 
-// prettier-ignore
-const src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=';
+const src = 'https://bit.ly/dan-abramov';
 
 describe('<Image />', () => {
   it('should render as default', () => {
@@ -30,7 +29,43 @@ describe('<Image />', () => {
     const img = screen.getByRole('img');
 
     expect(img.getAttribute('alt')).toMatch(/Test alt/i);
+  });
 
-    screen.debug();
+  it('should have class name', () => {
+    render(<Image src={src} className="test-cls" />);
+
+    const img = screen.getByRole('img');
+
+    expect(img.getAttribute('class')).toMatch(/test-cls/i);
+  });
+
+  it('should call onError handler', () => {
+    const handleErr = jest.fn();
+
+    render(<Image src="broken.png" onError={handleErr} />);
+
+    const img = screen.getByRole('img');
+
+    fireEvent.error(img);
+
+    expect(handleErr).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call onLoad handler', () => {
+    const handleLoad = jest.fn();
+
+    render(<Image src={src} onLoad={handleLoad} />);
+
+    const img = screen.getByRole('img');
+
+    fireEvent.load(img);
+
+    expect(handleLoad).toHaveBeenCalledTimes(1);
+  });
+
+  it('should render loading component', () => {
+    render(<Image src={undefined} loading={<div>Loading</div>} />);
+
+    expect(screen.getByText(/Loading/i)).toBeInTheDocument();
   });
 });
