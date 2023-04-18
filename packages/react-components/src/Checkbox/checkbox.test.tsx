@@ -153,7 +153,7 @@ describe('<Checkbox />', () => {
   });
 
   describe('Checkbox click behaviour', () => {
-    it('should be checked on click', () => {
+    it('should be checked when clicked', () => {
       render(<Checkbox />);
 
       const input = screen.getByRole('checkbox');
@@ -163,7 +163,7 @@ describe('<Checkbox />', () => {
       expect(input).toBeChecked();
     });
 
-    it('should be unchecked on click', () => {
+    it('should be unchecked when clicked', () => {
       render(<Checkbox defaultChecked />);
 
       const input = screen.getByRole('checkbox');
@@ -179,6 +179,17 @@ describe('<Checkbox />', () => {
       render(<Checkbox onClick={handleClick} />);
       fireEvent.click(screen.getByRole('checkbox'));
       expect(handleClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('should calls onChange prop when clicked', () => {
+      const onChange = jest.fn();
+
+      const renderedComponent = render(<Checkbox onChange={onChange} />);
+      const input = renderedComponent.getByRole('checkbox');
+
+      expect(onChange).toBeCalledTimes(0);
+      fireEvent.click(input);
+      expect(onChange).toBeCalledTimes(1);
     });
   });
 });
