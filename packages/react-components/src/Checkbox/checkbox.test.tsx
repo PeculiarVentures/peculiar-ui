@@ -126,6 +126,16 @@ describe('<Checkbox />', () => {
 
       expect(input).not.toBeChecked();
     });
+
+    it('should forwards ref to label element', () => {
+      const ref = React.createRef<HTMLLabelElement>();
+
+      render(<Checkbox ref={ref} />);
+
+      const input = screen.getByRole('checkbox');
+
+      expect(input.closest('label')).toEqual(ref.current);
+    });
   });
 
   describe('Checkbox focus behaviour', () => {
