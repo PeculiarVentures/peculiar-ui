@@ -112,7 +112,9 @@ describe('<Checkbox />', () => {
     });
 
     it('should be checked', () => {
-      render(<Checkbox checked />);
+      const onChange = jest.fn();
+
+      render(<Checkbox checked onChange={onChange} />);
 
       const input = screen.getByRole('checkbox');
 
@@ -120,7 +122,9 @@ describe('<Checkbox />', () => {
     });
 
     it('should be unchecked', () => {
-      render(<Checkbox checked={false} />);
+      const onChange = jest.fn();
+
+      render(<Checkbox checked={false} onChange={onChange} />);
 
       const input = screen.getByRole('checkbox');
 
