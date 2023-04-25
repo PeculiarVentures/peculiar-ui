@@ -15,6 +15,14 @@ describe('<TextField />', () => {
       expect(input.getAttribute('class')).toMatch(/TextField-medium/i);
     });
 
+    it('should have label', () => {
+      render(<TextField label="Test label" />);
+
+      expect(
+        screen.getByText('Test label').closest('label').getAttribute('class'),
+      ).toMatch(/TextField-label/i);
+    });
+
     it('should have id', () => {
       render(<TextField id="test-id" />);
 
@@ -83,6 +91,74 @@ describe('<TextField />', () => {
 
       expect(input.closest('div')).toEqual(ref.current);
     });
+
+    it('should forwards ref to input element', () => {
+      const ref = React.createRef<HTMLInputElement>();
+
+      render(<TextField inputRef={ref} />);
+
+      const input = screen.getByRole('textbox');
+
+      expect(input).toEqual(ref.current);
+    });
+
+    it('should have placeholder', () => {
+      render(<TextField placeholder="test-placeholder" />);
+
+      const input = screen.getByRole('textbox');
+
+      expect(input.getAttribute('placeholder')).toBe('test-placeholder');
+    });
+
+    it('should have defaultValue', () => {
+      render(<TextField defaultValue="test-value" />);
+
+      const input = screen.getByRole('textbox');
+
+      expect(input.getAttribute('value')).toBe('test-value');
+    });
+
+    it('should have value', () => {
+      const onChange = jest.fn();
+
+      render(<TextField value="test-value" onChange={onChange} />);
+
+      const input = screen.getByRole('textbox');
+
+      expect(input.getAttribute('value')).toBe('test-value');
+    });
+
+    it('should have error alert', () => {
+      render(<TextField error errorText="Error message" />);
+
+      expect(screen.getByText('Error message')).toBeInTheDocument();
+    });
+  });
+
+  describe('TextField render sizes', () => {
+    it('should render a small size', () => {
+      render(<TextField size="small" />);
+
+      const input = screen.getByRole('textbox');
+
+      expect(input.getAttribute('class')).toMatch(/TextField-small/i);
+    });
+
+    it('should render a medium size', () => {
+      render(<TextField size="medium" />);
+
+      const input = screen.getByRole('textbox');
+
+      expect(input.getAttribute('class')).toMatch(/TextField-medium/i);
+    });
+
+    it('should render a large size', () => {
+      render(<TextField size="large" />);
+
+      const input = screen.getByRole('textbox');
+
+      expect(input.getAttribute('class')).toMatch(/TextField-large/i);
+    });
   });
 
   describe('TextField focus behaviour', () => {
@@ -105,6 +181,20 @@ describe('<TextField />', () => {
       expect(document.activeElement).not.toEqual(input);
       expect(input).not.toHaveFocus();
     });
+
+    it('should have focus when autoFocus has been passed to the component', () => {
+      render(<TextField autoFocus />);
+      const input = screen.getByRole('textbox');
+
+      expect(input).toHaveFocus();
+    });
+
+    it("shouldn't have focus when disabled & autoFocus has been passed to the component", async () => {
+      render(<TextField disabled autoFocus />);
+      const input = screen.getByRole('textbox');
+
+      expect(input).not.toHaveFocus();
+    });
   });
 
   describe('TextField keyboard behaviour', () => {
@@ -122,6 +212,19 @@ describe('<TextField />', () => {
 
       await userEvent.type(input, 'best');
       expect(input).toHaveValue('test');
+    });
+  });
+
+  describe('TextField change behaviour', () => {
+    it('should calls onChange after user input', async () => {
+      const onChange = jest.fn();
+
+      render(<TextField onChange={onChange} />);
+      const input = screen.getByRole('textbox');
+
+      expect(onChange).toBeCalledTimes(0);
+      await userEvent.type(input, 'test');
+      expect(onChange).toBeCalledTimes(4);
     });
   });
 });
