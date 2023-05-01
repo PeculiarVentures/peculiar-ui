@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import { useEnhancedEffect } from './use_enhanced_effect';
 
 /**
  * https://github.com/facebook/react/issues/14099#issuecomment-440013892
@@ -8,7 +9,7 @@ export function useEventCallback<Args extends unknown[], Return>(
 ): (...args: Args) => Return {
   const ref = React.useRef(fn);
 
-  React.useLayoutEffect(() => {
+  useEnhancedEffect(() => {
     ref.current = fn;
   });
 

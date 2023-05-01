@@ -2,7 +2,7 @@ import {
   useState,
   useRef,
 } from 'react';
-import { useEnhancedEffect } from '../utils';
+import { useEnhancedEffect } from './use_enhanced_effect';
 
 export type UseImageOptionsType = {
   /**

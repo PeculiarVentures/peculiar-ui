@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useEnhancedEffect } from '../utils';
+import { useEnhancedEffect } from './use_enhanced_effect';
 
 /**
  * A hook that returns `true` if the media query matched and `false` if not. This

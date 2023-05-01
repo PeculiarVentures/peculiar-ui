@@ -20,3 +20,4 @@ export type {
   AutocompleteChangeDetails,
 } from './use_autocomplete';
 export { useEventCallback } from './use_event_callback';
+export { useEnhancedEffect } from './use_enhanced_effect';
