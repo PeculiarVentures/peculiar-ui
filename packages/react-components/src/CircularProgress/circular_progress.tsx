@@ -18,6 +18,16 @@ type BaseProps = {
    * The size of the progress.
    */
   size?: ('small' | 'large');
+  /**
+   * The variant to use.
+   * Use indeterminate when there is no progress value.
+   */
+  variant?: 'determinate' | 'indeterminate';
+  /**
+   * The value of the progress indicator for the determinate variant.
+   * Value between 0 and 100.
+   */
+  value?: number;
 };
 
 export type CircularProgressProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
@@ -52,13 +62,17 @@ const circularDashKeyframe = keyframes`
   }
 `;
 
-const stylesBase = (color: BaseProps['color']) => css({
+const stylesBase = (color: BaseProps['color'], variant: BaseProps['variant']) => css({
   label: 'CircularProgress',
   overflow: 'hidden',
   position: 'relative',
   display: 'inline-block',
   color: `var(--pv-color-${color})`,
-  animation: `${circularRotateKeyframe} 1.4s linear infinite`,
+  ...(variant === 'indeterminate' ? {
+    animation: `${circularRotateKeyframe} 1.4s linear infinite`,
+  } : {
+    transform: 'rotate(-90deg)',
+  }),
 });
 
 const stylesBaseSmall = () => css({
@@ -78,12 +92,14 @@ const stylesProgressSvg = () => css({
   display: 'block',
 });
 
-const stylesProgressCircle = () => css({
+const stylesProgressCircle = (variant: BaseProps['variant']) => css({
   label: 'CircularProgress-circle',
   stroke: 'currentcolor',
   strokeDasharray: '80px, 200px',
   strokeDashoffset: 0,
-  animation: `${circularDashKeyframe} 1.4s ease-in-out infinite`,
+  ...(variant === 'indeterminate' && {
+    animation: `${circularDashKeyframe} 1.4s ease-in-out infinite`,
+  }),
 });
 /**
  *
@@ -95,15 +111,25 @@ export const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgres
       color,
       className,
       size,
+      variant = 'indeterminate',
+      value = 0,
       ...other
     } = props;
+    const circleStyle: React.CSSProperties = {};
+
+    if (variant === 'determinate') {
+      const circumference = 2 * Math.PI * ((SIZE - THICKNESS) / 2);
+
+      circleStyle.strokeDasharray = circumference.toFixed(3);
+      circleStyle.strokeDashoffset = `${(((100 - value) / 100) * circumference).toFixed(3)}px`;
+    }
 
     return (
       <div
         {...other}
         ref={ref}
         className={cx({
-          [stylesBase(color)]: true,
+          [stylesBase(color, variant)]: true,
           [stylesBaseSmall()]: size === 'small',
           [stylesBaseLarge()]: size === 'large',
           [className]: !!className,
@@ -120,7 +146,8 @@ export const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgres
             r={(SIZE - THICKNESS) / 2}
             fill="none"
             strokeWidth={THICKNESS}
-            className={stylesProgressCircle()}
+            className={stylesProgressCircle(variant)}
+            style={circleStyle}
           />
         </svg>
       </div>
@@ -133,4 +160,6 @@ CircularProgress.displayName = 'CircularProgress';
 CircularProgress.defaultProps = {
   color: 'primary',
   size: 'large',
+  variant: 'indeterminate',
+  value: 0,
 };
