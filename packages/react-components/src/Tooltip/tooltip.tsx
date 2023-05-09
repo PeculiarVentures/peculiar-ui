@@ -6,7 +6,10 @@ import { useMergedRef } from '../hooks';
 import { Typography } from '../Typography';
 import { css, cx, keyframes } from '../styles';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+export type TooltipBaseProps = {
   /**
    * Tooltip reference element.
    */
@@ -53,8 +56,14 @@ type BaseProps = {
   disablePortal?: boolean;
 };
 
-type TooltipProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
+export type TooltipProps = TooltipBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
+/**
+ *
+ */
 
+/**
+ * Styles.
+ */
 const stylesKeyframeOpacity = keyframes`
   from {
     opacity: 0;
@@ -100,6 +109,9 @@ const stylesPopper = (interactive?: boolean) => css({
     padding: '0px var(--pv-size-base-3)',
   },
 });
+/**
+ *
+ */
 
 export const Tooltip: React.FC<TooltipProps> = (props) => {
   const {
