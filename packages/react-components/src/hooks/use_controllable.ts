@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import React from 'react';
 
 const runIfFn = (value: any, ...args: any[]) => (typeof value === 'function' ? value(...args) : value);
 
@@ -33,12 +33,12 @@ export function useControllableState<T>(props: UseControllableStateProps<T>) {
     shouldUpdate,
   } = props;
 
-  const [valueState, setValue] = useState(defaultValue as T);
+  const [valueState, setValue] = React.useState(defaultValue as T);
 
   const isControlled = valueProp !== undefined;
   const value = isControlled ? (valueProp as T) : valueState;
 
-  const updateValue = useCallback(
+  const updateValue = React.useCallback(
     (next: React.SetStateAction<T>) => {
       const nextValue = runIfFn(next, value);
 

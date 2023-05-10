@@ -1,7 +1,4 @@
-import {
-  useState,
-  useRef,
-} from 'react';
+import React from 'react';
 import { useEnhancedEffect } from './use_enhanced_effect';
 
 export type UseImageOptionsType = {
@@ -45,8 +42,8 @@ export function useImage(src: string, options: UseImageOptionsType = {}): UseIma
     onError,
   } = options;
 
-  const [status, setStatus] = useState<Status>('pending');
-  const imageRef = useRef<UseImageReturnType['image']>();
+  const [status, setStatus] = React.useState<Status>('pending');
+  const imageRef = React.useRef<UseImageReturnType['image']>();
 
   useEnhancedEffect(() => {
     if (!src) {

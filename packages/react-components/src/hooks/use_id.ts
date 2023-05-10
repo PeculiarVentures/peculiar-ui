@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { nanoid } from 'nanoid';
 
 /**
@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
  * @param defaultValue The default id value.
  */
 export function useId(defaultValue?: string) {
-  const [id] = useState(() => nanoid());
+  const [id] = React.useState(() => nanoid());
 
   return defaultValue || id;
 }
