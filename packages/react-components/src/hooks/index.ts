@@ -21,3 +21,4 @@ export type {
 } from './use_autocomplete';
 export { useEventCallback } from './use_event_callback';
 export { useEnhancedEffect } from './use_enhanced_effect';
+export { useDebounceCallback } from './use_debounce_callback';
