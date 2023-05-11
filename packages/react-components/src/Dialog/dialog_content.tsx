@@ -4,6 +4,9 @@ import { Collapse } from '../Collapse';
 import { Alert } from '../Alert';
 import { css, cx } from '../styles';
 
+/**
+ * Types.
+ */
 type BaseProps = {
   /**
    * The content of the component.
@@ -21,10 +24,21 @@ type BaseProps = {
    * The content of the error message.
    */
   error?: string;
+  /**
+   * Props applied to the scrolled element.
+   */
+  scrolledElementProps?: React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 };
 
 type DialogContentProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+/**
+ *
+ */
 
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'DialogContent',
   flex: '1 1 auto',
@@ -55,6 +69,9 @@ const stylesError = () => css({
 const stylesCollapse = () => css({
   margin: '0 calc(var(--pv-size-base-3) * -1)',
 });
+/**
+ *
+ */
 
 export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>((props, ref) => {
   const {
@@ -62,6 +79,7 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
     className,
     dividers,
     error,
+    scrolledElementProps = {},
     ...other
   } = props;
 
@@ -93,7 +111,13 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
           </Alert>
         </Collapse>
       </div>
-      <div className={cx(stylesScrolled())}>
+      <div
+        {...scrolledElementProps}
+        className={cx({
+          [stylesScrolled()]: true,
+          [scrolledElementProps.className]: !!scrolledElementProps.className,
+        })}
+      >
         {children}
       </div>
     </Box>
