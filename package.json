@@ -26,7 +26,7 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.8",
     "eslint-plugin-react-hooks": "4.6.0",
-    "lerna": "^6.4.1"
+    "lerna": "^6.6.2"
   },
   "resolutions": {
     "trim": "^0.0.3"
