@@ -158,7 +158,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
     size,
     className,
     label,
-    inputProps,
+    inputProps = {},
     disabled,
     defaultValue,
     id,
@@ -215,6 +215,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
           [stylesInputSizeSmall()]: size === 'small',
           [stylesInputSizeMedium()]: size === 'medium',
           [stylesInputSizeLarge()]: size === 'large',
+          [inputProps.className]: !!inputProps.className,
         })}
         aria-invalid={error || undefined}
         onChange={onChange}
