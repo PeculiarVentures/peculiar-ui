@@ -6,6 +6,10 @@ import { useImage } from '../hooks';
 
 type BaseProps = {
   /**
+   * Used to render badge inside the avatar.
+   */
+  children?: React.ReactNode;
+  /**
    * The name of the person in the avatar.
    *
    * - If `src` has loaded, the name will be used as the `alt` attribute of the `img`.
@@ -53,6 +57,7 @@ const stylesBase = () => css({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  position: 'relative',
 });
 
 const stylesSizeSmall = () => css({
@@ -93,6 +98,7 @@ function initials(name: string) {
 
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
   const {
+    children: childrenProp,
     className,
     size,
     src,
@@ -160,6 +166,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
       background={background}
     >
       {children}
+      {childrenProp}
     </Box>
   );
 });

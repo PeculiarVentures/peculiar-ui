@@ -5,7 +5,9 @@ import { Avatar } from './index';
 export default {
   title: 'Components/Avatar',
   component: Avatar,
-  argTypes: {},
+  argTypes: {
+    children: { control: false },
+  },
 } as ComponentMeta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => (
