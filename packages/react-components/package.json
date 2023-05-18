@@ -1,7 +1,7 @@
 {
   "name": "@peculiar/react-components",
   "private": false,
-  "version": "0.1.14",
+  "version": "0.1.15",
   "author": "PeculiarVentures Team",
   "description": "A simple and customizable component library to build faster, beautiful, and more accessible React applications.",
   "keywords": [
