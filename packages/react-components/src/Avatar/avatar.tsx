@@ -52,7 +52,6 @@ type AvatarProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'child
 const stylesBase = () => css({
   label: 'Avatar',
   userSelect: 'none',
-  overflow: 'hidden',
   borderRadius: '50%',
   display: 'flex',
   alignItems: 'center',
@@ -86,6 +85,7 @@ const stylesImg = () => css({
   objectFit: 'cover',
   textAlign: 'center',
   textIndent: 10000,
+  borderRadius: '50%',
 });
 
 function initials(name: string) {
