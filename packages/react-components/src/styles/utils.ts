@@ -41,6 +41,7 @@ export const createTheme = (options?: ThemeOptionsType) => {
       'primary-contrast': getContrastText(primary.primary),
       'secondary-contrast': getContrastText(secondary.secondary),
       'wrong-contrast': getContrastText(wrong.wrong),
+      ...options?.color,
     } as Partial<Record<ColorType, string>>,
     size,
   });
