@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Global } from '@emotion/core';
+import { Global } from '@emotion/react';
 import { createTheme, createThemeCSSVariablesFromObject } from './utils';
 import { defaultTheme } from './default_theme';
 import type { ThemeOptionsType } from './types';
