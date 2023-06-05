@@ -327,6 +327,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
     name,
     required,
     multiple,
+    readOnly,
     createOptionText,
     allowCreateOption,
     error,
@@ -475,6 +476,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
         id={id}
         name={name}
         required={required}
+        readOnly={readOnly}
         onChange={() => {}}
       />
     </div>
