@@ -235,7 +235,7 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
           required={required}
           disabled={disabled}
           className={cx(stylesInput())}
-          onChange={onChangeAction}
+          onChange={(e) => onChangeAction(e)}
         />
         {renderIcon()}
       </Box>
