@@ -17,13 +17,14 @@ export interface AutocompleteChangeDetails<T = string> {
   index: number;
 }
 
-export type AutocompleteFilterOptionsType<T> = (
+export type AutocompleteValue<T, Multiple> = Multiple extends | undefined | false ? T | null : T[];
+
+export type AutocompleteFilterOptionsType<T, Multiple> = (
   options: ReadonlyArray<T>,
-  inputValue: string,
+  searchValue: string,
+  value: AutocompleteValue<T, Multiple>,
   getOptionLabel: (option: T) => string,
 ) => ReadonlyArray<T>;
-
-export type AutocompleteValue<T, Multiple> = Multiple extends | undefined | false ? T | null : T[];
 
 export type AutocompleteGroupedOption<T> = {
   key: number;
@@ -74,7 +75,7 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
   /**
   * A filter function that determines the options that are eligible.
   */
-  filterOptions?: AutocompleteFilterOptionsType<T>;
+  filterOptions?: AutocompleteFilterOptionsType<T, Multiple>;
   /**
    * Callback fired when the popup requests to be closed.
    */
@@ -125,9 +126,10 @@ export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined = 
  *
  */
 
-const defaultFilterOptions: AutocompleteFilterOptionsType<any> = (
+const defaultFilterOptions: AutocompleteFilterOptionsType<any, false> = (
   options,
-  inputValue,
+  searchValue,
+  _,
   getOptionLabel,
 ) => {
   if (!options || !options.length) {
@@ -136,9 +138,8 @@ const defaultFilterOptions: AutocompleteFilterOptionsType<any> = (
 
   return options.filter((option) => {
     const labelValue = getOptionLabel(option).trim().toLowerCase();
-    const searchValue = inputValue.trim().toLowerCase();
 
-    return labelValue.includes(searchValue);
+    return labelValue.includes(searchValue.trim().toLowerCase());
   });
 };
 
@@ -176,7 +177,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
   });
 
   const filteredOptions = popupOpen
-    ? filterOptions(options, searchValue, getOptionLabel)
+    ? filterOptions(options, searchValue, value, getOptionLabel)
     : [];
 
   const validOptionIndex = (index: number, direction: AutocompleteHighlightChangeDirectionType) => {
