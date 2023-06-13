@@ -6,6 +6,7 @@ import {
   AutocompleteValue,
 } from '../hooks';
 import { Popover } from '../Popover';
+import { Popper } from '../Popper';
 import { TextField } from '../TextField';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
@@ -64,6 +65,10 @@ export type AutocompleteProps<T, Multiple extends boolean | undefined = undefine
      */
     disableSearch?: boolean;
     /**
+     * If `true`, the root will be a search.
+     */
+    combobox?: boolean;
+    /**
      * If `true`, the autocomplete will be disabled.
      */
     disabled?: boolean;
@@ -121,6 +126,41 @@ const stylesContainer = () => css({
   position: 'relative',
 });
 
+const stylesRootSearchWrapper = (size: AutocompleteProps<any>['size']) => css({
+  label: 'Autocomplete',
+  position: 'relative',
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'center',
+  borderRadius: '4px',
+  minHeight: 'var(--pv-size-base-8)',
+  ...(size === 'small' && {
+    minHeight: 'var(--pv-size-base-6)',
+  }),
+  ...(size === 'medium' && {
+    minHeight: 'var(--pv-size-base-7)',
+  }),
+  padding: '0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2)',
+  backgroundColor: 'var(--pv-color-gray-1)',
+  boxSizing: 'border-box',
+  transition: 'background-color 200ms, color 200ms, border-color 200ms',
+  borderStyle: 'solid',
+  borderWidth: '1px',
+  borderColor: 'var(--pv-color-gray-8)',
+  '&:hover': {
+    backgroundColor: 'var(--pv-color-gray-3)',
+    borderColor: 'var(--pv-color-gray-7)',
+  },
+  '&:hover input': {
+    backgroundColor: 'var(--pv-color-gray-3)',
+    borderColor: 'var(--pv-color-gray-7)',
+  },
+  '&:focus-within': {
+    backgroundColor: 'var(--pv-color-secondary-tint-5)',
+    borderColor: 'var(--pv-color-secondary-tint-3)',
+  },
+});
+
 const stylesRoot = (size: AutocompleteProps<any>['size']) => css({
   label: 'Autocomplete-root',
   outline: 'none',
@@ -138,12 +178,12 @@ const stylesRoot = (size: AutocompleteProps<any>['size']) => css({
   textAlign: 'left',
   cursor: 'pointer',
   fontFamily: 'inherit',
-  height: 'var(--pv-size-base-8)',
+  minHeight: 'var(--pv-size-base-8)',
   ...(size === 'small' && {
-    height: 'var(--pv-size-base-6)',
+    minHeight: 'var(--pv-size-base-6)',
   }),
   ...(size === 'medium' && {
-    height: 'var(--pv-size-base-7)',
+    minHeight: 'var(--pv-size-base-7)',
   }),
   '&:hover': {
     backgroundColor: 'var(--pv-color-gray-3)',
@@ -235,6 +275,17 @@ const stylesInputSearch = () => css({
   padding: 'var(--pv-size-base-3) var(--pv-size-base-3) var(--pv-size-base-2)',
 });
 
+const stylesRootInputSearch = () => css({
+  label: 'Autocomplete-root-input-search',
+  flex: 1,
+  marginLeft: 5,
+  minWidth: '30%',
+  '& input': {
+    border: 'none',
+    padding: '0',
+  },
+});
+
 const stylesListBoxState = () => css({
   label: 'Autocomplete-listbox-state',
   padding: 'var(--pv-size-base-3) var(--pv-size-base-2)',
@@ -243,19 +294,26 @@ const stylesListBoxState = () => css({
 const stylesPopover = () => css({
   label: 'Autocomplete-popover',
   minWidth: 240,
+  outline: 0,
+  maxWidth: 'calc(100% - 32px)',
+  maxHeight: 'calc(100% - 32px)',
+  minHeight: '16px',
+  boxShadow: 'var(--pv-shadow-light-low)',
 });
 
-const stylesTagsList = () => css({
+const stylesTagsList = (isEmbedded = false) => css({
   label: 'Autocomplete-tags-list',
   overflow: 'hidden',
-  width: '100%',
+  ...(!isEmbedded && {
+    width: '100%',
+  }),
 });
 
 const stylesTag = (tagsLength: number, limitTags: number, size: AutocompleteProps<any>['size']) => css({
   label: 'Autocomplete-tag',
   borderRadius: '2px',
   borderColor: 'var(--pv-color-gray-7)',
-  margin: '0 var(--pv-size-base) 0 0',
+  margin: '2px var(--pv-size-base) 2px 0',
   ...(tagsLength === 1 && {
     maxWidth: 'calc(100% - var(--pv-size-base))',
   }),
@@ -319,11 +377,12 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
     size,
     placeholder,
     disableSearch,
+    combobox,
     disabled = false,
     noOptionsText,
     loading,
     loadingText,
-    limitTags = 2,
+    limitTags = combobox ? undefined : 2,
     name,
     required,
     multiple,
@@ -401,14 +460,14 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
       return null;
     }
 
-    if (Array.isArray(value)) {
+    if (Array.isArray(value) && limitTags) {
       const more = (value.length > limitTags) ? (value.length - limitTags) : 0;
       const valueLimits = more > 0 ? value.slice(0, limitTags) : value;
 
       return (
         <>
           <div
-            className={stylesTagsList()}
+            className={stylesTagsList(combobox)}
           >
             {valueLimits.map((v, index) => (
               <Chip
@@ -434,56 +493,112 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
       );
     }
 
+    if (Array.isArray(value)) {
+      return value.map((v, index) => (
+        <Chip
+          {...getTagProps(v, index)}
+          color="default"
+          variant="contained"
+          className={stylesTag(value.length, undefined, size)}
+        >
+          {getOptionLabel(v)}
+        </Chip>
+      ));
+    }
+
     return getOptionLabel(value as T);
   };
 
   const renderedValue = renderValue();
   const isValueEmpty = renderedValue === null;
 
-  const defaultRenderRoot: AutocompleteProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => (
-    <div
-      className={stylesContainer()}
-    >
-      <Typography
-        {...propsRoot}
-        noWrap
-        component="button"
-        variant="c1"
-        color={isValueEmpty ? 'gray-9' : 'black'}
-        className={cx({
-          [stylesRoot(size)]: true,
-          [stylesRootMultiple()]: multiple,
-          [className]: !!className,
-        })}
-        aria-invalid={error || undefined}
-        type="button"
+  const defaultRenderRoot: AutocompleteProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => {
+    if (combobox) {
+      return (
+        <div
+          className={stylesRootSearchWrapper(size)}
+          {...propsRoot}
+        >
+          {multiple ? renderedValue : null}
+          <TextField
+            inputProps={otherInputProps}
+            className={stylesRootInputSearch()}
+            onChange={onChange}
+            onKeyDown={popoverProps.onKeyDown}
+            value={searchValue}
+            size={size}
+            placeholder={placeholder}
+            disabled={loading || disabled}
+          />
+          <ArrowDropDownIcon
+            className={stylesInputArrowIcon()}
+            aria-disabled={disabled}
+            aria-hidden
+          />
+          <input
+            type="text"
+            value={isValueEmpty ? '' : JSON.stringify(valueRoot)}
+            tabIndex={-1}
+            aria-hidden="true"
+            disabled={disabled}
+            className={stylesNativeInput()}
+            autoComplete="off"
+            id={id}
+            name={name}
+            required={required}
+            readOnly={readOnly}
+            onChange={() => { }}
+          />
+        </div>
+      );
+    }
+
+    return (
+      <div
+        className={stylesContainer()}
       >
-        {isValueEmpty ? placeholder : renderedValue}
-      </Typography>
-      <ArrowDropDownIcon
-        className={stylesInputArrowIcon()}
-        aria-disabled={disabled}
-        aria-hidden
-      />
-      <input
-        type="text"
-        value={isValueEmpty ? '' : JSON.stringify(valueRoot)}
-        tabIndex={-1}
-        aria-hidden="true"
-        disabled={disabled}
-        className={stylesNativeInput()}
-        autoComplete="off"
-        id={id}
-        name={name}
-        required={required}
-        readOnly={readOnly}
-        onChange={() => {}}
-      />
-    </div>
-  );
+        <Typography
+          {...propsRoot}
+          noWrap
+          component="button"
+          variant="c1"
+          color={isValueEmpty ? 'gray-9' : 'black'}
+          className={cx({
+            [stylesRoot(size)]: true,
+            [stylesRootMultiple()]: multiple,
+            [className]: !!className,
+          })}
+          aria-invalid={error || undefined}
+          type="button"
+        >
+          {isValueEmpty ? placeholder : renderedValue}
+        </Typography>
+        <ArrowDropDownIcon
+          className={stylesInputArrowIcon()}
+          aria-disabled={disabled}
+          aria-hidden
+        />
+        <input
+          type="text"
+          value={isValueEmpty ? '' : JSON.stringify(valueRoot)}
+          tabIndex={-1}
+          aria-hidden="true"
+          disabled={disabled}
+          className={stylesNativeInput()}
+          autoComplete="off"
+          id={id}
+          name={name}
+          required={required}
+          readOnly={readOnly}
+          onChange={() => { }}
+        />
+      </div>
+    );
+  };
 
   const renderOption = renderOptionProp || defaultRenderOption;
   const renderRoot = renderRootProp || defaultRenderRoot;
+  const PopperComponent = combobox ? Popper : Popover;
 
   const renderListOption = (option: T, index: number) => {
     const optionProps = getOptionProps(option, index);
@@ -505,13 +620,14 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
           {errorText}
         </Typography>
       )}
-      <Popover
-        placement="bottom-start"
+      <PopperComponent
+        placement="top-start"
         allowUseSameWidth
+        disablePortal={false}
         {...popoverProps}
         className={stylesPopover()}
       >
-        {!disableSearch && (
+        {!disableSearch && !combobox && (
           <Box
             borderColor="gray-3"
             borderPosition="bottom"
@@ -593,7 +709,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
             </Button>
           </Box>
         )}
-      </Popover>
+      </PopperComponent>
     </>
   );
 };
@@ -604,7 +720,6 @@ Autocomplete.defaultProps = {
   noOptionsText: 'No options',
   loading: false,
   loadingText: 'Loading...',
-  limitTags: 2,
   required: false,
   allowCreateOption: false,
   createOptionText: 'Create new',

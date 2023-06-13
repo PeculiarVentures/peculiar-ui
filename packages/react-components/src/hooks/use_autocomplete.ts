@@ -10,7 +10,7 @@ import type { PopoverProps } from '../Popover';
 export type AutocompleteHighlightChangeReason = ('auto' | 'mouse' | 'keyboard');
 export type AutocompleteHighlightChangeDirectionType = ('next' | 'previous');
 export type AutocompleteHighlightChangeDiffType = (number | 'reset' | 'start' | 'end');
-export type AutocompleteChangeReason = ('selectOption' | 'removeOption');
+export type AutocompleteChangeReason = ('selectOption' | 'removeOption' | 'blur');
 
 export interface AutocompleteChangeDetails<T = string> {
   option: T;
@@ -171,13 +171,22 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
 
   const [popupOpen, setPopupOpen] = React.useState<boolean>(false);
   const [searchValue, setSearchValue] = React.useState<string>('');
+  const [inputPristine, setInputPristine] = React.useState(true);
   const [value, setValue] = useControllableState({
     value: valueProp,
     defaultValue,
   });
 
+  const inputValueIsSelectedValue = !multiple && value != null
+    && searchValue === getOptionLabel(value as T);
+
   const filteredOptions = popupOpen
-    ? filterOptions(options, searchValue, value, getOptionLabel)
+    ? filterOptions(
+      options,
+      inputValueIsSelectedValue && inputPristine ? '' : searchValue,
+      value,
+      getOptionLabel,
+    )
     : [];
 
   const validOptionIndex = (index: number, direction: AutocompleteHighlightChangeDirectionType) => {
@@ -235,6 +244,9 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     }
 
     option.setAttribute('data-focused', 'true');
+    if (reason === 'keyboard') {
+      option.setAttribute('data-focused-visible', 'true');
+    }
 
     // Scroll active descendant into view.
     // Logic copied from https://www.w3.org/TR/wai-aria-practices/examples/listbox/js/listbox.js
@@ -382,6 +394,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     }
 
     setPopupOpen(true);
+    setInputPristine(true);
 
     if (onOpen) {
       onOpen(event);
@@ -402,7 +415,10 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     }
 
     setPopupOpen(false);
-    setSearchValue('');
+
+    if (multiple) {
+      setSearchValue('');
+    }
 
     if (onClose) {
       onClose(event);
@@ -429,6 +445,9 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
         newValue.splice(itemIndex, 1);
         reason = 'removeOption';
       }
+      setSearchValue('');
+    } else {
+      setSearchValue(getOptionLabel(option));
     }
 
     setValue(newValue as AutocompleteValue<T, Multiple>);
@@ -446,6 +465,11 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     const { value: valueInput } = event.target;
 
     setSearchValue(valueInput);
+    setInputPristine(false);
+
+    if (!popupOpen) {
+      handleOpen(event);
+    }
 
     if (onInputChange) {
       onInputChange(event, valueInput);
@@ -458,6 +482,15 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     if (onInputChange) {
       onInputChange(event, '');
     }
+  };
+
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    if (listboxRef.current !== null
+      && listboxRef.current.parentElement?.contains(document.activeElement)) {
+      return;
+    }
+
+    handleClose(event);
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -486,6 +519,25 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
             const option = filteredOptions[highlightedIndexRef.current];
 
             selectNewValue(event, option, highlightedIndexRef.current, 'selectOption');
+          }
+          break;
+
+        case 'Escape':
+          if (popupOpen) {
+            // Avoid Opera to exit fullscreen mode.
+            event.preventDefault();
+            // Avoid the Modal to handle the event.
+            event.stopPropagation();
+            handleClose(event);
+          }
+          break;
+
+        case 'Backspace':
+        case 'Delete':
+          if (searchValue === '' && Array.isArray(value) && value.length > 0) {
+            const lastOptionIndex = value.length - 1;
+
+            selectNewValue(event, value[lastOptionIndex], lastOptionIndex, 'removeOption');
           }
           break;
 
@@ -535,6 +587,10 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     }),
     getListboxProps: () => ({
       ref: handleListboxRef,
+      onMouseDown: (event) => {
+        // Prevent blur
+        event.preventDefault();
+      },
       role: 'listbox',
       tabIndex: -1,
       id: `${id}-listbox`,
@@ -547,6 +603,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
       autoCorrect: 'false',
       spellCheck: 'false',
       onChange: handleInputChange,
+      onBlur: handleBlur,
     }),
     getClearProps: () => ({
       tabIndex: -1,
