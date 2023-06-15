@@ -54,6 +54,14 @@ export type TooltipBaseProps = {
    * Disable the portal behavior. The children stay within it's parent DOM hierarchy.
    */
   disablePortal?: boolean;
+  /**
+   * Add delay in showing the tooltip.
+   */
+  enterDelay?: number;
+  /**
+   * Add delay in hiding the tooltip.
+   */
+  leaveDelay?: number;
 };
 
 export type TooltipProps = TooltipBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
@@ -126,13 +134,15 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     size,
     color,
     disablePortal,
+    enterDelay,
+    leaveDelay,
     ...other
   } = props;
   const [open, setOpen] = React.useState(false);
   const nodeRef = React.useRef(null);
   const multiRef = useMergedRef((children as any).ref, nodeRef);
-  const enterTimer = React.useRef<any>();
-  const leaveTimer = React.useRef<any>();
+  const enterTimer = React.useRef<NodeJS.Timeout>();
+  const leaveTimer = React.useRef<NodeJS.Timeout>();
 
   React.useEffect(() => () => {
     clearTimeout(enterTimer.current);
@@ -143,13 +153,11 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     clearTimeout(enterTimer.current);
     clearTimeout(leaveTimer.current);
 
-    setOpen(true);
-
     enterTimer.current = setTimeout(
       () => {
         setOpen(true);
       },
-      100,
+      enterDelay,
     );
   };
 
@@ -161,7 +169,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
       () => {
         setOpen(false);
       },
-      0,
+      leaveDelay,
     );
   };
 
@@ -239,4 +247,6 @@ Tooltip.defaultProps = {
   size: 'small',
   color: 'white',
   disablePortal: true,
+  enterDelay: 100,
+  leaveDelay: 0,
 };
