@@ -17,13 +17,14 @@ export interface AutocompleteChangeDetails<T = string> {
   index: number;
 }
 
-export type AutocompleteFilterOptionsType<T> = (
+export type AutocompleteValue<T, Multiple> = Multiple extends | undefined | false ? T | null : T[];
+
+export type AutocompleteFilterOptionsType<T, Multiple> = (
   options: ReadonlyArray<T>,
-  inputValue: string,
+  searchValue: string,
+  value: AutocompleteValue<T, Multiple>,
   getOptionLabel: (option: T) => string,
 ) => ReadonlyArray<T>;
-
-export type AutocompleteValue<T, Multiple> = Multiple extends | undefined | false ? T | null : T[];
 
 export type AutocompleteGroupedOption<T> = {
   key: number;
@@ -59,6 +60,11 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
    */
   multiple?: Multiple;
   /**
+   * It prevents the user from changing the value of
+   * the field (not from interacting with the field).
+   */
+  readOnly?: boolean;
+  /**
    * If provided, the options will be grouped under the returned string.
    */
   groupBy?: (option: T) => string;
@@ -69,7 +75,7 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
   /**
   * A filter function that determines the options that are eligible.
   */
-  filterOptions?: AutocompleteFilterOptionsType<T>;
+  filterOptions?: AutocompleteFilterOptionsType<T, Multiple>;
   /**
    * Callback fired when the popup requests to be closed.
    */
@@ -112,7 +118,7 @@ export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined = 
     key: number;
     'data-tag-index': number;
     tabIndex: -1;
-    onDelete: (event: React.SyntheticEvent) => void;
+    onDelete?: (event: React.SyntheticEvent) => void;
   };
   getOptionLabel: (option: T) => string;
 };
@@ -120,9 +126,10 @@ export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined = 
  *
  */
 
-const defaultFilterOptions: AutocompleteFilterOptionsType<any> = (
+const defaultFilterOptions: AutocompleteFilterOptionsType<any, false> = (
   options,
-  inputValue,
+  searchValue,
+  _,
   getOptionLabel,
 ) => {
   if (!options || !options.length) {
@@ -131,9 +138,8 @@ const defaultFilterOptions: AutocompleteFilterOptionsType<any> = (
 
   return options.filter((option) => {
     const labelValue = getOptionLabel(option).trim().toLowerCase();
-    const searchValue = inputValue.trim().toLowerCase();
 
-    return labelValue.includes(searchValue);
+    return labelValue.includes(searchValue.trim().toLowerCase());
   });
 };
 
@@ -147,6 +153,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     value: valueProp,
     disableCloseOnSelect = false,
     multiple = false,
+    readOnly,
     groupBy,
     // @ts-ignore
     getOptionLabel = (option) => option.label ?? option,
@@ -170,7 +177,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
   });
 
   const filteredOptions = popupOpen
-    ? filterOptions(options, searchValue, getOptionLabel)
+    ? filterOptions(options, searchValue, value, getOptionLabel)
     : [];
 
   const validOptionIndex = (index: number, direction: AutocompleteHighlightChangeDirectionType) => {
@@ -382,6 +389,10 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
   };
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (readOnly) {
+      return;
+    }
+
     handleOpen(event);
   };
 
@@ -566,7 +577,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
       key: index,
       'data-tag-index': index,
       tabIndex: -1,
-      onDelete: handleTagDelete(option, index),
+      onDelete: readOnly ? undefined : handleTagDelete(option, index),
     }),
     getOptionLabel,
     groupedOptions,
