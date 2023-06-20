@@ -24,7 +24,28 @@ export const Playground: ComponentStory<typeof Menu> = (args) => (
       },
       {
         label: 'Save to my profile',
-        onClick: () => console.log('save'),
+        subOptions: [
+          {
+            label: 'Full screen',
+            onClick: () => console.log('full screen'),
+          },
+          {
+            label: 'Search',
+            onClick: () => console.log('search'),
+          },
+          {
+            label: 'Previous',
+            onClick: () => console.log('previous'),
+          },
+          {
+            label: 'Next',
+            onClick: () => console.log('next'),
+          },
+          {
+            label: 'best',
+            onClick: () => console.log('next'),
+          },
+        ],
       },
       {
         label: 'Options',
@@ -43,6 +64,10 @@ export const Playground: ComponentStory<typeof Menu> = (args) => (
           },
           {
             label: 'Next',
+            onClick: () => console.log('next'),
+          },
+          {
+            label: 'best',
             onClick: () => console.log('next'),
           },
         ],

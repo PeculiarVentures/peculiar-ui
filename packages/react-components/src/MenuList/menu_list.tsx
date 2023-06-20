@@ -118,9 +118,11 @@ export const MenuList = React.forwardRef<any, MenuListProps>((props, ref) => {
     if (key === 'ArrowDown') {
       // Prevent scroll of the page
       event.preventDefault();
+      event.stopPropagation();
       moveFocus(list, currentFocus, nextItem);
     } else if (key === 'ArrowUp') {
       event.preventDefault();
+      event.stopPropagation();
       moveFocus(list, currentFocus, previousItem);
     }
   };
