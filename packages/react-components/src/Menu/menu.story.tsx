@@ -27,8 +27,25 @@ export const Playground: ComponentStory<typeof Menu> = (args) => (
         onClick: () => console.log('save'),
       },
       {
-        label: 'Delete',
-        onClick: () => console.log('delete'),
+        label: 'Options',
+        subOptions: [
+          {
+            label: 'Full screen',
+            onClick: () => console.log('full screen'),
+          },
+          {
+            label: 'Search',
+            onClick: () => console.log('search'),
+          },
+          {
+            label: 'Previous',
+            onClick: () => console.log('previous'),
+          },
+          {
+            label: 'Next',
+            onClick: () => console.log('next'),
+          },
+        ],
       },
     ]}
   >

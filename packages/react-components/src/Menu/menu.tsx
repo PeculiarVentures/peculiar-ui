@@ -1,8 +1,11 @@
 import React from 'react';
 import { Popover, PopoverProps } from '../Popover';
-import { Typography } from '../Typography';
+import { MenuList, MenuItem, SubMenuItem } from '../MenuList';
 import { css, cx, TypographyType } from '../styles';
 
+/**
+ * Types.
+ */
 type OptionBaseProps = {
   label: string;
   disabled?: boolean;
@@ -15,6 +18,9 @@ type OptionBaseProps = {
 };
 
 type OptionProps = OptionBaseProps & Omit<React.AllHTMLAttributes<HTMLElement>, 'children'>;
+type MenuOptionProps = OptionProps & {
+  subOptions?: OptionProps[];
+};
 
 type BaseProps = {
   /**
@@ -24,7 +30,7 @@ type BaseProps = {
   /**
    * Menu contents.
    */
-  options: OptionProps[];
+  options: MenuOptionProps[];
   /**
    * Callback fired when the component requests to be closed.
    */
@@ -36,48 +42,13 @@ type BaseProps = {
 };
 
 export type MenuProps = BaseProps;
+/**
+ *
+ */
 
-const stylesMenuList = () => css({
-  label: 'Menu-list',
-  padding: 'var(--pv-size-base-2) 0px',
-  outline: 'none',
-});
-
-const stylesMenuItem = () => css({
-  label: 'Menu-item',
-  padding: '0px var(--pv-size-base-2)',
-  fontFamily: 'inherit',
-  outline: 'none',
-  width: '100%',
-  height: 'var(--pv-size-base-7)',
-  display: 'flex',
-  textAlign: 'left',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  textDecoration: 'none',
-  userSelect: 'none',
-  cursor: 'pointer',
-  transition: 'background-color 200ms',
-  backgroundColor: 'transparent',
-  border: 'none',
-  color: 'var(--pv-color-black)',
-  '&:not(:disabled)': {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-gray-3)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-gray-4)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-gray-5)',
-    },
-  },
-  '&:disabled': {
-    color: 'var(--pv-color-gray-7)',
-    cursor: 'not-allowed',
-  },
-});
-
+/**
+ * Styles.
+ */
 const stylesPopper = () => css({
   label: 'Menu-popover',
   '&[data-popper-placement^="bottom"]': {
@@ -93,6 +64,9 @@ const stylesPopper = () => css({
     margin: '0px var(--pv-size-base-3)',
   },
 });
+/**
+ *
+ */
 
 export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
   const {
@@ -125,15 +99,64 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
   ) => (
     event: React.MouseEvent<HTMLButtonElement>,
   ) => {
-    setOpen(false);
-
     if (option.onClick) {
       option.onClick(event);
     }
 
-    if (onClose) {
-      onClose();
+    handlePopoverClose();
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+
+      handlePopoverClose();
     }
+  };
+
+  const renderOption = (option: MenuOptionProps, index: number) => {
+    const {
+      component,
+      disabled,
+      label,
+      subOptions,
+      className: classNameProp,
+      textVariant: textVariantProp,
+      onClick,
+      ...other
+    } = option;
+
+    if (subOptions && subOptions.length) {
+      return (
+        <SubMenuItem
+          key={index}
+          component={component}
+          textVariant={textVariantProp}
+          disabled={disabled}
+          label={label}
+          className={classNameProp}
+          {...other}
+          onClick={undefined}
+        >
+          {subOptions.map(renderOption)}
+        </SubMenuItem>
+      );
+    }
+
+    return (
+      <MenuItem
+        // eslint-disable-next-line react/no-array-index-key
+        key={index}
+        component={component}
+        textVariant={textVariantProp}
+        disabled={disabled}
+        onClick={handleMenuItemClick(option)}
+        className={classNameProp}
+        {...other}
+      >
+        {label}
+      </MenuItem>
+    );
   };
 
   const childrenProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> = {
@@ -150,61 +173,21 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
         {...popoverProps}
         modalProps={{
           ...modalProps,
-          disableAutoFocus: true,
+          disableAutoFocus: false,
         }}
         ref={ref}
         open={open}
         anchorEl={childRef.current}
         onClose={handlePopoverClose}
+        onKeyDown={handleKeyDown}
         className={cx({
           [stylesPopper()]: true,
           [className]: !!className,
         })}
       >
-        <div
-          role="menu"
-          tabIndex={-1}
-          className={cx({
-            [stylesMenuList()]: true,
-          })}
-        >
-          {options.map((option, index) => {
-            const {
-              component,
-              disabled,
-              label,
-              className: classNameProp,
-              textVariant: textVariantProp,
-              ...other
-            } = option;
-            const Component = component || 'button';
-            const textVariant = textVariantProp || 'b3';
-
-            return (
-              <Component
-                {...other}
-                // eslint-disable-next-line react/no-array-index-key
-                key={index}
-                type="button"
-                role="menuitem"
-                className={cx({
-                  [stylesMenuItem()]: true,
-                  [classNameProp]: !!classNameProp,
-                })}
-                onClick={handleMenuItemClick(option)}
-                disabled={disabled}
-              >
-                <Typography
-                  variant={textVariant}
-                  color="inherit"
-                  component="span"
-                >
-                  {label}
-                </Typography>
-              </Component>
-            );
-          })}
-        </div>
+        <MenuList>
+          {options.map(renderOption)}
+        </MenuList>
       </Popover>
     </>
   );
