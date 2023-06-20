@@ -136,7 +136,6 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
           label={label}
           className={classNameProp}
           {...other}
-          onClick={undefined}
         >
           {subOptions.map(renderOption)}
         </SubMenuItem>

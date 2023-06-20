@@ -54,6 +54,7 @@ export const SubMenuItem = React.forwardRef<any, SubMenuItemProps>((props, ref) 
       ref={multiRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleMouseEnter}
     >
       {label}
       <Popper
