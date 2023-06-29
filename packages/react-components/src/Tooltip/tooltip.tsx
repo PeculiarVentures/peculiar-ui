@@ -62,6 +62,10 @@ export type TooltipBaseProps = {
    * Add delay in hiding the tooltip.
    */
   leaveDelay?: number;
+  /**
+   * Manually open tooltip when needed.
+   */
+  open?: boolean;
 };
 
 export type TooltipProps = TooltipBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
@@ -123,6 +127,7 @@ const stylesPopper = (interactive?: boolean) => css({
 
 export const Tooltip: React.FC<TooltipProps> = (props) => {
   const {
+    open: openProp,
     children,
     title,
     placement,
@@ -138,7 +143,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     leaveDelay,
     ...other
   } = props;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState<boolean>(openProp);
   const nodeRef = React.useRef(null);
   const multiRef = useMergedRef((children as any).ref, nodeRef);
   const enterTimer = React.useRef<NodeJS.Timeout>();
@@ -249,4 +254,5 @@ Tooltip.defaultProps = {
   disablePortal: true,
   enterDelay: 100,
   leaveDelay: 0,
+  open: false,
 };
