@@ -59,48 +59,6 @@ const stylesBase = () => css({
   borderRadius: '50%',
   justifyContent: 'center',
   alignItems: 'center',
-  position: 'relative',
-  '&:before': {
-    top: '-10px',
-    left: '-10px',
-    right: '-10px',
-    bottom: '-10px',
-    content: '""',
-    position: 'absolute',
-    borderRadius: '50%',
-    opacity: 0,
-    transition: 'background-color 200ms, opacity 200ms',
-  },
-});
-
-const stylesBaseEffects = () => css({
-  '&:hover:before': {
-    backgroundColor: 'var(--pv-color-gray-8)',
-    opacity: 0.2,
-  },
-  '&:focus:before': {
-    backgroundColor: 'var(--pv-color-gray-8)',
-    opacity: 0.3,
-  },
-  '&:active:before': {
-    backgroundColor: 'var(--pv-color-gray-8)',
-    opacity: 0.4,
-  },
-});
-
-const stylesBaseEffectsChecked = () => css({
-  '&:hover:before': {
-    backgroundColor: 'var(--pv-color-primary-tint-3)',
-    opacity: 0.2,
-  },
-  '&:focus:before': {
-    backgroundColor: 'var(--pv-color-primary-tint-3)',
-    opacity: 0.3,
-  },
-  '&:active:before': {
-    backgroundColor: 'var(--pv-color-primary-tint-3)',
-    opacity: 0.4,
-  },
 });
 
 const stylesBaseDisabled = () => css({
@@ -113,10 +71,10 @@ const stylesInput = () => css({
   overflow: 'hidden',
   width: '100%',
   height: '100%',
-  position: 'relative',
   margin: 0,
   padding: 0,
   cursor: 'inherit',
+  outline: 0,
   borderRadius: '50%',
   borderWidth: '2px',
   borderStyle: 'solid',
@@ -128,6 +86,9 @@ const stylesInput = () => css({
     '+ [aria-hidden]': {
       opacity: 1,
     },
+    ':after': {
+      backgroundColor: 'var(--pv-color-primary-shade-2)',
+    },
   },
   '&:disabled': {
     borderColor: 'var(--pv-color-gray-6)',
@@ -136,6 +97,36 @@ const stylesInput = () => css({
     },
     '+ [aria-hidden]': {
       color: 'var(--pv-color-gray-6)',
+    },
+  },
+  ':after': {
+    position: 'absolute',
+    top: '-7px',
+    left: '-7px',
+    right: '-7px',
+    bottom: '-7px',
+    content: '""',
+    zIndex: -1,
+    borderRadius: '50%',
+    opacity: 0,
+    backgroundColor: 'var(--pv-color-gray-9)',
+    transition: 'background-color 200ms, opacity 200ms',
+  },
+  '&:not(:disabled)': {
+    '&:hover': {
+      '&:after': {
+        opacity: 0.18,
+      },
+    },
+    '&:focus': {
+      '&:after': {
+        opacity: 0.23,
+      },
+    },
+    '&:active': {
+      '&:after': {
+        opacity: 0.3,
+      },
     },
   },
 });
@@ -201,13 +192,6 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
     );
   };
 
-  const [clicked, setClicked] = React.useState<boolean>(false);
-
-  const onChangeAction = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event);
-    setClicked(!clicked);
-  };
-
   return (
     <label
       {...other}
@@ -215,8 +199,6 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
       htmlFor={id}
       className={cx({
         [stylesBase()]: true,
-        [stylesBaseEffects()]: !clicked && !disabled,
-        [stylesBaseEffectsChecked()]: clicked && !disabled,
         [stylesBaseDisabled()]: disabled,
         [className]: !!className,
       })}
@@ -235,7 +217,7 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
           required={required}
           disabled={disabled}
           className={cx(stylesInput())}
-          onChange={(e) => onChangeAction(e)}
+          onChange={onChange}
         />
         {renderIcon()}
       </Box>

@@ -70,6 +70,7 @@ const stylesInput = () => css({
   margin: 0,
   padding: 0,
   cursor: 'inherit',
+  outline: 0,
   borderRadius: '2px',
   borderWidth: '2px',
   borderStyle: 'solid',
@@ -82,12 +83,44 @@ const stylesInput = () => css({
     '+ [aria-hidden]': {
       opacity: 1,
     },
+    '&:after': {
+      backgroundColor: 'var(--pv-color-primary-shade-2)',
+    },
   },
   '&:disabled': {
     borderColor: 'var(--pv-color-gray-6)',
     '&:checked': {
       backgroundColor: 'var(--pv-color-gray-6)',
       borderColor: 'var(--pv-color-gray-7)',
+    },
+  },
+  '&:after': {
+    top: '-7px',
+    left: '-7px',
+    right: '-7px',
+    bottom: '-7px',
+    content: '""',
+    position: 'absolute',
+    borderRadius: '50%',
+    opacity: 0,
+    backgroundColor: 'var(--pv-color-gray-9)',
+    transition: 'opacity 200ms, background-color 200ms',
+  },
+  '&:not(:disabled)': {
+    '&:hover': {
+      '&:after': {
+        opacity: 0.18,
+      },
+    },
+    '&:focus': {
+      '&:after': {
+        opacity: 0.23,
+      },
+    },
+    '&:active': {
+      '&:after': {
+        opacity: 0.3,
+      },
     },
   },
 });
