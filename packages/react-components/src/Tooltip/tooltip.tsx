@@ -2,7 +2,7 @@ import React from 'react';
 import { Placement } from '@popperjs/core';
 import { Popper } from '../Popper';
 import { Box } from '../Box';
-import { useMergedRef } from '../hooks';
+import { useMergedRef, useControllableState } from '../hooks';
 import { Typography } from '../Typography';
 import { css, cx, keyframes } from '../styles';
 
@@ -10,6 +10,10 @@ import { css, cx, keyframes } from '../styles';
  * Types.
  */
 export type TooltipBaseProps = {
+  /**
+   * If `true`, the component is shown.
+   */
+  open?: boolean;
   /**
    * Tooltip reference element.
    */
@@ -123,6 +127,7 @@ const stylesPopper = (interactive?: boolean) => css({
 
 export const Tooltip: React.FC<TooltipProps> = (props) => {
   const {
+    open: openProp,
     children,
     title,
     placement,
@@ -138,7 +143,10 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     leaveDelay,
     ...other
   } = props;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useControllableState({
+    value: openProp,
+    defaultValue: false,
+  });
   const nodeRef = React.useRef(null);
   const multiRef = useMergedRef((children as any).ref, nodeRef);
   const enterTimer = React.useRef<NodeJS.Timeout>();
