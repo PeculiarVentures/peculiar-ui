@@ -61,6 +61,28 @@ const stylesBase = () => css({
   borderRadius: 'var(--pv-size-base-4)',
   justifyContent: 'center',
   alignItems: 'center',
+  'input:not(:disabled)': {
+    '&:hover + div:after': {
+      opacity: 0.18,
+    },
+    '&:focus + div:after': {
+      opacity: 0.23,
+    },
+    '&:active + div:after': {
+      opacity: 0.3,
+    },
+    '&:checked': {
+      '&:hover + div:after': {
+        opacity: 0.18,
+      },
+      '&:focus + div:after': {
+        opacity: 0.23,
+      },
+      '&:active + div:after': {
+        opacity: 0.3,
+      },
+    },
+  },
 });
 
 const stylesBaseDisabled = () => css({
@@ -75,6 +97,7 @@ const stylesInput = (props: BaseProps) => css({
   height: '100%',
   margin: 0,
   padding: 0,
+  outline: '0',
   cursor: 'inherit',
   borderRadius: 'var(--pv-size-base-4)',
   appearance: 'none',
@@ -112,6 +135,9 @@ const stylesControl = (props: BaseProps) => css({
     position: 'absolute',
     borderRadius: '50%',
   },
+  'input:checked + div:after': {
+    backgroundColor: 'var(--pv-color-primary-shade-2)',
+  },
 });
 
 const stylesDot = () => css({
@@ -125,6 +151,18 @@ const stylesDot = () => css({
   transition: 'transform 200ms',
   boxShadow: 'var(--pv-shadow-light-low)',
   boxSizing: 'content-box',
+  '&:after': {
+    top: '-10px',
+    left: '-10px',
+    right: '-10px',
+    bottom: '-10px',
+    content: '""',
+    position: 'absolute',
+    borderRadius: '50%',
+    opacity: 0,
+    backgroundColor: 'var(--pv-color-gray-9)',
+    transition: 'opacity 200ms, background-color 200ms',
+  },
 });
 
 export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, ref) => {
