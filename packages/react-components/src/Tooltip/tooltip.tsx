@@ -66,6 +66,10 @@ export type TooltipBaseProps = {
    * Add delay in hiding the tooltip.
    */
   leaveDelay?: number;
+  /**
+   * If `true`, adds arrow to tooltip.
+   */
+  arrow?: boolean;
 };
 
 export type TooltipProps = TooltipBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
@@ -91,7 +95,6 @@ const stylesTooltip = () => css({
   maxWidth: '300px',
   wordWrap: 'break-word',
   fontSize: 0,
-  animation: `${stylesKeyframeOpacity} 225ms`,
 });
 
 const stylesSizeSmall = () => css({
@@ -108,6 +111,7 @@ const stylesPopper = (interactive?: boolean) => css({
   label: 'Popper',
   pointerEvents: interactive ? 'auto' : 'none',
   zIndex: 1500,
+  animation: `${stylesKeyframeOpacity} 225ms`,
   '&[data-popper-placement^="bottom"]': {
     padding: 'var(--pv-size-base-3) 0px',
   },
@@ -141,6 +145,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     disablePortal,
     enterDelay,
     leaveDelay,
+    arrow,
     ...other
   } = props;
   const [open, setOpen] = useControllableState({
@@ -222,6 +227,8 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
           [stylesPopper(interactive)]: true,
         })}
         disablePortal={disablePortal}
+        arrow={arrow}
+        arrowColor={color === 'black' ? 'gray-10' : 'white'}
         {...popperProps}
       >
         <Box
