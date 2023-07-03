@@ -122,14 +122,16 @@ const stylesInputBase = () => css({
     },
   },
 }, {
-  fontWeight: 'var(--pv-text-c1-weight)',
-  fontSize: 'var(--pv-text-c1-size)',
-  letterSpacing: 'var(--pv-text-c1-spacing)',
+  fontWeight: 'var(--pv-text-b3-weight)',
+  fontSize: 'var(--pv-text-b3-size)',
+  letterSpacing: 'var(--pv-text-b3-spacing)',
 } as any);
 
 const stylesInputSizeSmall = () => css({
   label: 'small',
   height: 'var(--pv-size-base-6)',
+  fontSize: 'var(--pv-text-c1-size)',
+  letterSpacing: 'var(--pv-text-c1-spacing)',
 });
 
 const stylesInputSizeMedium = () => css({
