@@ -132,7 +132,8 @@ const stylesInputSizeSmall = () => css({
   height: 'var(--pv-size-base-6)',
   fontSize: 'var(--pv-text-c1-size)',
   letterSpacing: 'var(--pv-text-c1-spacing)',
-});
+  fontWeight: 'var(--pv-text-c1-weight)',
+} as any);
 
 const stylesInputSizeMedium = () => css({
   label: 'medium',
