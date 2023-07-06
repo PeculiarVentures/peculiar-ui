@@ -295,6 +295,8 @@ const stylesPopover = () => css({
   label: 'Autocomplete-popover',
   minWidth: 240,
   outline: 0,
+  marginTop: 1,
+  borderRadius: 4,
   maxWidth: 'calc(100% - 32px)',
   maxHeight: 'calc(100% - 32px)',
   minHeight: '16px',
