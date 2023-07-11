@@ -213,7 +213,7 @@ const stylesRootMultiple = () => css({
   alignItems: 'center',
 });
 
-const stylesInputArrowIcon = () => css({
+const stylesInputArrowIcon = (open: boolean) => css({
   label: 'Autocomplete-arrow-icon',
   position: 'absolute',
   right: '0px',
@@ -221,6 +221,9 @@ const stylesInputArrowIcon = () => css({
   pointerEvents: 'none',
   margin: '0px var(--pv-size-base)',
   color: 'var(--pv-color-gray-10)',
+  ...(open && {
+    transform: 'rotate(180deg)',
+  }),
   '&[aria-disabled="true"]': {
     color: 'var(--pv-color-gray-7)',
   },
@@ -533,7 +536,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
             disabled={loading || disabled}
           />
           <ArrowDropDownIcon
-            className={stylesInputArrowIcon()}
+            className={stylesInputArrowIcon(popoverProps.open)}
             aria-disabled={disabled}
             aria-hidden
           />
@@ -576,7 +579,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
           {isValueEmpty ? placeholder : renderedValue}
         </Typography>
         <ArrowDropDownIcon
-          className={stylesInputArrowIcon()}
+          className={stylesInputArrowIcon(popoverProps.open)}
           aria-disabled={disabled}
           aria-hidden
         />
