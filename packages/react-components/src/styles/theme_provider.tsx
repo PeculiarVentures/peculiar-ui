@@ -25,7 +25,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
     <>
       <Global
         styles={{
-          html: createThemeCSSVariablesFromObject(theme),
+          'html, ::backdrop': createThemeCSSVariablesFromObject(theme),
         }}
       />
       {children}
