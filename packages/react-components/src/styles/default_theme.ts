@@ -154,7 +154,7 @@ export const defaultTheme: ThemeType = {
       weight: '700',
       size: '14px',
       height: '20px',
-      spacing: '0.5px',
+      spacing: '0.2px',
     },
     /**
      * button2
@@ -163,7 +163,7 @@ export const defaultTheme: ThemeType = {
       weight: '700',
       size: '13px',
       height: '17px',
-      spacing: '0.5px',
+      spacing: '0.2px',
     },
     /**
      * caption1
