@@ -33,6 +33,7 @@ export type IconButtonProps<
  */
 const stylesBase = () => css({
   '--pv-color-black': 'var(--pv-color-gray-9)',
+  border: 'none',
 });
 /**
  *
