@@ -21,6 +21,7 @@
     "sourceMap": true,
     "stripInternal": true,
     "target": "es5",
+    "strictBindCallApply": true
   },
   "exclude": [
     "node_modules"

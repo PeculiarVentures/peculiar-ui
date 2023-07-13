@@ -1,1 +1,5 @@
-export { ButtonBase, ButtonBaseProps } from './button_base';
+export {
+  ButtonBase,
+  ButtonBaseOwnProps,
+  ButtonBaseProps,
+} from './button_base';

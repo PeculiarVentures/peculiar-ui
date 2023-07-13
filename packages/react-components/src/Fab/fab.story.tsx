@@ -1,16 +1,7 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Fab } from './index';
 import { PlusIcon } from '../icons';
-
-export const Playground = (args: any) => (
-  <Fab
-    {...args}
-  />
-);
-
-Playground.args = {
-  children: <PlusIcon />,
-};
 
 export default {
   title: 'Components/FloatingActionButton',
@@ -19,4 +10,14 @@ export default {
     children: { control: false },
     component: { control: false },
   },
+} as ComponentMeta<typeof Fab>;
+
+export const Playground: ComponentStory<typeof Fab> = (args) => (
+  <Fab
+    {...args}
+  />
+);
+
+Playground.args = {
+  children: <PlusIcon />,
 };

@@ -1,16 +1,7 @@
-import {
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-} from 'react';
-import { useEnhancedEffect } from '../utils';
+import React from 'react';
+import { useEnhancedEffect } from './use_enhanced_effect';
 
-export type UseImageOptions = {
-  /**
-   * The image `src` attribute.
-   */
-  src: string;
+export type UseImageOptionsType = {
   /**
    * A callback for when the image `src` has been loaded.
    */
@@ -21,7 +12,7 @@ export type UseImageOptions = {
   onError?: (error: string | React.SyntheticEvent<HTMLImageElement, Event>) => void;
 };
 
-type Status = 'loading' | 'failed' | 'pending' | 'loaded';
+type Status = ('loading' | 'failed' | 'pending' | 'loaded');
 
 /**
  * React hook that loads an image in the browser,
@@ -34,47 +25,37 @@ type Status = 'loading' | 'failed' | 'pending' | 'loaded';
  *
  * ```jsx
  * function App(){
- *   const status = useImage({ src: "image.png" })
- *   return status === "loaded" ? <img src="image.png" /> : <Placeholder />
+ *   const [status, image] = useImage("image.png")
+ *   return status === "loaded" ? <img src={image.src} /> : <Placeholder />
  * }
  * ```
  */
-export function useImage(options: UseImageOptions) {
+
+type UseImageReturnType = {
+  status: Status;
+  image?: HTMLImageElement;
+};
+
+export function useImage(src: string, options: UseImageOptionsType = {}): UseImageReturnType {
   const {
-    src,
     onLoad,
     onError,
   } = options;
 
-  const [status, setStatus] = useState<Status>('pending');
+  const [status, setStatus] = React.useState<Status>('pending');
+  const imageRef = React.useRef<UseImageReturnType['image']>();
 
-  useEffect(() => {
-    setStatus(src ? 'loading' : 'pending');
-  }, [src]);
-
-  const imageRef = useRef<HTMLImageElement | null>();
-
-  const flush = () => {
-    if (imageRef.current) {
-      imageRef.current.onload = null;
-      imageRef.current.onerror = null;
-      imageRef.current = null;
-    }
-  };
-
-  const load = useCallback(() => {
+  useEnhancedEffect(() => {
     if (!src) {
-      return;
+      return undefined;
     }
 
-    flush();
+    setStatus('loading');
 
-    const img = new Image();
+    imageRef.current = new Image();
+    imageRef.current.src = src;
 
-    img.src = src;
-
-    img.onload = (event) => {
-      flush();
+    imageRef.current.onload = (event) => {
       setStatus('loaded');
 
       if (onLoad) {
@@ -82,8 +63,9 @@ export function useImage(options: UseImageOptions) {
       }
     };
 
-    img.onerror = (error) => {
-      flush();
+    imageRef.current.onerror = (error) => {
+      imageRef.current = undefined;
+
       setStatus('failed');
 
       if (onError) {
@@ -91,18 +73,10 @@ export function useImage(options: UseImageOptions) {
       }
     };
 
-    imageRef.current = img;
-  }, [src, onLoad, onError]);
-
-  useEnhancedEffect(() => {
-    if (status === 'loading') {
-      load();
-    }
-
     return () => {
-      flush();
+      imageRef.current = undefined;
     };
-  }, [status, load]);
+  }, [src]);
 
-  return status;
+  return { status, image: imageRef.current };
 }

@@ -1,8 +1,12 @@
 import * as React from 'react';
+import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { css, cx, ColorType } from '../styles';
 import { Typography } from '../Typography';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+export interface TabOwnProps {
   /**
    * The content of the component.
    */
@@ -12,26 +16,37 @@ type BaseProps = {
    */
   id: string;
   /**
-   * The className of the component.
-   */
-  className?: string;
-  /**
    * If `true`, the tab will be disabled.
    */
   disabled?: boolean;
   /**
-   * The component used for the root node.
+   * The color of the component.
    */
-  component?: React.ElementType;
+  color?: ('black' | 'white');
   /**
    * Callback fired when the value changes.
    */
   onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
-  'data-testid'?: string;
+  onClick?: never;
+}
+
+export interface TabTypeMap<P = {}, D extends React.ElementType = 'button'> {
+  props: P & TabOwnProps;
+  defaultComponent: D;
+}
+
+export type TabProps<
+  D extends React.ElementType = TabTypeMap['defaultComponent'],
+> = OverrideProps<TabTypeMap<{}, D>, D> & {
+  component?: D;
 };
+/**
+ *
+ */
 
-export type TabBaseProps = BaseProps & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onChange'>;
-
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'Tab',
   fontFamily: 'inherit',
@@ -67,27 +82,44 @@ const stylesBase = () => css({
     },
   },
 });
+/**
+ *
+ */
 
-export const Tab = React.forwardRef<HTMLButtonElement, TabBaseProps>((props, ref) => {
+export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
   const {
     children,
     className,
     disabled,
     id,
+    color = 'black',
+    component,
+    onChange,
     // @ts-ignore
     selected,
-    component: componentProp,
-    onChange,
     ...other
   } = props;
-  const Component = componentProp || 'button';
-  let color: ColorType = 'gray-10';
+  const Component = component || 'button';
 
-  if (disabled) {
-    color = 'gray-7';
-  } else if (selected) {
-    color = 'black';
-  }
+  const textColor: ColorType = React.useMemo(() => {
+    if (disabled) {
+      return 'gray-7';
+    }
+
+    if (color === 'white') {
+      if (selected) {
+        return 'white';
+      }
+
+      return 'gray-9';
+    }
+
+    if (selected) {
+      return 'black';
+    }
+
+    return 'gray-10';
+  }, [disabled, selected, color]);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (!selected && onChange) {
@@ -113,17 +145,17 @@ export const Tab = React.forwardRef<HTMLButtonElement, TabBaseProps>((props, ref
       <Typography
         variant="s2"
         component="span"
-        color={color}
+        color={textColor}
       >
         {children}
       </Typography>
     </Component>
   );
-});
+}) as OverridableComponent<TabTypeMap>;
 
 Tab.displayName = 'Tab';
 
 Tab.defaultProps = {
   disabled: false,
-  component: 'button',
+  color: 'black',
 };

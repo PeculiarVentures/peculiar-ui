@@ -7,11 +7,11 @@ import {
   generateWrongColors,
   generateSecondaryColors,
   generatePrimaryColors,
+  generateAttentionColors,
 } from './colors';
 import {
   generateBaseSize,
 } from './sizes';
-import { eventManager, Event } from './event_manager';
 
 export const themeCSSVariablePrefix = 'pv';
 export const contrastThreshold = 2;
@@ -20,6 +20,7 @@ export const createTheme = (options?: ThemeOptionsType) => {
   const primary = generatePrimaryColors(options?.color?.primary);
   const secondary = generateSecondaryColors(options?.color?.secondary);
   const wrong = generateWrongColors(options?.color?.wrong);
+  const attention = generateAttentionColors(options?.color?.attention);
   const size = generateBaseSize(options?.size);
 
   function getContrastText(background: string) {
@@ -36,9 +37,11 @@ export const createTheme = (options?: ThemeOptionsType) => {
       ...primary,
       ...secondary,
       ...wrong,
+      ...attention,
       'primary-contrast': getContrastText(primary.primary),
       'secondary-contrast': getContrastText(secondary.secondary),
       'wrong-contrast': getContrastText(wrong.wrong),
+      ...options?.color,
     } as Partial<Record<ColorType, string>>,
     size,
   });
@@ -55,10 +58,4 @@ export const createThemeCSSVariablesFromObject = (object: Record<string, any>) =
   );
 
   return flatted;
-};
-
-export const theme = {
-  useTheme: (options: ThemeOptionsType) => {
-    eventManager.emit(Event.Use, options);
-  },
 };

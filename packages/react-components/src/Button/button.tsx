@@ -1,8 +1,12 @@
 import * as React from 'react';
+import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { css, cx } from '../styles';
-import { ButtonBase, ButtonBaseProps } from '../ButtonBase';
+import { ButtonBase, ButtonBaseOwnProps } from '../ButtonBase';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+export interface ButtonOwnProps extends ButtonBaseOwnProps {
   circled?: boolean;
   /**
    * Element placed before the children.
@@ -16,10 +20,25 @@ type BaseProps = {
    * Specify if the button doesn't have padding.
    */
   withoutPadding?: boolean;
+}
+
+export interface ButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
+  props: P & ButtonOwnProps;
+  defaultComponent: D;
+}
+
+export type ButtonProps<
+  D extends React.ElementType = ButtonTypeMap['defaultComponent'],
+> = OverrideProps<ButtonTypeMap<{}, D>, D> & {
+  component?: D;
 };
+/**
+ *
+ */
 
-export type ButtonProps = BaseProps & ButtonBaseProps;
-
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'Button',
   borderRadius: '4px',
@@ -72,8 +91,11 @@ const stylesEndIcon = () => css({
   marginLeft: 'var(--pv-size-base)',
   display: 'inherit',
 });
+/**
+ *
+ */
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+export const Button = React.forwardRef<any, ButtonProps>((props, ref) => {
   const {
     children,
     className,
@@ -119,7 +141,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
       {endIcon}
     </ButtonBase>
   );
-});
+}) as OverridableComponent<ButtonTypeMap>;
 
 Button.displayName = 'Button';
 

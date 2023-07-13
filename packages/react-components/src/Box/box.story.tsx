@@ -1,7 +1,17 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Box } from './index';
 
-export const Default = (args: any) => (
+export default {
+  title: 'Playground/Box',
+  component: Box,
+  argTypes: {
+    children: { control: 'text' },
+    component: { control: false },
+  },
+} as ComponentMeta<typeof Box>;
+
+export const Default: ComponentStory<typeof Box> = (args) => (
   <Box
     {...args}
   />
@@ -14,13 +24,4 @@ Default.args = {
   borderStyle: 'solid',
   background: 'primary-tint-3',
   borderColor: 'secondary-tint-3',
-};
-
-export default {
-  title: 'Playground/Box',
-  component: Box,
-  argTypes: {
-    children: { control: 'text' },
-    component: { control: false },
-  },
 };

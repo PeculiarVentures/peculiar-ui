@@ -2,11 +2,18 @@ import React from 'react';
 import { Placement } from '@popperjs/core';
 import { Popper } from '../Popper';
 import { Box } from '../Box';
-import { useMergedRef } from '../hooks';
+import { useMergedRef, useControllableState } from '../hooks';
 import { Typography } from '../Typography';
 import { css, cx, keyframes } from '../styles';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+export type TooltipBaseProps = {
+  /**
+   * If `true`, the component is shown.
+   */
+  open?: boolean;
   /**
    * Tooltip reference element.
    */
@@ -51,10 +58,28 @@ type BaseProps = {
    * Disable the portal behavior. The children stay within it's parent DOM hierarchy.
    */
   disablePortal?: boolean;
+  /**
+   * Add delay in showing the tooltip.
+   */
+  enterDelay?: number;
+  /**
+   * Add delay in hiding the tooltip.
+   */
+  leaveDelay?: number;
+  /**
+   * If `true`, adds an arrow to the tooltip.
+   */
+  arrow?: boolean;
 };
 
-type TooltipProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
+export type TooltipProps = TooltipBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
+/**
+ *
+ */
 
+/**
+ * Styles.
+ */
 const stylesKeyframeOpacity = keyframes`
   from {
     opacity: 0;
@@ -64,45 +89,81 @@ const stylesKeyframeOpacity = keyframes`
   }
 `;
 
-const stylesTooltip = () => css({
+const stylesTooltip = (props: TooltipBaseProps) => css({
   label: 'Tooltip',
   boxShadow: 'var(--pv-shadow-light-low)',
   maxWidth: '300px',
   wordWrap: 'break-word',
   fontSize: 0,
   animation: `${stylesKeyframeOpacity} 225ms`,
+  position: 'relative',
+  ...(props.size === 'small' && {
+    padding: '5px 8px',
+  }),
+  ...(props.size === 'large' && {
+    padding: '8px 10px',
+  }),
 });
 
-const stylesSizeSmall = () => css({
-  label: 'small',
-  padding: '5px 8px',
-});
-
-const stylesSizeLarge = () => css({
-  label: 'large',
-  padding: '8px 10px',
-});
-
-const stylesPopper = (interactive?: boolean) => css({
+const stylesPopper = (props: TooltipBaseProps) => css({
   label: 'Popper',
-  pointerEvents: interactive ? 'auto' : 'none',
+  pointerEvents: props.interactive ? 'auto' : 'none',
   zIndex: 1500,
   '&[data-popper-placement^="bottom"]': {
     padding: 'var(--pv-size-base-3) 0px',
+    '[data-popper-arrow]': {
+      top: 0,
+      marginTop: '-4px',
+    },
   },
   '&[data-popper-placement^="top"]': {
     padding: 'var(--pv-size-base-3) 0px',
+    '[data-popper-arrow]': {
+      bottom: 0,
+      marginBottom: '-4px',
+    },
   },
   '&[data-popper-placement^="right"]': {
     padding: '0px var(--pv-size-base-3)',
+    '[data-popper-arrow]': {
+      left: 0,
+      marginLeft: '-4px',
+    },
   },
   '&[data-popper-placement^="left"]': {
     padding: '0px var(--pv-size-base-3)',
+    '[data-popper-arrow]': {
+      right: 0,
+      marginRight: '-4px',
+    },
   },
 });
 
+const stylesArrow = (props: TooltipBaseProps) => css({
+  label: 'arrow',
+  width: '8px',
+  height: '8px',
+  background: 'transparent',
+  position: 'absolute',
+  display: 'block',
+  color: props.color === 'white' ? 'var(--pv-color-white)' : 'var(--pv-color-gray-10)',
+  '&::before': {
+    content: '""',
+    margin: 'auto',
+    display: 'block',
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'currentColor',
+    transform: 'rotate(45deg)',
+  },
+});
+/**
+ *
+ */
+
 export const Tooltip: React.FC<TooltipProps> = (props) => {
   const {
+    open: openProp,
     children,
     title,
     placement,
@@ -114,13 +175,20 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     size,
     color,
     disablePortal,
+    enterDelay,
+    leaveDelay,
+    arrow,
     ...other
   } = props;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useControllableState({
+    value: openProp,
+    defaultValue: false,
+  });
   const nodeRef = React.useRef(null);
   const multiRef = useMergedRef((children as any).ref, nodeRef);
-  const enterTimer = React.useRef<any>();
-  const leaveTimer = React.useRef<any>();
+  const [arrowRef, setArrowRef] = React.useState(null);
+  const enterTimer = React.useRef<NodeJS.Timeout>();
+  const leaveTimer = React.useRef<NodeJS.Timeout>();
 
   React.useEffect(() => () => {
     clearTimeout(enterTimer.current);
@@ -131,13 +199,11 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     clearTimeout(enterTimer.current);
     clearTimeout(leaveTimer.current);
 
-    setOpen(true);
-
     enterTimer.current = setTimeout(
       () => {
         setOpen(true);
       },
-      100,
+      enterDelay,
     );
   };
 
@@ -149,7 +215,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
       () => {
         setOpen(false);
       },
-      0,
+      leaveDelay,
     );
   };
 
@@ -190,31 +256,51 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
         anchorEl={nodeRef.current}
         open={title && open}
         placement={placement}
-        className={cx({
-          [stylesPopper(interactive)]: true,
-        })}
+        className={stylesPopper(props)}
         disablePortal={disablePortal}
+        modifiers={[
+          {
+            name: 'arrow',
+            enabled: Boolean(arrowRef),
+            options: {
+              element: arrowRef,
+              padding: 8,
+            },
+          },
+        ]}
         {...popperProps}
       >
-        <Box
-          {...other}
-          background={color === 'black' ? 'gray-10' : 'white'}
-          borderRadius={4}
-          className={cx({
-            [stylesTooltip()]: true,
-            [stylesSizeSmall()]: size === 'small',
-            [stylesSizeLarge()]: size === 'large',
-            [className]: !!className,
-          })}
-        >
-          <Typography
-            component="span"
-            variant={size === 'small' ? 'c2' : 'b3'}
-            color={color === 'black' ? 'white' : 'black'}
+        {(style) => (
+          <Box
+            {...other}
+            background={color === 'black' ? 'gray-10' : 'white'}
+            borderRadius={4}
+            className={cx({
+              [stylesTooltip(props)]: true,
+              [className]: !!className,
+            })}
           >
-            {title}
-          </Typography>
-        </Box>
+            <Typography
+              component="span"
+              variant={size === 'small' ? 'c2' : 'b3'}
+              color={color === 'black' ? 'white' : 'black'}
+            >
+              {title}
+            </Typography>
+            {
+              arrow
+                ? (
+                  <span
+                    className={stylesArrow(props)}
+                    data-popper-arrow
+                    ref={setArrowRef}
+                    style={style}
+                  />
+                )
+                : null
+            }
+          </Box>
+        )}
       </Popper>
     </>
   );
@@ -227,4 +313,7 @@ Tooltip.defaultProps = {
   size: 'small',
   color: 'white',
   disablePortal: true,
+  enterDelay: 100,
+  leaveDelay: 0,
+  arrow: false,
 };

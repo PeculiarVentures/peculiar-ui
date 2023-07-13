@@ -1,6 +1,5 @@
 import React from 'react';
-import type { Placement } from '@popperjs/core';
-import { usePopper } from 'react-popper';
+import { usePopper, PopperProps as PopperReactProps, Modifier } from 'react-popper';
 import { Portal } from '../Portal';
 
 type BaseProps = {
@@ -11,7 +10,7 @@ type BaseProps = {
   /**
    * Popper render node.
    */
-  children: React.ReactNode;
+  children: React.ReactNode | ((style: React.CSSProperties) => React.ReactNode);
   /**
    * It's used to set the position of the popper.
    */
@@ -19,14 +18,23 @@ type BaseProps = {
   /**
    * Popper placement.
    */
-  placement?: Placement;
+  placement?: PopperReactProps<unknown>['placement'];
   /**
    * Disable the portal behavior. The children stay within it's parent DOM hierarchy.
    */
   disablePortal?: boolean;
+  /**
+   * Make your popper the same width as the reference.
+   */
+  allowUseSameWidth?: boolean;
+  /**
+   * Popper.js is based on a "plugin-like" architecture,
+   * most of its features are fully encapsulated "modifiers".
+   */
+  modifiers?: Modifier<any>[];
 };
 
-type PopperProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type PopperProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 
 export const Popper: React.FC<PopperProps> = (props) => {
   const {
@@ -35,13 +43,44 @@ export const Popper: React.FC<PopperProps> = (props) => {
     placement,
     open,
     disablePortal,
+    allowUseSameWidth,
+    modifiers,
     ...other
   } = props;
   const [popperElement, setPopperElement] = React.useState(null);
+  const popperModifiers: Modifier<any>[] = React.useMemo(() => {
+    let baseModifiers: Modifier<any>[] = [
+      {
+        name: 'sameWidth',
+        enabled: allowUseSameWidth,
+        phase: 'beforeWrite',
+        requires: ['computeStyles'],
+        fn: ({ state }) => {
+          // eslint-disable-next-line no-param-reassign
+          state.styles.popper.width = `${state.rects.reference.width}px`;
+        },
+        effect: ({ state }) => {
+          // @ts-ignore
+          // eslint-disable-next-line no-param-reassign
+          state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
+        },
+      },
+    ];
+
+    if (modifiers && modifiers.length) {
+      baseModifiers = baseModifiers.concat(modifiers);
+    }
+
+    return baseModifiers;
+  }, [allowUseSameWidth, modifiers]);
+
   const { styles, attributes } = usePopper(
     anchorEl,
     popperElement,
-    { placement },
+    {
+      placement,
+      modifiers: popperModifiers,
+    },
   );
 
   const tooltip = (
@@ -52,7 +91,7 @@ export const Popper: React.FC<PopperProps> = (props) => {
       role="tooltip"
       {...attributes.popper}
     >
-      {children}
+      {typeof children === 'function' ? children(styles.arrow) : children}
     </div>
   );
 
@@ -75,4 +114,5 @@ Popper.displayName = 'Popper';
 
 Popper.defaultProps = {
   placement: 'bottom',
+  allowUseSameWidth: false,
 };

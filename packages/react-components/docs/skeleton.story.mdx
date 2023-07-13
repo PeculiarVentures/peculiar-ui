@@ -1,0 +1,57 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import { Skeleton, Avatar, Typography } from '../src';
+
+<Meta
+  title="Components/Skeleton"
+  component={Skeleton}
+/>
+
+# Skeleton
+
+Display a placeholder preview of your content before the data gets loaded to reduce load-time frustration.
+
+## Variants
+
+The component supports 3 shape variants.
+
+<Canvas isColumn>
+<Skeleton variant="text" />
+<Skeleton variant="circle" width={40} height={40} />
+<Skeleton variant="rect" width={210} height={118} />
+</Canvas>
+
+## Inferring dimensions
+
+In addition to accepting `width` and `height` props, the component can also infer the dimensions.
+
+<Canvas>
+  <Typography variant="h1">
+    <Skeleton width={20} />
+  </Typography>
+  <Typography variant="h1">
+    h1
+  </Typography>
+</Canvas>
+
+But when it comes to other components, you may not want to repeat the width and height. In these instances, you can pass `children` and it will infer its width and height from them.
+
+<Canvas>
+<Skeleton variant="circle">
+  <Avatar />
+</Skeleton>
+<Avatar />
+</Canvas>
+
+## Color
+
+The color of the component can be customized by changing its `background` property.
+
+<Canvas isColumn>
+<Skeleton background="attention-tint-5" />
+<Skeleton background="wrong-tint-5" />
+</Canvas>
+
+## Props
+
+<ArgsTable of={Skeleton} />

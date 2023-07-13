@@ -1,7 +1,13 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Slider } from './index';
 
-const Template = (args: any) => (
+export default {
+  title: 'Components/Slider',
+  component: Slider,
+} as ComponentMeta<typeof Slider>;
+
+const Template: ComponentStory<typeof Slider> = (args) => (
   <Slider
     {...args}
   />
@@ -9,9 +15,3 @@ const Template = (args: any) => (
 
 export const Default = Template.bind({});
 Default.args = {};
-
-export default {
-  title: 'Components/Slider',
-  component: Slider,
-  parameters: { actions: { argTypesRegex: '^on.*' } },
-};

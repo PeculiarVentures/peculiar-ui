@@ -4,7 +4,9 @@ import {
   primary,
   secondary,
   wrong,
+  attention,
   additional,
+  success,
 } from './colors';
 import { base } from './sizes';
 
@@ -26,13 +28,21 @@ export const defaultTheme: ThemeType = {
     ...wrong,
     'wrong-contrast': grayscale.white,
     /**
-     * additional
+     * attention
      */
-    ...additional,
+    ...attention,
+    /**
+     * success
+     */
+    ...success,
     /**
      * grayscale
      */
     ...grayscale,
+    /**
+     * additional
+     */
+    ...additional,
   },
   shadow: {
     'light-low':
@@ -144,7 +154,7 @@ export const defaultTheme: ThemeType = {
       weight: '700',
       size: '14px',
       height: '20px',
-      spacing: '0.5px',
+      spacing: '0.2px',
     },
     /**
      * button2
@@ -153,7 +163,7 @@ export const defaultTheme: ThemeType = {
       weight: '700',
       size: '13px',
       height: '17px',
-      spacing: '0.5px',
+      spacing: '0.2px',
     },
     /**
      * caption1

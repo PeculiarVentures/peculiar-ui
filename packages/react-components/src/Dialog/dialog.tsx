@@ -1,4 +1,5 @@
 import React from 'react';
+import type { CircularProgressProps } from '../CircularProgress';
 import { Modal } from '../Modal';
 import { Box } from '../Box';
 import { Fade } from '../Fade';
@@ -51,6 +52,10 @@ type BaseProps = {
    * If `true`, the dialog will be show CircularProgress component and disable all interactions.
    */
   loading?: boolean;
+  /**
+   * The color of the CircularProgress component.
+   */
+  loadingColor?: CircularProgressProps['color'];
 };
 
 type DialogProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
@@ -128,6 +133,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
     disableEscapeKeyDown,
     size,
     loading,
+    loadingColor,
     onClose,
     'data-testid': dataTestId,
     ...other
@@ -151,6 +157,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
         in={open}
         timeout={transitionDuration}
       >
+        {/* @ts-ignore */}
         <Box
           {...other}
           role="dialog"
@@ -166,13 +173,12 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
           })}
           tabIndex={-1}
           component="fieldset"
-          // @ts-ignore
           disabled={loading}
         >
           {children}
           {loading && (
             <Box className={cx(stylesLoading())}>
-              <CircularProgress />
+              <CircularProgress color={loadingColor} />
             </Box>
           )}
         </Box>
@@ -189,4 +195,5 @@ Dialog.defaultProps = {
   disableBackdropClick: false,
   disableEscapeKeyDown: false,
   size: 'medium',
+  loadingColor: 'secondary',
 };

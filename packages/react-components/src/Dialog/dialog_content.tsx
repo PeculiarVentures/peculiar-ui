@@ -4,6 +4,9 @@ import { Collapse } from '../Collapse';
 import { Alert } from '../Alert';
 import { css, cx } from '../styles';
 
+/**
+ * Types.
+ */
 type BaseProps = {
   /**
    * The content of the component.
@@ -21,25 +24,54 @@ type BaseProps = {
    * The content of the error message.
    */
   error?: string;
+  /**
+   * Props applied to the scrolled element.
+   */
+  scrolledElementProps?: React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 };
 
 type DialogContentProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+/**
+ *
+ */
 
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'DialogContent',
   flex: '1 1 auto',
-  padding: 'var(--pv-size-base-3) var(--pv-size-base-4)',
+  overflow: 'hidden',
+  display: 'flex',
+  flexDirection: 'column',
+});
+
+const stylesPinned = () => css({
+  label: 'DialogPinnedContent',
+  padding: '0 var(--pv-size-base-4)',
+  flex: '0 0 auto',
+});
+
+const stylesScrolled = () => css({
+  label: 'DialogScrolledContent',
   overflowY: 'auto',
+  flex: '1 1 auto',
+  padding: 'var(--pv-size-base-3) var(--pv-size-base-4) var(--pv-size-base-6) var(--pv-size-base-4)',
 });
 
 const stylesError = () => css({
   label: 'DialogContent-error',
+  margin: 'var(--pv-size-base-2) 0',
   padding: 'var(--pv-size-base-2) var(--pv-size-base-3)',
 });
 
 const stylesCollapse = () => css({
-  margin: 'calc(var(--pv-size-base-2) * -1) calc(var(--pv-size-base-3) * -1) var(--pv-size-base-2)',
+  margin: '0 calc(var(--pv-size-base-3) * -1)',
 });
+/**
+ *
+ */
 
 export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>((props, ref) => {
   const {
@@ -47,6 +79,7 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
     className,
     dividers,
     error,
+    scrolledElementProps = {},
     ...other
   } = props;
 
@@ -64,19 +97,29 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
       borderPosition="horizontal"
       data-key="dialog.content"
     >
-      <Collapse
-        in={Boolean(error)}
-        className={cx(stylesCollapse())}
-      >
-        <Alert
-          variant="wrong"
-          disableIcon
-          className={cx(stylesError())}
+      <div className={cx(stylesPinned())}>
+        <Collapse
+          in={Boolean(error)}
+          className={cx(stylesCollapse())}
         >
-          {error}
-        </Alert>
-      </Collapse>
-      {children}
+          <Alert
+            variant="wrong"
+            disableIcon
+            className={cx(stylesError())}
+          >
+            {error}
+          </Alert>
+        </Collapse>
+      </div>
+      <div
+        {...scrolledElementProps}
+        className={cx({
+          [stylesScrolled()]: true,
+          [scrolledElementProps.className]: !!scrolledElementProps.className,
+        })}
+      >
+        {children}
+      </div>
     </Box>
   );
 });

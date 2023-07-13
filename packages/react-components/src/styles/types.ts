@@ -1,4 +1,5 @@
 export type ColorType = (
+  // primary
   'primary-tint-5' |
   'primary-tint-4' |
   'primary-tint-3' |
@@ -10,6 +11,8 @@ export type ColorType = (
   'primary-shade-3' |
   'primary-shade-4' |
   'primary-shade-5' |
+  'primary-contrast' |
+  // secondary
   'secondary-tint-5' |
   'secondary-tint-4' |
   'secondary-tint-3' |
@@ -21,6 +24,8 @@ export type ColorType = (
   'secondary-shade-3' |
   'secondary-shade-4' |
   'secondary-shade-5' |
+  'secondary-contrast' |
+  // wrong
   'wrong-tint-5' |
   'wrong-tint-4' |
   'wrong-tint-3' |
@@ -32,10 +37,32 @@ export type ColorType = (
   'wrong-shade-3' |
   'wrong-shade-4' |
   'wrong-shade-5' |
-  'success' |
+  'wrong-contrast' |
+  // attention
+  'attention-tint-5' |
+  'attention-tint-4' |
+  'attention-tint-3' |
+  'attention-tint-2' |
+  'attention-tint-1' |
   'attention' |
-  'extra-1' |
-  'extra-2' |
+  'attention-shade-1' |
+  'attention-shade-2' |
+  'attention-shade-3' |
+  'attention-shade-4' |
+  'attention-shade-5' |
+  // success
+  'success-tint-5' |
+  'success-tint-4' |
+  'success-tint-3' |
+  'success-tint-2' |
+  'success-tint-1' |
+  'success' |
+  'success-shade-1' |
+  'success-shade-2' |
+  'success-shade-3' |
+  'success-shade-4' |
+  'success-shade-5' |
+  // grayscale
   'black' |
   'gray-10' |
   'gray-9' |
@@ -48,9 +75,9 @@ export type ColorType = (
   'gray-2' |
   'gray-1' |
   'white' |
-  'primary-contrast' |
-  'secondary-contrast' |
-  'wrong-contrast'
+  // additional
+  'extra-1' |
+  'extra-2'
 );
 
 export type ShadowType = (

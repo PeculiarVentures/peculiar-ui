@@ -1,16 +1,7 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconButton } from './index';
 import { CheckIcon } from '../icons';
-
-const Template = (args: any) => (
-  <IconButton
-    {...args}
-  >
-    <CheckIcon />
-  </IconButton>
-);
-
-export const Playground = Template.bind({});
 
 export default {
   title: 'Components/IconButton',
@@ -19,4 +10,14 @@ export default {
     children: { control: false },
     component: { control: false },
   },
-};
+} as ComponentMeta<typeof IconButton>;
+
+const Template: ComponentStory<typeof IconButton> = (args) => (
+  <IconButton
+    {...args}
+  >
+    <CheckIcon />
+  </IconButton>
+);
+
+export const Playground = Template.bind({});

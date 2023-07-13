@@ -6,6 +6,10 @@ import { useImage } from '../hooks';
 
 type BaseProps = {
   /**
+   * Used to render badge inside the avatar.
+   */
+  children?: React.ReactNode;
+  /**
    * The name of the person in the avatar.
    *
    * - If `src` has loaded, the name will be used as the `alt` attribute of the `img`.
@@ -48,11 +52,11 @@ type AvatarProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'child
 const stylesBase = () => css({
   label: 'Avatar',
   userSelect: 'none',
-  overflow: 'hidden',
   borderRadius: '50%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  position: 'relative',
 });
 
 const stylesSizeSmall = () => css({
@@ -81,6 +85,7 @@ const stylesImg = () => css({
   objectFit: 'cover',
   textAlign: 'center',
   textIndent: 10000,
+  borderRadius: '50%',
 });
 
 function initials(name: string) {
@@ -93,6 +98,7 @@ function initials(name: string) {
 
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
   const {
+    children: childrenProp,
     className,
     size,
     src,
@@ -103,9 +109,8 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
     typographyProps,
     ...other
   } = props;
-  const status = useImage({ src });
-  const hasLoaded = status === 'loaded';
-  const showImage = src && hasLoaded;
+  const { image } = useImage(src);
+  const showImage = image?.src;
   const showInitials = name && getInitials;
 
   let children = null;
@@ -161,6 +166,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
       background={background}
     >
       {children}
+      {childrenProp}
     </Box>
   );
 });

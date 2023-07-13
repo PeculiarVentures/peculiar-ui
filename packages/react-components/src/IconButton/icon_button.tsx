@@ -1,22 +1,45 @@
 import * as React from 'react';
-import { Button, ButtonProps } from '../Button';
-import { Tooltip } from '../Tooltip';
+import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { css, cx } from '../styles';
+import { Button, ButtonOwnProps } from '../Button';
+import { Tooltip } from '../Tooltip';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+export interface IconButtonOwnProps extends Omit<ButtonOwnProps, 'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'> {
   /**
    * The text that applied to `aria-label` attribute and Tooltip content.
    */
   title?: string;
+}
+
+export interface IconButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
+  props: P & IconButtonOwnProps;
+  defaultComponent: D;
+}
+
+export type IconButtonProps<
+  D extends React.ElementType = IconButtonTypeMap['defaultComponent'],
+> = OverrideProps<IconButtonTypeMap<{}, D>, D> & {
+  component?: D;
 };
+/**
+ *
+ */
 
-type IconButtonProps = BaseProps & Omit<ButtonProps, 'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'>;
-
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   '--pv-color-black': 'var(--pv-color-gray-9)',
+  border: 'none',
 });
+/**
+ *
+ */
 
-export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => {
+export const IconButton = React.forwardRef<any, IconButtonProps>((props, ref) => {
   const {
     title,
     className,
@@ -51,7 +74,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
       {component}
     </Tooltip>
   );
-});
+}) as OverridableComponent<IconButtonTypeMap>;
 
 IconButton.displayName = 'IconButton';
 

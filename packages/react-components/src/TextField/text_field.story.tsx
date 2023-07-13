@@ -1,15 +1,6 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextField } from './index';
-
-export const Default = (args: any) => (
-  <TextField
-    {...args}
-  />
-);
-
-Default.args = {
-  placeholder: 'Placeholder',
-};
 
 export default {
   title: 'Playground/TextField',
@@ -19,5 +10,14 @@ export default {
     inputRef: { control: false },
     onChange: { control: false },
   },
-  parameters: { actions: { argTypesRegex: '^on.*' } },
+} as ComponentMeta<typeof TextField>;
+
+export const Default: ComponentStory<typeof TextField> = (args) => (
+  <TextField
+    {...args}
+  />
+);
+
+Default.args = {
+  placeholder: 'Placeholder',
 };

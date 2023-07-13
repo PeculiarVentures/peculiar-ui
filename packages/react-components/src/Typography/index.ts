@@ -1,1 +1,7 @@
-export { Typography, TypographyBaseProps, TypographyProps } from './typography';
+export {
+  Typography,
+} from './typography';
+export type {
+  TypographyOwnProps,
+  TypographyProps,
+} from './typography';

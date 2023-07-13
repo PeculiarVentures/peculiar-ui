@@ -90,13 +90,12 @@ const stylesInputBase = () => css({
   width: '100%',
   borderRadius: '4px',
   padding: '0 var(--pv-size-base-2)',
-  color: 'var(--pv-color-black)',
   backgroundColor: 'var(--pv-color-gray-1)',
   borderStyle: 'solid',
   borderWidth: '1px',
   borderColor: 'var(--pv-color-gray-8)',
   transition: 'background-color 200ms, color 200ms, border-color 200ms',
-  display: 'block',
+  display: 'inline-flex',
   appearance: 'none',
   '&::placeholder': {
     color: 'var(--pv-color-gray-9)',
@@ -121,12 +120,7 @@ const stylesInputBase = () => css({
       borderColor: 'var(--pv-color-secondary-tint-3)',
     },
   },
-}, {
-  fontWeight: 'var(--pv-text-c1-weight)',
-  fontSize: 'var(--pv-text-c1-size)',
-  lineHeight: 'var(--pv-text-c1-height)',
-  letterSpacing: 'var(--pv-text-c1-spacing)',
-} as any);
+});
 
 const stylesInputSizeSmall = () => css({
   label: 'small',
@@ -159,7 +153,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
     size,
     className,
     label,
-    inputProps,
+    inputProps = {},
     disabled,
     defaultValue,
     id,
@@ -199,8 +193,11 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
           </Typography>
         </label>
       )}
-      <input
+      <Typography
         {...inputProps}
+        component="input"
+        color="black"
+        variant={size === 'small' ? 'c1' : 'b3'}
         type={type}
         disabled={disabled}
         defaultValue={defaultValue}
@@ -216,6 +213,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
           [stylesInputSizeSmall()]: size === 'small',
           [stylesInputSizeMedium()]: size === 'medium',
           [stylesInputSizeLarge()]: size === 'large',
+          [inputProps.className]: !!inputProps.className,
         })}
         aria-invalid={error || undefined}
         onChange={onChange}

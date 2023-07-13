@@ -21,9 +21,7 @@ const stylesBase = () => css({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
-  '& > :not(:first-of-type)': {
-    marginLeft: 'var(--pv-size-base-2)',
-  },
+  gap: 'var(--pv-size-base-2)',
 });
 
 export const DialogActions = React.forwardRef<HTMLDivElement, DialogActionsProps>((props, ref) => {

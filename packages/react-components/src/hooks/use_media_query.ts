@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useEnhancedEffect } from '../utils';
+import React from 'react';
+import { useEnhancedEffect } from './use_enhanced_effect';
 
 /**
  * A hook that returns `true` if the media query matched and `false` if not. This
@@ -8,7 +8,7 @@ import { useEnhancedEffect } from '../utils';
  * @param query The media query you want to match against e.g. `"only screen and (min-width: 12em)"`
  */
 export function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(false);
+  const [matches, setMatches] = React.useState(false);
 
   useEnhancedEffect(() => {
     const media = window.matchMedia(query);

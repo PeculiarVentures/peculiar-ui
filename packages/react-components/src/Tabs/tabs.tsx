@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { css, cx } from '../styles';
-import { Tab, TabBaseProps } from './tab';
+import { Tab, TabProps } from './tab';
 
 type BaseProps = {
   /**
    * The content of the component.
    */
-  children: React.ReactElement<TabBaseProps, typeof Tab>[];
+  children: React.ReactElement<TabProps, typeof Tab>[];
   /**
    * The value of the currently selected `Tab`.
    */
@@ -21,7 +21,7 @@ type BaseProps = {
   onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
 };
 
-type TabsBaseProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type TabsProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
 const stylesBase = () => css({
   label: 'Tabs',
@@ -29,7 +29,7 @@ const stylesBase = () => css({
   overflowX: 'auto',
 });
 
-export const Tabs = React.forwardRef<HTMLDivElement, TabsBaseProps>((props, ref) => {
+export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   const {
     children: childrenProp,
     className,
@@ -38,26 +38,29 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsBaseProps>((props, ref)
     ...other
   } = props;
 
-  const children = React.Children.map(childrenProp, (child) => {
-    if (!React.isValidElement<typeof Tab>(child)) {
-      return null;
-    }
+  const children = React.Children.map(
+    childrenProp,
+    (child: React.ReactElement<TabProps, typeof Tab>) => {
+      if (!React.isValidElement<typeof Tab>(child)) {
+        return null;
+      }
 
-    if (child.type.displayName !== 'Tab') {
-      console.error('Peculiar-UI: The Tabs component doesn\'t accept a Element as not a Tab.');
+      if (child.type.displayName !== 'Tab') {
+        console.error('Peculiar-UI: The Tabs component doesn\'t accept a Element as not a Tab.');
 
-      return null;
-    }
+        return null;
+      }
 
-    const childValue = child.props.id;
-    const selected = childValue === value;
+      const childValue = child.props.id;
+      const selected = childValue === value;
 
-    return React.cloneElement(child, {
-      // @ts-ignore
-      selected,
-      onChange,
-    });
-  });
+      return React.cloneElement(child, {
+        // @ts-ignore
+        selected,
+        onChange,
+      });
+    },
+  );
 
   return (
     <div

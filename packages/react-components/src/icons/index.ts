@@ -9,3 +9,4 @@ export { CloseCircleIcon } from './close_circle_icon';
 export { WarningIcon } from './warning_icon';
 export { DotIcon } from './dot_icon';
 export { PlusIcon } from './plus_icon';
+export { ArrowRightIcon } from './arrow_rigth';

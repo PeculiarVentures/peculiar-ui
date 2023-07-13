@@ -32,14 +32,14 @@ export const FocusTrap: React.FC<BaseProps> = (props) => {
   React.useEffect(() => {
     // We might render an empty child.
     if (!open || !rootRef.current) {
-      return null;
+      return undefined;
     }
 
     const focusTrap = createFocusTrap(rootRef.current, {
       clickOutsideDeactivates: false,
       allowOutsideClick: true,
       escapeDeactivates: false,
-      fallbackFocus: () => rootRef.current,
+      fallbackFocus: () => rootRef.current || 'body',
       ...(disableAutoFocus && {
         initialFocus: () => rootRef.current,
       }),

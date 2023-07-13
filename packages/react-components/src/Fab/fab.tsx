@@ -1,8 +1,12 @@
 import * as React from 'react';
+import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { css, cx } from '../styles';
-import { ButtonBase, ButtonBaseProps } from '../ButtonBase';
+import { ButtonBase, ButtonBaseOwnProps } from '../ButtonBase';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+export interface FabOwnProps extends Omit<ButtonBaseOwnProps, 'size' | 'variant'> {
   /**
    * The variant to use.
    */
@@ -10,10 +14,25 @@ type BaseProps = {
     'contained' |
     'outlined'
   );
+}
+
+export interface FabTypeMap<P = {}, D extends React.ElementType = 'button'> {
+  props: P & FabOwnProps;
+  defaultComponent: D;
+}
+
+export type FabProps<
+  D extends React.ElementType = FabTypeMap['defaultComponent'],
+> = OverrideProps<FabTypeMap<{}, D>, D> & {
+  component?: D;
 };
+/**
+ *
+ */
 
-type FabProps = BaseProps & Omit<ButtonBaseProps, 'size' | 'variant'>;
-
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'Fab',
   borderRadius: '50%',
@@ -21,8 +40,11 @@ const stylesBase = () => css({
   width: 'var(--pv-size-base-11)',
   padding: 'var(--pv-size-base-2)',
 });
+/**
+ *
+ */
 
-export const Fab = React.forwardRef<HTMLButtonElement, FabProps>((props, ref) => {
+export const Fab = React.forwardRef<any, FabProps>((props, ref) => {
   const {
     className,
     children,
@@ -42,7 +64,7 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>((props, ref) =>
       {children}
     </ButtonBase>
   );
-});
+}) as OverridableComponent<FabTypeMap>;
 
 Fab.displayName = 'Fab';
 

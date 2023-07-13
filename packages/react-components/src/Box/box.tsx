@@ -1,30 +1,40 @@
 import * as React from 'react';
+import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { css, cx, ColorType } from '../styles';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+export interface BoxOwnProps {
   /**
    * The content of the component.
    */
   children?: React.ReactNode;
-  /**
-   * The className of the component.
-   */
-  className?: string;
-  /**
-   * The component used for the root node.
-   */
-  component?: React.ElementType;
   background?: ColorType;
   borderColor?: ColorType;
   borderWidth?: number;
   borderStyle?: ('solid' | 'dashed');
   borderPosition?: ('horizontal' | 'vertical' | 'top' | 'right' | 'bottom' | 'left');
-  borderRadius?: number,
-  'data-testid'?: string;
+  borderRadius?: number;
+}
+
+export interface BoxTypeMap<P = {}, D extends React.ElementType = 'div'> {
+  props: P & BoxOwnProps;
+  defaultComponent: D;
+}
+
+export type BoxProps<
+  D extends React.ElementType = BoxTypeMap['defaultComponent'],
+> = OverrideProps<BoxTypeMap<{}, D>, D> & {
+  component?: D;
 };
+/**
+ *
+ */
 
-type BoxProps = BaseProps & React.HTMLAttributes<HTMLElement>;
-
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'Box',
 });
@@ -38,17 +48,20 @@ const stylesBorderColor = (color: ColorType) => css({
   label: color,
   borderColor: `var(--pv-color-${color})`,
 });
+/**
+ *
+ */
 
-export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
+export const Box = React.forwardRef<any, BoxProps>((props, ref) => {
   const {
     className,
-    component: componentProp,
     background,
     borderColor,
     borderWidth,
     borderStyle,
     borderPosition,
     borderRadius,
+    component,
     ...other
   } = props;
 
@@ -84,7 +97,7 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
     return borderWidth;
   };
 
-  const Component = componentProp || 'div';
+  const Component = component || 'div';
 
   return (
     <Component
@@ -102,10 +115,6 @@ export const Box = React.forwardRef<HTMLElement, BoxProps>((props, ref) => {
       }))}
     />
   );
-});
+}) as OverridableComponent<BoxTypeMap>;
 
 Box.displayName = 'Box';
-
-Box.defaultProps = {
-  component: 'div',
-};

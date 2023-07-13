@@ -1,8 +1,19 @@
 import * as React from 'react';
-import { Menu, MenuProps } from './index';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Menu } from './index';
 import { Button } from '../Button';
 
-export const Playground = (args: MenuProps) => (
+export default {
+  title: 'Components/Menu',
+  component: Menu,
+  argTypes: {
+    children: { control: false },
+    options: { control: false },
+    popoverProps: { control: false },
+  },
+} as ComponentMeta<typeof Menu>;
+
+export const Playground: ComponentStory<typeof Menu> = (args) => (
   <Menu
     {...args}
     options={[
@@ -13,11 +24,53 @@ export const Playground = (args: MenuProps) => (
       },
       {
         label: 'Save to my profile',
-        onClick: () => console.log('save'),
+        subOptions: [
+          {
+            label: 'Full screen',
+            onClick: () => console.log('full screen'),
+          },
+          {
+            label: 'Search',
+            onClick: () => console.log('search'),
+          },
+          {
+            label: 'Previous',
+            onClick: () => console.log('previous'),
+          },
+          {
+            label: 'Next',
+            onClick: () => console.log('next'),
+          },
+          {
+            label: 'best',
+            onClick: () => console.log('next'),
+          },
+        ],
       },
       {
-        label: 'Delete',
-        onClick: () => console.log('delete'),
+        label: 'Options',
+        subOptions: [
+          {
+            label: 'Full screen',
+            onClick: () => console.log('full screen'),
+          },
+          {
+            label: 'Search',
+            onClick: () => console.log('search'),
+          },
+          {
+            label: 'Previous',
+            onClick: () => console.log('previous'),
+          },
+          {
+            label: 'Next',
+            onClick: () => console.log('next'),
+          },
+          {
+            label: 'best',
+            onClick: () => console.log('next'),
+          },
+        ],
       },
     ]}
   >
@@ -26,16 +79,4 @@ export const Playground = (args: MenuProps) => (
     </Button>
   </Menu>
 );
-
 Playground.args = {};
-
-export default {
-  title: 'Components/Menu',
-  component: Menu,
-  argTypes: {
-    children: { control: false },
-    options: { control: false },
-    popoverProps: { control: false },
-  },
-  parameters: { actions: { argTypesRegex: '^on.*' } },
-};

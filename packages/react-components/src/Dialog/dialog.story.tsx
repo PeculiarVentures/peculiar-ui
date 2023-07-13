@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextField } from '../TextField';
 import { Button } from '../Button';
 import {
@@ -8,7 +9,15 @@ import {
   DialogActions,
 } from './index';
 
-const Template = (args: any) => (
+export default {
+  title: 'Components/Dialog',
+  component: Dialog,
+  argTypes: {
+    children: { control: false },
+  },
+} as ComponentMeta<typeof Dialog>;
+
+const Template: ComponentStory<typeof Dialog> = (args) => (
   <Dialog {...args}>
     <DialogTitle
       onClose={() => { }}
@@ -35,7 +44,7 @@ const Template = (args: any) => (
       <Button>
         Cancel
       </Button>
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="secondary">
         Send
       </Button>
     </DialogActions>
@@ -48,12 +57,3 @@ Playground.args = {
   size: 'small',
 };
 Playground.parameters = {};
-
-export default {
-  title: 'Components/Dialog',
-  component: Dialog,
-  argTypes: {
-    children: { control: false },
-  },
-  parameters: { actions: { argTypesRegex: '^on.*' } },
-};
