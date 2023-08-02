@@ -15,6 +15,7 @@ export * from './icons';
 export * from './Image';
 export * from './LinearProgress';
 export * from './Menu';
+export * from './MenuList';
 export * from './Popper';
 export * from './Popover';
 export * from './Portal';
