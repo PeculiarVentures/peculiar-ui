@@ -63,7 +63,6 @@ const stylesBase = (props: BaseProps) => css({
   position: 'relative',
   ...(props.disabled && {
     cursor: 'not-allowed',
-    pointerEvents: 'none',
     color: 'var(--pv-color-gray-6)',
   }),
 });
