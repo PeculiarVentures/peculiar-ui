@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Box } from '../Box';
 import { DotIcon } from '../icons';
 import { useId } from '../hooks';
 import { css, cx } from '../styles';
@@ -50,101 +49,85 @@ type BaseProps = {
 
 export type RadioProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 
-const stylesBase = () => css({
+/**
+ * Styles.
+ */
+const stylesBase = (props: BaseProps) => css({
   label: 'Radio',
   cursor: 'pointer',
   display: 'inline-flex',
   width: 'var(--pv-size-base-4)',
   height: 'var(--pv-size-base-4)',
   borderRadius: '50%',
-  justifyContent: 'center',
-  alignItems: 'center',
-});
-
-const stylesBaseDisabled = () => css({
-  label: 'disabled',
-  cursor: 'not-allowed',
+  color: 'var(--pv-color-primary)',
+  position: 'relative',
+  ...(props.disabled && {
+    cursor: 'not-allowed',
+    pointerEvents: 'none',
+    color: 'var(--pv-color-gray-6)',
+  }),
 });
 
 const stylesInput = () => css({
   label: 'Radio-input',
-  overflow: 'hidden',
+  cursor: 'inherit',
   width: '100%',
   height: '100%',
   margin: 0,
   padding: 0,
-  cursor: 'inherit',
   outline: 0,
   borderRadius: '50%',
   borderWidth: '2px',
   borderStyle: 'solid',
   appearance: 'none',
-  borderColor: 'var(--pv-color-gray-9)',
+  color: 'var(--pv-color-gray-9)',
+  borderColor: 'currentColor',
   backgroundColor: 'transparent',
-  '&:checked': {
-    borderColor: 'var(--pv-color-primary-shade-1)',
-    '+ [aria-hidden]': {
-      opacity: 1,
-    },
-    ':after': {
-      backgroundColor: 'var(--pv-color-primary-shade-2)',
-    },
-  },
-  '&:disabled': {
-    borderColor: 'var(--pv-color-gray-6)',
-    '&:checked': {
-      borderColor: 'var(--pv-color-gray-7)',
-    },
-    '+ [aria-hidden]': {
-      color: 'var(--pv-color-gray-6)',
-    },
-  },
-  ':after': {
-    position: 'absolute',
+  '&:before': {
     top: '-7px',
     left: '-7px',
     right: '-7px',
     bottom: '-7px',
     content: '""',
-    zIndex: -1,
+    position: 'absolute',
     borderRadius: '50%',
     opacity: 0,
-    backgroundColor: 'var(--pv-color-gray-9)',
-    transition: 'background-color 200ms, opacity 200ms',
+    backgroundColor: 'currentColor',
+    transition: 'opacity 200ms',
   },
+
+  '&:checked': {
+    '+ [aria-hidden]': {
+      opacity: 1,
+    },
+  },
+
   '&:not(:disabled)': {
+    '&:checked': {
+      color: 'var(--pv-color-primary-shade-1)',
+    },
     '&:hover': {
-      '&:after': {
+      '&:before': {
         opacity: 0.18,
       },
     },
     '&:focus': {
-      '&:after': {
+      '&:before': {
         opacity: 0.23,
       },
     },
     '&:active': {
-      '&:after': {
-        opacity: 0.3,
+      '&:before': {
+        opacity: 0.30,
       },
     },
   },
-});
 
-const stylesControl = () => css({
-  label: 'Radio-control',
-  width: 'var(--pv-size-base-4)',
-  height: 'var(--pv-size-base-4)',
-  position: 'relative',
-  color: 'var(--pv-color-primary)',
-  '&:after': {
-    top: '-10px',
-    left: '-10px',
-    right: '-10px',
-    bottom: '-10px',
-    content: '""',
-    position: 'absolute',
-    borderRadius: '50%',
+  '&:disabled': {
+    color: 'var(--pv-color-gray-6)',
+    '&:checked': {
+      color: 'var(--pv-color-gray-7)',
+    },
   },
 });
 
@@ -157,7 +140,12 @@ const stylesIcon = () => css({
   width: '100%',
   height: '100%',
   opacity: 0,
+  color: 'inherit',
+  pointerEvents: 'none',
 });
+/**
+ *
+ */
 
 export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref) => {
   const {
@@ -198,29 +186,23 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
       ref={ref}
       htmlFor={id}
       className={cx({
-        [stylesBase()]: true,
-        [stylesBaseDisabled()]: disabled,
+        [stylesBase(props)]: true,
         [className]: !!className,
       })}
     >
-      <Box
-        component="span"
-        className={cx(stylesControl())}
-      >
-        <input
-          {...inputProps}
-          type="radio"
-          name={name}
-          id={id}
-          checked={checked}
-          defaultChecked={defaultChecked}
-          required={required}
-          disabled={disabled}
-          className={cx(stylesInput())}
-          onChange={onChange}
-        />
-        {renderIcon()}
-      </Box>
+      <input
+        {...inputProps}
+        type="radio"
+        name={name}
+        id={id}
+        checked={checked}
+        defaultChecked={defaultChecked}
+        required={required}
+        disabled={disabled}
+        className={cx(stylesInput())}
+        onChange={onChange}
+      />
+      {renderIcon()}
     </label>
   );
 });
