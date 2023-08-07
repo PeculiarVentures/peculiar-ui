@@ -54,21 +54,16 @@ export type CheckboxProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabel
 /**
  * Styles.
  */
-const stylesBase = (props: BaseProps) => css({
+const stylesBase = () => css({
   label: 'Checkbox',
-  cursor: 'pointer',
   display: 'inline-flex',
   width: 'var(--pv-size-base-4)',
   height: 'var(--pv-size-base-4)',
   position: 'relative',
-  ...(props.disabled && {
-    cursor: 'not-allowed',
-  }),
 });
 
 const stylesInput = () => css({
   label: 'Checkbox-input',
-  cursor: 'inherit',
   width: '100%',
   height: '100%',
   margin: 0,
@@ -101,6 +96,8 @@ const stylesInput = () => css({
   },
 
   '&:not(:disabled)': {
+    cursor: 'pointer',
+
     '&:checked': {
       color: 'var(--pv-color-primary-shade-1)',
       backgroundColor: 'var(--pv-color-primary)',
@@ -123,6 +120,8 @@ const stylesInput = () => css({
   },
 
   '&:disabled': {
+    cursor: 'not-allowed',
+
     color: 'var(--pv-color-gray-6)',
     '&:checked': {
       color: 'var(--pv-color-gray-7)',
@@ -185,7 +184,7 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
       ref={ref}
       htmlFor={id}
       className={cx({
-        [stylesBase(props)]: true,
+        [stylesBase()]: true,
         [className]: !!className,
       })}
     >

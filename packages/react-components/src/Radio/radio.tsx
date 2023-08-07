@@ -52,19 +52,15 @@ export type RadioProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelEle
 /**
  * Styles.
  */
-const stylesBase = (props: BaseProps) => css({
+const stylesBase = () => css({
   label: 'Radio',
   cursor: 'pointer',
   display: 'inline-flex',
   width: 'var(--pv-size-base-4)',
   height: 'var(--pv-size-base-4)',
   borderRadius: '50%',
-  color: 'var(--pv-color-primary)',
+  color: 'var(--pv-color-gray-6)',
   position: 'relative',
-  ...(props.disabled && {
-    cursor: 'not-allowed',
-    color: 'var(--pv-color-gray-6)',
-  }),
 });
 
 const stylesInput = () => css({
@@ -97,11 +93,14 @@ const stylesInput = () => css({
 
   '&:checked': {
     '+ [aria-hidden]': {
+      color: 'var(--pv-color-primary)',
       opacity: 1,
     },
   },
 
   '&:not(:disabled)': {
+    cursor: 'pointer',
+
     '&:checked': {
       color: 'var(--pv-color-primary-shade-1)',
     },
@@ -123,6 +122,12 @@ const stylesInput = () => css({
   },
 
   '&:disabled': {
+    cursor: 'not-allowed',
+
+    '+ [aria-hidden]': {
+      color: 'inherit',
+    },
+
     color: 'var(--pv-color-gray-6)',
     '&:checked': {
       color: 'var(--pv-color-gray-7)',
@@ -139,7 +144,6 @@ const stylesIcon = () => css({
   width: '100%',
   height: '100%',
   opacity: 0,
-  color: 'inherit',
   pointerEvents: 'none',
 });
 /**
@@ -185,7 +189,7 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
       ref={ref}
       htmlFor={id}
       className={cx({
-        [stylesBase(props)]: true,
+        [stylesBase()]: true,
         [className]: !!className,
       })}
     >
