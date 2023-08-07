@@ -121,6 +121,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
         src={src}
         alt={name}
         className={stylesImg()}
+        draggable="false"
       />
     );
   } else if (showInitials) {

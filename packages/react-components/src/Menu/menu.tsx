@@ -15,6 +15,14 @@ type OptionBaseProps = {
    * The variant of text to use.
    */
   textVariant?: TypographyType;
+  /**
+   * Element placed before the children.
+   */
+  startIcon?: React.ReactNode;
+  /**
+   * Element placed after the children.
+   */
+  endIcon?: React.ReactNode;
 };
 
 type OptionProps = OptionBaseProps & Omit<React.AllHTMLAttributes<HTMLElement>, 'children'>;
@@ -122,6 +130,8 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
       subOptions,
       className: classNameProp,
       textVariant: textVariantProp,
+      startIcon,
+      endIcon,
       onClick,
       ...other
     } = option;
@@ -151,6 +161,8 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
         disabled={disabled}
         onClick={handleMenuItemClick(option)}
         className={classNameProp}
+        startIcon={startIcon}
+        endIcon={endIcon}
         {...other}
       >
         {label}
