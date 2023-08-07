@@ -52,9 +52,8 @@ type BaseProps = {
 
 export type SwitchProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 
-const stylesBase = (props: BaseProps) => css({
+const stylesBase = () => css({
   label: 'Switch',
-  cursor: 'pointer',
   display: 'inline-flex',
   width: 'var(--pv-size-base-7)',
   height: 'var(--pv-size-base-4)',
@@ -62,9 +61,6 @@ const stylesBase = (props: BaseProps) => css({
   justifyContent: 'center',
   position: 'relative',
   alignItems: 'center',
-  ...(props.disabled && {
-    cursor: 'not-allowed',
-  }),
 });
 
 const stylesInput = (props: BaseProps) => css({
@@ -75,7 +71,6 @@ const stylesInput = (props: BaseProps) => css({
   margin: 0,
   padding: 0,
   outline: 0,
-  cursor: 'inherit',
   borderRadius: 'inherit',
   appearance: 'none',
   backgroundColor: 'var(--pv-color-gray-6)',
@@ -84,26 +79,22 @@ const stylesInput = (props: BaseProps) => css({
 
     '+ [aria-hidden]': {
       transform: 'translateX(calc(50% - 2px))',
+
+      '&:before': {
+        backgroundColor: `var(--pv-color-${props.color}-shade-2)`,
+      },
     },
   },
 
   '&:disabled': {
+    cursor: 'not-allowed',
     pointerEvents: 'none',
     opacity: 0.4,
-
-    '&:checked': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-3)`,
-      opacity: 0.6,
-    },
-    '+ [aria-hidden]': {
-      opacity: 0.8,
-    },
   },
 
   '&:not(:disabled)': {
-    '&:checked': {
-      color: 'var(--pv-color-primary-shade-1)',
-    },
+    cursor: 'pointer',
+
     '&:hover': {
       '+ [aria-hidden]:before': {
         opacity: 0.18,
@@ -131,6 +122,7 @@ const stylesDot = () => css({
   transition: 'transform 200ms',
   boxShadow: 'var(--pv-shadow-light-low)',
   transform: 'translateX(calc(-50% + 2px))',
+  pointerEvents: 'none',
   '&:before': {
     top: '-10px',
     left: '-10px',
@@ -167,7 +159,7 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
       ref={ref}
       htmlFor={id}
       className={cx({
-        [stylesBase(props)]: true,
+        [stylesBase()]: true,
         [className]: !!className,
       })}
     >
