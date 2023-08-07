@@ -1,8 +1,8 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import {
-  css,
-  cx,
   ColorType,
   TypographyType,
 } from '../styles';
@@ -48,30 +48,21 @@ export type TypographyProps<
 /**
  * Styles.
  */
-const stylesBase = () => css({
-  label: 'Typography',
+const TypographyRoot = styled('p', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<TypographyOwnProps>((props) => ({
   margin: 0,
-});
-
-const stylesVariant = (variant: TypographyProps['variant']) => css({
-  label: variant,
-  fontWeight: `var(--pv-text-${variant}-weight)`,
-  fontSize: `var(--pv-text-${variant}-size)`,
-  lineHeight: `var(--pv-text-${variant}-height)`,
-  letterSpacing: `var(--pv-text-${variant}-spacing)`,
-} as any);
-
-const stylesColor = (color: TypographyProps['color']) => css({
-  label: color,
-  color: color === 'inherit' ? 'inherit' : `var(--pv-color-${color})`,
-});
-
-const stylesNoWrap = () => css({
-  label: 'noWrap',
-  overflow: 'hidden',
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis',
-});
+  color: props.color === 'inherit' ? 'inherit' : `var(--pv-color-${props.color})`,
+  fontWeight: `var(--pv-text-${props.variant}-weight)` as 'normal',
+  fontSize: `var(--pv-text-${props.variant}-size)`,
+  lineHeight: `var(--pv-text-${props.variant}-height)`,
+  letterSpacing: `var(--pv-text-${props.variant}-spacing)`,
+  ...(props.noWrap && {
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+  }),
+}));
 /**
  *
  */
@@ -96,9 +87,6 @@ const variantMapping: Record<TypographyType, 'p' | 'span' | 'h1' | 'h2' | 'h3' |
 export const Typography = React.forwardRef<any, TypographyProps>((props, ref) => {
   const {
     variant,
-    className,
-    color,
-    noWrap,
     component,
     ...other
   } = props;
@@ -106,16 +94,11 @@ export const Typography = React.forwardRef<any, TypographyProps>((props, ref) =>
   const Component = component || variantMapping[variant] || 'p';
 
   return (
-    <Component
-      {...other}
+    <TypographyRoot
+      as={Component}
       ref={ref}
-      className={cx({
-        [stylesBase()]: true,
-        [stylesVariant(variant)]: !!variant,
-        [stylesColor(color)]: !!color,
-        [stylesNoWrap()]: noWrap,
-        [className]: !!className,
-      })}
+      variant={variant}
+      {...other}
     />
   );
 }) as OverridableComponent<TypographyTypeMap>;

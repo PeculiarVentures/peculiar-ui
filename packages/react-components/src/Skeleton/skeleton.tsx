@@ -1,9 +1,9 @@
 import * as React from 'react';
+import { keyframes } from '@emotion/react';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import {
   css,
   cx,
-  keyframes,
   ColorType,
 } from '../styles';
 import { Box } from '../Box';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Global } from '@emotion/react';
+import { Global, ThemeProvider as ThemeProviderEmotion } from '@emotion/react';
 import { createTheme, createThemeCSSVariablesFromObject } from './utils';
 import { defaultTheme } from './default_theme';
 import type { ThemeOptionsType } from './types';
@@ -28,7 +28,13 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
           'html, ::backdrop': createThemeCSSVariablesFromObject(theme),
         }}
       />
-      {children}
+      <ThemeProviderEmotion
+        theme={{
+          mode: 'light',
+        }}
+      >
+        {children}
+      </ThemeProviderEmotion>
     </>
   );
 };

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Placement } from '@popperjs/core';
+import { keyframes } from '@emotion/react';
 import { Popper } from '../Popper';
 import { Box } from '../Box';
 import { useMergedRef, useControllableState } from '../hooks';
 import { Typography } from '../Typography';
-import { css, cx, keyframes } from '../styles';
+import { css, cx } from '../styles';
 
 /**
  * Types.

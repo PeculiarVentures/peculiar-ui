@@ -1,6 +1,7 @@
 import React from 'react';
+import { keyframes } from '@emotion/react';
 import { Box } from '../Box';
-import { css, cx, keyframes } from '../styles';
+import { css, cx } from '../styles';
 
 type BaseProps = {
   /**
