@@ -19,14 +19,14 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.38.1",
     "@typescript-eslint/parser": "5.38.1",
-    "eslint": "8.24.0",
+    "eslint": "8.46.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "17.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.8",
     "eslint-plugin-react-hooks": "4.6.0",
-    "lerna": "^6.6.2"
+    "lerna": "^7.1.4"
   },
   "resolutions": {
     "trim": "^0.0.3",

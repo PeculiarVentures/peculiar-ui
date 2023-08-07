@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Menu } from './index';
 import { Button } from '../Button';
+import { PlusIcon } from '../icons';
+import { Menu } from './index';
 
 export default {
   title: 'Components/Menu',
@@ -24,28 +25,7 @@ export const Playground: ComponentStory<typeof Menu> = (args) => (
       },
       {
         label: 'Save to my profile',
-        subOptions: [
-          {
-            label: 'Full screen',
-            onClick: () => console.log('full screen'),
-          },
-          {
-            label: 'Search',
-            onClick: () => console.log('search'),
-          },
-          {
-            label: 'Previous',
-            onClick: () => console.log('previous'),
-          },
-          {
-            label: 'Next',
-            onClick: () => console.log('next'),
-          },
-          {
-            label: 'best',
-            onClick: () => console.log('next'),
-          },
-        ],
+        startIcon: <PlusIcon />,
       },
       {
         label: 'Options',
@@ -64,10 +44,6 @@ export const Playground: ComponentStory<typeof Menu> = (args) => (
           },
           {
             label: 'Next',
-            onClick: () => console.log('next'),
-          },
-          {
-            label: 'best',
             onClick: () => console.log('next'),
           },
         ],

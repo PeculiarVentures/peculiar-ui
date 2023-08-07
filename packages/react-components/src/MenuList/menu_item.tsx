@@ -17,6 +17,10 @@ type MenuItemOwnProps = {
    */
   textVariant?: TypographyType;
   /**
+   * Element placed before the children.
+   */
+  startIcon?: React.ReactNode;
+  /**
    * Element placed after the children.
    */
   endIcon?: React.ReactNode;
@@ -49,7 +53,7 @@ const stylesBase = (props: MenuItemOwnProps) => css({
   display: 'flex',
   textAlign: 'left',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-start',
   textDecoration: 'none',
   userSelect: 'none',
   cursor: 'pointer',
@@ -58,6 +62,7 @@ const stylesBase = (props: MenuItemOwnProps) => css({
   border: 'none',
   color: 'var(--pv-color-black)',
   boxSizing: 'border-box',
+  gap: 'var(--pv-size-base-2)',
   '&:hover': {
     backgroundColor: 'var(--pv-color-gray-3)',
   },
@@ -73,6 +78,17 @@ const stylesBase = (props: MenuItemOwnProps) => css({
     pointerEvents: 'none',
   }),
 });
+
+const stylesIcon = () => css({
+  label: 'MenuItem-icon',
+  flexShrink: 0,
+  display: 'inline-flex',
+});
+
+const stylesLabel = () => css({
+  label: 'MenuItem-label',
+  flex: '1 1 auto',
+});
 /**
  *
  */
@@ -84,6 +100,7 @@ export const MenuItem = React.forwardRef<any, MenuItemProps>((props, ref) => {
     className,
     disabled,
     textVariant: textVariantProp,
+    startIcon,
     endIcon,
     onClick,
     ...other
@@ -120,14 +137,25 @@ export const MenuItem = React.forwardRef<any, MenuItemProps>((props, ref) => {
       onClick={onClick}
       {...other}
     >
+      {startIcon && (
+        <span className={stylesIcon()}>
+          {startIcon}
+        </span>
+      )}
       <Typography
         variant={textVariant}
         color="inherit"
         component="span"
+        noWrap
+        className={stylesLabel()}
       >
         {children}
       </Typography>
-      {endIcon}
+      {endIcon && (
+        <span className={stylesIcon()}>
+          {endIcon}
+        </span>
+      )}
     </Component>
   );
 }) as OverridableComponent<MenuItemTypeMap>;

@@ -124,6 +124,8 @@ export type AutocompleteProps<T, Multiple extends boolean | undefined = undefine
 const stylesContainer = () => css({
   label: 'Autocomplete',
   position: 'relative',
+  display: 'inline-flex',
+  width: '100%',
 });
 
 const stylesRootSearchWrapper = (size: AutocompleteProps<any>['size']) => css({

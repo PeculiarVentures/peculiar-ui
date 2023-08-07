@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { WarningIcon } from '../icons';
 import { MenuItem, MenuList } from './index';
 
 export default {
@@ -21,7 +22,7 @@ export const Playground: ComponentStory<typeof MenuList> = (args) => (
     <MenuItem onClick={() => console.log('copy')}>
       Copy
     </MenuItem>
-    <MenuItem onClick={() => console.log('delete')}>
+    <MenuItem onClick={() => console.log('delete')} startIcon={<WarningIcon />}>
       Delete
     </MenuItem>
   </MenuList>
