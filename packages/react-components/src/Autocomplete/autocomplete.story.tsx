@@ -138,6 +138,15 @@ Default.args = {
   getOptionLabel: (option) => option.title,
 };
 
+export const Combobox = Template.bind({});
+
+Combobox.args = {
+  options: top100Films,
+  placeholder: 'Select a movie',
+  getOptionLabel: (option) => option.title,
+  combobox: true,
+};
+
 // @ts-ignore
 export const Multiple: ComponentStory<typeof Autocomplete<OptionFilmType, true>> = Template
   .bind({});

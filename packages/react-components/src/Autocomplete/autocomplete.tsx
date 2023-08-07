@@ -238,6 +238,7 @@ const stylesListBox = () => css({
   margin: 0,
   listStyleType: 'none',
   position: 'relative',
+  backgroundColor: 'var(--pv-color-gray-1)',
   padding: '10px 0',
 });
 
@@ -280,7 +281,7 @@ const stylesInputSearch = () => css({
   padding: 'var(--pv-size-base-3) var(--pv-size-base-3) var(--pv-size-base-2)',
 });
 
-const stylesRootInputSearch = () => css({
+const stylesRootInputSearch = (size: AutocompleteProps<any>['size']) => css({
   label: 'Autocomplete-root-input-search',
   flex: 1,
   marginLeft: 5,
@@ -288,6 +289,11 @@ const stylesRootInputSearch = () => css({
   '& input': {
     border: 'none',
     padding: '0',
+    // Set height for combobox search same as tag height
+    height: 'var(--pv-size-base-6)',
+    ...(size === 'small' && {
+      height: 'var(--pv-size-base-5)',
+    }),
   },
 });
 
@@ -529,7 +535,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
           {multiple ? renderedValue : null}
           <TextField
             inputProps={otherInputProps}
-            className={stylesRootInputSearch()}
+            className={stylesRootInputSearch(size)}
             onChange={onChange}
             onKeyDown={popoverProps.onKeyDown}
             value={searchValue}
@@ -632,6 +638,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
         allowUseSameWidth
         disablePortal={false}
         {...popoverProps}
+        tabIndex={-1}
         className={stylesPopover()}
       >
         {!disableSearch && !combobox && (
