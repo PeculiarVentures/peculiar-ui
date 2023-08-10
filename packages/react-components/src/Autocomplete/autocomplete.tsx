@@ -238,7 +238,6 @@ const stylesListBox = () => css({
   margin: 0,
   listStyleType: 'none',
   position: 'relative',
-  backgroundColor: 'var(--pv-color-gray-1)',
   padding: '10px 0',
 });
 
@@ -311,6 +310,7 @@ const stylesPopover = () => css({
   maxWidth: 'calc(100% - 32px)',
   maxHeight: 'calc(100% - 32px)',
   minHeight: '16px',
+  backgroundColor: 'var(--pv-color-white)',
   boxShadow: 'var(--pv-shadow-light-low)',
 });
 
