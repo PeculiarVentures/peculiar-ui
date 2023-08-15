@@ -9,6 +9,7 @@ export default {
   argTypes: {
     children: { control: false },
     component: { control: false },
+    tooltipProps: { control: false },
   },
 } as ComponentMeta<typeof IconButton>;
 

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Box } from '../Box';
 import { DotIcon } from '../icons';
 import { useId } from '../hooks';
 import { css, cx } from '../styles';
@@ -50,6 +49,9 @@ type BaseProps = {
 
 export type RadioProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'Radio',
   cursor: 'pointer',
@@ -57,60 +59,79 @@ const stylesBase = () => css({
   width: 'var(--pv-size-base-4)',
   height: 'var(--pv-size-base-4)',
   borderRadius: '50%',
-  justifyContent: 'center',
-  alignItems: 'center',
-});
-
-const stylesBaseDisabled = () => css({
-  label: 'disabled',
-  cursor: 'not-allowed',
+  color: 'var(--pv-color-gray-6)',
+  position: 'relative',
 });
 
 const stylesInput = () => css({
   label: 'Radio-input',
-  overflow: 'hidden',
+  cursor: 'inherit',
   width: '100%',
   height: '100%',
   margin: 0,
   padding: 0,
-  cursor: 'inherit',
+  outline: 0,
   borderRadius: '50%',
   borderWidth: '2px',
   borderStyle: 'solid',
   appearance: 'none',
-  borderColor: 'var(--pv-color-gray-9)',
+  color: 'var(--pv-color-gray-9)',
+  borderColor: 'currentColor',
   backgroundColor: 'transparent',
-  '&:checked': {
-    borderColor: 'var(--pv-color-primary-shade-1)',
-    '+ [aria-hidden]': {
-      opacity: 1,
-    },
-  },
-  '&:disabled': {
-    borderColor: 'var(--pv-color-gray-6)',
-    '&:checked': {
-      borderColor: 'var(--pv-color-gray-7)',
-    },
-    '+ [aria-hidden]': {
-      color: 'var(--pv-color-gray-6)',
-    },
-  },
-});
-
-const stylesControl = () => css({
-  label: 'Radio-control',
-  width: 'var(--pv-size-base-4)',
-  height: 'var(--pv-size-base-4)',
-  position: 'relative',
-  color: 'var(--pv-color-primary)',
-  '&:after': {
-    top: '-10px',
-    left: '-10px',
-    right: '-10px',
-    bottom: '-10px',
+  '&:before': {
+    top: '-7px',
+    left: '-7px',
+    right: '-7px',
+    bottom: '-7px',
     content: '""',
     position: 'absolute',
     borderRadius: '50%',
+    opacity: 0,
+    backgroundColor: 'currentColor',
+    transition: 'opacity 200ms',
+  },
+
+  '&:checked': {
+    '+ [aria-hidden]': {
+      color: 'var(--pv-color-primary)',
+      opacity: 1,
+    },
+  },
+
+  '&:not(:disabled)': {
+    cursor: 'pointer',
+
+    '&:checked': {
+      color: 'var(--pv-color-primary-shade-1)',
+    },
+    '&:hover': {
+      '&:before': {
+        opacity: 0.18,
+      },
+    },
+    '&:focus': {
+      '&:before': {
+        opacity: 0.23,
+      },
+    },
+    '&:active': {
+      '&:before': {
+        opacity: 0.30,
+      },
+    },
+  },
+
+  '&:disabled': {
+    cursor: 'not-allowed',
+
+    '+ [aria-hidden]': {
+      color: 'inherit',
+    },
+
+    color: 'var(--pv-color-gray-6)',
+    '&:checked': {
+      color: 'var(--pv-color-gray-7)',
+    },
   },
 });
 
@@ -123,7 +144,11 @@ const stylesIcon = () => css({
   width: '100%',
   height: '100%',
   opacity: 0,
+  pointerEvents: 'none',
 });
+/**
+ *
+ */
 
 export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref) => {
   const {
@@ -165,28 +190,22 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
       htmlFor={id}
       className={cx({
         [stylesBase()]: true,
-        [stylesBaseDisabled()]: disabled,
         [className]: !!className,
       })}
     >
-      <Box
-        component="span"
-        className={cx(stylesControl())}
-      >
-        <input
-          {...inputProps}
-          type="radio"
-          name={name}
-          id={id}
-          checked={checked}
-          defaultChecked={defaultChecked}
-          required={required}
-          disabled={disabled}
-          className={cx(stylesInput())}
-          onChange={onChange}
-        />
-        {renderIcon()}
-      </Box>
+      <input
+        {...inputProps}
+        type="radio"
+        name={name}
+        id={id}
+        checked={checked}
+        defaultChecked={defaultChecked}
+        required={required}
+        disabled={disabled}
+        className={cx(stylesInput())}
+        onChange={onChange}
+      />
+      {renderIcon()}
     </label>
   );
 });

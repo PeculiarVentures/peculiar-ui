@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { Box } from '../Box';
 import { CheckIcon } from '../icons';
 import { useId } from '../hooks';
 import { css, cx } from '../styles';
 
+/**
+ * Types.
+ */
 type BaseProps = {
   /**
    * If `true`, the component is checked.
@@ -45,67 +47,86 @@ type BaseProps = {
 };
 
 export type CheckboxProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+/**
+ *
+ */
 
+/**
+ * Styles.
+ */
 const stylesBase = () => css({
   label: 'Checkbox',
-  cursor: 'pointer',
   display: 'inline-flex',
   width: 'var(--pv-size-base-4)',
   height: 'var(--pv-size-base-4)',
-  borderRadius: '50%',
-  justifyContent: 'center',
-  alignItems: 'center',
-});
-
-const stylesBaseDisabled = () => css({
-  label: 'disabled',
-  cursor: 'not-allowed',
+  position: 'relative',
 });
 
 const stylesInput = () => css({
   label: 'Checkbox-input',
-  overflow: 'hidden',
   width: '100%',
   height: '100%',
   margin: 0,
   padding: 0,
-  cursor: 'inherit',
+  outline: 0,
   borderRadius: '2px',
   borderWidth: '2px',
   borderStyle: 'solid',
   appearance: 'none',
-  borderColor: 'var(--pv-color-gray-9)',
+  color: 'var(--pv-color-gray-9)',
+  borderColor: 'currentColor',
   backgroundColor: 'transparent',
+  '&:before': {
+    top: '-7px',
+    left: '-7px',
+    right: '-7px',
+    bottom: '-7px',
+    content: '""',
+    position: 'absolute',
+    borderRadius: '50%',
+    opacity: 0,
+    backgroundColor: 'currentColor',
+    transition: 'opacity 200ms',
+  },
+
   '&:checked': {
-    backgroundColor: 'var(--pv-color-primary)',
-    borderColor: 'var(--pv-color-primary-shade-1)',
     '+ [aria-hidden]': {
       opacity: 1,
     },
   },
-  '&:disabled': {
-    borderColor: 'var(--pv-color-gray-6)',
+
+  '&:not(:disabled)': {
+    cursor: 'pointer',
+
     '&:checked': {
-      backgroundColor: 'var(--pv-color-gray-6)',
-      borderColor: 'var(--pv-color-gray-7)',
+      color: 'var(--pv-color-primary-shade-1)',
+      backgroundColor: 'var(--pv-color-primary)',
+    },
+    '&:hover': {
+      '&:before': {
+        opacity: 0.18,
+      },
+    },
+    '&:focus': {
+      '&:before': {
+        opacity: 0.23,
+      },
+    },
+    '&:active': {
+      '&:before': {
+        opacity: 0.30,
+      },
     },
   },
-});
 
-const stylesControl = () => css({
-  label: 'Checkbox-control',
-  width: 'var(--pv-size-base-4)',
-  height: 'var(--pv-size-base-4)',
-  position: 'relative',
-  color: 'var(--pv-color-white)',
-  '&:after': {
-    top: '-10px',
-    left: '-10px',
-    right: '-10px',
-    bottom: '-10px',
-    content: '""',
-    position: 'absolute',
-    borderRadius: '50%',
+  '&:disabled': {
+    cursor: 'not-allowed',
+
+    color: 'var(--pv-color-gray-6)',
+    '&:checked': {
+      color: 'var(--pv-color-gray-7)',
+      backgroundColor: 'var(--pv-color-gray-6)',
+    },
   },
 });
 
@@ -118,7 +139,12 @@ const stylesIcon = () => css({
   width: '100%',
   height: '100%',
   opacity: 0,
+  color: 'var(--pv-color-white)',
+  pointerEvents: 'none',
 });
+/**
+ *
+ */
 
 export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
   const {
@@ -159,27 +185,21 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
       htmlFor={id}
       className={cx({
         [stylesBase()]: true,
-        [stylesBaseDisabled()]: disabled,
         [className]: !!className,
       })}
     >
-      <Box
-        component="span"
-        className={cx(stylesControl())}
-      >
-        <input
-          {...inputProps}
-          type="checkbox"
-          id={id}
-          checked={checked}
-          defaultChecked={defaultChecked}
-          required={required}
-          disabled={disabled}
-          className={cx(stylesInput())}
-          onChange={onChange}
-        />
-        {renderIcon()}
-      </Box>
+      <input
+        {...inputProps}
+        type="checkbox"
+        id={id}
+        checked={checked}
+        defaultChecked={defaultChecked}
+        required={required}
+        disabled={disabled}
+        className={stylesInput()}
+        onChange={onChange}
+      />
+      {renderIcon()}
     </label>
   );
 });

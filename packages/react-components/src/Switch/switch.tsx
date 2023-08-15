@@ -54,18 +54,13 @@ export type SwitchProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelEl
 
 const stylesBase = () => css({
   label: 'Switch',
-  cursor: 'pointer',
   display: 'inline-flex',
   width: 'var(--pv-size-base-7)',
   height: 'var(--pv-size-base-4)',
   borderRadius: 'var(--pv-size-base-4)',
   justifyContent: 'center',
+  position: 'relative',
   alignItems: 'center',
-});
-
-const stylesBaseDisabled = () => css({
-  label: 'disabled',
-  cursor: 'not-allowed',
 });
 
 const stylesInput = (props: BaseProps) => css({
@@ -75,42 +70,46 @@ const stylesInput = (props: BaseProps) => css({
   height: '100%',
   margin: 0,
   padding: 0,
-  cursor: 'inherit',
-  borderRadius: 'var(--pv-size-base-4)',
+  outline: 0,
+  borderRadius: 'inherit',
   appearance: 'none',
   backgroundColor: 'var(--pv-color-gray-6)',
   '&:checked': {
     backgroundColor: `var(--pv-color-${props.color})`,
-    '+ [aria-hidden]': {
-      transform: 'translate(calc(100% - 1px),-50%)',
-    },
-  },
-  '&:disabled': {
-    opacity: 0.4,
-    '&:checked': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-3)`,
-      opacity: 0.6,
-    },
-    '+ [aria-hidden]': {
-      opacity: 0.8,
-    },
-  },
-});
 
-const stylesControl = (props: BaseProps) => css({
-  label: 'Switch-control',
-  width: 'var(--pv-size-base-7)',
-  height: 'var(--pv-size-base-4)',
-  position: 'relative',
-  color: `var(--pv-color-${props.color})`,
-  '&:after': {
-    top: '-10px',
-    left: '-10px',
-    right: '-10px',
-    bottom: '-10px',
-    content: '""',
-    position: 'absolute',
-    borderRadius: '50%',
+    '+ [aria-hidden]': {
+      transform: 'translateX(calc(50% - 2px))',
+
+      '&:before': {
+        backgroundColor: `var(--pv-color-${props.color}-shade-2)`,
+      },
+    },
+  },
+
+  '&:disabled': {
+    cursor: 'not-allowed',
+    pointerEvents: 'none',
+    opacity: 0.4,
+  },
+
+  '&:not(:disabled)': {
+    cursor: 'pointer',
+
+    '&:hover': {
+      '+ [aria-hidden]:before': {
+        opacity: 0.18,
+      },
+    },
+    '&:focus': {
+      '+ [aria-hidden]:before': {
+        opacity: 0.23,
+      },
+    },
+    '&:active': {
+      '+ [aria-hidden]:before': {
+        opacity: 0.30,
+      },
+    },
   },
 });
 
@@ -118,13 +117,24 @@ const stylesDot = () => css({
   label: 'Switch-dot',
   display: 'block',
   position: 'absolute',
-  top: '50%',
   width: 'var(--pv-size-base-3)',
   height: 'var(--pv-size-base-3)',
-  transform: 'translate(calc(2px), -50%)',
   transition: 'transform 200ms',
   boxShadow: 'var(--pv-shadow-light-low)',
-  boxSizing: 'content-box',
+  transform: 'translateX(calc(-50% + 2px))',
+  pointerEvents: 'none',
+  '&:before': {
+    top: '-10px',
+    left: '-10px',
+    right: '-10px',
+    bottom: '-10px',
+    content: '""',
+    position: 'absolute',
+    borderRadius: '50%',
+    opacity: 0,
+    backgroundColor: 'var(--pv-color-gray-9)',
+    transition: 'opacity 200ms, background-color 200ms',
+  },
 });
 
 export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, ref) => {
@@ -150,36 +160,30 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
       htmlFor={id}
       className={cx({
         [stylesBase()]: true,
-        [stylesBaseDisabled()]: disabled,
         [className]: !!className,
       })}
     >
+      <input
+        {...inputProps}
+        type="checkbox"
+        name={name}
+        id={id}
+        checked={checked}
+        defaultChecked={defaultChecked}
+        required={required}
+        disabled={disabled}
+        className={cx(stylesInput(props))}
+        onChange={onChange}
+      />
       <Box
-        component="span"
-        className={cx(stylesControl(props))}
-      >
-        <input
-          {...inputProps}
-          type="checkbox"
-          name={name}
-          id={id}
-          checked={checked}
-          defaultChecked={defaultChecked}
-          required={required}
-          disabled={disabled}
-          className={cx(stylesInput(props))}
-          onChange={onChange}
-        />
-        <Box
-          aria-hidden
-          className={cx(stylesDot())}
-          background={`${color}-contrast`}
-          borderColor="gray-3"
-          borderWidth={1}
-          borderStyle="solid"
-          borderRadius={100}
-        />
-      </Box>
+        aria-hidden
+        className={cx(stylesDot())}
+        background={`${color}-contrast`}
+        borderColor="gray-3"
+        borderWidth={1}
+        borderStyle="solid"
+        borderRadius={100}
+      />
     </label>
   );
 });

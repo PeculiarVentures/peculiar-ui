@@ -2,7 +2,7 @@ import * as React from 'react';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { css, cx } from '../styles';
 import { Button, ButtonOwnProps } from '../Button';
-import { Tooltip } from '../Tooltip';
+import { Tooltip, TooltipBaseProps } from '../Tooltip';
 
 /**
  * Types.
@@ -12,6 +12,10 @@ export interface IconButtonOwnProps extends Omit<ButtonOwnProps, 'variant' | 'wi
    * The text that applied to `aria-label` attribute and Tooltip content.
    */
   title?: string;
+  /**
+   * Props applied to the `Tooltip` element.
+   */
+  tooltipProps?: Omit<TooltipBaseProps, 'open' | 'title' | 'children'>;
 }
 
 export interface IconButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
@@ -44,6 +48,7 @@ export const IconButton = React.forwardRef<any, IconButtonProps>((props, ref) =>
     title,
     className,
     disabled,
+    tooltipProps,
     ...other
   } = props;
 
@@ -70,6 +75,7 @@ export const IconButton = React.forwardRef<any, IconButtonProps>((props, ref) =>
       title={title}
       color="black"
       size="small"
+      {...tooltipProps}
     >
       {component}
     </Tooltip>
