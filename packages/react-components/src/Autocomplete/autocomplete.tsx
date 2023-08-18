@@ -128,41 +128,6 @@ const stylesContainer = () => css({
   width: '100%',
 });
 
-const stylesRootSearchWrapper = (size: AutocompleteProps<any>['size']) => css({
-  label: 'Autocomplete',
-  position: 'relative',
-  display: 'flex',
-  flexWrap: 'wrap',
-  alignItems: 'center',
-  borderRadius: '4px',
-  minHeight: 'var(--pv-size-base-8)',
-  ...(size === 'small' && {
-    minHeight: 'var(--pv-size-base-6)',
-  }),
-  ...(size === 'medium' && {
-    minHeight: 'var(--pv-size-base-7)',
-  }),
-  padding: '0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2)',
-  backgroundColor: 'var(--pv-color-gray-1)',
-  boxSizing: 'border-box',
-  transition: 'background-color 200ms, color 200ms, border-color 200ms',
-  borderStyle: 'solid',
-  borderWidth: '1px',
-  borderColor: 'var(--pv-color-gray-8)',
-  '&:hover': {
-    backgroundColor: 'var(--pv-color-gray-3)',
-    borderColor: 'var(--pv-color-gray-7)',
-  },
-  '&:hover input': {
-    backgroundColor: 'var(--pv-color-gray-3)',
-    borderColor: 'var(--pv-color-gray-7)',
-  },
-  '&:focus-within': {
-    backgroundColor: 'var(--pv-color-secondary-tint-5)',
-    borderColor: 'var(--pv-color-secondary-tint-3)',
-  },
-});
-
 const stylesRoot = (size: AutocompleteProps<any>['size']) => css({
   label: 'Autocomplete-root',
   outline: 'none',
@@ -206,6 +171,24 @@ const stylesRoot = (size: AutocompleteProps<any>['size']) => css({
       backgroundColor: 'var(--pv-color-secondary-tint-5)',
       borderColor: 'var(--pv-color-secondary-tint-3)',
     },
+  },
+});
+
+const stylesRootSearchWrapper = (size: AutocompleteProps<any>['size']) => css({
+  display: 'flex',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  columnGap: 'var(--pv-size-base)',
+  minHeight: 'var(--pv-size-base-8)',
+  ...(size === 'small' && {
+    minHeight: 'var(--pv-size-base-6)',
+  }),
+  ...(size === 'medium' && {
+    minHeight: 'var(--pv-size-base-7)',
+  }),
+  '&:focus-within': {
+    backgroundColor: 'var(--pv-color-secondary-tint-5)',
+    borderColor: 'var(--pv-color-secondary-tint-3)',
   },
 });
 
@@ -283,9 +266,10 @@ const stylesInputSearch = () => css({
 const stylesRootInputSearch = (size: AutocompleteProps<any>['size']) => css({
   label: 'Autocomplete-root-input-search',
   flex: 1,
-  marginLeft: 5,
+  marginLeft: 'var(--pv-size-base)',
   minWidth: '30%',
   '& input': {
+    backgroundColor: 'transparent',
     border: 'none',
     padding: '0',
     // Set height for combobox search same as tag height
@@ -293,6 +277,9 @@ const stylesRootInputSearch = (size: AutocompleteProps<any>['size']) => css({
     ...(size === 'small' && {
       height: 'var(--pv-size-base-5)',
     }),
+    '&:hover': {
+      backgroundColor: 'transparent',
+    },
   },
 });
 
@@ -303,15 +290,16 @@ const stylesListBoxState = () => css({
 
 const stylesPopover = () => css({
   label: 'Autocomplete-popover',
-  minWidth: 240,
+  minWidth: '240px',
   outline: 0,
-  marginTop: 1,
-  borderRadius: 4,
+  marginTop: '1px',
+  borderRadius: '4px',
   maxWidth: 'calc(100% - 32px)',
   maxHeight: 'calc(100% - 32px)',
   minHeight: '16px',
   backgroundColor: 'var(--pv-color-white)',
   boxShadow: 'var(--pv-shadow-light-low)',
+  zIndex: 1300,
 });
 
 const stylesTagsList = (isEmbedded = false) => css({
@@ -326,7 +314,7 @@ const stylesTag = (tagsLength: number, limitTags: number, size: AutocompleteProp
   label: 'Autocomplete-tag',
   borderRadius: '2px',
   borderColor: 'var(--pv-color-gray-7)',
-  margin: '2px var(--pv-size-base) 2px 0',
+  margin: '2px 0',
   ...(tagsLength === 1 && {
     maxWidth: 'calc(100% - var(--pv-size-base))',
   }),
@@ -395,7 +383,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
     noOptionsText,
     loading,
     loadingText,
-    limitTags = combobox ? undefined : 2,
+    limitTags = 2,
     name,
     required,
     multiple,
@@ -473,7 +461,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
       return null;
     }
 
-    if (Array.isArray(value) && limitTags) {
+    if (Array.isArray(value) && !combobox && limitTags) {
       const more = (value.length > limitTags) ? (value.length - limitTags) : 0;
       const valueLimits = more > 0 ? value.slice(0, limitTags) : value;
 
@@ -528,21 +516,33 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
   const defaultRenderRoot: AutocompleteProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => {
     if (combobox) {
       return (
-        <div
-          className={stylesRootSearchWrapper(size)}
-          {...propsRoot}
-        >
-          {multiple ? renderedValue : null}
-          <TextField
-            inputProps={otherInputProps}
-            className={stylesRootInputSearch(size)}
-            onChange={onChange}
-            onKeyDown={popoverProps.onKeyDown}
-            value={searchValue}
-            size={size}
-            placeholder={placeholder}
-            disabled={loading || disabled}
-          />
+        <div className={stylesContainer()}>
+          <Box
+            {...propsRoot}
+            component="button"
+            type="button"
+            className={cx({
+              [stylesRoot(size)]: true,
+              [stylesRootSearchWrapper(size)]: true,
+            })}
+            tabIndex={-1}
+            onBlur={popoverProps.onClose}
+            disabled={disabled}
+            aria-invalid={error || undefined}
+          >
+            {multiple ? renderedValue : null}
+            <TextField
+              disabled={disabled}
+              inputProps={otherInputProps}
+              className={stylesRootInputSearch(size)}
+              onChange={onChange}
+              onKeyDown={popoverProps.onKeyDown}
+              value={searchValue}
+              size={size}
+              placeholder={placeholder}
+              readOnly={readOnly}
+            />
+          </Box>
           <ArrowDropDownIcon
             className={stylesInputArrowIcon(popoverProps.open)}
             aria-disabled={disabled}
