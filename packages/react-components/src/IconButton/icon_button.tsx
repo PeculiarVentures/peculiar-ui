@@ -1,6 +1,6 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { css, cx } from '../styles';
 import { Button, ButtonOwnProps } from '../Button';
 import { Tooltip, TooltipBaseProps } from '../Tooltip';
 
@@ -35,7 +35,7 @@ export type IconButtonProps<
 /**
  * Styles.
  */
-const stylesBase = () => css({
+const IconButtonRoot = styled(Button)({
   '--pv-color-black': 'var(--pv-color-gray-9)',
   border: 'none',
 });
@@ -46,23 +46,18 @@ const stylesBase = () => css({
 export const IconButton = React.forwardRef<any, IconButtonProps>((props, ref) => {
   const {
     title,
-    className,
     disabled,
     tooltipProps,
     ...other
   } = props;
 
   const component = (
-    <Button
+    <IconButtonRoot
+      ref={ref}
       aria-label={title}
       disabled={disabled}
-      {...other}
-      ref={ref}
       withoutPadding
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
+      {...other}
     />
   );
 
