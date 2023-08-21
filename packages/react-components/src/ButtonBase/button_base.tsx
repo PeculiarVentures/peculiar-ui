@@ -95,7 +95,10 @@ const ButtonBaseRoot = styled('button', {
     borderColor: props.variant === 'outlined' && 'var(--pv-color-gray-4)',
   },
 }), (props) => {
-  let color: string = 'var(--pv-color-black)';
+  const isDark = props.theme.mode === 'dark';
+  let color: string = isDark
+    ? 'var(--pv-color-white)'
+    : 'var(--pv-color-black)';
   let borderColor: string;
   let backgroundColor: string;
   let backgroundColorHover: string;
