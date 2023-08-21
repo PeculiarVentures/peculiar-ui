@@ -123,6 +123,7 @@ const stylesDot = () => css({
   boxShadow: 'var(--pv-shadow-light-low)',
   transform: 'translateX(calc(-50% + 2px))',
   pointerEvents: 'none',
+  boxSizing: 'content-box',
   '&:before': {
     top: '-10px',
     left: '-10px',
