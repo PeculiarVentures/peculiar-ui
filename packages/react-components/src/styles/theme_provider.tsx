@@ -7,12 +7,14 @@ import type { ThemeOptionsType } from './types';
 type ThemeProviderProps = {
   children: React.ReactElement;
   theme?: ThemeOptionsType;
+  mode?: 'light' | 'dark';
 };
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
   const {
     children,
     theme: themeProp,
+    mode,
   } = props;
 
   const theme = React.useMemo(() => {
@@ -30,7 +32,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
       />
       <ThemeProviderEmotion
         theme={{
-          mode: 'light',
+          mode,
         }}
       >
         {children}
@@ -40,3 +42,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
 };
 
 ThemeProvider.displayName = 'ThemeProvider';
+
+ThemeProvider.defaultProps = {
+  mode: 'light',
+};
