@@ -131,7 +131,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
         step={step}
         className={cx(stylesInput())}
         value={value}
-        defaultValue={defaultValue}
+        defaultValue={typeof value === 'undefined' ? defaultValue : undefined}
         onChange={onChange}
         disabled={disabled}
       />
