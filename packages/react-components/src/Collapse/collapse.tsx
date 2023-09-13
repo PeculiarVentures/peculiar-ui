@@ -37,23 +37,21 @@ const stylesBase = (timeout: number, isHorizontal: boolean) => css({
   label: 'Collapse',
   overflow: 'hidden',
   transition: `${isHorizontal ? 'width' : 'height'} ${timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
-  ...(!isHorizontal && {
-    height: 0,
-  }),
-  ...(isHorizontal && {
+  ...(isHorizontal ? {
     height: 'auto',
     width: 0,
+  } : {
+    height: 0,
   }),
 });
 
 const stylesEntered = (isHorizontal: boolean) => css({
   label: 'entered',
   overflow: 'visible',
-  ...(!isHorizontal && {
-    height: 'auto',
-  }),
-  ...(isHorizontal && {
+  ...(isHorizontal ? {
     width: 'auto',
+  } : {
+    height: 'auto',
   }),
 });
 
@@ -185,5 +183,5 @@ Collapse.displayName = 'Collapse';
 
 Collapse.defaultProps = {
   timeout: 225,
-  orientation: 'horizontal',
+  orientation: 'vertical',
 };
