@@ -56,6 +56,11 @@ export function useImage(src: string, options: UseImageOptionsType = {}): UseIma
     imageRef.current.src = src;
 
     imageRef.current.onload = (event) => {
+      // In case already unmounted
+      if (!imageRef.current) {
+        return;
+      }
+
       setStatus('loaded');
 
       if (onLoad) {
@@ -64,6 +69,11 @@ export function useImage(src: string, options: UseImageOptionsType = {}): UseIma
     };
 
     imageRef.current.onerror = (error) => {
+      // In case already unmounted
+      if (!imageRef.current) {
+        return;
+      }
+
       imageRef.current = undefined;
 
       setStatus('failed');
