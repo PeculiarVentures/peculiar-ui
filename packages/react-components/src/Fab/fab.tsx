@@ -34,12 +34,12 @@ export type FabProps<
 /**
  * Styles.
  */
-const FabRoot = styled(Button)<FabOwnProps>(() => ({
+const FabRoot = styled(Button)<FabOwnProps>({
   borderRadius: '50%',
   height: 'var(--pv-size-base-11)',
   width: 'var(--pv-size-base-11)',
   padding: 'var(--pv-size-base-2)',
-}));
+});
 /**
  *
  */
