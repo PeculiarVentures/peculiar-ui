@@ -73,12 +73,12 @@ const ButtonRoot = styled(ButtonBase)<ButtonOwnProps>((props) => ({
   }),
 }));
 
-const StartIconRoot = styled('span')({
+const ButtonStartIcon = styled('span')({
   marginRight: 'var(--pv-size-base)',
   display: 'inherit',
 });
 
-const EndIconRoot = styled('span')({
+const ButtonEndIcon = styled('span')({
   marginLeft: 'var(--pv-size-base)',
   display: 'inherit',
 });
@@ -95,15 +95,15 @@ export const Button = React.forwardRef<any, ButtonProps>((props, ref) => {
   } = props;
 
   const startIcon = startIconProp && (
-    <StartIconRoot>
+    <ButtonStartIcon>
       {startIconProp}
-    </StartIconRoot>
+    </ButtonStartIcon>
   );
 
   const endIcon = endIconProp && (
-    <EndIconRoot>
+    <ButtonEndIcon>
       {endIconProp}
-    </EndIconRoot>
+    </ButtonEndIcon>
   );
 
   return (
