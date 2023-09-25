@@ -22,6 +22,10 @@ type BaseProps = {
    */
   timeout?: number;
   /**
+   * The transition orientation.
+   */
+  orientation?: 'horizontal' | 'vertical',
+  /**
    * A single child content element.
    */
   children: React.ReactNode;
@@ -29,17 +33,26 @@ type BaseProps = {
 
 type CollapseProps = BaseProps & BaseTransitionProps & React.HTMLAttributes<HTMLDivElement>;
 
-const stylesBase = (timeout: number) => css({
+const stylesBase = (timeout: number, isHorizontal: boolean) => css({
   label: 'Collapse',
-  transition: `height ${timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
-  overflowY: 'hidden',
-  height: 0,
+  overflow: 'hidden',
+  transition: `${isHorizontal ? 'width' : 'height'} ${timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
+  ...(isHorizontal ? {
+    height: 'auto',
+    width: 0,
+  } : {
+    height: 0,
+  }),
 });
 
-const stylesEntered = () => css({
+const stylesEntered = (isHorizontal: boolean) => css({
   label: 'entered',
-  height: 'auto',
-  overflowY: 'visible',
+  overflow: 'visible',
+  ...(isHorizontal ? {
+    width: 'auto',
+  } : {
+    height: 'auto',
+  }),
 });
 
 const stylesHidden = () => css({
@@ -52,6 +65,7 @@ export const Collapse: React.FC<CollapseProps> = (props) => {
     timeout,
     in: inProp,
     children,
+    orientation,
     onEnter,
     onEntered,
     onEntering,
@@ -63,12 +77,19 @@ export const Collapse: React.FC<CollapseProps> = (props) => {
   } = props;
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const nodeRef = React.useRef<HTMLDivElement>(null);
+  const isHorizontal = orientation === 'horizontal';
+  const size = isHorizontal ? 'width' : 'height';
 
-  const getWrapperSize = () => (wrapperRef.current ? wrapperRef.current.clientHeight : 0);
+  const getWrapperSize = () => (wrapperRef.current ? wrapperRef.current[isHorizontal ? 'clientWidth' : 'clientHeight'] : 0);
 
   const handleEnter = (isAppearing: boolean) => {
     if (nodeRef.current) {
-      nodeRef.current.style.height = '0px';
+      nodeRef.current.style[size] = '0px';
+    }
+
+    if (wrapperRef.current && isHorizontal) {
+      // Set absolute position to get the size of collapsed content
+      wrapperRef.current.style.position = 'absolute';
     }
 
     if (onEnter) {
@@ -78,7 +99,12 @@ export const Collapse: React.FC<CollapseProps> = (props) => {
 
   const handleEntering = (isAppearing: boolean) => {
     if (nodeRef.current) {
-      nodeRef.current.style.height = `${getWrapperSize()}px`;
+      nodeRef.current.style[size] = `${getWrapperSize()}px`;
+    }
+
+    if (wrapperRef.current && isHorizontal) {
+      // After the size is read reset the position back to default
+      wrapperRef.current.style.position = '';
     }
 
     if (onEntering) {
@@ -88,7 +114,7 @@ export const Collapse: React.FC<CollapseProps> = (props) => {
 
   const handleEntered = (isAppearing: boolean) => {
     if (nodeRef.current) {
-      nodeRef.current.style.height = 'auto';
+      nodeRef.current.style[size] = 'auto';
     }
 
     if (onEntered) {
@@ -98,7 +124,7 @@ export const Collapse: React.FC<CollapseProps> = (props) => {
 
   const handleExit = () => {
     if (nodeRef.current) {
-      nodeRef.current.style.height = `${getWrapperSize()}px`;
+      nodeRef.current.style[size] = `${getWrapperSize()}px`;
 
       // reading a dimension prop will cause the browser to recalculate,
       // which will let our animations work
@@ -112,7 +138,7 @@ export const Collapse: React.FC<CollapseProps> = (props) => {
 
   const handleExiting = () => {
     if (nodeRef.current) {
-      nodeRef.current.style.height = '0px';
+      nodeRef.current.style[size] = '0px';
     }
 
     if (onExiting) {
@@ -135,8 +161,8 @@ export const Collapse: React.FC<CollapseProps> = (props) => {
         <div
           {...other}
           className={cx({
-            [stylesBase(timeout)]: true,
-            [stylesEntered()]: state === 'entered',
+            [stylesBase(timeout, isHorizontal)]: true,
+            [stylesEntered(isHorizontal)]: state === 'entered',
             [stylesHidden()]: state === 'exited' && !inProp,
             [className]: !!className,
           })}
@@ -157,4 +183,5 @@ Collapse.displayName = 'Collapse';
 
 Collapse.defaultProps = {
   timeout: 225,
+  orientation: 'vertical',
 };

@@ -16,12 +16,14 @@ export const Playground: ComponentStory<typeof Collapse> = (args) => {
     in: inProp,
     timeout,
     children,
+    orientation,
   } = args;
 
   return (
     <Collapse
       in={inProp}
       timeout={timeout}
+      orientation={orientation}
     >
       <Typography
         variant="h1"

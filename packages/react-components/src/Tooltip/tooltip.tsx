@@ -71,6 +71,11 @@ export type TooltipBaseProps = {
    * If `true`, adds an arrow to the tooltip.
    */
   arrow?: boolean;
+  /**
+   * This can be useful if you need to apply some margin between them
+   * or if you need to fine tune the position according to some custom logic.
+   */
+  offset?: number;
 };
 
 export type TooltipProps = TooltipBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
@@ -111,28 +116,24 @@ const stylesPopper = (props: TooltipBaseProps) => css({
   pointerEvents: props.interactive ? 'auto' : 'none',
   zIndex: 1500,
   '&[data-popper-placement^="bottom"]': {
-    padding: 'var(--pv-size-base-3) 0px',
     '[data-popper-arrow]': {
       top: 0,
       marginTop: '-4px',
     },
   },
   '&[data-popper-placement^="top"]': {
-    padding: 'var(--pv-size-base-3) 0px',
     '[data-popper-arrow]': {
       bottom: 0,
       marginBottom: '-4px',
     },
   },
   '&[data-popper-placement^="right"]': {
-    padding: '0px var(--pv-size-base-3)',
     '[data-popper-arrow]': {
       left: 0,
       marginLeft: '-4px',
     },
   },
   '&[data-popper-placement^="left"]': {
-    padding: '0px var(--pv-size-base-3)',
     '[data-popper-arrow]': {
       right: 0,
       marginRight: '-4px',
@@ -179,6 +180,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     enterDelay,
     leaveDelay,
     arrow,
+    offset,
     ...other
   } = props;
   const [open, setOpen] = useControllableState({
@@ -268,6 +270,12 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
               padding: 8,
             },
           },
+          {
+            name: 'offset',
+            options: {
+              offset: [0, offset],
+            },
+          },
         ]}
         {...popperProps}
       >
@@ -317,4 +325,5 @@ Tooltip.defaultProps = {
   enterDelay: 100,
   leaveDelay: 0,
   arrow: false,
+  offset: 15,
 };

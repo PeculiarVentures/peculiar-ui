@@ -73,6 +73,10 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
    */
   getOptionLabel?: (option: T) => string;
   /**
+   * Used to determine the key value for a given option.
+   */
+  getOptionKey?: (option: T) => string;
+  /**
   * A filter function that determines the options that are eligible.
   */
   filterOptions?: AutocompleteFilterOptionsType<T, Multiple>;
@@ -157,6 +161,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     groupBy,
     // @ts-ignore
     getOptionLabel = (option) => option.label ?? option,
+    getOptionKey,
     filterOptions = defaultFilterOptions,
     onOpen,
     onClose,
@@ -558,7 +563,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
       );
 
       return {
-        key: getOptionLabel(option),
+        key: getOptionKey ? getOptionKey(option) : getOptionLabel(option),
         tabIndex: -1,
         role: 'option',
         id: `${id}-option-${index}`,
