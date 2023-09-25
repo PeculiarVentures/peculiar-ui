@@ -1,12 +1,15 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import type { CircularProgressProps } from '../CircularProgress';
 import { Modal } from '../Modal';
 import { Box } from '../Box';
 import { Fade } from '../Fade';
 import { CircularProgress } from '../CircularProgress';
-import { css, cx } from '../styles';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type DialogOwnProps = {
   /**
    * If `true`, the Dialog is open.
    */
@@ -58,10 +61,17 @@ type BaseProps = {
   loadingColor?: CircularProgressProps['color'];
 };
 
-type DialogProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type DialogProps = DialogOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+/**
+ *
+ */
 
-const stylesBase = (loading?: boolean) => css({
-  label: 'Dialog',
+/**
+ * Styles.
+ */
+const DialogRoot = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'loading',
+})<DialogOwnProps>((props) => ({
   width: '100%',
   display: 'flex',
   maxHeight: 'calc(100% - 60px)',
@@ -73,7 +83,7 @@ const stylesBase = (loading?: boolean) => css({
   overflow: 'hidden',
   border: 0,
   padding: 0,
-  ...(loading && {
+  ...(props.loading && {
     '[data-key="dialog.content"]': {
       opacity: 0.5,
     },
@@ -81,57 +91,48 @@ const stylesBase = (loading?: boolean) => css({
       opacity: 0.5,
     },
   }),
-});
+  ...(props.size === 'small' && {
+    maxWidth: '310px',
+  }),
+  ...(props.size === 'medium' && {
+    maxWidth: '640px',
+  }),
+  ...(props.size === 'large' && {
+    maxWidth: '1024px',
+  }),
+  ...(props.fullScreen && {
+    height: '100%',
+    margin: 0,
+    maxWidth: '100%',
+    maxHeight: 'none',
+  }),
+}));
 
-const stylesSizeSmall = () => css({
-  label: 'small',
-  maxWidth: '310px',
-});
-
-const stylesSizeMedium = () => css({
-  label: 'medium',
-  maxWidth: '640px',
-});
-
-const stylesSizeLarge = () => css({
-  label: 'large',
-  maxWidth: '1024px',
-});
-
-const stylesFullScreen = () => css({
-  label: 'fullScreen',
-  height: '100%',
-  margin: 0,
-  maxWidth: '100%',
-  maxHeight: 'none',
-});
-
-const stylesModal = () => css({
-  label: 'Dialog-modal',
+const DialogModal = styled(Modal)({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
 });
 
-const stylesLoading = () => css({
-  label: 'Dialog-loading',
+const DialogLoading = styled(Box)({
   position: 'absolute',
   inset: '0px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
 });
+/**
+ *
+ */
 
 export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref) => {
   const {
     open,
     children,
-    className,
     fullScreen,
     transitionDuration,
     disableBackdropClick,
     disableEscapeKeyDown,
-    size,
     loading,
     loadingColor,
     onClose,
@@ -140,13 +141,12 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
   } = props;
 
   return (
-    <Modal
+    <DialogModal
       ref={ref}
       open={open}
       transitionDuration={transitionDuration}
       onClose={onClose}
       data-testid={dataTestId}
-      className={cx(stylesModal())}
       disableBackdropClick={loading || disableBackdropClick}
       disableEscapeKeyDown={loading || disableEscapeKeyDown}
       backdropProps={{
@@ -157,33 +157,27 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
         in={open}
         timeout={transitionDuration}
       >
-        {/* @ts-ignore */}
-        <Box
-          {...other}
+        <DialogRoot
           role="dialog"
           background="white"
           borderRadius={fullScreen ? 0 : 4}
-          className={cx({
-            [stylesBase(loading)]: true,
-            [stylesSizeSmall()]: size === 'small',
-            [stylesSizeMedium()]: size === 'medium',
-            [stylesSizeLarge()]: size === 'large',
-            [stylesFullScreen()]: fullScreen,
-            [className]: !!className,
-          })}
+          loading={loading}
+          fullScreen={fullScreen}
           tabIndex={-1}
+          // @ts-ignore
           component="fieldset"
           disabled={loading}
+          {...other}
         >
           {children}
           {loading && (
-            <Box className={cx(stylesLoading())}>
+            <DialogLoading>
               <CircularProgress color={loadingColor} />
-            </Box>
+            </DialogLoading>
           )}
-        </Box>
+        </DialogRoot>
       </Fade>
-    </Modal>
+    </DialogModal>
   );
 });
 
