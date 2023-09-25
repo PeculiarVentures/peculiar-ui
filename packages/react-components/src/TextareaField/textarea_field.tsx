@@ -81,7 +81,7 @@ type TextareaFieldProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>,
 /**
  * Styles.
  */
-const TextareaRoot = styled('textarea')<Pick<TextareaFieldProps, 'size'>>((props) => ({
+const TextareaInput = styled('textarea')<Pick<TextareaFieldProps, 'size'>>((props) => ({
   fontFamily: 'inherit',
   outline: 'none',
   boxSizing: 'border-box',
@@ -135,13 +135,13 @@ const TextareaRoot = styled('textarea')<Pick<TextareaFieldProps, 'size'>>((props
   }),
 }));
 
-const LabelRoot = styled('label')({
+const Label = styled('label')({
   label: 'TextField-label',
   marginBottom: '2px',
   display: 'inline-block',
 });
 
-const ErrorRoot = styled(Typography)({
+const Error = styled(Typography)({
   marginTop: '2px',
 });
 /**
@@ -177,7 +177,7 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
       className={className}
     >
       {label && (
-        <LabelRoot
+        <Label
           htmlFor={id}
         >
           <Typography
@@ -187,9 +187,9 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
           >
             {label}
           </Typography>
-        </LabelRoot>
+        </Label>
       )}
-      <TextareaRoot
+      <TextareaInput
         {...inputProps}
         size={size}
         disabled={disabled}
@@ -206,12 +206,12 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
         readOnly={readOnly}
       />
       {error && errorText && (
-        <ErrorRoot
+        <Error
           variant="c2"
           color="wrong"
         >
           {errorText}
-        </ErrorRoot>
+        </Error>
       )}
     </div>
   );
