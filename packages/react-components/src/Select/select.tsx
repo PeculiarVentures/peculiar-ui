@@ -139,11 +139,11 @@ const SelectErrorMessage = styled(Typography)({
   marginTop: '2px',
 });
 
-const InputContainer = styled('div')({
+const SelectContainer = styled('div')({
   position: 'relative',
 });
 
-const InputArrowIcon = styled(ArrowDropDownIcon)<{ disabled: boolean }>({
+const SelectArrowIcon = styled(ArrowDropDownIcon)<{ disabled: boolean }>({
   position: 'absolute',
   right: '0px',
   top: 'calc(50% - 12px)',
@@ -195,7 +195,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
           </Typography>
         </SelectLabel>
       )}
-      <InputContainer>
+      <SelectContainer>
         <SelectRoot
           selectSize={size}
           disabled={disabled}
@@ -225,11 +225,11 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
             </option>
           ))}
         </SelectRoot>
-        <InputArrowIcon
+        <SelectArrowIcon
           disabled={disabled}
           aria-hidden
         />
-      </InputContainer>
+      </SelectContainer>
       {error && errorText && (
         <SelectErrorMessage
           variant="c2"
