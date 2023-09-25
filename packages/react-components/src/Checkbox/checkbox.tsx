@@ -1,12 +1,12 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
 import { CheckIcon } from '../icons';
 import { useId } from '../hooks';
-import { css, cx } from '../styles';
 
 /**
  * Types.
  */
-type BaseProps = {
+type CheckboxOwnProps = {
   /**
    * If `true`, the component is checked.
    */
@@ -38,15 +38,14 @@ type BaseProps = {
   /**
    * The icon to display when the component is checked.
    */
-  checkedIcon?: React.ReactElement;
+  checkedIcon?: React.ElementType<any>;
   /**
    * Callback fired when the state is changed.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  'data-testid'?: string;
 };
 
-export type CheckboxProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type CheckboxProps = CheckboxOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 /**
  *
  */
@@ -54,16 +53,14 @@ export type CheckboxProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabel
 /**
  * Styles.
  */
-const stylesBase = () => css({
-  label: 'Checkbox',
+const CheckboxRoot = styled('label')({
   display: 'inline-flex',
   width: 'var(--pv-size-base-4)',
   height: 'var(--pv-size-base-4)',
   position: 'relative',
 });
 
-const stylesInput = () => css({
-  label: 'Checkbox-input',
+const CheckboxInput = styled('input')({
   width: '100%',
   height: '100%',
   margin: 0,
@@ -88,16 +85,13 @@ const stylesInput = () => css({
     backgroundColor: 'currentColor',
     transition: 'opacity 200ms',
   },
-
   '&:checked': {
     '+ [aria-hidden]': {
       opacity: 1,
     },
   },
-
   '&:not(:disabled)': {
     cursor: 'pointer',
-
     '&:checked': {
       color: 'var(--pv-color-primary-shade-1)',
       backgroundColor: 'var(--pv-color-primary)',
@@ -118,10 +112,8 @@ const stylesInput = () => css({
       },
     },
   },
-
   '&:disabled': {
     cursor: 'not-allowed',
-
     color: 'var(--pv-color-gray-6)',
     '&:checked': {
       color: 'var(--pv-color-gray-7)',
@@ -130,8 +122,7 @@ const stylesInput = () => css({
   },
 });
 
-const stylesIcon = () => css({
-  label: 'Checkbox-icon',
+const CheckboxIcon = styled('svg')({
   display: 'block',
   position: 'absolute',
   top: 0,
@@ -152,43 +143,21 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
     defaultChecked,
     required,
     inputProps,
-    className,
     disabled,
     id: idProp,
-    checkedIcon,
+    checkedIcon = CheckIcon,
     onChange,
     ...other
   } = props;
   const id = useId(idProp);
 
-  const renderIcon = () => {
-    const baseIconProps = {
-      'aria-hidden': true,
-      className: cx(stylesIcon()),
-    };
-
-    if (checkedIcon) {
-      return React.cloneElement(checkedIcon, baseIconProps);
-    }
-
-    return (
-      <CheckIcon
-        {...baseIconProps}
-      />
-    );
-  };
-
   return (
-    <label
-      {...other}
+    <CheckboxRoot
       ref={ref}
       htmlFor={id}
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
+      {...other}
     >
-      <input
+      <CheckboxInput
         {...inputProps}
         type="checkbox"
         id={id}
@@ -196,11 +165,13 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
         defaultChecked={defaultChecked}
         required={required}
         disabled={disabled}
-        className={stylesInput()}
         onChange={onChange}
       />
-      {renderIcon()}
-    </label>
+      <CheckboxIcon
+        as={checkedIcon}
+        aria-hidden
+      />
+    </CheckboxRoot>
   );
 });
 
