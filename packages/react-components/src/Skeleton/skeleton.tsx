@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import {
-  css,
-  cx,
-  ColorType,
-} from '../styles';
+import { ColorType } from '../styles';
 import { Box } from '../Box';
 
 /**
@@ -60,7 +57,7 @@ const pulseKeyframe = keyframes`
   }
 `;
 
-const stylesBase = (props: SkeletonProps) => css({
+const SkeletonRoot = styled(Box)<SkeletonProps>((props) => ({
   label: 'Skeleton',
   display: 'block',
   height: '1.2em',
@@ -97,7 +94,7 @@ const stylesBase = (props: SkeletonProps) => css({
   ...(props.width && {
     width: props.width,
   }),
-});
+}));
 /**
  *
  */
@@ -105,24 +102,16 @@ const stylesBase = (props: SkeletonProps) => css({
 export const Skeleton = React.forwardRef<any, SkeletonProps>((props, ref) => {
   const {
     children,
-    height,
-    width,
-    variant,
-    className,
     ...other
   } = props;
 
   return (
-    <Box
+    <SkeletonRoot
       ref={ref as React.Ref<any>}
-      className={cx({
-        [stylesBase(props)]: true,
-        [className]: !!className,
-      })}
       {...other}
     >
       {children}
-    </Box>
+    </SkeletonRoot>
   );
 }) as OverridableComponent<SkeletonTypeMap>;
 
