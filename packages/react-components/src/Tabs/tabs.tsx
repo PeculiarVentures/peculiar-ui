@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { css, cx } from '../styles';
+import styled from '@emotion/styled';
 import { Tab, TabProps } from './tab';
 
 type BaseProps = {
@@ -23,18 +23,21 @@ type BaseProps = {
 
 type TabsProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
-const stylesBase = () => css({
-  label: 'Tabs',
+/**
+ * Styles.
+ */
+const TabsRoot = styled('div')<TabsProps>({
   whiteSpace: 'nowrap',
   overflowX: 'auto',
 });
+/**
+ *
+ */
 
 export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   const {
     children: childrenProp,
-    className,
     onChange,
-    value,
     ...other
   } = props;
 
@@ -52,7 +55,7 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => 
       }
 
       const childValue = child.props.id;
-      const selected = childValue === value;
+      const selected = childValue === props.value;
 
       return React.cloneElement(child, {
         // @ts-ignore
@@ -63,16 +66,12 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => 
   );
 
   return (
-    <div
+    <TabsRoot
       {...other}
       ref={ref}
       role="tablist"
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
     >
       {children}
-    </div>
+    </TabsRoot>
   );
 });
