@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { useImage } from '../hooks';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type ImageOwnProps = {
   /**
    * The `src` attribute for the `img` element.
    */
@@ -18,10 +21,12 @@ type BaseProps = {
    * The className of the component.
    */
   className?: string;
-  'data-testid'?: string;
 };
 
-type ImageProps = BaseProps & Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'loading'>;
+type ImageProps = ImageOwnProps & Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'loading'>;
+/**
+ *
+ */
 
 export const Image = React.forwardRef<HTMLImageElement, ImageProps>((props, ref) => {
   const {
