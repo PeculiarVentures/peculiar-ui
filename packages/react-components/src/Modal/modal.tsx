@@ -1,10 +1,14 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { FocusTrap } from '../FocusTrap';
 import { Backdrop, BackdropProps } from '../Backdrop';
 import { Portal } from '../Portal';
-import { css, cx } from '../styles';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type ModalOwnProps = {
   /**
    * A single child content element.
    */
@@ -51,25 +55,32 @@ type BaseProps = {
    * and replace it to the last focused element when it closes.
    */
   disableAutoFocus?: boolean;
-  'data-testid'?: string;
 };
 
-export type ModalProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+export type ModalProps = ModalOwnProps & React.HTMLAttributes<HTMLDivElement>;
+/**
+ *
+ */
 
-const stylesBase = () => css({
-  label: 'Modal',
+/**
+ * Styles.
+ */
+const ModalRoot = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'open',
+})<Pick<ModalOwnProps, 'open'> & { exited: boolean }>((props) => ({
   position: 'fixed',
   zIndex: 1300,
   top: 0,
   bottom: 0,
   right: 0,
   left: 0,
-});
-
-const stylesHidden = () => css({
-  label: 'hidden',
-  visibility: 'hidden',
-});
+  ...(!props.open && props.exited && {
+    visibility: 'hidden',
+  }),
+}));
+/**
+ *
+ */
 
 export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   const {
@@ -120,17 +131,14 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
 
   return (
     <Portal>
-      <div
-        {...other}
+      <ModalRoot
         ref={ref}
-        className={cx({
-          [stylesBase()]: true,
-          [stylesHidden()]: !open && exited,
-          [className]: !!className,
-        })}
+        open={open}
+        exited={exited}
         role="presentation"
         aria-hidden={!open}
         onKeyDown={handleKeyDown}
+        {...other}
       >
         <Backdrop
           {...backdropProps}
@@ -146,7 +154,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
         >
           {children}
         </FocusTrap>
-      </div>
+      </ModalRoot>
     </Portal>
   );
 });
