@@ -116,7 +116,13 @@ export type AutocompleteProps<T, Multiple extends boolean | undefined = undefine
 /**
  * Styles.
  */
-const AutocompleteRoot = styled(Typography)<TypographyOwnProps & Pick<AutocompleteProps<any>, 'size' | 'multiple'>>(
+const AutocompleteRoot = styled('div')({
+  position: 'relative',
+  display: 'inline-flex',
+  width: '100%',
+});
+
+const AutocompleteField = styled(Typography)<TypographyOwnProps & Pick<AutocompleteProps<any>, 'size' | 'multiple'>>(
   (props) => ({
     outline: 'none',
     boxSizing: 'border-box',
@@ -167,17 +173,7 @@ const AutocompleteRoot = styled(Typography)<TypographyOwnProps & Pick<Autocomple
   }),
 );
 
-const GroupNameRoot = styled(Typography)({
-  padding: 'var(--pv-size-base-2)',
-});
-
-const ContainerRoot = styled('div')({
-  position: 'relative',
-  display: 'inline-flex',
-  width: '100%',
-});
-
-const InputArrowIconRoot = styled(ArrowDropDownIcon)({
+const AutocompleteArrowIcon = styled(ArrowDropDownIcon)({
   position: 'absolute',
   right: '0px',
   top: 'calc(50% - 12px)',
@@ -189,7 +185,22 @@ const InputArrowIconRoot = styled(ArrowDropDownIcon)({
   },
 });
 
-const ListBoxRoot = styled('ul')({
+const AutocompleteNativeInput = styled('input')({
+  bottom: 0,
+  left: 0,
+  height: '100%',
+  position: 'absolute',
+  opacity: 0,
+  pointerEvents: 'none',
+  width: '100%',
+  boxSizing: 'border-box',
+});
+
+const DropdownStateItem = styled('div')({
+  padding: 'var(--pv-size-base-3) var(--pv-size-base-2)',
+});
+
+const DropdownRoot = styled('ul')({
   maxHeight: '36vh',
   overflowY: 'auto',
   margin: 0,
@@ -198,7 +209,16 @@ const ListBoxRoot = styled('ul')({
   padding: '10px 0',
 });
 
-const OptionRoot = styled('li')<{ inGroup: boolean }>((props) => ({
+const DropdownGroupName = styled(Typography)({
+  padding: 'var(--pv-size-base-2)',
+});
+
+const DropdownGroupList = styled('ul')({
+  padding: 0,
+  listStyleType: 'none',
+});
+
+const DropdownGroupListItem = styled('li')<{ inGroup: boolean }>((props) => ({
   label: 'Autocomplete-option',
   ...(props.inGroup ? {
     padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)',
@@ -232,24 +252,16 @@ const OptionRoot = styled('li')<{ inGroup: boolean }>((props) => ({
   },
 }));
 
-const InputSearchRoot = styled(TextField)({
-  padding: 'var(--pv-size-base-3) var(--pv-size-base-3) var(--pv-size-base-2)',
-});
-
-const ListBoxStateRoot = styled('div')({
-  padding: 'var(--pv-size-base-3) var(--pv-size-base-2)',
-});
-
 const PopoverRoot = styled(Popover)({
   minWidth: 240,
 });
 
-const TagsListRoot = styled('div')({
+const TagsList = styled('div')({
   overflow: 'hidden',
   width: '100%',
 });
 
-const TagRoot = styled(Chip)<{
+const TagChip = styled(Chip)<{
   tagsLength: number,
   limitTags: number,
   size: AutocompleteProps<any>['size'],
@@ -269,34 +281,22 @@ const TagRoot = styled(Chip)<{
   }),
 }));
 
-const TagSizeRoot = styled(Typography)({
+const TagSize = styled(Typography)({
   margin: '0 var(--pv-size-base-2)',
 });
 
-const NativeInputRoot = styled('input')({
-  bottom: 0,
-  left: 0,
-  height: '100%',
-  position: 'absolute',
-  opacity: 0,
-  pointerEvents: 'none',
-  width: '100%',
-  boxSizing: 'border-box',
+const SearchInput = styled(TextField)({
+  padding: 'var(--pv-size-base-3) var(--pv-size-base-3) var(--pv-size-base-2)',
 });
 
-const GroupListRoot = styled('ul')({
-  padding: 0,
-  listStyleType: 'none',
-});
-
-const ButtonCreateNewRoot = styled(Button)({
+const CreateNewButton = styled(Button)({
   width: '100%',
   borderRadius: 0,
   justifyContent: 'left',
   padding: '0px var(--pv-size-base-2)',
 });
 
-const ErrorRoot = styled(Typography)({
+const Error = styled(Typography)({
   marginTop: '2px',
 });
 /**
@@ -357,7 +357,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
   };
 
   const defaultRenderOption: AutocompleteProps<T, Multiple>['renderOption'] = (propsOption, option) => (
-    <OptionRoot
+    <DropdownGroupListItem
       {...propsOption}
       inGroup={Boolean(groupBy)}
     >
@@ -368,20 +368,20 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
       >
         {getOptionLabel(option)}
       </Typography>
-    </OptionRoot>
+    </DropdownGroupListItem>
   );
 
   const renderGroup = (params: AutocompleteRenderGroupParams) => (
     <li key={params.key}>
-      <GroupNameRoot
+      <DropdownGroupName
         variant="c1"
         color="gray-10"
       >
         {params.group}
-      </GroupNameRoot>
-      <GroupListRoot>
+      </DropdownGroupName>
+      <DropdownGroupList>
         {params.children}
-      </GroupListRoot>
+      </DropdownGroupList>
     </li>
   );
 
@@ -396,9 +396,9 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
 
       return (
         <>
-          <TagsListRoot>
+          <TagsList>
             {valueLimits.map((v, index) => (
-              <TagRoot
+              <TagChip
                 {...getTagProps(v, index)}
                 color="default"
                 variant="contained"
@@ -407,16 +407,16 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
                 tagsLength={value.length}
               >
                 {getOptionLabel(v)}
-              </TagRoot>
+              </TagChip>
             ))}
-          </TagsListRoot>
+          </TagsList>
           {!!more && (
-            <TagSizeRoot
+            <TagSize
               variant="c2"
               color="gray-9"
             >
               {getLimitTagsText(more)}
-            </TagSizeRoot>
+            </TagSize>
           )}
         </>
       );
@@ -429,8 +429,8 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
   const isValueEmpty = renderedValue === null;
 
   const defaultRenderRoot: AutocompleteProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => (
-    <ContainerRoot>
-      <AutocompleteRoot
+    <AutocompleteRoot>
+      <AutocompleteField
         {...propsRoot}
         {...props}
         noWrap
@@ -442,12 +442,12 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
         aria-invalid={error || undefined}
       >
         {isValueEmpty ? placeholder : renderedValue}
-      </AutocompleteRoot>
-      <InputArrowIconRoot
+      </AutocompleteField>
+      <AutocompleteArrowIcon
         aria-disabled={disabled}
         aria-hidden
       />
-      <NativeInputRoot
+      <AutocompleteNativeInput
         type="text"
         value={isValueEmpty ? '' : JSON.stringify(valueRoot)}
         tabIndex={-1}
@@ -460,7 +460,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
         readOnly={readOnly}
         onChange={() => { }}
       />
-    </ContainerRoot>
+    </AutocompleteRoot>
   );
 
   const renderOption = renderOptionProp || defaultRenderOption;
@@ -476,12 +476,12 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
     <>
       {renderRoot({ ...getRootProps(), disabled }, value, getTagProps)}
       {error && errorText && (
-        <ErrorRoot
+        <Error
           variant="c2"
           color="wrong"
         >
           {errorText}
-        </ErrorRoot>
+        </Error>
       )}
       <PopoverRoot
         placement="bottom-start"
@@ -495,7 +495,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
             borderStyle="solid"
             borderWidth={1}
           >
-            <InputSearchRoot
+            <SearchInput
               inputProps={otherInputProps}
               onChange={onChange}
               placeholder="Search"
@@ -504,7 +504,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
           </Box>
         )}
         {loading && groupedOptions.length === 0 && (
-          <ListBoxStateRoot>
+          <DropdownStateItem>
             {typeof loadingText === 'string' ? (
               <Typography
                 variant="b2"
@@ -513,10 +513,10 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
                 {loadingText}
               </Typography>
             ) : loadingText}
-          </ListBoxStateRoot>
+          </DropdownStateItem>
         )}
         {groupedOptions.length === 0 && !loading && (
-          <ListBoxStateRoot>
+          <DropdownStateItem>
             {typeof noOptionsText === 'string' ? (
               <Typography
                 variant="b2"
@@ -525,10 +525,10 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
                 {noOptionsText}
               </Typography>
             ) : noOptionsText}
-          </ListBoxStateRoot>
+          </DropdownStateItem>
         )}
         {groupedOptions.length > 0 && (
-          <ListBoxRoot {...getListboxProps()}>
+          <DropdownRoot {...getListboxProps()}>
             {groupedOptions
               // @ts-ignore
               .map((option, index) => {
@@ -546,7 +546,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
 
                 return renderListOption(option as T, index);
               })}
-          </ListBoxRoot>
+          </DropdownRoot>
         )}
         {allowCreateOption && !loading && (
           <Box
@@ -555,14 +555,14 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
             borderStyle="solid"
             borderWidth={1}
           >
-            <ButtonCreateNewRoot
+            <CreateNewButton
               color="secondary"
               textVariant="b3"
               onClick={handleCreate}
               startIcon={<PlusIcon />}
             >
               {createOptionText}
-            </ButtonCreateNewRoot>
+            </CreateNewButton>
           </Box>
         )}
       </PopoverRoot>

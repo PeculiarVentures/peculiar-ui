@@ -85,7 +85,7 @@ type TextFieldProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'on
 /**
  * Styles.
  */
-const TextFieldRoot = styled(Typography)<TextFieldProps>(
+const TextFieldInput = styled(Typography)<TextFieldProps>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -135,13 +135,13 @@ const TextFieldRoot = styled(Typography)<TextFieldProps>(
   }),
 );
 
-const LabelRoot = styled('label')({
+const Label = styled('label')({
   label: 'TextField-label',
   marginBottom: '2px',
   display: 'inline-block',
 });
 
-const ErrorRoot = styled(Typography)({
+const Error = styled(Typography)({
   marginTop: '2px',
 });
 /**
@@ -178,7 +178,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
       className={className}
     >
       {label && (
-        <LabelRoot
+        <Label
           htmlFor={id}
         >
           <Typography
@@ -188,9 +188,9 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
           >
             {label}
           </Typography>
-        </LabelRoot>
+        </Label>
       )}
-      <TextFieldRoot
+      <TextFieldInput
         {...inputProps}
         // @ts-ignore
         component="input"
@@ -213,12 +213,12 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         readOnly={readOnly}
       />
       {error && errorText && (
-        <ErrorRoot
+        <Error
           variant="c2"
           color="wrong"
         >
           {errorText}
-        </ErrorRoot>
+        </Error>
       )}
     </div>
   );

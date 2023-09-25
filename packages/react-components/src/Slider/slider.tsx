@@ -48,7 +48,7 @@ const SliderRoot = styled('div')<SliderProps>({
   width: '100%',
 });
 
-const InputRoot = styled('input')({
+const SliderInput = styled('input')({
   appearance: 'none',
   width: '100%',
   height: '100%',
@@ -123,7 +123,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
       {...other}
       ref={ref}
     >
-      <InputRoot
+      <SliderInput
         type="range"
         name={name}
         min={min}
