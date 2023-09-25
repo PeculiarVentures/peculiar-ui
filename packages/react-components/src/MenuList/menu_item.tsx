@@ -1,7 +1,8 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { Typography } from '../Typography';
-import { css, cx, TypographyType } from '../styles';
+import { TypographyType } from '../styles';
 
 /**
  * Types.
@@ -43,8 +44,7 @@ export type MenuItemProps<
 /**
  * Styles.
  */
-const stylesBase = (props: MenuItemOwnProps) => css({
-  label: 'MenuItem',
+const MenuItemRoot = styled('li')<MenuItemOwnProps>((props) => ({
   padding: '0px var(--pv-size-base-2)',
   fontFamily: 'inherit',
   outline: 'none',
@@ -77,16 +77,14 @@ const stylesBase = (props: MenuItemOwnProps) => css({
     cursor: 'not-allowed',
     pointerEvents: 'none',
   }),
-});
+}));
 
-const stylesIcon = () => css({
-  label: 'MenuItem-icon',
+const MenuItemIcon = styled('span')({
   flexShrink: 0,
   display: 'inline-flex',
 });
 
-const stylesLabel = () => css({
-  label: 'MenuItem-label',
+const MenuItemLabel = styled('span')({
   flex: '1 1 auto',
 });
 /**
@@ -97,7 +95,6 @@ export const MenuItem = React.forwardRef<any, MenuItemProps>((props, ref) => {
   const {
     component,
     children,
-    className,
     disabled,
     textVariant: textVariantProp,
     startIcon,
@@ -124,39 +121,36 @@ export const MenuItem = React.forwardRef<any, MenuItemProps>((props, ref) => {
   };
 
   return (
-    <Component
+    <MenuItemRoot
+      as={Component}
       ref={ref}
       tabIndex={-1}
       role="menuitem"
-      className={cx({
-        [stylesBase(props)]: true,
-        [className]: !!className,
-      })}
       aria-disabled={disabled}
+      disabled={disabled}
       onKeyDown={handleKeyDown}
       onClick={onClick}
       {...other}
     >
       {startIcon && (
-        <span className={stylesIcon()}>
+        <MenuItemIcon>
           {startIcon}
-        </span>
+        </MenuItemIcon>
       )}
       <Typography
+        component={MenuItemLabel}
         variant={textVariant}
         color="inherit"
-        component="span"
         noWrap
-        className={stylesLabel()}
       >
         {children}
       </Typography>
       {endIcon && (
-        <span className={stylesIcon()}>
+        <MenuItemIcon>
           {endIcon}
-        </span>
+        </MenuItemIcon>
       )}
-    </Component>
+    </MenuItemRoot>
   );
 }) as OverridableComponent<MenuItemTypeMap>;
 

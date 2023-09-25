@@ -1,6 +1,6 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { css, cx } from '../styles';
 import { useMergedRef, useEnhancedEffect } from '../hooks';
 import { ownerDocument } from '../utils/owner_document';
 
@@ -88,8 +88,7 @@ export type MenuListProps<
 /**
  * Styles.
  */
-const stylesBase = () => css({
-  label: 'MenuList',
+const MenuListRoot = styled('ul')({
   padding: 'var(--pv-size-base-2) 0px',
   outline: 'none',
   listStyle: 'none',
@@ -102,7 +101,6 @@ const stylesBase = () => css({
 export const MenuList = React.forwardRef<any, MenuListProps>((props, ref) => {
   const {
     children,
-    className,
     component,
     ...other
   } = props;
@@ -132,19 +130,16 @@ export const MenuList = React.forwardRef<any, MenuListProps>((props, ref) => {
   }, []);
 
   return (
-    <Component
+    <MenuListRoot
+      as={Component}
       ref={multiRef}
       role="menu"
       tabIndex={-1}
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
       onKeyDown={handleKeyDown}
       {...other}
     >
       {children}
-    </Component>
+    </MenuListRoot>
   );
 }) as OverridableComponent<MenuListTypeMap>;
 
