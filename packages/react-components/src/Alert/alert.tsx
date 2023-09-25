@@ -1,4 +1,5 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
 import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { IconButton } from '../IconButton';
@@ -9,9 +10,11 @@ import {
   CheckCircleIcon,
   CloseIcon,
 } from '../icons';
-import { css, cx } from '../styles';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type AlertOwnProps = {
   /**
    * The content of the component.
    */
@@ -37,50 +40,54 @@ type BaseProps = {
    * Callback fired when the component requests to be closed.
    */
   onClose?: () => void;
-  'data-testid'?: string;
 };
 
-export type AlertProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type AlertProps = AlertOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+/**
+ *
+ */
 
-const stylesBase = () => css({
-  label: 'Alert',
+/**
+ * Styles.
+ */
+const AlertRoot = styled(Box)<AlertOwnProps>({
   width: '100%',
   display: 'flex',
   padding: 'var(--pv-size-base-2) var(--pv-size-base-4)',
   boxSizing: 'border-box',
 });
 
-const stylesIcon = (variant: BaseProps['variant']) => css({
-  label: 'Alert-icon',
+const AlertIcon = styled('div')<Pick<AlertOwnProps, 'variant'>>((props) => ({
   marginRight: 'var(--pv-size-base-2)',
   width: '24px',
   display: 'flex',
   padding: 'var(--pv-size-base-half) 0px',
   justifyContent: 'center',
   alignItems: 'center',
-  ...(variant === 'wrong' && {
+  ...(props.variant === 'wrong' && {
     color: 'var(--pv-color-wrong)',
   }),
-  ...(variant === 'attention' && {
+  ...(props.variant === 'attention' && {
     color: 'var(--pv-color-attention)',
   }),
-  ...(variant === 'success' && {
+  ...(props.variant === 'success' && {
     color: 'var(--pv-color-success)',
   }),
-});
+}));
 
-const stylesText = () => css({
-  label: 'Alert-text',
+const AlertMessage = styled(Typography)({
   padding: 'var(--pv-size-base) 0px',
   flex: '1',
   minHeight: 'var(--pv-text-b3-height)',
 });
+/**
+ *
+ */
 
 export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
   const {
     children,
     variant,
-    className,
     disableIcon,
     onClose,
     ...other
@@ -115,31 +122,24 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) =
   };
 
   return (
-    <Box
-      {...other}
+    <AlertRoot
       ref={ref}
       role="alert"
       borderRadius={4}
       background={variant === 'wrong' ? 'wrong-tint-5' : 'black'}
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
+      {...other}
     >
       {!disableIcon && (
-        <div className={cx(stylesIcon(variant))}>
+        <AlertIcon variant={variant}>
           {renderIcon()}
-        </div>
+        </AlertIcon>
       )}
-      <Typography
+      <AlertMessage
         variant="b3"
         color={variant === 'wrong' ? 'wrong' : 'white'}
-        className={cx({
-          [stylesText()]: true,
-        })}
       >
         {children}
-      </Typography>
+      </AlertMessage>
       {onClose && (
         <IconButton
           size="small"
@@ -150,7 +150,7 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) =
           <CloseIcon />
         </IconButton>
       )}
-    </Box>
+    </AlertRoot>
   );
 });
 
