@@ -168,7 +168,7 @@ const ChipRoot = styled('div')<ChipOwnProps>({
   }),
 }));
 
-const DeleteIcon = styled('span')({
+const ChipDeleteIcon = styled('span')({
   width: '24px',
   height: '24px',
   cursor: 'pointer',
@@ -182,7 +182,7 @@ const DeleteIcon = styled('span')({
   },
 });
 
-const StartContent = styled('span')({
+const ChipStartContent = styled('span')({
   marginRight: 'var(--pv-size-base)',
   display: 'inherit',
 });
@@ -227,7 +227,7 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
     }
 
     return (
-      <DeleteIcon
+      <ChipDeleteIcon
         aria-hidden
         as={deleteIcon as React.ElementType}
         onClick={handleDeleteClick}
@@ -236,9 +236,9 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
   };
 
   const startContent = startContentProp && (
-    <StartContent>
+    <ChipStartContent>
       {startContentProp}
-    </StartContent>
+    </ChipStartContent>
   );
 
   const Component = component || 'div';
