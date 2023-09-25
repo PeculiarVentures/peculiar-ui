@@ -130,12 +130,12 @@ const SelectRoot = styled('select')<SelectRootProps>({
   height: 'var(--pv-size-base-8)',
 }));
 
-const Label = styled('label')({
+const SelectLabel = styled('label')({
   marginBottom: '2px',
   display: 'inline-block',
 });
 
-const ErrorText = styled(Typography)({
+const SelectErrorMessage = styled(Typography)({
   marginTop: '2px',
 });
 
@@ -183,7 +183,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
       className={className}
     >
       {label && (
-        <Label
+        <SelectLabel
           htmlFor={id}
         >
           <Typography
@@ -193,7 +193,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
           >
             {label}
           </Typography>
-        </Label>
+        </SelectLabel>
       )}
       <InputContainer>
         <SelectRoot
@@ -231,12 +231,12 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
         />
       </InputContainer>
       {error && errorText && (
-        <ErrorText
+        <SelectErrorMessage
           variant="c2"
           color="wrong"
         >
           {errorText}
-        </ErrorText>
+        </SelectErrorMessage>
       )}
     </div>
   );
