@@ -1,10 +1,14 @@
 import * as React from 'react';
-import { css, cx, ColorType } from '../styles';
-import { Typography, TypographyProps } from '../Typography';
+import styled from '@emotion/styled';
+import { ColorType } from '../styles';
+import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { useImage } from '../hooks';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type AvatarOwnProps = {
   /**
    * Used to render badge inside the avatar.
    */
@@ -31,7 +35,7 @@ type BaseProps = {
   /**
    * Props applied to the `Typography` element.
    */
-  typographyProps?: Partial<TypographyProps>;
+  typographyProps?: Partial<React.ComponentProps<typeof Typography>>;
   /**
    * The size of the avatar.
    */
@@ -44,41 +48,38 @@ type BaseProps = {
    * The color of initials text.
    */
   color?: ColorType;
-  'data-testid'?: string;
 };
 
-type AvatarProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type AvatarProps = AvatarOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+/**
+ *
+ */
 
-const stylesBase = () => css({
-  label: 'Avatar',
+/**
+ * Styles.
+ */
+const AvatarRoot = styled(Box)<AvatarOwnProps>((props) => ({
   userSelect: 'none',
   borderRadius: '50%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   position: 'relative',
-});
+  ...(props.size === 'small' && {
+    height: 'var(--pv-size-base-6)',
+    width: 'var(--pv-size-base-6)',
+  }),
+  ...(props.size === 'medium' && {
+    height: 'var(--pv-size-base-7)',
+    width: 'var(--pv-size-base-7)',
+  }),
+  ...(props.size === 'large' && {
+    height: 'var(--pv-size-base-8)',
+    width: 'var(--pv-size-base-8)',
+  }),
+}));
 
-const stylesSizeSmall = () => css({
-  label: 'small',
-  height: 'var(--pv-size-base-6)',
-  width: 'var(--pv-size-base-6)',
-});
-
-const stylesSizeMedium = () => css({
-  label: 'medium',
-  height: 'var(--pv-size-base-7)',
-  width: 'var(--pv-size-base-7)',
-});
-
-const stylesSizeLarge = () => css({
-  label: 'large',
-  height: 'var(--pv-size-base-8)',
-  width: 'var(--pv-size-base-8)',
-});
-
-const stylesImg = () => css({
-  label: 'img',
+const AvatarImage = styled('img')({
   color: 'transparent',
   width: '100%',
   height: '100%',
@@ -87,6 +88,9 @@ const stylesImg = () => css({
   textIndent: 10000,
   borderRadius: '50%',
 });
+/**
+ *
+ */
 
 function initials(name: string) {
   const [firstName, lastName] = name.split(' ');
@@ -99,8 +103,6 @@ function initials(name: string) {
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
   const {
     children: childrenProp,
-    className,
-    size,
     src,
     name,
     getInitials = initials,
@@ -117,10 +119,9 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
 
   if (showImage) {
     children = (
-      <img
+      <AvatarImage
         src={src}
         alt={name}
-        className={stylesImg()}
         draggable="false"
       />
     );
@@ -154,21 +155,14 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
   }
 
   return (
-    <Box
-      {...other}
+    <AvatarRoot
       ref={ref}
-      className={cx({
-        [stylesBase()]: true,
-        [stylesSizeSmall()]: size === 'small',
-        [stylesSizeMedium()]: size === 'medium',
-        [stylesSizeLarge()]: size === 'large',
-        [className]: !!className,
-      })}
       background={background}
+      {...other}
     >
       {children}
       {childrenProp}
-    </Box>
+    </AvatarRoot>
   );
 });
 

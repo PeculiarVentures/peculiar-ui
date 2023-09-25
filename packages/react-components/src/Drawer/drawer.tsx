@@ -1,10 +1,13 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
 import { Modal } from '../Modal';
 import { Slide } from '../Slide';
 import { Box } from '../Box';
-import { css, cx } from '../styles';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type DrawerOwnProps = {
   /**
    * If `true`, the component is shown.
    */
@@ -36,10 +39,15 @@ type BaseProps = {
   'data-testid'?: string;
 };
 
-type DrawerProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type DrawerProps = DrawerOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+/**
+ *
+ */
 
-const stylesBase = () => css({
-  label: 'Drawer',
+/**
+ * Styles.
+ */
+const DrawerPaper = styled(Box)({
   width: '270px',
   height: '100%',
   position: 'fixed',
@@ -47,12 +55,15 @@ const stylesBase = () => css({
   right: 0,
   overflowY: 'auto',
   outline: 'none',
+  boxSizing: 'border-box',
 });
+/**
+ *
+ */
 
 export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   const {
     children,
-    className,
     open,
     transitionDuration,
     disableBackdropClick,
@@ -77,17 +88,13 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
         in={open}
         timeout={transitionDuration}
       >
-        <Box
-          {...other}
+        <DrawerPaper
           background="white"
-          className={cx({
-            [stylesBase()]: true,
-            [className]: !!className,
-          })}
           tabIndex={-1}
+          {...other}
         >
           {children}
-        </Box>
+        </DrawerPaper>
       </Slide>
     </Modal>
   );

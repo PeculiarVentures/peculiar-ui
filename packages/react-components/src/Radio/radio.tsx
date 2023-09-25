@@ -1,9 +1,12 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
 import { DotIcon } from '../icons';
 import { useId } from '../hooks';
-import { css, cx } from '../styles';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type RadioOwnProps = {
   /**
    * If `true`, the component is checked.
    */
@@ -35,7 +38,7 @@ type BaseProps = {
   /**
    * The icon to display when the component is checked.
    */
-  checkedIcon?: React.ReactElement;
+  checkedIcon?: React.ElementType<any>;
   /**
    * Name attribute of the `input` element.
    */
@@ -44,16 +47,17 @@ type BaseProps = {
    * Callback fired when the state is changed.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  'data-testid'?: string;
 };
 
-export type RadioProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type RadioProps = RadioOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+/**
+ *
+ */
 
 /**
  * Styles.
  */
-const stylesBase = () => css({
-  label: 'Radio',
+const RadioRoot = styled('label')({
   cursor: 'pointer',
   display: 'inline-flex',
   width: 'var(--pv-size-base-4)',
@@ -63,8 +67,7 @@ const stylesBase = () => css({
   position: 'relative',
 });
 
-const stylesInput = () => css({
-  label: 'Radio-input',
+const RadioInput = styled('input')({
   cursor: 'inherit',
   width: '100%',
   height: '100%',
@@ -90,17 +93,14 @@ const stylesInput = () => css({
     backgroundColor: 'currentColor',
     transition: 'opacity 200ms',
   },
-
   '&:checked': {
     '+ [aria-hidden]': {
       color: 'var(--pv-color-primary)',
       opacity: 1,
     },
   },
-
   '&:not(:disabled)': {
     cursor: 'pointer',
-
     '&:checked': {
       color: 'var(--pv-color-primary-shade-1)',
     },
@@ -120,14 +120,11 @@ const stylesInput = () => css({
       },
     },
   },
-
   '&:disabled': {
     cursor: 'not-allowed',
-
     '+ [aria-hidden]': {
       color: 'inherit',
     },
-
     color: 'var(--pv-color-gray-6)',
     '&:checked': {
       color: 'var(--pv-color-gray-7)',
@@ -135,8 +132,7 @@ const stylesInput = () => css({
   },
 });
 
-const stylesIcon = () => css({
-  label: 'Radio-icon',
+const CheckboxIcon = styled('svg')({
   display: 'block',
   position: 'absolute',
   top: 0,
@@ -156,44 +152,22 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
     defaultChecked,
     required,
     inputProps,
-    className,
     disabled,
     id: idProp,
-    checkedIcon,
+    checkedIcon = DotIcon,
     name,
     onChange,
     ...other
   } = props;
   const id = useId(idProp);
 
-  const renderIcon = () => {
-    const baseIconProps = {
-      'aria-hidden': true,
-      className: cx(stylesIcon()),
-    };
-
-    if (checkedIcon) {
-      return React.cloneElement(checkedIcon, baseIconProps);
-    }
-
-    return (
-      <DotIcon
-        {...baseIconProps}
-      />
-    );
-  };
-
   return (
-    <label
-      {...other}
+    <RadioRoot
       ref={ref}
       htmlFor={id}
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
+      {...other}
     >
-      <input
+      <RadioInput
         {...inputProps}
         type="radio"
         name={name}
@@ -202,11 +176,13 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
         defaultChecked={defaultChecked}
         required={required}
         disabled={disabled}
-        className={cx(stylesInput())}
         onChange={onChange}
       />
-      {renderIcon()}
-    </label>
+      <CheckboxIcon
+        as={checkedIcon}
+        aria-hidden
+      />
+    </RadioRoot>
   );
 });
 
