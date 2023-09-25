@@ -1,6 +1,7 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { css, cx, ColorType } from '../styles';
+import { ColorType } from '../styles';
 import { Typography } from '../Typography';
 
 /**
@@ -47,8 +48,7 @@ export type TabProps<
 /**
  * Styles.
  */
-const stylesBase = () => css({
-  label: 'Tab',
+const TabRoot = styled('button')({
   fontFamily: 'inherit',
   outline: 'none',
   cursor: 'pointer',
@@ -88,15 +88,14 @@ const stylesBase = () => css({
 
 export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
   const {
-    children,
-    className,
-    disabled,
-    id,
     color = 'black',
     component,
     onChange,
+    id,
+    disabled,
     // @ts-ignore
     selected,
+    children,
     ...other
   } = props;
   const Component = component || 'button';
@@ -128,18 +127,15 @@ export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
   };
 
   return (
-    <Component
+    <TabRoot
       {...other}
+      as={Component}
       type="button"
-      ref={ref}
       role="tab"
+      ref={ref}
       disabled={disabled}
       id={id}
       aria-selected={selected || undefined}
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
       onClick={handleClick}
     >
       <Typography
@@ -149,7 +145,7 @@ export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
       >
         {children}
       </Typography>
-    </Component>
+    </TabRoot>
   );
 }) as OverridableComponent<TabTypeMap>;
 
