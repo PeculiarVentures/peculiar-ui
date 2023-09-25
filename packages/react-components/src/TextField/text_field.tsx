@@ -191,9 +191,9 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         </LabelRoot>
       )}
       <TextFieldRoot
-        // @ts-ignore
-        as="input"
         {...inputProps}
+        // @ts-ignore
+        component="input"
         color="black"
         variant={size === 'small' ? 'c1' : 'b3'}
         size={size}
