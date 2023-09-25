@@ -1,16 +1,17 @@
 import React from 'react';
 import { Placement } from '@popperjs/core';
 import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { Popper } from '../Popper';
 import { Box } from '../Box';
 import { useMergedRef, useControllableState } from '../hooks';
 import { Typography } from '../Typography';
-import { css, cx } from '../styles';
 
 /**
  * Types.
  */
-export type TooltipBaseProps = {
+export type TooltipOwnProps = {
   /**
    * If `true`, the component is shown.
    */
@@ -78,7 +79,7 @@ export type TooltipBaseProps = {
   offset?: number;
 };
 
-export type TooltipProps = TooltipBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
+export type TooltipProps = TooltipOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
 /**
  *
  */
@@ -95,8 +96,7 @@ const stylesKeyframeOpacity = keyframes`
   }
 `;
 
-const stylesTooltip = (props: TooltipBaseProps) => css({
-  label: 'Tooltip',
+const TooltipRoot = styled(Box)<Pick<TooltipOwnProps, 'size'>>((props) => ({
   boxShadow: 'var(--pv-shadow-light-low)',
   maxWidth: '300px',
   wordWrap: 'break-word',
@@ -109,10 +109,9 @@ const stylesTooltip = (props: TooltipBaseProps) => css({
   ...(props.size === 'large' && {
     padding: '8px 10px',
   }),
-});
+}));
 
-const stylesPopper = (props: TooltipBaseProps) => css({
-  label: 'Popper',
+const TooltipPopper = styled(Popper)<Pick<TooltipOwnProps, 'interactive'>>((props) => ({
   pointerEvents: props.interactive ? 'auto' : 'none',
   zIndex: 1500,
   '&[data-popper-placement^="bottom"]': {
@@ -139,10 +138,11 @@ const stylesPopper = (props: TooltipBaseProps) => css({
       marginRight: '-4px',
     },
   },
-});
+}));
 
-const stylesArrow = (props: TooltipBaseProps) => css({
-  label: 'arrow',
+const TooltipArrow = styled('span', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Pick<TooltipOwnProps, 'color'>>((props) => ({
   width: '8px',
   height: '8px',
   background: 'transparent',
@@ -158,7 +158,7 @@ const stylesArrow = (props: TooltipBaseProps) => css({
     backgroundColor: 'currentColor',
     transform: 'rotate(45deg)',
   },
-});
+}));
 /**
  *
  */
@@ -169,7 +169,6 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     children,
     title,
     placement,
-    className,
     disableFocusListener,
     disableHoverListener,
     disableTouchListener,
@@ -255,11 +254,10 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
   return (
     <>
       {React.cloneElement(children, childrenProps)}
-      <Popper
+      <TooltipPopper
         anchorEl={nodeRef.current}
         open={title && open}
         placement={placement}
-        className={stylesPopper(props)}
         disablePortal={disablePortal}
         modifiers={[
           {
@@ -280,14 +278,11 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
         {...popperProps}
       >
         {(style) => (
-          <Box
-            {...other}
+          <TooltipRoot
             background={color === 'black' ? 'gray-10' : 'white'}
             borderRadius={4}
-            className={cx({
-              [stylesTooltip(props)]: true,
-              [className]: !!className,
-            })}
+            size={size}
+            {...other}
           >
             <Typography
               component="span"
@@ -299,18 +294,18 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
             {
               arrow
                 ? (
-                  <span
-                    className={stylesArrow(props)}
+                  <TooltipArrow
                     data-popper-arrow
                     ref={setArrowRef}
                     style={style}
+                    color={color}
                   />
                 )
                 : null
             }
-          </Box>
+          </TooltipRoot>
         )}
-      </Popper>
+      </TooltipPopper>
     </>
   );
 };
