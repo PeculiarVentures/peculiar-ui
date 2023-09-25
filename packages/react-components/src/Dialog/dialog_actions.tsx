@@ -1,7 +1,10 @@
 import React from 'react';
-import { css, cx } from '../styles';
+import styled from '@emotion/styled';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type DialogActionsOwnProps = {
   /**
    * The content of the component.
    */
@@ -12,10 +15,15 @@ type BaseProps = {
   className?: string;
 };
 
-type DialogActionsProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type DialogActionsProps = DialogActionsOwnProps & React.HTMLAttributes<HTMLDivElement>;
+/**
+ *
+ */
 
-const stylesBase = () => css({
-  label: 'DialogActions',
+/**
+ * Styles.
+ */
+const DialogActionsRoot = styled('footer')({
   padding: 'var(--pv-size-base-3) var(--pv-size-base-4) var(--pv-size-base-4)',
   flex: '0 0 auto',
   display: 'flex',
@@ -23,26 +31,24 @@ const stylesBase = () => css({
   justifyContent: 'flex-end',
   gap: 'var(--pv-size-base-2)',
 });
+/**
+ *
+ */
 
 export const DialogActions = React.forwardRef<HTMLDivElement, DialogActionsProps>((props, ref) => {
   const {
     children,
-    className,
     ...other
   } = props;
 
   return (
-    <footer
-      {...other}
+    <DialogActionsRoot
       ref={ref}
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
       data-key="dialog.actions"
+      {...other}
     >
       {children}
-    </footer>
+    </DialogActionsRoot>
   );
 });
 

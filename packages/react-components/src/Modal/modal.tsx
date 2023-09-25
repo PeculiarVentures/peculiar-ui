@@ -85,7 +85,6 @@ const ModalRoot = styled('div', {
 export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   const {
     children,
-    className,
     open,
     transitionDuration,
     disableBackdropClick,
