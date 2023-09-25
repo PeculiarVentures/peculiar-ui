@@ -1,6 +1,6 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { css, cx } from '../styles';
 import { Typography } from '../Typography';
 import { CloseSmallIcon } from '../icons';
 
@@ -59,8 +59,7 @@ export type ChipProps<
 /**
  * Styles.
  */
-const stylesBase = () => css({
-  label: 'Chip',
+const ChipRoot = styled('div')<ChipOwnProps>({
   display: 'inline-flex',
   maxWidth: '100%',
   fontFamily: 'inherit',
@@ -70,7 +69,8 @@ const stylesBase = () => css({
   padding: '0 var(--pv-size-base-2)',
   height: 'var(--pv-size-base-6)',
   backgroundColor: 'transparent',
-  transition: 'background-color 200ms, color 200ms, border-color 200ms, box-shadow 200ms',
+  transition:
+    'background-color 200ms, color 200ms, border-color 200ms, box-shadow 200ms',
   margin: '0 var(--pv-size-base)',
   cursor: 'default',
   border: '1px solid transparent',
@@ -79,22 +79,16 @@ const stylesBase = () => css({
   alignItems: 'center',
   whiteSpace: 'nowrap',
   textDecoration: 'none',
-});
-
-const stylesDisabled = () => css({
-  label: 'disabled',
-  pointerEvents: 'none',
-});
-
-const stylesClickable = () => css({
-  label: 'clickable',
+}, (props) => ({
+  // stylesDisabled
+  pointerEvents: props.disabled ? 'none' : 'auto',
+}), (props) => Boolean(props.onClick) && !props.disabled && ({
+  // stylesClickable
   cursor: 'pointer',
   userSelect: 'none',
   WebkitTapHighlightColor: 'transparent',
-});
-
-const stylesVariantContainedColorNotDefault = (props: ChipProps) => css({
-  label: 'contained',
+}), (props) => props.color !== 'default' && props.variant === 'contained' && ({
+  // stylesVariantContainedColorNotDefault
   backgroundColor: `var(--pv-color-${props.color})`,
   color: 'var(--pv-color-white)',
   ...(typeof props.onClick === 'function' && !props.disabled && {
@@ -113,10 +107,8 @@ const stylesVariantContainedColorNotDefault = (props: ChipProps) => css({
     color: 'var(--pv-color-gray-8)',
     backgroundColor: 'var(--pv-color-gray-4)',
   }),
-});
-
-const stylesVariantContainedColorDefault = (props: ChipProps) => css({
-  label: 'contained-default',
+}), (props) => props.color === 'default' && props.variant === 'contained' && ({
+  // stylesVariantContainedColorDefault
   backgroundColor: 'var(--pv-color-gray-4)',
   color: 'var(--pv-color-black)',
   ...(typeof props.onClick === 'function' && !props.disabled && {
@@ -134,10 +126,8 @@ const stylesVariantContainedColorDefault = (props: ChipProps) => css({
     color: 'var(--pv-color-gray-8)',
     backgroundColor: 'var(--pv-color-gray-4)',
   }),
-});
-
-const stylesVariantOutlinedColorNotDefault = (props: ChipProps) => css({
-  label: 'outlined',
+}), (props) => props.color !== 'default' && props.variant === 'outlined' && ({
+  // stylesVariantOutlinedColorNotDefault
   backgroundColor: 'transparent',
   color: `var(--pv-color-${props.color})`,
   borderColor: `var(--pv-color-${props.color}-tint-2)`,
@@ -156,10 +146,8 @@ const stylesVariantOutlinedColorNotDefault = (props: ChipProps) => css({
     color: 'var(--pv-color-gray-8)',
     borderColor: 'var(--pv-color-gray-4)',
   }),
-});
-
-const stylesVariantOutlinedColorDefault = (props: ChipProps) => css({
-  label: 'outlined-default',
+}), (props) => props.color === 'default' && props.variant === 'outlined' && ({
+  // stylesVariantOutlinedColorDefault
   backgroundColor: 'transparent',
   color: 'var(--pv-color-gray-10)',
   borderColor: 'var(--pv-color-gray-6)',
@@ -178,10 +166,9 @@ const stylesVariantOutlinedColorDefault = (props: ChipProps) => css({
     color: 'var(--pv-color-gray-8)',
     borderColor: 'var(--pv-color-gray-4)',
   }),
-});
+}));
 
-const stylesDeleteAction = () => css({
-  label: 'delete',
+const DeleteIcon = styled('span')({
   width: '24px',
   height: '24px',
   cursor: 'pointer',
@@ -195,11 +182,11 @@ const stylesDeleteAction = () => css({
   },
 });
 
-const stylesStartContent = () => css({
-  label: 'Chip-startIcon',
+const StartContent = styled('span')({
   marginRight: 'var(--pv-size-base)',
   display: 'inherit',
 });
+
 /**
  *
  */
@@ -208,10 +195,7 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
   const {
     children,
     disabled,
-    deleteIcon,
-    variant,
-    color,
-    className,
+    deleteIcon = CloseSmallIcon,
     startContent: startContentProp,
     component,
     onClick,
@@ -221,6 +205,7 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
   const clickable = Boolean(onClick);
 
   const baseProps = {
+    disabled,
     role: clickable ? 'button' : undefined,
     'aria-disabled': disabled ? true : undefined,
     tabIndex: clickable && !disabled ? 0 : undefined,
@@ -241,50 +226,29 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
       return null;
     }
 
-    const baseIconProps = {
-      'aria-hidden': true,
-      className: cx(stylesDeleteAction()),
-      onClick: handleDeleteClick,
-    };
-
-    if (deleteIcon) {
-      return React.cloneElement(deleteIcon, baseIconProps);
-    }
-
     return (
-      <CloseSmallIcon {...baseIconProps} />
+      <DeleteIcon
+        aria-hidden
+        as={deleteIcon as React.ElementType}
+        onClick={handleDeleteClick}
+      />
     );
   };
 
   const startContent = startContentProp && (
-    <span
-      className={cx(stylesStartContent())}
-    >
+    <StartContent>
       {startContentProp}
-    </span>
+    </StartContent>
   );
 
   const Component = component || 'div';
 
   return (
-    <Component
-      {...other}
-      {...baseProps}
+    <ChipRoot
+      as={Component}
       ref={ref}
-      className={cx({
-        [stylesBase()]: true,
-        [stylesDisabled()]: disabled,
-        [stylesClickable()]: clickable && !disabled,
-        ...(color !== 'default' && {
-          [stylesVariantContainedColorNotDefault(props)]: variant === 'contained',
-          [stylesVariantOutlinedColorNotDefault(props)]: variant === 'outlined',
-        }),
-        ...(color === 'default' && {
-          [stylesVariantContainedColorDefault(props)]: variant === 'contained',
-          [stylesVariantOutlinedColorDefault(props)]: variant === 'outlined',
-        }),
-        [className]: !!className,
-      })}
+      {...baseProps}
+      {...other}
     >
       {startContent}
       <Typography
@@ -296,7 +260,7 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
         {children}
       </Typography>
       {renderDeleteAction()}
-    </Component>
+    </ChipRoot>
   );
 }) as OverridableComponent<ChipTypeMap>;
 
