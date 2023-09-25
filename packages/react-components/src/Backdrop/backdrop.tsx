@@ -1,9 +1,12 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
 import { Fade, BaseTransitionProps } from '../Fade';
 import { Box } from '../Box';
-import { css, cx } from '../styles';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type BackdropOwnProps = {
   /**
    * If `true`, the backdrop is open.
    */
@@ -23,16 +26,17 @@ type BaseProps = {
   variant?: ('light' | 'medium' | 'heavy');
 };
 
-export type BackdropProps = BaseProps & BaseTransitionProps & React.HTMLAttributes<HTMLDivElement>;
+export type BackdropProps = BackdropOwnProps
+& BaseTransitionProps
+& React.HTMLAttributes<HTMLDivElement>;
+/**
+ *
+ */
 
-const variants = {
-  light: 0.1,
-  medium: 0.5,
-  heavy: 0.9,
-};
-
-const stylesBase = () => css({
-  label: 'Backdrop',
+/**
+ * Styles.
+ */
+const BackdropRoot = styled(Box)<Pick<BackdropOwnProps, 'invisible'>>((props) => ({
   zIndex: -1,
   position: 'fixed',
   right: 0,
@@ -40,17 +44,22 @@ const stylesBase = () => css({
   top: 0,
   left: 0,
   WebkitTapHighlightColor: 'transparent',
-});
+  ...(props.invisible && {
+    backgroundColor: 'transparent',
+  }),
+}));
+/**
+ *
+ */
 
-const stylesInvisible = () => css({
-  label: 'invisible',
-  backgroundColor: 'transparent',
-});
+const variants = {
+  light: 0.1,
+  medium: 0.5,
+  heavy: 0.9,
+};
 
 export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, ref) => {
   const {
-    className,
-    invisible,
     open,
     transitionDuration,
     variant,
@@ -75,16 +84,11 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
       onExiting={onExiting}
       finalOpacity={variants[variant]}
     >
-      <Box
-        {...other}
+      <BackdropRoot
         ref={ref}
         background="black"
-        className={cx({
-          [stylesBase()]: true,
-          [stylesInvisible()]: invisible,
-          [className]: !!className,
-        })}
         aria-hidden="true"
+        {...other}
       />
     </Fade>
   );
