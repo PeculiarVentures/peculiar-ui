@@ -1,9 +1,13 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { Box } from '../Box';
 import { useId } from '../hooks';
-import { css, cx } from '../styles';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type SwitchOwnProps = {
   /**
    * If `true`, the component is checked.
    */
@@ -47,13 +51,17 @@ type BaseProps = {
    * Callback fired when the state is changed.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  'data-testid'?: string;
 };
 
-export type SwitchProps = BaseProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type SwitchProps = SwitchOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+/**
+ *
+ */
 
-const stylesBase = () => css({
-  label: 'Switch',
+/**
+ * Styles.
+ */
+const SwitchRoot = styled('label')({
   display: 'inline-flex',
   width: 'var(--pv-size-base-7)',
   height: 'var(--pv-size-base-4)',
@@ -63,7 +71,9 @@ const stylesBase = () => css({
   alignItems: 'center',
 });
 
-const stylesInput = (props: BaseProps) => css({
+const SwitchInput = styled('input', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Pick<SwitchOwnProps, 'color'>>((props) => ({
   label: 'Switch-input',
   overflow: 'hidden',
   width: '100%',
@@ -76,25 +86,20 @@ const stylesInput = (props: BaseProps) => css({
   backgroundColor: 'var(--pv-color-gray-6)',
   '&:checked': {
     backgroundColor: `var(--pv-color-${props.color})`,
-
     '+ [aria-hidden]': {
       transform: 'translateX(calc(50% - 2px))',
-
       '&:before': {
         backgroundColor: `var(--pv-color-${props.color}-shade-2)`,
       },
     },
   },
-
   '&:disabled': {
     cursor: 'not-allowed',
     pointerEvents: 'none',
     opacity: 0.4,
   },
-
   '&:not(:disabled)': {
     cursor: 'pointer',
-
     '&:hover': {
       '+ [aria-hidden]:before': {
         opacity: 0.18,
@@ -111,10 +116,9 @@ const stylesInput = (props: BaseProps) => css({
       },
     },
   },
-});
+}));
 
-const stylesDot = () => css({
-  label: 'Switch-dot',
+const SwitchDot = styled(Box)({
   display: 'block',
   position: 'absolute',
   width: 'var(--pv-size-base-3)',
@@ -137,6 +141,9 @@ const stylesDot = () => css({
     transition: 'opacity 200ms, background-color 200ms',
   },
 });
+/**
+ *
+ */
 
 export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, ref) => {
   const {
@@ -145,7 +152,6 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
     color = 'primary',
     required,
     inputProps,
-    className,
     disabled,
     id: idProp,
     name,
@@ -155,16 +161,12 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
   const id = useId(idProp);
 
   return (
-    <label
-      {...other}
+    <SwitchRoot
       ref={ref}
       htmlFor={id}
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
+      {...other}
     >
-      <input
+      <SwitchInput
         {...inputProps}
         type="checkbox"
         name={name}
@@ -173,19 +175,18 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
         defaultChecked={defaultChecked}
         required={required}
         disabled={disabled}
-        className={cx(stylesInput(props))}
+        color={color}
         onChange={onChange}
       />
-      <Box
+      <SwitchDot
         aria-hidden
-        className={cx(stylesDot())}
         background={`${color}-contrast`}
         borderColor="gray-3"
         borderWidth={1}
         borderStyle="solid"
         borderRadius={100}
       />
-    </label>
+    </SwitchRoot>
   );
 });
 

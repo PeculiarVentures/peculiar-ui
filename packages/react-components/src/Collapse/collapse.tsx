@@ -1,9 +1,13 @@
 import * as React from 'react';
-import type { TransitionProps } from 'react-transition-group/Transition';
+import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
+import type { TransitionProps, TransitionStatus } from 'react-transition-group/Transition';
 import { Transition } from 'react-transition-group';
-import { css, cx } from '../styles';
 
-type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
+/**
+ * Types.
+ */
+type CollapseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onEnter' |
   'onEntered' |
   'onEntering' |
@@ -12,7 +16,7 @@ type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onExiting'
 )>;
 
-type BaseProps = {
+type CollapseOwnProps = {
   /**
    * If `true`, the component will transition in.
    */
@@ -31,34 +35,40 @@ type BaseProps = {
   children: React.ReactNode;
 };
 
-type CollapseProps = BaseProps & BaseTransitionProps & React.HTMLAttributes<HTMLDivElement>;
+type CollapseProps = CollapseOwnProps
+& CollapseTransitionProps
+& React.HTMLAttributes<HTMLDivElement>;
+/**
+ *
+ */
 
-const stylesBase = (timeout: number, isHorizontal: boolean) => css({
-  label: 'Collapse',
+/**
+ * Styles.
+ */
+const CollapseRoot = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && !['orientation', 'in'].includes(prop),
+})<Pick<CollapseOwnProps, 'orientation' | 'timeout' | 'in'> & { state: TransitionStatus }>((props) => ({
+  height: 0,
   overflow: 'hidden',
-  transition: `${isHorizontal ? 'width' : 'height'} ${timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
-  ...(isHorizontal ? {
+  transition: `${props.orientation === 'horizontal' ? 'width' : 'height'} ${props.timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
+  ...(props.orientation === 'horizontal' && {
     height: 'auto',
     width: 0,
-  } : {
-    height: 0,
   }),
-});
-
-const stylesEntered = (isHorizontal: boolean) => css({
-  label: 'entered',
-  overflow: 'visible',
-  ...(isHorizontal ? {
-    width: 'auto',
-  } : {
+  ...(props.state === 'entered' && {
     height: 'auto',
+    overflow: 'visible',
+    ...(props.orientation === 'horizontal' && {
+      width: 'auto',
+    }),
   }),
-});
-
-const stylesHidden = () => css({
-  label: 'hidden',
-  visibility: 'hidden',
-});
+  ...(props.state === 'exited' && !props.in && {
+    visibility: 'hidden',
+  }),
+}));
+/**
+ *
+ */
 
 export const Collapse: React.FC<CollapseProps> = (props) => {
   const {
@@ -72,7 +82,6 @@ export const Collapse: React.FC<CollapseProps> = (props) => {
     onExit,
     onExited,
     onExiting,
-    className,
     ...other
   } = props;
   const wrapperRef = React.useRef<HTMLDivElement>(null);
@@ -158,22 +167,20 @@ export const Collapse: React.FC<CollapseProps> = (props) => {
       onExited={onExited}
     >
       {(state) => (
-        <div
-          {...other}
-          className={cx({
-            [stylesBase(timeout, isHorizontal)]: true,
-            [stylesEntered(isHorizontal)]: state === 'entered',
-            [stylesHidden()]: state === 'exited' && !inProp,
-            [className]: !!className,
-          })}
+        <CollapseRoot
+          timeout={timeout}
+          orientation={orientation}
+          state={state}
+          in={inProp}
           ref={nodeRef}
+          {...other}
         >
           <div
             ref={wrapperRef}
           >
             {children}
           </div>
-        </div>
+        </CollapseRoot>
       )}
     </Transition>
   );

@@ -1,12 +1,13 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { Popover, PopoverProps } from '../Popover';
 import { MenuList, MenuItem, SubMenuItem } from '../MenuList';
-import { css, cx, TypographyType } from '../styles';
+import { TypographyType } from '../styles';
 
 /**
  * Types.
  */
-type OptionBaseProps = {
+type OptionOwnProps = {
   label: string;
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
@@ -25,12 +26,12 @@ type OptionBaseProps = {
   endIcon?: React.ReactNode;
 };
 
-type OptionProps = OptionBaseProps & Omit<React.AllHTMLAttributes<HTMLElement>, 'children'>;
+type OptionProps = OptionOwnProps & Omit<React.AllHTMLAttributes<HTMLElement>, 'children'>;
 type MenuOptionProps = OptionProps & {
   subOptions?: OptionProps[];
 };
 
-type BaseProps = {
+type MenuOwnProps = {
   /**
    * Menu reference element.
    */
@@ -49,7 +50,7 @@ type BaseProps = {
   popoverProps?: Partial<PopoverProps>;
 };
 
-export type MenuProps = BaseProps;
+export type MenuProps = MenuOwnProps;
 /**
  *
  */
@@ -57,8 +58,7 @@ export type MenuProps = BaseProps;
 /**
  * Styles.
  */
-const stylesPopper = () => css({
-  label: 'Menu-popover',
+const MenuPopover = styled(Popover)({
   '&[data-popper-placement^="bottom"]': {
     margin: 'var(--pv-size-base-3) 0px',
   },
@@ -84,7 +84,6 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
     popoverProps = {},
   } = props;
   const {
-    className,
     modalProps = {},
   } = popoverProps;
   const [open, setOpen] = React.useState(false);
@@ -180,7 +179,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
   return (
     <>
       {React.cloneElement(children, childrenProps)}
-      <Popover
+      <MenuPopover
         {...popoverProps}
         modalProps={{
           ...modalProps,
@@ -191,15 +190,11 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
         anchorEl={childRef.current}
         onClose={handlePopoverClose}
         onKeyDown={handleKeyDown}
-        className={cx({
-          [stylesPopper()]: true,
-          [className]: !!className,
-        })}
       >
         <MenuList>
           {options.map(renderOption)}
         </MenuList>
-      </Popover>
+      </MenuPopover>
     </>
   );
 });
