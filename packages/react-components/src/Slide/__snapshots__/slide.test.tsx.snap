@@ -1,5 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Slide /> directions direction "down" after animation 1`] = `
+<DocumentFragment>
+  <div
+    style="transform: translateY(0px); transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;"
+  >
+    Inside
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Slide /> directions direction "down" before animation 1`] = `
+<DocumentFragment>
+  <div
+    style="transform: translateY(100%); transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms; visibility: hidden;"
+  >
+    Inside
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Slide /> directions direction "left" after animation 1`] = `
+<DocumentFragment>
+  <div
+    style="transform: translateX(0px); transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;"
+  >
+    Inside
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Slide /> directions direction "left" before animation 1`] = `
+<DocumentFragment>
+  <div
+    style="transform: translateX(-100%); transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms; visibility: hidden;"
+  >
+    Inside
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Slide /> directions direction "right" after animation 1`] = `
+<DocumentFragment>
+  <div
+    style="transform: translateX(0px); transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;"
+  >
+    Inside
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Slide /> directions direction "right" before animation 1`] = `
+<DocumentFragment>
+  <div
+    style="transform: translateX(100%); transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms; visibility: hidden;"
+  >
+    Inside
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Slide /> directions direction "up" after animation 1`] = `
+<DocumentFragment>
+  <div
+    style="transform: translateY(0px); transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;"
+  >
+    Inside
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Slide /> directions direction "up" before animation 1`] = `
+<DocumentFragment>
+  <div
+    style="transform: translateY(-100%); transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms; visibility: hidden;"
+  >
+    Inside
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<Slide /> should render with default styles 1`] = `
 <DocumentFragment>
   <div
