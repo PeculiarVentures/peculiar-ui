@@ -12,7 +12,6 @@ describe('<Checkbox />', () => {
   describe('Checkbox render variants', () => {
     it('should render as default', () => {
       const { asFragment } = render(<Checkbox id="test-id" />);
-
       const input = screen.getByRole('checkbox');
 
       expect(input).toBeInTheDocument();
@@ -44,7 +43,6 @@ describe('<Checkbox />', () => {
 
     it('should be disabled', () => {
       const { asFragment } = render(<Checkbox id="test-id" disabled />);
-
       const input = screen.getByRole('checkbox');
 
       expect(input).toHaveAttribute('disabled');
@@ -54,7 +52,6 @@ describe('<Checkbox />', () => {
 
     it('should have required', () => {
       const { asFragment } = render(<Checkbox id="test-id" required />);
-
       const input = screen.getByRole('checkbox');
 
       expect(input).toHaveAttribute('required');
@@ -64,9 +61,7 @@ describe('<Checkbox />', () => {
 
     it('should have test id', () => {
       const { asFragment } = render(<Checkbox id="test-id" data-testid="test-id" />);
-
       const input = screen.getByRole('checkbox');
-
       const label = input.closest('label');
 
       expect(label.getAttribute('data-testid')).toMatch(/test-id/i);
@@ -76,9 +71,7 @@ describe('<Checkbox />', () => {
 
     it('should have className', () => {
       const { asFragment } = render(<Checkbox id="test-id" className="test-cls" />);
-
       const input = screen.getByRole('checkbox');
-
       const label = input.closest('label');
 
       expect(label.getAttribute('class')).toMatch(/test-cls/i);
@@ -102,7 +95,6 @@ describe('<Checkbox />', () => {
           checkedIcon={<PlusIcon data-testid="icon" />}
         />,
       );
-
       const icon = screen.getByTestId('icon');
 
       expect(icon).toBeInTheDocument();
@@ -114,7 +106,6 @@ describe('<Checkbox />', () => {
 
     it('should be checked, defaultChecked prop', () => {
       const { asFragment } = render(<Checkbox id="test-id" defaultChecked />);
-
       const input = screen.getByRole('checkbox');
 
       expect(input).toBeChecked();
@@ -132,7 +123,6 @@ describe('<Checkbox />', () => {
 
     it('should be checked', () => {
       const onChange = jest.fn();
-
       const { asFragment } = render(
         <Checkbox
           id="test-id"
