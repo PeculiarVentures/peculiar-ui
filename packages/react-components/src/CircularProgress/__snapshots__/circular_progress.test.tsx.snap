@@ -1,5 +1,321 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<CircularProgress /> colors color "primary" 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1px,200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -125px;
+  }
+}
+
+.emotion-0 {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  color: var(--pv-color-primary);
+  -webkit-animation: animation-0 1.4s linear infinite;
+  animation: animation-0 1.4s linear infinite;
+  height: var(--pv-size-base-6);
+  width: var(--pv-size-base-6);
+}
+
+.emotion-1 {
+  display: block;
+}
+
+.emotion-2 {
+  stroke: currentcolor;
+  stroke-dasharray: 80px,200px;
+  stroke-dashoffset: 0;
+  -webkit-animation: animation-1 1.4s ease-in-out infinite;
+  animation: animation-1 1.4s ease-in-out infinite;
+}
+
+<div
+    class="emotion-0"
+    role="progressbar"
+  >
+    <svg
+      class="emotion-1"
+      viewBox="22 22 44 44"
+    >
+      <circle
+        class="emotion-2"
+        cx="44"
+        cy="44"
+        fill="none"
+        r="20"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CircularProgress /> colors color "secondary" 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1px,200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -125px;
+  }
+}
+
+.emotion-0 {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  color: var(--pv-color-secondary);
+  -webkit-animation: animation-0 1.4s linear infinite;
+  animation: animation-0 1.4s linear infinite;
+  height: var(--pv-size-base-6);
+  width: var(--pv-size-base-6);
+}
+
+.emotion-1 {
+  display: block;
+}
+
+.emotion-2 {
+  stroke: currentcolor;
+  stroke-dasharray: 80px,200px;
+  stroke-dashoffset: 0;
+  -webkit-animation: animation-1 1.4s ease-in-out infinite;
+  animation: animation-1 1.4s ease-in-out infinite;
+}
+
+<div
+    class="emotion-0"
+    role="progressbar"
+  >
+    <svg
+      class="emotion-1"
+      viewBox="22 22 44 44"
+    >
+      <circle
+        class="emotion-2"
+        cx="44"
+        cy="44"
+        fill="none"
+        r="20"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CircularProgress /> colors color "white" 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1px,200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -125px;
+  }
+}
+
+.emotion-0 {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  color: var(--pv-color-white);
+  -webkit-animation: animation-0 1.4s linear infinite;
+  animation: animation-0 1.4s linear infinite;
+  height: var(--pv-size-base-6);
+  width: var(--pv-size-base-6);
+}
+
+.emotion-1 {
+  display: block;
+}
+
+.emotion-2 {
+  stroke: currentcolor;
+  stroke-dasharray: 80px,200px;
+  stroke-dashoffset: 0;
+  -webkit-animation: animation-1 1.4s ease-in-out infinite;
+  animation: animation-1 1.4s ease-in-out infinite;
+}
+
+<div
+    class="emotion-0"
+    role="progressbar"
+  >
+    <svg
+      class="emotion-1"
+      viewBox="22 22 44 44"
+    >
+      <circle
+        class="emotion-2"
+        cx="44"
+        cy="44"
+        fill="none"
+        r="20"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CircularProgress /> should pass className 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1px,200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -125px;
+  }
+}
+
+.emotion-0 {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  color: var(--pv-color-primary);
+  -webkit-animation: animation-0 1.4s linear infinite;
+  animation: animation-0 1.4s linear infinite;
+  height: var(--pv-size-base-6);
+  width: var(--pv-size-base-6);
+}
+
+.emotion-1 {
+  display: block;
+}
+
+.emotion-2 {
+  stroke: currentcolor;
+  stroke-dasharray: 80px,200px;
+  stroke-dashoffset: 0;
+  -webkit-animation: animation-1 1.4s ease-in-out infinite;
+  animation: animation-1 1.4s ease-in-out infinite;
+}
+
+<div
+    class="my-class-name emotion-0"
+    role="progressbar"
+  >
+    <svg
+      class="emotion-1"
+      viewBox="22 22 44 44"
+    >
+      <circle
+        class="emotion-2"
+        cx="44"
+        cy="44"
+        fill="none"
+        r="20"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<CircularProgress /> should render with default styles 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
@@ -44,6 +360,164 @@ exports[`<CircularProgress /> should render with default styles 1`] = `
   animation: animation-0 1.4s linear infinite;
   height: var(--pv-size-base-6);
   width: var(--pv-size-base-6);
+}
+
+.emotion-1 {
+  display: block;
+}
+
+.emotion-2 {
+  stroke: currentcolor;
+  stroke-dasharray: 80px,200px;
+  stroke-dashoffset: 0;
+  -webkit-animation: animation-1 1.4s ease-in-out infinite;
+  animation: animation-1 1.4s ease-in-out infinite;
+}
+
+<div
+    class="emotion-0"
+    role="progressbar"
+  >
+    <svg
+      class="emotion-1"
+      viewBox="22 22 44 44"
+    >
+      <circle
+        class="emotion-2"
+        cx="44"
+        cy="44"
+        fill="none"
+        r="20"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CircularProgress /> sizes size "large" 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1px,200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -125px;
+  }
+}
+
+.emotion-0 {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  color: var(--pv-color-primary);
+  -webkit-animation: animation-0 1.4s linear infinite;
+  animation: animation-0 1.4s linear infinite;
+  height: var(--pv-size-base-6);
+  width: var(--pv-size-base-6);
+}
+
+.emotion-1 {
+  display: block;
+}
+
+.emotion-2 {
+  stroke: currentcolor;
+  stroke-dasharray: 80px,200px;
+  stroke-dashoffset: 0;
+  -webkit-animation: animation-1 1.4s ease-in-out infinite;
+  animation: animation-1 1.4s ease-in-out infinite;
+}
+
+<div
+    class="emotion-0"
+    role="progressbar"
+  >
+    <svg
+      class="emotion-1"
+      viewBox="22 22 44 44"
+    >
+      <circle
+        class="emotion-2"
+        cx="44"
+        cy="44"
+        fill="none"
+        r="20"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CircularProgress /> sizes size "small" 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1px,200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -125px;
+  }
+}
+
+.emotion-0 {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  color: var(--pv-color-primary);
+  -webkit-animation: animation-0 1.4s linear infinite;
+  animation: animation-0 1.4s linear infinite;
+  height: var(--pv-size-base-3);
+  width: var(--pv-size-base-3);
 }
 
 .emotion-1 {
