@@ -1,5 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<DialogActions /> should pass className 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding: var(--pv-size-base-3) var(--pv-size-base-4) var(--pv-size-base-4);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  gap: var(--pv-size-base-2);
+}
+
+<footer
+    class="emotion-0 my-class-name"
+    data-key="dialog.actions"
+  >
+    Buttons
+  </footer>
+</DocumentFragment>
+`;
+
 exports[`<DialogActions /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
