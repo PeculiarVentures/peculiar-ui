@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Chip /> should render with default styles 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  max-width: 100%;
+  font-family: inherit;
+  outline: 0;
+  box-sizing: border-box;
+  border-radius: var(--pv-size-base-3);
+  padding: 0 var(--pv-size-base-2);
+  height: var(--pv-size-base-6);
+  background-color: transparent;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms,box-shadow 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms,box-shadow 200ms;
+  margin: 0 var(--pv-size-base);
+  cursor: default;
+  border: 1px solid transparent;
+  vertical-align: middle;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  white-space: nowrap;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: var(--pv-color-secondary);
+  color: var(--pv-color-white);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+<div
+    class="emotion-0"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </div>
+</DocumentFragment>
+`;

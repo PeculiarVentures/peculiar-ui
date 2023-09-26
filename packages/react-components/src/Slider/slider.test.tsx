@@ -1,14 +1,10 @@
 import React from 'react';
 import { renderWithWrapper as render } from '../test-utils';
-import { Alert } from './index';
+import { Slider } from './index';
 
-describe('<Alert />', () => {
+describe('<Slider />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
-      <Alert>
-        Alert message
-      </Alert>,
-    );
+    const { asFragment } = render(<Slider />);
 
     expect(asFragment()).toMatchSnapshot();
   });

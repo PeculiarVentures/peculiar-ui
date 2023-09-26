@@ -1,15 +1,17 @@
 import React from 'react';
 import { renderWithWrapper as render, screen } from '../test-utils';
-import { Fab } from '../index';
+import { Fab } from './index';
 import { PlusIcon } from '../icons';
 
 describe('<Fab />', () => {
   it('should render as default', () => {
-    render(
+    const { asFragment } = render(
       <Fab>
         <PlusIcon role="img" />
       </Fab>,
     );
+
+    expect(asFragment()).toMatchSnapshot();
 
     const button = screen.getByRole('button');
     const icon = screen.getByRole('img');

@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderWithWrapper as render, screen, fireEvent } from '../test-utils';
-import { Avatar } from '../index';
+import { Avatar } from './index';
 
 const src = 'https://bit.ly/dan-abramov';
 

@@ -1,14 +1,10 @@
 import React from 'react';
 import { renderWithWrapper as render } from '../test-utils';
-import { Alert } from './index';
+import { SubMenuItem } from './index';
 
-describe('<Alert />', () => {
+describe('<SubMenuItem />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
-      <Alert>
-        Alert message
-      </Alert>,
-    );
+    const { asFragment } = render(<SubMenuItem>SubItem</SubMenuItem>);
 
     expect(asFragment()).toMatchSnapshot();
   });

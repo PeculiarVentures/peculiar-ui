@@ -1,0 +1,1804 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> Button click behaviour should calls onClick prop when clicked 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Click
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button click behaviour shouldn't calls onClick when disabled has been passed to the component 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    disabled=""
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Click
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button focus behaviour should have focus 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Click
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button focus behaviour shouldn't have focus when disabled has been passed to the component 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    disabled=""
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Click
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render as an anchor should have focus when rendered as an anchor 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<a
+    class="emotion-0"
+    href="https://test.com"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Link
+    </span>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render as an anchor should rendered as an anchor 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<a
+    class="emotion-0"
+    href="https://test.com"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Link
+    </span>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render sizes should render a large size button 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-8);
+  min-width: var(--pv-size-base-8);
+  padding: 0 var(--pv-size-base-4);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render sizes should render a medium size button 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render sizes should render a small size button 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-6);
+  min-width: var(--pv-size-base-6);
+  padding: 0 var(--pv-size-base-2);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn2-weight);
+  font-size: var(--pv-text-btn2-size);
+  line-height: var(--pv-text-btn2-height);
+  letter-spacing: var(--pv-text-btn2-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render variants should be disabled 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    disabled=""
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render variants should have class name 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="test-cls emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render variants should have end icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+.emotion-2 {
+  margin-left: var(--pv-size-base);
+  display: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+      <span
+        class="emotion-2"
+      >
+        <svg
+          fill="none"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 12.5h12M12 18.5v-12"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+        </svg>
+      </span>
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render variants should have start icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+.emotion-2 {
+  margin-right: var(--pv-size-base);
+  display: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      <span
+        class="emotion-2"
+      >
+        <svg
+          fill="none"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 12.5h12M12 18.5v-12"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+        </svg>
+      </span>
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render variants should have test id 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    data-testid="test-id"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render variants should have text variant 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-h1-weight);
+  font-size: var(--pv-text-h1-size);
+  line-height: var(--pv-text-h1-height);
+  letter-spacing: var(--pv-text-h1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <h1
+      class="emotion-1"
+    >
+      Text
+    </h1>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render variants should have title 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    title="Test title"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render variants should render a contained button 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: var(--pv-color-gray-8);
+  color: var(--pv-color-black);
+  box-shadow: var(--pv-shadow-light-low);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-6);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+  box-shadow: var(--pv-shadow-light-medium);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render variants should render a text button 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button /> Button render variants should render as default 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-black);
+  border-radius: 4px;
+  height: var(--pv-size-base-7);
+  min-width: var(--pv-size-base-7);
+  padding: 0 var(--pv-size-base-3);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: inherit;
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;

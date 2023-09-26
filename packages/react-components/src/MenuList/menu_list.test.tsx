@@ -1,13 +1,15 @@
 import React from 'react';
 import { renderWithWrapper as render } from '../test-utils';
-import { Alert } from './index';
+import { MenuList } from './index';
 
-describe('<Alert />', () => {
+describe('<MenuList />', () => {
   it('should render with default styles', () => {
     const { asFragment } = render(
-      <Alert>
-        Alert message
-      </Alert>,
+      <MenuList>
+        <li>Item-1</li>
+        <li>Item-2</li>
+        <li>Item-3</li>
+      </MenuList>,
     );
 
     expect(asFragment()).toMatchSnapshot();

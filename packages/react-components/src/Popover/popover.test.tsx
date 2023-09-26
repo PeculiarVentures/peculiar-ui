@@ -1,13 +1,16 @@
 import React from 'react';
 import { renderWithWrapper as render } from '../test-utils';
-import { Alert } from './index';
+import { Popover } from './index';
 
-describe('<Alert />', () => {
+describe('<Popover />', () => {
   it('should render with default styles', () => {
     const { asFragment } = render(
-      <Alert>
-        Alert message
-      </Alert>,
+      <Popover
+        open={false}
+        anchorEl={null}
+      >
+        <div>Inside</div>
+      </Popover>,
     );
 
     expect(asFragment()).toMatchSnapshot();

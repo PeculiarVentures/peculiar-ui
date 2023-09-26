@@ -1,15 +1,17 @@
 import React from 'react';
 import { renderWithWrapper as render, screen } from '../test-utils';
-import { IconButton } from '../index';
+import { IconButton } from './index';
 import { PlusIcon } from '../icons';
 
 describe('<IconButton />', () => {
   it('should render as default', () => {
-    render(
+    const { asFragment } = render(
       <IconButton>
         <PlusIcon role="img" />
       </IconButton>,
     );
+
+    expect(asFragment()).toMatchSnapshot();
 
     const button = screen.getByRole('button');
     const icon = screen.getByRole('img');
@@ -22,11 +24,13 @@ describe('<IconButton />', () => {
   });
 
   it('should have title', () => {
-    render(
+    const { asFragment } = render(
       <IconButton title="Test title">
         <PlusIcon />
       </IconButton>,
     );
+
+    expect(asFragment()).toMatchSnapshot();
 
     const button = screen.getByRole('button');
 

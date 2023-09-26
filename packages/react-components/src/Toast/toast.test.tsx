@@ -1,13 +1,18 @@
 import React from 'react';
 import { renderWithWrapper as render } from '../test-utils';
-import { Alert } from './index';
+import { Toast } from './toast';
 
-describe('<Alert />', () => {
+describe('<Toast />', () => {
   it('should render with default styles', () => {
+    const onClose = jest.fn();
+
     const { asFragment } = render(
-      <Alert>
-        Alert message
-      </Alert>,
+      <Toast
+        id="toast1"
+        onClose={onClose}
+      >
+        Inside
+      </Toast>,
     );
 
     expect(asFragment()).toMatchSnapshot();

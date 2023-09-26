@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Menu /> should render with default styles 1`] = `
+<DocumentFragment>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    type="button"
+  >
+    Open
+  </button>
+</DocumentFragment>
+`;

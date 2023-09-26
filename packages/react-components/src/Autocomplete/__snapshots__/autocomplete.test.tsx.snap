@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Autocomplete /> Autocomplete render variants should render as default 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-c1-weight);
+  font-size: var(--pv-text-c1-size);
+  line-height: var(--pv-text-c1-height);
+  letter-spacing: var(--pv-text-c1-spacing);
+  color: var(--pv-color-gray-9);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--pv-color-gray-8);
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  height: var(--pv-size-base-8);
+}
+
+.emotion-1:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  background-color: var(--pv-color-gray-1);
+  border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled)[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-1:not(:disabled):focus {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  pointer-events: none;
+  margin: 0px var(--pv-size-base);
+  color: var(--pv-color-gray-10);
+}
+
+.emotion-2[aria-disabled="true"] {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-3 {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+<div
+    class="emotion-0"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      class="emotion-1"
+      type="button"
+    />
+    <svg
+      aria-disabled="false"
+      aria-hidden="true"
+      class="emotion-2"
+      fill="none"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+        fill="currentColor"
+      />
+    </svg>
+    <input
+      aria-hidden="true"
+      autocomplete="off"
+      class="emotion-3"
+      id="ZQe2X1mwIimLSknxW1z0H"
+      tabindex="-1"
+      type="text"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;

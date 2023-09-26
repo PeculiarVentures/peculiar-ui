@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DialogTitle /> should render with default styles 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding: var(--pv-size-base-4) var(--pv-size-base-4) var(--pv-size-base-2);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-h4-weight);
+  font-size: var(--pv-text-h4-size);
+  line-height: var(--pv-text-h4-height);
+  letter-spacing: var(--pv-text-h4-spacing);
+  color: var(--pv-color-black);
+}
+
+<header
+    class="emotion-0"
+    data-key="dialog.title"
+  >
+    <h4
+      class="emotion-1"
+    >
+      Title
+    </h4>
+  </header>
+</DocumentFragment>
+`;
