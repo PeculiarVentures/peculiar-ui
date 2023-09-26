@@ -186,7 +186,7 @@ const ButtonBaseRoot = styled('button', {
   };
 });
 
-const TypographyLabelRoot = styled(Typography)({
+const ButtonBaseLabel = styled(Typography)({
   width: '100%',
   display: 'inherit',
   alignItems: 'inherit',
@@ -217,12 +217,12 @@ export const ButtonBase = React.forwardRef<any, ButtonBaseProps>((props, ref) =>
       size={size}
       {...other}
     >
-      <TypographyLabelRoot
+      <ButtonBaseLabel
         color="inherit"
         variant={textVariant}
       >
         {children}
-      </TypographyLabelRoot>
+      </ButtonBaseLabel>
     </ButtonBaseRoot>
   );
 }) as OverridableComponent<ButtonBaseTypeMap>;
