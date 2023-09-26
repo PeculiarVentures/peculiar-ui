@@ -1,5 +1,670 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Typography /> should pass "component" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-black);
+}
+
+<div
+    class="emotion-0"
+  >
+    Typography message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should pass className 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-black);
+}
+
+<p
+    class="my-class-name emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "attention" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-attention);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "black" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-black);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "extra-1" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-extra-1);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "extra-2" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-extra-2);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "gray-1" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-gray-1);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "gray-2" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-gray-2);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "gray-3" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-gray-3);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "gray-4" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-gray-4);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "gray-5" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-gray-5);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "gray-6" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-gray-6);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "gray-7" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-gray-7);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "gray-8" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-gray-8);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "gray-9" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-gray-9);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "gray-10" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-gray-10);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "inherit" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: inherit;
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "primary" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-primary);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "secondary" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-secondary);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "white" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-white);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct colors color: "wrong" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-wrong);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "b1" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-black);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "b2" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b2-weight);
+  font-size: var(--pv-text-b2-size);
+  line-height: var(--pv-text-b2-height);
+  letter-spacing: var(--pv-text-b2-spacing);
+  color: var(--pv-color-black);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "b3" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-black);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "btn1" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  color: var(--pv-color-black);
+}
+
+<span
+    class="emotion-0"
+  >
+    Typography message
+  </span>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "btn2" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-btn2-weight);
+  font-size: var(--pv-text-btn2-size);
+  line-height: var(--pv-text-btn2-height);
+  letter-spacing: var(--pv-text-btn2-spacing);
+  color: var(--pv-color-black);
+}
+
+<span
+    class="emotion-0"
+  >
+    Typography message
+  </span>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "c1" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-c1-weight);
+  font-size: var(--pv-text-c1-size);
+  line-height: var(--pv-text-c1-height);
+  letter-spacing: var(--pv-text-c1-spacing);
+  color: var(--pv-color-black);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "c2" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-c2-weight);
+  font-size: var(--pv-text-c2-size);
+  line-height: var(--pv-text-c2-height);
+  letter-spacing: var(--pv-text-c2-spacing);
+  color: var(--pv-color-black);
+}
+
+<p
+    class="emotion-0"
+  >
+    Typography message
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "h1" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-h1-weight);
+  font-size: var(--pv-text-h1-size);
+  line-height: var(--pv-text-h1-height);
+  letter-spacing: var(--pv-text-h1-spacing);
+  color: var(--pv-color-black);
+}
+
+<h1
+    class="emotion-0"
+  >
+    Typography message
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "h2" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-h2-weight);
+  font-size: var(--pv-text-h2-size);
+  line-height: var(--pv-text-h2-height);
+  letter-spacing: var(--pv-text-h2-spacing);
+  color: var(--pv-color-black);
+}
+
+<h2
+    class="emotion-0"
+  >
+    Typography message
+  </h2>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "h3" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-h3-weight);
+  font-size: var(--pv-text-h3-size);
+  line-height: var(--pv-text-h3-height);
+  letter-spacing: var(--pv-text-h3-spacing);
+  color: var(--pv-color-black);
+}
+
+<h3
+    class="emotion-0"
+  >
+    Typography message
+  </h3>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "h4" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-h4-weight);
+  font-size: var(--pv-text-h4-size);
+  line-height: var(--pv-text-h4-height);
+  letter-spacing: var(--pv-text-h4-spacing);
+  color: var(--pv-color-black);
+}
+
+<h4
+    class="emotion-0"
+  >
+    Typography message
+  </h4>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "h5" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-h5-weight);
+  font-size: var(--pv-text-h5-size);
+  line-height: var(--pv-text-h5-height);
+  letter-spacing: var(--pv-text-h5-spacing);
+  color: var(--pv-color-black);
+}
+
+<h5
+    class="emotion-0"
+  >
+    Typography message
+  </h5>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "s1" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-s1-weight);
+  font-size: var(--pv-text-s1-size);
+  line-height: var(--pv-text-s1-height);
+  letter-spacing: var(--pv-text-s1-spacing);
+  color: var(--pv-color-black);
+}
+
+<h6
+    class="emotion-0"
+  >
+    Typography message
+  </h6>
+</DocumentFragment>
+`;
+
+exports[`<Typography /> should render correct variants variant: "s2" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-s2-weight);
+  font-size: var(--pv-text-s2-size);
+  line-height: var(--pv-text-s2-height);
+  letter-spacing: var(--pv-text-s2-spacing);
+  color: var(--pv-color-black);
+}
+
+<h6
+    class="emotion-0"
+  >
+    Typography message
+  </h6>
+</DocumentFragment>
+`;
+
 exports[`<Typography /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
@@ -13,6 +678,8 @@ exports[`<Typography /> should render with default styles 1`] = `
 
 <p
     class="emotion-0"
-  />
+  >
+    Typography message
+  </p>
 </DocumentFragment>
 `;
