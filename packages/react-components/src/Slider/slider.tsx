@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { css, cx } from '../styles';
+import styled from '@emotion/styled';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type SliderOwnProps = {
   className?: string;
   /**
    * The default element value. Use when the component is not controlled.
@@ -35,19 +38,22 @@ type BaseProps = {
    * Callback function that is fired when the slider's value changed.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  'data-testid'?: string;
 };
 
-export type SliderProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'defaultValue'>;
+export type SliderProps = SliderOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'defaultValue'>;
+/**
+ *
+ */
 
-const stylesBase = () => css({
-  label: 'Slider',
+/**
+ * Styles.
+ */
+const SliderRoot = styled('div')<SliderProps>({
   height: '16px',
   width: '100%',
 });
 
-const stylesInput = () => css({
-  label: 'Slider-input',
+const SliderInput = styled('input')({
   appearance: 'none',
   width: '100%',
   height: '100%',
@@ -99,10 +105,12 @@ const stylesInput = () => css({
     },
   },
 });
+/**
+ *
+ */
 
 export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
   const {
-    className,
     defaultValue,
     value,
     disabled,
@@ -115,27 +123,22 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
   } = props;
 
   return (
-    <div
-      {...other}
+    <SliderRoot
       ref={ref}
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
+      {...other}
     >
-      <input
+      <SliderInput
         type="range"
         name={name}
         min={min}
         max={max}
         step={step}
-        className={cx(stylesInput())}
         value={value}
         defaultValue={defaultValue}
         onChange={onChange}
         disabled={disabled}
       />
-    </div>
+    </SliderRoot>
   );
 });
 

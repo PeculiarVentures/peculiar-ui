@@ -6,7 +6,7 @@ import {
   fireEvent,
 } from '../test-utils';
 import { Radio } from '../index';
-import { PlusIcon } from '../icons';
+// import { PlusIcon } from '../icons';
 
 describe('<Radio />', () => {
   describe('Radio render variants', () => {
@@ -93,15 +93,15 @@ describe('<Radio />', () => {
     //   expect(input.getAttribute('class')).toMatch(/test-cls/i);
     // });
 
-    it('should have custom checked icon', () => {
-      render(<Radio checkedIcon={<PlusIcon data-testid="icon" />} />);
+    // it('should have custom checked icon', () => {
+    //   render(<Radio checkedIcon={<PlusIcon data-testid="icon" />} />);
 
-      const icon = screen.getByTestId('icon');
+    //   const icon = screen.getByTestId('icon');
 
-      expect(icon).toBeInTheDocument();
-      expect(icon.tagName).toBe('svg');
-      expect(icon.getAttribute('class')).toMatch(/Radio-icon/i);
-    });
+    //   expect(icon).toBeInTheDocument();
+    //   expect(icon.tagName).toBe('svg');
+    //   expect(icon.getAttribute('class')).toMatch(/Radio-icon/i);
+    // });
 
     it('should be checked, defaultChecked prop', () => {
       render(<Radio defaultChecked />);

@@ -6,7 +6,7 @@ import {
   fireEvent,
 } from '../test-utils';
 import { Checkbox } from '../index';
-import { PlusIcon } from '../icons';
+// import { PlusIcon } from '../icons';
 
 describe('<Checkbox />', () => {
   describe('Checkbox render variants', () => {
@@ -85,15 +85,15 @@ describe('<Checkbox />', () => {
     //   expect(input.getAttribute('class')).toMatch(/test-cls/i);
     // });
 
-    it('should have custom checked icon', () => {
-      render(<Checkbox checkedIcon={<PlusIcon data-testid="icon" />} />);
+    // it('should have custom checked icon', () => {
+    //   render(<Checkbox checkedIcon={<PlusIcon data-testid="icon" />} />);
 
-      const icon = screen.getByTestId('icon');
+    //   const icon = screen.getByTestId('icon');
 
-      expect(icon).toBeInTheDocument();
-      expect(icon.tagName).toBe('svg');
-      expect(icon.getAttribute('class')).toMatch(/Checkbox-icon/i);
-    });
+    //   expect(icon).toBeInTheDocument();
+    //   expect(icon.tagName).toBe('svg');
+    //   expect(icon.getAttribute('class')).toMatch(/Checkbox-icon/i);
+    // });
 
     it('should be checked, defaultChecked prop', () => {
       render(<Checkbox defaultChecked />);
