@@ -4,7 +4,7 @@ import { Popover } from './index';
 
 describe('<Popover />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <Popover
         open={false}
         anchorEl={document.createElement('div')}
@@ -13,6 +13,6 @@ describe('<Popover />', () => {
       </Popover>,
     );
 
-    expect(asFragment()).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });
