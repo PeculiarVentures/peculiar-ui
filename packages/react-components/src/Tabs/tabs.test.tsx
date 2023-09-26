@@ -13,4 +13,15 @@ describe('<Tabs />', () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it('should pass className', () => {
+    const { asFragment } = render(
+      <Tabs value="tab1" className="my-class-name">
+        <Tab id="tab1">Tab-1</Tab>
+        <Tab id="tab2">Tab-2</Tab>
+      </Tabs>,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
