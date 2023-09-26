@@ -12,4 +12,14 @@ describe('<Fade />', () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it('should finish animation', () => {
+    const { asFragment } = render(
+      <Fade in>
+        <div>Inside</div>
+      </Fade>,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
