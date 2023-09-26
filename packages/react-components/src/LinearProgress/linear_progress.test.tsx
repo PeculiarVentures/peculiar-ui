@@ -8,4 +8,27 @@ describe('<LinearProgress />', () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it('should pass className', () => {
+    const { asFragment } = render(<LinearProgress className="my-class-name" />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  describe('colors', () => {
+    const colors: Array<React.ComponentProps<typeof LinearProgress>['color']> = [
+      'primary',
+      'secondary',
+    ];
+
+    colors.forEach((color) => {
+      it(`color "${color}"`, () => {
+        const { asFragment } = render(
+          <LinearProgress color={color} />,
+        );
+
+        expect(asFragment()).toMatchSnapshot();
+      });
+    });
+  });
 });

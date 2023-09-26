@@ -1,5 +1,131 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<LinearProgress /> colors color "primary" 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    left: -30%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.emotion-0 {
+  background: var(--pv-color-primary-tint-4);
+  height: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.emotion-1 {
+  background: var(--pv-color-primary);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 30%;
+  position: absolute;
+  transform-origin: left;
+  -webkit-animation: animation-0 2s cubic-bezier(0.53, 0.21, 0.29, 0.67) 0s infinite;
+  animation: animation-0 2s cubic-bezier(0.53, 0.21, 0.29, 0.67) 0s infinite;
+}
+
+<div
+    class="emotion-0"
+    variant="indeterminate"
+  >
+    <div
+      class="emotion-1"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<LinearProgress /> colors color "secondary" 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    left: -30%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.emotion-0 {
+  background: var(--pv-color-secondary-tint-4);
+  height: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.emotion-1 {
+  background: var(--pv-color-secondary);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 30%;
+  position: absolute;
+  transform-origin: left;
+  -webkit-animation: animation-0 2s cubic-bezier(0.53, 0.21, 0.29, 0.67) 0s infinite;
+  animation: animation-0 2s cubic-bezier(0.53, 0.21, 0.29, 0.67) 0s infinite;
+}
+
+<div
+    class="emotion-0"
+    variant="indeterminate"
+  >
+    <div
+      class="emotion-1"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<LinearProgress /> should pass className 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    left: -30%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.emotion-0 {
+  background: var(--pv-color-primary-tint-4);
+  height: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.emotion-1 {
+  background: var(--pv-color-primary);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 30%;
+  position: absolute;
+  transform-origin: left;
+  -webkit-animation: animation-0 2s cubic-bezier(0.53, 0.21, 0.29, 0.67) 0s infinite;
+  animation: animation-0 2s cubic-bezier(0.53, 0.21, 0.29, 0.67) 0s infinite;
+}
+
+<div
+    class="my-class-name emotion-0"
+    variant="indeterminate"
+  >
+    <div
+      class="emotion-1"
+    />
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<LinearProgress /> should render with default styles 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
