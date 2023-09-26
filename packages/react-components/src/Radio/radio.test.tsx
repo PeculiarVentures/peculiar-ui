@@ -13,8 +13,6 @@ describe('<Radio />', () => {
     it('should render as default', () => {
       const { asFragment } = render(<Radio id="test-id" />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('radio');
 
       expect(input).toBeInTheDocument();
@@ -27,12 +25,12 @@ describe('<Radio />', () => {
 
       expect(label).toBeInTheDocument();
       expect(label.getAttribute('for')).toEqual(input.id);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have id', () => {
-      const { asFragment } = render(<Radio id="test-id" />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio id="test-id" />);
 
       const input = screen.getByRole('radio');
 
@@ -47,55 +45,55 @@ describe('<Radio />', () => {
     it('should be disabled', () => {
       const { asFragment } = render(<Radio id="test-id" disabled />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('radio');
 
       expect(input).toHaveAttribute('disabled');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have required', () => {
       const { asFragment } = render(<Radio id="test-id" required />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('radio');
 
       expect(input).toHaveAttribute('required');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have name attr', () => {
       const { asFragment } = render(<Radio id="test-id" name="test-name" />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('radio');
 
       expect(input.getAttribute('name')).toEqual('test-name');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
       const { asFragment } = render(<Radio id="test-id" data-testid="test-id" />);
-
-      expect(asFragment()).toMatchSnapshot();
 
       const input = screen.getByRole('radio');
 
       const label = input.closest('label');
 
       expect(label.getAttribute('data-testid')).toMatch(/test-id/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have className', () => {
       const { asFragment } = render(<Radio id="test-id" className="test-cls" />);
-
-      expect(asFragment()).toMatchSnapshot();
 
       const input = screen.getByRole('radio');
 
       const label = input.closest('label');
 
       expect(label.getAttribute('class')).toMatch(/test-cls/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     // TODO: do not passed, should fix in component
@@ -110,29 +108,27 @@ describe('<Radio />', () => {
     it('should have custom checked icon', () => {
       const { asFragment } = render(<Radio id="test-id" checkedIcon={<PlusIcon data-testid="icon" />} />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const icon = screen.getByTestId('icon');
 
       expect(icon).toBeInTheDocument();
       expect(icon.tagName).toBe('svg');
       expect(icon.getAttribute('class')).toMatch(/Radio-icon/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be checked, defaultChecked prop', () => {
       const { asFragment } = render(<Radio id="test-id" defaultChecked />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('radio');
 
       expect(input).toBeChecked();
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be unchecked, defaultChecked prop', () => {
-      const { asFragment } = render(<Radio id="test-id" defaultChecked={false} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio id="test-id" defaultChecked={false} />);
 
       const input = screen.getByRole('radio');
 
@@ -142,9 +138,7 @@ describe('<Radio />', () => {
     it('should be checked', () => {
       const onChange = jest.fn();
 
-      const { asFragment } = render(<Radio id="test-id" checked onChange={onChange} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio checked onChange={onChange} />);
 
       const input = screen.getByRole('radio');
 
@@ -154,9 +148,7 @@ describe('<Radio />', () => {
     it('should be unchecked', () => {
       const onChange = jest.fn();
 
-      const { asFragment } = render(<Radio id="test-id" checked={false} onChange={onChange} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio checked={false} onChange={onChange} />);
 
       const input = screen.getByRole('radio');
 
@@ -166,9 +158,7 @@ describe('<Radio />', () => {
     it('should forwards ref to label element', () => {
       const ref = React.createRef<HTMLLabelElement>();
 
-      const { asFragment } = render(<Radio id="test-id" ref={ref} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio ref={ref} />);
 
       const input = screen.getByRole('radio');
 
@@ -178,9 +168,7 @@ describe('<Radio />', () => {
 
   describe('Checkbox focus behaviour', () => {
     it('should have focus', async () => {
-      const { asFragment } = render(<Radio id="test-id" />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio />);
 
       const input = screen.getByRole('radio');
 
@@ -191,9 +179,7 @@ describe('<Radio />', () => {
     });
 
     it("shouldn't have focus when disabled has been passed to the component", async () => {
-      const { asFragment } = render(<Radio id="test-id" disabled />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio disabled />);
 
       const input = screen.getByRole('radio');
 
@@ -206,9 +192,7 @@ describe('<Radio />', () => {
 
   describe('Checkbox keyboard behaviour', () => {
     it('should be checked after pressed on space', async () => {
-      const { asFragment } = render(<Radio id="test-id" />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio />);
 
       const input = screen.getByRole('radio');
 
@@ -219,9 +203,7 @@ describe('<Radio />', () => {
 
   describe('Checkbox click behaviour', () => {
     it('should be checked when clicked', () => {
-      const { asFragment } = render(<Radio id="test-id" />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio />);
 
       const input = screen.getByRole('radio');
 
@@ -231,9 +213,7 @@ describe('<Radio />', () => {
     });
 
     it('should be checked when clicked and defaultChecked has been passed to the component', () => {
-      const { asFragment } = render(<Radio id="test-id" defaultChecked />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio defaultChecked />);
 
       const input = screen.getByRole('radio');
 
@@ -245,9 +225,7 @@ describe('<Radio />', () => {
     it('should calls onClick prop when clicked', () => {
       const handleClick = jest.fn();
 
-      const { asFragment } = render(<Radio id="test-id" onClick={handleClick} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio onClick={handleClick} />);
       fireEvent.click(screen.getByRole('radio'));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
@@ -255,9 +233,7 @@ describe('<Radio />', () => {
     it('should calls onChange prop when clicked', () => {
       const onChange = jest.fn();
 
-      const { asFragment } = render(<Radio id="test-id" onChange={onChange} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Radio onChange={onChange} />);
       const input = screen.getByRole('radio');
 
       expect(onChange).toBeCalledTimes(0);
@@ -266,14 +242,12 @@ describe('<Radio />', () => {
     });
 
     it('should be checked the right checkbox when clicked them in turn', () => {
-      const { asFragment } = render(
+      render(
         <>
-          <Radio id="test-id" name="test-name" />
-          <Radio id="test-id" name="test-name" />
+          <Radio name="test-name" />
+          <Radio name="test-name" />
         </>,
       );
-
-      expect(asFragment()).toMatchSnapshot();
       const [input1, input2] = screen.getAllByRole('radio');
 
       expect(input1).not.toBeChecked();

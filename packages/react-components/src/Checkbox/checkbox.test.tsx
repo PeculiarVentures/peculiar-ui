@@ -13,8 +13,6 @@ describe('<Checkbox />', () => {
     it('should render as default', () => {
       const { asFragment } = render(<Checkbox id="test-id" />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('checkbox');
 
       expect(input).toBeInTheDocument();
@@ -27,12 +25,12 @@ describe('<Checkbox />', () => {
 
       expect(label).toBeInTheDocument();
       expect(label.getAttribute('for')).toEqual(input.id);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have id', () => {
-      const { asFragment } = render(<Checkbox id="test-id" />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Checkbox id="test-id" />);
 
       const input = screen.getByRole('checkbox');
 
@@ -47,45 +45,45 @@ describe('<Checkbox />', () => {
     it('should be disabled', () => {
       const { asFragment } = render(<Checkbox id="test-id" disabled />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('checkbox');
 
       expect(input).toHaveAttribute('disabled');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have required', () => {
       const { asFragment } = render(<Checkbox id="test-id" required />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('checkbox');
 
       expect(input).toHaveAttribute('required');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
       const { asFragment } = render(<Checkbox id="test-id" data-testid="test-id" />);
-
-      expect(asFragment()).toMatchSnapshot();
 
       const input = screen.getByRole('checkbox');
 
       const label = input.closest('label');
 
       expect(label.getAttribute('data-testid')).toMatch(/test-id/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have className', () => {
       const { asFragment } = render(<Checkbox id="test-id" className="test-cls" />);
-
-      expect(asFragment()).toMatchSnapshot();
 
       const input = screen.getByRole('checkbox');
 
       const label = input.closest('label');
 
       expect(label.getAttribute('class')).toMatch(/test-cls/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     // TODO: do not passed, should fix in component
@@ -98,31 +96,34 @@ describe('<Checkbox />', () => {
     // });
 
     it('should have custom checked icon', () => {
-      const { asFragment } = render(<Checkbox id="test-id" checkedIcon={<PlusIcon data-testid="icon" />} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      const { asFragment } = render(
+        <Checkbox
+          id="test-id"
+          checkedIcon={<PlusIcon data-testid="icon" />}
+        />,
+      );
 
       const icon = screen.getByTestId('icon');
 
       expect(icon).toBeInTheDocument();
       expect(icon.tagName).toBe('svg');
       expect(icon.getAttribute('class')).toMatch(/Checkbox-icon/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be checked, defaultChecked prop', () => {
       const { asFragment } = render(<Checkbox id="test-id" defaultChecked />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('checkbox');
 
       expect(input).toBeChecked();
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be unchecked, defaultChecked prop', () => {
-      const { asFragment } = render(<Checkbox id="test-id" defaultChecked={false} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Checkbox defaultChecked={false} />);
 
       const input = screen.getByRole('checkbox');
 
@@ -150,15 +151,13 @@ describe('<Checkbox />', () => {
     it('should be unchecked', () => {
       const onChange = jest.fn();
 
-      const { asFragment } = render(
+      render(
         <Checkbox
           id="test-id"
           checked={false}
           onChange={onChange}
         />,
       );
-
-      expect(asFragment()).toMatchSnapshot();
 
       const input = screen.getByRole('checkbox');
 
@@ -168,9 +167,7 @@ describe('<Checkbox />', () => {
     it('should forwards ref to label element', () => {
       const ref = React.createRef<HTMLLabelElement>();
 
-      const { asFragment } = render(<Checkbox id="test-id" ref={ref} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Checkbox ref={ref} />);
 
       const input = screen.getByRole('checkbox');
 
@@ -180,9 +177,7 @@ describe('<Checkbox />', () => {
 
   describe('Checkbox focus behaviour', () => {
     it('should have focus', async () => {
-      const { asFragment } = render(<Checkbox id="test-id" />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Checkbox />);
 
       const input = screen.getByRole('checkbox');
 
@@ -193,9 +188,7 @@ describe('<Checkbox />', () => {
     });
 
     it("shouldn't have focus when disabled has been passed to the component", async () => {
-      const { asFragment } = render(<Checkbox id="test-id" disabled />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Checkbox disabled />);
 
       const input = screen.getByRole('checkbox');
 
@@ -208,9 +201,7 @@ describe('<Checkbox />', () => {
 
   describe('Checkbox click behaviour', () => {
     it('should be checked when clicked', () => {
-      const { asFragment } = render(<Checkbox id="test-id" />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Checkbox id="test-id" />);
 
       const input = screen.getByRole('checkbox');
 
@@ -220,9 +211,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should be unchecked when clicked', () => {
-      const { asFragment } = render(<Checkbox id="test-id" defaultChecked />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Checkbox id="test-id" defaultChecked />);
 
       const input = screen.getByRole('checkbox');
 
@@ -234,9 +223,7 @@ describe('<Checkbox />', () => {
     it('should calls onClick prop when clicked', () => {
       const handleClick = jest.fn();
 
-      const { asFragment } = render(<Checkbox id="test-id" onClick={handleClick} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Checkbox id="test-id" onClick={handleClick} />);
 
       fireEvent.click(screen.getByRole('checkbox'));
       expect(handleClick).toHaveBeenCalledTimes(1);
@@ -245,9 +232,7 @@ describe('<Checkbox />', () => {
     it('should calls onChange prop when clicked', () => {
       const onChange = jest.fn();
 
-      const { asFragment } = render(<Checkbox id="test-id" onChange={onChange} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<Checkbox id="test-id" onChange={onChange} />);
 
       const input = screen.getByRole('checkbox');
 

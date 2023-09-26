@@ -17,18 +17,21 @@ describe('<Avatar />', () => {
     });
 
     it('should render as image', () => {
-      render(<Avatar src={src} />);
+      const { asFragment } = render(<Avatar src={src} />);
 
       const img = screen.getByRole('img');
 
       expect(img).toBeInTheDocument();
       expect(img.tagName).toBe('IMG');
       expect(img.getAttribute('src')).toEqual(src);
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should  render 1 initial with a 1-word name', () => {
-      render(<Avatar name="First" />);
+      const { asFragment } = render(<Avatar name="First" />);
+
       expect(screen.getByText('F')).toBeInTheDocument();
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should render 2 initials with a 2-word name', () => {
@@ -42,17 +45,20 @@ describe('<Avatar />', () => {
     });
 
     it('should render initials with fn', () => {
-      render(<Avatar name="First" getInitials={(str) => str.split('')[0]} />);
+      const { asFragment } = render(<Avatar name="First" getInitials={(str) => str.split('')[0]} />);
+
       expect(screen.getByText('F')).toBeInTheDocument();
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should prioritize render as image over initials', () => {
-      render(<Avatar src={src} name="First" />);
+      const { asFragment } = render(<Avatar src={src} name="First" />);
 
       const img = screen.getByRole('img');
 
       expect(img).toBeInTheDocument();
       expect(img.getAttribute('src')).toEqual(src);
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
@@ -66,9 +72,53 @@ describe('<Avatar />', () => {
       ).toMatch(/test-id/i);
     });
 
-    it('should pass className', () => {
-      const { asFragment } = render(<Avatar className="my-class-name" />);
+    it('should have class name', () => {
+      const { asFragment } = render(<Avatar className="test-cls" />);
 
+      expect(
+        screen
+          .getByRole('img')
+          .closest('div[class*="Avatar"]')
+          .getAttribute('class'),
+      ).toMatch(/test-cls/i);
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
+
+  describe('Avatar render sizes', () => {
+    it('should render a small size', () => {
+      const { asFragment } = render(<Avatar size="small" />);
+
+      expect(
+        screen
+          .getByRole('img')
+          .closest('div[class*="Avatar"]')
+          .getAttribute('class'),
+      ).toMatch(/Avatar-small/i);
+      expect(asFragment()).toMatchSnapshot();
+    });
+
+    it('should render a medium size', () => {
+      const { asFragment } = render(<Avatar size="medium" />);
+
+      expect(
+        screen
+          .getByRole('img')
+          .closest('div[class*="Avatar"]')
+          .getAttribute('class'),
+      ).toMatch(/Avatar-medium/i);
+      expect(asFragment()).toMatchSnapshot();
+    });
+
+    it('should render a large size', () => {
+      const { asFragment } = render(<Avatar size="large" />);
+
+      expect(
+        screen
+          .getByRole('img')
+          .closest('div[class*="Avatar"]')
+          .getAttribute('class'),
+      ).toMatch(/Avatar-large/i);
       expect(asFragment()).toMatchSnapshot();
     });
   });

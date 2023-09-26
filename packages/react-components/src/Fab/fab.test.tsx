@@ -11,8 +11,6 @@ describe('<Fab />', () => {
       </Fab>,
     );
 
-    expect(asFragment()).toMatchSnapshot();
-
     const button = screen.getByRole('button');
     const icon = screen.getByRole('img');
 
@@ -22,5 +20,7 @@ describe('<Fab />', () => {
     expect(button.getAttribute('class')).toMatch(/ButtonBase-Fab/i);
     expect(icon.tagName).toBe('svg');
     expect(button).toContainElement(icon);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });

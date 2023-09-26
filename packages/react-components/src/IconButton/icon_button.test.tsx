@@ -11,8 +11,6 @@ describe('<IconButton />', () => {
       </IconButton>,
     );
 
-    expect(asFragment()).toMatchSnapshot();
-
     const button = screen.getByRole('button');
     const icon = screen.getByRole('img');
 
@@ -21,6 +19,8 @@ describe('<IconButton />', () => {
     expect(button.tagName).toBe('BUTTON');
     expect(icon.tagName).toBe('svg');
     expect(button).toContainElement(icon);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should have title', () => {
@@ -30,10 +30,10 @@ describe('<IconButton />', () => {
       </IconButton>,
     );
 
-    expect(asFragment()).toMatchSnapshot();
-
     const button = screen.getByRole('button');
 
     expect(button.getAttribute('aria-label')).toMatch(/Test title/i);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });

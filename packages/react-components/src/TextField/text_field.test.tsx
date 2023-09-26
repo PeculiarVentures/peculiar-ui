@@ -7,86 +7,86 @@ describe('<TextField />', () => {
     it('should render as default', () => {
       const { asFragment } = render(<TextField />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('textbox');
 
       expect(input).toBeInTheDocument();
       expect(input.tagName).toBe('INPUT');
       expect(input.getAttribute('type')).toBe('text');
       expect(input.getAttribute('class')).toMatch(/TextField-medium/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have label', () => {
       const { asFragment } = render(<TextField label="Test label" />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       expect(
         screen.getByText('Test label').closest('label').getAttribute('class'),
       ).toMatch(/TextField-label/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have id', () => {
       const { asFragment } = render(<TextField id="test-id" />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('textbox');
 
       expect(input.getAttribute('id')).toBe('test-id');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be disabled', () => {
       const { asFragment } = render(<TextField disabled />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('textbox');
 
       expect(input).toHaveAttribute('disabled');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have required', () => {
       const { asFragment } = render(<TextField required />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('textbox');
 
       expect(input).toHaveAttribute('required');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have name attr', () => {
       const { asFragment } = render(<TextField name="test-name" />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('textbox');
 
       expect(input.getAttribute('name')).toEqual('test-name');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
       const { asFragment } = render(<TextField data-testid="test-id" />);
-
-      expect(asFragment()).toMatchSnapshot();
 
       const input = screen.getByRole('textbox');
 
       expect(input.closest('div').getAttribute('data-testid')).toMatch(
         /test-id/i,
       );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have className', () => {
       const { asFragment } = render(<TextField className="test-cls" />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('textbox');
 
       expect(input.closest('div').getAttribute('class')).toMatch(/test-cls/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     // TODO: do not passed, should fix in component
@@ -101,9 +101,7 @@ describe('<TextField />', () => {
     it('should forwards ref to div element', () => {
       const ref = React.createRef<HTMLDivElement>();
 
-      const { asFragment } = render(<TextField ref={ref} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<TextField ref={ref} />);
 
       const input = screen.getByRole('textbox');
 
@@ -113,9 +111,7 @@ describe('<TextField />', () => {
     it('should forwards ref to input element', () => {
       const ref = React.createRef<HTMLInputElement>();
 
-      const { asFragment } = render(<TextField inputRef={ref} />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<TextField inputRef={ref} />);
 
       const input = screen.getByRole('textbox');
 
@@ -125,21 +121,21 @@ describe('<TextField />', () => {
     it('should have placeholder', () => {
       const { asFragment } = render(<TextField placeholder="test-placeholder" />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('textbox');
 
       expect(input.getAttribute('placeholder')).toBe('test-placeholder');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have defaultValue', () => {
       const { asFragment } = render(<TextField defaultValue="test-value" />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('textbox');
 
       expect(input.getAttribute('value')).toBe('test-value');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have value', () => {
@@ -147,59 +143,43 @@ describe('<TextField />', () => {
 
       const { asFragment } = render(<TextField value="test-value" onChange={onChange} />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       const input = screen.getByRole('textbox');
 
       expect(input.getAttribute('value')).toBe('test-value');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have error alert', () => {
       const { asFragment } = render(<TextField error errorText="Error message" />);
 
-      expect(asFragment()).toMatchSnapshot();
-
       expect(screen.getByText('Error message')).toBeInTheDocument();
+
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 
   describe('TextField render sizes', () => {
-    it('should render a small size', () => {
-      const { asFragment } = render(<TextField size="small" />);
+    const sizes: Array<React.ComponentProps<typeof TextField>['size']> = [
+      'small',
+      'medium',
+      'large',
+    ];
 
-      expect(asFragment()).toMatchSnapshot();
+    sizes.forEach((size) => {
+      it(`size "${size}"`, () => {
+        const { asFragment } = render(
+          <TextField size={size} />,
+        );
 
-      const input = screen.getByRole('textbox');
-
-      expect(input.getAttribute('class')).toMatch(/TextField-small/i);
-    });
-
-    it('should render a medium size', () => {
-      const { asFragment } = render(<TextField size="medium" />);
-
-      expect(asFragment()).toMatchSnapshot();
-
-      const input = screen.getByRole('textbox');
-
-      expect(input.getAttribute('class')).toMatch(/TextField-medium/i);
-    });
-
-    it('should render a large size', () => {
-      const { asFragment } = render(<TextField size="large" />);
-
-      expect(asFragment()).toMatchSnapshot();
-
-      const input = screen.getByRole('textbox');
-
-      expect(input.getAttribute('class')).toMatch(/TextField-large/i);
+        expect(asFragment()).toMatchSnapshot();
+      });
     });
   });
 
   describe('TextField focus behaviour', () => {
     it('should have focus', async () => {
-      const { asFragment } = render(<TextField />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<TextField />);
 
       const input = screen.getByRole('textbox');
 
@@ -210,9 +190,7 @@ describe('<TextField />', () => {
     });
 
     it("shouldn't have focus when disabled has been passed to the component", async () => {
-      const { asFragment } = render(<TextField disabled />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<TextField disabled />);
 
       const input = screen.getByRole('textbox');
 
@@ -223,9 +201,7 @@ describe('<TextField />', () => {
     });
 
     it('should have focus when autoFocus has been passed to the component', () => {
-      const { asFragment } = render(<TextField autoFocus />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<TextField autoFocus />);
 
       const input = screen.getByRole('textbox');
 
@@ -233,9 +209,7 @@ describe('<TextField />', () => {
     });
 
     it("shouldn't have focus when disabled & autoFocus has been passed to the component", async () => {
-      const { asFragment } = render(<TextField disabled autoFocus />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<TextField disabled autoFocus />);
 
       const input = screen.getByRole('textbox');
 
@@ -245,9 +219,7 @@ describe('<TextField />', () => {
 
   describe('TextField keyboard behaviour', () => {
     it('should have correct value after user input', async () => {
-      const { asFragment } = render(<TextField />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<TextField />);
 
       const input = screen.getByRole('textbox');
 
@@ -256,9 +228,7 @@ describe('<TextField />', () => {
     });
 
     it("shouldn't change value after user input when readOnly has been passed to the component", async () => {
-      const { asFragment } = render(<TextField readOnly defaultValue="test" />);
-
-      expect(asFragment()).toMatchSnapshot();
+      render(<TextField readOnly defaultValue="test" />);
 
       const input = screen.getByRole('textbox');
 
@@ -270,9 +240,8 @@ describe('<TextField />', () => {
   describe('TextField change behaviour', () => {
     it('should calls onChange after user input', async () => {
       const onChange = jest.fn();
-      const { asFragment } = render(<TextField onChange={onChange} />);
 
-      expect(asFragment()).toMatchSnapshot();
+      render(<TextField onChange={onChange} />);
 
       const input = screen.getByRole('textbox');
 
