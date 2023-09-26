@@ -23,7 +23,7 @@ export type AutocompleteRenderGroupParams = {
   children?: React.ReactNode;
 };
 
-export type AutocompleteProps<T, Multiple extends boolean | undefined = undefined> =
+export type AutocompleteOwnProps<T, Multiple extends boolean | undefined = undefined> =
   UseAutocompleteProps<T, Multiple> & {
     /**
      * The className of the component.
@@ -122,7 +122,7 @@ const AutocompleteRoot = styled('div')({
   width: '100%',
 });
 
-const AutocompleteField = styled(Typography)<TypographyOwnProps & Pick<AutocompleteProps<any>, 'size' | 'multiple'>>(
+const AutocompleteField = styled(Typography)<TypographyOwnProps & Pick<AutocompleteOwnProps<any>, 'size' | 'multiple'>>(
   (props) => ({
     outline: 'none',
     boxSizing: 'border-box',
@@ -196,11 +196,11 @@ const AutocompleteNativeInput = styled('input')({
   boxSizing: 'border-box',
 });
 
-const DropdownStateItem = styled('div')({
+const AutocompleteDropdownStateItem = styled('div')({
   padding: 'var(--pv-size-base-3) var(--pv-size-base-2)',
 });
 
-const DropdownRoot = styled('ul')({
+const AutocompleteDropdownList = styled('ul')({
   maxHeight: '36vh',
   overflowY: 'auto',
   margin: 0,
@@ -209,17 +209,16 @@ const DropdownRoot = styled('ul')({
   padding: '10px 0',
 });
 
-const DropdownGroupName = styled(Typography)({
+const AutocompleteDropdownGroupName = styled(Typography)({
   padding: 'var(--pv-size-base-2)',
 });
 
-const DropdownGroupList = styled('ul')({
+const AutocompleteDropdownGroupList = styled('ul')({
   padding: 0,
   listStyleType: 'none',
 });
 
-const DropdownGroupListItem = styled('li')<{ inGroup: boolean }>((props) => ({
-  label: 'Autocomplete-option',
+const AutocompleteDropdownGroupListItem = styled('li')<{ inGroup: boolean }>((props) => ({
   ...(props.inGroup ? {
     padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)',
   } : {
@@ -252,19 +251,19 @@ const DropdownGroupListItem = styled('li')<{ inGroup: boolean }>((props) => ({
   },
 }));
 
-const PopoverRoot = styled(Popover)({
+const AutocompletePopover = styled(Popover)({
   minWidth: 240,
 });
 
-const TagsList = styled('div')({
+const AutocompleteTagsList = styled('div')({
   overflow: 'hidden',
   width: '100%',
 });
 
-const TagChip = styled(Chip)<{
+const AutocompleteTag = styled(Chip)<{
   tagsLength: number,
   limitTags: number,
-  size: AutocompleteProps<any>['size'],
+  size: AutocompleteOwnProps<any>['size'],
 }>((props) => ({
   label: 'Autocomplete-tag',
   borderRadius: '2px',
@@ -281,22 +280,22 @@ const TagChip = styled(Chip)<{
   }),
 }));
 
-const TagSize = styled(Typography)({
+const AutocompleteTagSize = styled(Typography)({
   margin: '0 var(--pv-size-base-2)',
 });
 
-const SearchInput = styled(TextField)({
+const AutocompleteSearchInput = styled(TextField)({
   padding: 'var(--pv-size-base-3) var(--pv-size-base-3) var(--pv-size-base-2)',
 });
 
-const CreateNewButton = styled(Button)({
+const AutocompleteCreateNewButton = styled(Button)({
   width: '100%',
   borderRadius: 0,
   justifyContent: 'left',
   padding: '0px var(--pv-size-base-2)',
 });
 
-const Error = styled(Typography)({
+const AutocompleteError = styled(Typography)({
   marginTop: '2px',
 });
 /**
@@ -304,7 +303,7 @@ const Error = styled(Typography)({
  */
 
 export const Autocomplete = <T, Multiple extends boolean | undefined = undefined>(
-  props: AutocompleteProps<T, Multiple>,
+  props: AutocompleteOwnProps<T, Multiple>,
 ): JSX.Element => {
   const {
     size,
@@ -356,8 +355,8 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
     popoverProps.onClose(event);
   };
 
-  const defaultRenderOption: AutocompleteProps<T, Multiple>['renderOption'] = (propsOption, option) => (
-    <DropdownGroupListItem
+  const defaultRenderOption: AutocompleteOwnProps<T, Multiple>['renderOption'] = (propsOption, option) => (
+    <AutocompleteDropdownGroupListItem
       {...propsOption}
       inGroup={Boolean(groupBy)}
     >
@@ -368,20 +367,20 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
       >
         {getOptionLabel(option)}
       </Typography>
-    </DropdownGroupListItem>
+    </AutocompleteDropdownGroupListItem>
   );
 
   const renderGroup = (params: AutocompleteRenderGroupParams) => (
     <li key={params.key}>
-      <DropdownGroupName
+      <AutocompleteDropdownGroupName
         variant="c1"
         color="gray-10"
       >
         {params.group}
-      </DropdownGroupName>
-      <DropdownGroupList>
+      </AutocompleteDropdownGroupName>
+      <AutocompleteDropdownGroupList>
         {params.children}
-      </DropdownGroupList>
+      </AutocompleteDropdownGroupList>
     </li>
   );
 
@@ -396,9 +395,9 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
 
       return (
         <>
-          <TagsList>
+          <AutocompleteTagsList>
             {valueLimits.map((v, index) => (
-              <TagChip
+              <AutocompleteTag
                 {...getTagProps(v, index)}
                 color="default"
                 variant="contained"
@@ -407,16 +406,16 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
                 tagsLength={value.length}
               >
                 {getOptionLabel(v)}
-              </TagChip>
+              </AutocompleteTag>
             ))}
-          </TagsList>
+          </AutocompleteTagsList>
           {!!more && (
-            <TagSize
+            <AutocompleteTagSize
               variant="c2"
               color="gray-9"
             >
               {getLimitTagsText(more)}
-            </TagSize>
+            </AutocompleteTagSize>
           )}
         </>
       );
@@ -428,7 +427,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
   const renderedValue = renderValue();
   const isValueEmpty = renderedValue === null;
 
-  const defaultRenderRoot: AutocompleteProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => (
+  const defaultRenderRoot: AutocompleteOwnProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => (
     <AutocompleteRoot>
       <AutocompleteField
         {...propsRoot}
@@ -476,14 +475,14 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
     <>
       {renderRoot({ ...getRootProps(), disabled }, value, getTagProps)}
       {error && errorText && (
-        <Error
+        <AutocompleteError
           variant="c2"
           color="wrong"
         >
           {errorText}
-        </Error>
+        </AutocompleteError>
       )}
-      <PopoverRoot
+      <AutocompletePopover
         placement="bottom-start"
         allowUseSameWidth
         {...popoverProps}
@@ -495,7 +494,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
             borderStyle="solid"
             borderWidth={1}
           >
-            <SearchInput
+            <AutocompleteSearchInput
               inputProps={otherInputProps}
               onChange={onChange}
               placeholder="Search"
@@ -504,7 +503,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
           </Box>
         )}
         {loading && groupedOptions.length === 0 && (
-          <DropdownStateItem>
+          <AutocompleteDropdownStateItem>
             {typeof loadingText === 'string' ? (
               <Typography
                 variant="b2"
@@ -513,10 +512,10 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
                 {loadingText}
               </Typography>
             ) : loadingText}
-          </DropdownStateItem>
+          </AutocompleteDropdownStateItem>
         )}
         {groupedOptions.length === 0 && !loading && (
-          <DropdownStateItem>
+          <AutocompleteDropdownStateItem>
             {typeof noOptionsText === 'string' ? (
               <Typography
                 variant="b2"
@@ -525,10 +524,10 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
                 {noOptionsText}
               </Typography>
             ) : noOptionsText}
-          </DropdownStateItem>
+          </AutocompleteDropdownStateItem>
         )}
         {groupedOptions.length > 0 && (
-          <DropdownRoot {...getListboxProps()}>
+          <AutocompleteDropdownList {...getListboxProps()}>
             {groupedOptions
               // @ts-ignore
               .map((option, index) => {
@@ -546,7 +545,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
 
                 return renderListOption(option as T, index);
               })}
-          </DropdownRoot>
+          </AutocompleteDropdownList>
         )}
         {allowCreateOption && !loading && (
           <Box
@@ -555,17 +554,17 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
             borderStyle="solid"
             borderWidth={1}
           >
-            <CreateNewButton
+            <AutocompleteCreateNewButton
               color="secondary"
               textVariant="b3"
               onClick={handleCreate}
               startIcon={<PlusIcon />}
             >
               {createOptionText}
-            </CreateNewButton>
+            </AutocompleteCreateNewButton>
           </Box>
         )}
-      </PopoverRoot>
+      </AutocompletePopover>
     </>
   );
 };

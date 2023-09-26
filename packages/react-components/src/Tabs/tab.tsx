@@ -90,12 +90,12 @@ export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
   const {
     color = 'black',
     component,
-    onChange,
     id,
     disabled,
     // @ts-ignore
     selected,
     children,
+    onChange,
     ...other
   } = props;
   const Component = component || 'button';
@@ -128,7 +128,6 @@ export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
 
   return (
     <TabRoot
-      {...other}
       as={Component}
       type="button"
       role="tab"
@@ -137,6 +136,7 @@ export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
       id={id}
       aria-selected={selected || undefined}
       onClick={handleClick}
+      {...other}
     >
       <Typography
         variant="s2"

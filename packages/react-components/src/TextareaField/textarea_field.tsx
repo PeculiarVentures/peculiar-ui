@@ -2,7 +2,10 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { Typography } from '../Typography';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type TextareaFieldOwnProps = {
   /**
    * If `true`, the component is disabled.
    */
@@ -73,15 +76,17 @@ type BaseProps = {
    * the field (not from interacting with the field).
    */
   readOnly?: boolean;
-  'data-testid'?: string;
 };
 
-type TextareaFieldProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type TextareaFieldProps = TextareaFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+/**
+ *
+ */
 
 /**
  * Styles.
  */
-const TextareaInput = styled('textarea')<Pick<TextareaFieldProps, 'size'>>((props) => ({
+const TextareaFieldInput = styled('textarea')<Pick<TextareaFieldProps, 'size'>>((props) => ({
   fontFamily: 'inherit',
   outline: 'none',
   boxSizing: 'border-box',
@@ -135,13 +140,12 @@ const TextareaInput = styled('textarea')<Pick<TextareaFieldProps, 'size'>>((prop
   }),
 }));
 
-const Label = styled('label')({
-  label: 'TextField-label',
+const TextareaFieldLabel = styled('label')({
   marginBottom: '2px',
   display: 'inline-block',
 });
 
-const Error = styled(Typography)({
+const TextareaFieldError = styled(Typography)({
   marginTop: '2px',
 });
 /**
@@ -151,9 +155,7 @@ const Error = styled(Typography)({
 export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps>((props, ref) => {
   const {
     size,
-    className,
     label,
-    onChange,
     inputProps,
     disabled,
     defaultValue,
@@ -167,17 +169,17 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
     errorText,
     autoFocus,
     readOnly,
+    onChange,
     ...other
   } = props;
 
   return (
     <div
-      {...other}
       ref={ref}
-      className={className}
+      {...other}
     >
       {label && (
-        <Label
+        <TextareaFieldLabel
           htmlFor={id}
         >
           <Typography
@@ -187,9 +189,9 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
           >
             {label}
           </Typography>
-        </Label>
+        </TextareaFieldLabel>
       )}
-      <TextareaInput
+      <TextareaFieldInput
         {...inputProps}
         size={size}
         disabled={disabled}
@@ -206,12 +208,12 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
         readOnly={readOnly}
       />
       {error && errorText && (
-        <Error
+        <TextareaFieldError
           variant="c2"
           color="wrong"
         >
           {errorText}
-        </Error>
+        </TextareaFieldError>
       )}
     </div>
   );

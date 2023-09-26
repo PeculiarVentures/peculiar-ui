@@ -1,8 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { ButtonBaseOwnProps } from '../ButtonBase';
-import { Button } from '../Button';
+import { ButtonBaseOwnProps, ButtonBase } from '../ButtonBase';
 
 /**
  * Types.
@@ -34,7 +33,7 @@ export type FabProps<
 /**
  * Styles.
  */
-const FabRoot = styled(Button)<FabOwnProps>({
+const FabRoot = styled(ButtonBase)<FabOwnProps>({
   borderRadius: '50%',
   height: 'var(--pv-size-base-11)',
   width: 'var(--pv-size-base-11)',
