@@ -66,50 +66,10 @@ describe('<Avatar />', () => {
       ).toMatch(/test-id/i);
     });
 
-    it('should have class name', () => {
-      render(<Avatar className="test-cls" />);
+    it('should pass className', () => {
+      const { asFragment } = render(<Avatar className="my-class-name" />);
 
-      expect(
-        screen
-          .getByRole('img')
-          .closest('div[class*="Avatar"]')
-          .getAttribute('class'),
-      ).toMatch(/test-cls/i);
-    });
-  });
-
-  describe('Avatar render sizes', () => {
-    it('should render a small size', () => {
-      render(<Avatar size="small" />);
-
-      expect(
-        screen
-          .getByRole('img')
-          .closest('div[class*="Avatar"]')
-          .getAttribute('class'),
-      ).toMatch(/Avatar-small/i);
-    });
-
-    it('should render a medium size', () => {
-      render(<Avatar size="medium" />);
-
-      expect(
-        screen
-          .getByRole('img')
-          .closest('div[class*="Avatar"]')
-          .getAttribute('class'),
-      ).toMatch(/Avatar-medium/i);
-    });
-
-    it('should render a large size', () => {
-      render(<Avatar size="large" />);
-
-      expect(
-        screen
-          .getByRole('img')
-          .closest('div[class*="Avatar"]')
-          .getAttribute('class'),
-      ).toMatch(/Avatar-large/i);
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 
@@ -136,6 +96,24 @@ describe('<Avatar />', () => {
       fireEvent.load(img);
 
       expect(handleLoad).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('sizes', () => {
+    const sizes: Array<React.ComponentProps<typeof Avatar>['size']> = [
+      'small',
+      'medium',
+      'large',
+    ];
+
+    sizes.forEach((size) => {
+      it(`size "${size}"`, () => {
+        const { asFragment } = render(
+          <Avatar size={size} />,
+        );
+
+        expect(asFragment()).toMatchSnapshot();
+      });
     });
   });
 });
