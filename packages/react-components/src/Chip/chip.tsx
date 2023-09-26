@@ -62,7 +62,7 @@ export type ChipProps<
  */
 const ChipRoot = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<ChipOwnProps>({
+})<ChipOwnProps>((props) => ({
   display: 'inline-flex',
   maxWidth: '100%',
   fontFamily: 'inherit',
@@ -72,8 +72,7 @@ const ChipRoot = styled('div', {
   padding: '0 var(--pv-size-base-2)',
   height: 'var(--pv-size-base-6)',
   backgroundColor: 'transparent',
-  transition:
-    'background-color 200ms, color 200ms, border-color 200ms, box-shadow 200ms',
+  transition: 'background-color 200ms, color 200ms, border-color 200ms, box-shadow 200ms',
   margin: '0 var(--pv-size-base)',
   cursor: 'default',
   border: '1px solid transparent',
@@ -82,94 +81,80 @@ const ChipRoot = styled('div', {
   alignItems: 'center',
   whiteSpace: 'nowrap',
   textDecoration: 'none',
-}, (props) => ({
-  // stylesDisabled
-  pointerEvents: props.disabled ? 'none' : 'auto',
-}), (props) => Boolean(props.onClick) && !props.disabled && ({
-  // stylesClickable
-  cursor: 'pointer',
-  userSelect: 'none',
-  WebkitTapHighlightColor: 'transparent',
-}), (props) => props.color !== 'default' && props.variant === 'contained' && ({
-  // stylesVariantContainedColorNotDefault
-  backgroundColor: `var(--pv-color-${props.color})`,
-  color: 'var(--pv-color-white)',
-  ...(typeof props.onClick === 'function' && !props.disabled && {
-    '&:hover': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-1)`,
-    },
-    '&:focus': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-2)`,
-    },
-    '&:active': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-2)`,
-      boxShadow: 'var(--pv-shadow-light-medium)',
-    },
-  }),
   ...(props.disabled && {
-    color: 'var(--pv-color-gray-8)',
-    backgroundColor: 'var(--pv-color-gray-4)',
+    pointerEvents: 'none',
   }),
-}), (props) => props.color === 'default' && props.variant === 'contained' && ({
-  // stylesVariantContainedColorDefault
-  backgroundColor: 'var(--pv-color-gray-4)',
-  color: 'var(--pv-color-black)',
-  ...(typeof props.onClick === 'function' && !props.disabled && {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-gray-7)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-gray-6)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-gray-5)',
-    },
+  ...(Boolean(props.onClick) && !props.disabled && {
+    cursor: 'pointer',
+    userSelect: 'none',
+    WebkitTapHighlightColor: 'transparent',
   }),
-  ...(props.disabled && {
-    color: 'var(--pv-color-gray-8)',
-    backgroundColor: 'var(--pv-color-gray-4)',
-  }),
-}), (props) => props.color !== 'default' && props.variant === 'outlined' && ({
-  // stylesVariantOutlinedColorNotDefault
-  backgroundColor: 'transparent',
-  color: `var(--pv-color-${props.color})`,
-  borderColor: `var(--pv-color-${props.color}-tint-2)`,
-  ...(typeof props.onClick === 'function' && !props.disabled && {
-    '&:hover': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-5)`,
-    },
-    '&:focus': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-4)`,
-    },
-    '&:active': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-3)`,
-    },
-  }),
-  ...(props.disabled && {
-    color: 'var(--pv-color-gray-8)',
-    borderColor: 'var(--pv-color-gray-4)',
-  }),
-}), (props) => props.color === 'default' && props.variant === 'outlined' && ({
-  // stylesVariantOutlinedColorDefault
-  backgroundColor: 'transparent',
-  color: 'var(--pv-color-gray-10)',
-  borderColor: 'var(--pv-color-gray-6)',
-  ...(typeof props.onClick === 'function' && !props.disabled && {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-gray-3)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-gray-4)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-gray-5)',
-    },
-  }),
-  ...(props.disabled && {
-    color: 'var(--pv-color-gray-8)',
-    borderColor: 'var(--pv-color-gray-4)',
-  }),
-}));
+}), (props) => {
+  let color: string;
+  let borderColor: string;
+  let backgroundColor: string;
+  let backgroundColorHover: string;
+  let backgroundColorFocus: string;
+  let backgroundColorActive: string;
+  let boxShadowActive: string;
+
+  if (props.variant === 'contained') {
+    if (props.color === 'default') {
+      color = 'var(--pv-color-black)';
+      backgroundColor = 'var(--pv-color-gray-4)';
+      backgroundColorHover = 'var(--pv-color-gray-7)';
+      backgroundColorFocus = 'var(--pv-color-gray-6)';
+      backgroundColorActive = 'var(--pv-color-gray-5)';
+    } else {
+      color = 'var(--pv-color-white)';
+      backgroundColor = `var(--pv-color-${props.color})`;
+      backgroundColorHover = `var(--pv-color-${props.color}-tint-1)`;
+      backgroundColorFocus = `var(--pv-color-${props.color}-tint-2)`;
+      backgroundColorActive = `var(--pv-color-${props.color}-tint-2)`;
+      boxShadowActive = 'var(--pv-shadow-light-medium)';
+    }
+  }
+
+  if (props.variant === 'outlined') {
+    if (props.color === 'default') {
+      color = 'var(--pv-color-gray-10)';
+      borderColor = 'var(--pv-color-gray-6)';
+      backgroundColor = 'transparent';
+      backgroundColorHover = 'var(--pv-color-gray-3)';
+      backgroundColorFocus = 'var(--pv-color-gray-4)';
+      backgroundColorActive = 'var(--pv-color-gray-5)';
+    } else {
+      color = `var(--pv-color-${props.color})`;
+      borderColor = `var(--pv-color-${props.color}-tint-2)`;
+      backgroundColor = 'transparent';
+      backgroundColorHover = `var(--pv-color-${props.color}-tint-5)`;
+      backgroundColorFocus = `var(--pv-color-${props.color}-tint-4)`;
+      backgroundColorActive = `var(--pv-color-${props.color}-tint-3)`;
+    }
+  }
+
+  return {
+    borderColor,
+    backgroundColor,
+    color,
+    ...(typeof props.onClick === 'function' && !props.disabled && {
+      '&:hover': {
+        backgroundColor: backgroundColorHover,
+      },
+      '&:focus': {
+        backgroundColor: backgroundColorFocus,
+      },
+      '&:active': {
+        backgroundColor: backgroundColorActive,
+        boxShadow: boxShadowActive,
+      },
+    }),
+    ...(props.disabled && {
+      color: 'var(--pv-color-gray-8)',
+      borderColor: 'var(--pv-color-gray-4)',
+    }),
+  };
+});
 
 const ChipDeleteIcon = styled('span')({
   width: '24px',
