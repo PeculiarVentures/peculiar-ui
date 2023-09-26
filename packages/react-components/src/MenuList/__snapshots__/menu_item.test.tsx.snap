@@ -1,5 +1,285 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<MenuItem /> should have start & end icons 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding: 0px var(--pv-size-base-2);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  height: var(--pv-size-base-7);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  -webkit-transition: background-color 200ms;
+  transition: background-color 200ms;
+  background-color: transparent;
+  border: none;
+  color: var(--pv-color-black);
+  box-sizing: border-box;
+  gap: var(--pv-size-base-2);
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+<li
+    class="emotion-0"
+    role="menuitem"
+    tabindex="-1"
+  >
+    <span
+      class="emotion-1"
+    >
+      <svg
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 12.5h12M12 18.5v-12"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+      </svg>
+    </span>
+    <span
+      class="emotion-2"
+    >
+      MenuItem
+    </span>
+    <span
+      class="emotion-1"
+    >
+      <svg
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 12.5h12M12 18.5v-12"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+      </svg>
+    </span>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`<MenuItem /> should pass className 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding: 0px var(--pv-size-base-2);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  height: var(--pv-size-base-7);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  -webkit-transition: background-color 200ms;
+  transition: background-color 200ms;
+  background-color: transparent;
+  border: none;
+  color: var(--pv-color-black);
+  box-sizing: border-box;
+  gap: var(--pv-size-base-2);
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+<li
+    class="emotion-0 my-class-name"
+    role="menuitem"
+    tabindex="-1"
+  >
+    <span
+      class="emotion-1"
+    >
+      MenuItem
+    </span>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`<MenuItem /> should pass disabled 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding: 0px var(--pv-size-base-2);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  height: var(--pv-size-base-7);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+  -webkit-transition: background-color 200ms;
+  transition: background-color 200ms;
+  background-color: transparent;
+  border: none;
+  color: var(--pv-color-gray-7);
+  box-sizing: border-box;
+  gap: var(--pv-size-base-2);
+  pointer-events: none;
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+<li
+    aria-disabled="true"
+    class="emotion-0"
+    role="menuitem"
+    tabindex="-1"
+  >
+    <span
+      class="emotion-1"
+    >
+      MenuItem
+    </span>
+  </li>
+</DocumentFragment>
+`;
+
 exports[`<MenuItem /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {

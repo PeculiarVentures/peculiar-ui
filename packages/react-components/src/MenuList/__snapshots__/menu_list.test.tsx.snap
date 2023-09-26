@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<MenuList /> should pass className 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding: var(--pv-size-base-2) 0px;
+  outline: none;
+  list-style: none;
+  margin: 0;
+}
+
+<ul
+    class="emotion-0 my-class-name"
+    role="menu"
+    tabindex="-1"
+  >
+    <li>
+      Item-1
+    </li>
+    <li>
+      Item-2
+    </li>
+    <li>
+      Item-3
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
 exports[`<MenuList /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
