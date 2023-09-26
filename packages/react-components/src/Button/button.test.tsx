@@ -34,16 +34,6 @@ describe('<Button />', () => {
       expect(asFragment()).toMatchSnapshot();
     });
 
-    it('should render a contained button', () => {
-      const { asFragment } = render(<Button variant="contained">Text</Button>);
-
-      const button = screen.getByRole('button');
-
-      expect(button).not.toHaveStyle({ backgroundColor: 'transparent' });
-
-      expect(asFragment()).toMatchSnapshot();
-    });
-
     it('should be disabled', () => {
       const { asFragment } = render(<Button disabled>Text</Button>);
 
@@ -117,6 +107,33 @@ describe('<Button />', () => {
       expect(button.getAttribute('title')).toMatch(/Test title/i);
 
       expect(asFragment()).toMatchSnapshot();
+    });
+  });
+
+  describe('Button render (variants & colors)', () => {
+    const variants: Array<React.ComponentProps<typeof Button>['variant']> = [
+      'contained',
+      'outlined',
+      'text',
+    ];
+    const colors: Array<React.ComponentProps<typeof Button>['color']> = [
+      'default',
+      'primary',
+      'secondary',
+      'white',
+      'wrong',
+    ];
+
+    variants.forEach((variant) => {
+      colors.forEach((color) => {
+        it(`variant: "${variant}" & color: "${color}"`, () => {
+          const { asFragment } = render(
+            <Button variant={variant} color={color}>Text</Button>,
+          );
+
+          expect(asFragment()).toMatchSnapshot();
+        });
+      });
     });
   });
 
