@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Avatar /> Avatar render variants should render as default 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--pv-color-gray-7);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  height: var(--pv-size-base-7);
+  width: var(--pv-size-base-7);
+}
+
+<div
+    class="emotion-0"
+  >
+    <svg
+      fill="none"
+      role="img"
+      viewBox="0 0 10 13"
+      width="10"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.998 3.174c0 1.594 1 2.674 2 2.674s2-1.08 2-2.674c0-1.595-1-2.674-2-2.674s-2 1.08-2 2.674zM5 8.858c-1.249 0-2.383-.448-3.308-1.146C.95 8.064.5 8.878.5 9.812v2.12h9V9.81c0-.918-.46-1.746-1.193-2.098C7.383 8.41 6.25 8.858 5 8.858z"
+        fill="#fff"
+        stroke="#fff"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;

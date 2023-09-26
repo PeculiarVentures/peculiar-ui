@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Typography /> should render with default styles 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+  color: var(--pv-color-black);
+}
+
+<p
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;

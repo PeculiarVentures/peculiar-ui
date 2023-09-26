@@ -7,12 +7,13 @@ const src = 'https://bit.ly/dan-abramov';
 describe('<Avatar />', () => {
   describe('Avatar render variants', () => {
     it('should render as default', () => {
-      render(<Avatar />);
+      const { asFragment } = render(<Avatar />);
 
       const img = screen.getByRole('img');
 
       expect(img).toBeInTheDocument();
       expect(img.tagName).toBe('svg');
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should render as image', () => {
