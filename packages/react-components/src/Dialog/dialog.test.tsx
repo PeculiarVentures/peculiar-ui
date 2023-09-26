@@ -23,6 +23,16 @@ describe('<Dialog />', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
+  it('should pass className', () => {
+    const { baseElement } = render(
+      <Dialog open className="my-class-name">
+        Dialog Content
+      </Dialog>,
+    );
+
+    expect(baseElement).toMatchSnapshot();
+  });
+
   it('should render fullscreen', () => {
     const { baseElement } = render(
       <Dialog open fullScreen>
