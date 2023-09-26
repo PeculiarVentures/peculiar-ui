@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { Typography } from '../Typography';
 import { CloseSmallIcon } from '../icons';
@@ -59,7 +60,9 @@ export type ChipProps<
 /**
  * Styles.
  */
-const ChipRoot = styled('div')<ChipOwnProps>({
+const ChipRoot = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<ChipOwnProps>({
   display: 'inline-flex',
   maxWidth: '100%',
   fontFamily: 'inherit',
@@ -202,6 +205,7 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
     onDelete,
     ...other
   } = props;
+  const Component = component || 'div';
   const clickable = Boolean(onClick);
 
   const baseProps = {
@@ -240,8 +244,6 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
       {startContentProp}
     </ChipStartContent>
   );
-
-  const Component = component || 'div';
 
   return (
     <ChipRoot

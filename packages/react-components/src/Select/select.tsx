@@ -3,7 +3,10 @@ import styled from '@emotion/styled';
 import { Typography } from '../Typography';
 import { ArrowDropDownIcon } from '../icons';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type SelectOwnProps = {
   options: {
     value: string;
     label: string;
@@ -73,15 +76,20 @@ type BaseProps = {
    * Callback fired when the value is changed.
    */
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
-  'data-testid'?: string;
 };
 
-type SelectProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type SelectProps = SelectOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 type SelectRootProps = React.HTMLAttributes<HTMLSelectElement> & {
-  selectSize?: BaseProps['size']
+  selectSize?: SelectOwnProps['size']
 };
+/**
+ *
+ */
 
-const SelectRoot = styled('select')<SelectRootProps>({
+/**
+ * Styles.
+ */
+const SelectRoot = styled('select')<SelectRootProps>((props) => ({
   fontFamily: 'inherit',
   outline: 'none',
   cursor: 'pointer',
@@ -97,6 +105,10 @@ const SelectRoot = styled('select')<SelectRootProps>({
   transition: 'background-color 200ms, color 200ms, border-color 200ms',
   display: 'block',
   appearance: 'none',
+  fontWeight: 'var(--pv-text-c1-weight)' as 'normal',
+  fontSize: 'var(--pv-text-c1-size)',
+  lineHeight: 'var(--pv-text-c1-height)',
+  letterSpacing: 'var(--pv-text-c1-spacing)',
   '&:hover': {
     backgroundColor: 'var(--pv-color-gray-3)',
     borderColor: 'var(--pv-color-gray-7)',
@@ -117,17 +129,15 @@ const SelectRoot = styled('select')<SelectRootProps>({
       borderColor: 'var(--pv-color-secondary-tint-3)',
     },
   },
-}, {
-  fontWeight: 'var(--pv-text-c1-weight)',
-  fontSize: 'var(--pv-text-c1-size)',
-  lineHeight: 'var(--pv-text-c1-height)',
-  letterSpacing: 'var(--pv-text-c1-spacing)',
-} as any, (props) => props.selectSize === 'small' && ({
-  height: 'var(--pv-size-base-6)',
-}), (props) => props.selectSize === 'medium' && ({
-  height: 'var(--pv-size-base-7)',
-}), (props) => props.selectSize === 'large' && ({
-  height: 'var(--pv-size-base-8)',
+  ...(props.selectSize === 'small' && {
+    height: 'var(--pv-size-base-6)',
+  }),
+  ...(props.selectSize === 'medium' && {
+    height: 'var(--pv-size-base-7)',
+  }),
+  ...(props.selectSize === 'large' && {
+    height: 'var(--pv-size-base-8)',
+  }),
 }));
 
 const SelectLabel = styled('label')({
@@ -143,24 +153,26 @@ const SelectContainer = styled('div')({
   position: 'relative',
 });
 
-const SelectArrowIcon = styled(ArrowDropDownIcon)<{ disabled: boolean }>({
+const SelectArrowIcon = styled(ArrowDropDownIcon)<{ disabled: boolean }>((props) => ({
   position: 'absolute',
   right: '0px',
   top: 'calc(50% - 12px)',
   pointerEvents: 'none',
   margin: '0px var(--pv-size-base)',
   color: 'var(--pv-color-gray-10)',
-}, (props) => props.disabled && ({
-  color: 'var(--pv-color-gray-7)',
+  ...(props.disabled && {
+    color: 'var(--pv-color-gray-7)',
+  }),
 }));
+/**
+ *
+ */
 
 export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
   const {
     options,
     size,
-    className,
     label,
-    onChange,
     inputProps,
     disabled,
     defaultValue,
@@ -173,14 +185,14 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
     error,
     errorText,
     autoFocus,
+    onChange,
     ...other
   } = props;
 
   return (
     <div
-      {...other}
       ref={ref}
-      className={className}
+      {...other}
     >
       {label && (
         <SelectLabel
