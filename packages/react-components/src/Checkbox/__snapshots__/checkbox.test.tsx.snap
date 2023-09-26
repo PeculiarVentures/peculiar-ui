@@ -93,11 +93,11 @@ exports[`<Checkbox /> Checkbox click behaviour should be checked when clicked 1`
 
 <label
     class="emotion-0"
-    for="L2kzplqKy9KQ0LjvLdTdx"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="L2kzplqKy9KQ0LjvLdTdx"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -211,12 +211,12 @@ exports[`<Checkbox /> Checkbox click behaviour should be unchecked when clicked 
 
 <label
     class="emotion-0"
-    for="S__hNtx6lBXwh5eGV8Kmk"
+    for="test-id"
   >
     <input
       checked=""
       class="emotion-1"
-      id="S__hNtx6lBXwh5eGV8Kmk"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -330,11 +330,11 @@ exports[`<Checkbox /> Checkbox click behaviour should calls onChange prop when c
 
 <label
     class="emotion-0"
-    for="RvxBU4VuYL4eMRS64ZNsu"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="RvxBU4VuYL4eMRS64ZNsu"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -448,11 +448,11 @@ exports[`<Checkbox /> Checkbox click behaviour should calls onClick prop when cl
 
 <label
     class="emotion-0"
-    for="ZvR_riD8ezuPzEkeYSSbU"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="ZvR_riD8ezuPzEkeYSSbU"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -566,11 +566,11 @@ exports[`<Checkbox /> Checkbox focus behaviour should have focus 1`] = `
 
 <label
     class="emotion-0"
-    for="dVt0BjmiEbvbTEdqgXNhd"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="dVt0BjmiEbvbTEdqgXNhd"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -684,12 +684,12 @@ exports[`<Checkbox /> Checkbox focus behaviour shouldn't have focus when disable
 
 <label
     class="emotion-0"
-    for="yzXNSZztj5InGk8D_hi3r"
+    for="test-id"
   >
     <input
       class="emotion-1"
       disabled=""
-      id="yzXNSZztj5InGk8D_hi3r"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -803,12 +803,12 @@ exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
 
 <label
     class="emotion-0"
-    for="Bj_0fhhv2au9Rmeo-a4__"
+    for="test-id"
   >
     <input
       checked=""
       class="emotion-1"
-      id="Bj_0fhhv2au9Rmeo-a4__"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -922,12 +922,12 @@ exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked
 
 <label
     class="emotion-0"
-    for="97sDb46-5xYPrmzmjPitL"
+    for="test-id"
   >
     <input
       checked=""
       class="emotion-1"
-      id="97sDb46-5xYPrmzmjPitL"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -1041,12 +1041,12 @@ exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
 
 <label
     class="emotion-0"
-    for="JodU16KKh7VStOY3hJcTG"
+    for="test-id"
   >
     <input
       class="emotion-1"
       disabled=""
-      id="JodU16KKh7VStOY3hJcTG"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -1160,11 +1160,11 @@ exports[`<Checkbox /> Checkbox render variants should be unchecked 1`] = `
 
 <label
     class="emotion-0"
-    for="VxbxGFMBlbRYdQLDZHhKQ"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="VxbxGFMBlbRYdQLDZHhKQ"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -1278,11 +1278,11 @@ exports[`<Checkbox /> Checkbox render variants should be unchecked, defaultCheck
 
 <label
     class="emotion-0"
-    for="hCEZFfU4uMJw0175XJqkS"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="hCEZFfU4uMJw0175XJqkS"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -1396,11 +1396,11 @@ exports[`<Checkbox /> Checkbox render variants should forwards ref to label elem
 
 <label
     class="emotion-0"
-    for="KY5YVU_TP1HR9oj_qYLZF"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="KY5YVU_TP1HR9oj_qYLZF"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -1514,11 +1514,11 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
 
 <label
     class="emotion-0 test-cls"
-    for="V9dSLm00uAYVSOpAa-hcJ"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="V9dSLm00uAYVSOpAa-hcJ"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -1632,11 +1632,11 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
 
 <label
     class="emotion-0"
-    for="dlP98xdEATRPBECbF3GOx"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="dlP98xdEATRPBECbF3GOx"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -1870,11 +1870,11 @@ exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
 
 <label
     class="emotion-0"
-    for="X3uvIJt1HCU-uiunYgj-X"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="X3uvIJt1HCU-uiunYgj-X"
+      id="test-id"
       required=""
       type="checkbox"
     />
@@ -1990,11 +1990,11 @@ exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
 <label
     class="emotion-0"
     data-testid="test-id"
-    for="ghJbFI5seMmMF4OIJtFxU"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="ghJbFI5seMmMF4OIJtFxU"
+      id="test-id"
       type="checkbox"
     />
     <svg
@@ -2108,11 +2108,11 @@ exports[`<Checkbox /> Checkbox render variants should render as default 1`] = `
 
 <label
     class="emotion-0"
-    for="QpkQLJ9mFomiGIAH9tGhR"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="QpkQLJ9mFomiGIAH9tGhR"
+      id="test-id"
       type="checkbox"
     />
     <svg

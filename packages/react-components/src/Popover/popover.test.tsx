@@ -7,7 +7,7 @@ describe('<Popover />', () => {
     const { asFragment } = render(
       <Popover
         open={false}
-        anchorEl={null}
+        anchorEl={document.createElement('div')}
       >
         <div>Inside</div>
       </Popover>,

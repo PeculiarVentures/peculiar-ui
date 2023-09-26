@@ -10,6 +10,7 @@ describe('<Autocomplete />', () => {
       const { asFragment } = render(
         <Autocomplete
           options={options}
+          id="test-id"
         />,
       );
 

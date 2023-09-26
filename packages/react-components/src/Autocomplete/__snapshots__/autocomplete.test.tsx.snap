@@ -120,7 +120,7 @@ exports[`<Autocomplete /> Autocomplete render variants should render as default 
       aria-hidden="true"
       autocomplete="off"
       class="emotion-3"
-      id="ZQe2X1mwIimLSknxW1z0H"
+      id="test-id"
       tabindex="-1"
       type="text"
       value=""

@@ -110,11 +110,11 @@ exports[`<Switch /> should render with default styles 1`] = `
 
 <label
     class="emotion-0"
-    for="pcTYo7vw4TX-E7PqsKBIl"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="pcTYo7vw4TX-E7PqsKBIl"
+      id="test-id"
       type="checkbox"
     />
     <div

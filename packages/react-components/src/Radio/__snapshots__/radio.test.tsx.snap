@@ -99,11 +99,11 @@ exports[`<Radio /> Checkbox click behaviour should be checked the right checkbox
 
 <label
     class="emotion-0"
-    for="1S8OmIOkTcTSmQvAvxdEM"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="1S8OmIOkTcTSmQvAvxdEM"
+      id="test-id"
       name="test-name"
       type="radio"
     />
@@ -221,11 +221,11 @@ exports[`<Radio /> Checkbox click behaviour should be checked the right checkbox
 
 <label
     class="emotion-0"
-    for="0jLevUQRzA5QaxHvb9N7I"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="0jLevUQRzA5QaxHvb9N7I"
+      id="test-id"
       name="test-name"
       type="radio"
     />
@@ -348,11 +348,11 @@ exports[`<Radio /> Checkbox click behaviour should be checked when clicked 1`] =
 
 <label
     class="emotion-0"
-    for="0XVx6O2_RFtSFriWj0qwn"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="0XVx6O2_RFtSFriWj0qwn"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -474,12 +474,12 @@ exports[`<Radio /> Checkbox click behaviour should be checked when clicked and d
 
 <label
     class="emotion-0"
-    for="3TBI957Ur7aTz4huVHvXN"
+    for="test-id"
   >
     <input
       checked=""
       class="emotion-1"
-      id="3TBI957Ur7aTz4huVHvXN"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -601,11 +601,11 @@ exports[`<Radio /> Checkbox click behaviour should calls onChange prop when clic
 
 <label
     class="emotion-0"
-    for="YGa8Wvqi3zTiNoSC1eFIG"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="YGa8Wvqi3zTiNoSC1eFIG"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -727,11 +727,11 @@ exports[`<Radio /> Checkbox click behaviour should calls onClick prop when click
 
 <label
     class="emotion-0"
-    for="2E2_0MCKJ_Amh1QHq810b"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="2E2_0MCKJ_Amh1QHq810b"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -853,11 +853,11 @@ exports[`<Radio /> Checkbox focus behaviour should have focus 1`] = `
 
 <label
     class="emotion-0"
-    for="X_9yGODBMYeWlAaj5WTmx"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="X_9yGODBMYeWlAaj5WTmx"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -979,12 +979,12 @@ exports[`<Radio /> Checkbox focus behaviour shouldn't have focus when disabled h
 
 <label
     class="emotion-0"
-    for="jkQsxX96YZyFqfYyLhtfe"
+    for="test-id"
   >
     <input
       class="emotion-1"
       disabled=""
-      id="jkQsxX96YZyFqfYyLhtfe"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -1106,11 +1106,11 @@ exports[`<Radio /> Checkbox keyboard behaviour should be checked after pressed o
 
 <label
     class="emotion-0"
-    for="6_lwTWXjZl8Qug0ev8QUD"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="6_lwTWXjZl8Qug0ev8QUD"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -1232,12 +1232,12 @@ exports[`<Radio /> Radio render variants should be checked 1`] = `
 
 <label
     class="emotion-0"
-    for="CYMNxA8i_tL8R7gWUtJJI"
+    for="test-id"
   >
     <input
       checked=""
       class="emotion-1"
-      id="CYMNxA8i_tL8R7gWUtJJI"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -1359,12 +1359,12 @@ exports[`<Radio /> Radio render variants should be checked, defaultChecked prop 
 
 <label
     class="emotion-0"
-    for="7_tYZus6men7LMkTHsjnu"
+    for="test-id"
   >
     <input
       checked=""
       class="emotion-1"
-      id="7_tYZus6men7LMkTHsjnu"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -1486,12 +1486,12 @@ exports[`<Radio /> Radio render variants should be disabled 1`] = `
 
 <label
     class="emotion-0"
-    for="I3J9kA-UgppgIQN47oF50"
+    for="test-id"
   >
     <input
       class="emotion-1"
       disabled=""
-      id="I3J9kA-UgppgIQN47oF50"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -1613,11 +1613,11 @@ exports[`<Radio /> Radio render variants should be unchecked 1`] = `
 
 <label
     class="emotion-0"
-    for="aRZoNfmxkSmGARumGAkqE"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="aRZoNfmxkSmGARumGAkqE"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -1739,11 +1739,11 @@ exports[`<Radio /> Radio render variants should be unchecked, defaultChecked pro
 
 <label
     class="emotion-0"
-    for="aiRtynpeJry38qxqi-eET"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="aiRtynpeJry38qxqi-eET"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -1865,11 +1865,11 @@ exports[`<Radio /> Radio render variants should forwards ref to label element 1`
 
 <label
     class="emotion-0"
-    for="pxQtmvhtejKDimdPpcQwr"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="pxQtmvhtejKDimdPpcQwr"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -1991,11 +1991,11 @@ exports[`<Radio /> Radio render variants should have className 1`] = `
 
 <label
     class="emotion-0 test-cls"
-    for="3Puwx4mneqtso_ewc7FGY"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="3Puwx4mneqtso_ewc7FGY"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -2117,11 +2117,11 @@ exports[`<Radio /> Radio render variants should have custom checked icon 1`] = `
 
 <label
     class="emotion-0"
-    for="fH5g0xFTuyCx4amAPXQN4"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="fH5g0xFTuyCx4amAPXQN4"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -2369,11 +2369,11 @@ exports[`<Radio /> Radio render variants should have name attr 1`] = `
 
 <label
     class="emotion-0"
-    for="-borvfyJmvyc2HWsC_uCw"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="-borvfyJmvyc2HWsC_uCw"
+      id="test-id"
       name="test-name"
       type="radio"
     />
@@ -2496,11 +2496,11 @@ exports[`<Radio /> Radio render variants should have required 1`] = `
 
 <label
     class="emotion-0"
-    for="uEEv7YgF9eqZNv839La6A"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="uEEv7YgF9eqZNv839La6A"
+      id="test-id"
       required=""
       type="radio"
     />
@@ -2624,11 +2624,11 @@ exports[`<Radio /> Radio render variants should have test id 1`] = `
 <label
     class="emotion-0"
     data-testid="test-id"
-    for="kGl_h_3iKGNt7O2ROMHKR"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="kGl_h_3iKGNt7O2ROMHKR"
+      id="test-id"
       type="radio"
     />
     <svg
@@ -2750,11 +2750,11 @@ exports[`<Radio /> Radio render variants should render as default 1`] = `
 
 <label
     class="emotion-0"
-    for="BwgN0jCpmMZX9Qbxx5B61"
+    for="test-id"
   >
     <input
       class="emotion-1"
-      id="BwgN0jCpmMZX9Qbxx5B61"
+      id="test-id"
       type="radio"
     />
     <svg

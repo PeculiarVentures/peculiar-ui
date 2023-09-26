@@ -11,7 +11,7 @@ import { PlusIcon } from '../icons';
 describe('<Checkbox />', () => {
   describe('Checkbox render variants', () => {
     it('should render as default', () => {
-      const { asFragment } = render(<Checkbox />);
+      const { asFragment } = render(<Checkbox id="test-id" />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -45,7 +45,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should be disabled', () => {
-      const { asFragment } = render(<Checkbox disabled />);
+      const { asFragment } = render(<Checkbox id="test-id" disabled />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -55,7 +55,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should have required', () => {
-      const { asFragment } = render(<Checkbox required />);
+      const { asFragment } = render(<Checkbox id="test-id" required />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -65,7 +65,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should have test id', () => {
-      const { asFragment } = render(<Checkbox data-testid="test-id" />);
+      const { asFragment } = render(<Checkbox id="test-id" data-testid="test-id" />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -77,7 +77,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should have className', () => {
-      const { asFragment } = render(<Checkbox className="test-cls" />);
+      const { asFragment } = render(<Checkbox id="test-id" className="test-cls" />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -98,7 +98,7 @@ describe('<Checkbox />', () => {
     // });
 
     it('should have custom checked icon', () => {
-      const { asFragment } = render(<Checkbox checkedIcon={<PlusIcon data-testid="icon" />} />);
+      const { asFragment } = render(<Checkbox id="test-id" checkedIcon={<PlusIcon data-testid="icon" />} />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -110,7 +110,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should be checked, defaultChecked prop', () => {
-      const { asFragment } = render(<Checkbox defaultChecked />);
+      const { asFragment } = render(<Checkbox id="test-id" defaultChecked />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -120,7 +120,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should be unchecked, defaultChecked prop', () => {
-      const { asFragment } = render(<Checkbox defaultChecked={false} />);
+      const { asFragment } = render(<Checkbox id="test-id" defaultChecked={false} />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -132,7 +132,13 @@ describe('<Checkbox />', () => {
     it('should be checked', () => {
       const onChange = jest.fn();
 
-      const { asFragment } = render(<Checkbox checked onChange={onChange} />);
+      const { asFragment } = render(
+        <Checkbox
+          id="test-id"
+          checked
+          onChange={onChange}
+        />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -144,7 +150,13 @@ describe('<Checkbox />', () => {
     it('should be unchecked', () => {
       const onChange = jest.fn();
 
-      const { asFragment } = render(<Checkbox checked={false} onChange={onChange} />);
+      const { asFragment } = render(
+        <Checkbox
+          id="test-id"
+          checked={false}
+          onChange={onChange}
+        />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -156,7 +168,7 @@ describe('<Checkbox />', () => {
     it('should forwards ref to label element', () => {
       const ref = React.createRef<HTMLLabelElement>();
 
-      const { asFragment } = render(<Checkbox ref={ref} />);
+      const { asFragment } = render(<Checkbox id="test-id" ref={ref} />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -168,7 +180,7 @@ describe('<Checkbox />', () => {
 
   describe('Checkbox focus behaviour', () => {
     it('should have focus', async () => {
-      const { asFragment } = render(<Checkbox />);
+      const { asFragment } = render(<Checkbox id="test-id" />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -181,7 +193,7 @@ describe('<Checkbox />', () => {
     });
 
     it("shouldn't have focus when disabled has been passed to the component", async () => {
-      const { asFragment } = render(<Checkbox disabled />);
+      const { asFragment } = render(<Checkbox id="test-id" disabled />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -196,7 +208,7 @@ describe('<Checkbox />', () => {
 
   describe('Checkbox click behaviour', () => {
     it('should be checked when clicked', () => {
-      const { asFragment } = render(<Checkbox />);
+      const { asFragment } = render(<Checkbox id="test-id" />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -208,7 +220,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should be unchecked when clicked', () => {
-      const { asFragment } = render(<Checkbox defaultChecked />);
+      const { asFragment } = render(<Checkbox id="test-id" defaultChecked />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -222,7 +234,7 @@ describe('<Checkbox />', () => {
     it('should calls onClick prop when clicked', () => {
       const handleClick = jest.fn();
 
-      const { asFragment } = render(<Checkbox onClick={handleClick} />);
+      const { asFragment } = render(<Checkbox id="test-id" onClick={handleClick} />);
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -233,7 +245,7 @@ describe('<Checkbox />', () => {
     it('should calls onChange prop when clicked', () => {
       const onChange = jest.fn();
 
-      const { asFragment } = render(<Checkbox onChange={onChange} />);
+      const { asFragment } = render(<Checkbox id="test-id" onChange={onChange} />);
 
       expect(asFragment()).toMatchSnapshot();
 

@@ -4,7 +4,7 @@ import { Switch } from './index';
 
 describe('<Switch />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(<Switch />);
+    const { asFragment } = render(<Switch id="test-id" />);
 
     expect(asFragment()).toMatchSnapshot();
   });
