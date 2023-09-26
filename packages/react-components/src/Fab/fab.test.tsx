@@ -23,4 +23,33 @@ describe('<Fab />', () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it('should pass className', () => {
+    const { asFragment } = render(
+      <Fab className="my-class-name">
+        <PlusIcon role="img" />
+      </Fab>,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  describe('variants', () => {
+    const variants: Array<React.ComponentProps<typeof Fab>['variant']> = [
+      'contained',
+      'outlined',
+    ];
+
+    variants.forEach((variant) => {
+      it(`variant "${variant}"`, () => {
+        const { asFragment } = render(
+          <Fab variant={variant}>
+            <PlusIcon role="img" />
+          </Fab>,
+        );
+
+        expect(asFragment()).toMatchSnapshot();
+      });
+    });
+  });
 });
