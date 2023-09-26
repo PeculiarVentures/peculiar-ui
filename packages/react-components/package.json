@@ -32,6 +32,7 @@
     "clean": "rimraf public dist themes",
     "test:unit": "jest --passWithNoTests --watchAll",
     "test:unit:coverage": "yarn test:unit --coverage --watchAll=false",
+    "test:unit:updateSnapshot": "jest --updateSnapshot",
     "check:types": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -60,6 +61,7 @@
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
+    "@emotion/jest": "^11.11.0",
     "@storybook/addon-a11y": "^6.5.15",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-controls": "^6.5.15",
