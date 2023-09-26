@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Collapse /> should pass className 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  overflow: hidden;
+  -webkit-transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  height: 0;
+  visibility: hidden;
+}
+
+<div
+    class="my-class-name emotion-0"
+  >
+    <div>
+      Inside
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<Collapse /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {

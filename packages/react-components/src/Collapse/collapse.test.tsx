@@ -8,4 +8,10 @@ describe('<Collapse />', () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it('should pass className', () => {
+    const { asFragment } = render(<Collapse className="my-class-name">Inside</Collapse>);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
