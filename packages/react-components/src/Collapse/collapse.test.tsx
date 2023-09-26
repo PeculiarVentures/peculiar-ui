@@ -14,4 +14,35 @@ describe('<Collapse />', () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
+
+  describe('orientations', () => {
+    const orientations: Array<React.ComponentProps<typeof Collapse>['orientation']> = [
+      'horizontal',
+      'vertical',
+    ];
+
+    orientations.forEach((orientation) => {
+      describe(`orientation "${orientation}"`, () => {
+        it('before animation', () => {
+          const { asFragment } = render(
+            <Collapse orientation={orientation}>
+              <div>Inside</div>
+            </Collapse>,
+          );
+
+          expect(asFragment()).toMatchSnapshot();
+        });
+
+        it('after animation', () => {
+          const { asFragment } = render(
+            <Collapse in orientation={orientation}>
+              <div>Inside</div>
+            </Collapse>,
+          );
+
+          expect(asFragment()).toMatchSnapshot();
+        });
+      });
+    });
+  });
 });
