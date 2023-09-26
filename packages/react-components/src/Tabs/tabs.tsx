@@ -2,7 +2,10 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { Tab, TabProps } from './tab';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type TabsOwnProps = {
   /**
    * The content of the component.
    */
@@ -21,12 +24,15 @@ type BaseProps = {
   onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
 };
 
-type TabsProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type TabsProps = TabsOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+/**
+ *
+ */
 
 /**
  * Styles.
  */
-const TabsRoot = styled('div')<TabsProps>({
+const TabsRoot = styled('div')({
   whiteSpace: 'nowrap',
   overflowX: 'auto',
 });
@@ -37,6 +43,7 @@ const TabsRoot = styled('div')<TabsProps>({
 export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   const {
     children: childrenProp,
+    value,
     onChange,
     ...other
   } = props;
@@ -55,7 +62,7 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => 
       }
 
       const childValue = child.props.id;
-      const selected = childValue === props.value;
+      const selected = childValue === value;
 
       return React.cloneElement(child, {
         // @ts-ignore
@@ -67,9 +74,9 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => 
 
   return (
     <TabsRoot
-      {...other}
       ref={ref}
       role="tablist"
+      {...other}
     >
       {children}
     </TabsRoot>

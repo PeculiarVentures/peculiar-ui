@@ -59,10 +59,9 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>((props, re
     children,
     anchorEl,
     placement,
-    onClose,
-    className,
     modalProps,
     allowUseSameWidth,
+    onClose,
     ...other
   } = props;
 

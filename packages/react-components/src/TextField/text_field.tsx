@@ -2,7 +2,10 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { Typography } from '../Typography';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type TextFieldOwnProps = {
   /**
    * If `true`, the component is disabled.
    */
@@ -77,10 +80,12 @@ type BaseProps = {
    * Callback fired when the value is changed.
    */
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  'data-testid'?: string;
 };
 
-type TextFieldProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
+type TextFieldProps = TextFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
+/**
+ *
+ */
 
 /**
  * Styles.
@@ -135,13 +140,13 @@ const TextFieldInput = styled(Typography)<TextFieldProps>(
   }),
 );
 
-const Label = styled('label')({
+const TextFieldLabel = styled('label')({
   label: 'TextField-label',
   marginBottom: '2px',
   display: 'inline-block',
 });
 
-const Error = styled(Typography)({
+const TextFieldError = styled(Typography)({
   marginTop: '2px',
 });
 /**
@@ -151,7 +156,6 @@ const Error = styled(Typography)({
 export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props, ref) => {
   const {
     size,
-    className,
     label,
     inputProps = {},
     disabled,
@@ -173,12 +177,11 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
 
   return (
     <div
-      {...other}
       ref={ref}
-      className={className}
+      {...other}
     >
       {label && (
-        <Label
+        <TextFieldLabel
           htmlFor={id}
         >
           <Typography
@@ -188,7 +191,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
           >
             {label}
           </Typography>
-        </Label>
+        </TextFieldLabel>
       )}
       <TextFieldInput
         {...inputProps}
@@ -205,7 +208,6 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         required={required}
         name={name}
         ref={inputRef}
-        // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
         aria-invalid={error || undefined}
         onChange={onChange}
@@ -213,12 +215,12 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         readOnly={readOnly}
       />
       {error && errorText && (
-        <Error
+        <TextFieldError
           variant="c2"
           color="wrong"
         >
           {errorText}
-        </Error>
+        </TextFieldError>
       )}
     </div>
   );
