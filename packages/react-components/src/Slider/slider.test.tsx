@@ -8,4 +8,10 @@ describe('<Slider />', () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it('should pass className', () => {
+    const { asFragment } = render(<Slider className="my-class-name" />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
