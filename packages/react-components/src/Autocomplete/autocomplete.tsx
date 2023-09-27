@@ -122,7 +122,7 @@ const AutocompleteRoot = styled('div')({
   width: '100%',
 });
 
-const AutocompleteField = styled(Typography)<TypographyOwnProps & Pick<AutocompleteOwnProps<any>, 'size' | 'multiple'>>(
+const AutocompleteField = styled(Typography)<TypographyOwnProps & Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'multiple'>>(
   (props) => ({
     outline: 'none',
     boxSizing: 'border-box',
@@ -306,6 +306,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
   props: AutocompleteOwnProps<T, Multiple>,
 ): JSX.Element => {
   const {
+    className,
     size,
     placeholder,
     disableSearch,
@@ -316,6 +317,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
     limitTags = 2,
     name,
     required,
+    multiple,
     readOnly,
     createOptionText,
     allowCreateOption,
@@ -431,14 +433,16 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
     <AutocompleteRoot>
       <AutocompleteField
         {...propsRoot}
-        {...props}
         noWrap
         // @ts-ignore
         component="button"
         type="button"
         variant="c1"
+        className={className}
         color={isValueEmpty ? 'gray-9' : 'black'}
         aria-invalid={error || undefined}
+        multiple={multiple}
+        size={size}
       >
         {isValueEmpty ? placeholder : renderedValue}
       </AutocompleteField>

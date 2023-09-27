@@ -42,6 +42,7 @@ exports[`<Tooltip /> colors color "black" 1`] = `
 
 .emotion-1 {
   background: var(--pv-color-gray-10);
+  border-radius: 4px;
   box-shadow: var(--pv-shadow-light-low);
   max-width: 300px;
   word-wrap: break-word;
@@ -50,16 +51,15 @@ exports[`<Tooltip /> colors color "black" 1`] = `
   animation: animation-0 225ms;
   position: relative;
   padding: 5px 8px;
-  border-radius: 4px;
 }
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-c2-weight);
   font-size: var(--pv-text-c2-size);
   line-height: var(--pv-text-c2-height);
   letter-spacing: var(--pv-text-c2-spacing);
-  color: var(--pv-color-white);
 }
 
 <div
@@ -122,6 +122,7 @@ exports[`<Tooltip /> colors color "white" 1`] = `
 
 .emotion-1 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   box-shadow: var(--pv-shadow-light-low);
   max-width: 300px;
   word-wrap: break-word;
@@ -130,16 +131,15 @@ exports[`<Tooltip /> colors color "white" 1`] = `
   animation: animation-0 225ms;
   position: relative;
   padding: 5px 8px;
-  border-radius: 4px;
 }
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c2-weight);
   font-size: var(--pv-text-c2-size);
   line-height: var(--pv-text-c2-height);
   letter-spacing: var(--pv-text-c2-spacing);
-  color: var(--pv-color-black);
 }
 
 <div
@@ -202,6 +202,7 @@ exports[`<Tooltip /> should pass arrow 1`] = `
 
 .emotion-1 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   box-shadow: var(--pv-shadow-light-low);
   max-width: 300px;
   word-wrap: break-word;
@@ -210,16 +211,15 @@ exports[`<Tooltip /> should pass arrow 1`] = `
   animation: animation-0 225ms;
   position: relative;
   padding: 5px 8px;
-  border-radius: 4px;
 }
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c2-weight);
   font-size: var(--pv-text-c2-size);
   line-height: var(--pv-text-c2-height);
   letter-spacing: var(--pv-text-c2-spacing);
-  color: var(--pv-color-black);
 }
 
 .emotion-3 {
@@ -309,6 +309,7 @@ exports[`<Tooltip /> should pass className 1`] = `
 
 .emotion-1 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   box-shadow: var(--pv-shadow-light-low);
   max-width: 300px;
   word-wrap: break-word;
@@ -317,16 +318,15 @@ exports[`<Tooltip /> should pass className 1`] = `
   animation: animation-0 225ms;
   position: relative;
   padding: 5px 8px;
-  border-radius: 4px;
 }
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c2-weight);
   font-size: var(--pv-text-c2-size);
   line-height: var(--pv-text-c2-height);
   letter-spacing: var(--pv-text-c2-spacing);
-  color: var(--pv-color-black);
 }
 
 <div
@@ -397,6 +397,7 @@ exports[`<Tooltip /> sizes size "large" 1`] = `
 
 .emotion-1 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   box-shadow: var(--pv-shadow-light-low);
   max-width: 300px;
   word-wrap: break-word;
@@ -405,16 +406,15 @@ exports[`<Tooltip /> sizes size "large" 1`] = `
   animation: animation-0 225ms;
   position: relative;
   padding: 8px 10px;
-  border-radius: 4px;
 }
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
 }
 
 <div
@@ -477,6 +477,7 @@ exports[`<Tooltip /> sizes size "small" 1`] = `
 
 .emotion-1 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   box-shadow: var(--pv-shadow-light-low);
   max-width: 300px;
   word-wrap: break-word;
@@ -485,16 +486,15 @@ exports[`<Tooltip /> sizes size "small" 1`] = `
   animation: animation-0 225ms;
   position: relative;
   padding: 5px 8px;
-  border-radius: 4px;
 }
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c2-weight);
   font-size: var(--pv-text-c2-size);
   line-height: var(--pv-text-c2-height);
   letter-spacing: var(--pv-text-c2-spacing);
-  color: var(--pv-color-black);
 }
 
 <div

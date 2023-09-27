@@ -166,11 +166,11 @@ exports[`<Avatar /> Avatar render variants should  render 1 initial with a 1-wor
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-b1-weight);
   font-size: var(--pv-text-b1-size);
   line-height: var(--pv-text-b1-height);
   letter-spacing: var(--pv-text-b1-spacing);
-  color: var(--pv-color-white);
 }
 
 <div
@@ -404,11 +404,11 @@ exports[`<Avatar /> Avatar render variants should render initials with fn 1`] = 
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-b1-weight);
   font-size: var(--pv-text-b1-size);
   line-height: var(--pv-text-b1-height);
   letter-spacing: var(--pv-text-b1-spacing);
-  color: var(--pv-color-white);
 }
 
 <div

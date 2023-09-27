@@ -13,11 +13,11 @@ exports[`<Autocomplete /> should pass className 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-9);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  color: var(--pv-color-gray-9);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -141,11 +141,11 @@ exports[`<Autocomplete /> should pass error 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-9);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  color: var(--pv-color-gray-9);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -222,11 +222,11 @@ exports[`<Autocomplete /> should pass error 1`] = `
 
 .emotion-4 {
   margin: 0;
+  color: var(--pv-color-wrong);
   font-weight: var(--pv-text-c2-weight);
   font-size: var(--pv-text-c2-size);
   line-height: var(--pv-text-c2-height);
   letter-spacing: var(--pv-text-c2-spacing);
-  color: var(--pv-color-wrong);
   margin-top: 2px;
 }
 
@@ -253,6 +253,7 @@ exports[`<Autocomplete /> should pass error 1`] = `
 
 .emotion-7 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   outline: 0;
   max-width: calc(100% - 32px);
   min-width: 16px;
@@ -260,13 +261,12 @@ exports[`<Autocomplete /> should pass error 1`] = `
   min-height: 16px;
   box-shadow: var(--pv-shadow-light-low);
   min-width: 240px;
-  border-radius: 4px;
 }
 
 .emotion-8 {
   border-color: var(--pv-color-gray-3);
-  border-width: 0px 0px 1px 0;
   border-style: solid;
+  border-width: 0px 0px 1px 0px;
 }
 
 .emotion-9 {
@@ -275,11 +275,11 @@ exports[`<Autocomplete /> should pass error 1`] = `
 
 .emotion-10 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -347,11 +347,11 @@ exports[`<Autocomplete /> should pass error 1`] = `
 
 .emotion-12 {
   margin: 0;
+  color: var(--pv-color-gray-10);
   font-weight: var(--pv-text-b2-weight);
   font-size: var(--pv-text-b2-size);
   line-height: var(--pv-text-b2-height);
   letter-spacing: var(--pv-text-b2-spacing);
-  color: var(--pv-color-gray-10);
 }
 
 <body>
@@ -456,11 +456,11 @@ exports[`<Autocomplete /> should pass loading 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-9);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  color: var(--pv-color-gray-9);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -558,6 +558,7 @@ exports[`<Autocomplete /> should pass loading 1`] = `
 
 .emotion-6 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   outline: 0;
   max-width: calc(100% - 32px);
   min-width: 16px;
@@ -565,13 +566,12 @@ exports[`<Autocomplete /> should pass loading 1`] = `
   min-height: 16px;
   box-shadow: var(--pv-shadow-light-low);
   min-width: 240px;
-  border-radius: 4px;
 }
 
 .emotion-7 {
   border-color: var(--pv-color-gray-3);
-  border-width: 0px 0px 1px 0;
   border-style: solid;
+  border-width: 0px 0px 1px 0px;
 }
 
 .emotion-8 {
@@ -580,11 +580,11 @@ exports[`<Autocomplete /> should pass loading 1`] = `
 
 .emotion-9 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -652,11 +652,11 @@ exports[`<Autocomplete /> should pass loading 1`] = `
 
 .emotion-11 {
   margin: 0;
+  color: var(--pv-color-gray-10);
   font-weight: var(--pv-text-b2-weight);
   font-size: var(--pv-text-b2-size);
   line-height: var(--pv-text-b2-height);
   letter-spacing: var(--pv-text-b2-spacing);
-  color: var(--pv-color-gray-10);
 }
 
 <body>
@@ -756,11 +756,11 @@ exports[`<Autocomplete /> should pass options 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-9);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  color: var(--pv-color-gray-9);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -858,6 +858,7 @@ exports[`<Autocomplete /> should pass options 1`] = `
 
 .emotion-6 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   outline: 0;
   max-width: calc(100% - 32px);
   min-width: 16px;
@@ -865,13 +866,12 @@ exports[`<Autocomplete /> should pass options 1`] = `
   min-height: 16px;
   box-shadow: var(--pv-shadow-light-low);
   min-width: 240px;
-  border-radius: 4px;
 }
 
 .emotion-7 {
   border-color: var(--pv-color-gray-3);
-  border-width: 0px 0px 1px 0;
   border-style: solid;
+  border-width: 0px 0px 1px 0px;
 }
 
 .emotion-8 {
@@ -880,11 +880,11 @@ exports[`<Autocomplete /> should pass options 1`] = `
 
 .emotion-9 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -1003,11 +1003,11 @@ exports[`<Autocomplete /> should pass options 1`] = `
 
 .emotion-12 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: inherit;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1136,11 +1136,11 @@ exports[`<Autocomplete /> should render with default multiple styles 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-9);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  color: var(--pv-color-gray-9);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1273,11 +1273,11 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-9);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  color: var(--pv-color-gray-9);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1402,11 +1402,11 @@ exports[`<Autocomplete /> sizes size "large" 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-9);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  color: var(--pv-color-gray-9);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1531,11 +1531,11 @@ exports[`<Autocomplete /> sizes size "medium" 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-9);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  color: var(--pv-color-gray-9);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1660,11 +1660,11 @@ exports[`<Autocomplete /> sizes size "small" 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-9);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  color: var(--pv-color-gray-9);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

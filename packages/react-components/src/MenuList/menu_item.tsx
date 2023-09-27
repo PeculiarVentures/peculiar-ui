@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { Typography } from '../Typography';
 import { TypographyType } from '../styles';
@@ -44,7 +45,9 @@ export type MenuItemProps<
 /**
  * Styles.
  */
-const MenuItemRoot = styled('li')<MenuItemOwnProps>((props) => ({
+const MenuItemRoot = styled('li', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'disabled',
+})<MenuItemOwnProps>((props) => ({
   padding: '0px var(--pv-size-base-2)',
   fontFamily: 'inherit',
   outline: 'none',
