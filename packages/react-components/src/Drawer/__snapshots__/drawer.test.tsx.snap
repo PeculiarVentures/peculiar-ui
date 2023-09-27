@@ -31,6 +31,7 @@ exports[`<Drawer /> should pass className 1`] = `
   right: 0;
   overflow-y: auto;
   outline: none;
+  box-sizing: border-box;
 }
 
 <body>
@@ -86,6 +87,7 @@ exports[`<Drawer /> should render with default open styles 1`] = `
   right: 0;
   overflow-y: auto;
   outline: none;
+  box-sizing: border-box;
 }
 
 <body>
@@ -142,6 +144,7 @@ exports[`<Drawer /> should render with default styles 1`] = `
   right: 0;
   overflow-y: auto;
   outline: none;
+  box-sizing: border-box;
 }
 
 <body>

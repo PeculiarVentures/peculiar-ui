@@ -4,6 +4,7 @@ exports[`<Alert /> should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-black);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -11,16 +12,15 @@ exports[`<Alert /> should pass className 1`] = `
   display: flex;
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
-  border-radius: 4px;
 }
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-white);
   padding: var(--pv-size-base) 0px;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -45,6 +45,7 @@ exports[`<Alert /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-black);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -52,16 +53,15 @@ exports[`<Alert /> should render with default styles 1`] = `
   display: flex;
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
-  border-radius: 4px;
 }
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-white);
   padding: var(--pv-size-base) 0px;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -86,6 +86,7 @@ exports[`<Alert /> variants variant "attention" disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-black);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -93,16 +94,15 @@ exports[`<Alert /> variants variant "attention" disable icon 1`] = `
   display: flex;
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
-  border-radius: 4px;
 }
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-white);
   padding: var(--pv-size-base) 0px;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -127,6 +127,7 @@ exports[`<Alert /> variants variant "attention" enable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-black);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -134,7 +135,6 @@ exports[`<Alert /> variants variant "attention" enable icon 1`] = `
   display: flex;
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
-  border-radius: 4px;
 }
 
 .emotion-1 {
@@ -158,11 +158,11 @@ exports[`<Alert /> variants variant "attention" enable icon 1`] = `
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-white);
   padding: var(--pv-size-base) 0px;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -213,6 +213,7 @@ exports[`<Alert /> variants variant "pending" disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-black);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -220,16 +221,15 @@ exports[`<Alert /> variants variant "pending" disable icon 1`] = `
   display: flex;
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
-  border-radius: 4px;
 }
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-white);
   padding: var(--pv-size-base) 0px;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -287,6 +287,7 @@ exports[`<Alert /> variants variant "pending" enable icon 1`] = `
 
 .emotion-0 {
   background: var(--pv-color-black);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -294,7 +295,6 @@ exports[`<Alert /> variants variant "pending" enable icon 1`] = `
   display: flex;
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
-  border-radius: 4px;
 }
 
 .emotion-1 {
@@ -340,11 +340,11 @@ exports[`<Alert /> variants variant "pending" enable icon 1`] = `
 
 .emotion-5 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-white);
   padding: var(--pv-size-base) 0px;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -391,6 +391,7 @@ exports[`<Alert /> variants variant "success" disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-black);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -398,16 +399,15 @@ exports[`<Alert /> variants variant "success" disable icon 1`] = `
   display: flex;
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
-  border-radius: 4px;
 }
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-white);
   padding: var(--pv-size-base) 0px;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -432,6 +432,7 @@ exports[`<Alert /> variants variant "success" enable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-black);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -439,7 +440,6 @@ exports[`<Alert /> variants variant "success" enable icon 1`] = `
   display: flex;
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
-  border-radius: 4px;
 }
 
 .emotion-1 {
@@ -463,11 +463,11 @@ exports[`<Alert /> variants variant "success" enable icon 1`] = `
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-white);
   padding: var(--pv-size-base) 0px;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -517,6 +517,7 @@ exports[`<Alert /> variants variant "wrong" disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-wrong-tint-5);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -524,16 +525,15 @@ exports[`<Alert /> variants variant "wrong" disable icon 1`] = `
   display: flex;
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
-  border-radius: 4px;
 }
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-wrong);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-wrong);
   padding: var(--pv-size-base) 0px;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -558,6 +558,7 @@ exports[`<Alert /> variants variant "wrong" enable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-wrong-tint-5);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -565,7 +566,6 @@ exports[`<Alert /> variants variant "wrong" enable icon 1`] = `
   display: flex;
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
-  border-radius: 4px;
 }
 
 .emotion-1 {
@@ -589,11 +589,11 @@ exports[`<Alert /> variants variant "wrong" enable icon 1`] = `
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-wrong);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-wrong);
   padding: var(--pv-size-base) 0px;
   -webkit-flex: 1;
   -ms-flex: 1;
