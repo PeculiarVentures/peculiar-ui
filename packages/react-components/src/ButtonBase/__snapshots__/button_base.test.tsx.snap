@@ -1388,6 +1388,7 @@ exports[`<ButtonBase /> ButtonBase render as an anchor should rendered as an anc
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1402,17 +1403,13 @@ exports[`<ButtonBase /> ButtonBase render as an anchor should rendered as an anc
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -1477,6 +1474,7 @@ exports[`<ButtonBase /> ButtonBase render sizes size "large" 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1491,17 +1489,13 @@ exports[`<ButtonBase /> ButtonBase render sizes size "large" 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -1565,6 +1559,7 @@ exports[`<ButtonBase /> ButtonBase render sizes size "medium" 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1579,17 +1574,13 @@ exports[`<ButtonBase /> ButtonBase render sizes size "medium" 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -1653,6 +1644,7 @@ exports[`<ButtonBase /> ButtonBase render sizes size "small" 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1667,17 +1659,13 @@ exports[`<ButtonBase /> ButtonBase render sizes size "small" 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn2-weight);
   font-size: var(--pv-text-btn2-size);
   line-height: var(--pv-text-btn2-height);
   letter-spacing: var(--pv-text-btn2-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -1741,6 +1729,7 @@ exports[`<ButtonBase /> ButtonBase render variants should be disabled 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1755,17 +1744,13 @@ exports[`<ButtonBase /> ButtonBase render variants should be disabled 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -1830,6 +1815,7 @@ exports[`<ButtonBase /> ButtonBase render variants should have class name 1`] = 
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1844,17 +1830,13 @@ exports[`<ButtonBase /> ButtonBase render variants should have class name 1`] = 
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -1918,6 +1900,7 @@ exports[`<ButtonBase /> ButtonBase render variants should have test id 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1932,17 +1915,13 @@ exports[`<ButtonBase /> ButtonBase render variants should have test id 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -2007,6 +1986,7 @@ exports[`<ButtonBase /> ButtonBase render variants should have text variant 1`] 
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -2021,17 +2001,13 @@ exports[`<ButtonBase /> ButtonBase render variants should have text variant 1`] 
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-h1-weight);
   font-size: var(--pv-text-h1-size);
   line-height: var(--pv-text-h1-height);
   letter-spacing: var(--pv-text-h1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -2095,6 +2071,7 @@ exports[`<ButtonBase /> ButtonBase render variants should have title 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -2109,17 +2086,13 @@ exports[`<ButtonBase /> ButtonBase render variants should have title 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;

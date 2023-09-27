@@ -4,11 +4,11 @@ exports[`<TextField /> TextField render sizes size "large" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -84,11 +84,11 @@ exports[`<TextField /> TextField render sizes size "medium" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -164,11 +164,11 @@ exports[`<TextField /> TextField render sizes size "small" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -244,11 +244,11 @@ exports[`<TextField /> TextField render variants should be disabled 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -325,11 +325,11 @@ exports[`<TextField /> TextField render variants should have className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -407,11 +407,11 @@ exports[`<TextField /> TextField render variants should have defaultValue 1`] = 
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -487,11 +487,11 @@ exports[`<TextField /> TextField render variants should have error alert 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -555,11 +555,11 @@ exports[`<TextField /> TextField render variants should have error alert 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-wrong);
   font-weight: var(--pv-text-c2-weight);
   font-size: var(--pv-text-c2-size);
   line-height: var(--pv-text-c2-height);
   letter-spacing: var(--pv-text-c2-spacing);
-  color: var(--pv-color-wrong);
   margin-top: 2px;
 }
 
@@ -583,11 +583,11 @@ exports[`<TextField /> TextField render variants should have id 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -669,20 +669,20 @@ exports[`<TextField /> TextField render variants should have label 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-10);
   font-weight: var(--pv-text-c2-weight);
   font-size: var(--pv-text-c2-size);
   line-height: var(--pv-text-c2-height);
   letter-spacing: var(--pv-text-c2-spacing);
-  color: var(--pv-color-gray-10);
 }
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -767,11 +767,11 @@ exports[`<TextField /> TextField render variants should have name attr 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -848,11 +848,11 @@ exports[`<TextField /> TextField render variants should have placeholder 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -929,11 +929,11 @@ exports[`<TextField /> TextField render variants should have required 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -1010,11 +1010,11 @@ exports[`<TextField /> TextField render variants should have test id 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -1092,11 +1092,11 @@ exports[`<TextField /> TextField render variants should have value 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;

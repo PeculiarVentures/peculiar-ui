@@ -43,6 +43,7 @@ exports[`<IconButton /> colors color "default" 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -57,17 +58,13 @@ exports[`<IconButton /> colors color "default" 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -148,6 +145,7 @@ exports[`<IconButton /> colors color "primary" 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -162,17 +160,13 @@ exports[`<IconButton /> colors color "primary" 1`] = `
   background-color: var(--pv-color-primary-tint-3);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -253,6 +247,7 @@ exports[`<IconButton /> colors color "secondary" 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -267,17 +262,13 @@ exports[`<IconButton /> colors color "secondary" 1`] = `
   background-color: var(--pv-color-secondary-tint-3);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -358,6 +349,7 @@ exports[`<IconButton /> colors color "white" 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -372,17 +364,13 @@ exports[`<IconButton /> colors color "white" 1`] = `
   background-color: var(--pv-color-gray-9);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -463,6 +451,7 @@ exports[`<IconButton /> colors color "wrong" 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -477,17 +466,13 @@ exports[`<IconButton /> colors color "wrong" 1`] = `
   background-color: var(--pv-color-wrong-tint-3);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -568,6 +553,7 @@ exports[`<IconButton /> should have title 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -582,17 +568,13 @@ exports[`<IconButton /> should have title 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -674,6 +656,7 @@ exports[`<IconButton /> should pass className 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -688,17 +671,13 @@ exports[`<IconButton /> should pass className 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -779,6 +758,7 @@ exports[`<IconButton /> should render as default 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -793,17 +773,13 @@ exports[`<IconButton /> should render as default 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
