@@ -1172,11 +1172,11 @@ exports[`<TextField /> TextField render variants should render as default 1`] = 
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-black);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;

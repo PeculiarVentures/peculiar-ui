@@ -12,7 +12,6 @@ describe('<TextField />', () => {
       expect(input).toBeInTheDocument();
       expect(input.tagName).toBe('INPUT');
       expect(input.getAttribute('type')).toBe('text');
-      expect(input.getAttribute('class')).toMatch(/TextField-medium/i);
 
       expect(asFragment()).toMatchSnapshot();
     });

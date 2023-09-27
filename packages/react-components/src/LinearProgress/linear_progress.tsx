@@ -61,7 +61,6 @@ export const LinearProgress = React.forwardRef<HTMLDivElement, LinearProgressPro
   (props, ref) => {
     const {
       color,
-      variant,
       ...other
     } = props;
 
