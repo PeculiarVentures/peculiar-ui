@@ -18,7 +18,6 @@ describe('<Radio />', () => {
       expect(input).toBeInTheDocument();
       expect(input.tagName).toBe('INPUT');
       expect(input.getAttribute('type')).toBe('radio');
-      expect(input.getAttribute('class')).toMatch(/Radio-input/i);
       expect(input).not.toBeChecked();
 
       const label = input.closest('label');

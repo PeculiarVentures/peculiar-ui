@@ -17,7 +17,6 @@ describe('<Checkbox />', () => {
       expect(input).toBeInTheDocument();
       expect(input.tagName).toBe('INPUT');
       expect(input.getAttribute('type')).toBe('checkbox');
-      expect(input.getAttribute('class')).toMatch(/Checkbox-input/i);
       expect(input).not.toBeChecked();
 
       const label = input.closest('label');

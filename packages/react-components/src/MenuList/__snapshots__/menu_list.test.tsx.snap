@@ -10,7 +10,7 @@ exports[`<MenuList /> should pass className 1`] = `
 }
 
 <ul
-    class="emotion-0 my-class-name"
+    class="my-class-name emotion-0"
     role="menu"
     tabindex="-1"
   >
