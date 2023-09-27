@@ -78,7 +78,7 @@ exports[`<Slider /> should pass className 1`] = `
 }
 
 <div
-    class="emotion-0 my-class-name"
+    class="my-class-name emotion-0"
   >
     <input
       class="emotion-1"

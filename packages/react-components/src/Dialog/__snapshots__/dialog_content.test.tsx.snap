@@ -27,10 +27,10 @@ exports[`<DialogContent /> should pass className 1`] = `
 }
 
 .emotion-2 {
-  height: 0;
   overflow: hidden;
   -webkit-transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  height: 0;
   visibility: hidden;
   margin: 0 calc(var(--pv-size-base-3) * -1);
 }
@@ -129,10 +129,10 @@ exports[`<DialogContent /> should render border 1`] = `
 }
 
 .emotion-2 {
-  height: 0;
   overflow: hidden;
   -webkit-transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  height: 0;
   visibility: hidden;
   margin: 0 calc(var(--pv-size-base-3) * -1);
 }
@@ -208,6 +208,8 @@ exports[`<DialogContent /> should render error 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-color: var(--pv-color-gray-5);
+  border-style: solid;
+  border-width: 1px 0px 1px 0px;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -219,8 +221,6 @@ exports[`<DialogContent /> should render error 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  border-width: 1px 0px 1px 0;
-  border-style: solid;
 }
 
 .emotion-1 {
@@ -231,17 +231,16 @@ exports[`<DialogContent /> should render error 1`] = `
 }
 
 .emotion-2 {
-  overflow: hidden;
+  overflow: visible;
   -webkit-transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  height: 0;
-  overflow: visible;
   height: auto;
   margin: 0 calc(var(--pv-size-base-3) * -1);
 }
 
 .emotion-3 {
   background: var(--pv-color-wrong-tint-5);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -251,16 +250,15 @@ exports[`<DialogContent /> should render error 1`] = `
   box-sizing: border-box;
   margin: var(--pv-size-base-2) 0;
   padding: var(--pv-size-base-2) var(--pv-size-base-3);
-  border-radius: 4px;
 }
 
 .emotion-4 {
   margin: 0;
+  color: var(--pv-color-wrong);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: var(--pv-color-wrong);
   padding: var(--pv-size-base) 0px;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -336,10 +334,10 @@ exports[`<DialogContent /> should render with default styles 1`] = `
 }
 
 .emotion-2 {
-  height: 0;
   overflow: hidden;
   -webkit-transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  height: 0;
   visibility: hidden;
   margin: 0 calc(var(--pv-size-base-3) * -1);
 }
