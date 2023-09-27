@@ -392,10 +392,10 @@ exports[`<TextField /> TextField render variants should have className 1`] = `
 }
 
 <div
-    class="test-cls"
+    class="div-cls"
   >
     <input
-      class="emotion-0"
+      class="input-cls emotion-0"
       type="text"
       value=""
     />
