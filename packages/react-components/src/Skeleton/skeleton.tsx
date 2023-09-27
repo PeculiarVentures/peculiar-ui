@@ -57,7 +57,9 @@ const pulseKeyframe = keyframes`
   }
 `;
 
-const SkeletonRoot = styled(Box)<SkeletonProps>((props) => ({
+const SkeletonRoot = styled(Box, {
+  shouldForwardProp: (prop) => !['width', 'height'].includes(prop),
+})<SkeletonProps>((props) => ({
   display: 'block',
   height: '1.2em',
   animation: `${pulseKeyframe} 1.5s ease-in-out 0.5s infinite`,

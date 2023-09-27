@@ -4,9 +4,9 @@ exports[`<Box /> border positions position "bottom" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-color: var(--pv-color-attention);
-  border-width: 0px 0px 1px 0;
   border-style: solid;
   border-radius: 4px;
+  border-width: 0px 0px 1px 0px;
 }
 
 <div
@@ -21,9 +21,9 @@ exports[`<Box /> border positions position "horizontal" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-color: var(--pv-color-attention);
-  border-width: 1px 0px 1px 0;
   border-style: solid;
   border-radius: 4px;
+  border-width: 1px 0px 1px 0px;
 }
 
 <div
@@ -38,9 +38,9 @@ exports[`<Box /> border positions position "left" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-color: var(--pv-color-attention);
-  border-width: 0px 0px 0px 1px;
   border-style: solid;
   border-radius: 4px;
+  border-width: 0px 0px 0px 1px;
 }
 
 <div
@@ -55,9 +55,9 @@ exports[`<Box /> border positions position "right" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-color: var(--pv-color-attention);
-  border-width: 0px 1px 0px 0;
   border-style: solid;
   border-radius: 4px;
+  border-width: 0px 1px 0px 0px;
 }
 
 <div
@@ -72,9 +72,9 @@ exports[`<Box /> border positions position "top" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-color: var(--pv-color-attention);
-  border-width: 1px 0px 0px 0;
   border-style: solid;
   border-radius: 4px;
+  border-width: 1px 0px 0px 0px;
 }
 
 <div
@@ -89,9 +89,9 @@ exports[`<Box /> border positions position "vertical" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-color: var(--pv-color-attention);
-  border-width: 0px 1px 0px 1px;
   border-style: solid;
   border-radius: 4px;
+  border-width: 0px 1px 0px 1px;
 }
 
 <div
