@@ -138,9 +138,9 @@ exports[`<Fab /> should render as default 1`] = `
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-primary);
   color: var(--pv-color-primary-contrast);
-  box-shadow: var(--pv-shadow-light-low);
   border-radius: 50%;
   height: var(--pv-size-base-11);
   width: var(--pv-size-base-11);
@@ -150,6 +150,8 @@ exports[`<Fab /> should render as default 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -165,18 +167,13 @@ exports[`<Fab /> should render as default 1`] = `
   box-shadow: var(--pv-shadow-light-medium);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-8);
-  background-color: var(--pv-color-gray-4);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;

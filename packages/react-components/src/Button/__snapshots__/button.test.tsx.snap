@@ -32,9 +32,9 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-gray-8);
   color: var(--pv-color-black);
-  box-shadow: var(--pv-shadow-light-low);
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
@@ -44,6 +44,8 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -59,18 +61,13 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   box-shadow: var(--pv-shadow-light-medium);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-8);
-  background-color: var(--pv-color-gray-4);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -128,9 +125,9 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-primary);
   color: var(--pv-color-primary-contrast);
-  box-shadow: var(--pv-shadow-light-low);
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
@@ -140,6 +137,8 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -155,18 +154,13 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   box-shadow: var(--pv-shadow-light-medium);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-8);
-  background-color: var(--pv-color-gray-4);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -224,9 +218,9 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-secondary);
   color: var(--pv-color-secondary-contrast);
-  box-shadow: var(--pv-shadow-light-low);
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
@@ -236,6 +230,8 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -251,18 +247,13 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   box-shadow: var(--pv-shadow-light-medium);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-8);
-  background-color: var(--pv-color-gray-4);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -320,9 +311,9 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-white);
   color: var(--pv-color-black);
-  box-shadow: var(--pv-shadow-light-low);
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
@@ -332,6 +323,8 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -347,18 +340,13 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   box-shadow: var(--pv-shadow-light-medium);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-8);
-  background-color: var(--pv-color-gray-4);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -416,9 +404,9 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-wrong);
   color: var(--pv-color-wrong-contrast);
-  box-shadow: var(--pv-shadow-light-low);
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
@@ -428,6 +416,8 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -443,18 +433,13 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   box-shadow: var(--pv-shadow-light-medium);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-8);
-  background-color: var(--pv-color-gray-4);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -512,8 +497,8 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
+  color: var(--pv-color-black);
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
@@ -523,6 +508,8 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-4);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -537,18 +524,13 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-4);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -606,8 +588,8 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: var(--pv-color-primary);
   border-color: var(--pv-color-primary-tint-2);
+  color: var(--pv-color-primary);
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
@@ -617,6 +599,8 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-4);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -631,18 +615,13 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   background-color: var(--pv-color-primary-tint-3);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-4);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -700,8 +679,8 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: var(--pv-color-secondary);
   border-color: var(--pv-color-secondary-tint-2);
+  color: var(--pv-color-secondary);
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
@@ -711,6 +690,8 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-4);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -725,18 +706,13 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   background-color: var(--pv-color-secondary-tint-3);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-4);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -794,8 +770,8 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: var(--pv-color-white);
   border-color: var(--pv-color-white);
+  color: var(--pv-color-white);
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
@@ -805,6 +781,8 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-4);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -819,18 +797,13 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   background-color: var(--pv-color-gray-9);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-4);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -888,8 +861,8 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: var(--pv-color-wrong);
   border-color: var(--pv-color-wrong-tint-2);
+  color: var(--pv-color-wrong);
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
@@ -899,6 +872,8 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-4);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -913,18 +888,13 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   background-color: var(--pv-color-wrong-tint-3);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-4);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -992,6 +962,7 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1006,17 +977,13 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -1084,6 +1051,7 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1098,17 +1066,13 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
   background-color: var(--pv-color-primary-tint-3);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -1176,6 +1140,7 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1190,17 +1155,13 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
   background-color: var(--pv-color-secondary-tint-3);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -1268,6 +1229,7 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1282,17 +1244,13 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
   background-color: var(--pv-color-gray-9);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -1360,6 +1318,7 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -1374,17 +1333,13 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
   background-color: var(--pv-color-wrong-tint-3);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -1988,6 +1943,7 @@ exports[`<Button /> Button render variants should have end icon 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -2002,17 +1958,13 @@ exports[`<Button /> Button render variants should have end icon 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -2102,6 +2054,7 @@ exports[`<Button /> Button render variants should have start icon 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -2116,17 +2069,13 @@ exports[`<Button /> Button render variants should have start icon 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn1-weight);
   font-size: var(--pv-text-btn1-size);
   line-height: var(--pv-text-btn1-height);
   letter-spacing: var(--pv-text-btn1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -2306,6 +2255,7 @@ exports[`<Button /> Button render variants should have text variant 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -2320,17 +2270,13 @@ exports[`<Button /> Button render variants should have text variant 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-0:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-h1-weight);
   font-size: var(--pv-text-h1-size);
   line-height: var(--pv-text-h1-height);
   letter-spacing: var(--pv-text-h1-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;

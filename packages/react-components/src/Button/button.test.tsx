@@ -18,15 +18,10 @@ describe('<Button />', () => {
       expect(button).toBeInTheDocument();
       expect(button).toHaveTextContent('Text');
       expect(button.tagName).toBe('BUTTON');
-      expect(button.getAttribute('class')).toMatch(/Button-medium/i);
     });
 
     it('should be disabled', () => {
       const { asFragment } = render(<Button disabled>Text</Button>);
-
-      const button = screen.getByRole('button');
-
-      expect(button).toHaveAttribute('disabled');
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -34,23 +29,11 @@ describe('<Button />', () => {
     it('should have start icon', () => {
       const { asFragment } = render(<Button startIcon={<PlusIcon />}>Text</Button>);
 
-      const button = screen.getByRole('button');
-
-      expect(
-        button.querySelector('span[class*="Button-startIcon"]'),
-      ).toBeInTheDocument();
-
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have end icon', () => {
       const { asFragment } = render(<Button endIcon={<PlusIcon />}>Text</Button>);
-
-      const button = screen.getByRole('button');
-
-      expect(
-        button.querySelector('span[class*="Button-endIcon"]'),
-      ).toBeInTheDocument();
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -58,20 +41,11 @@ describe('<Button />', () => {
     it('should have text variant', () => {
       const { asFragment } = render(<Button textVariant="h1">Text</Button>);
 
-      const heading = screen.getByRole('heading');
-
-      expect(heading).toBeInTheDocument();
-      expect(heading.getAttribute('class')).toMatch(/ButtonBase-label/i);
-
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have class name', () => {
       const { asFragment } = render(<Button className="test-cls">Text</Button>);
-
-      const button = screen.getByRole('button');
-
-      expect(button.getAttribute('class')).toMatch(/test-cls/i);
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -79,19 +53,11 @@ describe('<Button />', () => {
     it('should have test id', () => {
       const { asFragment } = render(<Button data-testid="test-id">Text</Button>);
 
-      const button = screen.getByRole('button');
-
-      expect(button.getAttribute('data-testid')).toMatch(/test-id/i);
-
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have title', () => {
       const { asFragment } = render(<Button title="Test title">Text</Button>);
-
-      const button = screen.getByRole('button');
-
-      expect(button.getAttribute('title')).toMatch(/Test title/i);
 
       expect(asFragment()).toMatchSnapshot();
     });

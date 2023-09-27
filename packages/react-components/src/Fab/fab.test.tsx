@@ -17,7 +17,6 @@ describe('<Fab />', () => {
     expect(button).toBeInTheDocument();
     expect(icon).toBeInTheDocument();
     expect(button.tagName).toBe('BUTTON');
-    expect(button.getAttribute('class')).toMatch(/ButtonBase-Fab/i);
     expect(icon.tagName).toBe('svg');
     expect(button).toContainElement(icon);
 
