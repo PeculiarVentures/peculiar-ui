@@ -1,13 +1,202 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Menu /> should render with default styles 1`] = `
-<DocumentFragment>
-  <button
-    aria-expanded="false"
-    aria-haspopup="menu"
-    type="button"
+exports[`<Menu /> should pass className 1`] = `
+.emotion-0 {
+  position: fixed;
+  z-index: 1300;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.emotion-1 {
+  background: var(--pv-color-black);
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+}
+
+.emotion-2 {
+  background: var(--pv-color-white);
+  outline: 0;
+  max-width: calc(100% - 32px);
+  min-width: 16px;
+  max-height: calc(100% - 32px);
+  min-height: 16px;
+  box-shadow: var(--pv-shadow-light-low);
+  border-radius: 4px;
+}
+
+.emotion-2[data-popper-placement^="bottom"] {
+  margin: var(--pv-size-base-3) 0px;
+}
+
+.emotion-2[data-popper-placement^="top"] {
+  margin: var(--pv-size-base-3) 0px;
+}
+
+.emotion-2[data-popper-placement^="right"] {
+  margin: 0px var(--pv-size-base-3);
+}
+
+.emotion-2[data-popper-placement^="left"] {
+  margin: 0px var(--pv-size-base-3);
+}
+
+.emotion-3 {
+  padding: var(--pv-size-base-2) 0px;
+  outline: none;
+  list-style: none;
+  margin: 0;
+}
+
+.emotion-4 {
+  padding: 0px var(--pv-size-base-2);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  height: var(--pv-size-base-7);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  -webkit-transition: background-color 200ms;
+  transition: background-color 200ms;
+  background-color: transparent;
+  border: none;
+  color: var(--pv-color-black);
+  box-sizing: border-box;
+  gap: var(--pv-size-base-2);
+}
+
+.emotion-4:hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-4:focus {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-4:active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-5 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+<body>
+  <div>
+    <button
+      aria-expanded="true"
+      aria-haspopup="menu"
+      type="button"
+    >
+      Open
+    </button>
+  </div>
+  <div
+    aria-hidden="false"
+    class="emotion-0"
+    role="presentation"
   >
-    Open
-  </button>
-</DocumentFragment>
+    <div
+      aria-hidden="true"
+      class="emotion-1"
+      style="opacity: 0.5; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    />
+    <div
+      class="my-class-name emotion-2"
+      style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; position: absolute; left: 0px; top: 0px;"
+      tabindex="-1"
+    >
+      <ul
+        class="emotion-3"
+        role="menu"
+        tabindex="-1"
+      >
+        <li
+          class="emotion-4"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="emotion-5"
+          >
+            item-1
+          </span>
+        </li>
+        <li
+          class="emotion-4"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="emotion-5"
+          >
+            item-2
+          </span>
+        </li>
+        <li
+          class="emotion-4"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="emotion-5"
+          >
+            item-3
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Menu /> should render with default styles 1`] = `
+<body>
+  <div>
+    <button
+      aria-expanded="false"
+      aria-haspopup="menu"
+      type="button"
+    >
+      Open
+    </button>
+  </div>
+</body>
 `;

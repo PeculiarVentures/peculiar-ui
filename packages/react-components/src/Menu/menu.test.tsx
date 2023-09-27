@@ -1,15 +1,15 @@
 import React from 'react';
-import { renderWithWrapper as render } from '../test-utils';
+import { renderWithWrapper as render, fireEvent, screen } from '../test-utils';
 import { Menu } from './index';
+
+const options: Partial<React.ComponentProps<typeof Menu>>['options'] = [
+  { label: 'item-1' },
+  { label: 'item-2' },
+  { label: 'item-3' },
+];
 
 describe('<Menu />', () => {
   it('should render with default styles', () => {
-    const options: Partial<React.ComponentProps<typeof Menu>>['options'] = [
-      { label: 'item-1' },
-      { label: 'item-2' },
-      { label: 'item-3' },
-    ];
-
     const { asFragment } = render(
       <Menu
         options={options}
@@ -19,5 +19,22 @@ describe('<Menu />', () => {
     );
 
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should pass className', () => {
+    const { baseElement } = render(
+      <Menu
+        options={options}
+        popoverProps={{
+          className: 'my-class-name',
+        }}
+      >
+        <button type="button">Open</button>
+      </Menu>,
+    );
+
+    fireEvent.click(screen.getByRole('button'));
+
+    expect(baseElement).toMatchSnapshot();
   });
 });
