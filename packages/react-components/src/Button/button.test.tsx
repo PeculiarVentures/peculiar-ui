@@ -5,7 +5,7 @@ import {
   renderWithWrapper as render,
   screen,
 } from '../test-utils';
-import { Button } from '../index';
+import { Button } from './index';
 import { PlusIcon } from '../icons';
 
 describe('<Button />', () => {
@@ -21,110 +21,124 @@ describe('<Button />', () => {
       expect(button.getAttribute('class')).toMatch(/Button-medium/i);
     });
 
-    it('should render a text button', () => {
-      render(<Button>Text</Button>);
-
-      const button = screen.getByRole('button');
-
-      expect(button).toHaveStyle({
-        borderColor: 'transparent',
-        backgroundColor: 'transparent',
-      });
-    });
-
-    it('should render a contained button', () => {
-      render(<Button variant="contained">Text</Button>);
-
-      const button = screen.getByRole('button');
-
-      expect(button).not.toHaveStyle({ backgroundColor: 'transparent' });
-    });
-
     it('should be disabled', () => {
-      render(<Button disabled>Text</Button>);
+      const { asFragment } = render(<Button disabled>Text</Button>);
 
       const button = screen.getByRole('button');
 
       expect(button).toHaveAttribute('disabled');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have start icon', () => {
-      render(<Button startIcon={<PlusIcon />}>Text</Button>);
+      const { asFragment } = render(<Button startIcon={<PlusIcon />}>Text</Button>);
 
       const button = screen.getByRole('button');
 
       expect(
         button.querySelector('span[class*="Button-startIcon"]'),
       ).toBeInTheDocument();
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have end icon', () => {
-      render(<Button endIcon={<PlusIcon />}>Text</Button>);
+      const { asFragment } = render(<Button endIcon={<PlusIcon />}>Text</Button>);
 
       const button = screen.getByRole('button');
 
       expect(
         button.querySelector('span[class*="Button-endIcon"]'),
       ).toBeInTheDocument();
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have text variant', () => {
-      render(<Button textVariant="h1">Text</Button>);
+      const { asFragment } = render(<Button textVariant="h1">Text</Button>);
 
       const heading = screen.getByRole('heading');
 
       expect(heading).toBeInTheDocument();
       expect(heading.getAttribute('class')).toMatch(/ButtonBase-label/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have class name', () => {
-      render(<Button className="test-cls">Text</Button>);
+      const { asFragment } = render(<Button className="test-cls">Text</Button>);
 
       const button = screen.getByRole('button');
 
       expect(button.getAttribute('class')).toMatch(/test-cls/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
-      render(<Button data-testid="test-id">Text</Button>);
+      const { asFragment } = render(<Button data-testid="test-id">Text</Button>);
 
       const button = screen.getByRole('button');
 
       expect(button.getAttribute('data-testid')).toMatch(/test-id/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have title', () => {
-      render(<Button title="Test title">Text</Button>);
+      const { asFragment } = render(<Button title="Test title">Text</Button>);
 
       const button = screen.getByRole('button');
 
       expect(button.getAttribute('title')).toMatch(/Test title/i);
+
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
+
+  describe('Button render (variants & colors)', () => {
+    const variants: Array<React.ComponentProps<typeof Button>['variant']> = [
+      'contained',
+      'outlined',
+      'text',
+    ];
+    const colors: Array<React.ComponentProps<typeof Button>['color']> = [
+      'default',
+      'primary',
+      'secondary',
+      'white',
+      'wrong',
+    ];
+
+    variants.forEach((variant) => {
+      colors.forEach((color) => {
+        it(`variant: "${variant}" & color: "${color}"`, () => {
+          const { asFragment } = render(
+            <Button variant={variant} color={color}>Text</Button>,
+          );
+
+          expect(asFragment()).toMatchSnapshot();
+        });
+      });
     });
   });
 
   describe('Button render sizes', () => {
-    it('should render a small size button', () => {
-      render(<Button size="small">Text</Button>);
+    const sizes: Array<React.ComponentProps<typeof Button>['size']> = [
+      'small',
+      'medium',
+      'large',
+    ];
 
-      const button = screen.getByRole('button');
+    sizes.forEach((size) => {
+      it(`size "${size}"`, () => {
+        const { asFragment } = render(
+          <Button size={size}>Text</Button>,
+        );
 
-      expect(button.getAttribute('class')).toMatch(/Button-small/i);
-    });
-
-    it('should render a medium size button', () => {
-      render(<Button size="medium">Text</Button>);
-
-      const button = screen.getByRole('button');
-
-      expect(button.getAttribute('class')).toMatch(/Button-medium/i);
-    });
-
-    it('should render a large size button', () => {
-      render(<Button size="large">Text</Button>);
-
-      const button = screen.getByRole('button');
-
-      expect(button.getAttribute('class')).toMatch(/Button-large/i);
+        expect(asFragment()).toMatchSnapshot();
+      });
     });
   });
 
@@ -157,6 +171,7 @@ describe('<Button />', () => {
       const handleClick = jest.fn();
 
       render(<Button onClick={handleClick}>Click</Button>);
+
       fireEvent.click(screen.getByRole('button'));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
@@ -169,6 +184,7 @@ describe('<Button />', () => {
           Click
         </Button>,
       );
+
       fireEvent.click(screen.getByRole('button'));
       expect(handleClick).not.toHaveBeenCalled();
     });
@@ -178,7 +194,7 @@ describe('<Button />', () => {
     it('should rendered as an anchor', () => {
       const href = 'https://test.com';
 
-      render(
+      const { asFragment } = render(
         <Button component="a" href={href}>
           Link
         </Button>,
@@ -188,6 +204,8 @@ describe('<Button />', () => {
 
       expect(anchor.tagName).toBe('A');
       expect(anchor).toHaveAttribute('href', href);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have focus when rendered as an anchor', async () => {

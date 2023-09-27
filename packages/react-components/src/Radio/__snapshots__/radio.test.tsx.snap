@@ -1,0 +1,1014 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Radio /> Radio render variants should be checked, defaultChecked prop 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: var(--pv-size-base-4);
+  height: var(--pv-size-base-4);
+  border-radius: 50%;
+  color: var(--pv-color-gray-6);
+  position: relative;
+}
+
+.emotion-1 {
+  cursor: inherit;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-gray-9);
+  border-color: currentColor;
+  background-color: transparent;
+}
+
+.emotion-1:before {
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: currentColor;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+
+.emotion-1:checked+[aria-hidden] {
+  color: var(--pv-color-primary);
+  opacity: 1;
+}
+
+.emotion-1:not(:disabled) {
+  cursor: pointer;
+}
+
+.emotion-1:not(:disabled):checked {
+  color: var(--pv-color-primary-shade-1);
+}
+
+.emotion-1:not(:disabled):hover:before {
+  opacity: 0.18;
+}
+
+.emotion-1:not(:disabled):focus:before {
+  opacity: 0.23;
+}
+
+.emotion-1:not(:disabled):active:before {
+  opacity: 0.3;
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-6);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  color: inherit;
+}
+
+.emotion-1:disabled:checked {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+<label
+    class="emotion-0"
+    for="test-id"
+  >
+    <input
+      checked=""
+      class="emotion-1"
+      id="test-id"
+      type="radio"
+    />
+    <svg
+      aria-hidden="true"
+      class="emotion-2"
+      fill="none"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Radio /> Radio render variants should be disabled 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: var(--pv-size-base-4);
+  height: var(--pv-size-base-4);
+  border-radius: 50%;
+  color: var(--pv-color-gray-6);
+  position: relative;
+}
+
+.emotion-1 {
+  cursor: inherit;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-gray-9);
+  border-color: currentColor;
+  background-color: transparent;
+}
+
+.emotion-1:before {
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: currentColor;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+
+.emotion-1:checked+[aria-hidden] {
+  color: var(--pv-color-primary);
+  opacity: 1;
+}
+
+.emotion-1:not(:disabled) {
+  cursor: pointer;
+}
+
+.emotion-1:not(:disabled):checked {
+  color: var(--pv-color-primary-shade-1);
+}
+
+.emotion-1:not(:disabled):hover:before {
+  opacity: 0.18;
+}
+
+.emotion-1:not(:disabled):focus:before {
+  opacity: 0.23;
+}
+
+.emotion-1:not(:disabled):active:before {
+  opacity: 0.3;
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-6);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  color: inherit;
+}
+
+.emotion-1:disabled:checked {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+<label
+    class="emotion-0"
+    for="test-id"
+  >
+    <input
+      class="emotion-1"
+      disabled=""
+      id="test-id"
+      type="radio"
+    />
+    <svg
+      aria-hidden="true"
+      class="emotion-2"
+      fill="none"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Radio /> Radio render variants should have className 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: var(--pv-size-base-4);
+  height: var(--pv-size-base-4);
+  border-radius: 50%;
+  color: var(--pv-color-gray-6);
+  position: relative;
+}
+
+.emotion-1 {
+  cursor: inherit;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-gray-9);
+  border-color: currentColor;
+  background-color: transparent;
+}
+
+.emotion-1:before {
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: currentColor;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+
+.emotion-1:checked+[aria-hidden] {
+  color: var(--pv-color-primary);
+  opacity: 1;
+}
+
+.emotion-1:not(:disabled) {
+  cursor: pointer;
+}
+
+.emotion-1:not(:disabled):checked {
+  color: var(--pv-color-primary-shade-1);
+}
+
+.emotion-1:not(:disabled):hover:before {
+  opacity: 0.18;
+}
+
+.emotion-1:not(:disabled):focus:before {
+  opacity: 0.23;
+}
+
+.emotion-1:not(:disabled):active:before {
+  opacity: 0.3;
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-6);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  color: inherit;
+}
+
+.emotion-1:disabled:checked {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+<label
+    class="emotion-0 test-cls"
+    for="test-id"
+  >
+    <input
+      class="emotion-1"
+      id="test-id"
+      type="radio"
+    />
+    <svg
+      aria-hidden="true"
+      class="emotion-2"
+      fill="none"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Radio /> Radio render variants should have custom checked icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: var(--pv-size-base-4);
+  height: var(--pv-size-base-4);
+  border-radius: 50%;
+  color: var(--pv-color-gray-6);
+  position: relative;
+}
+
+.emotion-1 {
+  cursor: inherit;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-gray-9);
+  border-color: currentColor;
+  background-color: transparent;
+}
+
+.emotion-1:before {
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: currentColor;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+
+.emotion-1:checked+[aria-hidden] {
+  color: var(--pv-color-primary);
+  opacity: 1;
+}
+
+.emotion-1:not(:disabled) {
+  cursor: pointer;
+}
+
+.emotion-1:not(:disabled):checked {
+  color: var(--pv-color-primary-shade-1);
+}
+
+.emotion-1:not(:disabled):hover:before {
+  opacity: 0.18;
+}
+
+.emotion-1:not(:disabled):focus:before {
+  opacity: 0.23;
+}
+
+.emotion-1:not(:disabled):active:before {
+  opacity: 0.3;
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-6);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  color: inherit;
+}
+
+.emotion-1:disabled:checked {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+<label
+    class="emotion-0"
+    for="test-id"
+  >
+    <input
+      class="emotion-1"
+      id="test-id"
+      type="radio"
+    />
+    <svg
+      aria-hidden="true"
+      class="emotion-2"
+      data-testid="icon"
+      fill="none"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 12.5h12M12 18.5v-12"
+        stroke="currentColor"
+        stroke-width="1.5"
+      />
+    </svg>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Radio /> Radio render variants should have name attr 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: var(--pv-size-base-4);
+  height: var(--pv-size-base-4);
+  border-radius: 50%;
+  color: var(--pv-color-gray-6);
+  position: relative;
+}
+
+.emotion-1 {
+  cursor: inherit;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-gray-9);
+  border-color: currentColor;
+  background-color: transparent;
+}
+
+.emotion-1:before {
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: currentColor;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+
+.emotion-1:checked+[aria-hidden] {
+  color: var(--pv-color-primary);
+  opacity: 1;
+}
+
+.emotion-1:not(:disabled) {
+  cursor: pointer;
+}
+
+.emotion-1:not(:disabled):checked {
+  color: var(--pv-color-primary-shade-1);
+}
+
+.emotion-1:not(:disabled):hover:before {
+  opacity: 0.18;
+}
+
+.emotion-1:not(:disabled):focus:before {
+  opacity: 0.23;
+}
+
+.emotion-1:not(:disabled):active:before {
+  opacity: 0.3;
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-6);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  color: inherit;
+}
+
+.emotion-1:disabled:checked {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+<label
+    class="emotion-0"
+    for="test-id"
+  >
+    <input
+      class="emotion-1"
+      id="test-id"
+      name="test-name"
+      type="radio"
+    />
+    <svg
+      aria-hidden="true"
+      class="emotion-2"
+      fill="none"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Radio /> Radio render variants should have required 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: var(--pv-size-base-4);
+  height: var(--pv-size-base-4);
+  border-radius: 50%;
+  color: var(--pv-color-gray-6);
+  position: relative;
+}
+
+.emotion-1 {
+  cursor: inherit;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-gray-9);
+  border-color: currentColor;
+  background-color: transparent;
+}
+
+.emotion-1:before {
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: currentColor;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+
+.emotion-1:checked+[aria-hidden] {
+  color: var(--pv-color-primary);
+  opacity: 1;
+}
+
+.emotion-1:not(:disabled) {
+  cursor: pointer;
+}
+
+.emotion-1:not(:disabled):checked {
+  color: var(--pv-color-primary-shade-1);
+}
+
+.emotion-1:not(:disabled):hover:before {
+  opacity: 0.18;
+}
+
+.emotion-1:not(:disabled):focus:before {
+  opacity: 0.23;
+}
+
+.emotion-1:not(:disabled):active:before {
+  opacity: 0.3;
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-6);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  color: inherit;
+}
+
+.emotion-1:disabled:checked {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+<label
+    class="emotion-0"
+    for="test-id"
+  >
+    <input
+      class="emotion-1"
+      id="test-id"
+      required=""
+      type="radio"
+    />
+    <svg
+      aria-hidden="true"
+      class="emotion-2"
+      fill="none"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Radio /> Radio render variants should have test id 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: var(--pv-size-base-4);
+  height: var(--pv-size-base-4);
+  border-radius: 50%;
+  color: var(--pv-color-gray-6);
+  position: relative;
+}
+
+.emotion-1 {
+  cursor: inherit;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-gray-9);
+  border-color: currentColor;
+  background-color: transparent;
+}
+
+.emotion-1:before {
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: currentColor;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+
+.emotion-1:checked+[aria-hidden] {
+  color: var(--pv-color-primary);
+  opacity: 1;
+}
+
+.emotion-1:not(:disabled) {
+  cursor: pointer;
+}
+
+.emotion-1:not(:disabled):checked {
+  color: var(--pv-color-primary-shade-1);
+}
+
+.emotion-1:not(:disabled):hover:before {
+  opacity: 0.18;
+}
+
+.emotion-1:not(:disabled):focus:before {
+  opacity: 0.23;
+}
+
+.emotion-1:not(:disabled):active:before {
+  opacity: 0.3;
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-6);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  color: inherit;
+}
+
+.emotion-1:disabled:checked {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+<label
+    class="emotion-0"
+    data-testid="test-id"
+    for="test-id"
+  >
+    <input
+      class="emotion-1"
+      id="test-id"
+      type="radio"
+    />
+    <svg
+      aria-hidden="true"
+      class="emotion-2"
+      fill="none"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Radio /> Radio render variants should render as default 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: var(--pv-size-base-4);
+  height: var(--pv-size-base-4);
+  border-radius: 50%;
+  color: var(--pv-color-gray-6);
+  position: relative;
+}
+
+.emotion-1 {
+  cursor: inherit;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-gray-9);
+  border-color: currentColor;
+  background-color: transparent;
+}
+
+.emotion-1:before {
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: currentColor;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+
+.emotion-1:checked+[aria-hidden] {
+  color: var(--pv-color-primary);
+  opacity: 1;
+}
+
+.emotion-1:not(:disabled) {
+  cursor: pointer;
+}
+
+.emotion-1:not(:disabled):checked {
+  color: var(--pv-color-primary-shade-1);
+}
+
+.emotion-1:not(:disabled):hover:before {
+  opacity: 0.18;
+}
+
+.emotion-1:not(:disabled):focus:before {
+  opacity: 0.23;
+}
+
+.emotion-1:not(:disabled):active:before {
+  opacity: 0.3;
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-6);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  color: inherit;
+}
+
+.emotion-1:disabled:checked {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+<label
+    class="emotion-0"
+    for="test-id"
+  >
+    <input
+      class="emotion-1"
+      id="test-id"
+      type="radio"
+    />
+    <svg
+      aria-hidden="true"
+      class="emotion-2"
+      fill="none"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        fill="currentColor"
+        r="6"
+      />
+    </svg>
+  </label>
+</DocumentFragment>
+`;

@@ -1,0 +1,508 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select /> should pass className 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  position: relative;
+}
+
+.emotion-1 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  color: var(--pv-color-black);
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--pv-color-gray-8);
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  font-weight: var(--pv-text-c1-weight);
+  font-size: var(--pv-text-c1-size);
+  line-height: var(--pv-text-c1-height);
+  letter-spacing: var(--pv-text-c1-spacing);
+  height: var(--pv-size-base-7);
+}
+
+.emotion-1:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  background-color: var(--pv-color-gray-1);
+  border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled)[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-1:not(:disabled):focus {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  pointer-events: none;
+  margin: 0px var(--pv-size-base);
+  color: var(--pv-color-gray-10);
+}
+
+<div
+    class="my-class-name"
+  >
+    <div
+      class="emotion-0"
+    >
+      <select
+        class="emotion-1"
+      >
+        <option
+          value="test1"
+        >
+          test-1
+        </option>
+        <option
+          value="test3"
+        >
+          test-2
+        </option>
+      </select>
+      <svg
+        aria-hidden="true"
+        class="emotion-2"
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Select /> should render with default styles 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  position: relative;
+}
+
+.emotion-1 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  color: var(--pv-color-black);
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--pv-color-gray-8);
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  font-weight: var(--pv-text-c1-weight);
+  font-size: var(--pv-text-c1-size);
+  line-height: var(--pv-text-c1-height);
+  letter-spacing: var(--pv-text-c1-spacing);
+  height: var(--pv-size-base-7);
+}
+
+.emotion-1:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  background-color: var(--pv-color-gray-1);
+  border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled)[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-1:not(:disabled):focus {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  pointer-events: none;
+  margin: 0px var(--pv-size-base);
+  color: var(--pv-color-gray-10);
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <select
+        class="emotion-1"
+      >
+        <option
+          value="test1"
+        >
+          test-1
+        </option>
+        <option
+          value="test3"
+        >
+          test-2
+        </option>
+      </select>
+      <svg
+        aria-hidden="true"
+        class="emotion-2"
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Select /> sizes size "large" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  position: relative;
+}
+
+.emotion-1 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  color: var(--pv-color-black);
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--pv-color-gray-8);
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  font-weight: var(--pv-text-c1-weight);
+  font-size: var(--pv-text-c1-size);
+  line-height: var(--pv-text-c1-height);
+  letter-spacing: var(--pv-text-c1-spacing);
+  height: var(--pv-size-base-8);
+}
+
+.emotion-1:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  background-color: var(--pv-color-gray-1);
+  border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled)[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-1:not(:disabled):focus {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  pointer-events: none;
+  margin: 0px var(--pv-size-base);
+  color: var(--pv-color-gray-10);
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <select
+        class="emotion-1"
+      >
+        <option
+          value="test1"
+        >
+          test-1
+        </option>
+        <option
+          value="test3"
+        >
+          test-2
+        </option>
+      </select>
+      <svg
+        aria-hidden="true"
+        class="emotion-2"
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Select /> sizes size "medium" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  position: relative;
+}
+
+.emotion-1 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  color: var(--pv-color-black);
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--pv-color-gray-8);
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  font-weight: var(--pv-text-c1-weight);
+  font-size: var(--pv-text-c1-size);
+  line-height: var(--pv-text-c1-height);
+  letter-spacing: var(--pv-text-c1-spacing);
+  height: var(--pv-size-base-7);
+}
+
+.emotion-1:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  background-color: var(--pv-color-gray-1);
+  border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled)[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-1:not(:disabled):focus {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  pointer-events: none;
+  margin: 0px var(--pv-size-base);
+  color: var(--pv-color-gray-10);
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <select
+        class="emotion-1"
+      >
+        <option
+          value="test1"
+        >
+          test-1
+        </option>
+        <option
+          value="test3"
+        >
+          test-2
+        </option>
+      </select>
+      <svg
+        aria-hidden="true"
+        class="emotion-2"
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Select /> sizes size "small" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  position: relative;
+}
+
+.emotion-1 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  color: var(--pv-color-black);
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--pv-color-gray-8);
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  font-weight: var(--pv-text-c1-weight);
+  font-size: var(--pv-text-c1-size);
+  line-height: var(--pv-text-c1-height);
+  letter-spacing: var(--pv-text-c1-spacing);
+  height: var(--pv-size-base-6);
+}
+
+.emotion-1:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  background-color: var(--pv-color-gray-1);
+  border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled)[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-1:not(:disabled):focus {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  pointer-events: none;
+  margin: 0px var(--pv-size-base);
+  color: var(--pv-color-gray-10);
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <select
+        class="emotion-1"
+      >
+        <option
+          value="test1"
+        >
+          test-1
+        </option>
+        <option
+          value="test3"
+        >
+          test-2
+        </option>
+      </select>
+      <svg
+        aria-hidden="true"
+        class="emotion-2"
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;

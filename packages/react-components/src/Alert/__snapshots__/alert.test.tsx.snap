@@ -1,0 +1,641 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Alert /> should pass className 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--pv-color-black);
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-white);
+  padding: var(--pv-size-base) 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: var(--pv-text-b3-height);
+}
+
+<div
+    class="my-class-name emotion-0"
+    role="alert"
+  >
+    <p
+      class="emotion-1"
+    >
+      Alert message
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Alert /> should render with default styles 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--pv-color-black);
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-white);
+  padding: var(--pv-size-base) 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: var(--pv-text-b3-height);
+}
+
+<div
+    class="emotion-0"
+    role="alert"
+  >
+    <p
+      class="emotion-1"
+    >
+      Alert message
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Alert /> variants variant "attention" disable icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--pv-color-black);
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-white);
+  padding: var(--pv-size-base) 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: var(--pv-text-b3-height);
+}
+
+<div
+    class="emotion-0"
+    role="alert"
+  >
+    <p
+      class="emotion-1"
+    >
+      Messageattention
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Alert /> variants variant "attention" enable icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--pv-color-black);
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.emotion-1 {
+  margin-right: var(--pv-size-base-2);
+  width: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-half) 0px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: var(--pv-color-attention);
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-white);
+  padding: var(--pv-size-base) 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: var(--pv-text-b3-height);
+}
+
+<div
+    class="emotion-0"
+    role="alert"
+  >
+    <div
+      class="emotion-1"
+    >
+      <svg
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9.57 4.385c1.066-1.847 3.73-1.847 4.796 0l7.195 12.461C22.627 18.692 21.294 21 19.163 21H4.773c-2.131 0-3.464-2.308-2.398-4.154L9.57 4.385z"
+          fill="currentColor"
+        />
+        <circle
+          cx="11.968"
+          cy="16.846"
+          fill="#fff"
+          r="1.385"
+        />
+        <path
+          d="M10.227 11.11l1.741 4.351 1.74-4.351a1.875 1.875 0 10-3.48 0z"
+          fill="#fff"
+        />
+      </svg>
+    </div>
+    <p
+      class="emotion-2"
+    >
+      Messageattention
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Alert /> variants variant "pending" disable icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--pv-color-black);
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-white);
+  padding: var(--pv-size-base) 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: var(--pv-text-b3-height);
+}
+
+<div
+    class="emotion-0"
+    role="alert"
+  >
+    <p
+      class="emotion-1"
+    >
+      Messagepending
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Alert /> variants variant "pending" enable icon 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1px,200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px,200px;
+    stroke-dashoffset: -125px;
+  }
+}
+
+.emotion-0 {
+  background: var(--pv-color-black);
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.emotion-1 {
+  margin-right: var(--pv-size-base-2);
+  width: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-half) 0px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-2 {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  color: var(--pv-color-secondary);
+  -webkit-animation: animation-0 1.4s linear infinite;
+  animation: animation-0 1.4s linear infinite;
+  height: var(--pv-size-base-3);
+  width: var(--pv-size-base-3);
+}
+
+.emotion-3 {
+  display: block;
+}
+
+.emotion-4 {
+  stroke: currentcolor;
+  stroke-dasharray: 80px,200px;
+  stroke-dashoffset: 0;
+  -webkit-animation: animation-1 1.4s ease-in-out infinite;
+  animation: animation-1 1.4s ease-in-out infinite;
+}
+
+.emotion-5 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-white);
+  padding: var(--pv-size-base) 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: var(--pv-text-b3-height);
+}
+
+<div
+    class="emotion-0"
+    role="alert"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-2"
+        role="progressbar"
+      >
+        <svg
+          class="emotion-3"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="emotion-4"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20"
+            stroke-width="4"
+          />
+        </svg>
+      </div>
+    </div>
+    <p
+      class="emotion-5"
+    >
+      Messagepending
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Alert /> variants variant "success" disable icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--pv-color-black);
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-white);
+  padding: var(--pv-size-base) 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: var(--pv-text-b3-height);
+}
+
+<div
+    class="emotion-0"
+    role="alert"
+  >
+    <p
+      class="emotion-1"
+    >
+      Messagesuccess
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Alert /> variants variant "success" enable icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--pv-color-black);
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.emotion-1 {
+  margin-right: var(--pv-size-base-2);
+  width: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-half) 0px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: var(--pv-color-success);
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-white);
+  padding: var(--pv-size-base) 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: var(--pv-text-b3-height);
+}
+
+<div
+    class="emotion-0"
+    role="alert"
+  >
+    <div
+      class="emotion-1"
+    >
+      <svg
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          fill="currentColor"
+          height="21.333"
+          rx="10.667"
+          width="21.333"
+          x="1.333"
+          y="1.333"
+        />
+        <path
+          d="M8 10.667L11.333 14l5-5"
+          stroke="#fff"
+          stroke-width="1.5"
+        />
+      </svg>
+    </div>
+    <p
+      class="emotion-2"
+    >
+      Messagesuccess
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Alert /> variants variant "wrong" disable icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--pv-color-wrong-tint-5);
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.emotion-1 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-wrong);
+  padding: var(--pv-size-base) 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: var(--pv-text-b3-height);
+}
+
+<div
+    class="emotion-0"
+    role="alert"
+  >
+    <p
+      class="emotion-1"
+    >
+      Messagewrong
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Alert /> variants variant "wrong" enable icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--pv-color-wrong-tint-5);
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.emotion-1 {
+  margin-right: var(--pv-size-base-2);
+  width: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--pv-size-base-half) 0px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: var(--pv-color-wrong);
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-wrong);
+  padding: var(--pv-size-base) 0px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: var(--pv-text-b3-height);
+}
+
+<div
+    class="emotion-0"
+    role="alert"
+  >
+    <div
+      class="emotion-1"
+    >
+      <svg
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          fill="currentColor"
+          height="21.333"
+          rx="10.667"
+          width="21.333"
+          x="1"
+          y="1"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M12.185 11.5l2.721 2.72a.324.324 0 010 .457l-.23.229a.323.323 0 01-.456 0l-2.72-2.72-2.72 2.72a.324.324 0 01-.457 0l-.229-.23a.324.324 0 010-.456l2.721-2.72-2.721-2.72a.324.324 0 010-.457l.229-.229a.324.324 0 01.457 0l2.72 2.72 2.72-2.72a.323.323 0 01.457 0l.229.23a.324.324 0 010 .456l-2.721 2.72z"
+          fill="#fff"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <p
+      class="emotion-2"
+    >
+      Messagewrong
+    </p>
+  </div>
+</DocumentFragment>
+`;

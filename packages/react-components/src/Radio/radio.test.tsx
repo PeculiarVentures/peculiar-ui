@@ -5,13 +5,13 @@ import {
   userEvent,
   fireEvent,
 } from '../test-utils';
-import { Radio } from '../index';
+import { Radio } from './index';
 import { PlusIcon } from '../icons';
 
 describe('<Radio />', () => {
   describe('Radio render variants', () => {
     it('should render as default', () => {
-      render(<Radio />);
+      const { asFragment } = render(<Radio id="test-id" />);
 
       const input = screen.getByRole('radio');
 
@@ -25,6 +25,8 @@ describe('<Radio />', () => {
 
       expect(label).toBeInTheDocument();
       expect(label.getAttribute('for')).toEqual(input.id);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have id', () => {
@@ -41,47 +43,57 @@ describe('<Radio />', () => {
     });
 
     it('should be disabled', () => {
-      render(<Radio disabled />);
+      const { asFragment } = render(<Radio id="test-id" disabled />);
 
       const input = screen.getByRole('radio');
 
       expect(input).toHaveAttribute('disabled');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have required', () => {
-      render(<Radio required />);
+      const { asFragment } = render(<Radio id="test-id" required />);
 
       const input = screen.getByRole('radio');
 
       expect(input).toHaveAttribute('required');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have name attr', () => {
-      render(<Radio name="test-name" />);
+      const { asFragment } = render(<Radio id="test-id" name="test-name" />);
 
       const input = screen.getByRole('radio');
 
       expect(input.getAttribute('name')).toEqual('test-name');
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
-      render(<Radio data-testid="test-id" />);
+      const { asFragment } = render(<Radio id="test-id" data-testid="test-id" />);
 
       const input = screen.getByRole('radio');
 
       const label = input.closest('label');
 
       expect(label.getAttribute('data-testid')).toMatch(/test-id/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have className', () => {
-      render(<Radio className="test-cls" />);
+      const { asFragment } = render(<Radio id="test-id" className="test-cls" />);
 
       const input = screen.getByRole('radio');
 
       const label = input.closest('label');
 
       expect(label.getAttribute('class')).toMatch(/test-cls/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     // TODO: do not passed, should fix in component
@@ -94,25 +106,29 @@ describe('<Radio />', () => {
     // });
 
     it('should have custom checked icon', () => {
-      render(<Radio checkedIcon={<PlusIcon data-testid="icon" />} />);
+      const { asFragment } = render(<Radio id="test-id" checkedIcon={<PlusIcon data-testid="icon" />} />);
 
       const icon = screen.getByTestId('icon');
 
       expect(icon).toBeInTheDocument();
       expect(icon.tagName).toBe('svg');
       expect(icon.getAttribute('class')).toMatch(/Radio-icon/i);
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be checked, defaultChecked prop', () => {
-      render(<Radio defaultChecked />);
+      const { asFragment } = render(<Radio id="test-id" defaultChecked />);
 
       const input = screen.getByRole('radio');
 
       expect(input).toBeChecked();
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be unchecked, defaultChecked prop', () => {
-      render(<Radio defaultChecked={false} />);
+      render(<Radio id="test-id" defaultChecked={false} />);
 
       const input = screen.getByRole('radio');
 

@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Box /> border positions position "bottom" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  border-color: var(--pv-color-attention);
+  border-width: 0px 0px 1px 0;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Box /> border positions position "horizontal" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  border-color: var(--pv-color-attention);
+  border-width: 1px 0px 1px 0;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Box /> border positions position "left" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  border-color: var(--pv-color-attention);
+  border-width: 0px 0px 0px 1px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Box /> border positions position "right" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  border-color: var(--pv-color-attention);
+  border-width: 0px 1px 0px 0;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Box /> border positions position "top" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  border-color: var(--pv-color-attention);
+  border-width: 1px 0px 0px 0;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Box /> border positions position "vertical" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  border-color: var(--pv-color-attention);
+  border-width: 0px 1px 0px 1px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Box /> should pass className 1`] = `
+<DocumentFragment>
+  <div
+    class="my-class-name emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Box /> should render with default styles 1`] = `
+<DocumentFragment>
+  <div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
