@@ -17,6 +17,11 @@
     "publish:canary": "lerna publish --canary"
   },
   "devDependencies": {
+    "@emotion/jest": "^11.11.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3 ",
+    "@types/jest": "^29.5.0",
     "@typescript-eslint/eslint-plugin": "5.38.1",
     "@typescript-eslint/parser": "5.38.1",
     "eslint": "8.46.0",
@@ -26,16 +31,22 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.8",
     "eslint-plugin-react-hooks": "4.6.0",
-    "lerna": "^7.1.4"
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "jest-watch-typeahead": "^2.2.2",
+    "jsdom": "^22.1.0",
+    "lerna": "^7.1.4",
+    "ts-jest": "^29.1.0"
   },
   "resolutions": {
-    "trim": "^0.0.3",
-    "webpack": "^5.0.0",
     "css-loader": "^5.0.0",
     "dotenv-webpack": "^6.0.0",
     "html-webpack-plugin": "^5.0.0",
+    "jsdom": "^22.1.0",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.0.0",
+    "trim": "^0.0.3",
+    "webpack": "^5.0.0",
     "webpack-dev-middleware": "^4.1.0",
     "webpack-virtual-modules": "^0.4.2"
   },

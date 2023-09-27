@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Image /> should have alt 1`] = `
+<DocumentFragment>
+  <img
+    alt="Test alt"
+    src="https://bit.ly/dan-abramov"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Image /> should have class name 1`] = `
+<DocumentFragment>
+  <img
+    class="test-cls"
+    src="https://bit.ly/dan-abramov"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Image /> should have test id 1`] = `
+<DocumentFragment>
+  <img
+    data-testid="test-id"
+    src="https://bit.ly/dan-abramov"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Image /> should render as default 1`] = `
+<DocumentFragment>
+  <img
+    src="https://bit.ly/dan-abramov"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Image /> should render loading component 1`] = `
+<DocumentFragment>
+  <div>
+    Loading
+  </div>
+</DocumentFragment>
+`;

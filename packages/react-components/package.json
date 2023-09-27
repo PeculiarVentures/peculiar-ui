@@ -32,6 +32,7 @@
     "clean": "rimraf public dist themes",
     "test:unit": "jest --passWithNoTests --watchAll",
     "test:unit:coverage": "yarn test:unit --coverage --watchAll=false",
+    "test:unit:updateSnapshot": "jest --updateSnapshot",
     "check:types": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -70,21 +71,12 @@
     "@storybook/react": "^6.5.16",
     "@storybook/theming": "^6.5.16",
     "storybook-dark-mode": "^2.1.1",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.4.3 ",
-    "@types/jest": "^29.5.0",
     "@types/react": "^18.0.34",
     "@types/react-dom": "^18.0.11",
     "awesome-typescript-loader": "^5.2.1",
-    "babel-jest": "29.5.0",
-    "jest": "^29.5.0",
-    "jest-environment-jsdom": "^29.5.0",
-    "jest-watch-typeahead": "^2.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^3.0.2",
-    "ts-jest": "^29.1.0",
     "typescript": "^4.6.3"
   },
   "publishConfig": {

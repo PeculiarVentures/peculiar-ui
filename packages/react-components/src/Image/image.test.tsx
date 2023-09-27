@@ -6,37 +6,45 @@ const src = 'https://bit.ly/dan-abramov';
 
 describe('<Image />', () => {
   it('should render as default', () => {
-    render(<Image src={src} />);
+    const { asFragment } = render(<Image src={src} />);
 
     const img = screen.getByRole('img');
 
     expect(img).toBeInTheDocument();
     expect(img.tagName).toBe('IMG');
     expect(img.getAttribute('src')).toEqual(src);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should have test id', () => {
-    render(<Image src={src} data-testid="test-id" />);
+    const { asFragment } = render(<Image src={src} data-testid="test-id" />);
 
     const img = screen.getByRole('img');
 
     expect(img.getAttribute('data-testid')).toMatch(/test-id/i);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should have alt', () => {
-    render(<Image src={src} alt="Test alt" />);
+    const { asFragment } = render(<Image src={src} alt="Test alt" />);
 
     const img = screen.getByRole('img');
 
     expect(img.getAttribute('alt')).toMatch(/Test alt/i);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should have class name', () => {
-    render(<Image src={src} className="test-cls" />);
+    const { asFragment } = render(<Image src={src} className="test-cls" />);
 
     const img = screen.getByRole('img');
 
     expect(img.getAttribute('class')).toMatch(/test-cls/i);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should call onError handler', () => {
@@ -64,8 +72,10 @@ describe('<Image />', () => {
   });
 
   it('should render loading component', () => {
-    render(<Image src={undefined} loading={<div>Loading</div>} />);
+    const { asFragment } = render(<Image src={undefined} loading={<div>Loading</div>} />);
 
     expect(screen.getByText(/Loading/i)).toBeInTheDocument();
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });

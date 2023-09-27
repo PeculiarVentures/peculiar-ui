@@ -1,33 +1,37 @@
 import React from 'react';
 import { renderWithWrapper as render, screen, fireEvent } from '../test-utils';
-import { Avatar } from '../index';
+import { Avatar } from './index';
 
 const src = 'https://bit.ly/dan-abramov';
 
 describe('<Avatar />', () => {
   describe('Avatar render variants', () => {
     it('should render as default', () => {
-      render(<Avatar />);
+      const { asFragment } = render(<Avatar />);
 
       const img = screen.getByRole('img');
 
       expect(img).toBeInTheDocument();
       expect(img.tagName).toBe('svg');
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should render as image', () => {
-      render(<Avatar src={src} />);
+      const { asFragment } = render(<Avatar src={src} />);
 
       const img = screen.getByRole('img');
 
       expect(img).toBeInTheDocument();
       expect(img.tagName).toBe('IMG');
       expect(img.getAttribute('src')).toEqual(src);
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should  render 1 initial with a 1-word name', () => {
-      render(<Avatar name="First" />);
+      const { asFragment } = render(<Avatar name="First" />);
+
       expect(screen.getByText('F')).toBeInTheDocument();
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should render 2 initials with a 2-word name', () => {
@@ -41,17 +45,20 @@ describe('<Avatar />', () => {
     });
 
     it('should render initials with fn', () => {
-      render(<Avatar name="First" getInitials={(str) => str.split('')[0]} />);
+      const { asFragment } = render(<Avatar name="First" getInitials={(str) => str.split('')[0]} />);
+
       expect(screen.getByText('F')).toBeInTheDocument();
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should prioritize render as image over initials', () => {
-      render(<Avatar src={src} name="First" />);
+      const { asFragment } = render(<Avatar src={src} name="First" />);
 
       const img = screen.getByRole('img');
 
       expect(img).toBeInTheDocument();
       expect(img.getAttribute('src')).toEqual(src);
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
@@ -66,7 +73,7 @@ describe('<Avatar />', () => {
     });
 
     it('should have class name', () => {
-      render(<Avatar className="test-cls" />);
+      const { asFragment } = render(<Avatar className="test-cls" />);
 
       expect(
         screen
@@ -74,12 +81,13 @@ describe('<Avatar />', () => {
           .closest('div[class*="Avatar"]')
           .getAttribute('class'),
       ).toMatch(/test-cls/i);
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 
   describe('Avatar render sizes', () => {
     it('should render a small size', () => {
-      render(<Avatar size="small" />);
+      const { asFragment } = render(<Avatar size="small" />);
 
       expect(
         screen
@@ -87,10 +95,11 @@ describe('<Avatar />', () => {
           .closest('div[class*="Avatar"]')
           .getAttribute('class'),
       ).toMatch(/Avatar-small/i);
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should render a medium size', () => {
-      render(<Avatar size="medium" />);
+      const { asFragment } = render(<Avatar size="medium" />);
 
       expect(
         screen
@@ -98,10 +107,11 @@ describe('<Avatar />', () => {
           .closest('div[class*="Avatar"]')
           .getAttribute('class'),
       ).toMatch(/Avatar-medium/i);
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should render a large size', () => {
-      render(<Avatar size="large" />);
+      const { asFragment } = render(<Avatar size="large" />);
 
       expect(
         screen
@@ -109,6 +119,7 @@ describe('<Avatar />', () => {
           .closest('div[class*="Avatar"]')
           .getAttribute('class'),
       ).toMatch(/Avatar-large/i);
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 
@@ -135,6 +146,24 @@ describe('<Avatar />', () => {
       fireEvent.load(img);
 
       expect(handleLoad).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('sizes', () => {
+    const sizes: Array<React.ComponentProps<typeof Avatar>['size']> = [
+      'small',
+      'medium',
+      'large',
+    ];
+
+    sizes.forEach((size) => {
+      it(`size "${size}"`, () => {
+        const { asFragment } = render(
+          <Avatar size={size} />,
+        );
+
+        expect(asFragment()).toMatchSnapshot();
+      });
     });
   });
 });

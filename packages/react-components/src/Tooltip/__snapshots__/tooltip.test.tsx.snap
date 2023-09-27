@@ -1,0 +1,516 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tooltip /> colors color "black" 1`] = `
+<DocumentFragment>
+  <div>
+    Text
+  </div>
+  @keyframes animation-0 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
+  pointer-events: none;
+  z-index: 1500;
+}
+
+.emotion-0[data-popper-placement^="bottom"] [data-popper-arrow] {
+  top: 0;
+  margin-top: -4px;
+}
+
+.emotion-0[data-popper-placement^="top"] [data-popper-arrow] {
+  bottom: 0;
+  margin-bottom: -4px;
+}
+
+.emotion-0[data-popper-placement^="right"] [data-popper-arrow] {
+  left: 0;
+  margin-left: -4px;
+}
+
+.emotion-0[data-popper-placement^="left"] [data-popper-arrow] {
+  right: 0;
+  margin-right: -4px;
+}
+
+.emotion-1 {
+  background: var(--pv-color-gray-10);
+  box-shadow: var(--pv-shadow-light-low);
+  max-width: 300px;
+  word-wrap: break-word;
+  font-size: 0;
+  -webkit-animation: animation-0 225ms;
+  animation: animation-0 225ms;
+  position: relative;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: var(--pv-text-c2-weight);
+  font-size: var(--pv-text-c2-size);
+  line-height: var(--pv-text-c2-height);
+  letter-spacing: var(--pv-text-c2-spacing);
+  color: var(--pv-color-white);
+}
+
+<div
+    class="emotion-0"
+    role="tooltip"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <div
+      class="emotion-1"
+    >
+      <span
+        class="emotion-2"
+      >
+        tooltipText
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Tooltip /> colors color "white" 1`] = `
+<DocumentFragment>
+  <div>
+    Text
+  </div>
+  @keyframes animation-0 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
+  pointer-events: none;
+  z-index: 1500;
+}
+
+.emotion-0[data-popper-placement^="bottom"] [data-popper-arrow] {
+  top: 0;
+  margin-top: -4px;
+}
+
+.emotion-0[data-popper-placement^="top"] [data-popper-arrow] {
+  bottom: 0;
+  margin-bottom: -4px;
+}
+
+.emotion-0[data-popper-placement^="right"] [data-popper-arrow] {
+  left: 0;
+  margin-left: -4px;
+}
+
+.emotion-0[data-popper-placement^="left"] [data-popper-arrow] {
+  right: 0;
+  margin-right: -4px;
+}
+
+.emotion-1 {
+  background: var(--pv-color-white);
+  box-shadow: var(--pv-shadow-light-low);
+  max-width: 300px;
+  word-wrap: break-word;
+  font-size: 0;
+  -webkit-animation: animation-0 225ms;
+  animation: animation-0 225ms;
+  position: relative;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: var(--pv-text-c2-weight);
+  font-size: var(--pv-text-c2-size);
+  line-height: var(--pv-text-c2-height);
+  letter-spacing: var(--pv-text-c2-spacing);
+  color: var(--pv-color-black);
+}
+
+<div
+    class="emotion-0"
+    role="tooltip"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <div
+      class="emotion-1"
+    >
+      <span
+        class="emotion-2"
+      >
+        tooltipText
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Tooltip /> should pass arrow 1`] = `
+<DocumentFragment>
+  <div>
+    Text
+  </div>
+  @keyframes animation-0 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
+  pointer-events: none;
+  z-index: 1500;
+}
+
+.emotion-0[data-popper-placement^="bottom"] [data-popper-arrow] {
+  top: 0;
+  margin-top: -4px;
+}
+
+.emotion-0[data-popper-placement^="top"] [data-popper-arrow] {
+  bottom: 0;
+  margin-bottom: -4px;
+}
+
+.emotion-0[data-popper-placement^="right"] [data-popper-arrow] {
+  left: 0;
+  margin-left: -4px;
+}
+
+.emotion-0[data-popper-placement^="left"] [data-popper-arrow] {
+  right: 0;
+  margin-right: -4px;
+}
+
+.emotion-1 {
+  background: var(--pv-color-white);
+  box-shadow: var(--pv-shadow-light-low);
+  max-width: 300px;
+  word-wrap: break-word;
+  font-size: 0;
+  -webkit-animation: animation-0 225ms;
+  animation: animation-0 225ms;
+  position: relative;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: var(--pv-text-c2-weight);
+  font-size: var(--pv-text-c2-size);
+  line-height: var(--pv-text-c2-height);
+  letter-spacing: var(--pv-text-c2-spacing);
+  color: var(--pv-color-black);
+}
+
+.emotion-3 {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  position: absolute;
+  display: block;
+  color: var(--pv-color-white);
+}
+
+.emotion-3::before {
+  content: "";
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<div
+    class="emotion-0"
+    role="tooltip"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <div
+      class="emotion-1"
+    >
+      <span
+        class="emotion-2"
+      >
+        tooltipText
+      </span>
+      <span
+        class="emotion-3"
+        data-popper-arrow="true"
+        style="position: absolute;"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Tooltip /> should pass className 1`] = `
+<DocumentFragment>
+  <div>
+    Text
+  </div>
+  @keyframes animation-0 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
+  pointer-events: none;
+  z-index: 1500;
+}
+
+.emotion-0[data-popper-placement^="bottom"] [data-popper-arrow] {
+  top: 0;
+  margin-top: -4px;
+}
+
+.emotion-0[data-popper-placement^="top"] [data-popper-arrow] {
+  bottom: 0;
+  margin-bottom: -4px;
+}
+
+.emotion-0[data-popper-placement^="right"] [data-popper-arrow] {
+  left: 0;
+  margin-left: -4px;
+}
+
+.emotion-0[data-popper-placement^="left"] [data-popper-arrow] {
+  right: 0;
+  margin-right: -4px;
+}
+
+.emotion-1 {
+  background: var(--pv-color-white);
+  box-shadow: var(--pv-shadow-light-low);
+  max-width: 300px;
+  word-wrap: break-word;
+  font-size: 0;
+  -webkit-animation: animation-0 225ms;
+  animation: animation-0 225ms;
+  position: relative;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: var(--pv-text-c2-weight);
+  font-size: var(--pv-text-c2-size);
+  line-height: var(--pv-text-c2-height);
+  letter-spacing: var(--pv-text-c2-spacing);
+  color: var(--pv-color-black);
+}
+
+<div
+    class="emotion-0"
+    role="tooltip"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <div
+      class="my-class-name emotion-1"
+    >
+      <span
+        class="emotion-2"
+      >
+        tooltipText
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Tooltip /> should render with default styles 1`] = `
+<DocumentFragment>
+  <div>
+    Text
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Tooltip /> sizes size "large" 1`] = `
+<DocumentFragment>
+  <div>
+    Text
+  </div>
+  @keyframes animation-0 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
+  pointer-events: none;
+  z-index: 1500;
+}
+
+.emotion-0[data-popper-placement^="bottom"] [data-popper-arrow] {
+  top: 0;
+  margin-top: -4px;
+}
+
+.emotion-0[data-popper-placement^="top"] [data-popper-arrow] {
+  bottom: 0;
+  margin-bottom: -4px;
+}
+
+.emotion-0[data-popper-placement^="right"] [data-popper-arrow] {
+  left: 0;
+  margin-left: -4px;
+}
+
+.emotion-0[data-popper-placement^="left"] [data-popper-arrow] {
+  right: 0;
+  margin-right: -4px;
+}
+
+.emotion-1 {
+  background: var(--pv-color-white);
+  box-shadow: var(--pv-shadow-light-low);
+  max-width: 300px;
+  word-wrap: break-word;
+  font-size: 0;
+  -webkit-animation: animation-0 225ms;
+  animation: animation-0 225ms;
+  position: relative;
+  padding: 8px 10px;
+  border-radius: 4px;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  color: var(--pv-color-black);
+}
+
+<div
+    class="emotion-0"
+    role="tooltip"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <div
+      class="emotion-1"
+    >
+      <span
+        class="emotion-2"
+      >
+        tooltipText
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Tooltip /> sizes size "small" 1`] = `
+<DocumentFragment>
+  <div>
+    Text
+  </div>
+  @keyframes animation-0 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
+  pointer-events: none;
+  z-index: 1500;
+}
+
+.emotion-0[data-popper-placement^="bottom"] [data-popper-arrow] {
+  top: 0;
+  margin-top: -4px;
+}
+
+.emotion-0[data-popper-placement^="top"] [data-popper-arrow] {
+  bottom: 0;
+  margin-bottom: -4px;
+}
+
+.emotion-0[data-popper-placement^="right"] [data-popper-arrow] {
+  left: 0;
+  margin-left: -4px;
+}
+
+.emotion-0[data-popper-placement^="left"] [data-popper-arrow] {
+  right: 0;
+  margin-right: -4px;
+}
+
+.emotion-1 {
+  background: var(--pv-color-white);
+  box-shadow: var(--pv-shadow-light-low);
+  max-width: 300px;
+  word-wrap: break-word;
+  font-size: 0;
+  -webkit-animation: animation-0 225ms;
+  animation: animation-0 225ms;
+  position: relative;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+.emotion-2 {
+  margin: 0;
+  font-weight: var(--pv-text-c2-weight);
+  font-size: var(--pv-text-c2-size);
+  line-height: var(--pv-text-c2-height);
+  letter-spacing: var(--pv-text-c2-spacing);
+  color: var(--pv-color-black);
+}
+
+<div
+    class="emotion-0"
+    role="tooltip"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <div
+      class="emotion-1"
+    >
+      <span
+        class="emotion-2"
+      >
+        tooltipText
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
