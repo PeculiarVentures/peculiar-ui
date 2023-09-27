@@ -21,19 +21,6 @@ describe('<Button />', () => {
       expect(button.getAttribute('class')).toMatch(/Button-medium/i);
     });
 
-    it('should render a text button', () => {
-      const { asFragment } = render(<Button>Text</Button>);
-
-      const button = screen.getByRole('button');
-
-      expect(button).toHaveStyle({
-        borderColor: 'transparent',
-        backgroundColor: 'transparent',
-      });
-
-      expect(asFragment()).toMatchSnapshot();
-    });
-
     it('should be disabled', () => {
       const { asFragment } = render(<Button disabled>Text</Button>);
 

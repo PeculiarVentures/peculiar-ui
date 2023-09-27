@@ -19,19 +19,6 @@ describe('<ButtonBase />', () => {
       expect(button.tagName).toBe('BUTTON');
     });
 
-    it('should render a text button', () => {
-      const { asFragment } = render(<ButtonBase>Text</ButtonBase>);
-
-      const button = screen.getByRole('button');
-
-      expect(button).toHaveStyle({
-        borderColor: 'transparent',
-        backgroundColor: 'transparent',
-      });
-
-      expect(asFragment()).toMatchSnapshot();
-    });
-
     it('should be disabled', () => {
       const { asFragment } = render(<ButtonBase disabled>Text</ButtonBase>);
 

@@ -15,4 +15,17 @@ describe('<Popover />', () => {
 
     expect(baseElement).toMatchSnapshot();
   });
+
+  it('should render with default open styles', () => {
+    const { baseElement } = render(
+      <Popover
+        open
+        anchorEl={document.createElement('div')}
+      >
+        <div>Inside</div>
+      </Popover>,
+    );
+
+    expect(baseElement).toMatchSnapshot();
+  });
 });
