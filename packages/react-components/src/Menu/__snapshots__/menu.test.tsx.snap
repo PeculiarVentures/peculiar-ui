@@ -188,15 +188,13 @@ exports[`<Menu /> should pass className 1`] = `
 `;
 
 exports[`<Menu /> should render with default styles 1`] = `
-<body>
-  <div>
-    <button
-      aria-expanded="false"
-      aria-haspopup="menu"
-      type="button"
-    >
-      Open
-    </button>
-  </div>
-</body>
+<DocumentFragment>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    type="button"
+  >
+    Open
+  </button>
+</DocumentFragment>
 `;

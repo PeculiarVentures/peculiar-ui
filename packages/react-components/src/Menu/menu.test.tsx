@@ -2,13 +2,13 @@ import React from 'react';
 import { renderWithWrapper as render, fireEvent, screen } from '../test-utils';
 import { Menu } from './index';
 
-const options: Partial<React.ComponentProps<typeof Menu>>['options'] = [
-  { label: 'item-1' },
-  { label: 'item-2' },
-  { label: 'item-3' },
-];
-
 describe('<Menu />', () => {
+  const options: Partial<React.ComponentProps<typeof Menu>>['options'] = [
+    { label: 'item-1' },
+    { label: 'item-2' },
+    { label: 'item-3' },
+  ];
+
   it('should render with default styles', () => {
     const { asFragment } = render(
       <Menu
