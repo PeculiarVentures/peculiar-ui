@@ -15,6 +15,16 @@ exports[`<Tooltip /> colors color "black" 1`] = `
   }
 }
 
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .emotion-0 {
   pointer-events: none;
   z-index: 1500;
@@ -86,6 +96,16 @@ exports[`<Tooltip /> colors color "white" 1`] = `
     Text
   </div>
   @keyframes animation-0 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
   from {
     opacity: 0;
   }
@@ -361,6 +381,16 @@ exports[`<Tooltip /> sizes size "large" 1`] = `
     Text
   </div>
   @keyframes animation-0 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
   from {
     opacity: 0;
   }

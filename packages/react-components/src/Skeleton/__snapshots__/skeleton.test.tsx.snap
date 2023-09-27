@@ -16,6 +16,34 @@ exports[`<Skeleton /> should render correct variants variant: circle 1`] = `
   }
 }
 
+@keyframes animation-0 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .emotion-0 {
   background: var(--pv-color-gray-4);
   display: block;
@@ -56,6 +84,48 @@ exports[`<Skeleton /> should render correct variants variant: rect 1`] = `
   }
 }
 
+@keyframes animation-0 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .emotion-0 {
   background: var(--pv-color-gray-4);
   display: block;
@@ -82,6 +152,48 @@ exports[`<Skeleton /> should render correct variants variant: rect 1`] = `
 exports[`<Skeleton /> should render correct variants variant: text 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
   0% {
     opacity: 1;
   }
@@ -184,6 +296,20 @@ exports[`<Skeleton /> should render with default styles 1`] = `
 exports[`<Skeleton /> should render with height & width 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
   0% {
     opacity: 1;
   }
