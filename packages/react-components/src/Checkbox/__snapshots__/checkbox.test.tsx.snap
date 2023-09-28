@@ -449,7 +449,7 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
 }
 
 <label
-    class="emotion-0 test-cls"
+    class="test-cls emotion-0"
     for="test-id"
   >
     <input
@@ -578,7 +578,6 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
     <svg
       aria-hidden="true"
       class="emotion-2"
-      data-testid="icon"
       fill="none"
       height="24px"
       viewBox="0 0 24 24"

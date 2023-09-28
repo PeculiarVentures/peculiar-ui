@@ -1,6 +1,6 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { css, cx } from '../styles';
 import { ButtonBase, ButtonBaseOwnProps } from '../ButtonBase';
 
 /**
@@ -39,55 +39,46 @@ export type ButtonProps<
 /**
  * Styles.
  */
-const stylesBase = () => css({
-  label: 'Button',
+const ButtonRoot = styled(ButtonBase)<ButtonOwnProps>((props) => ({
   borderRadius: '4px',
-});
+  ...(props.size === 'small' && {
+    height: 'var(--pv-size-base-6)',
+    minWidth: 'var(--pv-size-base-6)',
+    ...(props.circled && {
+      borderRadius: 'var(--pv-size-base-6)',
+    }),
+    ...(!props.withoutPadding && {
+      padding: '0 var(--pv-size-base-2)',
+    }),
+  }),
+  ...(props.size === 'medium' && {
+    height: 'var(--pv-size-base-7)',
+    minWidth: 'var(--pv-size-base-7)',
+    ...(props.circled && {
+      borderRadius: 'var(--pv-size-base-7)',
+    }),
+    ...(!props.withoutPadding && {
+      padding: '0 var(--pv-size-base-3)',
+    }),
+  }),
+  ...(props.size === 'large' && {
+    height: 'var(--pv-size-base-8)',
+    minWidth: 'var(--pv-size-base-8)',
+    ...(props.circled && {
+      borderRadius: 'var(--pv-size-base-8)',
+    }),
+    ...(!props.withoutPadding && {
+      padding: '0 var(--pv-size-base-4)',
+    }),
+  }),
+}));
 
-const stylesSizeSmall = (props: ButtonProps) => css({
-  label: 'small',
-  height: 'var(--pv-size-base-6)',
-  minWidth: 'var(--pv-size-base-6)',
-  ...(props.circled && {
-    borderRadius: 'var(--pv-size-base-6)',
-  }),
-  ...(!props.withoutPadding && {
-    padding: '0 var(--pv-size-base-2)',
-  }),
-});
-
-const stylesSizeMedium = (props: ButtonProps) => css({
-  label: 'medium',
-  height: 'var(--pv-size-base-7)',
-  minWidth: 'var(--pv-size-base-7)',
-  ...(props.circled && {
-    borderRadius: 'var(--pv-size-base-7)',
-  }),
-  ...(!props.withoutPadding && {
-    padding: '0 var(--pv-size-base-3)',
-  }),
-});
-
-const stylesSizeLarge = (props: ButtonProps) => css({
-  label: 'large',
-  height: 'var(--pv-size-base-8)',
-  minWidth: 'var(--pv-size-base-8)',
-  ...(props.circled && {
-    borderRadius: 'var(--pv-size-base-8)',
-  }),
-  ...(!props.withoutPadding && {
-    padding: '0 var(--pv-size-base-4)',
-  }),
-});
-
-const stylesStartIcon = () => css({
-  label: 'Button-startIcon',
+const ButtonStartIcon = styled('span')({
   marginRight: 'var(--pv-size-base)',
   display: 'inherit',
 });
 
-const stylesEndIcon = () => css({
-  label: 'Button-endIcon',
+const ButtonEndIcon = styled('span')({
   marginLeft: 'var(--pv-size-base)',
   display: 'inherit',
 });
@@ -98,48 +89,32 @@ const stylesEndIcon = () => css({
 export const Button = React.forwardRef<any, ButtonProps>((props, ref) => {
   const {
     children,
-    className,
-    size,
-    circled,
     startIcon: startIconProp,
     endIcon: endIconProp,
-    withoutPadding,
     ...other
   } = props;
 
   const startIcon = startIconProp && (
-    <span
-      className={cx(stylesStartIcon())}
-    >
+    <ButtonStartIcon>
       {startIconProp}
-    </span>
+    </ButtonStartIcon>
   );
 
   const endIcon = endIconProp && (
-    <span
-      className={cx(stylesEndIcon())}
-    >
+    <ButtonEndIcon>
       {endIconProp}
-    </span>
+    </ButtonEndIcon>
   );
 
   return (
-    <ButtonBase
-      {...other}
+    <ButtonRoot
       ref={ref}
-      className={cx({
-        [stylesBase()]: true,
-        [stylesSizeSmall(props)]: size === 'small',
-        [stylesSizeMedium(props)]: size === 'medium',
-        [stylesSizeLarge(props)]: size === 'large',
-        [className]: !!className,
-      })}
-      size={size}
+      {...other}
     >
       {startIcon}
       {children}
       {endIcon}
-    </ButtonBase>
+    </ButtonRoot>
   );
 }) as OverridableComponent<ButtonTypeMap>;
 

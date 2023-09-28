@@ -1,4 +1,4 @@
-export const generateBaseSize = (grid: number = 5) => ({
+export const generateSize = (grid: number = 5) => ({
   'base-half': `${grid / 2}px`,
   base: `${grid}px`,
   'base-2': `${grid * 2}px`,
@@ -16,4 +16,4 @@ export const generateBaseSize = (grid: number = 5) => ({
   'base-16': `${grid * 16}px`,
 });
 
-export const base = generateBaseSize();
+export const size = generateSize();

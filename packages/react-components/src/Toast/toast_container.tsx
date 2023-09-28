@@ -1,17 +1,25 @@
 import * as React from 'react';
-import { css, cx } from '../styles';
+import styled from '@emotion/styled';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type ToastContainerOwnProps = {
   /**
    * The content of the component.
    */
   children: React.ReactNode;
 };
 
-export type ToastContainerProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type ToastContainerProps = ToastContainerOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+/**
+ *
+ */
 
-const stylesBase = () => css({
-  label: 'ToastContainer',
+/**
+ * Styles.
+ */
+const ToastContainerRoot = styled('div')({
   position: 'fixed',
   bottom: 0,
   padding: '10px',
@@ -25,20 +33,19 @@ const stylesBase = () => css({
     marginTop: '10px',
   },
 });
+/**
+ *
+ */
 
 export const ToastContainer: React.FC<ToastContainerProps> = (props) => {
-  const { children, className, ...other } = props;
+  const { children, ...other } = props;
 
   return (
-    <div
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
+    <ToastContainerRoot
       {...other}
     >
       {children}
-    </div>
+    </ToastContainerRoot>
   );
 };
 

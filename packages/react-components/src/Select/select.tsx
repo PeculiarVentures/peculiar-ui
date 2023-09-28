@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { css, cx } from '../styles';
+import styled from '@emotion/styled';
 import { Typography } from '../Typography';
 import { ArrowDropDownIcon } from '../icons';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type SelectOwnProps = {
   options: {
     value: string;
     label: string;
@@ -73,13 +76,20 @@ type BaseProps = {
    * Callback fired when the value is changed.
    */
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
-  'data-testid'?: string;
 };
 
-type SelectProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type SelectProps = SelectOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type SelectRootProps = React.HTMLAttributes<HTMLSelectElement> & {
+  selectSize?: SelectOwnProps['size']
+};
+/**
+ *
+ */
 
-const stylesInputBase = () => css({
-  label: 'Select-input',
+/**
+ * Styles.
+ */
+const SelectRoot = styled('select')<SelectRootProps>((props) => ({
   fontFamily: 'inherit',
   outline: 'none',
   cursor: 'pointer',
@@ -95,6 +105,10 @@ const stylesInputBase = () => css({
   transition: 'background-color 200ms, color 200ms, border-color 200ms',
   display: 'block',
   appearance: 'none',
+  fontWeight: 'var(--pv-text-c1-weight)' as 'normal',
+  fontSize: 'var(--pv-text-c1-size)',
+  lineHeight: 'var(--pv-text-c1-height)',
+  letterSpacing: 'var(--pv-text-c1-spacing)',
   '&:hover': {
     backgroundColor: 'var(--pv-color-gray-3)',
     borderColor: 'var(--pv-color-gray-7)',
@@ -115,66 +129,50 @@ const stylesInputBase = () => css({
       borderColor: 'var(--pv-color-secondary-tint-3)',
     },
   },
-}, {
-  fontWeight: 'var(--pv-text-c1-weight)',
-  fontSize: 'var(--pv-text-c1-size)',
-  lineHeight: 'var(--pv-text-c1-height)',
-  letterSpacing: 'var(--pv-text-c1-spacing)',
-} as any);
+  ...(props.selectSize === 'small' && {
+    height: 'var(--pv-size-base-6)',
+  }),
+  ...(props.selectSize === 'medium' && {
+    height: 'var(--pv-size-base-7)',
+  }),
+  ...(props.selectSize === 'large' && {
+    height: 'var(--pv-size-base-8)',
+  }),
+}));
 
-const stylesInputSizeSmall = () => css({
-  label: 'small',
-  height: 'var(--pv-size-base-6)',
-});
-
-const stylesInputSizeMedium = () => css({
-  label: 'medium',
-  height: 'var(--pv-size-base-7)',
-});
-
-const stylesInputSizeLarge = () => css({
-  label: 'large',
-  height: 'var(--pv-size-base-8)',
-});
-
-const stylesLabel = () => css({
-  label: 'Select-label',
+const SelectLabel = styled('label')({
   marginBottom: '2px',
   display: 'inline-block',
 });
 
-const stylesError = () => css({
-  label: 'Select-error',
+const SelectErrorMessage = styled(Typography)({
   marginTop: '2px',
 });
 
-const stylesInputContainer = () => css({
-  label: 'Select-container',
+const SelectContainer = styled('div')({
   position: 'relative',
 });
 
-const stylesInputArrowIcon = () => css({
-  label: 'Select-arrow-icon',
+const SelectArrowIcon = styled(ArrowDropDownIcon)<{ disabled: boolean }>((props) => ({
   position: 'absolute',
   right: '0px',
   top: 'calc(50% - 12px)',
   pointerEvents: 'none',
   margin: '0px var(--pv-size-base)',
   color: 'var(--pv-color-gray-10)',
-});
-
-const stylesInputArrowIconDisabled = () => css({
-  label: 'disabled',
-  color: 'var(--pv-color-gray-7)',
-});
+  ...(props.disabled && {
+    color: 'var(--pv-color-gray-7)',
+  }),
+}));
+/**
+ *
+ */
 
 export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
   const {
     options,
     size,
-    className,
     label,
-    onChange,
     inputProps,
     disabled,
     defaultValue,
@@ -187,21 +185,18 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
     error,
     errorText,
     autoFocus,
+    onChange,
     ...other
   } = props;
 
   return (
     <div
-      {...other}
       ref={ref}
-      className={className}
+      {...other}
     >
       {label && (
-        <label
+        <SelectLabel
           htmlFor={id}
-          className={cx({
-            [stylesLabel()]: true,
-          })}
         >
           <Typography
             component="span"
@@ -210,10 +205,11 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
           >
             {label}
           </Typography>
-        </label>
+        </SelectLabel>
       )}
-      <div className={cx(stylesInputContainer())}>
-        <select
+      <SelectContainer>
+        <SelectRoot
+          selectSize={size}
           disabled={disabled}
           defaultValue={defaultValue}
           id={id}
@@ -223,12 +219,6 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
           ref={inputRef}
           // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus={autoFocus}
-          className={cx({
-            [stylesInputBase()]: true,
-            [stylesInputSizeSmall()]: size === 'small',
-            [stylesInputSizeMedium()]: size === 'medium',
-            [stylesInputSizeLarge()]: size === 'large',
-          })}
           aria-invalid={error || undefined}
           onChange={onChange}
           {...inputProps}
@@ -246,25 +236,19 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
               {option.label}
             </option>
           ))}
-        </select>
-        <ArrowDropDownIcon
-          className={cx({
-            [stylesInputArrowIcon()]: true,
-            [stylesInputArrowIconDisabled()]: disabled,
-          })}
+        </SelectRoot>
+        <SelectArrowIcon
+          disabled={disabled}
           aria-hidden
         />
-      </div>
+      </SelectContainer>
       {error && errorText && (
-        <Typography
+        <SelectErrorMessage
           variant="c2"
           color="wrong"
-          className={cx({
-            [stylesError()]: true,
-          })}
         >
           {errorText}
-        </Typography>
+        </SelectErrorMessage>
       )}
     </div>
   );

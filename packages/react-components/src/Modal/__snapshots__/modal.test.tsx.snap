@@ -25,7 +25,7 @@ exports[`<Modal /> should pass className 1`] = `
   <div />
   <div
     aria-hidden="false"
-    class="emotion-0 my-class-name"
+    class="my-class-name emotion-0"
     role="presentation"
   >
     <div

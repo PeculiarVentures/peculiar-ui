@@ -5,7 +5,7 @@ import {
   userEvent,
   fireEvent,
 } from '../test-utils';
-import { Checkbox } from './index';
+import { Checkbox } from '../index';
 import { PlusIcon } from '../icons';
 
 describe('<Checkbox />', () => {
@@ -17,7 +17,6 @@ describe('<Checkbox />', () => {
       expect(input).toBeInTheDocument();
       expect(input.tagName).toBe('INPUT');
       expect(input.getAttribute('type')).toBe('checkbox');
-      expect(input.getAttribute('class')).toMatch(/Checkbox-input/i);
       expect(input).not.toBeChecked();
 
       const label = input.closest('label');
@@ -43,63 +42,30 @@ describe('<Checkbox />', () => {
 
     it('should be disabled', () => {
       const { asFragment } = render(<Checkbox id="test-id" disabled />);
-      const input = screen.getByRole('checkbox');
-
-      expect(input).toHaveAttribute('disabled');
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have required', () => {
       const { asFragment } = render(<Checkbox id="test-id" required />);
-      const input = screen.getByRole('checkbox');
-
-      expect(input).toHaveAttribute('required');
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
       const { asFragment } = render(<Checkbox id="test-id" data-testid="test-id" />);
-      const input = screen.getByRole('checkbox');
-      const label = input.closest('label');
-
-      expect(label.getAttribute('data-testid')).toMatch(/test-id/i);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have className', () => {
       const { asFragment } = render(<Checkbox id="test-id" className="test-cls" />);
-      const input = screen.getByRole('checkbox');
-      const label = input.closest('label');
-
-      expect(label.getAttribute('class')).toMatch(/test-cls/i);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
-    // TODO: do not passed, should fix in component
-    // it('should have input className', () => {
-    //   render(<Checkbox inputProps={{ className: 'test-cls' }} />);
-
-    //   const input = screen.getByRole('checkbox');
-
-    //   expect(input.getAttribute('class')).toMatch(/test-cls/i);
-    // });
-
     it('should have custom checked icon', () => {
-      const { asFragment } = render(
-        <Checkbox
-          id="test-id"
-          checkedIcon={<PlusIcon data-testid="icon" />}
-        />,
-      );
-      const icon = screen.getByTestId('icon');
-
-      expect(icon).toBeInTheDocument();
-      expect(icon.tagName).toBe('svg');
-      expect(icon.getAttribute('class')).toMatch(/Checkbox-icon/i);
+      const { asFragment } = render(<Checkbox id="test-id" checkedIcon={PlusIcon} />);
 
       expect(asFragment()).toMatchSnapshot();
     });

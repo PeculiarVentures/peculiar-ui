@@ -1,10 +1,13 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { Typography } from '../Typography';
-import { css, cx } from '../styles';
 import { IconButton } from '../IconButton';
 import { CloseIcon } from '../icons';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type DialogTitleOwnProps = {
   /**
    * The content of the component.
    */
@@ -19,38 +22,40 @@ type BaseProps = {
   onClose?: () => void;
 };
 
-type DialogTitleProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type DialogTitleProps = DialogTitleOwnProps & React.HTMLAttributes<HTMLDivElement>;
+/**
+ *
+ */
 
-const stylesBase = () => css({
-  label: 'DialogTitle',
+/**
+ * Styles.
+ */
+const DialogTitleRoot = styled('header')({
   padding: 'var(--pv-size-base-4) var(--pv-size-base-4) var(--pv-size-base-2)',
   display: 'flex',
   flex: '0 0 auto',
   justifyContent: 'space-between',
 });
 
-const stylesCloseButton = () => css({
-  label: 'DialogTitle-close',
+const DialogTitleCloseButton = styled(IconButton)({
   margin: '0 calc(var(--pv-size-base) * -1) 0 var(--pv-size-base-2)',
 });
+/**
+ *
+ */
 
 export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((props, ref) => {
   const {
     children,
-    className,
     onClose,
     ...other
   } = props;
 
   return (
-    <header
-      {...other}
+    <DialogTitleRoot
       ref={ref}
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
       data-key="dialog.title"
+      {...other}
     >
       <Typography
         variant="h4"
@@ -60,15 +65,14 @@ export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((p
       </Typography>
 
       {onClose && (
-        <IconButton
+        <DialogTitleCloseButton
           size="small"
           onClick={onClose}
-          className={cx(stylesCloseButton())}
         >
           <CloseIcon />
-        </IconButton>
+        </DialogTitleCloseButton>
       )}
-    </header>
+    </DialogTitleRoot>
   );
 });
 

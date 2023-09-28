@@ -24,13 +24,13 @@ exports[`<Menu /> should pass className 1`] = `
 
 .emotion-2 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   outline: 0;
   max-width: calc(100% - 32px);
   min-width: 16px;
   max-height: calc(100% - 32px);
   min-height: 16px;
   box-shadow: var(--pv-shadow-light-low);
-  border-radius: 4px;
 }
 
 .emotion-2[data-popper-placement^="bottom"] {
@@ -104,18 +104,18 @@ exports[`<Menu /> should pass className 1`] = `
 }
 
 .emotion-5 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: inherit;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
 }
 
 <body>

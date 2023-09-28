@@ -53,11 +53,11 @@ exports[`<Tab /> should pass "component" 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-10);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-gray-10);
 }
 
 <a
@@ -128,15 +128,15 @@ exports[`<Tab /> should pass className 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-10);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-gray-10);
 }
 
 <button
-    class="emotion-0 my-class-name"
+    class="my-class-name emotion-0"
     id="tab1"
     role="tab"
     type="button"
@@ -203,11 +203,11 @@ exports[`<Tab /> should pass disabled 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-7);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-gray-7);
 }
 
 <button
@@ -279,11 +279,11 @@ exports[`<Tab /> should render colors colors: "black" & selected: "false" 1`] = 
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-10);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-gray-10);
 }
 
 <button
@@ -354,11 +354,11 @@ exports[`<Tab /> should render colors colors: "black" & selected: "true" 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-black);
 }
 
 <button
@@ -430,11 +430,11 @@ exports[`<Tab /> should render colors colors: "white" & selected: "false" 1`] = 
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-9);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-gray-9);
 }
 
 <button
@@ -505,11 +505,11 @@ exports[`<Tab /> should render colors colors: "white" & selected: "true" 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-white);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-white);
 }
 
 <button
@@ -581,11 +581,11 @@ exports[`<Tab /> should render with default styles 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-gray-10);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-gray-10);
 }
 
 <button

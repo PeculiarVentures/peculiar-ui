@@ -1,6 +1,7 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { css, cx } from '../styles';
 import { Typography } from '../Typography';
 import { CloseSmallIcon } from '../icons';
 
@@ -59,8 +60,9 @@ export type ChipProps<
 /**
  * Styles.
  */
-const stylesBase = () => css({
-  label: 'Chip',
+const ChipRoot = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<ChipOwnProps>((props) => ({
   display: 'inline-flex',
   maxWidth: '100%',
   fontFamily: 'inherit',
@@ -79,109 +81,82 @@ const stylesBase = () => css({
   alignItems: 'center',
   whiteSpace: 'nowrap',
   textDecoration: 'none',
-});
-
-const stylesDisabled = () => css({
-  label: 'disabled',
-  pointerEvents: 'none',
-});
-
-const stylesClickable = () => css({
-  label: 'clickable',
-  cursor: 'pointer',
-  userSelect: 'none',
-  WebkitTapHighlightColor: 'transparent',
-});
-
-const stylesVariantContainedColorNotDefault = (props: ChipProps) => css({
-  label: 'contained',
-  backgroundColor: `var(--pv-color-${props.color})`,
-  color: 'var(--pv-color-white)',
-  ...(typeof props.onClick === 'function' && !props.disabled && {
-    '&:hover': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-1)`,
-    },
-    '&:focus': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-2)`,
-    },
-    '&:active': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-2)`,
-      boxShadow: 'var(--pv-shadow-light-medium)',
-    },
-  }),
   ...(props.disabled && {
-    color: 'var(--pv-color-gray-8)',
-    backgroundColor: 'var(--pv-color-gray-4)',
+    pointerEvents: 'none',
   }),
+  ...(Boolean(props.onClick) && !props.disabled && {
+    cursor: 'pointer',
+    userSelect: 'none',
+    WebkitTapHighlightColor: 'transparent',
+  }),
+}), (props) => {
+  let color: string;
+  let borderColor: string;
+  let backgroundColor: string;
+  let backgroundColorHover: string;
+  let backgroundColorFocus: string;
+  let backgroundColorActive: string;
+  let boxShadowActive: string;
+
+  if (props.variant === 'contained') {
+    if (props.color === 'default') {
+      color = 'var(--pv-color-black)';
+      backgroundColor = 'var(--pv-color-gray-4)';
+      backgroundColorHover = 'var(--pv-color-gray-7)';
+      backgroundColorFocus = 'var(--pv-color-gray-6)';
+      backgroundColorActive = 'var(--pv-color-gray-5)';
+    } else {
+      color = 'var(--pv-color-white)';
+      backgroundColor = `var(--pv-color-${props.color})`;
+      backgroundColorHover = `var(--pv-color-${props.color}-tint-1)`;
+      backgroundColorFocus = `var(--pv-color-${props.color}-tint-2)`;
+      backgroundColorActive = `var(--pv-color-${props.color}-tint-2)`;
+      boxShadowActive = 'var(--pv-shadow-light-medium)';
+    }
+  }
+
+  if (props.variant === 'outlined') {
+    if (props.color === 'default') {
+      color = 'var(--pv-color-gray-10)';
+      borderColor = 'var(--pv-color-gray-6)';
+      backgroundColor = 'transparent';
+      backgroundColorHover = 'var(--pv-color-gray-3)';
+      backgroundColorFocus = 'var(--pv-color-gray-4)';
+      backgroundColorActive = 'var(--pv-color-gray-5)';
+    } else {
+      color = `var(--pv-color-${props.color})`;
+      borderColor = `var(--pv-color-${props.color}-tint-2)`;
+      backgroundColor = 'transparent';
+      backgroundColorHover = `var(--pv-color-${props.color}-tint-5)`;
+      backgroundColorFocus = `var(--pv-color-${props.color}-tint-4)`;
+      backgroundColorActive = `var(--pv-color-${props.color}-tint-3)`;
+    }
+  }
+
+  return {
+    borderColor,
+    backgroundColor,
+    color,
+    ...(typeof props.onClick === 'function' && !props.disabled && {
+      '&:hover': {
+        backgroundColor: backgroundColorHover,
+      },
+      '&:focus': {
+        backgroundColor: backgroundColorFocus,
+      },
+      '&:active': {
+        backgroundColor: backgroundColorActive,
+        boxShadow: boxShadowActive,
+      },
+    }),
+    ...(props.disabled && {
+      color: 'var(--pv-color-gray-8)',
+      borderColor: 'var(--pv-color-gray-4)',
+    }),
+  };
 });
 
-const stylesVariantContainedColorDefault = (props: ChipProps) => css({
-  label: 'contained-default',
-  backgroundColor: 'var(--pv-color-gray-4)',
-  color: 'var(--pv-color-black)',
-  ...(typeof props.onClick === 'function' && !props.disabled && {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-gray-7)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-gray-6)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-gray-5)',
-    },
-  }),
-  ...(props.disabled && {
-    color: 'var(--pv-color-gray-8)',
-    backgroundColor: 'var(--pv-color-gray-4)',
-  }),
-});
-
-const stylesVariantOutlinedColorNotDefault = (props: ChipProps) => css({
-  label: 'outlined',
-  backgroundColor: 'transparent',
-  color: `var(--pv-color-${props.color})`,
-  borderColor: `var(--pv-color-${props.color}-tint-2)`,
-  ...(typeof props.onClick === 'function' && !props.disabled && {
-    '&:hover': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-5)`,
-    },
-    '&:focus': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-4)`,
-    },
-    '&:active': {
-      backgroundColor: `var(--pv-color-${props.color}-tint-3)`,
-    },
-  }),
-  ...(props.disabled && {
-    color: 'var(--pv-color-gray-8)',
-    borderColor: 'var(--pv-color-gray-4)',
-  }),
-});
-
-const stylesVariantOutlinedColorDefault = (props: ChipProps) => css({
-  label: 'outlined-default',
-  backgroundColor: 'transparent',
-  color: 'var(--pv-color-gray-10)',
-  borderColor: 'var(--pv-color-gray-6)',
-  ...(typeof props.onClick === 'function' && !props.disabled && {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-gray-3)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-gray-4)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-gray-5)',
-    },
-  }),
-  ...(props.disabled && {
-    color: 'var(--pv-color-gray-8)',
-    borderColor: 'var(--pv-color-gray-4)',
-  }),
-});
-
-const stylesDeleteAction = () => css({
-  label: 'delete',
+const ChipDeleteIcon = styled('span')({
   width: '24px',
   height: '24px',
   cursor: 'pointer',
@@ -195,11 +170,11 @@ const stylesDeleteAction = () => css({
   },
 });
 
-const stylesStartContent = () => css({
-  label: 'Chip-startIcon',
+const ChipStartContent = styled('span')({
   marginRight: 'var(--pv-size-base)',
   display: 'inherit',
 });
+
 /**
  *
  */
@@ -208,19 +183,18 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
   const {
     children,
     disabled,
-    deleteIcon,
-    variant,
-    color,
-    className,
+    deleteIcon = CloseSmallIcon,
     startContent: startContentProp,
     component,
     onClick,
     onDelete,
     ...other
   } = props;
+  const Component = component || 'div';
   const clickable = Boolean(onClick);
 
   const baseProps = {
+    disabled,
     role: clickable ? 'button' : undefined,
     'aria-disabled': disabled ? true : undefined,
     tabIndex: clickable && !disabled ? 0 : undefined,
@@ -241,50 +215,27 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
       return null;
     }
 
-    const baseIconProps = {
-      'aria-hidden': true,
-      className: cx(stylesDeleteAction()),
-      onClick: handleDeleteClick,
-    };
-
-    if (deleteIcon) {
-      return React.cloneElement(deleteIcon, baseIconProps);
-    }
-
     return (
-      <CloseSmallIcon {...baseIconProps} />
+      <ChipDeleteIcon
+        aria-hidden
+        as={deleteIcon as React.ElementType}
+        onClick={handleDeleteClick}
+      />
     );
   };
 
   const startContent = startContentProp && (
-    <span
-      className={cx(stylesStartContent())}
-    >
+    <ChipStartContent>
       {startContentProp}
-    </span>
+    </ChipStartContent>
   );
 
-  const Component = component || 'div';
-
   return (
-    <Component
-      {...other}
-      {...baseProps}
+    <ChipRoot
+      as={Component}
       ref={ref}
-      className={cx({
-        [stylesBase()]: true,
-        [stylesDisabled()]: disabled,
-        [stylesClickable()]: clickable && !disabled,
-        ...(color !== 'default' && {
-          [stylesVariantContainedColorNotDefault(props)]: variant === 'contained',
-          [stylesVariantOutlinedColorNotDefault(props)]: variant === 'outlined',
-        }),
-        ...(color === 'default' && {
-          [stylesVariantContainedColorDefault(props)]: variant === 'contained',
-          [stylesVariantOutlinedColorDefault(props)]: variant === 'outlined',
-        }),
-        [className]: !!className,
-      })}
+      {...baseProps}
+      {...other}
     >
       {startContent}
       <Typography
@@ -296,7 +247,7 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
         {children}
       </Typography>
       {renderDeleteAction()}
-    </Component>
+    </ChipRoot>
   );
 }) as OverridableComponent<ChipTypeMap>;
 

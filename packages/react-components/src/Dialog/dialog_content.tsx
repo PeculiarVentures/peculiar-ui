@@ -1,13 +1,13 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { Box } from '../Box';
 import { Collapse } from '../Collapse';
 import { Alert } from '../Alert';
-import { css, cx } from '../styles';
 
 /**
  * Types.
  */
-type BaseProps = {
+type DialogContentOwnProps = {
   /**
    * The content of the component.
    */
@@ -31,7 +31,7 @@ type BaseProps = {
   React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 };
 
-type DialogContentProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type DialogContentProps = DialogContentOwnProps & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
  */
@@ -39,35 +39,31 @@ type DialogContentProps = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 /**
  * Styles.
  */
-const stylesBase = () => css({
-  label: 'DialogContent',
+const DialogContentRoot = styled(Box)({
   flex: '1 1 auto',
   overflow: 'hidden',
   display: 'flex',
   flexDirection: 'column',
 });
 
-const stylesPinned = () => css({
-  label: 'DialogPinnedContent',
+const DialogContentAlertContainer = styled('div')({
   padding: '0 var(--pv-size-base-4)',
   flex: '0 0 auto',
 });
 
-const stylesScrolled = () => css({
-  label: 'DialogScrolledContent',
+const DialogContentCollapse = styled(Collapse)({
+  margin: '0 calc(var(--pv-size-base-3) * -1)',
+});
+
+const DialogContentContent = styled('div')({
   overflowY: 'auto',
   flex: '1 1 auto',
   padding: 'var(--pv-size-base-3) var(--pv-size-base-4) var(--pv-size-base-6) var(--pv-size-base-4)',
 });
 
-const stylesError = () => css({
-  label: 'DialogContent-error',
+const DialogContentAlertError = styled(Alert)({
   margin: 'var(--pv-size-base-2) 0',
   padding: 'var(--pv-size-base-2) var(--pv-size-base-3)',
-});
-
-const stylesCollapse = () => css({
-  margin: '0 calc(var(--pv-size-base-3) * -1)',
 });
 /**
  *
@@ -76,7 +72,6 @@ const stylesCollapse = () => css({
 export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>((props, ref) => {
   const {
     children,
-    className,
     dividers,
     error,
     scrolledElementProps = {},
@@ -84,43 +79,33 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
   } = props;
 
   return (
-    <Box
-      {...other}
+    <DialogContentRoot
       ref={ref}
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
       borderColor="gray-5"
       borderWidth={dividers ? 1 : 0}
       borderStyle="solid"
       borderPosition="horizontal"
       data-key="dialog.content"
+      {...other}
     >
-      <div className={cx(stylesPinned())}>
-        <Collapse
+      <DialogContentAlertContainer>
+        <DialogContentCollapse
           in={Boolean(error)}
-          className={cx(stylesCollapse())}
         >
-          <Alert
+          <DialogContentAlertError
             variant="wrong"
             disableIcon
-            className={cx(stylesError())}
           >
             {error}
-          </Alert>
-        </Collapse>
-      </div>
-      <div
+          </DialogContentAlertError>
+        </DialogContentCollapse>
+      </DialogContentAlertContainer>
+      <DialogContentContent
         {...scrolledElementProps}
-        className={cx({
-          [stylesScrolled()]: true,
-          [scrolledElementProps.className]: !!scrolledElementProps.className,
-        })}
       >
         {children}
-      </div>
-    </Box>
+      </DialogContentContent>
+    </DialogContentRoot>
   );
 });
 

@@ -18,15 +18,15 @@ exports[`<DialogTitle /> should pass className 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-h4-weight);
   font-size: var(--pv-text-h4-size);
   line-height: var(--pv-text-h4-height);
   letter-spacing: var(--pv-text-h4-spacing);
-  color: var(--pv-color-black);
 }
 
 <header
-    class="emotion-0 my-class-name"
+    class="my-class-name emotion-0"
     data-key="dialog.title"
   >
     <h4
@@ -56,11 +56,11 @@ exports[`<DialogTitle /> should render close button 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-h4-weight);
   font-size: var(--pv-text-h4-size);
   line-height: var(--pv-text-h4-height);
   letter-spacing: var(--pv-text-h4-spacing);
-  color: var(--pv-color-black);
 }
 
 .emotion-2 {
@@ -105,6 +105,7 @@ exports[`<DialogTitle /> should render close button 1`] = `
 .emotion-2:disabled {
   cursor: not-allowed;
   box-shadow: none;
+  color: var(--pv-color-gray-7);
 }
 
 .emotion-2:not(:disabled):hover {
@@ -119,17 +120,13 @@ exports[`<DialogTitle /> should render close button 1`] = `
   background-color: var(--pv-color-gray-5);
 }
 
-.emotion-2:disabled {
-  color: var(--pv-color-gray-7);
-}
-
 .emotion-3 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-btn2-weight);
   font-size: var(--pv-text-btn2-size);
   line-height: var(--pv-text-btn2-height);
   letter-spacing: var(--pv-text-btn2-spacing);
-  color: inherit;
   width: 100%;
   display: inherit;
   -webkit-align-items: inherit;
@@ -196,11 +193,11 @@ exports[`<DialogTitle /> should render with default styles 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-h4-weight);
   font-size: var(--pv-text-h4-size);
   line-height: var(--pv-text-h4-height);
   letter-spacing: var(--pv-text-h4-spacing);
-  color: var(--pv-color-black);
 }
 
 <header

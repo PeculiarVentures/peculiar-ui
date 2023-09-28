@@ -1,10 +1,10 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { OverridableComponent } from '../OverridableComponent';
 import { Popper } from '../Popper';
 import { Box } from '../Box';
 import { useMergedRef } from '../hooks';
 import { ArrowRightIcon } from '../icons';
-import { css } from '../styles';
 import { MenuItem } from './menu_item';
 import type { MenuItemTypeMap, MenuItemProps } from './menu_item';
 import { MenuList } from './menu_list';
@@ -12,7 +12,7 @@ import { MenuList } from './menu_list';
 /**
  * Types.
  */
-type SubMenuItemProps = MenuItemProps & {
+type SubMenuItemOwnProps = MenuItemProps & {
   label: React.ReactNode;
   children: React.ReactElement[];
 };
@@ -23,8 +23,7 @@ type SubMenuItemProps = MenuItemProps & {
 /**
  * Styles.
  */
-const stylesBase = () => css({
-  label: 'SubMenu-MenuList',
+const SubMenuItemRoot = styled(MenuList)({
   minWidth: '16px',
   minHeight: '16px',
   boxShadow: 'var(--pv-shadow-light-low)',
@@ -33,7 +32,7 @@ const stylesBase = () => css({
  *
  */
 
-export const SubMenuItem = React.forwardRef<any, SubMenuItemProps>((props, ref) => {
+export const SubMenuItem = React.forwardRef<any, SubMenuItemOwnProps>((props, ref) => {
   const {
     label,
     children,
@@ -65,10 +64,9 @@ export const SubMenuItem = React.forwardRef<any, SubMenuItemProps>((props, ref) 
         onMouseLeave={handleMouseLeave}
       >
         <Box
-          component={MenuList}
+          component={SubMenuItemRoot}
           borderRadius={4}
           background="white"
-          className={stylesBase()}
         >
           {children}
         </Box>

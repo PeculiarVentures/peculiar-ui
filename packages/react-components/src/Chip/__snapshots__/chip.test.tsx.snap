@@ -38,11 +38,11 @@ exports[`<Chip /> should pass className 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: inherit;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -98,11 +98,11 @@ exports[`<Chip /> should render with default styles 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: inherit;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -158,11 +158,11 @@ exports[`<Chip /> variants & colors variant "contained, color "default" 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: inherit;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -218,11 +218,11 @@ exports[`<Chip /> variants & colors variant "contained, color "secondary" 1`] = 
 
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: inherit;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -278,11 +278,11 @@ exports[`<Chip /> variants & colors variant "contained, color "wrong" 1`] = `
 
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: inherit;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -332,18 +332,18 @@ exports[`<Chip /> variants & colors variant "outlined, color "default" 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  border-color: var(--pv-color-gray-6);
   background-color: transparent;
   color: var(--pv-color-gray-10);
-  border-color: var(--pv-color-gray-6);
 }
 
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: inherit;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -393,18 +393,18 @@ exports[`<Chip /> variants & colors variant "outlined, color "secondary" 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  border-color: var(--pv-color-secondary-tint-2);
   background-color: transparent;
   color: var(--pv-color-secondary);
-  border-color: var(--pv-color-secondary-tint-2);
 }
 
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: inherit;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -454,18 +454,18 @@ exports[`<Chip /> variants & colors variant "outlined, color "wrong" 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  border-color: var(--pv-color-wrong-tint-2);
   background-color: transparent;
   color: var(--pv-color-wrong);
-  border-color: var(--pv-color-wrong-tint-2);
 }
 
 .emotion-1 {
   margin: 0;
+  color: inherit;
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  color: inherit;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

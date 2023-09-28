@@ -1,8 +1,12 @@
 import React from 'react';
+import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 import { Box } from '../Box';
-import { css, cx, keyframes } from '../styles';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type LinearProgressOwnProps = {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
@@ -17,8 +21,14 @@ type BaseProps = {
   className?: string;
 };
 
-type LinearProgressProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type LinearProgressProps = LinearProgressOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+/**
+ *
+ */
 
+/**
+ * Styles.
+ */
 const stylesKeyframeProgress = keyframes`
   0% {
     left: -30%;
@@ -28,15 +38,13 @@ const stylesKeyframeProgress = keyframes`
   }
 `;
 
-const stylesBase = () => css({
-  label: 'LinearProgress',
+const LinearProgressRoot = styled(Box)({
   height: '4px',
   overflow: 'hidden',
   position: 'relative',
 });
 
-const stylesProgress = () => css({
-  label: 'progress',
+const LinearProgressProgress = styled(Box)({
   top: 0,
   left: 0,
   bottom: 0,
@@ -45,30 +53,27 @@ const stylesProgress = () => css({
   transformOrigin: 'left',
   animation: `${stylesKeyframeProgress} 2s cubic-bezier(0.53, 0.21, 0.29, 0.67) 0s infinite`,
 });
+/**
+ *
+ */
 
 export const LinearProgress = React.forwardRef<HTMLDivElement, LinearProgressProps>(
   (props, ref) => {
     const {
       color,
-      className,
       ...other
     } = props;
 
     return (
-      <Box
-        {...other}
+      <LinearProgressRoot
         ref={ref}
-        className={cx({
-          [stylesBase()]: true,
-          [className]: !!className,
-        })}
         background={color === 'primary' ? 'primary-tint-4' : 'secondary-tint-4'}
+        {...other}
       >
-        <Box
+        <LinearProgressProgress
           background={color}
-          className={cx(stylesProgress())}
         />
-      </Box>
+      </LinearProgressRoot>
     );
   },
 );

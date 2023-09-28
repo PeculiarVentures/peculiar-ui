@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { css, cx } from '../styles';
+import styled from '@emotion/styled';
 import { Tab, TabProps } from './tab';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type TabsOwnProps = {
   /**
    * The content of the component.
    */
@@ -21,20 +24,27 @@ type BaseProps = {
   onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
 };
 
-type TabsProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type TabsProps = TabsOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+/**
+ *
+ */
 
-const stylesBase = () => css({
-  label: 'Tabs',
+/**
+ * Styles.
+ */
+const TabsRoot = styled('div')({
   whiteSpace: 'nowrap',
   overflowX: 'auto',
 });
+/**
+ *
+ */
 
 export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   const {
     children: childrenProp,
-    className,
-    onChange,
     value,
+    onChange,
     ...other
   } = props;
 
@@ -63,16 +73,12 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => 
   );
 
   return (
-    <div
-      {...other}
+    <TabsRoot
       ref={ref}
       role="tablist"
-      className={cx({
-        [stylesBase()]: true,
-        [className]: !!className,
-      })}
+      {...other}
     >
       {children}
-    </div>
+    </TabsRoot>
   );
 });

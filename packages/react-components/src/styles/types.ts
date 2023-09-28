@@ -138,7 +138,7 @@ export type ThemeType = {
 };
 
 export type ThemeOptionsType = {
-  color?: Partial<Record<ColorType, string>>;
+  color?: Partial<ThemeType['color']>;
   shadow?: Partial<ThemeType['shadow']>;
   text?: Partial<ThemeType['text']>;
   size?: number;

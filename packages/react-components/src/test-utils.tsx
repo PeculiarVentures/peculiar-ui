@@ -25,6 +25,7 @@ export {
   userEvent,
   fireEvent,
   renderWithWrapper,
+  render,
   screen,
   waitFor,
   renderHook,

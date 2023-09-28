@@ -58,24 +58,24 @@ exports[`<Tabs /> should pass className 1`] = `
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-black);
 }
 
 .emotion-4 {
   margin: 0;
+  color: var(--pv-color-gray-10);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-gray-10);
 }
 
 <div
-    class="emotion-0 my-class-name"
+    class="my-class-name emotion-0"
     role="tablist"
   >
     <button
@@ -165,20 +165,20 @@ exports[`<Tabs /> should render with default styles 1`] = `
 
 .emotion-2 {
   margin: 0;
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-black);
 }
 
 .emotion-4 {
   margin: 0;
+  color: var(--pv-color-gray-10);
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
-  color: var(--pv-color-gray-10);
 }
 
 <div

@@ -1,6 +1,7 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { css, cx, ColorType } from '../styles';
+import { ColorType } from '../styles';
 
 /**
  * Types.
@@ -35,84 +36,54 @@ export type BoxProps<
 /**
  * Styles.
  */
-const stylesBase = () => css({
-  label: 'Box',
-});
+const BoxRoot = styled('div')<BoxOwnProps>(
+  (props) => ({
+    background: props.background && `var(--pv-color-${props.background})`,
+    borderColor: props.borderColor && `var(--pv-color-${props.borderColor})`,
+    borderStyle: props.borderStyle,
+    borderRadius: props.borderRadius,
+  }),
+  (props) => {
+    const { borderWidth, borderPosition } = props;
 
-const stylesBackground = (color: ColorType) => css({
-  label: color,
-  background: `var(--pv-color-${color})`,
-});
+    if (typeof borderWidth !== 'number') {
+      return {};
+    }
 
-const stylesBorderColor = (color: ColorType) => css({
-  label: color,
-  borderColor: `var(--pv-color-${color})`,
-});
+    if (borderPosition) {
+      return {
+        borderWidth: [
+          ['horizontal', 'top'].includes(borderPosition) ? borderWidth : 0,
+          ['vertical', 'right'].includes(borderPosition) ? borderWidth : 0,
+          ['horizontal', 'bottom'].includes(borderPosition) ? borderWidth : 0,
+          ['vertical', 'left'].includes(borderPosition) ? borderWidth : 0,
+          '',
+        ].join('px '),
+      };
+    }
+
+    return {
+      borderWidth,
+    };
+  },
+);
 /**
  *
  */
 
 export const Box = React.forwardRef<any, BoxProps>((props, ref) => {
   const {
-    className,
-    background,
-    borderColor,
-    borderWidth,
-    borderStyle,
-    borderPosition,
-    borderRadius,
     component,
     ...other
   } = props;
 
-  const getBorderWidth = () => {
-    if (typeof borderWidth !== 'number') {
-      return undefined;
-    }
-
-    if (borderPosition === 'horizontal') {
-      return [borderWidth, 0, borderWidth, 0].join('px ');
-    }
-
-    if (borderPosition === 'vertical') {
-      return [0, borderWidth, 0, borderWidth, ''].join('px ');
-    }
-
-    if (borderPosition === 'top') {
-      return [borderWidth, 0, 0, 0].join('px ');
-    }
-
-    if (borderPosition === 'right') {
-      return [0, borderWidth, 0, 0].join('px ');
-    }
-
-    if (borderPosition === 'bottom') {
-      return [0, 0, borderWidth, 0].join('px ');
-    }
-
-    if (borderPosition === 'left') {
-      return [0, 0, 0, borderWidth, ''].join('px ');
-    }
-
-    return borderWidth;
-  };
-
   const Component = component || 'div';
 
   return (
-    <Component
-      {...other}
+    <BoxRoot
+      as={Component}
       ref={ref}
-      className={cx({
-        [stylesBase()]: true,
-        [stylesBackground(background)]: !!background,
-        [stylesBorderColor(borderColor)]: !!borderColor,
-        [className]: !!className,
-      }, css({
-        borderWidth: getBorderWidth(),
-        borderStyle,
-        borderRadius,
-      }))}
+      {...other}
     />
   );
 }) as OverridableComponent<BoxTypeMap>;

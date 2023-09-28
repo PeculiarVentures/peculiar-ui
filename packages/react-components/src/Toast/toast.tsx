@@ -2,7 +2,10 @@ import * as React from 'react';
 import { Alert, AlertProps } from '../Alert';
 import { Fade } from '../Fade';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type ToastOwnProps = {
   /**
    * The `id` of the toast. Mostly used when you need to prevent duplicate.
    */
@@ -28,8 +31,11 @@ type BaseProps = {
    */
   alertProps?: Omit<AlertProps, 'children' | 'onClose'>;
 };
+/**
+ *
+ */
 
-export const Toast: React.FC<BaseProps> = (props) => {
+export const Toast: React.FC<ToastOwnProps> = (props) => {
   const {
     id,
     duration,
@@ -55,7 +61,7 @@ export const Toast: React.FC<BaseProps> = (props) => {
       };
     }
 
-    return null;
+    return undefined;
   });
 
   return (

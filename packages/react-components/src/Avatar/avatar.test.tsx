@@ -54,72 +54,37 @@ describe('<Avatar />', () => {
     it('should prioritize render as image over initials', () => {
       const { asFragment } = render(<Avatar src={src} name="First" />);
 
-      const img = screen.getByRole('img');
-
-      expect(img).toBeInTheDocument();
-      expect(img.getAttribute('src')).toEqual(src);
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
-      render(<Avatar data-testid="test-id" />);
+      const { asFragment } = render(<Avatar data-testid="test-id" />);
 
-      expect(
-        screen
-          .getByRole('img')
-          .closest('div[class*="Avatar"]')
-          .getAttribute('data-testid'),
-      ).toMatch(/test-id/i);
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have class name', () => {
       const { asFragment } = render(<Avatar className="test-cls" />);
 
-      expect(
-        screen
-          .getByRole('img')
-          .closest('div[class*="Avatar"]')
-          .getAttribute('class'),
-      ).toMatch(/test-cls/i);
       expect(asFragment()).toMatchSnapshot();
     });
   });
 
   describe('Avatar render sizes', () => {
-    it('should render a small size', () => {
-      const { asFragment } = render(<Avatar size="small" />);
+    const sizes: Array<React.ComponentProps<typeof Avatar>['size']> = [
+      'small',
+      'medium',
+      'large',
+    ];
 
-      expect(
-        screen
-          .getByRole('img')
-          .closest('div[class*="Avatar"]')
-          .getAttribute('class'),
-      ).toMatch(/Avatar-small/i);
-      expect(asFragment()).toMatchSnapshot();
-    });
+    sizes.forEach((size) => {
+      it(`should render a "${size}" size`, () => {
+        const { asFragment } = render(
+          <Avatar size={size} />,
+        );
 
-    it('should render a medium size', () => {
-      const { asFragment } = render(<Avatar size="medium" />);
-
-      expect(
-        screen
-          .getByRole('img')
-          .closest('div[class*="Avatar"]')
-          .getAttribute('class'),
-      ).toMatch(/Avatar-medium/i);
-      expect(asFragment()).toMatchSnapshot();
-    });
-
-    it('should render a large size', () => {
-      const { asFragment } = render(<Avatar size="large" />);
-
-      expect(
-        screen
-          .getByRole('img')
-          .closest('div[class*="Avatar"]')
-          .getAttribute('class'),
-      ).toMatch(/Avatar-large/i);
-      expect(asFragment()).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
+      });
     });
   });
 

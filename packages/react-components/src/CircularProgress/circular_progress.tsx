@@ -1,7 +1,12 @@
 import React from 'react';
-import { css, cx, keyframes } from '../styles';
+import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type CircularProgressOwnProps = {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
@@ -30,14 +35,14 @@ type BaseProps = {
   value?: number;
 };
 
-export type CircularProgressProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type CircularProgressProps = CircularProgressOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+/**
+ *
+ */
 
 /**
  * Styles.
  */
-const SIZE = 44;
-const THICKNESS = 4;
-
 const circularRotateKeyframe = keyframes`
   0% {
     transform: rotate(0deg);
@@ -62,54 +67,51 @@ const circularDashKeyframe = keyframes`
   }
 `;
 
-const stylesBase = (color: BaseProps['color'], variant: BaseProps['variant']) => css({
+const CircularProgressRoot = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<CircularProgressOwnProps>((props) => ({
   label: 'CircularProgress',
   overflow: 'hidden',
   position: 'relative',
   display: 'inline-block',
-  color: `var(--pv-color-${color})`,
-  ...(variant === 'indeterminate' ? {
+  color: `var(--pv-color-${props.color})`,
+  ...(props.variant === 'indeterminate' ? {
     animation: `${circularRotateKeyframe} 1.4s linear infinite`,
   } : {
     transform: 'rotate(-90deg)',
   }),
-});
+  ...(props.size === 'small' && {
+    height: 'var(--pv-size-base-3)',
+    width: 'var(--pv-size-base-3)',
+  }),
+  ...(props.size === 'large' && {
+    height: 'var(--pv-size-base-6)',
+    width: 'var(--pv-size-base-6)',
+  }),
+}));
 
-const stylesBaseSmall = () => css({
-  label: 'small',
-  height: 'var(--pv-size-base-3)',
-  width: 'var(--pv-size-base-3)',
-});
-
-const stylesBaseLarge = () => css({
-  label: 'large',
-  height: 'var(--pv-size-base-6)',
-  width: 'var(--pv-size-base-6)',
-});
-
-const stylesProgressSvg = () => css({
-  label: 'CircularProgress-svg',
+const CircularProgressSvg = styled('svg')({
   display: 'block',
 });
 
-const stylesProgressCircle = (variant: BaseProps['variant']) => css({
-  label: 'CircularProgress-circle',
+const CircularProgressCircle = styled('circle')<Pick<CircularProgressOwnProps, 'variant'>>((props) => ({
   stroke: 'currentcolor',
   strokeDasharray: '80px, 200px',
   strokeDashoffset: 0,
-  ...(variant === 'indeterminate' && {
+  ...(props.variant === 'indeterminate' && {
     animation: `${circularDashKeyframe} 1.4s ease-in-out infinite`,
   }),
-});
+}));
 /**
  *
  */
 
+const SIZE = 44;
+const THICKNESS = 4;
+
 export const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgressProps>(
   (props, ref) => {
     const {
-      color,
-      className,
       size,
       variant = 'indeterminate',
       value = 0,
@@ -125,32 +127,27 @@ export const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgres
     }
 
     return (
-      <div
-        {...other}
+      <CircularProgressRoot
         ref={ref}
-        className={cx({
-          [stylesBase(color, variant)]: true,
-          [stylesBaseSmall()]: size === 'small',
-          [stylesBaseLarge()]: size === 'large',
-          [className]: !!className,
-        })}
         role="progressbar"
+        variant={variant}
+        size={size}
+        {...other}
       >
-        <svg
+        <CircularProgressSvg
           viewBox={`${SIZE / 2} ${SIZE / 2} ${SIZE} ${SIZE}`}
-          className={stylesProgressSvg()}
         >
-          <circle
+          <CircularProgressCircle
             cx={SIZE}
             cy={SIZE}
             r={(SIZE - THICKNESS) / 2}
             fill="none"
             strokeWidth={THICKNESS}
-            className={stylesProgressCircle(variant)}
             style={circleStyle}
+            variant={variant}
           />
-        </svg>
-      </div>
+        </CircularProgressSvg>
+      </CircularProgressRoot>
     );
   },
 );

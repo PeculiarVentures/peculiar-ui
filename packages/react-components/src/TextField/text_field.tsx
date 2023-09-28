@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { css, cx } from '../styles';
+import styled from '@emotion/styled';
 import { Typography } from '../Typography';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type TextFieldOwnProps = {
   /**
    * If `true`, the component is disabled.
    */
@@ -77,81 +80,82 @@ type BaseProps = {
    * Callback fired when the value is changed.
    */
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  'data-testid'?: string;
 };
 
-type TextFieldProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
+type TextFieldProps = TextFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
+/**
+ *
+ */
 
-const stylesInputBase = () => css({
-  label: 'TextField',
-  fontFamily: 'inherit',
-  outline: 'none',
-  boxSizing: 'border-box',
-  width: '100%',
-  borderRadius: '4px',
-  padding: '0 var(--pv-size-base-2)',
-  backgroundColor: 'var(--pv-color-gray-1)',
-  borderStyle: 'solid',
-  borderWidth: '1px',
-  borderColor: 'var(--pv-color-gray-8)',
-  transition: 'background-color 200ms, color 200ms, border-color 200ms',
-  display: 'inline-flex',
-  appearance: 'none',
-  '&::placeholder': {
-    color: 'var(--pv-color-gray-9)',
-  },
-  '&:hover': {
-    backgroundColor: 'var(--pv-color-gray-3)',
-    borderColor: 'var(--pv-color-gray-7)',
-  },
-  '&:disabled': {
-    cursor: 'not-allowed',
+/**
+ * Styles.
+ */
+const TextFieldInput = styled(Typography)<TextFieldProps>(
+  (props) => ({
+    fontFamily: 'inherit',
+    outline: 'none',
+    boxSizing: 'border-box',
+    width: '100%',
+    borderRadius: '4px',
+    padding: '0 var(--pv-size-base-2)',
     backgroundColor: 'var(--pv-color-gray-1)',
-    borderColor: 'var(--pv-color-gray-5)',
-    color: 'var(--pv-color-gray-7)',
-  },
-  '&:not(:disabled)': {
-    '&[aria-invalid]': {
-      backgroundColor: 'var(--pv-color-wrong-tint-5)',
-      borderColor: 'var(--pv-color-wrong-tint-3)',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    borderColor: 'var(--pv-color-gray-8)',
+    transition: 'background-color 200ms, color 200ms, border-color 200ms',
+    display: 'inline-flex',
+    appearance: 'none',
+    '&::placeholder': {
+      color: 'var(--pv-color-gray-9)',
     },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-secondary-tint-5)',
-      borderColor: 'var(--pv-color-secondary-tint-3)',
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-gray-3)',
+      borderColor: 'var(--pv-color-gray-7)',
     },
-  },
-});
+    '&:disabled': {
+      cursor: 'not-allowed',
+      backgroundColor: 'var(--pv-color-gray-1)',
+      borderColor: 'var(--pv-color-gray-5)',
+      color: 'var(--pv-color-gray-7)',
+    },
+    '&:not(:disabled)': {
+      '&[aria-invalid]': {
+        backgroundColor: 'var(--pv-color-wrong-tint-5)',
+        borderColor: 'var(--pv-color-wrong-tint-3)',
+      },
+      '&:focus': {
+        backgroundColor: 'var(--pv-color-secondary-tint-5)',
+        borderColor: 'var(--pv-color-secondary-tint-3)',
+      },
+    },
+    ...(props.size === 'small' && {
+      height: 'var(--pv-size-base-6)',
+    }),
+    ...(props.size === 'medium' && {
+      height: 'var(--pv-size-base-7)',
+    }),
+    ...(props.size === 'large' && {
+      height: 'var(--pv-size-base-8)',
+    }),
+  }),
+);
 
-const stylesInputSizeSmall = () => css({
-  label: 'small',
-  height: 'var(--pv-size-base-6)',
-});
-
-const stylesInputSizeMedium = () => css({
-  label: 'medium',
-  height: 'var(--pv-size-base-7)',
-});
-
-const stylesInputSizeLarge = () => css({
-  label: 'large',
-  height: 'var(--pv-size-base-8)',
-});
-
-const stylesLabel = () => css({
+const TextFieldLabel = styled('label')({
   label: 'TextField-label',
   marginBottom: '2px',
   display: 'inline-block',
 });
 
-const stylesError = () => css({
-  label: 'TextField-error',
+const TextFieldError = styled(Typography)({
   marginTop: '2px',
 });
+/**
+ *
+ */
 
 export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props, ref) => {
   const {
     size,
-    className,
     label,
     inputProps = {},
     disabled,
@@ -173,16 +177,12 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
 
   return (
     <div
-      {...other}
       ref={ref}
-      className={className}
+      {...other}
     >
       {label && (
-        <label
+        <TextFieldLabel
           htmlFor={id}
-          className={cx({
-            [stylesLabel()]: true,
-          })}
         >
           <Typography
             component="span"
@@ -191,13 +191,15 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
           >
             {label}
           </Typography>
-        </label>
+        </TextFieldLabel>
       )}
-      <Typography
+      <TextFieldInput
         {...inputProps}
+        // @ts-ignore
         component="input"
         color="black"
         variant={size === 'small' ? 'c1' : 'b3'}
+        size={size}
         type={type}
         disabled={disabled}
         defaultValue={defaultValue}
@@ -206,30 +208,19 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         required={required}
         name={name}
         ref={inputRef}
-        // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
-        className={cx({
-          [stylesInputBase()]: true,
-          [stylesInputSizeSmall()]: size === 'small',
-          [stylesInputSizeMedium()]: size === 'medium',
-          [stylesInputSizeLarge()]: size === 'large',
-          [inputProps.className]: !!inputProps.className,
-        })}
         aria-invalid={error || undefined}
         onChange={onChange}
         placeholder={placeholder}
         readOnly={readOnly}
       />
       {error && errorText && (
-        <Typography
+        <TextFieldError
           variant="c2"
           color="wrong"
-          className={cx({
-            [stylesError()]: true,
-          })}
         >
           {errorText}
-        </Typography>
+        </TextFieldError>
       )}
     </div>
   );

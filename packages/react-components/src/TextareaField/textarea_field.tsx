@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { css, cx } from '../styles';
+import styled from '@emotion/styled';
 import { Typography } from '../Typography';
 
-type BaseProps = {
+/**
+ * Types.
+ */
+type TextareaFieldOwnProps = {
   /**
    * If `true`, the component is disabled.
    */
@@ -22,7 +25,7 @@ type BaseProps = {
   /**
    * Attributes applied to the `input` element.
    */
-  inputProps?: React.InputHTMLAttributes<HTMLTextAreaElement>;
+  inputProps?: Omit<React.InputHTMLAttributes<HTMLTextAreaElement>, 'size'>;
   /**
    * The default value. Use when the component is not controlled.
    */
@@ -73,13 +76,17 @@ type BaseProps = {
    * the field (not from interacting with the field).
    */
   readOnly?: boolean;
-  'data-testid'?: string;
 };
 
-type TextareaFieldProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type TextareaFieldProps = TextareaFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+/**
+ *
+ */
 
-const stylesInputBase = () => css({
-  label: 'TextareaField',
+/**
+ * Styles.
+ */
+const TextareaFieldInput = styled('textarea')<Pick<TextareaFieldProps, 'size'>>((props) => ({
   fontFamily: 'inherit',
   outline: 'none',
   boxSizing: 'border-box',
@@ -95,6 +102,10 @@ const stylesInputBase = () => css({
   display: 'block',
   appearance: 'none',
   resize: 'none',
+  fontWeight: 'var(--pv-text-c1-weight)' as 'normal',
+  fontSize: 'var(--pv-text-c1-size)',
+  lineHeight: 'var(--pv-text-c1-height)',
+  letterSpacing: 'var(--pv-text-c1-spacing)',
   '&::placeholder': {
     color: 'var(--pv-color-gray-9)',
   },
@@ -118,45 +129,33 @@ const stylesInputBase = () => css({
       borderColor: 'var(--pv-color-secondary-tint-3)',
     },
   },
-}, {
-  fontWeight: 'var(--pv-text-c1-weight)',
-  fontSize: 'var(--pv-text-c1-size)',
-  lineHeight: 'var(--pv-text-c1-height)',
-  letterSpacing: 'var(--pv-text-c1-spacing)',
-} as any);
+  ...(props.size === 'small' && {
+    minHeight: 'var(--pv-size-base-12)',
+  }),
+  ...(props.size === 'medium' && {
+    minHeight: 'var(--pv-size-base-14)',
+  }),
+  ...(props.size === 'large' && {
+    minHeight: 'var(--pv-size-base-16)',
+  }),
+}));
 
-const stylesInputSizeSmall = () => css({
-  label: 'small',
-  minHeight: 'var(--pv-size-base-12)',
-});
-
-const stylesInputSizeMedium = () => css({
-  label: 'medium',
-  minHeight: 'var(--pv-size-base-14)',
-});
-
-const stylesInputSizeLarge = () => css({
-  label: 'large',
-  minHeight: 'var(--pv-size-base-16)',
-});
-
-const stylesLabel = () => css({
-  label: 'TextareaField-label',
+const TextareaFieldLabel = styled('label')({
   marginBottom: '2px',
   display: 'inline-block',
 });
 
-const stylesError = () => css({
-  label: 'TextareaField-error',
+const TextareaFieldError = styled(Typography)({
   marginTop: '2px',
 });
+/**
+ *
+ */
 
 export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps>((props, ref) => {
   const {
     size,
-    className,
     label,
-    onChange,
     inputProps,
     disabled,
     defaultValue,
@@ -170,21 +169,18 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
     errorText,
     autoFocus,
     readOnly,
+    onChange,
     ...other
   } = props;
 
   return (
     <div
-      {...other}
       ref={ref}
-      className={className}
+      {...other}
     >
       {label && (
-        <label
+        <TextareaFieldLabel
           htmlFor={id}
-          className={cx({
-            [stylesLabel()]: true,
-          })}
         >
           <Typography
             component="span"
@@ -193,10 +189,11 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
           >
             {label}
           </Typography>
-        </label>
+        </TextareaFieldLabel>
       )}
-      <textarea
+      <TextareaFieldInput
         {...inputProps}
+        size={size}
         disabled={disabled}
         defaultValue={defaultValue}
         id={id}
@@ -204,29 +201,19 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
         required={required}
         name={name}
         ref={inputRef}
-        // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
-        className={cx({
-          [stylesInputBase()]: true,
-          [stylesInputSizeSmall()]: size === 'small',
-          [stylesInputSizeMedium()]: size === 'medium',
-          [stylesInputSizeLarge()]: size === 'large',
-        })}
         aria-invalid={error || undefined}
         onChange={onChange}
         placeholder={placeholder}
         readOnly={readOnly}
       />
       {error && errorText && (
-        <Typography
+        <TextareaFieldError
           variant="c2"
           color="wrong"
-          className={cx({
-            [stylesError()]: true,
-          })}
         >
           {errorText}
-        </Typography>
+        </TextareaFieldError>
       )}
     </div>
   );

@@ -35,6 +35,7 @@ exports[`<Dialog /> should pass className 1`] = `
 
 .emotion-2 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -52,7 +53,6 @@ exports[`<Dialog /> should pass className 1`] = `
   border: 0;
   padding: 0;
   max-width: 640px;
-  border-radius: 4px;
 }
 
 <body>
@@ -115,28 +115,25 @@ exports[`<Dialog /> should render fullscreen 1`] = `
 
 .emotion-2 {
   background: var(--pv-color-white);
+  border-radius: 0;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  max-height: calc(100% - 60px);
+  max-height: none;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  margin: var(--pv-size-base-6);
+  margin: 0;
   position: relative;
   outline: none;
   box-shadow: var(--pv-shadow-dark-hight);
   overflow: hidden;
   border: 0;
   padding: 0;
-  max-width: 640px;
-  height: 100%;
-  margin: 0;
   max-width: 100%;
-  max-height: none;
-  border-radius: 0;
+  height: 100%;
 }
 
 <body>
@@ -198,6 +195,7 @@ exports[`<Dialog /> should render with default open styles 1`] = `
 
 .emotion-2 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -215,7 +213,6 @@ exports[`<Dialog /> should render with default open styles 1`] = `
   border: 0;
   padding: 0;
   max-width: 640px;
-  border-radius: 4px;
 }
 
 <body>
@@ -283,6 +280,7 @@ exports[`<Dialog /> sizes size "large" 1`] = `
 
 .emotion-2 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -300,7 +298,6 @@ exports[`<Dialog /> sizes size "large" 1`] = `
   border: 0;
   padding: 0;
   max-width: 1024px;
-  border-radius: 4px;
 }
 
 <body>
@@ -362,6 +359,7 @@ exports[`<Dialog /> sizes size "medium" 1`] = `
 
 .emotion-2 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -379,7 +377,6 @@ exports[`<Dialog /> sizes size "medium" 1`] = `
   border: 0;
   padding: 0;
   max-width: 640px;
-  border-radius: 4px;
 }
 
 <body>
@@ -441,6 +438,7 @@ exports[`<Dialog /> sizes size "small" 1`] = `
 
 .emotion-2 {
   background: var(--pv-color-white);
+  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -458,7 +456,6 @@ exports[`<Dialog /> sizes size "small" 1`] = `
   border: 0;
   padding: 0;
   max-width: 310px;
-  border-radius: 4px;
 }
 
 <body>

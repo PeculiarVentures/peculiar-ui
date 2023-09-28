@@ -76,6 +76,9 @@ exports[`<Switch /> colors color "primary" 1`] = `
 .emotion-2 {
   background: var(--pv-color-primary-contrast);
   border-color: var(--pv-color-gray-3);
+  border-style: solid;
+  border-radius: 100px;
+  border-width: 1px;
   display: block;
   position: absolute;
   width: var(--pv-size-base-3);
@@ -89,9 +92,6 @@ exports[`<Switch /> colors color "primary" 1`] = `
   transform: translateX(calc(-50% + 2px));
   pointer-events: none;
   box-sizing: content-box;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 100px;
 }
 
 .emotion-2:before {
@@ -201,6 +201,9 @@ exports[`<Switch /> colors color "secondary" 1`] = `
 .emotion-2 {
   background: var(--pv-color-secondary-contrast);
   border-color: var(--pv-color-gray-3);
+  border-style: solid;
+  border-radius: 100px;
+  border-width: 1px;
   display: block;
   position: absolute;
   width: var(--pv-size-base-3);
@@ -214,9 +217,6 @@ exports[`<Switch /> colors color "secondary" 1`] = `
   transform: translateX(calc(-50% + 2px));
   pointer-events: none;
   box-sizing: content-box;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 100px;
 }
 
 .emotion-2:before {
@@ -326,6 +326,9 @@ exports[`<Switch /> should pass className 1`] = `
 .emotion-2 {
   background: var(--pv-color-primary-contrast);
   border-color: var(--pv-color-gray-3);
+  border-style: solid;
+  border-radius: 100px;
+  border-width: 1px;
   display: block;
   position: absolute;
   width: var(--pv-size-base-3);
@@ -339,9 +342,6 @@ exports[`<Switch /> should pass className 1`] = `
   transform: translateX(calc(-50% + 2px));
   pointer-events: none;
   box-sizing: content-box;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 100px;
 }
 
 .emotion-2:before {
@@ -359,7 +359,7 @@ exports[`<Switch /> should pass className 1`] = `
 }
 
 <label
-    class="emotion-0 my-class-name"
+    class="my-class-name emotion-0"
     for="test-id"
   >
     <input
@@ -451,6 +451,9 @@ exports[`<Switch /> should render with default styles 1`] = `
 .emotion-2 {
   background: var(--pv-color-primary-contrast);
   border-color: var(--pv-color-gray-3);
+  border-style: solid;
+  border-radius: 100px;
+  border-width: 1px;
   display: block;
   position: absolute;
   width: var(--pv-size-base-3);
@@ -464,9 +467,6 @@ exports[`<Switch /> should render with default styles 1`] = `
   transform: translateX(calc(-50% + 2px));
   pointer-events: none;
   box-sizing: content-box;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 100px;
 }
 
 .emotion-2:before {
