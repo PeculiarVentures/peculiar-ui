@@ -41,6 +41,20 @@ describe('<Tooltip />', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
+  it('should pass interactive', () => {
+    const { asFragment } = render(
+      <Tooltip
+        open
+        interactive
+        title="tooltipText"
+      >
+        <div>Text</div>
+      </Tooltip>,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   describe('sizes', () => {
     const sizes: Array<React.ComponentProps<typeof Tooltip>['size']> = [
       'small',
