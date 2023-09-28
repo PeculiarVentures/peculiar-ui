@@ -1,33 +1,37 @@
 import * as React from 'react';
 import { Global, ThemeProvider as ThemeProviderEmotion } from '@emotion/react';
 import { createTheme, createThemeCSSVariablesFromObject } from './utils';
-import { defaultTheme } from './default_theme';
 import type { ThemeOptionsType } from './types';
 
+/**
+ * Types.
+ */
 type ThemeProviderProps = {
   children: React.ReactElement;
   theme?: ThemeOptionsType;
   mode?: 'light' | 'dark';
 };
+/**
+ *
+ */
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
   const {
     children,
-    theme: themeProp,
     mode,
+    theme: themeProp,
   } = props;
 
-  const theme = React.useMemo(() => {
-    const output = themeProp ? createTheme(themeProp) : defaultTheme;
-
-    return output;
-  }, [themeProp]);
+  const theme = React.useMemo(
+    () => createThemeCSSVariablesFromObject(createTheme(mode, themeProp)),
+    [themeProp, mode],
+  );
 
   return (
     <>
       <Global
         styles={{
-          'html, ::backdrop': createThemeCSSVariablesFromObject(theme),
+          'html, ::backdrop': theme,
         }}
       />
       <ThemeProviderEmotion

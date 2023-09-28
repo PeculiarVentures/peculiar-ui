@@ -5,15 +5,7 @@ import {
   themeCSSVariablePrefix,
   contrastThreshold,
 } from '../src/styles/utils';
-import {
-  generatePrimaryColors,
-  generateSecondaryColors,
-  generateWrongColors,
-  generateAttentionColors,
-  generateSuccessColors,
-  grayscale,
-  additional,
-} from '../src/styles/colors';
+import { colors } from '../src/styles/foundations';
 
 type PaletteItemProps = {
   color: string;
@@ -28,7 +20,7 @@ const PaletteItem: React.FC<PaletteItemProps> = (props) => {
     onChange,
   } = props;
 
-  const textContrastRatio = new Color(color).getContrastRatio(grayscale.white);
+  const textContrastRatio = new Color(color).getContrastRatio(colors.grayscale.white);
 
   return (
     <div
@@ -77,9 +69,9 @@ const PaletteItem: React.FC<PaletteItemProps> = (props) => {
  * Palette primary section.
  */
 export const ColorPalettePrimary: React.FC = () => {
-  const [color, setColor] = React.useState<string>();
+  const [color, setColor] = React.useState<string>(colors.primary.primary);
 
-  const palette = generatePrimaryColors(color);
+  const palette = colors.generateColorPalette('primary', color);
   const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,9 +96,9 @@ export const ColorPalettePrimary: React.FC = () => {
  * Palette secondary section.
  */
 export const ColorPaletteSecondary: React.FC = () => {
-  const [color, setColor] = React.useState<string>();
+  const [color, setColor] = React.useState<string>(colors.secondary.secondary);
 
-  const palette = generateSecondaryColors(color);
+  const palette = colors.generateColorPalette('secondary', color);
   const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -131,9 +123,9 @@ export const ColorPaletteSecondary: React.FC = () => {
  * Palette wrong section.
  */
 export const ColorPaletteWrong: React.FC = () => {
-  const [color, setColor] = React.useState<string>();
+  const [color, setColor] = React.useState<string>(colors.wrong.wrong);
 
-  const palette = generateWrongColors(color);
+  const palette = colors.generateColorPalette('wrong', color);
   const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -158,9 +150,9 @@ export const ColorPaletteWrong: React.FC = () => {
  * Palette attention section.
  */
 export const ColorPaletteAttention: React.FC = () => {
-  const [color, setColor] = React.useState<string>();
+  const [color, setColor] = React.useState<string>(colors.attention.attention);
 
-  const palette = generateAttentionColors(color);
+  const palette = colors.generateColorPalette('attention', color);
   const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -185,9 +177,9 @@ export const ColorPaletteAttention: React.FC = () => {
  * Palette success section.
  */
 export const ColorPaletteSuccess: React.FC = () => {
-  const [color, setColor] = React.useState<string>();
+  const [color, setColor] = React.useState<string>(colors.success.success);
 
-  const palette = generateSuccessColors(color);
+  const palette = colors.generateColorPalette('success', color);
   const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -212,7 +204,7 @@ export const ColorPaletteSuccess: React.FC = () => {
  * Palette grayscale section.
  */
 export const ColorPaletteGrayscale: React.FC = () => {
-  const palette = grayscale;
+  const palette = colors.grayscale;
   const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   return (
@@ -232,7 +224,7 @@ export const ColorPaletteGrayscale: React.FC = () => {
  * Palette additional section.
  */
 export const ColorPaletteAdditional: React.FC = () => {
-  const palette = additional;
+  const palette = colors.additional;
   const paletteKeys = Object.keys(palette) as Array<keyof typeof palette>;
 
   return (
