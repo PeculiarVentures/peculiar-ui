@@ -367,6 +367,86 @@ exports[`<Tooltip /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<Tooltip /> should pass interactive 1`] = `
+<DocumentFragment>
+  <div>
+    Text
+  </div>
+  @keyframes animation-0 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
+  pointer-events: auto;
+  z-index: 1500;
+}
+
+.emotion-0[data-popper-placement^="bottom"] [data-popper-arrow] {
+  top: 0;
+  margin-top: -4px;
+}
+
+.emotion-0[data-popper-placement^="top"] [data-popper-arrow] {
+  bottom: 0;
+  margin-bottom: -4px;
+}
+
+.emotion-0[data-popper-placement^="right"] [data-popper-arrow] {
+  left: 0;
+  margin-left: -4px;
+}
+
+.emotion-0[data-popper-placement^="left"] [data-popper-arrow] {
+  right: 0;
+  margin-right: -4px;
+}
+
+.emotion-1 {
+  background: var(--pv-color-white);
+  border-radius: 4px;
+  box-shadow: var(--pv-shadow-light-low);
+  max-width: 300px;
+  word-wrap: break-word;
+  font-size: 0;
+  -webkit-animation: animation-0 225ms;
+  animation: animation-0 225ms;
+  position: relative;
+  padding: 5px 8px;
+}
+
+.emotion-2 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-c2-weight);
+  font-size: var(--pv-text-c2-size);
+  line-height: var(--pv-text-c2-height);
+  letter-spacing: var(--pv-text-c2-spacing);
+}
+
+<div
+    class="emotion-0"
+    role="tooltip"
+    style="position: absolute; left: 0px; top: 0px;"
+  >
+    <div
+      class="emotion-1"
+    >
+      <span
+        class="emotion-2"
+      >
+        tooltipText
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<Tooltip /> should render with default styles 1`] = `
 <DocumentFragment>
   <div>

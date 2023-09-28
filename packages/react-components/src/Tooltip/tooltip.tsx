@@ -111,7 +111,7 @@ const TooltipRoot = styled(Box)<Pick<TooltipOwnProps, 'size'>>((props) => ({
   }),
 }));
 
-const TooltipPopper = styled(Popper)<Pick<TooltipOwnProps, 'interactive'>>((props) => ({
+const TooltipPopper = styled(Popper)<Required<Pick<TooltipOwnProps, 'interactive'>>>((props) => ({
   pointerEvents: props.interactive ? 'auto' : 'none',
   zIndex: 1500,
   '&[data-popper-placement^="bottom"]': {
@@ -259,6 +259,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
         open={title && open}
         placement={placement}
         disablePortal={disablePortal}
+        interactive={interactive}
         modifiers={[
           {
             name: 'arrow',
