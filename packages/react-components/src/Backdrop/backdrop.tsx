@@ -36,7 +36,7 @@ export type BackdropProps = BackdropOwnProps
 /**
  * Styles.
  */
-const BackdropRoot = styled(Box)<Pick<BackdropOwnProps, 'invisible'>>((props) => ({
+const BackdropRoot = styled(Box)<Required<Pick<BackdropOwnProps, 'invisible'>>>((props) => ({
   zIndex: -1,
   position: 'fixed',
   right: 0,
@@ -63,6 +63,7 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
     open,
     transitionDuration,
     variant,
+    invisible,
     onEnter,
     onEntered,
     onEntering,
@@ -88,6 +89,7 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
         ref={ref}
         background="black"
         aria-hidden="true"
+        invisible={invisible}
         {...other}
       />
     </Fade>

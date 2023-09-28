@@ -86,7 +86,7 @@ type TextareaFieldProps = TextareaFieldOwnProps & Omit<React.HTMLAttributes<HTML
 /**
  * Styles.
  */
-const TextareaFieldInput = styled('textarea')<Pick<TextareaFieldProps, 'size'>>((props) => ({
+const TextareaFieldInput = styled('textarea')<Required<Pick<TextareaFieldProps, 'size'>>>((props) => ({
   fontFamily: 'inherit',
   outline: 'none',
   boxSizing: 'border-box',

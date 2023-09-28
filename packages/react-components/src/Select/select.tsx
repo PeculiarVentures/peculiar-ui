@@ -153,7 +153,7 @@ const SelectContainer = styled('div')({
   position: 'relative',
 });
 
-const SelectArrowIcon = styled(ArrowDropDownIcon)<{ disabled: boolean }>((props) => ({
+const SelectArrowIcon = styled(ArrowDropDownIcon)<Required<{ disabled: boolean }>>((props) => ({
   position: 'absolute',
   right: '0px',
   top: 'calc(50% - 12px)',
