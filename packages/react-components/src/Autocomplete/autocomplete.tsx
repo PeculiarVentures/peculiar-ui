@@ -122,7 +122,7 @@ const AutocompleteRoot = styled('div')({
   width: '100%',
 });
 
-const AutocompleteField = styled(Typography)<TypographyOwnProps & Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'multiple'>>(
+const AutocompleteField = styled(Typography)<TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'multiple'>>>(
   (props) => ({
     outline: 'none',
     boxSizing: 'border-box',
@@ -218,7 +218,7 @@ const AutocompleteDropdownGroupList = styled('ul')({
   listStyleType: 'none',
 });
 
-const AutocompleteDropdownGroupListItem = styled('li')<{ inGroup: boolean }>((props) => ({
+const AutocompleteDropdownGroupListItem = styled('li')<Required<{ inGroup: boolean }>>((props) => ({
   ...(props.inGroup ? {
     padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)',
   } : {

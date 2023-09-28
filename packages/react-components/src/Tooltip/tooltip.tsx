@@ -142,7 +142,7 @@ const TooltipPopper = styled(Popper)<Required<Pick<TooltipOwnProps, 'interactive
 
 const TooltipArrow = styled('span', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Pick<TooltipOwnProps, 'color'>>((props) => ({
+})<Required<Pick<TooltipOwnProps, 'color'>>>((props) => ({
   width: '8px',
   height: '8px',
   background: 'transparent',

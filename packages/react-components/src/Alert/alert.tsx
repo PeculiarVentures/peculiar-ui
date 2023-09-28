@@ -57,7 +57,7 @@ const AlertRoot = styled(Box)<AlertOwnProps>({
   boxSizing: 'border-box',
 });
 
-const AlertIcon = styled('div')<Pick<AlertOwnProps, 'variant'>>((props) => ({
+const AlertIcon = styled('div')<Required<Pick<AlertOwnProps, 'variant'>>>((props) => ({
   marginRight: 'var(--pv-size-base-2)',
   width: '24px',
   display: 'flex',

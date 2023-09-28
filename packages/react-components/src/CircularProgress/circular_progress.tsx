@@ -94,7 +94,7 @@ const CircularProgressSvg = styled('svg')({
   display: 'block',
 });
 
-const CircularProgressCircle = styled('circle')<Pick<CircularProgressOwnProps, 'variant'>>((props) => ({
+const CircularProgressCircle = styled('circle')<Required<Pick<CircularProgressOwnProps, 'variant'>>>((props) => ({
   stroke: 'currentcolor',
   strokeDasharray: '80px, 200px',
   strokeDashoffset: 0,

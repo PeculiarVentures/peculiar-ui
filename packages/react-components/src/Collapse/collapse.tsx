@@ -47,7 +47,7 @@ type CollapseProps = CollapseOwnProps
  */
 const CollapseRoot = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && !['orientation', 'in'].includes(prop),
-})<Pick<CollapseOwnProps, 'orientation' | 'timeout' | 'in'> & { state: TransitionStatus }>((props) => ({
+})<Required<Pick<CollapseOwnProps, 'orientation' | 'timeout' | 'in'> & { state: TransitionStatus }>>((props) => ({
   overflow: 'hidden',
   transition: `${props.orientation === 'horizontal' ? 'width' : 'height'} ${props.timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
   ...(props.orientation === 'horizontal' ? {
