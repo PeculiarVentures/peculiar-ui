@@ -71,42 +71,59 @@ type DialogProps = DialogOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, '
  */
 const DialogRoot = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'loading',
-})<DialogOwnProps>((props) => ({
-  width: '100%',
-  display: 'flex',
-  maxHeight: 'calc(100% - 60px)',
-  flexDirection: 'column',
-  margin: 'var(--pv-size-base-6)',
-  position: 'relative',
-  outline: 'none',
-  boxShadow: 'var(--pv-shadow-dark-hight)',
-  overflow: 'hidden',
-  border: 0,
-  padding: 0,
-  ...(props.loading && {
-    '[data-key="dialog.content"]': {
-      opacity: 0.5,
-    },
-    '[data-key="dialog.actions"]': {
-      opacity: 0.5,
-    },
+})<DialogOwnProps>(
+  (props) => ({
+    width: '100%',
+    display: 'flex',
+    maxHeight: 'calc(100% - 60px)',
+    flexDirection: 'column',
+    margin: 'var(--pv-size-base-6)',
+    position: 'relative',
+    outline: 'none',
+    overflow: 'hidden',
+    border: 0,
+    padding: 0,
+    boxShadow: 'var(--pv-shadow-dark-hight)',
+    ...(props.loading && {
+      '[data-key="dialog.content"]': {
+        opacity: 0.5,
+      },
+      '[data-key="dialog.actions"]': {
+        opacity: 0.5,
+      },
+    }),
+    ...(props.size === 'small' && {
+      maxWidth: '310px',
+    }),
+    ...(props.size === 'medium' && {
+      maxWidth: '640px',
+    }),
+    ...(props.size === 'large' && {
+      maxWidth: '1024px',
+    }),
+    ...(props.fullScreen && {
+      height: '100%',
+      margin: 0,
+      maxWidth: '100%',
+      maxHeight: 'none',
+    }),
   }),
-  ...(props.size === 'small' && {
-    maxWidth: '310px',
-  }),
-  ...(props.size === 'medium' && {
-    maxWidth: '640px',
-  }),
-  ...(props.size === 'large' && {
-    maxWidth: '1024px',
-  }),
-  ...(props.fullScreen && {
-    height: '100%',
-    margin: 0,
-    maxWidth: '100%',
-    maxHeight: 'none',
-  }),
-}));
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    let color = 'var(--pv-color-black)';
+    let backgroundColor = 'var(--pv-color-white)';
+
+    if (isDark) {
+      color = 'var(--pv-color-white)';
+      backgroundColor = 'var(--pv-color-gray-2)';
+    }
+
+    return {
+      color,
+      backgroundColor,
+    };
+  },
+);
 
 const DialogModal = styled(Modal)({
   display: 'flex',
@@ -159,7 +176,6 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
       >
         <DialogRoot
           role="dialog"
-          background="white"
           borderRadius={fullScreen ? 0 : 4}
           loading={loading}
           fullScreen={fullScreen}

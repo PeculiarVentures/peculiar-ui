@@ -23,11 +23,18 @@ type SubMenuItemOwnProps = MenuItemProps & {
 /**
  * Styles.
  */
-const SubMenuItemRoot = styled(MenuList)({
-  minWidth: '16px',
-  minHeight: '16px',
-  boxShadow: 'var(--pv-shadow-light-low)',
-});
+const SubMenuItemRoot = styled(MenuList)(
+  (props) => ({
+    minWidth: '16px',
+    minHeight: '16px',
+    boxShadow: 'var(--pv-shadow-light-low)',
+    ...(props.theme.mode === 'dark' ? {
+      backgroundColor: 'var(--pv-color-gray-3)',
+    } : {
+      backgroundColor: 'var(--pv-color-white)',
+    }),
+  }),
+);
 /**
  *
  */
@@ -66,7 +73,6 @@ export const SubMenuItem = React.forwardRef<any, SubMenuItemOwnProps>((props, re
         <Box
           component={SubMenuItemRoot}
           borderRadius={4}
-          background="white"
         >
           {children}
         </Box>

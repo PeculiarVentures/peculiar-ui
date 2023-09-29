@@ -47,40 +47,61 @@ export type MenuItemProps<
  */
 const MenuItemRoot = styled('li', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'disabled',
-})<MenuItemOwnProps>((props) => ({
-  padding: '0px var(--pv-size-base-2)',
-  fontFamily: 'inherit',
-  outline: 'none',
-  width: '100%',
-  height: 'var(--pv-size-base-7)',
-  display: 'flex',
-  textAlign: 'left',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  textDecoration: 'none',
-  userSelect: 'none',
-  cursor: 'pointer',
-  transition: 'background-color 200ms',
-  backgroundColor: 'transparent',
-  border: 'none',
-  color: 'var(--pv-color-black)',
-  boxSizing: 'border-box',
-  gap: 'var(--pv-size-base-2)',
-  '&:hover': {
-    backgroundColor: 'var(--pv-color-gray-3)',
+})<MenuItemOwnProps>(
+  {
+    padding: '0px var(--pv-size-base-2)',
+    fontFamily: 'inherit',
+    outline: 'none',
+    width: '100%',
+    height: 'var(--pv-size-base-7)',
+    display: 'flex',
+    textAlign: 'left',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    textDecoration: 'none',
+    userSelect: 'none',
+    cursor: 'pointer',
+    transition: 'background-color 200ms',
+    backgroundColor: 'transparent',
+    border: 'none',
+    boxSizing: 'border-box',
+    gap: 'var(--pv-size-base-2)',
   },
-  '&:focus': {
-    backgroundColor: 'var(--pv-color-gray-4)',
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    let color = 'var(--pv-color-black)';
+    let colorDisabled = 'var(--pv-color-gray-7)';
+    let backgroundColorHover = 'var(--pv-color-gray-3)';
+    let backgroundColorFocused = 'var(--pv-color-gray-4)';
+    let backgroundColorSelected = 'var(--pv-color-gray-5)';
+
+    if (isDark) {
+      color = 'var(--pv-color-white)';
+      colorDisabled = 'var(--pv-color-gray-1)';
+      backgroundColorHover = 'var(--pv-color-gray-4)';
+      backgroundColorFocused = 'var(--pv-color-gray-5)';
+      backgroundColorSelected = 'var(--pv-color-gray-6)';
+    }
+
+    return {
+      color,
+      '&:hover': {
+        backgroundColor: backgroundColorHover,
+      },
+      '&:focus': {
+        backgroundColor: backgroundColorFocused,
+      },
+      '&:active': {
+        backgroundColor: backgroundColorSelected,
+      },
+      ...(props.disabled && {
+        color: colorDisabled,
+        cursor: 'not-allowed',
+        pointerEvents: 'none',
+      }),
+    };
   },
-  '&:active': {
-    backgroundColor: 'var(--pv-color-gray-5)',
-  },
-  ...(props.disabled && {
-    color: 'var(--pv-color-gray-7)',
-    cursor: 'not-allowed',
-    pointerEvents: 'none',
-  }),
-}));
+);
 
 const MenuItemIcon = styled('span')({
   flexShrink: 0,
