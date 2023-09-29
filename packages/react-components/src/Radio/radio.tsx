@@ -57,80 +57,110 @@ export type RadioProps = RadioOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabe
 /**
  * Styles.
  */
-const RadioRoot = styled('label')({
-  cursor: 'pointer',
-  display: 'inline-flex',
-  width: 'var(--pv-size-base-4)',
-  height: 'var(--pv-size-base-4)',
-  borderRadius: '50%',
-  color: 'var(--pv-color-gray-6)',
-  position: 'relative',
-});
-
-const RadioInput = styled('input')({
-  cursor: 'inherit',
-  width: '100%',
-  height: '100%',
-  margin: 0,
-  padding: 0,
-  outline: 0,
-  borderRadius: '50%',
-  borderWidth: '2px',
-  borderStyle: 'solid',
-  appearance: 'none',
-  color: 'var(--pv-color-gray-9)',
-  borderColor: 'currentColor',
-  backgroundColor: 'transparent',
-  '&:before': {
-    top: '-7px',
-    left: '-7px',
-    right: '-7px',
-    bottom: '-7px',
-    content: '""',
-    position: 'absolute',
-    borderRadius: '50%',
-    opacity: 0,
-    backgroundColor: 'currentColor',
-    transition: 'opacity 200ms',
-  },
-  '&:checked': {
-    '+ [aria-hidden]': {
-      color: 'var(--pv-color-primary)',
-      opacity: 1,
-    },
-  },
-  '&:not(:disabled)': {
+const RadioRoot = styled('label')(
+  {
     cursor: 'pointer',
-    '&:checked': {
-      color: 'var(--pv-color-primary-shade-1)',
-    },
-    '&:hover': {
-      '&:before': {
-        opacity: 0.18,
-      },
-    },
-    '&:focus': {
-      '&:before': {
-        opacity: 0.23,
-      },
-    },
-    '&:active': {
-      '&:before': {
-        opacity: 0.30,
-      },
+    display: 'inline-flex',
+    width: 'var(--pv-size-base-4)',
+    height: 'var(--pv-size-base-4)',
+    borderRadius: '50%',
+    position: 'relative',
+  },
+  (props) => ({
+    ...(props.theme.mode === 'dark' ? {
+      color: 'var(--pv-color-gray-5)',
+    } : {
+      color: 'var(--pv-color-gray-6)',
+    }),
+  }),
+);
+
+const RadioInput = styled('input')(
+  {
+    cursor: 'inherit',
+    width: '100%',
+    height: '100%',
+    margin: 0,
+    padding: 0,
+    outline: 0,
+    borderRadius: '50%',
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    appearance: 'none',
+    borderColor: 'currentColor',
+    backgroundColor: 'transparent',
+    '&:before': {
+      top: '-7px',
+      left: '-7px',
+      right: '-7px',
+      bottom: '-7px',
+      content: '""',
+      position: 'absolute',
+      borderRadius: '50%',
+      opacity: 0,
+      backgroundColor: 'currentColor',
+      transition: 'opacity 200ms',
     },
   },
-  '&:disabled': {
-    cursor: 'not-allowed',
-    '+ [aria-hidden]': {
-      color: 'inherit',
-    },
-    color: 'var(--pv-color-gray-6)',
-    '&:checked': {
-      color: 'var(--pv-color-gray-7)',
-    },
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    let color = 'var(--pv-color-gray-9)';
+    let colorChecked = 'var(--pv-color-primary-shade-1)';
+    let ellipseColorChecked = 'var(--pv-color-primary)';
+    let colorDisabled = 'var(--pv-color-gray-6)';
+    let colorDisabledChecked = 'var(--pv-color-gray-7)';
+
+    if (isDark) {
+      color = 'var(--pv-color-gray-7)';
+      colorChecked = 'var(--pv-color-primary)';
+      ellipseColorChecked = 'var(--pv-color-primary-tint-1)';
+      colorDisabled = 'var(--pv-color-gray-5)';
+      colorDisabled = 'var(--pv-color-gray-5)';
+      colorDisabledChecked = 'var(--pv-color-gray-5)';
+    }
+
+    return ({
+      color,
+      '&:checked': {
+        '+ [aria-hidden]': {
+          color: ellipseColorChecked,
+          opacity: 1,
+        },
+      },
+      '&:not(:disabled)': {
+        cursor: 'pointer',
+        '&:checked': {
+          color: colorChecked,
+        },
+        '&:hover': {
+          '&:before': {
+            opacity: 0.18,
+          },
+        },
+        '&:focus': {
+          '&:before': {
+            opacity: 0.23,
+          },
+        },
+        '&:active': {
+          '&:before': {
+            opacity: 0.30,
+          },
+        },
+      },
+      '&:disabled': {
+        cursor: 'not-allowed',
+        '+ [aria-hidden]': {
+          color: 'inherit',
+        },
+        color: colorDisabled,
+        '&:checked': {
+          color: colorDisabledChecked,
+        },
+      },
+    });
   },
-});
+);
 
 const CheckboxIcon = styled('svg')({
   display: 'block',

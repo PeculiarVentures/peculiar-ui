@@ -60,67 +60,95 @@ const CheckboxRoot = styled('label')({
   position: 'relative',
 });
 
-const CheckboxInput = styled('input')({
-  width: '100%',
-  height: '100%',
-  margin: 0,
-  padding: 0,
-  outline: 0,
-  borderRadius: '2px',
-  borderWidth: '2px',
-  borderStyle: 'solid',
-  appearance: 'none',
-  color: 'var(--pv-color-gray-9)',
-  borderColor: 'currentColor',
-  backgroundColor: 'transparent',
-  '&:before': {
-    top: '-7px',
-    left: '-7px',
-    right: '-7px',
-    bottom: '-7px',
-    content: '""',
-    position: 'absolute',
-    borderRadius: '50%',
-    opacity: 0,
-    backgroundColor: 'currentColor',
-    transition: 'opacity 200ms',
-  },
-  '&:checked': {
-    '+ [aria-hidden]': {
-      opacity: 1,
+const CheckboxInput = styled('input')(
+  {
+    width: '100%',
+    height: '100%',
+    margin: 0,
+    padding: 0,
+    outline: 0,
+    borderRadius: '2px',
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    appearance: 'none',
+    borderColor: 'currentColor',
+    backgroundColor: 'transparent',
+    '&:before': {
+      top: '-7px',
+      left: '-7px',
+      right: '-7px',
+      bottom: '-7px',
+      content: '""',
+      position: 'absolute',
+      borderRadius: '50%',
+      opacity: 0,
+      backgroundColor: 'currentColor',
+      transition: 'opacity 200ms',
     },
   },
-  '&:not(:disabled)': {
-    cursor: 'pointer',
-    '&:checked': {
-      color: 'var(--pv-color-primary-shade-1)',
-      backgroundColor: 'var(--pv-color-primary)',
-    },
-    '&:hover': {
-      '&:before': {
-        opacity: 0.18,
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    let color = 'var(--pv-color-gray-9)';
+    let colorChecked = 'var(--pv-color-primary-shade-1)';
+    let backgroundColorChecked = 'var(--pv-color-primary)';
+    let colorDisabledChecked = 'var(--pv-color-gray-7)';
+    let iconColorDisabledChecked = 'var(--pv-color-white)';
+
+    if (isDark) {
+      color = 'var(--pv-color-gray-7)';
+      colorChecked = 'var(--pv-color-primary)';
+      backgroundColorChecked = 'var(--pv-color-primary-tint-1)';
+      colorDisabledChecked = 'var(--pv-color-gray-5)';
+      iconColorDisabledChecked = 'var(--pv-color-gray-8)';
+    }
+
+    return ({
+      color,
+      '&:checked': {
+        '+ [aria-hidden]': {
+          opacity: 1,
+        },
       },
-    },
-    '&:focus': {
-      '&:before': {
-        opacity: 0.23,
+      '&:not(:disabled)': {
+        cursor: 'pointer',
+        '&:checked': {
+          color: colorChecked,
+          backgroundColor: backgroundColorChecked,
+          '+ [aria-hidden]': {
+            color: 'var(--pv-color-white)',
+          },
+        },
+        '&:hover': {
+          '&:before': {
+            opacity: 0.18,
+          },
+        },
+        '&:focus': {
+          '&:before': {
+            opacity: 0.23,
+          },
+        },
+        '&:active': {
+          '&:before': {
+            opacity: 0.30,
+          },
+        },
       },
-    },
-    '&:active': {
-      '&:before': {
-        opacity: 0.30,
+      '&:disabled': {
+        cursor: 'not-allowed',
+        color: 'var(--pv-color-gray-6)',
+        '&:checked': {
+          color: colorDisabledChecked,
+          backgroundColor: 'var(--pv-color-gray-6)',
+
+          '+ [aria-hidden]': {
+            color: iconColorDisabledChecked,
+          },
+        },
       },
-    },
+    });
   },
-  '&:disabled': {
-    cursor: 'not-allowed',
-    color: 'var(--pv-color-gray-6)',
-    '&:checked': {
-      color: 'var(--pv-color-gray-7)',
-      backgroundColor: 'var(--pv-color-gray-6)',
-    },
-  },
-});
+);
 
 const CheckboxIcon = styled('svg')({
   display: 'block',
@@ -130,7 +158,6 @@ const CheckboxIcon = styled('svg')({
   width: '100%',
   height: '100%',
   opacity: 0,
-  color: 'var(--pv-color-white)',
   pointerEvents: 'none',
 });
 /**

@@ -73,50 +73,83 @@ const SwitchRoot = styled('label')({
 
 const SwitchInput = styled('input', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Required<Pick<SwitchOwnProps, 'color'>>>((props) => ({
-  label: 'Switch-input',
-  overflow: 'hidden',
-  width: '100%',
-  height: '100%',
-  margin: 0,
-  padding: 0,
-  outline: 0,
-  borderRadius: 'inherit',
-  appearance: 'none',
-  backgroundColor: 'var(--pv-color-gray-6)',
-  '&:checked': {
-    backgroundColor: `var(--pv-color-${props.color})`,
-    '+ [aria-hidden]': {
-      transform: 'translateX(calc(50% - 2px))',
-      '&:before': {
-        backgroundColor: `var(--pv-color-${props.color}-shade-2)`,
-      },
-    },
+})<Required<Pick<SwitchOwnProps, 'color'>>>(
+  {
+    label: 'Switch-input',
+    overflow: 'hidden',
+    width: '100%',
+    height: '100%',
+    margin: 0,
+    padding: 0,
+    outline: 0,
+    borderRadius: 'inherit',
+    appearance: 'none',
+    backgroundColor: 'var(--pv-color-gray-6)',
   },
-  '&:disabled': {
-    cursor: 'not-allowed',
-    pointerEvents: 'none',
-    opacity: 0.4,
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    let backgroundColorChecked = `var(--pv-color-${props.color})`;
+    let borderColor = 'var(--pv-color-gray-3)';
+    let borderColorDisabled = 'var(--pv-color-gray-3)';
+    let backgroundColorDisabled = 'var(--pv-color-gray-1)';
+    let backgroundColorDisabledChecked = `var(--pv-color-${props.color}-tint-3)`;
+
+    if (isDark) {
+      backgroundColorChecked = `var(--pv-color-${props.color}-tint-1)`;
+      borderColor = 'var(--pv-color-gray-9)';
+      borderColorDisabled = 'var(--pv-color-gray-6)';
+      backgroundColorDisabled = 'var(--pv-color-gray-7)';
+      backgroundColorDisabledChecked = `var(--pv-color-${props.color}-shade-3)`;
+    }
+
+    return {
+      '&:checked': {
+        backgroundColor: backgroundColorChecked,
+        '+ [aria-hidden]': {
+          transform: 'translateX(calc(50% - 2px))',
+          '&:before': {
+            backgroundColor: `var(--pv-color-${props.color}-shade-2)`,
+          },
+        },
+      },
+      '&:disabled': {
+        cursor: 'not-allowed',
+        pointerEvents: 'none',
+        backgroundColor: 'var(--pv-color-gray-4)',
+
+        '+ [aria-hidden]': {
+          borderColor: borderColorDisabled,
+          backgroundColor: backgroundColorDisabled,
+        },
+
+        '&:checked': {
+          backgroundColor: backgroundColorDisabledChecked,
+        },
+      },
+      '&:not(:disabled)': {
+        cursor: 'pointer',
+        '+ [aria-hidden]': {
+          borderColor,
+        },
+        '&:hover': {
+          '+ [aria-hidden]:before': {
+            opacity: 0.18,
+          },
+        },
+        '&:focus': {
+          '+ [aria-hidden]:before': {
+            opacity: 0.23,
+          },
+        },
+        '&:active': {
+          '+ [aria-hidden]:before': {
+            opacity: 0.30,
+          },
+        },
+      },
+    };
   },
-  '&:not(:disabled)': {
-    cursor: 'pointer',
-    '&:hover': {
-      '+ [aria-hidden]:before': {
-        opacity: 0.18,
-      },
-    },
-    '&:focus': {
-      '+ [aria-hidden]:before': {
-        opacity: 0.23,
-      },
-    },
-    '&:active': {
-      '+ [aria-hidden]:before': {
-        opacity: 0.30,
-      },
-    },
-  },
-}));
+);
 
 const SwitchDot = styled(Box)({
   display: 'block',
@@ -181,7 +214,6 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
       <SwitchDot
         aria-hidden
         background={`${color}-contrast`}
-        borderColor="gray-3"
         borderWidth={1}
         borderStyle="solid"
         borderRadius={100}
