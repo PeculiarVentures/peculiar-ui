@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { IconButton } from '../IconButton';
 import { CircularProgress } from '../CircularProgress';
@@ -50,30 +49,51 @@ export type AlertProps = AlertOwnProps & Omit<React.HTMLAttributes<HTMLDivElemen
 /**
  * Styles.
  */
-const AlertRoot = styled(Box)<AlertOwnProps>({
-  width: '100%',
-  display: 'flex',
-  padding: 'var(--pv-size-base-2) var(--pv-size-base-4)',
-  boxSizing: 'border-box',
-});
+const AlertRoot = styled('div')<AlertOwnProps>(
+  {
+    width: '100%',
+    display: 'flex',
+    padding: 'var(--pv-size-base-2) var(--pv-size-base-4)',
+    boxSizing: 'border-box',
+    borderRadius: '4px',
+  },
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    let backgroundColor: string;
 
-const AlertIcon = styled('div')<Required<Pick<AlertOwnProps, 'variant'>>>((props) => ({
-  marginRight: 'var(--pv-size-base-2)',
-  width: '24px',
-  display: 'flex',
-  padding: 'var(--pv-size-base-half) 0px',
-  justifyContent: 'center',
-  alignItems: 'center',
-  ...(props.variant === 'wrong' && {
-    color: 'var(--pv-color-wrong)',
+    if (props.variant === 'wrong') {
+      backgroundColor = 'var(--pv-color-wrong-tint-5)';
+    } else if (isDark) {
+      backgroundColor = 'var(--pv-color-gray-2)';
+    } else {
+      backgroundColor = 'var(--pv-color-black)';
+    }
+
+    return {
+      backgroundColor,
+    };
+  },
+);
+
+const AlertIcon = styled('div')<Required<Pick<AlertOwnProps, 'variant'>>>(
+  (props) => ({
+    marginRight: 'var(--pv-size-base-2)',
+    width: '24px',
+    display: 'flex',
+    padding: 'var(--pv-size-base-half) 0px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...(props.variant === 'wrong' && {
+      color: 'var(--pv-color-wrong)',
+    }),
+    ...(props.variant === 'attention' && {
+      color: 'var(--pv-color-attention)',
+    }),
+    ...(props.variant === 'success' && {
+      color: 'var(--pv-color-success)',
+    }),
   }),
-  ...(props.variant === 'attention' && {
-    color: 'var(--pv-color-attention)',
-  }),
-  ...(props.variant === 'success' && {
-    color: 'var(--pv-color-success)',
-  }),
-}));
+);
 
 const AlertMessage = styled(Typography)({
   padding: 'var(--pv-size-base) 0px',
@@ -125,8 +145,7 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) =
     <AlertRoot
       ref={ref}
       role="alert"
-      borderRadius={4}
-      background={variant === 'wrong' ? 'wrong-tint-5' : 'black'}
+      variant={variant}
       {...other}
     >
       {!disableIcon && (

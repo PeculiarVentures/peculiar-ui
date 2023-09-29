@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { Modal } from '../Modal';
 import { Slide } from '../Slide';
-import { Box } from '../Box';
 
 /**
  * Types.
@@ -47,16 +46,23 @@ type DrawerProps = DrawerOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, '
 /**
  * Styles.
  */
-const DrawerPaper = styled(Box)({
-  width: '270px',
-  height: '100%',
-  position: 'fixed',
-  top: 0,
-  right: 0,
-  overflowY: 'auto',
-  outline: 'none',
-  boxSizing: 'border-box',
-});
+const DrawerPaper = styled('div')(
+  (props) => ({
+    width: '270px',
+    height: '100%',
+    position: 'fixed',
+    top: 0,
+    right: 0,
+    overflowY: 'auto',
+    outline: 'none',
+    boxSizing: 'border-box',
+    ...(props.theme.mode === 'dark' ? {
+      backgroundColor: 'var(--pv-color-gray-2)',
+    } : {
+      backgroundColor: 'var(--pv-color-white)',
+    }),
+  }),
+);
 /**
  *
  */
@@ -89,7 +95,6 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
         timeout={transitionDuration}
       >
         <DrawerPaper
-          background="white"
           tabIndex={-1}
           {...other}
         >

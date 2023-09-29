@@ -114,63 +114,59 @@ const TextareaFieldInput = styled('textarea')<Required<Pick<TextareaFieldProps, 
     ...(props.size === 'large' && {
       minHeight: 'var(--pv-size-base-16)',
     }),
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-gray-3)',
-    },
-    '&:disabled': {
-      cursor: 'not-allowed',
-      backgroundColor: 'var(--pv-color-gray-1)',
-    },
   }),
   (props) => {
-    if (props.theme.mode === 'dark') {
-      return ({
-        color: 'var(--pv-color-white)',
-        borderColor: 'var(--pv-color-gray-5)',
-        '&::placeholder': {
-          color: 'var(--pv-color-gray-6)',
-        },
-        '&:hover': {
-          borderColor: 'var(--pv-color-gray-4)',
-        },
-        '&:disabled': {
-          borderColor: 'var(--pv-color-gray-4)',
-          color: 'var(--pv-color-gray-4)',
-        },
-        '&:not(:disabled)': {
-          '&[aria-invalid]': {
-            backgroundColor: 'var(--pv-color-wrong-shade-4)',
-            borderColor: 'var(--pv-color-wrong-shade-1)',
-          },
-          '&:focus': {
-            backgroundColor: 'var(--pv-color-secondary-shade-4)',
-            borderColor: 'var(--pv-color-secondary-shade-1)',
-          },
-        },
-      });
+    const isDark = props.theme.mode === 'dark';
+    const color = isDark
+      ? 'var(--pv-color-white)'
+      : 'var(--pv-color-black)';
+
+    let borderColor = 'var(--pv-color-gray-8)';
+    let colorPlaceholder = 'var(--pv-color-gray-9)';
+    let borderColorHover = 'var(--pv-color-gray-7)';
+    let borderColorDisabled = 'var(--pv-color-gray-5)';
+    let colorDisabled = 'var(--pv-color-gray-7)';
+    let invalidBackgroundColor = 'var(--pv-color-wrong-tint-5)';
+    let invalidBorderColor = 'var(--pv-color-wrong-tint-3)';
+    let backgroundColorFocus = 'var(--pv-color-secondary-tint-5)';
+    let borderColorFocus = 'var(--pv-color-secondary-tint-3)';
+
+    if (isDark) {
+      borderColor = 'var(--pv-color-gray-5)';
+      colorPlaceholder = 'var(--pv-color-gray-6)';
+      borderColorHover = 'var(--pv-color-gray-4)';
+      borderColorDisabled = 'var(--pv-color-gray-4)';
+      colorDisabled = 'var(--pv-color-gray-4)';
+      invalidBackgroundColor = 'var(--pv-color-wrong-shade-4)';
+      invalidBorderColor = 'var(--pv-color-wrong-shade-1)';
+      backgroundColorFocus = 'var(--pv-color-secondary-shade-4)';
+      borderColorFocus = 'var(--pv-color-secondary-shade-1)';
     }
 
     return ({
-      color: 'var(--pv-color-black)',
-      borderColor: 'var(--pv-color-gray-8)',
+      color,
+      borderColor,
       '&::placeholder': {
-        color: 'var(--pv-color-gray-9)',
+        color: colorPlaceholder,
       },
       '&:hover': {
-        borderColor: 'var(--pv-color-gray-7)',
+        backgroundColor: 'var(--pv-color-gray-3)',
+        borderColor: borderColorHover,
       },
       '&:disabled': {
-        borderColor: 'var(--pv-color-gray-5)',
-        color: 'var(--pv-color-gray-7)',
+        cursor: 'not-allowed',
+        backgroundColor: 'var(--pv-color-gray-1)',
+        borderColor: borderColorDisabled,
+        color: colorDisabled,
       },
       '&:not(:disabled)': {
         '&[aria-invalid]': {
-          backgroundColor: 'var(--pv-color-wrong-tint-5)',
-          borderColor: 'var(--pv-color-wrong-tint-3)',
+          backgroundColor: invalidBackgroundColor,
+          borderColor: invalidBorderColor,
         },
         '&:focus': {
-          backgroundColor: 'var(--pv-color-secondary-tint-5)',
-          borderColor: 'var(--pv-color-secondary-tint-3)',
+          backgroundColor: backgroundColorFocus,
+          borderColor: borderColorFocus,
         },
       },
     });
