@@ -40,7 +40,9 @@ export const defaultThemeLight: ThemeType = {
      */
     ...colors.additional,
   },
-  shadow,
+  shadow: {
+    ...shadow.light,
+  },
   text,
   size,
 };
@@ -79,7 +81,9 @@ export const defaultThemeDark: ThemeType = {
      */
     ...colors.additionalDark,
   },
-  shadow,
+  shadow: {
+    ...shadow.dark,
+  },
   text,
   size,
 };

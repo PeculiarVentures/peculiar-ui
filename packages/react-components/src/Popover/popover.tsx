@@ -47,7 +47,6 @@ const PopoverRoot = styled('div')(
     minWidth: '16px',
     maxHeight: 'calc(100% - 32px)',
     minHeight: '16px',
-    boxShadow: 'var(--pv-shadow-light-low)',
     borderRadius: '4px',
     ...(props.theme.mode === 'dark' ? {
       backgroundColor: 'var(--pv-color-gray-3)',
@@ -60,8 +59,12 @@ const PopoverRoot = styled('div')(
     const backgroundColor: string = isDark
       ? 'var(--pv-color-gray-3)'
       : 'var(--pv-color-white)';
+    const boxShadow: string = isDark
+      ? 'var(--pv-shadow-dark-medium)'
+      : 'var(--pv-shadow-light-low)';
 
     return {
+      boxShadow,
       backgroundColor,
     };
   },

@@ -84,7 +84,6 @@ const ButtonBaseRoot = styled('button', {
   backgroundColor: 'transparent',
   padding: 0,
   textDecoration: 'none',
-  boxShadow: props.variant === 'contained' && 'var(--pv-shadow-light-low)',
   '&:disabled': {
     cursor: 'not-allowed',
     boxShadow: 'none',
@@ -104,6 +103,7 @@ const ButtonBaseRoot = styled('button', {
   let backgroundColorHover: string;
   let backgroundColorFocus: string;
   let backgroundColorActive: string;
+  let boxShadow: string;
   let boxShadowActive: string;
 
   if (props.variant === 'outlined') {
@@ -146,7 +146,13 @@ const ButtonBaseRoot = styled('button', {
       backgroundColorActive = `var(--pv-color-${props.color}-tint-2)`;
     }
 
-    boxShadowActive = 'var(--pv-shadow-light-medium)';
+    if (isDark) {
+      boxShadow = 'var(--pv-shadow-dark-medium)';
+      boxShadowActive = 'var(--pv-shadow-dark-hight)';
+    } else {
+      boxShadow = 'var(--pv-shadow-light-low)';
+      boxShadowActive = 'var(--pv-shadow-light-medium)';
+    }
   }
 
   if (props.variant === 'text') {
@@ -176,6 +182,7 @@ const ButtonBaseRoot = styled('button', {
     borderColor,
     backgroundColor,
     color,
+    boxShadow,
     '&:not(:disabled)': {
       '&:hover': {
         backgroundColor: backgroundColorHover,

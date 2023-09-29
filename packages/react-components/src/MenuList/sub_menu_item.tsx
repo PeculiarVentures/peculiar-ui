@@ -27,10 +27,11 @@ const SubMenuItemRoot = styled(MenuList)(
   (props) => ({
     minWidth: '16px',
     minHeight: '16px',
-    boxShadow: 'var(--pv-shadow-light-low)',
     ...(props.theme.mode === 'dark' ? {
+      boxShadow: 'var(--pv-shadow-dark-medium)',
       backgroundColor: 'var(--pv-color-gray-3)',
     } : {
+      boxShadow: 'var(--pv-shadow-light-low)',
       backgroundColor: 'var(--pv-color-white)',
     }),
   }),

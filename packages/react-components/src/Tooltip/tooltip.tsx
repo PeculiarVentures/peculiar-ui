@@ -98,7 +98,6 @@ const stylesKeyframeOpacity = keyframes`
 
 const TooltipRoot = styled(Box)<Pick<TooltipOwnProps, 'size'>>(
   (props) => ({
-    boxShadow: 'var(--pv-shadow-light-low)',
     maxWidth: '300px',
     wordWrap: 'break-word',
     fontSize: 0,
@@ -114,6 +113,7 @@ const TooltipRoot = styled(Box)<Pick<TooltipOwnProps, 'size'>>(
   (props) => {
     const isDark = props.theme.mode === 'dark';
     let backgroundColor: string;
+    let boxShadow = 'var(--pv-shadow-light-low)';
 
     if (props.color === 'black') {
       if (isDark) {
@@ -125,7 +125,12 @@ const TooltipRoot = styled(Box)<Pick<TooltipOwnProps, 'size'>>(
       backgroundColor = 'var(--pv-color-white)';
     }
 
+    if (isDark) {
+      boxShadow = 'var(--pv-shadow-dark-medium)';
+    }
+
     return {
+      boxShadow,
       backgroundColor,
     };
   },
