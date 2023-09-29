@@ -101,33 +101,9 @@ const TextFieldInput = styled(Typography)<TextFieldProps>(
     backgroundColor: 'var(--pv-color-gray-1)',
     borderStyle: 'solid',
     borderWidth: '1px',
-    borderColor: 'var(--pv-color-gray-8)',
     transition: 'background-color 200ms, color 200ms, border-color 200ms',
     display: 'inline-flex',
     appearance: 'none',
-    '&::placeholder': {
-      color: 'var(--pv-color-gray-9)',
-    },
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-gray-3)',
-      borderColor: 'var(--pv-color-gray-7)',
-    },
-    '&:disabled': {
-      cursor: 'not-allowed',
-      backgroundColor: 'var(--pv-color-gray-1)',
-      borderColor: 'var(--pv-color-gray-5)',
-      color: 'var(--pv-color-gray-7)',
-    },
-    '&:not(:disabled)': {
-      '&[aria-invalid]': {
-        backgroundColor: 'var(--pv-color-wrong-tint-5)',
-        borderColor: 'var(--pv-color-wrong-tint-3)',
-      },
-      '&:focus': {
-        backgroundColor: 'var(--pv-color-secondary-tint-5)',
-        borderColor: 'var(--pv-color-secondary-tint-3)',
-      },
-    },
     ...(props.size === 'small' && {
       height: 'var(--pv-size-base-6)',
     }),
@@ -137,7 +113,67 @@ const TextFieldInput = styled(Typography)<TextFieldProps>(
     ...(props.size === 'large' && {
       height: 'var(--pv-size-base-8)',
     }),
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-gray-3)',
+    },
+    '&:disabled': {
+      cursor: 'not-allowed',
+      backgroundColor: 'var(--pv-color-gray-1)',
+    },
   }),
+  (props) => {
+    if (props.theme.mode === 'dark') {
+      return ({
+        color: 'var(--pv-color-white)',
+        borderColor: 'var(--pv-color-gray-5)',
+        '&::placeholder': {
+          color: 'var(--pv-color-gray-6)',
+        },
+        '&:hover': {
+          borderColor: 'var(--pv-color-gray-4)',
+        },
+        '&:disabled': {
+          borderColor: 'var(--pv-color-gray-4)',
+          color: 'var(--pv-color-gray-4)',
+        },
+        '&:not(:disabled)': {
+          '&[aria-invalid]': {
+            backgroundColor: 'var(--pv-color-wrong-shade-4)',
+            borderColor: 'var(--pv-color-wrong-shade-1)',
+          },
+          '&:focus': {
+            backgroundColor: 'var(--pv-color-secondary-shade-4)',
+            borderColor: 'var(--pv-color-secondary-shade-1)',
+          },
+        },
+      });
+    }
+
+    return ({
+      color: 'var(--pv-color-black)',
+      borderColor: 'var(--pv-color-gray-8)',
+      '&::placeholder': {
+        color: 'var(--pv-color-gray-9)',
+      },
+      '&:hover': {
+        borderColor: 'var(--pv-color-gray-7)',
+      },
+      '&:disabled': {
+        borderColor: 'var(--pv-color-gray-5)',
+        color: 'var(--pv-color-gray-7)',
+      },
+      '&:not(:disabled)': {
+        '&[aria-invalid]': {
+          backgroundColor: 'var(--pv-color-wrong-tint-5)',
+          borderColor: 'var(--pv-color-wrong-tint-3)',
+        },
+        '&:focus': {
+          backgroundColor: 'var(--pv-color-secondary-tint-5)',
+          borderColor: 'var(--pv-color-secondary-tint-3)',
+        },
+      },
+    });
+  },
 );
 
 const TextFieldLabel = styled('label')({
@@ -197,7 +233,6 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         {...inputProps}
         // @ts-ignore
         component="input"
-        color="black"
         variant={size === 'small' ? 'c1' : 'b3'}
         size={size}
         type={type}

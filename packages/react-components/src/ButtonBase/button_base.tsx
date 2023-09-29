@@ -159,6 +159,11 @@ const ButtonBaseRoot = styled('button', {
       backgroundColorHover = 'var(--pv-color-gray-7)';
       backgroundColorFocus = 'var(--pv-color-gray-8)';
       backgroundColorActive = 'var(--pv-color-gray-9)';
+    } else if (isDark) {
+      color = `var(--pv-color-${props.color})`;
+      backgroundColorHover = `var(--pv-color-${props.color}-shade-5)`;
+      backgroundColorFocus = `var(--pv-color-${props.color}-shade-4)`;
+      backgroundColorActive = `var(--pv-color-${props.color}-shade-3)`;
     } else {
       color = `var(--pv-color-${props.color})`;
       backgroundColorHover = `var(--pv-color-${props.color}-tint-5)`;

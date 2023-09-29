@@ -96,20 +96,40 @@ const stylesKeyframeOpacity = keyframes`
   }
 `;
 
-const TooltipRoot = styled(Box)<Pick<TooltipOwnProps, 'size'>>((props) => ({
-  boxShadow: 'var(--pv-shadow-light-low)',
-  maxWidth: '300px',
-  wordWrap: 'break-word',
-  fontSize: 0,
-  animation: `${stylesKeyframeOpacity} 225ms`,
-  position: 'relative',
-  ...(props.size === 'small' && {
-    padding: '5px 8px',
+const TooltipRoot = styled(Box)<Pick<TooltipOwnProps, 'size'>>(
+  (props) => ({
+    boxShadow: 'var(--pv-shadow-light-low)',
+    maxWidth: '300px',
+    wordWrap: 'break-word',
+    fontSize: 0,
+    animation: `${stylesKeyframeOpacity} 225ms`,
+    position: 'relative',
+    ...(props.size === 'small' && {
+      padding: '5px 8px',
+    }),
+    ...(props.size === 'large' && {
+      padding: '8px 10px',
+    }),
   }),
-  ...(props.size === 'large' && {
-    padding: '8px 10px',
-  }),
-}));
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    let backgroundColor: string;
+
+    if (props.color === 'black') {
+      if (isDark) {
+        backgroundColor = 'var(--pv-color-gray-5)';
+      } else {
+        backgroundColor = 'var(--pv-color-gray-10)';
+      }
+    } else {
+      backgroundColor = 'var(--pv-color-white)';
+    }
+
+    return {
+      backgroundColor,
+    };
+  },
+);
 
 const TooltipPopper = styled(Popper)<Required<Pick<TooltipOwnProps, 'interactive'>>>((props) => ({
   pointerEvents: props.interactive ? 'auto' : 'none',
@@ -142,23 +162,25 @@ const TooltipPopper = styled(Popper)<Required<Pick<TooltipOwnProps, 'interactive
 
 const TooltipArrow = styled('span', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Required<Pick<TooltipOwnProps, 'color'>>>((props) => ({
-  width: '8px',
-  height: '8px',
-  background: 'transparent',
-  position: 'absolute',
-  display: 'block',
-  color: props.color === 'white' ? 'var(--pv-color-white)' : 'var(--pv-color-gray-10)',
-  '&::before': {
-    content: '""',
-    margin: 'auto',
+})<Required<Pick<TooltipOwnProps, 'color'>>>(
+  (props) => ({
+    width: '8px',
+    height: '8px',
+    background: 'transparent',
+    position: 'absolute',
     display: 'block',
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'currentColor',
-    transform: 'rotate(45deg)',
-  },
-}));
+    color: props.color === 'white' ? 'var(--pv-color-white)' : 'var(--pv-color-gray-10)',
+    '&::before': {
+      content: '""',
+      margin: 'auto',
+      display: 'block',
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'currentColor',
+      transform: 'rotate(45deg)',
+    },
+  }),
+);
 /**
  *
  */
@@ -280,9 +302,9 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
       >
         {(style) => (
           <TooltipRoot
-            background={color === 'black' ? 'gray-10' : 'white'}
             borderRadius={4}
             size={size}
+            color={color}
             {...other}
           >
             <Typography
