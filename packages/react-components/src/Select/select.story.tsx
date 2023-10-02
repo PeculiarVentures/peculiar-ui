@@ -20,18 +20,5 @@ export const Playground: ComponentStory<typeof Select> = (args) => (
 );
 
 Playground.args = {
-  options: [
-    {
-      value: '10',
-      label: 'Ten',
-    },
-    {
-      value: '20',
-      label: 'Twenty',
-    },
-    {
-      value: '30',
-      label: 'Thirty',
-    },
-  ],
+  options: [],
 };

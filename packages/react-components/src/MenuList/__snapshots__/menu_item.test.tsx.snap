@@ -27,14 +27,14 @@ exports[`<MenuItem /> should have start & end icons 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: pointer;
   -webkit-transition: background-color 200ms;
   transition: background-color 200ms;
   background-color: transparent;
   border: none;
-  color: var(--pv-color-black);
   box-sizing: border-box;
   gap: var(--pv-size-base-2);
+  cursor: pointer;
+  color: var(--pv-color-black);
 }
 
 .emotion-0:hover {
@@ -149,14 +149,14 @@ exports[`<MenuItem /> should pass className 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: pointer;
   -webkit-transition: background-color 200ms;
   transition: background-color 200ms;
   background-color: transparent;
   border: none;
-  color: var(--pv-color-black);
   box-sizing: border-box;
   gap: var(--pv-size-base-2);
+  cursor: pointer;
+  color: var(--pv-color-black);
 }
 
 .emotion-0:hover {
@@ -227,14 +227,14 @@ exports[`<MenuItem /> should pass disabled 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: not-allowed;
   -webkit-transition: background-color 200ms;
   transition: background-color 200ms;
   background-color: transparent;
   border: none;
-  color: var(--pv-color-gray-7);
   box-sizing: border-box;
   gap: var(--pv-size-base-2);
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
   pointer-events: none;
 }
 
@@ -307,14 +307,14 @@ exports[`<MenuItem /> should render with default styles 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: pointer;
   -webkit-transition: background-color 200ms;
   transition: background-color 200ms;
   background-color: transparent;
   border: none;
-  color: var(--pv-color-black);
   box-sizing: border-box;
   gap: var(--pv-size-base-2);
+  cursor: pointer;
+  color: var(--pv-color-black);
 }
 
 .emotion-0:hover {

@@ -54,11 +54,24 @@ exports[`<Switch /> colors color "primary" 1`] = `
 .emotion-1:disabled {
   cursor: not-allowed;
   pointer-events: none;
-  opacity: 0.4;
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  border-color: var(--pv-color-gray-3);
+  background-color: var(--pv-color-gray-1);
+}
+
+.emotion-1:disabled:checked {
+  background-color: var(--pv-color-primary-tint-3);
 }
 
 .emotion-1:not(:disabled) {
   cursor: pointer;
+}
+
+.emotion-1:not(:disabled)+[aria-hidden] {
+  border-color: var(--pv-color-gray-3);
 }
 
 .emotion-1:not(:disabled):hover+[aria-hidden]:before {
@@ -75,7 +88,6 @@ exports[`<Switch /> colors color "primary" 1`] = `
 
 .emotion-2 {
   background: var(--pv-color-primary-contrast);
-  border-color: var(--pv-color-gray-3);
   border-style: solid;
   border-radius: 100px;
   border-width: 1px;
@@ -179,11 +191,24 @@ exports[`<Switch /> colors color "secondary" 1`] = `
 .emotion-1:disabled {
   cursor: not-allowed;
   pointer-events: none;
-  opacity: 0.4;
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  border-color: var(--pv-color-gray-3);
+  background-color: var(--pv-color-gray-1);
+}
+
+.emotion-1:disabled:checked {
+  background-color: var(--pv-color-secondary-tint-3);
 }
 
 .emotion-1:not(:disabled) {
   cursor: pointer;
+}
+
+.emotion-1:not(:disabled)+[aria-hidden] {
+  border-color: var(--pv-color-gray-3);
 }
 
 .emotion-1:not(:disabled):hover+[aria-hidden]:before {
@@ -200,7 +225,6 @@ exports[`<Switch /> colors color "secondary" 1`] = `
 
 .emotion-2 {
   background: var(--pv-color-secondary-contrast);
-  border-color: var(--pv-color-gray-3);
   border-style: solid;
   border-radius: 100px;
   border-width: 1px;
@@ -304,11 +328,24 @@ exports[`<Switch /> should pass className 1`] = `
 .emotion-1:disabled {
   cursor: not-allowed;
   pointer-events: none;
-  opacity: 0.4;
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  border-color: var(--pv-color-gray-3);
+  background-color: var(--pv-color-gray-1);
+}
+
+.emotion-1:disabled:checked {
+  background-color: var(--pv-color-primary-tint-3);
 }
 
 .emotion-1:not(:disabled) {
   cursor: pointer;
+}
+
+.emotion-1:not(:disabled)+[aria-hidden] {
+  border-color: var(--pv-color-gray-3);
 }
 
 .emotion-1:not(:disabled):hover+[aria-hidden]:before {
@@ -325,7 +362,6 @@ exports[`<Switch /> should pass className 1`] = `
 
 .emotion-2 {
   background: var(--pv-color-primary-contrast);
-  border-color: var(--pv-color-gray-3);
   border-style: solid;
   border-radius: 100px;
   border-width: 1px;
@@ -429,11 +465,24 @@ exports[`<Switch /> should render with default styles 1`] = `
 .emotion-1:disabled {
   cursor: not-allowed;
   pointer-events: none;
-  opacity: 0.4;
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-1:disabled+[aria-hidden] {
+  border-color: var(--pv-color-gray-3);
+  background-color: var(--pv-color-gray-1);
+}
+
+.emotion-1:disabled:checked {
+  background-color: var(--pv-color-primary-tint-3);
 }
 
 .emotion-1:not(:disabled) {
   cursor: pointer;
+}
+
+.emotion-1:not(:disabled)+[aria-hidden] {
+  border-color: var(--pv-color-gray-3);
 }
 
 .emotion-1:not(:disabled):hover+[aria-hidden]:before {
@@ -450,7 +499,6 @@ exports[`<Switch /> should render with default styles 1`] = `
 
 .emotion-2 {
   background: var(--pv-color-primary-contrast);
-  border-color: var(--pv-color-gray-3);
   border-style: solid;
   border-radius: 100px;
   border-width: 1px;

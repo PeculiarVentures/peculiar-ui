@@ -32,9 +32,9 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "containe
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-gray-8);
   color: var(--pv-color-black);
+  box-shadow: var(--pv-shadow-light-low);
 }
 
 .emotion-0:disabled {
@@ -121,9 +121,9 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "containe
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-primary);
   color: var(--pv-color-primary-contrast);
+  box-shadow: var(--pv-shadow-light-low);
 }
 
 .emotion-0:disabled {
@@ -210,9 +210,9 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "containe
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-secondary);
   color: var(--pv-color-secondary-contrast);
+  box-shadow: var(--pv-shadow-light-low);
 }
 
 .emotion-0:disabled {
@@ -299,9 +299,9 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "containe
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-white);
   color: var(--pv-color-black);
+  box-shadow: var(--pv-shadow-light-low);
 }
 
 .emotion-0:disabled {
@@ -388,9 +388,9 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "containe
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-wrong);
   color: var(--pv-color-wrong-contrast);
+  box-shadow: var(--pv-shadow-light-low);
 }
 
 .emotion-0:disabled {

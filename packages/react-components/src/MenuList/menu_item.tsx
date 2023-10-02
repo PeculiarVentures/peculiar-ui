@@ -48,7 +48,7 @@ export type MenuItemProps<
 const MenuItemRoot = styled('li', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'disabled',
 })<MenuItemOwnProps>(
-  {
+  (props) => ({
     padding: '0px var(--pv-size-base-2)',
     fontFamily: 'inherit',
     outline: 'none',
@@ -60,13 +60,15 @@ const MenuItemRoot = styled('li', {
     justifyContent: 'flex-start',
     textDecoration: 'none',
     userSelect: 'none',
-    cursor: 'pointer',
     transition: 'background-color 200ms',
     backgroundColor: 'transparent',
     border: 'none',
     boxSizing: 'border-box',
     gap: 'var(--pv-size-base-2)',
-  },
+    cursor: props.disabled
+      ? 'not-allowed'
+      : 'pointer',
+  }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
     let color = 'var(--pv-color-black)';
@@ -96,7 +98,6 @@ const MenuItemRoot = styled('li', {
       },
       ...(props.disabled && {
         color: colorDisabled,
-        cursor: 'not-allowed',
         pointerEvents: 'none',
       }),
     };

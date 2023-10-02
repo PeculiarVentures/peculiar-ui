@@ -96,13 +96,16 @@ const stylesKeyframeOpacity = keyframes`
   }
 `;
 
-const TooltipRoot = styled(Box)<Pick<TooltipOwnProps, 'size'>>(
+const TooltipRoot = styled(Box, {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Pick<TooltipOwnProps, 'size'>>(
   (props) => ({
     maxWidth: '300px',
     wordWrap: 'break-word',
     fontSize: 0,
     animation: `${stylesKeyframeOpacity} 225ms`,
     position: 'relative',
+    borderRadius: '4px',
     ...(props.size === 'small' && {
       padding: '5px 8px',
     }),
@@ -307,7 +310,6 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
       >
         {(style) => (
           <TooltipRoot
-            borderRadius={4}
             size={size}
             color={color}
             {...other}

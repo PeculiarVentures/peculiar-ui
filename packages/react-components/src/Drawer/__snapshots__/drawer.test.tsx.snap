@@ -23,7 +23,6 @@ exports[`<Drawer /> should pass className 1`] = `
 }
 
 .emotion-2 {
-  background: var(--pv-color-white);
   width: 270px;
   height: 100%;
   position: fixed;
@@ -32,6 +31,7 @@ exports[`<Drawer /> should pass className 1`] = `
   overflow-y: auto;
   outline: none;
   box-sizing: border-box;
+  background-color: var(--pv-color-white);
 }
 
 <body>
@@ -79,7 +79,6 @@ exports[`<Drawer /> should render with default open styles 1`] = `
 }
 
 .emotion-2 {
-  background: var(--pv-color-white);
   width: 270px;
   height: 100%;
   position: fixed;
@@ -88,6 +87,7 @@ exports[`<Drawer /> should render with default open styles 1`] = `
   overflow-y: auto;
   outline: none;
   box-sizing: border-box;
+  background-color: var(--pv-color-white);
 }
 
 <body>
@@ -136,7 +136,6 @@ exports[`<Drawer /> should render with default styles 1`] = `
 }
 
 .emotion-2 {
-  background: var(--pv-color-white);
   width: 270px;
   height: 100%;
   position: fixed;
@@ -145,6 +144,7 @@ exports[`<Drawer /> should render with default styles 1`] = `
   overflow-y: auto;
   outline: none;
   box-sizing: border-box;
+  background-color: var(--pv-color-white);
 }
 
 <body>

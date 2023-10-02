@@ -13,7 +13,7 @@ exports[`<Autocomplete /> should pass className 1`] = `
 
 .emotion-1 {
   margin: 0;
-  color: var(--pv-color-gray-9);
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
@@ -29,7 +29,6 @@ exports[`<Autocomplete /> should pass className 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   -webkit-appearance: none;
@@ -44,6 +43,7 @@ exports[`<Autocomplete /> should pass className 1`] = `
   cursor: pointer;
   font-family: inherit;
   height: var(--pv-size-base-8);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -56,6 +56,14 @@ exports[`<Autocomplete /> should pass className 1`] = `
   background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled) {
+  color: var(--pv-color-black);
+}
+
+.emotion-1:not(:disabled)[aria-placeholder] {
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:not(:disabled)[aria-invalid] {
@@ -98,6 +106,7 @@ exports[`<Autocomplete /> should pass className 1`] = `
     <button
       aria-expanded="false"
       aria-haspopup="listbox"
+      aria-placeholder="true"
       class="my-class-name emotion-1"
       type="button"
     />
@@ -141,7 +150,7 @@ exports[`<Autocomplete /> should pass error 1`] = `
 
 .emotion-1 {
   margin: 0;
-  color: var(--pv-color-gray-9);
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
@@ -157,7 +166,6 @@ exports[`<Autocomplete /> should pass error 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   -webkit-appearance: none;
@@ -172,6 +180,7 @@ exports[`<Autocomplete /> should pass error 1`] = `
   cursor: pointer;
   font-family: inherit;
   height: var(--pv-size-base-8);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -184,6 +193,14 @@ exports[`<Autocomplete /> should pass error 1`] = `
   background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled) {
+  color: var(--pv-color-black);
+}
+
+.emotion-1:not(:disabled)[aria-placeholder] {
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:not(:disabled)[aria-invalid] {
@@ -252,14 +269,14 @@ exports[`<Autocomplete /> should pass error 1`] = `
 }
 
 .emotion-7 {
-  background: var(--pv-color-white);
-  border-radius: 4px;
   outline: 0;
   max-width: calc(100% - 32px);
   min-width: 16px;
   max-height: calc(100% - 32px);
   min-height: 16px;
+  border-radius: 4px;
   box-shadow: var(--pv-shadow-light-low);
+  background-color: var(--pv-color-white);
   min-width: 240px;
 }
 
@@ -289,7 +306,6 @@ exports[`<Autocomplete /> should pass error 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -301,6 +317,8 @@ exports[`<Autocomplete /> should pass error 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-10::-webkit-input-placeholder {
@@ -363,6 +381,7 @@ exports[`<Autocomplete /> should pass error 1`] = `
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-invalid="true"
+        aria-placeholder="true"
         class="emotion-1"
         type="button"
       />
@@ -456,7 +475,7 @@ exports[`<Autocomplete /> should pass loading 1`] = `
 
 .emotion-1 {
   margin: 0;
-  color: var(--pv-color-gray-9);
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
@@ -472,7 +491,6 @@ exports[`<Autocomplete /> should pass loading 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   -webkit-appearance: none;
@@ -487,6 +505,7 @@ exports[`<Autocomplete /> should pass loading 1`] = `
   cursor: pointer;
   font-family: inherit;
   height: var(--pv-size-base-8);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -499,6 +518,14 @@ exports[`<Autocomplete /> should pass loading 1`] = `
   background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled) {
+  color: var(--pv-color-black);
+}
+
+.emotion-1:not(:disabled)[aria-placeholder] {
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:not(:disabled)[aria-invalid] {
@@ -557,14 +584,14 @@ exports[`<Autocomplete /> should pass loading 1`] = `
 }
 
 .emotion-6 {
-  background: var(--pv-color-white);
-  border-radius: 4px;
   outline: 0;
   max-width: calc(100% - 32px);
   min-width: 16px;
   max-height: calc(100% - 32px);
   min-height: 16px;
+  border-radius: 4px;
   box-shadow: var(--pv-shadow-light-low);
+  background-color: var(--pv-color-white);
   min-width: 240px;
 }
 
@@ -594,7 +621,6 @@ exports[`<Autocomplete /> should pass loading 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -606,6 +632,8 @@ exports[`<Autocomplete /> should pass loading 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-9::-webkit-input-placeholder {
@@ -667,6 +695,7 @@ exports[`<Autocomplete /> should pass loading 1`] = `
       <button
         aria-expanded="true"
         aria-haspopup="listbox"
+        aria-placeholder="true"
         class="emotion-1"
         type="button"
       />
@@ -756,7 +785,7 @@ exports[`<Autocomplete /> should pass options 1`] = `
 
 .emotion-1 {
   margin: 0;
-  color: var(--pv-color-gray-9);
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
@@ -772,7 +801,6 @@ exports[`<Autocomplete /> should pass options 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   -webkit-appearance: none;
@@ -787,6 +815,7 @@ exports[`<Autocomplete /> should pass options 1`] = `
   cursor: pointer;
   font-family: inherit;
   height: var(--pv-size-base-8);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -799,6 +828,14 @@ exports[`<Autocomplete /> should pass options 1`] = `
   background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled) {
+  color: var(--pv-color-black);
+}
+
+.emotion-1:not(:disabled)[aria-placeholder] {
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:not(:disabled)[aria-invalid] {
@@ -857,14 +894,14 @@ exports[`<Autocomplete /> should pass options 1`] = `
 }
 
 .emotion-6 {
-  background: var(--pv-color-white);
-  border-radius: 4px;
   outline: 0;
   max-width: calc(100% - 32px);
   min-width: 16px;
   max-height: calc(100% - 32px);
   min-height: 16px;
+  border-radius: 4px;
   box-shadow: var(--pv-shadow-light-low);
+  background-color: var(--pv-color-white);
   min-width: 240px;
 }
 
@@ -894,7 +931,6 @@ exports[`<Autocomplete /> should pass options 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -906,6 +942,8 @@ exports[`<Autocomplete /> should pass options 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-9::-webkit-input-placeholder {
@@ -972,7 +1010,6 @@ exports[`<Autocomplete /> should pass options 1`] = `
   transition: background-color 200ms;
   background-color: transparent;
   border: none;
-  color: var(--pv-color-black);
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -987,6 +1024,7 @@ exports[`<Autocomplete /> should pass options 1`] = `
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
+  color: var(--pv-color-black);
 }
 
 .emotion-11:hover {
@@ -1021,6 +1059,7 @@ exports[`<Autocomplete /> should pass options 1`] = `
       <button
         aria-expanded="true"
         aria-haspopup="listbox"
+        aria-placeholder="true"
         class="emotion-1"
         type="button"
       />
@@ -1136,7 +1175,7 @@ exports[`<Autocomplete /> should render with default multiple styles 1`] = `
 
 .emotion-1 {
   margin: 0;
-  color: var(--pv-color-gray-9);
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
@@ -1152,7 +1191,6 @@ exports[`<Autocomplete /> should render with default multiple styles 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   -webkit-appearance: none;
@@ -1175,6 +1213,7 @@ exports[`<Autocomplete /> should render with default multiple styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -1187,6 +1226,14 @@ exports[`<Autocomplete /> should render with default multiple styles 1`] = `
   background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled) {
+  color: var(--pv-color-black);
+}
+
+.emotion-1:not(:disabled)[aria-placeholder] {
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:not(:disabled)[aria-invalid] {
@@ -1229,6 +1276,7 @@ exports[`<Autocomplete /> should render with default multiple styles 1`] = `
     <button
       aria-expanded="false"
       aria-haspopup="listbox"
+      aria-placeholder="true"
       class="emotion-1"
       type="button"
     />
@@ -1273,7 +1321,7 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
 
 .emotion-1 {
   margin: 0;
-  color: var(--pv-color-gray-9);
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
@@ -1289,7 +1337,6 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   -webkit-appearance: none;
@@ -1304,6 +1351,7 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
   cursor: pointer;
   font-family: inherit;
   height: var(--pv-size-base-8);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -1316,6 +1364,14 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
   background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled) {
+  color: var(--pv-color-black);
+}
+
+.emotion-1:not(:disabled)[aria-placeholder] {
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:not(:disabled)[aria-invalid] {
@@ -1358,6 +1414,7 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
     <button
       aria-expanded="false"
       aria-haspopup="listbox"
+      aria-placeholder="true"
       class="emotion-1"
       type="button"
     />
@@ -1402,7 +1459,7 @@ exports[`<Autocomplete /> sizes size "large" 1`] = `
 
 .emotion-1 {
   margin: 0;
-  color: var(--pv-color-gray-9);
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
@@ -1418,7 +1475,6 @@ exports[`<Autocomplete /> sizes size "large" 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   -webkit-appearance: none;
@@ -1433,6 +1489,7 @@ exports[`<Autocomplete /> sizes size "large" 1`] = `
   cursor: pointer;
   font-family: inherit;
   height: var(--pv-size-base-8);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -1445,6 +1502,14 @@ exports[`<Autocomplete /> sizes size "large" 1`] = `
   background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled) {
+  color: var(--pv-color-black);
+}
+
+.emotion-1:not(:disabled)[aria-placeholder] {
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:not(:disabled)[aria-invalid] {
@@ -1487,6 +1552,7 @@ exports[`<Autocomplete /> sizes size "large" 1`] = `
     <button
       aria-expanded="false"
       aria-haspopup="listbox"
+      aria-placeholder="true"
       class="emotion-1"
       type="button"
     />
@@ -1531,7 +1597,7 @@ exports[`<Autocomplete /> sizes size "medium" 1`] = `
 
 .emotion-1 {
   margin: 0;
-  color: var(--pv-color-gray-9);
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
@@ -1547,7 +1613,6 @@ exports[`<Autocomplete /> sizes size "medium" 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   -webkit-appearance: none;
@@ -1562,6 +1627,7 @@ exports[`<Autocomplete /> sizes size "medium" 1`] = `
   cursor: pointer;
   font-family: inherit;
   height: var(--pv-size-base-7);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -1574,6 +1640,14 @@ exports[`<Autocomplete /> sizes size "medium" 1`] = `
   background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled) {
+  color: var(--pv-color-black);
+}
+
+.emotion-1:not(:disabled)[aria-placeholder] {
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:not(:disabled)[aria-invalid] {
@@ -1616,6 +1690,7 @@ exports[`<Autocomplete /> sizes size "medium" 1`] = `
     <button
       aria-expanded="false"
       aria-haspopup="listbox"
+      aria-placeholder="true"
       class="emotion-1"
       type="button"
     />
@@ -1660,7 +1735,7 @@ exports[`<Autocomplete /> sizes size "small" 1`] = `
 
 .emotion-1 {
   margin: 0;
-  color: var(--pv-color-gray-9);
+  color: var(--pv-color-black);
   font-weight: var(--pv-text-c1-weight);
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
@@ -1676,7 +1751,6 @@ exports[`<Autocomplete /> sizes size "small" 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   -webkit-appearance: none;
@@ -1691,6 +1765,7 @@ exports[`<Autocomplete /> sizes size "small" 1`] = `
   cursor: pointer;
   font-family: inherit;
   height: var(--pv-size-base-6);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -1703,6 +1778,14 @@ exports[`<Autocomplete /> sizes size "small" 1`] = `
   background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
+}
+
+.emotion-1:not(:disabled) {
+  color: var(--pv-color-black);
+}
+
+.emotion-1:not(:disabled)[aria-placeholder] {
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:not(:disabled)[aria-invalid] {
@@ -1745,6 +1828,7 @@ exports[`<Autocomplete /> sizes size "small" 1`] = `
     <button
       aria-expanded="false"
       aria-haspopup="listbox"
+      aria-placeholder="true"
       class="emotion-1"
       type="button"
     />

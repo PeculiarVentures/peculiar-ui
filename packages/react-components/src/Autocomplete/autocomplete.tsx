@@ -177,11 +177,7 @@ const AutocompleteField = styled(Typography)<TypographyOwnProps & Required<Pick<
     }
 
     return ({
-      color,
       borderColor,
-      '&::placeholder': {
-        color: colorPlaceholder,
-      },
       '&:hover': {
         backgroundColor: 'var(--pv-color-gray-3)',
         borderColor: borderColorHover,
@@ -193,6 +189,10 @@ const AutocompleteField = styled(Typography)<TypographyOwnProps & Required<Pick<
         color: colorDisabled,
       },
       '&:not(:disabled)': {
+        color,
+        '&[aria-placeholder]': {
+          color: colorPlaceholder,
+        },
         '&[aria-invalid]': {
           backgroundColor: invalidBackgroundColor,
           borderColor: invalidBorderColor,
@@ -490,8 +490,8 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
         type="button"
         variant="c1"
         className={className}
-        color={isValueEmpty ? 'gray-9' : 'black'}
         aria-invalid={error || undefined}
+        aria-placeholder={isValueEmpty || undefined}
         multiple={multiple}
         size={size}
       >

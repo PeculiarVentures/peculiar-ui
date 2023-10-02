@@ -41,19 +41,14 @@ export type PopoverProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>
  * Styles.
  */
 const PopoverRoot = styled('div')(
-  (props) => ({
+  {
     outline: 0,
     maxWidth: 'calc(100% - 32px)',
     minWidth: '16px',
     maxHeight: 'calc(100% - 32px)',
     minHeight: '16px',
     borderRadius: '4px',
-    ...(props.theme.mode === 'dark' ? {
-      backgroundColor: 'var(--pv-color-gray-3)',
-    } : {
-      backgroundColor: 'var(--pv-color-white)',
-    }),
-  }),
+  },
   (props) => {
     const isDark = props.theme.mode === 'dark';
     const backgroundColor: string = isDark

@@ -32,9 +32,9 @@ exports[`<Fab /> should pass className 1`] = `
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-primary);
   color: var(--pv-color-primary-contrast);
+  box-shadow: var(--pv-shadow-light-low);
   border-radius: 50%;
   height: var(--pv-size-base-11);
   width: var(--pv-size-base-11);
@@ -138,9 +138,9 @@ exports[`<Fab /> should render as default 1`] = `
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-primary);
   color: var(--pv-color-primary-contrast);
+  box-shadow: var(--pv-shadow-light-low);
   border-radius: 50%;
   height: var(--pv-size-base-11);
   width: var(--pv-size-base-11);
@@ -244,9 +244,9 @@ exports[`<Fab /> variants variant "contained" 1`] = `
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: var(--pv-shadow-light-low);
   background-color: var(--pv-color-primary);
   color: var(--pv-color-primary-contrast);
+  box-shadow: var(--pv-shadow-light-low);
   border-radius: 50%;
   height: var(--pv-size-base-11);
   width: var(--pv-size-base-11);

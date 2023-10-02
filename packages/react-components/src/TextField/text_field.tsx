@@ -121,7 +121,7 @@ const TextFieldInput = styled(Typography)<TextFieldProps>(
       : 'var(--pv-color-black)';
 
     let borderColor = 'var(--pv-color-gray-8)';
-    let colorPlaceholder = 'var(--pv-color-gray-8)';
+    let colorPlaceholder = 'var(--pv-color-gray-9)';
     let borderColorHover = 'var(--pv-color-gray-7)';
     let borderColorDisabled = 'var(--pv-color-gray-5)';
     let colorDisabled = 'var(--pv-color-gray-7)';
@@ -132,7 +132,7 @@ const TextFieldInput = styled(Typography)<TextFieldProps>(
 
     if (isDark) {
       borderColor = 'var(--pv-color-gray-5)';
-      colorPlaceholder = 'var(--pv-color-gray-9)';
+      colorPlaceholder = 'var(--pv-color-gray-6)';
       borderColorHover = 'var(--pv-color-gray-4)';
       borderColorDisabled = 'var(--pv-color-gray-4)';
       colorDisabled = 'var(--pv-color-gray-4)';
