@@ -171,13 +171,12 @@ const TooltipPopper = styled(Popper)<Required<Pick<TooltipOwnProps, 'interactive
 const TooltipArrow = styled('span', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
 })<Required<Pick<TooltipOwnProps, 'color'>>>(
-  (props) => ({
+  {
     width: '8px',
     height: '8px',
     background: 'transparent',
     position: 'absolute',
     display: 'block',
-    color: props.color === 'white' ? 'var(--pv-color-white)' : 'var(--pv-color-gray-10)',
     '&::before': {
       content: '""',
       margin: 'auto',
@@ -187,7 +186,25 @@ const TooltipArrow = styled('span', {
       backgroundColor: 'currentColor',
       transform: 'rotate(45deg)',
     },
-  }),
+  },
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    let color: string;
+
+    if (props.color === 'black') {
+      if (isDark) {
+        color = 'var(--pv-color-gray-5)';
+      } else {
+        color = 'var(--pv-color-gray-10)';
+      }
+    } else {
+      color = 'var(--pv-color-white)';
+    }
+
+    return {
+      color,
+    };
+  },
 );
 /**
  *
