@@ -477,7 +477,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  border-color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-7);
   color: var(--pv-color-black);
 }
 

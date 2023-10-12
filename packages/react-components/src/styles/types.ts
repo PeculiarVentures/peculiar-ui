@@ -84,6 +84,7 @@ export type ShadowType = (
   'light-low' |
   'light-medium' |
   'light-hight' |
+  'light-soft' |
   'dark-medium' |
   'dark-hight'
 );
