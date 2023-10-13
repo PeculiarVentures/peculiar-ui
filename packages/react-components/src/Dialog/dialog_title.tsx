@@ -59,7 +59,7 @@ export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((p
     >
       <Typography
         variant="h4"
-        color="black"
+        color="inherit"
       >
         {children}
       </Typography>

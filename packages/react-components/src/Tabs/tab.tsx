@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { ColorType } from '../styles';
 import { Typography } from '../Typography';
@@ -48,40 +49,82 @@ export type TabProps<
 /**
  * Styles.
  */
-const TabRoot = styled('button')({
-  fontFamily: 'inherit',
-  outline: 'none',
-  cursor: 'pointer',
-  boxSizing: 'border-box',
-  border: 0,
-  borderBottom: '3px solid transparent',
-  minHeight: 'var(--pv-size-base-12)',
-  height: '100%',
-  padding: '0 var(--pv-size-base-3)',
-  backgroundColor: 'transparent',
-  transition: 'background-color 200ms, color 200ms, border-color 200ms',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  textDecoration: 'none',
-  '&:disabled': {
-    cursor: 'not-allowed',
+const TabRoot = styled('button', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Required<{ color: ColorType, selected: boolean }>>(
+  (props) => ({
+    fontFamily: 'inherit',
+    outline: 'none',
+    cursor: 'pointer',
+    boxSizing: 'border-box',
+    border: 0,
+    borderBottom: '3px solid transparent',
+    minHeight: 'var(--pv-size-base-12)',
+    height: '100%',
+    padding: '0 var(--pv-size-base-3)',
+    backgroundColor: 'transparent',
+    transition: 'background-color 200ms, color 200ms, border-color 200ms',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textDecoration: 'none',
+    ...(props.selected && ({
+      borderColor: 'var(--pv-color-secondary)',
+    })),
+  }),
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    const isWhite = props.color === 'white';
+    let color: string;
+    const colorDisabled = isDark
+      ? 'var(--pv-color-gray-5)'
+      : 'var(--pv-color-gray-7)';
+    let backgroundColorHove = 'var(--pv-color-secondary-tint-5)';
+    let backgroundColorFocus = 'var(--pv-color-secondary-tint-4)';
+    let backgroundColorActive = 'var(--pv-color-secondary-tint-3)';
+
+    if (isWhite) {
+      color = 'var(--pv-color-gray-9)';
+    } else if (isDark) {
+      color = 'var(--pv-color-gray-7)';
+    } else {
+      color = 'var(--pv-color-gray-10)';
+    }
+
+    if (isDark) {
+      backgroundColorHove = 'var(--pv-color-secondary-shade-4)';
+      backgroundColorFocus = 'var(--pv-color-secondary-shade-3)';
+      backgroundColorActive = 'var(--pv-color-secondary-shade-2)';
+    }
+
+    if (props.selected) {
+      if (isDark || isWhite) {
+        color = 'var(--pv-color-white)';
+      } else {
+        color = 'var(--pv-color-black)';
+      }
+    }
+
+    return {
+      '&:disabled': {
+        cursor: 'not-allowed',
+        color: colorDisabled,
+      },
+      '&:not(:disabled)': {
+        color,
+        '&:hover': {
+          backgroundColor: backgroundColorHove,
+        },
+        '&:focus': {
+          backgroundColor: backgroundColorFocus,
+        },
+        '&:active': {
+          backgroundColor: backgroundColorActive,
+        },
+      },
+    };
   },
-  '&[aria-selected]': {
-    borderColor: 'var(--pv-color-secondary)',
-  },
-  '&:not(:disabled)': {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-secondary-tint-5)',
-    },
-    '&:focus': {
-      backgroundColor: 'var(--pv-color-secondary-tint-4)',
-    },
-    '&:active': {
-      backgroundColor: 'var(--pv-color-secondary-tint-3)',
-    },
-  },
-});
+);
 /**
  *
  */
@@ -100,26 +143,6 @@ export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
   } = props;
   const Component = component || 'button';
 
-  const textColor: ColorType = React.useMemo(() => {
-    if (disabled) {
-      return 'gray-7';
-    }
-
-    if (color === 'white') {
-      if (selected) {
-        return 'white';
-      }
-
-      return 'gray-9';
-    }
-
-    if (selected) {
-      return 'black';
-    }
-
-    return 'gray-10';
-  }, [disabled, selected, color]);
-
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (!selected && onChange) {
       onChange(event, id);
@@ -134,14 +157,15 @@ export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
       ref={ref}
       disabled={disabled}
       id={id}
-      aria-selected={selected || undefined}
+      color={color}
+      selected={selected}
       onClick={handleClick}
       {...other}
     >
       <Typography
         variant="s2"
         component="span"
-        color={textColor}
+        color="inherit"
       >
         {children}
       </Typography>

@@ -34,14 +34,16 @@ exports[`<Tabs /> should pass className 1`] = `
   justify-content: center;
   -webkit-text-decoration: none;
   text-decoration: none;
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-1:disabled {
   cursor: not-allowed;
+  color: var(--pv-color-gray-7);
 }
 
-.emotion-1[aria-selected] {
-  border-color: var(--pv-color-secondary);
+.emotion-1:not(:disabled) {
+  color: var(--pv-color-black);
 }
 
 .emotion-1:not(:disabled):hover {
@@ -58,20 +60,61 @@ exports[`<Tabs /> should pass className 1`] = `
 
 .emotion-2 {
   margin: 0;
-  color: var(--pv-color-black);
+  color: inherit;
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
 }
 
-.emotion-4 {
-  margin: 0;
+.emotion-3 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  min-height: var(--pv-size-base-12);
+  height: 100%;
+  padding: 0 var(--pv-size-base-3);
+  background-color: transparent;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-3:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-3:not(:disabled) {
   color: var(--pv-color-gray-10);
-  font-weight: var(--pv-text-s2-weight);
-  font-size: var(--pv-text-s2-size);
-  line-height: var(--pv-text-s2-height);
-  letter-spacing: var(--pv-text-s2-spacing);
+}
+
+.emotion-3:not(:disabled):hover {
+  background-color: var(--pv-color-secondary-tint-5);
+}
+
+.emotion-3:not(:disabled):focus {
+  background-color: var(--pv-color-secondary-tint-4);
+}
+
+.emotion-3:not(:disabled):active {
+  background-color: var(--pv-color-secondary-tint-3);
 }
 
 <div
@@ -79,7 +122,6 @@ exports[`<Tabs /> should pass className 1`] = `
     role="tablist"
   >
     <button
-      aria-selected="true"
       class="emotion-1"
       id="tab1"
       role="tab"
@@ -92,13 +134,13 @@ exports[`<Tabs /> should pass className 1`] = `
       </span>
     </button>
     <button
-      class="emotion-1"
+      class="emotion-3"
       id="tab2"
       role="tab"
       type="button"
     >
       <span
-        class="emotion-4"
+        class="emotion-2"
       >
         Tab-2
       </span>
@@ -141,14 +183,16 @@ exports[`<Tabs /> should render with default styles 1`] = `
   justify-content: center;
   -webkit-text-decoration: none;
   text-decoration: none;
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-1:disabled {
   cursor: not-allowed;
+  color: var(--pv-color-gray-7);
 }
 
-.emotion-1[aria-selected] {
-  border-color: var(--pv-color-secondary);
+.emotion-1:not(:disabled) {
+  color: var(--pv-color-black);
 }
 
 .emotion-1:not(:disabled):hover {
@@ -165,20 +209,61 @@ exports[`<Tabs /> should render with default styles 1`] = `
 
 .emotion-2 {
   margin: 0;
-  color: var(--pv-color-black);
+  color: inherit;
   font-weight: var(--pv-text-s2-weight);
   font-size: var(--pv-text-s2-size);
   line-height: var(--pv-text-s2-height);
   letter-spacing: var(--pv-text-s2-spacing);
 }
 
-.emotion-4 {
-  margin: 0;
+.emotion-3 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  min-height: var(--pv-size-base-12);
+  height: 100%;
+  padding: 0 var(--pv-size-base-3);
+  background-color: transparent;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-3:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-3:not(:disabled) {
   color: var(--pv-color-gray-10);
-  font-weight: var(--pv-text-s2-weight);
-  font-size: var(--pv-text-s2-size);
-  line-height: var(--pv-text-s2-height);
-  letter-spacing: var(--pv-text-s2-spacing);
+}
+
+.emotion-3:not(:disabled):hover {
+  background-color: var(--pv-color-secondary-tint-5);
+}
+
+.emotion-3:not(:disabled):focus {
+  background-color: var(--pv-color-secondary-tint-4);
+}
+
+.emotion-3:not(:disabled):active {
+  background-color: var(--pv-color-secondary-tint-3);
 }
 
 <div
@@ -186,7 +271,6 @@ exports[`<Tabs /> should render with default styles 1`] = `
     role="tablist"
   >
     <button
-      aria-selected="true"
       class="emotion-1"
       id="tab1"
       role="tab"
@@ -199,13 +283,13 @@ exports[`<Tabs /> should render with default styles 1`] = `
       </span>
     </button>
     <button
-      class="emotion-1"
+      class="emotion-3"
       id="tab2"
       role="tab"
       type="button"
     >
       <span
-        class="emotion-4"
+        class="emotion-2"
       >
         Tab-2
       </span>

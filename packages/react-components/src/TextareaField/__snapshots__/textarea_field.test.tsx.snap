@@ -9,11 +9,9 @@ exports[`<TextareaField /> should render with default styles 1`] = `
   width: 100%;
   border-radius: 4px;
   padding: var(--pv-size-base) var(--pv-size-base-2);
-  color: var(--pv-color-black);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: block;
@@ -27,6 +25,8 @@ exports[`<TextareaField /> should render with default styles 1`] = `
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
   min-height: var(--pv-size-base-14);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {

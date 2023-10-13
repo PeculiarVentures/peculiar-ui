@@ -14,11 +14,9 @@ exports[`<Select /> should pass className 1`] = `
   width: 100%;
   border-radius: 4px;
   padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
-  color: var(--pv-color-black);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: block;
@@ -31,6 +29,8 @@ exports[`<Select /> should pass className 1`] = `
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -117,11 +117,9 @@ exports[`<Select /> should render with default styles 1`] = `
   width: 100%;
   border-radius: 4px;
   padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
-  color: var(--pv-color-black);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: block;
@@ -134,6 +132,8 @@ exports[`<Select /> should render with default styles 1`] = `
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -218,11 +218,9 @@ exports[`<Select /> sizes size "large" 1`] = `
   width: 100%;
   border-radius: 4px;
   padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
-  color: var(--pv-color-black);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: block;
@@ -235,6 +233,8 @@ exports[`<Select /> sizes size "large" 1`] = `
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
   height: var(--pv-size-base-8);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -319,11 +319,9 @@ exports[`<Select /> sizes size "medium" 1`] = `
   width: 100%;
   border-radius: 4px;
   padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
-  color: var(--pv-color-black);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: block;
@@ -336,6 +334,8 @@ exports[`<Select /> sizes size "medium" 1`] = `
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {
@@ -420,11 +420,9 @@ exports[`<Select /> sizes size "small" 1`] = `
   width: 100%;
   border-radius: 4px;
   padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
-  color: var(--pv-color-black);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: block;
@@ -437,6 +435,8 @@ exports[`<Select /> sizes size "small" 1`] = `
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
   height: var(--pv-size-base-6);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-1:hover {

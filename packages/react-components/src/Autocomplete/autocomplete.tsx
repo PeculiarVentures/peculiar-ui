@@ -121,7 +121,6 @@ const AutocompleteRoot = styled('div')({
   display: 'inline-flex',
   width: '100%',
 });
-
 const AutocompleteField = styled(Typography)<TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'multiple'>>>(
   (props) => ({
     outline: 'none',
@@ -132,7 +131,6 @@ const AutocompleteField = styled(Typography)<TypographyOwnProps & Required<Pick<
     backgroundColor: 'var(--pv-color-gray-1)',
     borderStyle: 'solid',
     borderWidth: '1px',
-    borderColor: 'var(--pv-color-gray-8)',
     transition: 'background-color 200ms, color 200ms, border-color 200ms',
     appearance: 'none',
     userSelect: 'none',
@@ -150,27 +148,62 @@ const AutocompleteField = styled(Typography)<TypographyOwnProps & Required<Pick<
       display: 'inline-flex',
       alignItems: 'center',
     }),
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-gray-3)',
-      borderColor: 'var(--pv-color-gray-7)',
-    },
-    '&:disabled': {
-      cursor: 'not-allowed',
-      backgroundColor: 'var(--pv-color-gray-1)',
-      borderColor: 'var(--pv-color-gray-5)',
-      color: 'var(--pv-color-gray-7)',
-    },
-    '&:not(:disabled)': {
-      '&[aria-invalid]': {
-        backgroundColor: 'var(--pv-color-wrong-tint-5)',
-        borderColor: 'var(--pv-color-wrong-tint-3)',
-      },
-      '&:focus': {
-        backgroundColor: 'var(--pv-color-secondary-tint-5)',
-        borderColor: 'var(--pv-color-secondary-tint-3)',
-      },
-    },
   }),
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    const color = isDark
+      ? 'var(--pv-color-white)'
+      : 'var(--pv-color-black)';
+    let borderColor = 'var(--pv-color-gray-8)';
+    let colorPlaceholder = 'var(--pv-color-gray-9)';
+    let borderColorHover = 'var(--pv-color-gray-7)';
+    let borderColorDisabled = 'var(--pv-color-gray-5)';
+    let colorDisabled = 'var(--pv-color-gray-7)';
+    let invalidBackgroundColor = 'var(--pv-color-wrong-tint-5)';
+    let invalidBorderColor = 'var(--pv-color-wrong-tint-3)';
+    let backgroundColorFocus = 'var(--pv-color-secondary-tint-5)';
+    let borderColorFocus = 'var(--pv-color-secondary-tint-3)';
+
+    if (isDark) {
+      borderColor = 'var(--pv-color-gray-5)';
+      colorPlaceholder = 'var(--pv-color-gray-6)';
+      borderColorHover = 'var(--pv-color-gray-4)';
+      borderColorDisabled = 'var(--pv-color-gray-4)';
+      colorDisabled = 'var(--pv-color-gray-4)';
+      invalidBackgroundColor = 'var(--pv-color-wrong-shade-4)';
+      invalidBorderColor = 'var(--pv-color-wrong-shade-1)';
+      backgroundColorFocus = 'var(--pv-color-secondary-shade-4)';
+      borderColorFocus = 'var(--pv-color-secondary-shade-1)';
+    }
+
+    return ({
+      borderColor,
+      '&:hover': {
+        backgroundColor: 'var(--pv-color-gray-3)',
+        borderColor: borderColorHover,
+      },
+      '&:disabled': {
+        cursor: 'not-allowed',
+        backgroundColor: 'var(--pv-color-gray-1)',
+        borderColor: borderColorDisabled,
+        color: colorDisabled,
+      },
+      '&:not(:disabled)': {
+        color,
+        '&[aria-placeholder]': {
+          color: colorPlaceholder,
+        },
+        '&[aria-invalid]': {
+          backgroundColor: invalidBackgroundColor,
+          borderColor: invalidBorderColor,
+        },
+        '&:focus': {
+          backgroundColor: backgroundColorFocus,
+          borderColor: borderColorFocus,
+        },
+      },
+    });
+  },
 );
 
 const AutocompleteArrowIcon = styled(ArrowDropDownIcon)({
@@ -209,47 +242,71 @@ const AutocompleteDropdownList = styled('ul')({
   padding: '10px 0',
 });
 
-const AutocompleteDropdownGroupName = styled(Typography)({
-  padding: 'var(--pv-size-base-2)',
-});
+const AutocompleteDropdownGroupName = styled(Typography)(
+  (props) => ({
+    padding: 'var(--pv-size-base-2)',
+    color: props.theme.mode === 'dark'
+      ? 'var(--pv-color-gray-6)'
+      : 'var(--pv-color-gray-9)',
+  }),
+);
 
 const AutocompleteDropdownGroupList = styled('ul')({
   padding: 0,
   listStyleType: 'none',
 });
 
-const AutocompleteDropdownGroupListItem = styled('li')<Required<{ inGroup: boolean }>>((props) => ({
-  ...(props.inGroup ? {
-    padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)',
-  } : {
-    padding: '0px var(--pv-size-base-2)',
+const AutocompleteDropdownGroupListItem = styled('li')<Required<{ inGroup: boolean }>>(
+  (props) => ({
+    ...(props.inGroup ? {
+      padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)',
+    } : {
+      padding: '0px var(--pv-size-base-2)',
+    }),
+    fontFamily: 'inherit',
+    outline: 'none',
+    width: '100%',
+    height: 'var(--pv-size-base-7)',
+    textDecoration: 'none',
+    userSelect: 'none',
+    cursor: 'pointer',
+    transition: 'background-color 200ms',
+    backgroundColor: 'transparent',
+    border: 'none',
+    boxSizing: 'border-box',
+    display: 'flex',
+    textAlign: 'left',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   }),
-  fontFamily: 'inherit',
-  outline: 'none',
-  width: '100%',
-  height: 'var(--pv-size-base-7)',
-  textDecoration: 'none',
-  userSelect: 'none',
-  cursor: 'pointer',
-  transition: 'background-color 200ms',
-  backgroundColor: 'transparent',
-  border: 'none',
-  color: 'var(--pv-color-black)',
-  boxSizing: 'border-box',
-  display: 'flex',
-  textAlign: 'left',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  '&:hover': {
-    backgroundColor: 'var(--pv-color-gray-2)',
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    let color = 'var(--pv-color-black)';
+    let backgroundColorHover = 'var(--pv-color-gray-2)';
+    let backgroundColorFocused = 'var(--pv-color-gray-3)';
+    let backgroundColorSelected = 'var(--pv-color-gray-4)';
+
+    if (isDark) {
+      color = 'var(--pv-color-white)';
+      backgroundColorHover = 'var(--pv-color-gray-4)';
+      backgroundColorFocused = 'var(--pv-color-gray-5)';
+      backgroundColorSelected = 'var(--pv-color-gray-6)';
+    }
+
+    return {
+      color,
+      '&:hover': {
+        backgroundColor: backgroundColorHover,
+      },
+      '&[data-focused="true"]': {
+        backgroundColor: backgroundColorFocused,
+      },
+      '&[aria-selected="true"]': {
+        backgroundColor: backgroundColorSelected,
+      },
+    };
   },
-  '&[data-focused="true"]': {
-    backgroundColor: 'var(--pv-color-gray-3)',
-  },
-  '&[aria-selected="true"]': {
-    backgroundColor: 'var(--pv-color-gray-4)',
-  },
-}));
+);
 
 const AutocompletePopover = styled(Popover)({
   minWidth: 240,
@@ -266,8 +323,7 @@ const AutocompleteTag = styled(Chip)<{
   size: AutocompleteOwnProps<any>['size'],
 }>((props) => ({
   label: 'Autocomplete-tag',
-  borderRadius: '2px',
-  borderColor: 'var(--pv-color-gray-7)',
+  borderRadius: '3px',
   margin: '0 var(--pv-size-base) 0 0',
   ...(props.tagsLength === 1 && {
     maxWidth: 'calc(100% - var(--pv-size-base))',
@@ -401,7 +457,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
             {valueLimits.map((v, index) => (
               <AutocompleteTag
                 {...getTagProps(v, index)}
-                color="default"
+                color="secondary"
                 variant="contained"
                 size={size}
                 limitTags={limitTags}
@@ -439,8 +495,8 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
         type="button"
         variant="c1"
         className={className}
-        color={isValueEmpty ? 'gray-9' : 'black'}
         aria-invalid={error || undefined}
+        aria-placeholder={isValueEmpty || undefined}
         multiple={multiple}
         size={size}
       >

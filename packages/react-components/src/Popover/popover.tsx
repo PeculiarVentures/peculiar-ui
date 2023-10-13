@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { usePopper, PopperProps, Modifier } from 'react-popper';
 import { Modal, ModalProps } from '../Modal';
-import { Box } from '../Box';
 import { Fade } from '../Fade';
 
 type BaseProps = {
@@ -41,14 +40,30 @@ export type PopoverProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>
 /**
  * Styles.
  */
-const PopoverRoot = styled(Box)({
-  outline: 0,
-  maxWidth: 'calc(100% - 32px)',
-  minWidth: '16px',
-  maxHeight: 'calc(100% - 32px)',
-  minHeight: '16px',
-  boxShadow: 'var(--pv-shadow-light-low)',
-});
+const PopoverRoot = styled('div')(
+  {
+    outline: 0,
+    maxWidth: 'calc(100% - 32px)',
+    minWidth: '16px',
+    maxHeight: 'calc(100% - 32px)',
+    minHeight: '16px',
+    borderRadius: '4px',
+  },
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    const backgroundColor: string = isDark
+      ? 'var(--pv-color-gray-3)'
+      : 'var(--pv-color-white)';
+    const boxShadow: string = isDark
+      ? 'var(--pv-shadow-dark-medium)'
+      : 'var(--pv-shadow-light-low)';
+
+    return {
+      boxShadow,
+      backgroundColor,
+    };
+  },
+);
 /**
  *
  */
@@ -109,8 +124,6 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>((props, re
       >
         <PopoverRoot
           {...other}
-          borderRadius={4}
-          background="white"
           tabIndex={-1}
           style={styles.popper}
           {...attributes.popper}

@@ -1,4 +1,4 @@
 export * as colors from './colors';
 export * from './sizes';
 export * from './text';
-export * from './shadow';
+export * as shadow from './shadow';

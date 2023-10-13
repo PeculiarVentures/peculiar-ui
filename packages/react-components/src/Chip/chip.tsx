@@ -90,6 +90,7 @@ const ChipRoot = styled('div', {
     WebkitTapHighlightColor: 'transparent',
   }),
 }), (props) => {
+  const isDark = props.theme.mode === 'dark';
   let color: string;
   let borderColor: string;
   let backgroundColor: string;
@@ -111,7 +112,12 @@ const ChipRoot = styled('div', {
       backgroundColorHover = `var(--pv-color-${props.color}-tint-1)`;
       backgroundColorFocus = `var(--pv-color-${props.color}-tint-2)`;
       backgroundColorActive = `var(--pv-color-${props.color}-tint-2)`;
-      boxShadowActive = 'var(--pv-shadow-light-medium)';
+
+      if (isDark) {
+        boxShadowActive = 'var(--pv-shadow-dark-hight)';
+      } else {
+        boxShadowActive = 'var(--pv-shadow-light-medium)';
+      }
     }
   }
 

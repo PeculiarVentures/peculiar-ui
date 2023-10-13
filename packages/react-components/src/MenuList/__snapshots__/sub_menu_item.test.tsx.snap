@@ -27,14 +27,14 @@ exports[`<SubMenuItem /> should render with default styles 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: pointer;
   -webkit-transition: background-color 200ms;
   transition: background-color 200ms;
   background-color: transparent;
   border: none;
-  color: var(--pv-color-black);
   box-sizing: border-box;
   gap: var(--pv-size-base-2);
+  cursor: pointer;
+  color: var(--pv-color-black);
 }
 
 .emotion-0:hover {

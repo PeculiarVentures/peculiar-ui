@@ -18,7 +18,6 @@ exports[`<TextField /> TextField render sizes size "large" 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -30,6 +29,8 @@ exports[`<TextField /> TextField render sizes size "large" 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-8);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -98,7 +99,6 @@ exports[`<TextField /> TextField render sizes size "medium" 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -110,6 +110,8 @@ exports[`<TextField /> TextField render sizes size "medium" 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -178,7 +180,6 @@ exports[`<TextField /> TextField render sizes size "small" 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -190,6 +191,8 @@ exports[`<TextField /> TextField render sizes size "small" 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-6);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -258,7 +261,6 @@ exports[`<TextField /> TextField render variants should be disabled 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -270,6 +272,8 @@ exports[`<TextField /> TextField render variants should be disabled 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -339,7 +343,6 @@ exports[`<TextField /> TextField render variants should have className 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -351,6 +354,8 @@ exports[`<TextField /> TextField render variants should have className 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -421,7 +426,6 @@ exports[`<TextField /> TextField render variants should have defaultValue 1`] = 
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -433,6 +437,8 @@ exports[`<TextField /> TextField render variants should have defaultValue 1`] = 
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -501,7 +507,6 @@ exports[`<TextField /> TextField render variants should have error alert 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -513,6 +518,8 @@ exports[`<TextField /> TextField render variants should have error alert 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -597,7 +604,6 @@ exports[`<TextField /> TextField render variants should have id 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -609,6 +615,8 @@ exports[`<TextField /> TextField render variants should have id 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -692,7 +700,6 @@ exports[`<TextField /> TextField render variants should have label 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -704,6 +711,8 @@ exports[`<TextField /> TextField render variants should have label 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-2::-webkit-input-placeholder {
@@ -781,7 +790,6 @@ exports[`<TextField /> TextField render variants should have name attr 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -793,6 +801,8 @@ exports[`<TextField /> TextField render variants should have name attr 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -862,7 +872,6 @@ exports[`<TextField /> TextField render variants should have placeholder 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -874,6 +883,8 @@ exports[`<TextField /> TextField render variants should have placeholder 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -943,7 +954,6 @@ exports[`<TextField /> TextField render variants should have required 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -955,6 +965,8 @@ exports[`<TextField /> TextField render variants should have required 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -1024,7 +1036,6 @@ exports[`<TextField /> TextField render variants should have test id 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -1036,6 +1047,8 @@ exports[`<TextField /> TextField render variants should have test id 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -1106,7 +1119,6 @@ exports[`<TextField /> TextField render variants should have value 1`] = `
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -1118,6 +1130,8 @@ exports[`<TextField /> TextField render variants should have value 1`] = `
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -1186,7 +1200,6 @@ exports[`<TextField /> TextField render variants should render as default 1`] = 
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--pv-color-gray-8);
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
   display: -webkit-inline-box;
@@ -1198,6 +1211,8 @@ exports[`<TextField /> TextField render variants should render as default 1`] = 
   -ms-appearance: none;
   appearance: none;
   height: var(--pv-size-base-7);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0::-webkit-input-placeholder {

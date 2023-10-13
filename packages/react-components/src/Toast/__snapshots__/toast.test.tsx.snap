@@ -3,8 +3,6 @@
 exports[`<Toast /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  background: var(--pv-color-black);
-  border-radius: 4px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -12,6 +10,8 @@ exports[`<Toast /> should render with default styles 1`] = `
   display: flex;
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
+  border-radius: 4px;
+  background-color: var(--pv-color-black);
 }
 
 .emotion-1 {

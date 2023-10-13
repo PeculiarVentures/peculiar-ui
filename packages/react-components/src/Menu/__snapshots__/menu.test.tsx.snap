@@ -23,14 +23,14 @@ exports[`<Menu /> should pass className 1`] = `
 }
 
 .emotion-2 {
-  background: var(--pv-color-white);
-  border-radius: 4px;
   outline: 0;
   max-width: calc(100% - 32px);
   min-width: 16px;
   max-height: calc(100% - 32px);
   min-height: 16px;
+  border-radius: 4px;
   box-shadow: var(--pv-shadow-light-low);
+  background-color: var(--pv-color-white);
 }
 
 .emotion-2[data-popper-placement^="bottom"] {
@@ -81,14 +81,14 @@ exports[`<Menu /> should pass className 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: pointer;
   -webkit-transition: background-color 200ms;
   transition: background-color 200ms;
   background-color: transparent;
   border: none;
-  color: var(--pv-color-black);
   box-sizing: border-box;
   gap: var(--pv-size-base-2);
+  cursor: pointer;
+  color: var(--pv-color-black);
 }
 
 .emotion-4:hover {

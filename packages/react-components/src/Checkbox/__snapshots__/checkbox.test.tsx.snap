@@ -25,9 +25,9 @@ exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -57,6 +57,10 @@ exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
   background-color: var(--pv-color-primary);
 }
 
+.emotion-1:not(:disabled):checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-1:not(:disabled):hover:before {
   opacity: 0.18;
 }
@@ -79,6 +83,10 @@ exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
   background-color: var(--pv-color-gray-6);
 }
 
+.emotion-1:disabled:checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-2 {
   display: block;
   position: absolute;
@@ -87,7 +95,6 @@ exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
   width: 100%;
   height: 100%;
   opacity: 0;
-  color: var(--pv-color-white);
   pointer-events: none;
 }
 
@@ -144,9 +151,9 @@ exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -176,6 +183,10 @@ exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked
   background-color: var(--pv-color-primary);
 }
 
+.emotion-1:not(:disabled):checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-1:not(:disabled):hover:before {
   opacity: 0.18;
 }
@@ -198,6 +209,10 @@ exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked
   background-color: var(--pv-color-gray-6);
 }
 
+.emotion-1:disabled:checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-2 {
   display: block;
   position: absolute;
@@ -206,7 +221,6 @@ exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked
   width: 100%;
   height: 100%;
   opacity: 0;
-  color: var(--pv-color-white);
   pointer-events: none;
 }
 
@@ -263,9 +277,9 @@ exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -295,6 +309,10 @@ exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
   background-color: var(--pv-color-primary);
 }
 
+.emotion-1:not(:disabled):checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-1:not(:disabled):hover:before {
   opacity: 0.18;
 }
@@ -317,6 +335,10 @@ exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
   background-color: var(--pv-color-gray-6);
 }
 
+.emotion-1:disabled:checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-2 {
   display: block;
   position: absolute;
@@ -325,7 +347,6 @@ exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
   width: 100%;
   height: 100%;
   opacity: 0;
-  color: var(--pv-color-white);
   pointer-events: none;
 }
 
@@ -382,9 +403,9 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -414,6 +435,10 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
   background-color: var(--pv-color-primary);
 }
 
+.emotion-1:not(:disabled):checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-1:not(:disabled):hover:before {
   opacity: 0.18;
 }
@@ -436,6 +461,10 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
   background-color: var(--pv-color-gray-6);
 }
 
+.emotion-1:disabled:checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-2 {
   display: block;
   position: absolute;
@@ -444,7 +473,6 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
   width: 100%;
   height: 100%;
   opacity: 0;
-  color: var(--pv-color-white);
   pointer-events: none;
 }
 
@@ -500,9 +528,9 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -532,6 +560,10 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
   background-color: var(--pv-color-primary);
 }
 
+.emotion-1:not(:disabled):checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-1:not(:disabled):hover:before {
   opacity: 0.18;
 }
@@ -554,6 +586,10 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
   background-color: var(--pv-color-gray-6);
 }
 
+.emotion-1:disabled:checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-2 {
   display: block;
   position: absolute;
@@ -562,7 +598,6 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
   width: 100%;
   height: 100%;
   opacity: 0;
-  color: var(--pv-color-white);
   pointer-events: none;
 }
 
@@ -619,9 +654,9 @@ exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -651,6 +686,10 @@ exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
   background-color: var(--pv-color-primary);
 }
 
+.emotion-1:not(:disabled):checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-1:not(:disabled):hover:before {
   opacity: 0.18;
 }
@@ -673,6 +712,10 @@ exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
   background-color: var(--pv-color-gray-6);
 }
 
+.emotion-1:disabled:checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-2 {
   display: block;
   position: absolute;
@@ -681,7 +724,6 @@ exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
   width: 100%;
   height: 100%;
   opacity: 0;
-  color: var(--pv-color-white);
   pointer-events: none;
 }
 
@@ -738,9 +780,9 @@ exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -770,6 +812,10 @@ exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
   background-color: var(--pv-color-primary);
 }
 
+.emotion-1:not(:disabled):checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-1:not(:disabled):hover:before {
   opacity: 0.18;
 }
@@ -792,6 +838,10 @@ exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
   background-color: var(--pv-color-gray-6);
 }
 
+.emotion-1:disabled:checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-2 {
   display: block;
   position: absolute;
@@ -800,7 +850,6 @@ exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
   width: 100%;
   height: 100%;
   opacity: 0;
-  color: var(--pv-color-white);
   pointer-events: none;
 }
 
@@ -857,9 +906,9 @@ exports[`<Checkbox /> Checkbox render variants should render as default 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -889,6 +938,10 @@ exports[`<Checkbox /> Checkbox render variants should render as default 1`] = `
   background-color: var(--pv-color-primary);
 }
 
+.emotion-1:not(:disabled):checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-1:not(:disabled):hover:before {
   opacity: 0.18;
 }
@@ -911,6 +964,10 @@ exports[`<Checkbox /> Checkbox render variants should render as default 1`] = `
   background-color: var(--pv-color-gray-6);
 }
 
+.emotion-1:disabled:checked+[aria-hidden] {
+  color: var(--pv-color-white);
+}
+
 .emotion-2 {
   display: block;
   position: absolute;
@@ -919,7 +976,6 @@ exports[`<Checkbox /> Checkbox render variants should render as default 1`] = `
   width: 100%;
   height: 100%;
   opacity: 0;
-  color: var(--pv-color-white);
   pointer-events: none;
 }
 

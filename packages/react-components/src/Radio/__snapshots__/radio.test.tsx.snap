@@ -11,8 +11,8 @@ exports[`<Radio /> Radio render variants should be checked, defaultChecked prop 
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   border-radius: 50%;
-  color: var(--pv-color-gray-6);
   position: relative;
+  color: var(--pv-color-gray-6);
 }
 
 .emotion-1 {
@@ -29,9 +29,9 @@ exports[`<Radio /> Radio render variants should be checked, defaultChecked prop 
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -138,8 +138,8 @@ exports[`<Radio /> Radio render variants should be disabled 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   border-radius: 50%;
-  color: var(--pv-color-gray-6);
   position: relative;
+  color: var(--pv-color-gray-6);
 }
 
 .emotion-1 {
@@ -156,9 +156,9 @@ exports[`<Radio /> Radio render variants should be disabled 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -265,8 +265,8 @@ exports[`<Radio /> Radio render variants should have className 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   border-radius: 50%;
-  color: var(--pv-color-gray-6);
   position: relative;
+  color: var(--pv-color-gray-6);
 }
 
 .emotion-1 {
@@ -283,9 +283,9 @@ exports[`<Radio /> Radio render variants should have className 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -391,8 +391,8 @@ exports[`<Radio /> Radio render variants should have custom checked icon 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   border-radius: 50%;
-  color: var(--pv-color-gray-6);
   position: relative;
+  color: var(--pv-color-gray-6);
 }
 
 .emotion-1 {
@@ -409,9 +409,9 @@ exports[`<Radio /> Radio render variants should have custom checked icon 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -516,8 +516,8 @@ exports[`<Radio /> Radio render variants should have name attr 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   border-radius: 50%;
-  color: var(--pv-color-gray-6);
   position: relative;
+  color: var(--pv-color-gray-6);
 }
 
 .emotion-1 {
@@ -534,9 +534,9 @@ exports[`<Radio /> Radio render variants should have name attr 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -643,8 +643,8 @@ exports[`<Radio /> Radio render variants should have required 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   border-radius: 50%;
-  color: var(--pv-color-gray-6);
   position: relative;
+  color: var(--pv-color-gray-6);
 }
 
 .emotion-1 {
@@ -661,9 +661,9 @@ exports[`<Radio /> Radio render variants should have required 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -770,8 +770,8 @@ exports[`<Radio /> Radio render variants should have test id 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   border-radius: 50%;
-  color: var(--pv-color-gray-6);
   position: relative;
+  color: var(--pv-color-gray-6);
 }
 
 .emotion-1 {
@@ -788,9 +788,9 @@ exports[`<Radio /> Radio render variants should have test id 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
@@ -897,8 +897,8 @@ exports[`<Radio /> Radio render variants should render as default 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   border-radius: 50%;
-  color: var(--pv-color-gray-6);
   position: relative;
+  color: var(--pv-color-gray-6);
 }
 
 .emotion-1 {
@@ -915,9 +915,9 @@ exports[`<Radio /> Radio render variants should render as default 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: var(--pv-color-gray-9);
   border-color: currentColor;
   background-color: transparent;
+  color: var(--pv-color-gray-9);
 }
 
 .emotion-1:before {
