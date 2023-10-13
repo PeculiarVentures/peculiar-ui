@@ -135,10 +135,17 @@ const ButtonBaseRoot = styled('button', {
 
   if (props.variant === 'contained') {
     if (props.color === 'default') {
-      backgroundColor = 'var(--pv-color-gray-8)';
-      backgroundColorHover = 'var(--pv-color-gray-7)';
-      backgroundColorFocus = 'var(--pv-color-gray-6)';
-      backgroundColorActive = 'var(--pv-color-gray-5)';
+      if (isDark) {
+        backgroundColor = 'var(--pv-color-gray-6)';
+        backgroundColorHover = 'var(--pv-color-gray-5)';
+        backgroundColorFocus = 'var(--pv-color-gray-4)';
+        backgroundColorActive = 'var(--pv-color-gray-3)';
+      } else {
+        backgroundColor = 'var(--pv-color-gray-8)';
+        backgroundColorHover = 'var(--pv-color-gray-7)';
+        backgroundColorFocus = 'var(--pv-color-gray-6)';
+        backgroundColorActive = 'var(--pv-color-gray-5)';
+      }
     } else if (props.color === 'white') {
       backgroundColor = 'var(--pv-color-white)';
       backgroundColorHover = 'var(--pv-color-gray-7)';

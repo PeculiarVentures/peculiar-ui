@@ -79,7 +79,7 @@ const MenuItemRoot = styled('li', {
 
     if (isDark) {
       color = 'var(--pv-color-white)';
-      colorDisabled = 'var(--pv-color-gray-1)';
+      colorDisabled = 'var(--pv-color-gray-6)';
       backgroundColorHover = 'var(--pv-color-gray-4)';
       backgroundColorFocused = 'var(--pv-color-gray-5)';
       backgroundColorSelected = 'var(--pv-color-gray-6)';

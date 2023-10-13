@@ -62,8 +62,18 @@ const AlertRoot = styled('div')<AlertOwnProps>(
     let backgroundColor: string;
 
     if (props.variant === 'wrong') {
-      backgroundColor = 'var(--pv-color-wrong-tint-5)';
-    } else if (isDark) {
+      if (isDark) {
+        backgroundColor = 'var(--pv-color-wrong-shade-4)';
+      } else {
+        backgroundColor = 'var(--pv-color-wrong-tint-5)';
+      }
+
+      return {
+        backgroundColor,
+      };
+    }
+
+    if (isDark) {
       backgroundColor = 'var(--pv-color-gray-2)';
     } else {
       backgroundColor = 'var(--pv-color-black)';

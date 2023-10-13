@@ -242,9 +242,14 @@ const AutocompleteDropdownList = styled('ul')({
   padding: '10px 0',
 });
 
-const AutocompleteDropdownGroupName = styled(Typography)({
-  padding: 'var(--pv-size-base-2)',
-});
+const AutocompleteDropdownGroupName = styled(Typography)(
+  (props) => ({
+    padding: 'var(--pv-size-base-2)',
+    color: props.theme.mode === 'dark'
+      ? 'var(--pv-color-gray-6)'
+      : 'var(--pv-color-gray-9)',
+  }),
+);
 
 const AutocompleteDropdownGroupList = styled('ul')({
   padding: 0,
