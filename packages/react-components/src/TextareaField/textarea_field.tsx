@@ -164,7 +164,7 @@ const TextareaFieldInput = styled('textarea')<Required<Pick<TextareaFieldProps, 
           backgroundColor: invalidBackgroundColor,
           borderColor: invalidBorderColor,
         },
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: backgroundColorFocus,
           borderColor: borderColorFocus,
         },

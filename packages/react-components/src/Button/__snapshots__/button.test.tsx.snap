@@ -52,7 +52,7 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   background-color: var(--pv-color-gray-7);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-6);
 }
 
@@ -145,7 +145,7 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   background-color: var(--pv-color-primary-tint-1);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-primary-tint-2);
 }
 
@@ -238,7 +238,7 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   background-color: var(--pv-color-secondary-tint-1);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-2);
 }
 
@@ -331,7 +331,7 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   background-color: var(--pv-color-gray-7);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-6);
 }
 
@@ -424,7 +424,7 @@ exports[`<Button /> Button render (variants & colors) variant: "contained" & col
   background-color: var(--pv-color-wrong-tint-1);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-wrong-tint-2);
 }
 
@@ -516,7 +516,7 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -607,7 +607,7 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   background-color: var(--pv-color-primary-tint-5);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-primary-tint-4);
 }
 
@@ -698,7 +698,7 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   background-color: var(--pv-color-secondary-tint-5);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-4);
 }
 
@@ -789,7 +789,7 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   background-color: var(--pv-color-gray-7);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-8);
 }
 
@@ -880,7 +880,7 @@ exports[`<Button /> Button render (variants & colors) variant: "outlined" & colo
   background-color: var(--pv-color-wrong-tint-5);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-wrong-tint-4);
 }
 
@@ -969,7 +969,7 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -1058,7 +1058,7 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
   background-color: var(--pv-color-primary-tint-5);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-primary-tint-4);
 }
 
@@ -1147,7 +1147,7 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
   background-color: var(--pv-color-secondary-tint-5);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-4);
 }
 
@@ -1236,7 +1236,7 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
   background-color: var(--pv-color-gray-7);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-8);
 }
 
@@ -1325,7 +1325,7 @@ exports[`<Button /> Button render (variants & colors) variant: "text" & color: "
   background-color: var(--pv-color-wrong-tint-5);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-wrong-tint-4);
 }
 
@@ -1414,7 +1414,7 @@ exports[`<Button /> Button render as an anchor should rendered as an anchor 1`] 
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -1504,7 +1504,7 @@ exports[`<Button /> Button render sizes size "large" 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -1593,7 +1593,7 @@ exports[`<Button /> Button render sizes size "medium" 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -1682,7 +1682,7 @@ exports[`<Button /> Button render sizes size "small" 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -1771,7 +1771,7 @@ exports[`<Button /> Button render variants should be disabled 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -1861,7 +1861,7 @@ exports[`<Button /> Button render variants should have class name 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -1950,7 +1950,7 @@ exports[`<Button /> Button render variants should have end icon 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -2061,7 +2061,7 @@ exports[`<Button /> Button render variants should have start icon 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -2172,7 +2172,7 @@ exports[`<Button /> Button render variants should have test id 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -2262,7 +2262,7 @@ exports[`<Button /> Button render variants should have text variant 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -2351,7 +2351,7 @@ exports[`<Button /> Button render variants should have title 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 

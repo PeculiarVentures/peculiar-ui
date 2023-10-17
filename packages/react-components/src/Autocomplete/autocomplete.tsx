@@ -197,7 +197,7 @@ const AutocompleteField = styled(Typography)<TypographyOwnProps & Required<Pick<
           backgroundColor: invalidBackgroundColor,
           borderColor: invalidBorderColor,
         },
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: backgroundColorFocus,
           borderColor: borderColorFocus,
         },

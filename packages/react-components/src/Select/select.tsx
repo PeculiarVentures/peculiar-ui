@@ -161,7 +161,7 @@ const SelectRoot = styled('select')<SelectRootProps>(
           backgroundColor: invalidBackgroundColor,
           borderColor: invalidBorderColor,
         },
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: backgroundColorFocus,
           borderColor: borderColorFocus,
         },

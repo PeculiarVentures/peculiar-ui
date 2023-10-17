@@ -123,7 +123,7 @@ const CheckboxInput = styled('input')(
             opacity: 0.18,
           },
         },
-        '&:focus': {
+        '&:focus-visible': {
           '&:before': {
             opacity: 0.23,
           },

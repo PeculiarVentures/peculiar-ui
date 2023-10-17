@@ -136,7 +136,7 @@ const SwitchInput = styled('input', {
             opacity: 0.18,
           },
         },
-        '&:focus': {
+        '&:focus-visible': {
           '+ [aria-hidden]:before': {
             opacity: 0.23,
           },

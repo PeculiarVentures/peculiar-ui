@@ -50,7 +50,7 @@ exports[`<IconButton /> colors color "default" 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -152,7 +152,7 @@ exports[`<IconButton /> colors color "primary" 1`] = `
   background-color: var(--pv-color-primary-tint-5);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-primary-tint-4);
 }
 
@@ -254,7 +254,7 @@ exports[`<IconButton /> colors color "secondary" 1`] = `
   background-color: var(--pv-color-secondary-tint-5);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-4);
 }
 
@@ -356,7 +356,7 @@ exports[`<IconButton /> colors color "white" 1`] = `
   background-color: var(--pv-color-gray-7);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-8);
 }
 
@@ -458,7 +458,7 @@ exports[`<IconButton /> colors color "wrong" 1`] = `
   background-color: var(--pv-color-wrong-tint-5);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-wrong-tint-4);
 }
 
@@ -560,7 +560,7 @@ exports[`<IconButton /> should have title 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -663,7 +663,7 @@ exports[`<IconButton /> should pass className 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 
@@ -765,7 +765,7 @@ exports[`<IconButton /> should render as default 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 

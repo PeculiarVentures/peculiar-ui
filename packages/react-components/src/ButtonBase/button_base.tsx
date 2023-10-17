@@ -200,7 +200,7 @@ const ButtonBaseRoot = styled('button', {
       '&:hover': {
         backgroundColor: backgroundColorHover,
       },
-      '&:focus': {
+      '&:focus-visible': {
         backgroundColor: backgroundColorFocus,
       },
       '&:active': {

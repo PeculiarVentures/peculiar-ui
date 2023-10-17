@@ -163,7 +163,7 @@ const TextFieldInput = styled(Typography)<TextFieldProps>(
           backgroundColor: invalidBackgroundColor,
           borderColor: invalidBorderColor,
         },
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: backgroundColorFocus,
           borderColor: borderColorFocus,
         },

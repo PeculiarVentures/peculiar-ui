@@ -52,7 +52,7 @@ exports[`<Fab /> should pass className 1`] = `
   background-color: var(--pv-color-primary-tint-1);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-primary-tint-2);
 }
 
@@ -158,7 +158,7 @@ exports[`<Fab /> should render as default 1`] = `
   background-color: var(--pv-color-primary-tint-1);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-primary-tint-2);
 }
 
@@ -264,7 +264,7 @@ exports[`<Fab /> variants variant "contained" 1`] = `
   background-color: var(--pv-color-primary-tint-1);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-primary-tint-2);
 }
 
@@ -369,7 +369,7 @@ exports[`<Fab /> variants variant "outlined" 1`] = `
   background-color: var(--pv-color-primary-tint-5);
 }
 
-.emotion-0:not(:disabled):focus {
+.emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-primary-tint-4);
 }
 

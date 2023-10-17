@@ -88,7 +88,7 @@ const SliderInput = styled('input')({
     '&:hover': {
       backgroundColor: 'var(--pv-color-primary-tint-1)',
     },
-    '&:focus': {
+    '&:focus-visible': {
       backgroundColor: 'var(--pv-color-primary-tint-2)',
     },
   },

@@ -78,7 +78,7 @@ exports[`<Switch /> colors color "primary" 1`] = `
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus+[aria-hidden]:before {
+.emotion-1:not(:disabled):focus-visible+[aria-hidden]:before {
   opacity: 0.23;
 }
 
@@ -215,7 +215,7 @@ exports[`<Switch /> colors color "secondary" 1`] = `
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus+[aria-hidden]:before {
+.emotion-1:not(:disabled):focus-visible+[aria-hidden]:before {
   opacity: 0.23;
 }
 
@@ -352,7 +352,7 @@ exports[`<Switch /> should pass className 1`] = `
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus+[aria-hidden]:before {
+.emotion-1:not(:disabled):focus-visible+[aria-hidden]:before {
   opacity: 0.23;
 }
 
@@ -489,7 +489,7 @@ exports[`<Switch /> should render with default styles 1`] = `
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus+[aria-hidden]:before {
+.emotion-1:not(:disabled):focus-visible+[aria-hidden]:before {
   opacity: 0.23;
 }
 

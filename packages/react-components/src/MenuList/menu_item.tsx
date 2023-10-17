@@ -90,7 +90,7 @@ const MenuItemRoot = styled('li', {
       '&:hover': {
         backgroundColor: backgroundColorHover,
       },
-      '&:focus': {
+      '&:focus-visible': {
         backgroundColor: backgroundColorFocused,
       },
       '&:active': {

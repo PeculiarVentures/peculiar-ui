@@ -95,7 +95,7 @@ exports[`<Menu /> should pass className 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-4:focus {
+.emotion-4:focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 

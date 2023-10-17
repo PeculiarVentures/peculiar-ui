@@ -65,7 +65,7 @@ exports[`<Radio /> Radio render variants should be checked, defaultChecked prop 
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus:before {
+.emotion-1:not(:disabled):focus-visible:before {
   opacity: 0.23;
 }
 
@@ -192,7 +192,7 @@ exports[`<Radio /> Radio render variants should be disabled 1`] = `
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus:before {
+.emotion-1:not(:disabled):focus-visible:before {
   opacity: 0.23;
 }
 
@@ -319,7 +319,7 @@ exports[`<Radio /> Radio render variants should have className 1`] = `
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus:before {
+.emotion-1:not(:disabled):focus-visible:before {
   opacity: 0.23;
 }
 
@@ -445,7 +445,7 @@ exports[`<Radio /> Radio render variants should have custom checked icon 1`] = `
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus:before {
+.emotion-1:not(:disabled):focus-visible:before {
   opacity: 0.23;
 }
 
@@ -570,7 +570,7 @@ exports[`<Radio /> Radio render variants should have name attr 1`] = `
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus:before {
+.emotion-1:not(:disabled):focus-visible:before {
   opacity: 0.23;
 }
 
@@ -697,7 +697,7 @@ exports[`<Radio /> Radio render variants should have required 1`] = `
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus:before {
+.emotion-1:not(:disabled):focus-visible:before {
   opacity: 0.23;
 }
 
@@ -824,7 +824,7 @@ exports[`<Radio /> Radio render variants should have test id 1`] = `
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus:before {
+.emotion-1:not(:disabled):focus-visible:before {
   opacity: 0.23;
 }
 
@@ -951,7 +951,7 @@ exports[`<Radio /> Radio render variants should render as default 1`] = `
   opacity: 0.18;
 }
 
-.emotion-1:not(:disabled):focus:before {
+.emotion-1:not(:disabled):focus-visible:before {
   opacity: 0.23;
 }
 

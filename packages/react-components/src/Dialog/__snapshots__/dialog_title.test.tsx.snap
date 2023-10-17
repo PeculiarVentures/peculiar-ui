@@ -112,7 +112,7 @@ exports[`<DialogTitle /> should render close button 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-2:not(:disabled):focus {
+.emotion-2:not(:disabled):focus-visible {
   background-color: var(--pv-color-gray-4);
 }
 

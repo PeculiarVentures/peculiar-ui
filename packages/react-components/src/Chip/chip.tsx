@@ -147,7 +147,7 @@ const ChipRoot = styled('div', {
       '&:hover': {
         backgroundColor: backgroundColorHover,
       },
-      '&:focus': {
+      '&:focus-visible': {
         backgroundColor: backgroundColorFocus,
       },
       '&:active': {

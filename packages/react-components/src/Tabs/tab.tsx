@@ -115,7 +115,7 @@ const TabRoot = styled('button', {
         '&:hover': {
           backgroundColor: backgroundColorHove,
         },
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: backgroundColorFocus,
         },
         '&:active': {
