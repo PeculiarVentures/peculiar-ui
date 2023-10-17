@@ -10,6 +10,7 @@ type ThemeProviderProps = {
   children: React.ReactElement;
   theme?: ThemeOptionsType;
   mode?: 'light' | 'dark';
+  cssVarsRoot?: string
 };
 /**
  *
@@ -20,6 +21,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
     children,
     mode,
     theme: themeProp,
+    cssVarsRoot = 'html, ::backdrop',
   } = props;
 
   const theme = React.useMemo(
@@ -28,20 +30,18 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
   );
 
   return (
-    <>
+    <ThemeProviderEmotion
+      theme={{
+        mode,
+      }}
+    >
       <Global
         styles={{
-          'html, ::backdrop': theme,
+          [cssVarsRoot]: theme,
         }}
       />
-      <ThemeProviderEmotion
-        theme={{
-          mode,
-        }}
-      >
-        {children}
-      </ThemeProviderEmotion>
-    </>
+      {children}
+    </ThemeProviderEmotion>
   );
 };
 
