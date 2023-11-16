@@ -7,12 +7,14 @@ import type { ThemeOptionsType } from './types';
 type ThemeProviderProps = {
   children: React.ReactElement;
   theme?: ThemeOptionsType;
+  cssVarsRoot?: string;
 };
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
   const {
     children,
     theme: themeProp,
+    cssVarsRoot = 'html, ::backdrop',
   } = props;
 
   const theme = React.useMemo(() => {
@@ -25,7 +27,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
     <>
       <Global
         styles={{
-          'html, ::backdrop': createThemeCSSVariablesFromObject(theme),
+          [cssVarsRoot]: createThemeCSSVariablesFromObject(theme),
         }}
       />
       {children}
