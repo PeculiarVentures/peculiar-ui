@@ -65,6 +65,10 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
    */
   readOnly?: boolean;
   /**
+   * Props applied to the `Popover` element.
+   */
+  popoverProps?: Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+  /**
    * If provided, the options will be grouped under the returned string.
    */
   groupBy?: (option: T) => string;
@@ -158,6 +162,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     disableCloseOnSelect = false,
     multiple = false,
     readOnly,
+    popoverProps,
     groupBy,
     // @ts-ignore
     getOptionLabel = (option) => option.label ?? option,
@@ -573,6 +578,7 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
       };
     },
     getPopoverProps: () => ({
+      ...popoverProps,
       open: popupOpen,
       anchorEl: anchorEl.current,
       onClose: handleClose,
