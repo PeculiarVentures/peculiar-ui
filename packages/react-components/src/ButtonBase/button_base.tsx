@@ -89,8 +89,11 @@ const ButtonBaseRoot = styled('button', {
     boxShadow: 'none',
     color: props.variant === 'text'
       ? 'var(--pv-color-gray-7)'
-      : 'var(--pv-color-gray-8)',
-    backgroundColor: props.variant === 'contained' && 'var(--pv-color-gray-4)',
+      : (props.theme.mode === 'dark' && 'var(--pv-color-gray-6)') || 'var(--pv-color-gray-8)',
+    backgroundColor: props.variant === 'contained' && (props.theme.mode === 'dark'
+      ? 'var(--pv-color-gray-5)'
+      : 'var(--pv-color-gray-4)'
+    ),
     borderColor: props.variant === 'outlined' && 'var(--pv-color-gray-4)',
   },
 }), (props) => {
