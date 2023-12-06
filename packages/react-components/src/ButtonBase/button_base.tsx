@@ -68,7 +68,7 @@ export type ButtonBaseProps<
  */
 const ButtonBaseRoot = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<ButtonBaseOwnProps>((props) => ({
+})<ButtonBaseOwnProps>(() => ({
   fontFamily: 'inherit',
   outline: 'none',
   cursor: 'pointer',
@@ -84,18 +84,6 @@ const ButtonBaseRoot = styled('button', {
   backgroundColor: 'transparent',
   padding: 0,
   textDecoration: 'none',
-  '&:disabled': {
-    cursor: 'not-allowed',
-    boxShadow: 'none',
-    color: props.variant === 'text'
-      ? 'var(--pv-color-gray-7)'
-      : (props.theme.mode === 'dark' && 'var(--pv-color-gray-6)') || 'var(--pv-color-gray-8)',
-    backgroundColor: props.variant === 'contained' && (props.theme.mode === 'dark'
-      ? 'var(--pv-color-gray-5)'
-      : 'var(--pv-color-gray-4)'
-    ),
-    borderColor: props.variant === 'outlined' && 'var(--pv-color-gray-4)',
-  },
 }), (props) => {
   const isDark = props.theme.mode === 'dark';
   let color: string = isDark
@@ -108,6 +96,8 @@ const ButtonBaseRoot = styled('button', {
   let backgroundColorActive: string;
   let boxShadow: string;
   let boxShadowActive: string;
+  let colorDisabled: string;
+  let backgroundColorDisabled: string;
 
   if (props.variant === 'outlined') {
     if (props.color === 'default') {
@@ -194,11 +184,34 @@ const ButtonBaseRoot = styled('button', {
     }
   }
 
+  if (props.variant === 'text') {
+    colorDisabled = 'var(--pv-color-gray-7)';
+  } else if (isDark) {
+    colorDisabled = 'var(--pv-color-gray-6)';
+  } else {
+    colorDisabled = 'var(--pv-color-gray-8)';
+  }
+
+  if (props.variant === 'contained') {
+    if (isDark) {
+      backgroundColorDisabled = 'var(--pv-color-gray-5)';
+    } else {
+      backgroundColorDisabled = 'var(--pv-color-gray-4)';
+    }
+  }
+
   return {
     borderColor,
     backgroundColor,
     color,
     boxShadow,
+    '&:disabled': {
+      cursor: 'not-allowed',
+      boxShadow: 'none',
+      color: colorDisabled,
+      backgroundColor: backgroundColorDisabled,
+      borderColor: props.variant === 'outlined' && 'var(--pv-color-gray-4)',
+    },
     '&:not(:disabled)': {
       '&:hover': {
         backgroundColor: backgroundColorHover,
