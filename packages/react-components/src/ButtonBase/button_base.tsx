@@ -96,7 +96,7 @@ const ButtonBaseRoot = styled('button', {
   let backgroundColorActive: string;
   let boxShadow: string;
   let boxShadowActive: string;
-  let colorDisabled: string;
+  let colorDisabled: string = 'var(--pv-color-gray-8)';
   let backgroundColorDisabled: string;
 
   if (props.variant === 'outlined') {
@@ -117,6 +117,7 @@ const ButtonBaseRoot = styled('button', {
       backgroundColorHover = `var(--pv-color-${props.color}-shade-4)`;
       backgroundColorFocus = `var(--pv-color-${props.color}-shade-3)`;
       backgroundColorActive = `var(--pv-color-${props.color}-shade-2)`;
+      colorDisabled = 'var(--pv-color-gray-6)';
     } else {
       color = `var(--pv-color-${props.color})`;
       borderColor = `var(--pv-color-${props.color}-tint-2)`;
@@ -133,11 +134,14 @@ const ButtonBaseRoot = styled('button', {
         backgroundColorHover = 'var(--pv-color-gray-5)';
         backgroundColorFocus = 'var(--pv-color-gray-4)';
         backgroundColorActive = 'var(--pv-color-gray-3)';
+        colorDisabled = 'var(--pv-color-gray-6)';
+        backgroundColorDisabled = 'var(--pv-color-gray-5)';
       } else {
         backgroundColor = 'var(--pv-color-gray-8)';
         backgroundColorHover = 'var(--pv-color-gray-7)';
         backgroundColorFocus = 'var(--pv-color-gray-6)';
         backgroundColorActive = 'var(--pv-color-gray-5)';
+        backgroundColorDisabled = 'var(--pv-color-gray-5)';
       }
     } else if (props.color === 'white') {
       backgroundColor = 'var(--pv-color-white)';
@@ -166,6 +170,7 @@ const ButtonBaseRoot = styled('button', {
       backgroundColorHover = 'var(--pv-color-gray-3)';
       backgroundColorFocus = 'var(--pv-color-gray-4)';
       backgroundColorActive = 'var(--pv-color-gray-5)';
+      colorDisabled = 'var(--pv-color-gray-7)';
     } else if (props.color === 'white') {
       color = 'var(--pv-color-white)';
       backgroundColorHover = 'var(--pv-color-gray-7)';
@@ -181,22 +186,6 @@ const ButtonBaseRoot = styled('button', {
       backgroundColorHover = `var(--pv-color-${props.color}-tint-5)`;
       backgroundColorFocus = `var(--pv-color-${props.color}-tint-4)`;
       backgroundColorActive = `var(--pv-color-${props.color}-tint-3)`;
-    }
-  }
-
-  if (props.variant === 'text') {
-    colorDisabled = 'var(--pv-color-gray-7)';
-  } else if (isDark) {
-    colorDisabled = 'var(--pv-color-gray-6)';
-  } else {
-    colorDisabled = 'var(--pv-color-gray-8)';
-  }
-
-  if (props.variant === 'contained') {
-    if (isDark) {
-      backgroundColorDisabled = 'var(--pv-color-gray-5)';
-    } else {
-      backgroundColorDisabled = 'var(--pv-color-gray-4)';
     }
   }
 
