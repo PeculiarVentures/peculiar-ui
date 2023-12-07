@@ -96,8 +96,10 @@ const ButtonBaseRoot = styled('button', {
   let backgroundColorActive: string;
   let boxShadow: string;
   let boxShadowActive: string;
-  let colorDisabled: string = 'var(--pv-color-gray-8)';
-  let backgroundColorDisabled: string;
+  let colorDisabled: string = props.variant === 'text'
+    ? 'var(--pv-color-gray-7)'
+    : 'var(--pv-color-gray-8)';
+  let backgroundColorDisabled: string = props.variant === 'contained' && 'var(--pv-color-gray-4)';
 
   if (props.variant === 'outlined') {
     if (props.color === 'default') {
@@ -141,7 +143,6 @@ const ButtonBaseRoot = styled('button', {
         backgroundColorHover = 'var(--pv-color-gray-7)';
         backgroundColorFocus = 'var(--pv-color-gray-6)';
         backgroundColorActive = 'var(--pv-color-gray-5)';
-        backgroundColorDisabled = 'var(--pv-color-gray-5)';
       }
     } else if (props.color === 'white') {
       backgroundColor = 'var(--pv-color-white)';
@@ -170,7 +171,6 @@ const ButtonBaseRoot = styled('button', {
       backgroundColorHover = 'var(--pv-color-gray-3)';
       backgroundColorFocus = 'var(--pv-color-gray-4)';
       backgroundColorActive = 'var(--pv-color-gray-5)';
-      colorDisabled = 'var(--pv-color-gray-7)';
     } else if (props.color === 'white') {
       color = 'var(--pv-color-white)';
       backgroundColorHover = 'var(--pv-color-gray-7)';
