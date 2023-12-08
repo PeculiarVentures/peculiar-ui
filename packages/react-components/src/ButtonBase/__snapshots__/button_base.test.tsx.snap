@@ -484,8 +484,8 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
-  color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-4);
+  color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -571,8 +571,8 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
-  color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-4);
+  color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -658,8 +658,8 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
-  color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-4);
+  color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -745,8 +745,8 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
-  color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-4);
+  color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -832,8 +832,8 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
-  color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-4);
+  color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0:not(:disabled):hover {
