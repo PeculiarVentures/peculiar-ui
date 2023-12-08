@@ -14,16 +14,6 @@ export interface FabOwnProps extends Omit<ButtonBaseOwnProps, 'size' | 'variant'
     'contained' |
     'outlined'
   );
-  /**
-   * The color of the component.
-   */
-  color?: (
-    'primary' |
-    'secondary' |
-    'wrong' |
-    'white' |
-    'default'
-  );
 }
 
 export interface FabTypeMap<P = {}, D extends React.ElementType = 'button'> {
@@ -43,12 +33,12 @@ export type FabProps<
 /**
  * Styles.
  */
-const FabRoot = styled(ButtonBase)<FabOwnProps>(() => ({
+const FabRoot = styled(ButtonBase)<FabOwnProps>({
   borderRadius: '50%',
   height: 'var(--pv-size-base-11)',
   width: 'var(--pv-size-base-11)',
   padding: 'var(--pv-size-base-2)',
-}), (props) => {
+}, (props) => {
   const isDark = props.theme.mode === 'dark';
 
   let colorDisabled: string;
