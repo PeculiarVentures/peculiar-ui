@@ -96,9 +96,10 @@ const ButtonBaseRoot = styled('button', {
   let backgroundColorActive: string;
   let boxShadow: string;
   let boxShadowActive: string;
+
   let colorDisabled: string;
-  let backgroundColorDisabled: string = props.variant === 'contained' && 'var(--pv-color-gray-4)';
-  let borderColorDisabled: string = props.variant === 'outlined' && 'var(--pv-color-gray-8)';
+  let backgroundColorDisabled: string;
+  let borderColorDisabled: string;
 
   if (props.variant === 'outlined') {
     if (props.color === 'default') {
@@ -106,7 +107,6 @@ const ButtonBaseRoot = styled('button', {
       backgroundColorHover = 'var(--pv-color-gray-3)';
       backgroundColorFocus = 'var(--pv-color-gray-4)';
       backgroundColorActive = 'var(--pv-color-gray-5)';
-      colorDisabled = 'var(--pv-color-gray-7)';
     } else if (props.color === 'white') {
       color = 'var(--pv-color-white)';
       borderColor = 'var(--pv-color-white)';
@@ -130,6 +130,9 @@ const ButtonBaseRoot = styled('button', {
     if (isDark) {
       borderColorDisabled = 'var(--pv-color-gray-5)';
       colorDisabled = 'var(--pv-color-gray-6)';
+    } else {
+      borderColorDisabled = 'var(--pv-color-gray-8)';
+      colorDisabled = 'var(--pv-color-gray-7)';
     }
   }
 
@@ -140,14 +143,11 @@ const ButtonBaseRoot = styled('button', {
         backgroundColorHover = 'var(--pv-color-gray-5)';
         backgroundColorFocus = 'var(--pv-color-gray-4)';
         backgroundColorActive = 'var(--pv-color-gray-3)';
-        colorDisabled = 'var(--pv-color-gray-6)';
-        backgroundColorDisabled = 'var(--pv-color-gray-5)';
       } else {
         backgroundColor = 'var(--pv-color-gray-8)';
         backgroundColorHover = 'var(--pv-color-gray-7)';
         backgroundColorFocus = 'var(--pv-color-gray-6)';
         backgroundColorActive = 'var(--pv-color-gray-5)';
-        colorDisabled = 'var(--pv-color-gray-8)';
       }
     } else if (props.color === 'white') {
       backgroundColor = 'var(--pv-color-white)';
@@ -165,9 +165,13 @@ const ButtonBaseRoot = styled('button', {
     if (isDark) {
       boxShadow = 'var(--pv-shadow-dark-medium)';
       boxShadowActive = 'var(--pv-shadow-dark-hight)';
+      colorDisabled = 'var(--pv-color-gray-6)';
+      backgroundColorDisabled = 'var(--pv-color-gray-5)';
     } else {
       boxShadow = 'var(--pv-shadow-light-low)';
       boxShadowActive = 'var(--pv-shadow-light-medium)';
+      colorDisabled = 'var(--pv-color-gray-8)';
+      backgroundColorDisabled = 'var(--pv-color-gray-4)';
     }
   }
 
@@ -176,7 +180,6 @@ const ButtonBaseRoot = styled('button', {
       backgroundColorHover = 'var(--pv-color-gray-3)';
       backgroundColorFocus = 'var(--pv-color-gray-4)';
       backgroundColorActive = 'var(--pv-color-gray-5)';
-      colorDisabled = 'var(--pv-color-gray-7)';
     } else if (props.color === 'white') {
       color = 'var(--pv-color-white)';
       backgroundColorHover = 'var(--pv-color-gray-7)';
@@ -196,6 +199,8 @@ const ButtonBaseRoot = styled('button', {
 
     if (isDark) {
       colorDisabled = 'var(--pv-color-gray-6)';
+    } else {
+      colorDisabled = 'var(--pv-color-gray-7)';
     }
   }
 
