@@ -5,6 +5,7 @@ import {
   renderWithWrapper as render,
   screen,
 } from '../test-utils';
+import { ThemeProvider } from '../styles';
 import { ButtonBase } from './index';
 
 describe('<ButtonBase />', () => {
@@ -51,6 +52,10 @@ describe('<ButtonBase />', () => {
   });
 
   describe('ButtonBase render (variants & colors)', () => {
+    const themeModes: Array<React.ComponentProps<typeof ThemeProvider>['mode']> = [
+      'light',
+      'dark',
+    ];
     const variants: Array<React.ComponentProps<typeof ButtonBase>['variant']> = [
       'contained',
       'outlined',
@@ -64,14 +69,19 @@ describe('<ButtonBase />', () => {
       'wrong',
     ];
 
-    variants.forEach((variant) => {
-      colors.forEach((color) => {
-        it(`variant: "${variant}" & color: "${color}"`, () => {
-          const { asFragment } = render(
-            <ButtonBase variant={variant} color={color}>Text</ButtonBase>,
-          );
+    themeModes.forEach((themeMode) => {
+      describe(themeMode, () => {
+        variants.forEach((variant) => {
+          colors.forEach((color) => {
+            it(`variant: "${variant}" & color: "${color}"`, () => {
+              const { asFragment } = render(
+                <ButtonBase variant={variant} color={color}>Text</ButtonBase>,
+                { mode: themeMode },
+              );
 
-          expect(asFragment()).toMatchSnapshot();
+              expect(asFragment()).toMatchSnapshot();
+            });
+          });
         });
       });
     });
