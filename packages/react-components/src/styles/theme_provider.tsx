@@ -9,7 +9,7 @@ import type { ThemeOptionsType } from './types';
 type ThemeProviderProps = {
   children: React.ReactElement;
   theme?: ThemeOptionsType;
-  mode?: 'light' | 'dark';
+  mode?: ('light' | 'dark');
   cssVarsRoot?: string
 };
 /**
