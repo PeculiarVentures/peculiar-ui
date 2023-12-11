@@ -47,12 +47,13 @@ const FabRoot = styled(ButtonBase)<FabOwnProps>({
 
   if (props.variant === 'outlined') {
     if (isDark) {
-      backgroundColorDisabled = 'var(--pv-color-gray-1)';
-      colorDisabled = 'var(--pv-color-gray-6)';
-      borderColorDisabled = 'var(--pv-color-gray-5)';
+      backgroundColorDisabled = 'var(--pv-color-gray-3)';
+      colorDisabled = 'var(--pv-color-gray-4)';
+      borderColorDisabled = 'var(--pv-color-gray-4)';
     } else {
       colorDisabled = 'var(--pv-color-gray-8)';
-      borderColorDisabled = 'var(--pv-color-gray-8)';
+      borderColorDisabled = 'var(--pv-color-gray-2)';
+      backgroundColorDisabled = 'var(--pv-color-white)';
     }
   }
 

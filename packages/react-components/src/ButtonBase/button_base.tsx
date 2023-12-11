@@ -128,8 +128,8 @@ const ButtonBaseRoot = styled('button', {
     }
 
     if (isDark) {
-      borderColorDisabled = 'var(--pv-color-gray-5)';
-      colorDisabled = 'var(--pv-color-gray-6)';
+      borderColorDisabled = 'var(--pv-color-gray-6)';
+      colorDisabled = 'var(--pv-color-gray-5)';
     } else {
       borderColorDisabled = 'var(--pv-color-gray-8)';
       colorDisabled = 'var(--pv-color-gray-7)';
