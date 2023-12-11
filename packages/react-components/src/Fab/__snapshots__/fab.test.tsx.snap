@@ -379,7 +379,8 @@ exports[`<Fab /> variants variant "outlined" 1`] = `
 
 .emotion-0:disabled {
   color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-2);
+  background-color: var(--pv-color-white);
 }
 
 .emotion-1 {
