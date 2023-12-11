@@ -1,6 +1,1311 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "contained" & color: "default" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "contained" & color: "default" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: var(--pv-color-gray-6);
+  color: var(--pv-color-white);
+  box-shadow: var(--pv-shadow-dark-medium);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-3);
+  box-shadow: var(--pv-shadow-dark-hight);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "contained" & color: "primary" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: var(--pv-color-primary);
+  color: var(--pv-color-primary-contrast);
+  box-shadow: var(--pv-shadow-dark-medium);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-primary-tint-1);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-primary-tint-2);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-primary-tint-2);
+  box-shadow: var(--pv-shadow-dark-hight);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "contained" & color: "secondary" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: var(--pv-color-secondary);
+  color: var(--pv-color-secondary-contrast);
+  box-shadow: var(--pv-shadow-dark-medium);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-secondary-tint-1);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-secondary-tint-2);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-secondary-tint-2);
+  box-shadow: var(--pv-shadow-dark-hight);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "contained" & color: "white" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: var(--pv-color-white);
+  color: var(--pv-color-white);
+  box-shadow: var(--pv-shadow-dark-medium);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-gray-6);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+  box-shadow: var(--pv-shadow-dark-hight);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "contained" & color: "wrong" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: var(--pv-color-wrong);
+  color: var(--pv-color-wrong-contrast);
+  box-shadow: var(--pv-shadow-dark-medium);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-8);
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-wrong-tint-1);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-wrong-tint-2);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-wrong-tint-2);
+  box-shadow: var(--pv-shadow-dark-hight);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "outlined" & color: "default" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-color: var(--pv-color-gray-7);
+  color: var(--pv-color-white);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "outlined" & color: "primary" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-color: var(--pv-color-primary-shade-1);
+  color: var(--pv-color-primary);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-primary-shade-4);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-primary-shade-3);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-primary-shade-2);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "outlined" & color: "secondary" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-color: var(--pv-color-secondary-shade-1);
+  color: var(--pv-color-secondary);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-secondary-shade-4);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-secondary-shade-3);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-secondary-shade-2);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "outlined" & color: "white" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-color: var(--pv-color-white);
+  color: var(--pv-color-white);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-gray-8);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-9);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "outlined" & color: "wrong" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-color: var(--pv-color-wrong-shade-1);
+  color: var(--pv-color-wrong);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-wrong-shade-4);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-wrong-shade-3);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-wrong-shade-2);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "text" & color: "default" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-white);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "text" & color: "primary" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-primary);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-primary-shade-4);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-primary-shade-3);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-primary-shade-2);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "text" & color: "secondary" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-secondary);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-secondary-shade-4);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-secondary-shade-3);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-secondary-shade-2);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "text" & color: "white" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-white);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-gray-8);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-gray-9);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "text" & color: "wrong" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--pv-color-wrong);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled):hover {
+  background-color: var(--pv-color-wrong-shade-4);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-wrong-shade-3);
+}
+
+.emotion-0:not(:disabled):active {
+  background-color: var(--pv-color-wrong-shade-2);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-btn1-weight);
+  font-size: var(--pv-text-btn1-size);
+  line-height: var(--pv-text-btn1-height);
+  letter-spacing: var(--pv-text-btn1-spacing);
+  width: 100%;
+  display: inherit;
+  -webkit-align-items: inherit;
+  -webkit-box-align: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  -webkit-justify-content: inherit;
+  justify-content: inherit;
+}
+
+<button
+    class="emotion-0"
+    type="button"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "contained" & color: "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -89,7 +1394,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "containe
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "contained" & color: "primary" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "contained" & color: "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -178,7 +1483,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "containe
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "contained" & color: "secondary" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "contained" & color: "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -267,7 +1572,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "containe
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "contained" & color: "white" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "contained" & color: "white" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -356,7 +1661,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "containe
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "contained" & color: "wrong" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "contained" & color: "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -445,7 +1750,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "containe
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined" & color: "default" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "outlined" & color: "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -532,7 +1837,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined" & color: "primary" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "outlined" & color: "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -619,7 +1924,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined" & color: "secondary" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "outlined" & color: "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -706,7 +2011,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined" & color: "white" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "outlined" & color: "white" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -793,7 +2098,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined" & color: "wrong" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "outlined" & color: "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -880,7 +2185,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "outlined
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "text" & color: "default" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "text" & color: "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -965,7 +2270,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "text" & 
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "text" & color: "primary" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "text" & color: "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1050,7 +2355,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "text" & 
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "text" & color: "secondary" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "text" & color: "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1135,7 +2440,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "text" & 
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "text" & color: "white" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "text" & color: "white" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1220,7 +2525,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "text" & 
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) variant: "text" & color: "wrong" 1`] = `
+exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "text" & color: "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
