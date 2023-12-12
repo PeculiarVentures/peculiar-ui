@@ -68,7 +68,7 @@ export type ButtonBaseProps<
  */
 const ButtonBaseRoot = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<ButtonBaseOwnProps>((props) => ({
+})<ButtonBaseOwnProps>({
   fontFamily: 'inherit',
   outline: 'none',
   cursor: 'pointer',
@@ -84,16 +84,7 @@ const ButtonBaseRoot = styled('button', {
   backgroundColor: 'transparent',
   padding: 0,
   textDecoration: 'none',
-  '&:disabled': {
-    cursor: 'not-allowed',
-    boxShadow: 'none',
-    color: props.variant === 'text'
-      ? 'var(--pv-color-gray-7)'
-      : 'var(--pv-color-gray-8)',
-    backgroundColor: props.variant === 'contained' && 'var(--pv-color-gray-4)',
-    borderColor: props.variant === 'outlined' && 'var(--pv-color-gray-4)',
-  },
-}), (props) => {
+}, (props) => {
   const isDark = props.theme.mode === 'dark';
   let color: string = isDark
     ? 'var(--pv-color-white)'
@@ -105,6 +96,10 @@ const ButtonBaseRoot = styled('button', {
   let backgroundColorActive: string;
   let boxShadow: string;
   let boxShadowActive: string;
+
+  let colorDisabled: string;
+  let backgroundColorDisabled: string;
+  let borderColorDisabled: string;
 
   if (props.variant === 'outlined') {
     if (props.color === 'default') {
@@ -130,6 +125,14 @@ const ButtonBaseRoot = styled('button', {
       backgroundColorHover = `var(--pv-color-${props.color}-tint-5)`;
       backgroundColorFocus = `var(--pv-color-${props.color}-tint-4)`;
       backgroundColorActive = `var(--pv-color-${props.color}-tint-3)`;
+    }
+
+    if (isDark) {
+      borderColorDisabled = 'var(--pv-color-gray-6)';
+      colorDisabled = 'var(--pv-color-gray-5)';
+    } else {
+      borderColorDisabled = 'var(--pv-color-gray-8)';
+      colorDisabled = 'var(--pv-color-gray-7)';
     }
   }
 
@@ -162,9 +165,13 @@ const ButtonBaseRoot = styled('button', {
     if (isDark) {
       boxShadow = 'var(--pv-shadow-dark-medium)';
       boxShadowActive = 'var(--pv-shadow-dark-hight)';
+      colorDisabled = 'var(--pv-color-gray-6)';
+      backgroundColorDisabled = 'var(--pv-color-gray-5)';
     } else {
       boxShadow = 'var(--pv-shadow-light-low)';
       boxShadowActive = 'var(--pv-shadow-light-medium)';
+      colorDisabled = 'var(--pv-color-gray-8)';
+      backgroundColorDisabled = 'var(--pv-color-gray-4)';
     }
   }
 
@@ -189,6 +196,12 @@ const ButtonBaseRoot = styled('button', {
       backgroundColorFocus = `var(--pv-color-${props.color}-tint-4)`;
       backgroundColorActive = `var(--pv-color-${props.color}-tint-3)`;
     }
+
+    if (isDark) {
+      colorDisabled = 'var(--pv-color-gray-6)';
+    } else {
+      colorDisabled = 'var(--pv-color-gray-7)';
+    }
   }
 
   return {
@@ -196,6 +209,13 @@ const ButtonBaseRoot = styled('button', {
     backgroundColor,
     color,
     boxShadow,
+    '&:disabled': {
+      cursor: 'not-allowed',
+      boxShadow: 'none',
+      color: colorDisabled,
+      backgroundColor: backgroundColorDisabled,
+      borderColor: borderColorDisabled,
+    },
     '&:not(:disabled)': {
       '&:hover': {
         backgroundColor: backgroundColorHover,

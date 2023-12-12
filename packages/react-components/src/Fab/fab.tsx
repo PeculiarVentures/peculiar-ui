@@ -38,6 +38,32 @@ const FabRoot = styled(ButtonBase)<FabOwnProps>({
   height: 'var(--pv-size-base-11)',
   width: 'var(--pv-size-base-11)',
   padding: 'var(--pv-size-base-2)',
+}, (props) => {
+  const isDark = props.theme.mode === 'dark';
+
+  let colorDisabled: string;
+  let backgroundColorDisabled: string;
+  let borderColorDisabled: string;
+
+  if (props.variant === 'outlined') {
+    if (isDark) {
+      backgroundColorDisabled = 'var(--pv-color-gray-3)';
+      colorDisabled = 'var(--pv-color-gray-4)';
+      borderColorDisabled = 'var(--pv-color-gray-4)';
+    } else {
+      colorDisabled = 'var(--pv-color-gray-8)';
+      borderColorDisabled = 'var(--pv-color-gray-2)';
+      backgroundColorDisabled = 'var(--pv-color-white)';
+    }
+  }
+
+  return {
+    '&:disabled': {
+      color: colorDisabled,
+      borderColor: borderColorDisabled,
+      backgroundColor: backgroundColorDisabled,
+    },
+  };
 });
 /**
  *

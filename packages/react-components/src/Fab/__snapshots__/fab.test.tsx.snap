@@ -361,8 +361,8 @@ exports[`<Fab /> variants variant "outlined" 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   box-shadow: none;
-  color: var(--pv-color-gray-8);
-  border-color: var(--pv-color-gray-4);
+  color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-8);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -375,6 +375,12 @@ exports[`<Fab /> variants variant "outlined" 1`] = `
 
 .emotion-0:not(:disabled):active {
   background-color: var(--pv-color-primary-tint-3);
+}
+
+.emotion-0:disabled {
+  color: var(--pv-color-gray-8);
+  border-color: var(--pv-color-gray-2);
+  background-color: var(--pv-color-white);
 }
 
 .emotion-1 {
