@@ -68,7 +68,7 @@ export type ButtonBaseProps<
  */
 const ButtonBaseRoot = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<ButtonBaseOwnProps>(() => ({
+})<ButtonBaseOwnProps>({
   fontFamily: 'inherit',
   outline: 'none',
   cursor: 'pointer',
@@ -84,7 +84,7 @@ const ButtonBaseRoot = styled('button', {
   backgroundColor: 'transparent',
   padding: 0,
   textDecoration: 'none',
-}), (props) => {
+}, (props) => {
   const isDark = props.theme.mode === 'dark';
   let color: string = isDark
     ? 'var(--pv-color-white)'
