@@ -493,7 +493,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
         // @ts-ignore
         component="button"
         type="button"
-        variant="c1"
+        variant={size === 'small' ? 'c1' : 'b3'}
         className={className}
         aria-invalid={error || undefined}
         aria-placeholder={isValueEmpty || undefined}
