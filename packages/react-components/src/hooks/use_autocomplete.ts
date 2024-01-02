@@ -540,7 +540,9 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = undefi
     getRootProps: () => ({
       ref: anchorEl,
       'aria-expanded': popupOpen,
-      'aria-haspopup': 'listbox',
+      'aria-autocomplete': 'list',
+      'aria-controls': `${id}-listbox`,
+      role: 'combobox',
       onClick: handleClick,
     }),
     getListboxProps: () => ({
