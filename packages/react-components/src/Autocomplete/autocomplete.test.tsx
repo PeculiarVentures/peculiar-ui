@@ -72,7 +72,7 @@ describe('<Autocomplete />', () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByRole('combobox'));
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -87,7 +87,7 @@ describe('<Autocomplete />', () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByRole('combobox'));
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -100,7 +100,7 @@ describe('<Autocomplete />', () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByRole('combobox'));
 
     expect(baseElement).toMatchSnapshot();
   });

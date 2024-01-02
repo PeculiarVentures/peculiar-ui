@@ -14,10 +14,10 @@ exports[`<Autocomplete /> should pass className 1`] = `
 .emotion-1 {
   margin: 0;
   color: var(--pv-color-black);
-  font-weight: var(--pv-text-c1-weight);
-  font-size: var(--pv-text-c1-size);
-  line-height: var(--pv-text-c1-height);
-  letter-spacing: var(--pv-text-c1-spacing);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -104,10 +104,12 @@ exports[`<Autocomplete /> should pass className 1`] = `
     class="emotion-0"
   >
     <button
+      aria-autocomplete="list"
+      aria-controls="test-id-listbox"
       aria-expanded="false"
-      aria-haspopup="listbox"
       aria-placeholder="true"
       class="my-class-name emotion-1"
+      role="combobox"
       type="button"
     />
     <svg
@@ -151,10 +153,10 @@ exports[`<Autocomplete /> should pass error 1`] = `
 .emotion-1 {
   margin: 0;
   color: var(--pv-color-black);
-  font-weight: var(--pv-text-c1-weight);
-  font-size: var(--pv-text-c1-size);
-  line-height: var(--pv-text-c1-height);
-  letter-spacing: var(--pv-text-c1-spacing);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -378,11 +380,13 @@ exports[`<Autocomplete /> should pass error 1`] = `
       class="emotion-0"
     >
       <button
+        aria-autocomplete="list"
+        aria-controls="test-id-listbox"
         aria-expanded="true"
-        aria-haspopup="listbox"
         aria-invalid="true"
         aria-placeholder="true"
         class="emotion-1"
+        role="combobox"
         type="button"
       />
       <svg
@@ -476,10 +480,10 @@ exports[`<Autocomplete /> should pass loading 1`] = `
 .emotion-1 {
   margin: 0;
   color: var(--pv-color-black);
-  font-weight: var(--pv-text-c1-weight);
-  font-size: var(--pv-text-c1-size);
-  line-height: var(--pv-text-c1-height);
-  letter-spacing: var(--pv-text-c1-spacing);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -693,10 +697,12 @@ exports[`<Autocomplete /> should pass loading 1`] = `
       class="emotion-0"
     >
       <button
+        aria-autocomplete="list"
+        aria-controls="test-id-listbox"
         aria-expanded="true"
-        aria-haspopup="listbox"
         aria-placeholder="true"
         class="emotion-1"
+        role="combobox"
         type="button"
       />
       <svg
@@ -786,10 +792,10 @@ exports[`<Autocomplete /> should pass options 1`] = `
 .emotion-1 {
   margin: 0;
   color: var(--pv-color-black);
-  font-weight: var(--pv-text-c1-weight);
-  font-size: var(--pv-text-c1-size);
-  line-height: var(--pv-text-c1-height);
-  letter-spacing: var(--pv-text-c1-spacing);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1057,10 +1063,12 @@ exports[`<Autocomplete /> should pass options 1`] = `
       class="emotion-0"
     >
       <button
+        aria-autocomplete="list"
+        aria-controls="test-id-listbox"
         aria-expanded="true"
-        aria-haspopup="listbox"
         aria-placeholder="true"
         class="emotion-1"
+        role="combobox"
         type="button"
       />
       <svg
@@ -1176,10 +1184,10 @@ exports[`<Autocomplete /> should render with default multiple styles 1`] = `
 .emotion-1 {
   margin: 0;
   color: var(--pv-color-black);
-  font-weight: var(--pv-text-c1-weight);
-  font-size: var(--pv-text-c1-size);
-  line-height: var(--pv-text-c1-height);
-  letter-spacing: var(--pv-text-c1-spacing);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1274,10 +1282,12 @@ exports[`<Autocomplete /> should render with default multiple styles 1`] = `
     class="emotion-0"
   >
     <button
+      aria-autocomplete="list"
+      aria-controls="test-id-listbox"
       aria-expanded="false"
-      aria-haspopup="listbox"
       aria-placeholder="true"
       class="emotion-1"
+      role="combobox"
       type="button"
     />
     <svg
@@ -1322,10 +1332,10 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
 .emotion-1 {
   margin: 0;
   color: var(--pv-color-black);
-  font-weight: var(--pv-text-c1-weight);
-  font-size: var(--pv-text-c1-size);
-  line-height: var(--pv-text-c1-height);
-  letter-spacing: var(--pv-text-c1-spacing);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1412,10 +1422,12 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
     class="emotion-0"
   >
     <button
+      aria-autocomplete="list"
+      aria-controls="test-id-listbox"
       aria-expanded="false"
-      aria-haspopup="listbox"
       aria-placeholder="true"
       class="emotion-1"
+      role="combobox"
       type="button"
     />
     <svg
@@ -1460,10 +1472,10 @@ exports[`<Autocomplete /> sizes size "large" 1`] = `
 .emotion-1 {
   margin: 0;
   color: var(--pv-color-black);
-  font-weight: var(--pv-text-c1-weight);
-  font-size: var(--pv-text-c1-size);
-  line-height: var(--pv-text-c1-height);
-  letter-spacing: var(--pv-text-c1-spacing);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1550,10 +1562,12 @@ exports[`<Autocomplete /> sizes size "large" 1`] = `
     class="emotion-0"
   >
     <button
+      aria-autocomplete="list"
+      aria-controls="test-id-listbox"
       aria-expanded="false"
-      aria-haspopup="listbox"
       aria-placeholder="true"
       class="emotion-1"
+      role="combobox"
       type="button"
     />
     <svg
@@ -1598,10 +1612,10 @@ exports[`<Autocomplete /> sizes size "medium" 1`] = `
 .emotion-1 {
   margin: 0;
   color: var(--pv-color-black);
-  font-weight: var(--pv-text-c1-weight);
-  font-size: var(--pv-text-c1-size);
-  line-height: var(--pv-text-c1-height);
-  letter-spacing: var(--pv-text-c1-spacing);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1688,10 +1702,12 @@ exports[`<Autocomplete /> sizes size "medium" 1`] = `
     class="emotion-0"
   >
     <button
+      aria-autocomplete="list"
+      aria-controls="test-id-listbox"
       aria-expanded="false"
-      aria-haspopup="listbox"
       aria-placeholder="true"
       class="emotion-1"
+      role="combobox"
       type="button"
     />
     <svg
@@ -1826,10 +1842,12 @@ exports[`<Autocomplete /> sizes size "small" 1`] = `
     class="emotion-0"
   >
     <button
+      aria-autocomplete="list"
+      aria-controls="test-id-listbox"
       aria-expanded="false"
-      aria-haspopup="listbox"
       aria-placeholder="true"
       class="emotion-1"
+      role="combobox"
       type="button"
     />
     <svg
