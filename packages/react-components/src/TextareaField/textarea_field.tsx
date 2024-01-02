@@ -78,7 +78,7 @@ type TextareaFieldOwnProps = {
   readOnly?: boolean;
 };
 
-type TextareaFieldProps = TextareaFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type TextareaFieldProps = TextareaFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
 /**
  *
  */
@@ -86,7 +86,7 @@ type TextareaFieldProps = TextareaFieldOwnProps & Omit<React.HTMLAttributes<HTML
 /**
  * Styles.
  */
-const TextareaFieldInput = styled('textarea')<Required<Pick<TextareaFieldProps, 'size'>>>(
+const TextareaFieldInput = styled(Typography)<TextareaFieldProps>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -101,10 +101,6 @@ const TextareaFieldInput = styled('textarea')<Required<Pick<TextareaFieldProps, 
     display: 'block',
     appearance: 'none',
     resize: 'none',
-    fontWeight: 'var(--pv-text-c1-weight)' as 'normal',
-    fontSize: 'var(--pv-text-c1-size)',
-    lineHeight: 'var(--pv-text-c1-height)',
-    letterSpacing: 'var(--pv-text-c1-spacing)',
     ...(props.size === 'small' && {
       minHeight: 'var(--pv-size-base-12)',
     }),
@@ -189,7 +185,7 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
   const {
     size,
     label,
-    inputProps,
+    inputProps = {},
     disabled,
     defaultValue,
     id,
@@ -226,6 +222,8 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
       )}
       <TextareaFieldInput
         {...inputProps}
+        component="textarea"
+        variant={size === 'small' ? 'c1' : 'b3'}
         size={size}
         disabled={disabled}
         defaultValue={defaultValue}
@@ -233,9 +231,11 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
         value={value}
         required={required}
         name={name}
+        // @ts-ignore
         ref={inputRef}
         autoFocus={autoFocus}
         aria-invalid={error || undefined}
+        // @ts-ignore
         onChange={onChange}
         placeholder={placeholder}
         readOnly={readOnly}
