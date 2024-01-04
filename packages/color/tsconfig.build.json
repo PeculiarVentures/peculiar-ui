@@ -9,6 +9,6 @@
   ],
   "exclude": [
     "src/**/*.test.ts*",
-    "src/**/*.story.ts*"
+    "src/**/*.stories.ts*"
   ]
 }
