@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Hooks/useWindowEventListener" />
+
+## Overview
+
+React hook that enables you to add event listeners to a window element within a React component.
+
+## Usage
+
+```jsx
+import { useWindowEventListener } from '@peculiar/react-components';
+
+export const Demo = () => {
+  const [count, setCount] = React.useState(0);
+
+  const handleWindowClick = () => {
+    setCount((prevState) => prevState + 1);
+  };
+
+  useWindowEventListener('click', handleWindowClick);
+
+  return (
+    <p>
+      Click window count:
+      &nbsp;
+      {count}
+    </p>
+  );
+};
+```

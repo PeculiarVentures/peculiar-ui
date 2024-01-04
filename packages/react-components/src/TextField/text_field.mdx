@@ -1,0 +1,35 @@
+import { Meta, ArgTypes, Canvas } from '@storybook/blocks';
+import * as Stories from './text_field.stories';
+import { TextField } from './index';
+
+<Meta of={Stories} />
+
+# TextField
+
+Text fields let users enter and edit text.
+
+## Form props
+
+<Canvas of={Stories.FormExample} />
+
+## Size
+
+Use the `size` prop to change the size of the text field. You can set the value to `small`, `medium` (default) or `large`.
+
+<Canvas of={Stories.SizeExample} />
+
+## Color
+
+Supports only `secondary` color.
+
+<Canvas of={Stories.ColorExample} />
+
+## Validation
+
+The `error` prop toggles the error state. The `errorText` prop can then be used to provide feedback to the user about the error.
+
+<Canvas of={Stories.ValidationExample} />
+
+## Component API
+
+<ArgTypes of={TextField} />

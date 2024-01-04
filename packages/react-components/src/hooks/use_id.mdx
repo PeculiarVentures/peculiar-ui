@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Hooks/useId" />
+
+## Overview
+
+React hook for generating unique IDs that can be passed to accessibility attributes.
+
+## Usage
+
+```jsx
+import { useId } from '@peculiar/react-components';
+
+const Demo = () => {
+  const id = useId();
+
+  return (
+    <div>
+      ID is:
+      {' '}
+      {id}
+    </div>
+  );
+};
+```

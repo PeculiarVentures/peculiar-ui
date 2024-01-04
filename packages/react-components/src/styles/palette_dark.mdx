@@ -1,0 +1,37 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import { colors } from './foundations';
+
+<Meta title="Color Palette/Dark" />
+
+# Color Palette
+
+<ColorPalette>
+  <ColorItem
+    title="primary"
+    colors={colors.primaryDark}
+  />
+  <ColorItem
+    title="secondary"
+    colors={colors.secondaryDark}
+  />
+  <ColorItem
+    title="wrong"
+    colors={colors.wrongDark}
+  />
+  <ColorItem
+    title="attention"
+    colors={colors.attentionDark}
+  />
+  <ColorItem
+    title="success"
+    colors={colors.successDark}
+  />
+  <ColorItem
+    title="grayscale"
+    colors={colors.grayscaleDark}
+  />
+  <ColorItem
+    title="additional"
+    colors={colors.additionalDark}
+  />
+</ColorPalette>

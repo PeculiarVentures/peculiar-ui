@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Hooks/useDebounceCallback" />
+
+## Overview
+
+React hook that makes passed function debounced, otherwise acts like `useCallback`.
+
+## Usage
+
+```jsx
+import { useDebounceCallback } from '@peculiar/react-components';
+
+export const Demo = () => {
+  const [value, setValue] = React.useState('');
+  const setValueDebounced = useDebounceCallback(setValue, 300);
+
+  return (
+    <>
+      <p>
+        Below state will update 300ms after last change.
+      </p>
+      <p>
+        The input&apos;s value is:
+        {' '}
+        {value}
+      </p>
+      <input
+        type="text"
+        onChange={(event) => {
+          setValueDebounced(event.target.value);
+        }}
+      />
+    </>
+  );
+};
+```
