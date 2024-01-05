@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Installation" />
+
+# Installation
+
+To install `@peculiar/react-components` in your project, you will need to run the
+following command using [npm](https://www.npmjs.com/):
+
+```bash
+npm i @peculiar/react-components
+```
+
+If you prefer [Yarn](https://yarnpkg.com/en/), use the following command instead:
+
+```bash
+yarn add @peculiar/react-components
+```
+
+After installing, you need to set up the ThemeProvider at the root of your application. This can be either in your `index.jsx`, `index.tsx` or `App.jsx` depending on the framework you use.
+
+```tsx
+import { Button, ThemeProvider } from '@peculiar/react-components';
+
+function App() {
+  return (
+    <ThemeProvider>
+      <Button>
+        Action
+      </Button>
+    </ThemeProvider>
+  );
+}
+```

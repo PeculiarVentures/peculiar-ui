@@ -8,7 +8,7 @@ const meta = {
 
 export default meta;
 
-export const Demo = () => {
+export const DemoExample = () => {
   const [count, setCount] = React.useState(0);
 
   const handleWindowClick = () => {

@@ -1,0 +1,68 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Customization/CSS Variables" />
+
+# CSS Variables
+
+`@peculiar/react-components` now converts theme tokens (colors, font sizes, etc) to CSS Custom Properties (also known as "CSS variables").
+
+CSS variables are now supported in all modern browsers, and we think they are useful to:
+
+- avoid prop interpolations;
+- avoid classname regeneration from [emotion](https://emotion.sh/docs/introduction);
+- reduce runtime evaluation of token values in Theme context;
+- use theme token outside components (embedded forms, markdown content, etc.)
+
+## Converting theme tokens to CSS variables
+
+By default, `ThemeProvider` converts theme tokens defined in your theme (or our default theme) to CSS variables internally so you don't have to.
+
+Given a theme object that looks like this:
+
+```tsx
+const theme = {
+  color: {
+    black: '#293033',
+    primary: '#5ebc54',
+  },
+  text: {
+    h1: {
+      size: '30px',
+    },
+  },
+};
+```
+
+When you pass this theme to the `ThemeProvider`, we'll automatically generate CSS variables that look like:
+
+```css
+html {
+  --pv-color-black: #293033;
+  --pv-color-primary: #5ebc54;
+  --pv-text-h1-size: 30px;
+}
+```
+
+## Styling non-peculiar components
+
+You can write custom CSS to style the components
+
+```css
+.button-custom {
+  background-color: var(--pv-color-primary);
+}
+```
+
+## Attaching the CSS variables
+
+By default, `ThemeProvider` attaches the generated CSS variables to the `html, ::backdrop` element.
+
+To change the root element, pass the `cssVarsRoot` prop to `ThemeProvider` and set its value to the css selector of the element you want.
+
+```tsx
+<ThemeProvider cssVarsRoot='#app'>
+  <App />
+</ThemeProvider>
+```
+
+

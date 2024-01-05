@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Canvas } from '@storybook/blocks';
+import * as Stories from './use_clipboard.stories';
 
 <Meta title="Hooks/useClipboard" />
 
@@ -27,3 +28,7 @@ export const Demo = () => {
   );
 };
 ```
+
+## Demo
+
+<Canvas of={Stories.DemoExample} />

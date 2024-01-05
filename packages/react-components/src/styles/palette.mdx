@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/blocks';
+import { ColorItemExample } from './palette.stories'
+import { colors } from './foundations';
+
+<Meta title="Customization/Palette" />
+
+# Palette
+
+The palette enables you to modify the color of the components to suit your brand.
+
+## Colors
+
+<ColorItemExample
+  title="Primary"
+  colors={colors.primary}
+/>
+<ColorItemExample
+  title="Secondary"
+  colors={colors.secondary}
+/>
+<ColorItemExample
+  title="Wrong"
+  colors={colors.wrong}
+/>
+<ColorItemExample
+  title="Attention"
+  colors={colors.attention}
+/>
+<ColorItemExample
+  title="Success"
+  colors={colors.success}
+/>
+<ColorItemExample
+  title="Grayscale"
+  colors={colors.grayscale}
+/>
+<ColorItemExample
+  title="Additional"
+  colors={colors.additional}
+/>

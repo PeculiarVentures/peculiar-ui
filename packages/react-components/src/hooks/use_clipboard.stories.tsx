@@ -8,7 +8,7 @@ const meta = {
 
 export default meta;
 
-export const Demo = () => {
+export const DemoExample = () => {
   const {
     onCopy,
     hasCopied,

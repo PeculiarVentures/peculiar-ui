@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/blocks';
+import { ColorItemExample } from './palette.stories'
+import { colors } from './foundations';
+
+<Meta title="Customization/Dark mode" />
+
+# Dark mode
+
+You can make your application use the dark theme as the default—regardless of the user's preference—by adding mode: 'dark' to the `ThemeProvider`:
+
+```tsx
+import { Button, ThemeProvider } from '@peculiar/react-components';
+
+function App() {
+  return (
+    <ThemeProvider mode="dark">
+      <Button>
+        Action
+      </Button>
+    </ThemeProvider>
+  );
+}
+```
+
+## Colors dark
+
+<ColorItemExample
+  title="Primary"
+  colors={colors.primaryDark}
+/>
+<ColorItemExample
+  title="Secondary"
+  colors={colors.secondaryDark}
+/>
+<ColorItemExample
+  title="Wrong"
+  colors={colors.wrongDark}
+/>
+<ColorItemExample
+  title="Attention"
+  colors={colors.attentionDark}
+/>
+<ColorItemExample
+  title="Success"
+  colors={colors.successDark}
+/>
+<ColorItemExample
+  title="Grayscale"
+  colors={colors.grayscaleDark}
+/>
+<ColorItemExample
+  title="Additional"
+  colors={colors.additionalDark}
+/>

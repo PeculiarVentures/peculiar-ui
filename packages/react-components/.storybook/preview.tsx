@@ -4,6 +4,7 @@ import { useDarkMode } from 'storybook-dark-mode';
 import { DocsContainer, DocsContextProps } from '@storybook/addon-docs';
 import { ThemeProvider } from '../src';
 import { themeLight, themeDark } from './themes';
+import './global.css';
 
 type ThemedDocsContainerProps = {
   context: DocsContextProps;
@@ -53,6 +54,13 @@ const preview: Preview = {
     options: {
       storySort: {
         method: 'alphabetical',
+        order: [
+          'Installation',
+          'Customization',
+          ['CSS Variables', 'Palette', 'Dark mode'],
+          'Components',
+          'Hooks',
+        ],
       },
     },
   },
