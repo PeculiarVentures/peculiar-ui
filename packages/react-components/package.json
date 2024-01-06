@@ -22,13 +22,13 @@
     "directory": "packages/react-components"
   },
   "scripts": {
-    "start": "start-storybook -p 3000 -s ./.storybook/static",
+    "start": "storybook dev -p 3000",
     "prebuild": "yarn clean",
     "build": "yarn build:esm && yarn build:cjs && yarn build:esnext",
     "build:esm": "tsc -p tsconfig.build.json",
     "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/cjs",
     "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
-    "build:storybook": "build-storybook -o public -s ./.storybook/static",
+    "build:storybook": "storybook build -o public",
     "clean": "rimraf public dist themes",
     "test:unit": "jest --passWithNoTests --watchAll",
     "test:unit:coverage": "yarn test:unit --coverage --watchAll=false",
@@ -61,23 +61,19 @@
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.5.16",
-    "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-controls": "^6.5.16",
-    "@storybook/addon-docs": "^6.5.16",
-    "@storybook/addon-viewport": "^6.5.16",
-    "@storybook/builder-webpack5": "^6.5.16",
-    "@storybook/manager-webpack5": "^6.5.16",
-    "@storybook/react": "^6.5.16",
-    "@storybook/theming": "^6.5.16",
+    "@storybook/addon-essentials": "7.6.7",
+    "@storybook/react": "7.6.7",
+    "@storybook/react-vite": "7.6.7",
     "@types/react": "^18.0.34",
     "@types/react-dom": "^18.0.11",
-    "awesome-typescript-loader": "^5.2.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^3.0.2",
-    "storybook-dark-mode": "^2.1.1",
-    "typescript": "^4.6.3"
+    "storybook-dark-mode": "^3.0.3",
+    "storybook": "7.6.7",
+    "typescript": "^4.6.3",
+    "vite": "^5.0.8"
   },
   "publishConfig": {
     "access": "public"

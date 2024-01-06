@@ -1,0 +1,66 @@
+import { Meta, ArgTypes, Canvas } from '@storybook/blocks';
+import * as Stories from './button.stories';
+import { Button } from './index';
+
+<Meta of={Stories} />
+
+# Button
+
+Buttons allow users to take actions, and make choices, with a single tap.
+
+## Variant
+
+The `Button` comes with three variants: `text` (default), `contained`, and `outlined`.
+
+#### Text button
+
+<Canvas of={Stories.TextExample} />
+
+#### Contained button
+
+<Canvas of={Stories.ContainedExample} />
+
+#### Outlined button
+
+<Canvas of={Stories.OutlinedExample} />
+
+## Size
+
+Use the `size` prop to change the size of the button. You can set the value to `small`, `medium` (default) or `large`.
+
+<Canvas of={Stories.SizeExample} />
+
+## Color
+
+Use the `color` prop to change the color of the button. You can set the value to `default` (default), `primary`, `secondary`, `wrong` or `white`.
+
+#### Default color
+
+<Canvas of={Stories.DefaultColorExample} />
+
+#### Primary color
+
+<Canvas of={Stories.PrimaryColorExample} />
+
+#### Secondary color
+
+<Canvas of={Stories.SecondaryColorExample} />
+
+#### Wrong color
+
+<Canvas of={Stories.WrongColorExample} />
+
+#### White color
+
+<Canvas of={Stories.WhiteColorExample} className="bg-dark" />
+
+## Icon button
+
+Sometimes you might want to have icons for certain buttons to enhance the UX of the application as we recognize logos more easily than plain text.
+
+<Canvas of={Stories.IconExample} />
+
+## Component API
+
+<ArgTypes of={Button} />
+

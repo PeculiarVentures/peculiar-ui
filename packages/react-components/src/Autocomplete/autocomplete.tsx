@@ -639,5 +639,5 @@ Autocomplete.defaultProps = {
   required: false,
   allowCreateOption: false,
   createOptionText: 'Create new',
-  size: 'large',
+  size: 'medium',
 };

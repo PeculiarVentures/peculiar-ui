@@ -1,0 +1,30 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import * as Stories from './use_media_query.stories';
+
+<Meta title="Hooks/useMediaQuery" />
+
+## Overview
+
+React hook that tracks state of a CSS media query.
+
+## Usage
+
+```jsx
+import { useMediaQuery } from '@peculiar/react-components';
+
+const Demo = () => {
+  const isWide = useMediaQuery('(min-width: 480px)');
+
+  return (
+    <div>
+      Screen is wide:
+      {' '}
+      {isWide ? 'Yes' : 'No'}
+    </div>
+  );
+};
+```
+
+## Demo
+
+<Canvas of={Stories.DemoExample} />

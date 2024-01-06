@@ -1,0 +1,29 @@
+import { Meta, ArgTypes, Canvas } from '@storybook/blocks';
+import * as Stories from './typography.stories';
+import { Typography } from './index';
+
+<Meta of={Stories} />
+
+# Typography
+
+Use typography to present your design and content as clearly and efficiently as possible.
+
+## Variant
+
+<Canvas of={Stories.VariantExample} />
+
+## Color
+
+Use the `color` prop to change the color of the typography (see [props](#component-api) section).
+
+<Canvas of={Stories.ColorExample} />
+
+## Truncate text
+
+Pass the `noWrap` prop to render an ellipsis when the text exceeds the width of the viewport.
+
+<Canvas of={Stories.TruncateExample} />
+
+## Component API
+
+<ArgTypes of={Typography} />

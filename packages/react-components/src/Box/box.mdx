@@ -1,0 +1,35 @@
+import { Meta, ArgTypes, Canvas } from '@storybook/blocks';
+import * as Stories from './box.stories';
+import { Box } from './index';
+
+<Meta of={Stories} />
+
+# Box
+
+The Box component serves as a wrapper component for quickly change `background` and `border` properties.
+
+## Background
+
+Use the `background` prop to change the color of the Box background color (see [props](#component-api) section).
+
+<Canvas of={Stories.BackgroundColorExample} />
+
+## Border
+
+#### Border color
+
+Use the `borderColor` prop to change the color of the Box border (see [props](#component-api) section).
+
+<Canvas of={Stories.BorderColorExample} />
+
+#### Border style
+
+<Canvas of={Stories.BorderStyleExample} />
+
+#### Border position
+
+<Canvas of={Stories.BorderPositionExample} />
+
+## Component API
+
+<ArgTypes of={Box} />
