@@ -89,7 +89,7 @@ export type MenuListProps<
  * Styles.
  */
 const MenuListRoot = styled('ul')({
-  padding: 'var(--pv-size-base-2) 0px',
+  padding: 'var(--pv-size-base) 0px',
   outline: 'none',
   listStyle: 'none',
   margin: 0,
