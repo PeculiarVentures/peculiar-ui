@@ -50,7 +50,7 @@ exports[`<Menu /> should pass className 1`] = `
 }
 
 .emotion-3 {
-  padding: var(--pv-size-base-2) 0px;
+  padding: var(--pv-size-base) 0px;
   outline: none;
   list-style: none;
   margin: 0;

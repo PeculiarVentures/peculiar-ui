@@ -3,7 +3,7 @@
 exports[`<MenuList /> should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  padding: var(--pv-size-base-2) 0px;
+  padding: var(--pv-size-base) 0px;
   outline: none;
   list-style: none;
   margin: 0;
@@ -30,7 +30,7 @@ exports[`<MenuList /> should pass className 1`] = `
 exports[`<MenuList /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  padding: var(--pv-size-base-2) 0px;
+  padding: var(--pv-size-base) 0px;
   outline: none;
   list-style: none;
   margin: 0;
