@@ -48,3 +48,23 @@ div[data-name] > * {
   margin-right: 0.75rem !important;
   box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.06);
 }
+
+.color_item_custom-picker {
+  position: relative;
+  display: inline-flex;
+}
+
+.color_item_custom-picker_input {
+  all: unset;
+  width: 160px;
+  height: 200px;
+  display: block;
+  cursor: pointer;
+}
+
+.color_item_custom-picker_text {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  padding: 10px !important;
+}
