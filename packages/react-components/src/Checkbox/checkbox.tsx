@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { CheckIcon } from '../icons';
 import { useId } from '../hooks';
+import { opacity } from '../styles/foundations';
 
 /**
  * Types.
@@ -93,6 +94,9 @@ const CheckboxInput = styled('input')(
     let backgroundColorChecked = 'var(--pv-color-primary)';
     let colorDisabledChecked = 'var(--pv-color-gray-7)';
     let iconColorDisabledChecked = 'var(--pv-color-white)';
+    let opacityHover = opacity.light.switch.hover;
+    let opacityFocus = opacity.light.switch.focus;
+    let opacityActive = opacity.light.switch.active;
 
     if (isDark) {
       color = 'var(--pv-color-gray-7)';
@@ -100,6 +104,9 @@ const CheckboxInput = styled('input')(
       backgroundColorChecked = 'var(--pv-color-primary-tint-1)';
       colorDisabledChecked = 'var(--pv-color-gray-5)';
       iconColorDisabledChecked = 'var(--pv-color-gray-8)';
+      opacityHover = opacity.dark.switch.hover;
+      opacityFocus = opacity.dark.switch.focus;
+      opacityActive = opacity.dark.switch.active;
     }
 
     return ({
@@ -120,17 +127,17 @@ const CheckboxInput = styled('input')(
         },
         '&:hover': {
           '&:before': {
-            opacity: 0.18,
+            opacity: opacityHover,
           },
         },
         '&:focus-visible': {
           '&:before': {
-            opacity: 0.23,
+            opacity: opacityFocus,
           },
         },
         '&:active': {
           '&:before': {
-            opacity: 0.30,
+            opacity: opacityActive,
           },
         },
       },

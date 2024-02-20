@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import { Box } from '../Box';
 import { useId } from '../hooks';
+import { opacity } from '../styles/foundations';
 
 /**
  * Types.
@@ -93,6 +94,9 @@ const SwitchInput = styled('input', {
     let borderColorDisabled = 'var(--pv-color-gray-3)';
     let backgroundColorDisabled = 'var(--pv-color-gray-1)';
     let backgroundColorDisabledChecked = `var(--pv-color-${props.color}-tint-3)`;
+    let opacityHover = opacity.light.switch.hover;
+    let opacityFocus = opacity.light.switch.focus;
+    let opacityActive = opacity.light.switch.active;
 
     if (isDark) {
       backgroundColorChecked = `var(--pv-color-${props.color}-tint-1)`;
@@ -100,6 +104,9 @@ const SwitchInput = styled('input', {
       borderColorDisabled = 'var(--pv-color-gray-6)';
       backgroundColorDisabled = 'var(--pv-color-gray-7)';
       backgroundColorDisabledChecked = `var(--pv-color-${props.color}-shade-3)`;
+      opacityHover = opacity.dark.switch.hover;
+      opacityFocus = opacity.dark.switch.focus;
+      opacityActive = opacity.dark.switch.active;
     }
 
     return {
@@ -133,17 +140,17 @@ const SwitchInput = styled('input', {
         },
         '&:hover': {
           '+ [aria-hidden]:before': {
-            opacity: 0.18,
+            opacity: opacityHover,
           },
         },
         '&:focus-visible': {
           '+ [aria-hidden]:before': {
-            opacity: 0.23,
+            opacity: opacityFocus,
           },
         },
         '&:active': {
           '+ [aria-hidden]:before': {
-            opacity: 0.30,
+            opacity: opacityActive,
           },
         },
       },

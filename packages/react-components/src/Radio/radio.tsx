@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { DotIcon } from '../icons';
 import { useId } from '../hooks';
+import { opacity } from '../styles/foundations';
 
 /**
  * Types.
@@ -109,6 +110,9 @@ const RadioInput = styled('input')(
     let ellipseColorChecked = 'var(--pv-color-primary)';
     let colorDisabled = 'var(--pv-color-gray-6)';
     let colorDisabledChecked = 'var(--pv-color-gray-7)';
+    let opacityHover = opacity.light.switch.hover;
+    let opacityFocus = opacity.light.switch.focus;
+    let opacityActive = opacity.light.switch.active;
 
     if (isDark) {
       color = 'var(--pv-color-gray-7)';
@@ -117,6 +121,9 @@ const RadioInput = styled('input')(
       colorDisabled = 'var(--pv-color-gray-5)';
       colorDisabled = 'var(--pv-color-gray-5)';
       colorDisabledChecked = 'var(--pv-color-gray-5)';
+      opacityHover = opacity.dark.switch.hover;
+      opacityFocus = opacity.dark.switch.focus;
+      opacityActive = opacity.dark.switch.active;
     }
 
     return ({
@@ -134,17 +141,17 @@ const RadioInput = styled('input')(
         },
         '&:hover': {
           '&:before': {
-            opacity: 0.18,
+            opacity: opacityHover,
           },
         },
         '&:focus-visible': {
           '&:before': {
-            opacity: 0.23,
+            opacity: opacityFocus,
           },
         },
         '&:active': {
           '&:before': {
-            opacity: 0.30,
+            opacity: opacityActive,
           },
         },
       },
