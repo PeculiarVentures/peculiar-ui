@@ -109,6 +109,9 @@ const RadioInput = styled('input')(
     let ellipseColorChecked = 'var(--pv-color-primary)';
     let colorDisabled = 'var(--pv-color-gray-6)';
     let colorDisabledChecked = 'var(--pv-color-gray-7)';
+    let opacityHover = 0.18;
+    let opacityFocus = 0.23;
+    let opacityActive = 0.30;
 
     if (isDark) {
       color = 'var(--pv-color-gray-7)';
@@ -117,6 +120,9 @@ const RadioInput = styled('input')(
       colorDisabled = 'var(--pv-color-gray-5)';
       colorDisabled = 'var(--pv-color-gray-5)';
       colorDisabledChecked = 'var(--pv-color-gray-5)';
+      opacityHover = 0.35;
+      opacityFocus = 0.45;
+      opacityActive = 0.55;
     }
 
     return ({
@@ -134,17 +140,17 @@ const RadioInput = styled('input')(
         },
         '&:hover': {
           '&:before': {
-            opacity: 0.18,
+            opacity: opacityHover,
           },
         },
         '&:focus-visible': {
           '&:before': {
-            opacity: 0.23,
+            opacity: opacityFocus,
           },
         },
         '&:active': {
           '&:before': {
-            opacity: 0.30,
+            opacity: opacityActive,
           },
         },
       },

@@ -93,6 +93,9 @@ const CheckboxInput = styled('input')(
     let backgroundColorChecked = 'var(--pv-color-primary)';
     let colorDisabledChecked = 'var(--pv-color-gray-7)';
     let iconColorDisabledChecked = 'var(--pv-color-white)';
+    let opacityHover = 0.18;
+    let opacityFocus = 0.23;
+    let opacityActive = 0.30;
 
     if (isDark) {
       color = 'var(--pv-color-gray-7)';
@@ -100,6 +103,9 @@ const CheckboxInput = styled('input')(
       backgroundColorChecked = 'var(--pv-color-primary-tint-1)';
       colorDisabledChecked = 'var(--pv-color-gray-5)';
       iconColorDisabledChecked = 'var(--pv-color-gray-8)';
+      opacityHover = 0.35;
+      opacityFocus = 0.45;
+      opacityActive = 0.55;
     }
 
     return ({
@@ -120,17 +126,17 @@ const CheckboxInput = styled('input')(
         },
         '&:hover': {
           '&:before': {
-            opacity: 0.18,
+            opacity: opacityHover,
           },
         },
         '&:focus-visible': {
           '&:before': {
-            opacity: 0.23,
+            opacity: opacityFocus,
           },
         },
         '&:active': {
           '&:before': {
-            opacity: 0.30,
+            opacity: opacityActive,
           },
         },
       },
