@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import { Box } from '../Box';
 import { useId } from '../hooks';
-import * as constants from '../constants';
+import { opacity } from '../styles/foundations';
 
 /**
  * Types.
@@ -94,9 +94,9 @@ const SwitchInput = styled('input', {
     let borderColorDisabled = 'var(--pv-color-gray-3)';
     let backgroundColorDisabled = 'var(--pv-color-gray-1)';
     let backgroundColorDisabledChecked = `var(--pv-color-${props.color}-tint-3)`;
-    let opacityHover = constants.ACTIVATED_OPACITY_HOVER_LIGHT;
-    let opacityFocus = constants.ACTIVATED_OPACITY_FOCUS_LIGHT;
-    let opacityActive = constants.ACTIVATED_OPACITY_ACTIVE_LIGHT;
+    let opacityHover = opacity.light.switch.hover;
+    let opacityFocus = opacity.light.switch.focus;
+    let opacityActive = opacity.light.switch.active;
 
     if (isDark) {
       backgroundColorChecked = `var(--pv-color-${props.color}-tint-1)`;
@@ -104,9 +104,9 @@ const SwitchInput = styled('input', {
       borderColorDisabled = 'var(--pv-color-gray-6)';
       backgroundColorDisabled = 'var(--pv-color-gray-7)';
       backgroundColorDisabledChecked = `var(--pv-color-${props.color}-shade-3)`;
-      opacityHover = constants.ACTIVATED_OPACITY_HOVER_DARK;
-      opacityFocus = constants.ACTIVATED_OPACITY_FOCUS_DARK;
-      opacityActive = constants.ACTIVATED_OPACITY_ACTIVE_DARK;
+      opacityHover = opacity.dark.switch.hover;
+      opacityFocus = opacity.dark.switch.focus;
+      opacityActive = opacity.dark.switch.active;
     }
 
     return {
