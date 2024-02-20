@@ -323,7 +323,7 @@ exports[`<Avatar /> Avatar render variants should prioritize render as image ove
       alt="First"
       class="emotion-1"
       draggable="false"
-      src="https://bit.ly/dan-abramov"
+      src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
     />
   </div>
 </DocumentFragment>
@@ -417,7 +417,7 @@ exports[`<Avatar /> Avatar render variants should render as image 1`] = `
     <img
       class="emotion-1"
       draggable="false"
-      src="https://bit.ly/dan-abramov"
+      src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
     />
   </div>
 </DocumentFragment>
