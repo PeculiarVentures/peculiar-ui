@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { CheckIcon } from '../icons';
 import { useId } from '../hooks';
+import * as constants from '../constants';
 
 /**
  * Types.
@@ -93,9 +94,9 @@ const CheckboxInput = styled('input')(
     let backgroundColorChecked = 'var(--pv-color-primary)';
     let colorDisabledChecked = 'var(--pv-color-gray-7)';
     let iconColorDisabledChecked = 'var(--pv-color-white)';
-    let opacityHover = 0.18;
-    let opacityFocus = 0.23;
-    let opacityActive = 0.30;
+    let opacityHover = constants.ACTIVATED_OPACITY_HOVER_LIGHT;
+    let opacityFocus = constants.ACTIVATED_OPACITY_FOCUS_LIGHT;
+    let opacityActive = constants.ACTIVATED_OPACITY_ACTIVE_LIGHT;
 
     if (isDark) {
       color = 'var(--pv-color-gray-7)';
@@ -103,9 +104,9 @@ const CheckboxInput = styled('input')(
       backgroundColorChecked = 'var(--pv-color-primary-tint-1)';
       colorDisabledChecked = 'var(--pv-color-gray-5)';
       iconColorDisabledChecked = 'var(--pv-color-gray-8)';
-      opacityHover = 0.35;
-      opacityFocus = 0.45;
-      opacityActive = 0.55;
+      opacityHover = constants.ACTIVATED_OPACITY_HOVER_DARK;
+      opacityFocus = constants.ACTIVATED_OPACITY_FOCUS_DARK;
+      opacityActive = constants.ACTIVATED_OPACITY_ACTIVE_DARK;
     }
 
     return ({
