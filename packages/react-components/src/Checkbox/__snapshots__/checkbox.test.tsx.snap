@@ -44,7 +44,8 @@ exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
   transition: opacity 200ms;
 }
 
-.emotion-1:checked+[aria-hidden] {
+.emotion-1:checked+[aria-hidden],
+.emotion-1[data-indeterminate="true"]+[aria-hidden] {
   opacity: 1;
 }
 
@@ -52,12 +53,14 @@ exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
   cursor: pointer;
 }
 
-.emotion-1:not(:disabled):checked {
+.emotion-1:not(:disabled):checked,
+.emotion-1:not(:disabled)[data-indeterminate="true"] {
   color: var(--pv-color-primary-shade-1);
   background-color: var(--pv-color-primary);
 }
 
-.emotion-1:not(:disabled):checked+[aria-hidden] {
+.emotion-1:not(:disabled):checked+[aria-hidden],
+.emotion-1:not(:disabled)[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -78,12 +81,14 @@ exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
   color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked {
+.emotion-1:disabled:checked,
+.emotion-1:disabled[data-indeterminate="true"] {
   color: var(--pv-color-gray-7);
   background-color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked+[aria-hidden] {
+.emotion-1:disabled:checked+[aria-hidden],
+.emotion-1:disabled[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -105,6 +110,7 @@ exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
     <input
       checked=""
       class="emotion-1"
+      data-indeterminate="false"
       id="test-id"
       type="checkbox"
     />
@@ -170,7 +176,8 @@ exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked
   transition: opacity 200ms;
 }
 
-.emotion-1:checked+[aria-hidden] {
+.emotion-1:checked+[aria-hidden],
+.emotion-1[data-indeterminate="true"]+[aria-hidden] {
   opacity: 1;
 }
 
@@ -178,12 +185,14 @@ exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked
   cursor: pointer;
 }
 
-.emotion-1:not(:disabled):checked {
+.emotion-1:not(:disabled):checked,
+.emotion-1:not(:disabled)[data-indeterminate="true"] {
   color: var(--pv-color-primary-shade-1);
   background-color: var(--pv-color-primary);
 }
 
-.emotion-1:not(:disabled):checked+[aria-hidden] {
+.emotion-1:not(:disabled):checked+[aria-hidden],
+.emotion-1:not(:disabled)[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -204,12 +213,14 @@ exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked
   color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked {
+.emotion-1:disabled:checked,
+.emotion-1:disabled[data-indeterminate="true"] {
   color: var(--pv-color-gray-7);
   background-color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked+[aria-hidden] {
+.emotion-1:disabled:checked+[aria-hidden],
+.emotion-1:disabled[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -231,6 +242,7 @@ exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked
     <input
       checked=""
       class="emotion-1"
+      data-indeterminate="false"
       id="test-id"
       type="checkbox"
     />
@@ -296,7 +308,8 @@ exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
   transition: opacity 200ms;
 }
 
-.emotion-1:checked+[aria-hidden] {
+.emotion-1:checked+[aria-hidden],
+.emotion-1[data-indeterminate="true"]+[aria-hidden] {
   opacity: 1;
 }
 
@@ -304,12 +317,14 @@ exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
   cursor: pointer;
 }
 
-.emotion-1:not(:disabled):checked {
+.emotion-1:not(:disabled):checked,
+.emotion-1:not(:disabled)[data-indeterminate="true"] {
   color: var(--pv-color-primary-shade-1);
   background-color: var(--pv-color-primary);
 }
 
-.emotion-1:not(:disabled):checked+[aria-hidden] {
+.emotion-1:not(:disabled):checked+[aria-hidden],
+.emotion-1:not(:disabled)[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -330,12 +345,14 @@ exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
   color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked {
+.emotion-1:disabled:checked,
+.emotion-1:disabled[data-indeterminate="true"] {
   color: var(--pv-color-gray-7);
   background-color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked+[aria-hidden] {
+.emotion-1:disabled:checked+[aria-hidden],
+.emotion-1:disabled[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -356,6 +373,7 @@ exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
   >
     <input
       class="emotion-1"
+      data-indeterminate="false"
       disabled=""
       id="test-id"
       type="checkbox"
@@ -422,7 +440,8 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
   transition: opacity 200ms;
 }
 
-.emotion-1:checked+[aria-hidden] {
+.emotion-1:checked+[aria-hidden],
+.emotion-1[data-indeterminate="true"]+[aria-hidden] {
   opacity: 1;
 }
 
@@ -430,12 +449,14 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
   cursor: pointer;
 }
 
-.emotion-1:not(:disabled):checked {
+.emotion-1:not(:disabled):checked,
+.emotion-1:not(:disabled)[data-indeterminate="true"] {
   color: var(--pv-color-primary-shade-1);
   background-color: var(--pv-color-primary);
 }
 
-.emotion-1:not(:disabled):checked+[aria-hidden] {
+.emotion-1:not(:disabled):checked+[aria-hidden],
+.emotion-1:not(:disabled)[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -456,12 +477,14 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
   color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked {
+.emotion-1:disabled:checked,
+.emotion-1:disabled[data-indeterminate="true"] {
   color: var(--pv-color-gray-7);
   background-color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked+[aria-hidden] {
+.emotion-1:disabled:checked+[aria-hidden],
+.emotion-1:disabled[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -482,6 +505,7 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
   >
     <input
       class="emotion-1"
+      data-indeterminate="false"
       id="test-id"
       type="checkbox"
     />
@@ -547,7 +571,8 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
   transition: opacity 200ms;
 }
 
-.emotion-1:checked+[aria-hidden] {
+.emotion-1:checked+[aria-hidden],
+.emotion-1[data-indeterminate="true"]+[aria-hidden] {
   opacity: 1;
 }
 
@@ -555,12 +580,14 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
   cursor: pointer;
 }
 
-.emotion-1:not(:disabled):checked {
+.emotion-1:not(:disabled):checked,
+.emotion-1:not(:disabled)[data-indeterminate="true"] {
   color: var(--pv-color-primary-shade-1);
   background-color: var(--pv-color-primary);
 }
 
-.emotion-1:not(:disabled):checked+[aria-hidden] {
+.emotion-1:not(:disabled):checked+[aria-hidden],
+.emotion-1:not(:disabled)[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -581,12 +608,14 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
   color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked {
+.emotion-1:disabled:checked,
+.emotion-1:disabled[data-indeterminate="true"] {
   color: var(--pv-color-gray-7);
   background-color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked+[aria-hidden] {
+.emotion-1:disabled:checked+[aria-hidden],
+.emotion-1:disabled[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -607,6 +636,7 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
   >
     <input
       class="emotion-1"
+      data-indeterminate="false"
       id="test-id"
       type="checkbox"
     />
@@ -673,7 +703,8 @@ exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
   transition: opacity 200ms;
 }
 
-.emotion-1:checked+[aria-hidden] {
+.emotion-1:checked+[aria-hidden],
+.emotion-1[data-indeterminate="true"]+[aria-hidden] {
   opacity: 1;
 }
 
@@ -681,12 +712,14 @@ exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
   cursor: pointer;
 }
 
-.emotion-1:not(:disabled):checked {
+.emotion-1:not(:disabled):checked,
+.emotion-1:not(:disabled)[data-indeterminate="true"] {
   color: var(--pv-color-primary-shade-1);
   background-color: var(--pv-color-primary);
 }
 
-.emotion-1:not(:disabled):checked+[aria-hidden] {
+.emotion-1:not(:disabled):checked+[aria-hidden],
+.emotion-1:not(:disabled)[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -707,12 +740,14 @@ exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
   color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked {
+.emotion-1:disabled:checked,
+.emotion-1:disabled[data-indeterminate="true"] {
   color: var(--pv-color-gray-7);
   background-color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked+[aria-hidden] {
+.emotion-1:disabled:checked+[aria-hidden],
+.emotion-1:disabled[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -733,6 +768,7 @@ exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
   >
     <input
       class="emotion-1"
+      data-indeterminate="false"
       id="test-id"
       required=""
       type="checkbox"
@@ -799,7 +835,8 @@ exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
   transition: opacity 200ms;
 }
 
-.emotion-1:checked+[aria-hidden] {
+.emotion-1:checked+[aria-hidden],
+.emotion-1[data-indeterminate="true"]+[aria-hidden] {
   opacity: 1;
 }
 
@@ -807,12 +844,14 @@ exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
   cursor: pointer;
 }
 
-.emotion-1:not(:disabled):checked {
+.emotion-1:not(:disabled):checked,
+.emotion-1:not(:disabled)[data-indeterminate="true"] {
   color: var(--pv-color-primary-shade-1);
   background-color: var(--pv-color-primary);
 }
 
-.emotion-1:not(:disabled):checked+[aria-hidden] {
+.emotion-1:not(:disabled):checked+[aria-hidden],
+.emotion-1:not(:disabled)[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -833,12 +872,14 @@ exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
   color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked {
+.emotion-1:disabled:checked,
+.emotion-1:disabled[data-indeterminate="true"] {
   color: var(--pv-color-gray-7);
   background-color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked+[aria-hidden] {
+.emotion-1:disabled:checked+[aria-hidden],
+.emotion-1:disabled[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -860,6 +901,7 @@ exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
   >
     <input
       class="emotion-1"
+      data-indeterminate="false"
       id="test-id"
       type="checkbox"
     />
@@ -925,7 +967,8 @@ exports[`<Checkbox /> Checkbox render variants should render as default 1`] = `
   transition: opacity 200ms;
 }
 
-.emotion-1:checked+[aria-hidden] {
+.emotion-1:checked+[aria-hidden],
+.emotion-1[data-indeterminate="true"]+[aria-hidden] {
   opacity: 1;
 }
 
@@ -933,12 +976,14 @@ exports[`<Checkbox /> Checkbox render variants should render as default 1`] = `
   cursor: pointer;
 }
 
-.emotion-1:not(:disabled):checked {
+.emotion-1:not(:disabled):checked,
+.emotion-1:not(:disabled)[data-indeterminate="true"] {
   color: var(--pv-color-primary-shade-1);
   background-color: var(--pv-color-primary);
 }
 
-.emotion-1:not(:disabled):checked+[aria-hidden] {
+.emotion-1:not(:disabled):checked+[aria-hidden],
+.emotion-1:not(:disabled)[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -959,12 +1004,14 @@ exports[`<Checkbox /> Checkbox render variants should render as default 1`] = `
   color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked {
+.emotion-1:disabled:checked,
+.emotion-1:disabled[data-indeterminate="true"] {
   color: var(--pv-color-gray-7);
   background-color: var(--pv-color-gray-6);
 }
 
-.emotion-1:disabled:checked+[aria-hidden] {
+.emotion-1:disabled:checked+[aria-hidden],
+.emotion-1:disabled[data-indeterminate="true"]+[aria-hidden] {
   color: var(--pv-color-white);
 }
 
@@ -985,6 +1032,7 @@ exports[`<Checkbox /> Checkbox render variants should render as default 1`] = `
   >
     <input
       class="emotion-1"
+      data-indeterminate="false"
       id="test-id"
       type="checkbox"
     />

@@ -6,5 +6,6 @@ export { CloseCircleIcon } from './close_circle_icon';
 export { CloseIcon } from './close_icon';
 export { CloseSmallIcon } from './close_small_icon';
 export { DotIcon } from './dot_icon';
+export { MinusIcon } from './minus_icon';
 export { PlusIcon } from './plus_icon';
 export { WarningIcon } from './warning_icon';

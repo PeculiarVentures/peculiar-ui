@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { CheckIcon } from '../icons';
+import { CheckIcon, MinusIcon } from '../icons';
 import { useId } from '../hooks';
 import { opacity } from '../styles/foundations';
 
@@ -12,6 +12,11 @@ type CheckboxOwnProps = {
    * If `true`, the component is checked.
    */
   checked?: boolean;
+  /**
+   * If `true`, the component appears indeterminate. This does not set the native
+   * input element to indeterminate due to inconsistent behavior across browsers.
+   */
+  indeterminate?: boolean;
   /**
    * If `true`, the component is checked by default.
    */
@@ -111,14 +116,14 @@ const CheckboxInput = styled('input')(
 
     return ({
       color,
-      '&:checked': {
+      '&:checked, &[data-indeterminate="true"]': {
         '+ [aria-hidden]': {
           opacity: 1,
         },
       },
       '&:not(:disabled)': {
         cursor: 'pointer',
-        '&:checked': {
+        '&:checked, &[data-indeterminate="true"]': {
           color: colorChecked,
           backgroundColor: backgroundColorChecked,
           '+ [aria-hidden]': {
@@ -144,7 +149,7 @@ const CheckboxInput = styled('input')(
       '&:disabled': {
         cursor: 'not-allowed',
         color: 'var(--pv-color-gray-6)',
-        '&:checked': {
+        '&:checked, &[data-indeterminate="true"]': {
           color: colorDisabledChecked,
           backgroundColor: 'var(--pv-color-gray-6)',
 
@@ -174,6 +179,7 @@ const CheckboxIcon = styled('svg')({
 export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
   const {
     checked,
+    indeterminate = false,
     defaultChecked,
     required,
     inputProps,
@@ -184,6 +190,7 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
     ...other
   } = props;
   const id = useId(idProp);
+  const icon = indeterminate ? MinusIcon : checkedIcon;
 
   return (
     <CheckboxRoot
@@ -193,6 +200,7 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
     >
       <CheckboxInput
         {...inputProps}
+        data-indeterminate={indeterminate}
         type="checkbox"
         id={id}
         checked={checked}
@@ -202,7 +210,7 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
         onChange={onChange}
       />
       <CheckboxIcon
-        as={checkedIcon}
+        as={icon}
         aria-hidden
       />
     </CheckboxRoot>
