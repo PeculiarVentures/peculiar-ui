@@ -33,7 +33,10 @@ export type AutocompleteGroupedOption<T> = {
   options: T[];
 };
 
-export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undefined> = {
+export type UseAutocompleteProps<
+T,
+Multiple extends boolean | undefined = undefined,
+> = {
   /**
    * This prop is used to help implement the accessibility logic.
    * If you don't provide an id it will fall back to a randomly generated one.
@@ -110,7 +113,10 @@ export type UseAutocompleteProps<T, Multiple extends boolean | undefined = undef
   ) => void;
 };
 
-export type UseAutocompleteReturnType<T, Multiple extends boolean | undefined = undefined> = {
+export type UseAutocompleteReturnType<
+T,
+Multiple extends boolean | undefined = undefined,
+> = {
   groupedOptions: ReadonlyArray<T> | ReadonlyArray<AutocompleteGroupedOption<T>>;
   value: AutocompleteValue<T, Multiple>;
   searchValue: string;
@@ -151,7 +157,10 @@ const defaultFilterOptions: AutocompleteFilterOptionsType<any, false> = (
   });
 };
 
-export function useAutocomplete<T, Multiple extends boolean | undefined = undefined>(
+export function useAutocomplete<
+T,
+Multiple extends boolean | undefined = false,
+>(
   props: UseAutocompleteProps<T, Multiple>,
 ): UseAutocompleteReturnType<T, Multiple> {
   const {

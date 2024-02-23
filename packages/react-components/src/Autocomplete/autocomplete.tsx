@@ -23,92 +23,94 @@ export type AutocompleteRenderGroupParams = {
   children?: React.ReactNode;
 };
 
-export type AutocompleteOwnProps<T, Multiple extends boolean | undefined = undefined> =
-  UseAutocompleteProps<T, Multiple> & {
-    /**
-     * The className of the component.
-     */
-    className?: string;
-    /**
-     * The size of the root component.
-     */
-    size?: (
-      'small' |
-      'medium' |
-      'large'
-    );
-    /**
-     * The short hint displayed in the `input` before the user enters a value.
-     */
-    placeholder?: string;
-    /**
-     * Text to display when there are no options.
-     */
-    noOptionsText?: React.ReactNode;
-    /**
-     * If `true`, the component is in a loading state.
-     * This shows the `loadingText` in place of suggestions (only if there are no
-     * suggestions to show, e.g. `options` are empty).
-     */
-    loading?: boolean;
-    /**
-     * Text to display when in a loading state.
-     */
-    loadingText?: React.ReactNode;
-    /**
-     * The maximum number of tags that will be visible when not focused.
-     */
-    limitTags?: number;
-    /**
-     * If `true`, the popup search input will be hidden.
-     */
-    disableSearch?: boolean;
-    /**
-     * If `true`, the autocomplete will be disabled.
-     */
-    disabled?: boolean;
-    /**
-     * Name attribute of the `input` element.
-     */
-    name?: string;
-    /**
-     * If `true`, the `input` element is required.
-     */
-    required?: boolean;
-    /**
-     * Text to display when in the create button element.
-     */
-    createOptionText?: string;
-    /**
-     * If `true`, the create button element will be shown.
-     */
-    allowCreateOption?: boolean;
-    /**
-     * If `true`, the `input` will indicate an error.
-     */
-    error?: boolean;
-    errorText?: string;
-    /**
-     * Render the root element.
-     */
-    renderRoot?: (
-      props: object,
-      value: AutocompleteValue<T, Multiple>,
-      getTagProps: UseAutocompleteReturnType<T, Multiple>['getTagProps'],
-    ) => React.ReactNode;
-    /**
-     * Render the option, use `getOptionLabel` by default.
-     */
-    renderOption?: (props: object, option: T) => React.ReactNode;
-    /**
-     * The label to display when the tags are truncated (`limitTags`).
-     */
-    getLimitTagsText?: (more: number) => string;
-    /**
-     * Callback fired when the create button clicked.
-     */
-    onCreate?: (event: React.SyntheticEvent, value: string) => void;
-  };
+export type AutocompleteOwnProps<
+T,
+Multiple extends boolean | undefined = undefined,
+> = UseAutocompleteProps<T, Multiple> & {
+  /**
+   * The className of the component.
+   */
+  className?: string;
+  /**
+   * The size of the root component.
+   */
+  size?: (
+    'small' |
+    'medium' |
+    'large'
+  );
+  /**
+   * The short hint displayed in the `input` before the user enters a value.
+   */
+  placeholder?: string;
+  /**
+   * Text to display when there are no options.
+   */
+  noOptionsText?: React.ReactNode;
+  /**
+   * If `true`, the component is in a loading state.
+   * This shows the `loadingText` in place of suggestions (only if there are no
+   * suggestions to show, e.g. `options` are empty).
+   */
+  loading?: boolean;
+  /**
+   * Text to display when in a loading state.
+   */
+  loadingText?: React.ReactNode;
+  /**
+   * The maximum number of tags that will be visible when not focused.
+   */
+  limitTags?: number;
+  /**
+   * If `true`, the popup search input will be hidden.
+   */
+  disableSearch?: boolean;
+  /**
+   * If `true`, the autocomplete will be disabled.
+   */
+  disabled?: boolean;
+  /**
+   * Name attribute of the `input` element.
+   */
+  name?: string;
+  /**
+   * If `true`, the `input` element is required.
+   */
+  required?: boolean;
+  /**
+   * Text to display when in the create button element.
+   */
+  createOptionText?: string;
+  /**
+   * If `true`, the create button element will be shown.
+   */
+  allowCreateOption?: boolean;
+  /**
+   * If `true`, the `input` will indicate an error.
+   */
+  error?: boolean;
+  errorText?: string;
+  /**
+   * Render the root element.
+   */
+  renderRoot?: (
+    props: object,
+    value: AutocompleteValue<T, Multiple>,
+    getTagProps: UseAutocompleteReturnType<T, Multiple>['getTagProps'],
+  ) => React.ReactNode;
+  /**
+   * Render the option, use `getOptionLabel` by default.
+   */
+  renderOption?: (props: object, option: T) => React.ReactNode;
+  /**
+   * The label to display when the tags are truncated (`limitTags`).
+   */
+  getLimitTagsText?: (more: number) => string;
+  /**
+   * Callback fired when the create button clicked.
+   */
+  onCreate?: (event: React.SyntheticEvent, value: string) => void;
+};
 /**
  *
  */
@@ -121,7 +123,10 @@ const AutocompleteRoot = styled('div')({
   display: 'inline-flex',
   width: '100%',
 });
-const AutocompleteField = styled(Typography)<TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'multiple'>>>(
+
+const AutocompleteField = styled(Typography)<
+TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'multiple'>>
+>(
   (props) => ({
     outline: 'none',
     boxSizing: 'border-box',
@@ -358,9 +363,12 @@ const AutocompleteError = styled(Typography)({
  *
  */
 
-export const Autocomplete = <T, Multiple extends boolean | undefined = undefined>(
-  props: AutocompleteOwnProps<T, Multiple>,
-): JSX.Element => {
+export const Autocomplete = <
+T,
+Multiple extends boolean | undefined = false,
+>(
+    props: AutocompleteOwnProps<T, Multiple>,
+  ): JSX.Element => {
   const {
     className,
     size,
@@ -373,7 +381,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = undefined
     limitTags = 2,
     name,
     required,
-    multiple,
+    multiple = false,
     readOnly,
     createOptionText,
     allowCreateOption,
