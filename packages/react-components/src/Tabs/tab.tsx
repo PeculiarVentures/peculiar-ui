@@ -159,6 +159,7 @@ export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
       id={id}
       color={color}
       selected={selected}
+      aria-selected={Boolean(selected)}
       onClick={handleClick}
       {...other}
     >

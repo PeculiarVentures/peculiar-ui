@@ -22,6 +22,7 @@ const meta: Meta<typeof Tabs> = {
         Builds
       </Tab>,
     ],
+    value: 'home',
   },
   argTypes: {
     children: { control: false },
