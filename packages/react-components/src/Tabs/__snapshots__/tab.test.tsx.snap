@@ -62,6 +62,7 @@ exports[`<Tab /> should pass "component" 1`] = `
 }
 
 <a
+    aria-selected="false"
     class="emotion-0"
     id="tab1"
     role="tab"
@@ -138,6 +139,7 @@ exports[`<Tab /> should pass className 1`] = `
 }
 
 <button
+    aria-selected="false"
     class="my-class-name emotion-0"
     id="tab1"
     role="tab"
@@ -214,6 +216,7 @@ exports[`<Tab /> should pass disabled 1`] = `
 }
 
 <button
+    aria-selected="false"
     class="emotion-0"
     disabled=""
     id="tab1"
@@ -291,6 +294,7 @@ exports[`<Tab /> should render colors colors: "black" & selected: "false" 1`] = 
 }
 
 <button
+    aria-selected="false"
     class="emotion-0"
     id="tab1"
     role="tab"
@@ -368,6 +372,7 @@ exports[`<Tab /> should render colors colors: "black" & selected: "true" 1`] = `
 }
 
 <button
+    aria-selected="true"
     class="emotion-0"
     id="tab1"
     role="tab"
@@ -444,6 +449,7 @@ exports[`<Tab /> should render colors colors: "white" & selected: "false" 1`] = 
 }
 
 <button
+    aria-selected="false"
     class="emotion-0"
     id="tab1"
     role="tab"
@@ -521,6 +527,7 @@ exports[`<Tab /> should render colors colors: "white" & selected: "true" 1`] = `
 }
 
 <button
+    aria-selected="true"
     class="emotion-0"
     id="tab1"
     role="tab"
@@ -597,6 +604,7 @@ exports[`<Tab /> should render with default styles 1`] = `
 }
 
 <button
+    aria-selected="false"
     class="emotion-0"
     id="tab1"
     role="tab"
