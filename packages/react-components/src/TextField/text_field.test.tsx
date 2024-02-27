@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderWithWrapper as render, screen, userEvent } from '../test-utils';
-import { TextField } from '../index';
+import { TextField } from './index';
 
 describe('<TextField />', () => {
   describe('TextField render variants', () => {

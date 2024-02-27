@@ -20,7 +20,7 @@ export interface ChipOwnProps {
   /**
    * Override the default delete icon element. Shown only if `onDelete` is set.
    */
-  deleteIcon?: React.ReactElement;
+  deleteIcon?: React.ElementType<any>;
   /**
    * The variant to use.
    */
@@ -224,7 +224,7 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
     return (
       <ChipDeleteIcon
         aria-hidden
-        as={deleteIcon as React.ElementType}
+        as={deleteIcon}
         onClick={handleDeleteClick}
       />
     );

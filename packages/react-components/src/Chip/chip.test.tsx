@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderWithWrapper as render } from '../test-utils';
+import { PlusIcon } from '../icons';
 import { Chip } from './index';
 
 describe('<Chip />', () => {
@@ -12,6 +13,31 @@ describe('<Chip />', () => {
   it('should pass className', () => {
     const { asFragment } = render(
       <Chip className="my-class-name">
+        Text
+      </Chip>,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should have delete icon', () => {
+    const { asFragment } = render(
+      <Chip
+        onDelete={() => {}}
+      >
+        Text
+      </Chip>,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should have custom delete icon', () => {
+    const { asFragment } = render(
+      <Chip
+        deleteIcon={PlusIcon}
+        onDelete={() => {}}
+      >
         Text
       </Chip>,
     );

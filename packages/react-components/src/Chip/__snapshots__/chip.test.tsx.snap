@@ -1,5 +1,192 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Chip /> should have custom delete icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  max-width: 100%;
+  font-family: inherit;
+  outline: 0;
+  box-sizing: border-box;
+  border-radius: var(--pv-size-base-3);
+  padding: 0 var(--pv-size-base-2);
+  height: var(--pv-size-base-6);
+  background-color: transparent;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms,box-shadow 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms,box-shadow 200ms;
+  margin: 0 var(--pv-size-base);
+  cursor: default;
+  border: 1px solid transparent;
+  vertical-align: middle;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  white-space: nowrap;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: var(--pv-color-secondary);
+  color: var(--pv-color-white);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.emotion-2 {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0px calc(var(--pv-size-base) * -1) 0 var(--pv-size-base);
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+  opacity: 0.6;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.emotion-2:hover {
+  opacity: 1;
+}
+
+<div
+    class="emotion-0"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+    <svg
+      aria-hidden="true"
+      class="emotion-2"
+      fill="none"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 12.5h12M12 18.5v-12"
+        stroke="currentColor"
+        stroke-width="1.5"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Chip /> should have delete icon 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  max-width: 100%;
+  font-family: inherit;
+  outline: 0;
+  box-sizing: border-box;
+  border-radius: var(--pv-size-base-3);
+  padding: 0 var(--pv-size-base-2);
+  height: var(--pv-size-base-6);
+  background-color: transparent;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms,box-shadow 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms,box-shadow 200ms;
+  margin: 0 var(--pv-size-base);
+  cursor: default;
+  border: 1px solid transparent;
+  vertical-align: middle;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  white-space: nowrap;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: var(--pv-color-secondary);
+  color: var(--pv-color-white);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.emotion-2 {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0px calc(var(--pv-size-base) * -1) 0 var(--pv-size-base);
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+  opacity: 0.6;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.emotion-2:hover {
+  opacity: 1;
+}
+
+<div
+    class="emotion-0"
+  >
+    <span
+      class="emotion-1"
+    >
+      Text
+    </span>
+    <svg
+      aria-hidden="true"
+      class="emotion-2"
+      fill="none"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M12.671 12l2.665 2.665a.318.318 0 010 .447l-.224.224a.317.317 0 01-.447 0L12 12.671l-2.665 2.665a.317.317 0 01-.448 0l-.224-.224a.318.318 0 010-.447L11.33 12 8.663 9.335a.318.318 0 010-.447l.224-.224a.317.317 0 01.448 0L12 11.329l2.665-2.665a.317.317 0 01.447 0l.224.224a.318.318 0 010 .447L12.671 12z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<Chip /> should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {

@@ -5,8 +5,8 @@ import {
   userEvent,
   fireEvent,
 } from '../test-utils';
-import { Radio } from '../index';
 import { PlusIcon } from '../icons';
+import { Radio } from './index';
 
 describe('<Radio />', () => {
   describe('Radio render variants', () => {

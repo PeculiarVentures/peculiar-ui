@@ -5,8 +5,8 @@ import {
   userEvent,
   fireEvent,
 } from '../test-utils';
-import { Checkbox } from '../index';
 import { PlusIcon } from '../icons';
+import { Checkbox } from './index';
 
 describe('<Checkbox />', () => {
   describe('Checkbox render variants', () => {

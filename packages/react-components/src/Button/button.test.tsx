@@ -5,8 +5,8 @@ import {
   renderWithWrapper as render,
   screen,
 } from '../test-utils';
-import { Button } from './index';
 import { PlusIcon } from '../icons';
+import { Button } from './index';
 
 describe('<Button />', () => {
   describe('Button render variants', () => {
