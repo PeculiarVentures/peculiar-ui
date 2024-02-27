@@ -8,6 +8,11 @@ import { useImage } from '../hooks';
 /**
  * Types.
  */
+type AvatarInitialsProps = Pick<AvatarOwnProps, 'children' | 'color'> & {
+  role: string;
+  'aria-label': string;
+};
+
 type AvatarOwnProps = {
   /**
    * Used to render badge inside the avatar.
@@ -21,10 +26,6 @@ type AvatarOwnProps = {
    */
   name?: string;
   /**
-   * Function to get the initials to display.
-   */
-  getInitials?: (name: string) => string;
-  /**
    * The `src` attribute for the `img` element.
    */
   src?: string;
@@ -32,10 +33,6 @@ type AvatarOwnProps = {
    * The className of the component.
    */
   className?: string;
-  /**
-   * Props applied to the `Typography` element.
-   */
-  typographyProps?: Partial<React.ComponentProps<typeof Typography>>;
   /**
    * The size of the avatar.
    */
@@ -48,6 +45,14 @@ type AvatarOwnProps = {
    * The color of initials text.
    */
   color?: ColorType;
+  /**
+   * Render the initials element.
+   */
+  renderInitials?: (props: AvatarInitialsProps) => React.ReactNode;
+  /**
+   * Function to get the initials to display.
+   */
+  getInitials?: (name: string) => string;
 };
 
 type AvatarProps = AvatarOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
@@ -108,14 +113,21 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
     getInitials = initials,
     background,
     color,
-    typographyProps,
+    renderInitials: renderInitialsProp,
     ...other
   } = props;
   const { image } = useImage(src);
   const showImage = image?.src;
   const showInitials = name && getInitials;
-
   let children = null;
+
+  const defaultRenderInitials = (propsInitials: AvatarInitialsProps) => (
+    <Typography
+      {...propsInitials}
+    />
+  );
+
+  const renderInitials = renderInitialsProp || defaultRenderInitials;
 
   if (showImage) {
     children = (
@@ -126,16 +138,12 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
       />
     );
   } else if (showInitials) {
-    children = (
-      <Typography
-        {...typographyProps}
-        color={color}
-        aria-label={name}
-        role="img"
-      >
-        {getInitials(name)}
-      </Typography>
-    );
+    children = renderInitials({
+      color,
+      children: getInitials(name),
+      role: 'img',
+      'aria-label': name,
+    });
   } else {
     children = (
       <svg

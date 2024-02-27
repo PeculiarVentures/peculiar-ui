@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Avatar /> Avatar render sizes should render a "large" size 1`] = `
+exports[`<Avatar /> Avatar render sizes size "large" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-gray-7);
@@ -46,7 +46,7 @@ exports[`<Avatar /> Avatar render sizes should render a "large" size 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Avatar /> Avatar render sizes should render a "medium" size 1`] = `
+exports[`<Avatar /> Avatar render sizes size "medium" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-gray-7);
@@ -92,7 +92,7 @@ exports[`<Avatar /> Avatar render sizes should render a "medium" size 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Avatar /> Avatar render sizes should render a "small" size 1`] = `
+exports[`<Avatar /> Avatar render sizes size "small" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-gray-7);
@@ -138,7 +138,7 @@ exports[`<Avatar /> Avatar render sizes should render a "small" size 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Avatar /> Avatar render variants should  render 1 initial with a 1-word name 1`] = `
+exports[`<Avatar /> Avatar render variants shoul change initials render element 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: var(--pv-color-gray-7);
@@ -164,25 +164,16 @@ exports[`<Avatar /> Avatar render variants should  render 1 initial with a 1-wor
   width: var(--pv-size-base-7);
 }
 
-.emotion-1 {
-  margin: 0;
-  color: var(--pv-color-white);
-  font-weight: var(--pv-text-b1-weight);
-  font-size: var(--pv-text-b1-size);
-  line-height: var(--pv-text-b1-height);
-  letter-spacing: var(--pv-text-b1-spacing);
-}
-
 <div
     class="emotion-0"
   >
-    <p
+    <h1
       aria-label="First"
-      class="emotion-1"
+      color="white"
       role="img"
     >
       F
-    </p>
+    </h1>
   </div>
 </DocumentFragment>
 `;
@@ -329,6 +320,55 @@ exports[`<Avatar /> Avatar render variants should prioritize render as image ove
 </DocumentFragment>
 `;
 
+exports[`<Avatar /> Avatar render variants should render 1 initial with a 1-word name 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--pv-color-gray-7);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  height: var(--pv-size-base-7);
+  width: var(--pv-size-base-7);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: var(--pv-color-white);
+  font-weight: var(--pv-text-b1-weight);
+  font-size: var(--pv-text-b1-size);
+  line-height: var(--pv-text-b1-height);
+  letter-spacing: var(--pv-text-b1-spacing);
+}
+
+<div
+    class="emotion-0"
+  >
+    <p
+      aria-label="First"
+      class="emotion-1"
+      role="img"
+    >
+      F
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<Avatar /> Avatar render variants should render as default 1`] = `
 <DocumentFragment>
   .emotion-0 {
@@ -468,144 +508,6 @@ exports[`<Avatar /> Avatar render variants should render initials with fn 1`] = 
     >
       F
     </p>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`<Avatar /> sizes size "large" 1`] = `
-<DocumentFragment>
-  .emotion-0 {
-  background: var(--pv-color-gray-7);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  position: relative;
-  height: var(--pv-size-base-8);
-  width: var(--pv-size-base-8);
-}
-
-<div
-    class="emotion-0"
-  >
-    <svg
-      fill="none"
-      role="img"
-      viewBox="0 0 10 13"
-      width="10"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M2.998 3.174c0 1.594 1 2.674 2 2.674s2-1.08 2-2.674c0-1.595-1-2.674-2-2.674s-2 1.08-2 2.674zM5 8.858c-1.249 0-2.383-.448-3.308-1.146C.95 8.064.5 8.878.5 9.812v2.12h9V9.81c0-.918-.46-1.746-1.193-2.098C7.383 8.41 6.25 8.858 5 8.858z"
-        fill="#fff"
-        stroke="#fff"
-      />
-    </svg>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`<Avatar /> sizes size "medium" 1`] = `
-<DocumentFragment>
-  .emotion-0 {
-  background: var(--pv-color-gray-7);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  position: relative;
-  height: var(--pv-size-base-7);
-  width: var(--pv-size-base-7);
-}
-
-<div
-    class="emotion-0"
-  >
-    <svg
-      fill="none"
-      role="img"
-      viewBox="0 0 10 13"
-      width="10"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M2.998 3.174c0 1.594 1 2.674 2 2.674s2-1.08 2-2.674c0-1.595-1-2.674-2-2.674s-2 1.08-2 2.674zM5 8.858c-1.249 0-2.383-.448-3.308-1.146C.95 8.064.5 8.878.5 9.812v2.12h9V9.81c0-.918-.46-1.746-1.193-2.098C7.383 8.41 6.25 8.858 5 8.858z"
-        fill="#fff"
-        stroke="#fff"
-      />
-    </svg>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`<Avatar /> sizes size "small" 1`] = `
-<DocumentFragment>
-  .emotion-0 {
-  background: var(--pv-color-gray-7);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  position: relative;
-  height: var(--pv-size-base-6);
-  width: var(--pv-size-base-6);
-}
-
-<div
-    class="emotion-0"
-  >
-    <svg
-      fill="none"
-      role="img"
-      viewBox="0 0 10 13"
-      width="10"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M2.998 3.174c0 1.594 1 2.674 2 2.674s2-1.08 2-2.674c0-1.595-1-2.674-2-2.674s-2 1.08-2 2.674zM5 8.858c-1.249 0-2.383-.448-3.308-1.146C.95 8.064.5 8.878.5 9.812v2.12h9V9.81c0-.918-.46-1.746-1.193-2.098C7.383 8.41 6.25 8.858 5 8.858z"
-        fill="#fff"
-        stroke="#fff"
-      />
-    </svg>
   </div>
 </DocumentFragment>
 `;

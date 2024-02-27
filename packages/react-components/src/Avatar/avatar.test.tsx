@@ -27,7 +27,7 @@ describe('<Avatar />', () => {
       expect(asFragment()).toMatchSnapshot();
     });
 
-    it('should  render 1 initial with a 1-word name', () => {
+    it('should render 1 initial with a 1-word name', () => {
       const { asFragment } = render(<Avatar name="First" />);
 
       expect(screen.getByText('F')).toBeInTheDocument();
@@ -68,6 +68,21 @@ describe('<Avatar />', () => {
 
       expect(asFragment()).toMatchSnapshot();
     });
+
+    it('shoul change initials render element', () => {
+      const { asFragment } = render(
+        <Avatar
+          name="First"
+          renderInitials={(props) => (
+            // eslint-disable-next-line jsx-a11y/heading-has-content
+            <h1 {...props} />
+          )}
+        />,
+      );
+
+      expect(screen.getByText('F')).toBeInTheDocument();
+      expect(asFragment()).toMatchSnapshot();
+    });
   });
 
   describe('Avatar render sizes', () => {
@@ -78,7 +93,7 @@ describe('<Avatar />', () => {
     ];
 
     sizes.forEach((size) => {
-      it(`should render a "${size}" size`, () => {
+      it(`size "${size}"`, () => {
         const { asFragment } = render(
           <Avatar size={size} />,
         );
@@ -111,24 +126,6 @@ describe('<Avatar />', () => {
       fireEvent.load(img);
 
       expect(handleLoad).toHaveBeenCalledTimes(1);
-    });
-  });
-
-  describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Avatar>['size']> = [
-      'small',
-      'medium',
-      'large',
-    ];
-
-    sizes.forEach((size) => {
-      it(`size "${size}"`, () => {
-        const { asFragment } = render(
-          <Avatar size={size} />,
-        );
-
-        expect(asFragment()).toMatchSnapshot();
-      });
     });
   });
 });
