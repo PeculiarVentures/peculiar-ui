@@ -50,7 +50,6 @@ type DialogOwnProps = {
     'medium' |
     'large'
   );
-  'data-testid'?: string;
   /**
    * If `true`, the dialog will be show CircularProgress component and disable all interactions.
    */
@@ -59,6 +58,7 @@ type DialogOwnProps = {
    * The color of the CircularProgress component.
    */
   loadingColor?: CircularProgressProps['color'];
+  'data-testid'?: string;
 };
 
 type DialogProps = DialogOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
@@ -66,11 +66,13 @@ type DialogProps = DialogOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, '
  *
  */
 
+const reactPropsRegex = /^(loading|fullScreen)$/;
+
 /**
  * Styles.
  */
 const DialogRoot = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'loading',
+  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
 })<DialogOwnProps>(
   (props) => ({
     width: '100%',
