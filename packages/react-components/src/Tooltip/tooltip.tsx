@@ -363,9 +363,12 @@ Tooltip.defaultProps = {
   placement: 'bottom',
   size: 'small',
   color: 'white',
-  disablePortal: true,
   enterDelay: 100,
   leaveDelay: 0,
   arrow: false,
   offset: 15,
+  disableFocusListener: false,
+  disableHoverListener: false,
+  disableTouchListener: false,
+  disablePortal: true,
 };

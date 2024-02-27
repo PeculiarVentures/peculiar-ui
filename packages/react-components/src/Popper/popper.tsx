@@ -1,7 +1,11 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { usePopper, PopperProps as PopperReactProps, Modifier } from 'react-popper';
 import { Portal } from '../Portal';
 
+/**
+ * Types.
+ */
 type BaseProps = {
   /**
    * If `true`, the popper is visible.
@@ -35,6 +39,17 @@ type BaseProps = {
 };
 
 type PopperProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+/**
+ *
+ */
+
+/**
+ * Styles.
+ */
+const PopperTooltip = styled('div')({});
+/**
+ *
+ */
 
 export const Popper: React.FC<PopperProps> = (props) => {
   const {
@@ -84,7 +99,7 @@ export const Popper: React.FC<PopperProps> = (props) => {
   );
 
   const tooltip = (
-    <div
+    <PopperTooltip
       {...other}
       ref={setPopperElement}
       style={styles.popper}
@@ -92,7 +107,7 @@ export const Popper: React.FC<PopperProps> = (props) => {
       {...attributes.popper}
     >
       {typeof children === 'function' ? children(styles.arrow) : children}
-    </div>
+    </PopperTooltip>
   );
 
   const render = () => {
