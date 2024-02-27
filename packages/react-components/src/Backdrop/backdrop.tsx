@@ -33,10 +33,14 @@ export type BackdropProps = BackdropOwnProps
  *
  */
 
+const reactPropsRegex = /^(as|open|invisible|transitionDuration|variant)$/;
+
 /**
  * Styles.
  */
-const BackdropRoot = styled(Box)<Required<Pick<BackdropOwnProps, 'invisible'>>>((props) => ({
+const BackdropRoot = styled(Box, {
+  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
+})<Required<Pick<BackdropOwnProps, 'invisible'>>>((props) => ({
   zIndex: -1,
   position: 'fixed',
   right: 0,

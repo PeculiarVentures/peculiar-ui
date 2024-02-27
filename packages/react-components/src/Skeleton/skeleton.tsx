@@ -42,6 +42,8 @@ export type SkeletonProps<
  *
  */
 
+const reactPropsRegex = /^(as|height|width|variant)$/;
+
 /**
  * Styles.
  */
@@ -58,7 +60,7 @@ const pulseKeyframe = keyframes`
 `;
 
 const SkeletonRoot = styled(Box, {
-  shouldForwardProp: (prop) => !['width', 'height'].includes(prop),
+  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
 })<SkeletonProps>((props) => ({
   display: 'block',
   height: '1.2em',

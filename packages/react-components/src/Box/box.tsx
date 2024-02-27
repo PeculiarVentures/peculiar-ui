@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import isPropValid from '@emotion/is-prop-valid';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import { ColorType } from '../styles';
 
@@ -34,11 +33,13 @@ export type BoxProps<
  *
  */
 
+const reactPropsRegex = /^(as|background|borderColor|borderWidth|borderStyle|borderPosition|borderRadius)$/;
+
 /**
  * Styles.
  */
 const BoxRoot = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop),
+  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
 })<BoxOwnProps>(
   (props) => ({
     background: props.background && `var(--pv-color-${props.background})`,

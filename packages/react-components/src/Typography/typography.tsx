@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import isPropValid from '@emotion/is-prop-valid';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
 import {
   ColorType,
@@ -45,11 +44,13 @@ export type TypographyProps<
  *
  */
 
+const reactPropsRegex = /^(as|color|variant|noWrap)$/;
+
 /**
  * Styles.
  */
 const TypographyRoot = styled('p', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
 })<TypographyOwnProps>((props) => ({
   margin: 0,
   color: props.color === 'inherit' ? 'inherit' : `var(--pv-color-${props.color})`,
