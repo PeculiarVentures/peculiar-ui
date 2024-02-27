@@ -13,14 +13,14 @@ type CheckboxOwnProps = {
    */
   checked?: boolean;
   /**
+   * If `true`, the component is checked by default.
+   */
+  defaultChecked?: boolean;
+  /**
    * If `true`, the component appears indeterminate. This does not set the native
    * input element to indeterminate due to inconsistent behavior across browsers.
    */
   indeterminate?: boolean;
-  /**
-   * If `true`, the component is checked by default.
-   */
-  defaultChecked?: boolean;
   /**
    * Attributes applied to the input element.
    */
@@ -41,6 +41,10 @@ type CheckboxOwnProps = {
    * If `true`, the `input` element will be required.
    */
   required?: boolean;
+  /**
+   * Name attribute of the `input` element.
+   */
+  name?: string;
   /**
    * The icon to display when the component is checked.
    */
@@ -185,6 +189,7 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
     inputProps,
     disabled,
     id: idProp,
+    name,
     checkedIcon = CheckIcon,
     onChange,
     ...other
@@ -202,6 +207,7 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
         {...inputProps}
         data-indeterminate={indeterminate}
         type="checkbox"
+        name={name}
         id={id}
         checked={checked}
         defaultChecked={defaultChecked}

@@ -37,13 +37,13 @@ type RadioOwnProps = {
    */
   required?: boolean;
   /**
-   * The icon to display when the component is checked.
-   */
-  checkedIcon?: React.ElementType<any>;
-  /**
    * Name attribute of the `input` element.
    */
   name?: string;
+  /**
+   * The icon to display when the component is checked.
+   */
+  checkedIcon?: React.ElementType<any>;
   /**
    * Callback fired when the state is changed.
    */
@@ -191,8 +191,8 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
     inputProps,
     disabled,
     id: idProp,
-    checkedIcon = DotIcon,
     name,
+    checkedIcon = DotIcon,
     onChange,
     ...other
   } = props;

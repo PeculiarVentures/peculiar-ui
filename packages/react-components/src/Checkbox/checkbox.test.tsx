@@ -52,6 +52,12 @@ describe('<Checkbox />', () => {
       expect(asFragment()).toMatchSnapshot();
     });
 
+    it('should have name attr', () => {
+      const { asFragment } = render(<Checkbox id="test-id" name="test-name" />);
+
+      expect(asFragment()).toMatchSnapshot();
+    });
+
     it('should have test id', () => {
       const { asFragment } = render(<Checkbox id="test-id" data-testid="test-id" />);
 
