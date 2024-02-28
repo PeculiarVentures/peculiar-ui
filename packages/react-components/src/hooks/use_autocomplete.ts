@@ -124,6 +124,7 @@ Multiple extends boolean | undefined = undefined,
   id: string;
   getOptionProps: (option: T, index: number) => React.HTMLAttributes<HTMLLIElement>;
   getListboxProps: () => React.HTMLAttributes<HTMLUListElement>;
+  getInputLabelProps: () => React.HTMLAttributes<HTMLLabelElement>;
   getRootProps: () => React.HTMLAttributes<HTMLDivElement>;
   getInputProps: () => React.HTMLAttributes<HTMLInputElement>;
   getClearProps: () => React.HTMLAttributes<HTMLDivElement>;
@@ -551,8 +552,13 @@ Multiple extends boolean | undefined = false,
       'aria-expanded': popupOpen,
       'aria-autocomplete': 'list',
       'aria-controls': `${id}-listbox`,
+      id: `${id}-toggle-button`,
       role: 'combobox',
       onClick: handleClick,
+    }),
+    getInputLabelProps: () => ({
+      id: `${id}-label`,
+      htmlFor: `${id}-toggle-button`,
     }),
     getListboxProps: () => ({
       ref: handleListboxRef,
@@ -561,6 +567,7 @@ Multiple extends boolean | undefined = false,
       id: `${id}-listbox`,
     }),
     getInputProps: () => ({
+      id: `${id}-input`,
       type: 'search',
       value: searchValue,
       autoComplete: 'off',

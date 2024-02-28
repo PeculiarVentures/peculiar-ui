@@ -44,6 +44,10 @@ Multiple extends boolean | undefined = undefined,
    */
   placeholder?: string;
   /**
+   * The label content.
+   */
+  label?: string;
+  /**
    * Text to display when there are no options.
    */
   noOptionsText?: React.ReactNode;
@@ -118,12 +122,6 @@ Multiple extends boolean | undefined = undefined,
 /**
  * Styles.
  */
-const AutocompleteRoot = styled('div')({
-  position: 'relative',
-  display: 'inline-flex',
-  width: '100%',
-});
-
 const AutocompleteField = styled(Typography)<
 TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'multiple'>>
 >(
@@ -143,6 +141,7 @@ TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 
     cursor: 'pointer',
     fontFamily: 'inherit',
     height: 'var(--pv-size-base-8)',
+    position: 'relative',
     ...(props.size === 'small' && {
       height: 'var(--pv-size-base-6)',
     }),
@@ -215,11 +214,10 @@ const AutocompleteArrowIcon = styled(ArrowDropDownIcon)({
   position: 'absolute',
   right: '0px',
   top: 'calc(50% - 12px)',
-  pointerEvents: 'none',
   margin: '0px var(--pv-size-base)',
   color: 'var(--pv-color-gray-10)',
   '&[aria-disabled="true"]': {
-    color: 'var(--pv-color-gray-7)',
+    color: 'inherit',
   },
 });
 
@@ -359,6 +357,12 @@ const AutocompleteCreateNewButton = styled(Button)({
 const AutocompleteError = styled(Typography)({
   marginTop: '2px',
 });
+
+const AutocompleteLabel = styled('label')({
+  label: 'TextField-label',
+  marginBottom: '2px',
+  display: 'inline-block',
+});
 /**
  *
  */
@@ -373,6 +377,7 @@ Multiple extends boolean | undefined = false,
     className,
     size,
     placeholder,
+    label,
     disableSearch,
     disabled = false,
     noOptionsText,
@@ -399,6 +404,7 @@ Multiple extends boolean | undefined = false,
     searchValue,
     groupedOptions,
     getRootProps,
+    getInputLabelProps,
     getInputProps,
     getListboxProps,
     getOptionProps,
@@ -494,22 +500,19 @@ Multiple extends boolean | undefined = false,
   const isValueEmpty = renderedValue === null;
 
   const defaultRenderRoot: AutocompleteOwnProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => (
-    <AutocompleteRoot>
-      <AutocompleteField
-        {...propsRoot}
-        noWrap
-        // @ts-ignore
-        component="button"
-        type="button"
-        variant={size === 'small' ? 'c1' : 'b3'}
-        className={className}
-        aria-invalid={error || undefined}
-        aria-placeholder={isValueEmpty || undefined}
-        multiple={multiple}
-        size={size}
-      >
-        {isValueEmpty ? placeholder : renderedValue}
-      </AutocompleteField>
+    <AutocompleteField
+      {...propsRoot}
+      noWrap
+      // @ts-ignore
+      component="button"
+      type="button"
+      variant={size === 'small' ? 'c1' : 'b3'}
+      aria-invalid={error || undefined}
+      aria-placeholder={isValueEmpty || undefined}
+      multiple={multiple}
+      size={size}
+    >
+      {isValueEmpty ? placeholder : renderedValue}
       <AutocompleteArrowIcon
         aria-disabled={disabled}
         aria-hidden
@@ -527,7 +530,7 @@ Multiple extends boolean | undefined = false,
         readOnly={readOnly}
         onChange={() => { }}
       />
-    </AutocompleteRoot>
+    </AutocompleteField>
   );
 
   const renderOption = renderOptionProp || defaultRenderOption;
@@ -540,8 +543,28 @@ Multiple extends boolean | undefined = false,
   };
 
   return (
-    <>
-      {renderRoot({ ...getRootProps(), disabled }, value, getTagProps)}
+    <div className={className}>
+      {label && (
+        <AutocompleteLabel
+          {...getInputLabelProps()}
+        >
+          <Typography
+            component="span"
+            variant="c2"
+            color="gray-10"
+          >
+            {label}
+          </Typography>
+        </AutocompleteLabel>
+      )}
+      {renderRoot(
+        {
+          ...getRootProps(),
+          disabled,
+        },
+        value,
+        getTagProps,
+      )}
       {error && errorText && (
         <AutocompleteError
           variant="c2"
@@ -563,6 +586,7 @@ Multiple extends boolean | undefined = false,
             borderWidth={1}
           >
             <AutocompleteSearchInput
+              id={otherInputProps.id}
               inputProps={otherInputProps}
               onChange={onChange}
               placeholder="Search"
@@ -633,7 +657,7 @@ Multiple extends boolean | undefined = false,
           </Box>
         )}
       </AutocompletePopover>
-    </>
+    </div>
   );
 };
 
