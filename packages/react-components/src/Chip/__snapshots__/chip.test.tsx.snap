@@ -33,7 +33,7 @@ exports[`<Chip /> should have custom delete icon 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: var(--pv-color-secondary);
-  color: var(--pv-color-white);
+  color: var(--pv-color-secondary-contrast);
 }
 
 .emotion-1 {
@@ -49,11 +49,15 @@ exports[`<Chip /> should have custom delete icon 1`] = `
 }
 
 .emotion-2 {
+  margin-left: var(--pv-size-base);
+  display: inherit;
+}
+
+.emotion-3 {
   width: 24px;
   height: 24px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  margin: 0px calc(var(--pv-size-base) * -1) 0 var(--pv-size-base);
   -webkit-transition: opacity 200ms;
   transition: opacity 200ms;
   opacity: 0.6;
@@ -62,7 +66,7 @@ exports[`<Chip /> should have custom delete icon 1`] = `
   flex-shrink: 0;
 }
 
-.emotion-2:hover {
+.emotion-3:hover {
   opacity: 1;
 }
 
@@ -74,21 +78,25 @@ exports[`<Chip /> should have custom delete icon 1`] = `
     >
       Text
     </span>
-    <svg
-      aria-hidden="true"
+    <span
       class="emotion-2"
-      fill="none"
-      height="24px"
-      viewBox="0 0 24 24"
-      width="24px"
-      xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M6 12.5h12M12 18.5v-12"
-        stroke="currentColor"
-        stroke-width="1.5"
-      />
-    </svg>
+      <svg
+        aria-hidden="true"
+        class="emotion-3"
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 12.5h12M12 18.5v-12"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+      </svg>
+    </span>
   </div>
 </DocumentFragment>
 `;
@@ -126,7 +134,7 @@ exports[`<Chip /> should have delete icon 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: var(--pv-color-secondary);
-  color: var(--pv-color-white);
+  color: var(--pv-color-secondary-contrast);
 }
 
 .emotion-1 {
@@ -142,11 +150,15 @@ exports[`<Chip /> should have delete icon 1`] = `
 }
 
 .emotion-2 {
+  margin-left: var(--pv-size-base);
+  display: inherit;
+}
+
+.emotion-3 {
   width: 24px;
   height: 24px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  margin: 0px calc(var(--pv-size-base) * -1) 0 var(--pv-size-base);
   -webkit-transition: opacity 200ms;
   transition: opacity 200ms;
   opacity: 0.6;
@@ -155,7 +167,7 @@ exports[`<Chip /> should have delete icon 1`] = `
   flex-shrink: 0;
 }
 
-.emotion-2:hover {
+.emotion-3:hover {
   opacity: 1;
 }
 
@@ -167,22 +179,26 @@ exports[`<Chip /> should have delete icon 1`] = `
     >
       Text
     </span>
-    <svg
-      aria-hidden="true"
+    <span
       class="emotion-2"
-      fill="none"
-      height="24px"
-      viewBox="0 0 24 24"
-      width="24px"
-      xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        clip-rule="evenodd"
-        d="M12.671 12l2.665 2.665a.318.318 0 010 .447l-.224.224a.317.317 0 01-.447 0L12 12.671l-2.665 2.665a.317.317 0 01-.448 0l-.224-.224a.318.318 0 010-.447L11.33 12 8.663 9.335a.318.318 0 010-.447l.224-.224a.317.317 0 01.448 0L12 11.329l2.665-2.665a.317.317 0 01.447 0l.224.224a.318.318 0 010 .447L12.671 12z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
+      <svg
+        aria-hidden="true"
+        class="emotion-3"
+        fill="none"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M12.671 12l2.665 2.665a.318.318 0 010 .447l-.224.224a.317.317 0 01-.447 0L12 12.671l-2.665 2.665a.317.317 0 01-.448 0l-.224-.224a.318.318 0 010-.447L11.33 12 8.663 9.335a.318.318 0 010-.447l.224-.224a.317.317 0 01.448 0L12 11.329l2.665-2.665a.317.317 0 01.447 0l.224.224a.318.318 0 010 .447L12.671 12z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
   </div>
 </DocumentFragment>
 `;
@@ -220,7 +236,7 @@ exports[`<Chip /> should pass className 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: var(--pv-color-secondary);
-  color: var(--pv-color-white);
+  color: var(--pv-color-secondary-contrast);
 }
 
 .emotion-1 {
@@ -280,7 +296,7 @@ exports[`<Chip /> should render with default styles 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: var(--pv-color-secondary);
-  color: var(--pv-color-white);
+  color: var(--pv-color-secondary-contrast);
 }
 
 .emotion-1 {
@@ -400,7 +416,7 @@ exports[`<Chip /> variants & colors variant "contained, color "secondary" 1`] = 
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: var(--pv-color-secondary);
-  color: var(--pv-color-white);
+  color: var(--pv-color-secondary-contrast);
 }
 
 .emotion-1 {
@@ -460,7 +476,7 @@ exports[`<Chip /> variants & colors variant "contained, color "wrong" 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: var(--pv-color-wrong);
-  color: var(--pv-color-white);
+  color: var(--pv-color-wrong-contrast);
 }
 
 .emotion-1 {
@@ -520,8 +536,7 @@ exports[`<Chip /> variants & colors variant "outlined, color "default" 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   border-color: var(--pv-color-gray-6);
-  background-color: transparent;
-  color: var(--pv-color-gray-10);
+  color: var(--pv-color-black);
 }
 
 .emotion-1 {
@@ -581,7 +596,6 @@ exports[`<Chip /> variants & colors variant "outlined, color "secondary" 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   border-color: var(--pv-color-secondary-tint-2);
-  background-color: transparent;
   color: var(--pv-color-secondary);
 }
 
@@ -642,7 +656,6 @@ exports[`<Chip /> variants & colors variant "outlined, color "wrong" 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   border-color: var(--pv-color-wrong-tint-2);
-  background-color: transparent;
   color: var(--pv-color-wrong);
 }
 

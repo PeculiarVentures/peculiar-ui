@@ -91,7 +91,9 @@ const ChipRoot = styled('div', {
   }),
 }), (props) => {
   const isDark = props.theme.mode === 'dark';
-  let color: string;
+  let color: string = isDark
+    ? 'var(--pv-color-white)'
+    : 'var(--pv-color-black)';
   let borderColor: string;
   let backgroundColor: string;
   let backgroundColorHover: string;
@@ -99,43 +101,68 @@ const ChipRoot = styled('div', {
   let backgroundColorActive: string;
   let boxShadowActive: string;
 
+  let colorDisabled: string;
+  let backgroundColorDisabled: string;
+  let borderColorDisabled: string;
+
+  if (props.variant === 'outlined') {
+    if (props.color === 'default') {
+      borderColor = 'var(--pv-color-gray-6)';
+      backgroundColorHover = 'var(--pv-color-gray-3)';
+      backgroundColorFocus = 'var(--pv-color-gray-4)';
+      backgroundColorActive = 'var(--pv-color-gray-5)';
+    } else if (isDark) {
+      color = `var(--pv-color-${props.color})`;
+      borderColor = `var(--pv-color-${props.color}-shade-1)`;
+      backgroundColorHover = `var(--pv-color-${props.color}-shade-4)`;
+      backgroundColorFocus = `var(--pv-color-${props.color}-shade-3)`;
+      backgroundColorActive = `var(--pv-color-${props.color}-shade-2)`;
+    } else {
+      color = `var(--pv-color-${props.color})`;
+      borderColor = `var(--pv-color-${props.color}-tint-2)`;
+      backgroundColorHover = `var(--pv-color-${props.color}-tint-5)`;
+      backgroundColorFocus = `var(--pv-color-${props.color}-tint-4)`;
+      backgroundColorActive = `var(--pv-color-${props.color}-tint-3)`;
+    }
+
+    if (isDark) {
+      borderColorDisabled = 'var(--pv-color-gray-6)';
+      colorDisabled = 'var(--pv-color-gray-5)';
+    } else {
+      borderColorDisabled = 'var(--pv-color-gray-8)';
+      colorDisabled = 'var(--pv-color-gray-7)';
+    }
+  }
+
   if (props.variant === 'contained') {
     if (props.color === 'default') {
-      color = 'var(--pv-color-black)';
-      backgroundColor = 'var(--pv-color-gray-4)';
-      backgroundColorHover = 'var(--pv-color-gray-7)';
-      backgroundColorFocus = 'var(--pv-color-gray-6)';
-      backgroundColorActive = 'var(--pv-color-gray-5)';
+      if (isDark) {
+        backgroundColor = 'var(--pv-color-gray-6)';
+        backgroundColorHover = 'var(--pv-color-gray-5)';
+        backgroundColorFocus = 'var(--pv-color-gray-4)';
+        backgroundColorActive = 'var(--pv-color-gray-3)';
+      } else {
+        backgroundColor = 'var(--pv-color-gray-4)';
+        backgroundColorHover = 'var(--pv-color-gray-7)';
+        backgroundColorFocus = 'var(--pv-color-gray-6)';
+        backgroundColorActive = 'var(--pv-color-gray-5)';
+      }
     } else {
-      color = 'var(--pv-color-white)';
+      color = `var(--pv-color-${props.color}-contrast)`;
       backgroundColor = `var(--pv-color-${props.color})`;
       backgroundColorHover = `var(--pv-color-${props.color}-tint-1)`;
       backgroundColorFocus = `var(--pv-color-${props.color}-tint-2)`;
       backgroundColorActive = `var(--pv-color-${props.color}-tint-2)`;
-
-      if (isDark) {
-        boxShadowActive = 'var(--pv-shadow-dark-hight)';
-      } else {
-        boxShadowActive = 'var(--pv-shadow-light-medium)';
-      }
     }
-  }
 
-  if (props.variant === 'outlined') {
-    if (props.color === 'default') {
-      color = 'var(--pv-color-gray-10)';
-      borderColor = 'var(--pv-color-gray-6)';
-      backgroundColor = 'transparent';
-      backgroundColorHover = 'var(--pv-color-gray-3)';
-      backgroundColorFocus = 'var(--pv-color-gray-4)';
-      backgroundColorActive = 'var(--pv-color-gray-5)';
+    if (isDark) {
+      boxShadowActive = 'var(--pv-shadow-dark-hight)';
+      colorDisabled = 'var(--pv-color-gray-6)';
+      backgroundColorDisabled = 'var(--pv-color-gray-5)';
     } else {
-      color = `var(--pv-color-${props.color})`;
-      borderColor = `var(--pv-color-${props.color}-tint-2)`;
-      backgroundColor = 'transparent';
-      backgroundColorHover = `var(--pv-color-${props.color}-tint-5)`;
-      backgroundColorFocus = `var(--pv-color-${props.color}-tint-4)`;
-      backgroundColorActive = `var(--pv-color-${props.color}-tint-3)`;
+      boxShadowActive = 'var(--pv-shadow-light-medium)';
+      colorDisabled = 'var(--pv-color-gray-8)';
+      backgroundColorDisabled = 'var(--pv-color-gray-4)';
     }
   }
 
@@ -156,8 +183,9 @@ const ChipRoot = styled('div', {
       },
     }),
     ...(props.disabled && {
-      color: 'var(--pv-color-gray-8)',
-      borderColor: 'var(--pv-color-gray-4)',
+      color: colorDisabled,
+      backgroundColor: backgroundColorDisabled,
+      borderColor: borderColorDisabled,
     }),
   };
 });
@@ -167,7 +195,6 @@ const ChipDeleteIcon = styled('span')({
   height: '24px',
   cursor: 'pointer',
   WebkitTapHighlightColor: 'transparent',
-  margin: '0px calc(var(--pv-size-base) * -1) 0 var(--pv-size-base)',
   transition: 'opacity 200ms',
   opacity: '0.6',
   flexShrink: 0,
@@ -178,6 +205,11 @@ const ChipDeleteIcon = styled('span')({
 
 const ChipStartContent = styled('span')({
   marginRight: 'var(--pv-size-base)',
+  display: 'inherit',
+});
+
+const ChipEndContent = styled('span')({
+  marginLeft: 'var(--pv-size-base)',
   display: 'inherit',
 });
 
@@ -216,24 +248,20 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
     }
   };
 
-  const renderDeleteAction = () => {
-    if (!onDelete) {
-      return null;
-    }
+  const startContent = startContentProp && (
+    <ChipStartContent>
+      {startContentProp}
+    </ChipStartContent>
+  );
 
-    return (
+  const endContent = onDelete && (
+    <ChipEndContent>
       <ChipDeleteIcon
         aria-hidden
         as={deleteIcon}
         onClick={handleDeleteClick}
       />
-    );
-  };
-
-  const startContent = startContentProp && (
-    <ChipStartContent>
-      {startContentProp}
-    </ChipStartContent>
+    </ChipEndContent>
   );
 
   return (
@@ -252,7 +280,7 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
       >
         {children}
       </Typography>
-      {renderDeleteAction()}
+      {endContent}
     </ChipRoot>
   );
 }) as OverridableComponent<ChipTypeMap>;
