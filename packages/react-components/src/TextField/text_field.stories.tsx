@@ -27,30 +27,25 @@ export const FormExample = () => (
       defaultValue="Hello World"
       required
       label="Required"
-      id="TextField-required"
     />
     <TextField
       defaultValue="Hello World"
       type="password"
       label="Password"
-      id="TextField-password"
     />
     <TextField
       type="number"
       label="Number"
-      id="TextField-number"
     />
     <TextField
       defaultValue="Hello World"
       readOnly
       label="Read Only"
-      id="TextField-readOnly"
     />
     <TextField
       defaultValue="Hello World"
       disabled
       label="Disabled"
-      id="TextField-disabled"
     />
   </>
 );

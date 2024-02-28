@@ -5,7 +5,7 @@ import { TextField } from './index';
 describe('<TextField />', () => {
   describe('TextField render variants', () => {
     it('should render as default', () => {
-      const { asFragment } = render(<TextField />);
+      const { asFragment } = render(<TextField id="test-id" />);
 
       const input = screen.getByRole('textbox');
 
@@ -17,43 +17,42 @@ describe('<TextField />', () => {
     });
 
     it('should have label', () => {
-      const { asFragment } = render(<TextField label="Test label" />);
-
-      expect(asFragment()).toMatchSnapshot();
-    });
-
-    it('should have id', () => {
-      const { asFragment } = render(<TextField id="test-id" />);
+      const { asFragment } = render(
+        <TextField
+          label="Test label"
+          id="test-id"
+        />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be disabled', () => {
-      const { asFragment } = render(<TextField disabled />);
+      const { asFragment } = render(<TextField disabled id="test-id" />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have required', () => {
-      const { asFragment } = render(<TextField required />);
+      const { asFragment } = render(<TextField required id="test-id" />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have name attr', () => {
-      const { asFragment } = render(<TextField name="test-name" />);
-
-      expect(asFragment()).toMatchSnapshot();
-    });
-
-    it('should have test id', () => {
-      const { asFragment } = render(<TextField data-testid="test-id" />);
+      const { asFragment } = render(<TextField name="test-name" id="test-id" />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have className', () => {
-      const { asFragment } = render(<TextField className="div-cls" inputProps={{ className: 'input-cls' }} />);
+      const { asFragment } = render(
+        <TextField
+          className="div-cls"
+          id="test-id"
+          inputProps={{ className: 'input-cls' }}
+        />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -79,7 +78,7 @@ describe('<TextField />', () => {
     });
 
     it('should have placeholder', () => {
-      const { asFragment } = render(<TextField placeholder="test-placeholder" />);
+      const { asFragment } = render(<TextField placeholder="test-placeholder" id="test-id" />);
 
       const input = screen.getByRole('textbox');
 
@@ -89,7 +88,7 @@ describe('<TextField />', () => {
     });
 
     it('should have defaultValue', () => {
-      const { asFragment } = render(<TextField defaultValue="test-value" />);
+      const { asFragment } = render(<TextField defaultValue="test-value" id="test-id" />);
 
       const input = screen.getByRole('textbox');
 
@@ -101,7 +100,13 @@ describe('<TextField />', () => {
     it('should have value', () => {
       const onChange = jest.fn();
 
-      const { asFragment } = render(<TextField value="test-value" onChange={onChange} />);
+      const { asFragment } = render(
+        <TextField
+          value="test-value"
+          onChange={onChange}
+          id="test-id"
+        />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -111,7 +116,13 @@ describe('<TextField />', () => {
     });
 
     it('should have error alert', () => {
-      const { asFragment } = render(<TextField error errorText="Error message" />);
+      const { asFragment } = render(
+        <TextField
+          error
+          errorText="Error message"
+          id="test-id"
+        />,
+      );
 
       expect(screen.getByText('Error message')).toBeInTheDocument();
 
@@ -129,7 +140,7 @@ describe('<TextField />', () => {
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
         const { asFragment } = render(
-          <TextField size={size} />,
+          <TextField size={size} id="test-id" />,
         );
 
         expect(asFragment()).toMatchSnapshot();

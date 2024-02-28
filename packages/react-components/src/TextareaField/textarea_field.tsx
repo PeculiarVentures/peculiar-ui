@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { Typography } from '../Typography';
+import { useId } from '../hooks/use_id';
 
 /**
  * Types.
@@ -35,13 +36,9 @@ type TextareaFieldOwnProps = {
    */
   id?: string;
   /**
-   * The label of the input. It is only used for layout.
+   * The label content.
    */
   label?: string;
-  /**
-   * Callback fired when the value is changed.
-   */
-  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
   /**
    * The value of the `input` element, required for a controlled component.
    */
@@ -76,6 +73,10 @@ type TextareaFieldOwnProps = {
    * the field (not from interacting with the field).
    */
   readOnly?: boolean;
+  /**
+   * Callback fired when the value is changed.
+   */
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>
 };
 
 type TextareaFieldProps = TextareaFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
@@ -188,7 +189,7 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
     inputProps = {},
     disabled,
     defaultValue,
-    id,
+    id: idProp,
     value,
     placeholder,
     required,
@@ -201,6 +202,8 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
     onChange,
     ...other
   } = props;
+  const id = useId(idProp);
+  const inputLabelId = label && id ? `${id}-label` : undefined;
 
   return (
     <div
@@ -210,6 +213,7 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
       {label && (
         <TextareaFieldLabel
           htmlFor={id}
+          id={inputLabelId}
         >
           <Typography
             component="span"

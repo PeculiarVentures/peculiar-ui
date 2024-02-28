@@ -1,5 +1,425 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<TextareaField /> should be disabled 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: var(--pv-size-base) var(--pv-size-base-2);
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  resize: none;
+  min-height: var(--pv-size-base-14);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
+}
+
+.emotion-0::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  background-color: var(--pv-color-gray-1);
+  border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled)[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+<div>
+    <textarea
+      class="emotion-0"
+      disabled=""
+      id="test-id"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<TextareaField /> should have className 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: var(--pv-size-base) var(--pv-size-base-2);
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  resize: none;
+  min-height: var(--pv-size-base-14);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
+}
+
+.emotion-0::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  background-color: var(--pv-color-gray-1);
+  border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled)[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+<div
+    class="div-cls"
+  >
+    <textarea
+      class="input-cls emotion-0"
+      id="test-id"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<TextareaField /> should have label 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin-bottom: 2px;
+  display: inline-block;
+}
+
+.emotion-1 {
+  margin: 0;
+  color: var(--pv-color-gray-10);
+  font-weight: var(--pv-text-c2-weight);
+  font-size: var(--pv-text-c2-size);
+  line-height: var(--pv-text-c2-height);
+  letter-spacing: var(--pv-text-c2-spacing);
+}
+
+.emotion-2 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: var(--pv-size-base) var(--pv-size-base-2);
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  resize: none;
+  min-height: var(--pv-size-base-14);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
+}
+
+.emotion-2::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-2::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-2:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-2::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-2:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-2:disabled {
+  cursor: not-allowed;
+  background-color: var(--pv-color-gray-1);
+  border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2:not(:disabled)[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-2:not(:disabled):focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+<div>
+    <label
+      class="emotion-0"
+      for="test-id"
+      id="test-id-label"
+    >
+      <span
+        class="emotion-1"
+      >
+        Test label
+      </span>
+    </label>
+    <textarea
+      class="emotion-2"
+      id="test-id"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<TextareaField /> should have name attr 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: var(--pv-size-base) var(--pv-size-base-2);
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  resize: none;
+  min-height: var(--pv-size-base-14);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
+}
+
+.emotion-0::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  background-color: var(--pv-color-gray-1);
+  border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled)[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+<div>
+    <textarea
+      class="emotion-0"
+      id="test-id"
+      name="test-name"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<TextareaField /> should have required 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  padding: var(--pv-size-base) var(--pv-size-base-2);
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  resize: none;
+  min-height: var(--pv-size-base-14);
+  color: var(--pv-color-black);
+  border-color: var(--pv-color-gray-8);
+}
+
+.emotion-0::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled {
+  cursor: not-allowed;
+  background-color: var(--pv-color-gray-1);
+  border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:not(:disabled)[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:not(:disabled):focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+<div>
+    <textarea
+      class="emotion-0"
+      id="test-id"
+      required=""
+    />
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<TextareaField /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
@@ -72,6 +492,7 @@ exports[`<TextareaField /> should render with default styles 1`] = `
 <div>
     <textarea
       class="emotion-0"
+      id="test-id"
     />
   </div>
 </DocumentFragment>
