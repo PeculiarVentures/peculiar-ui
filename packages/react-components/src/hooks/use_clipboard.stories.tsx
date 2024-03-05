@@ -9,17 +9,14 @@ const meta = {
 export default meta;
 
 export const DemoExample = () => {
-  const {
-    onCopy,
-    hasCopied,
-  } = useClipboard('Text to copy');
+  const { copy, isCopied } = useClipboard();
 
   return (
     <button
       type="button"
-      onClick={onCopy}
+      onClick={() => copy('Text to copy')}
     >
-      {hasCopied ? 'Copied' : 'Click to copy'}
+      {isCopied ? 'Copied' : 'Click to copy'}
     </button>
   );
 };

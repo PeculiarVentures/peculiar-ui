@@ -1,59 +1,38 @@
 import React from 'react';
-import copy from 'copy-to-clipboard';
-
-export type UseClipboardOptions = {
-  /**
-   * timeout delay (in ms) to switch back to initial state once copied.
-   */
-  timeout?: number;
-  /**
-   * Set the desired MIME type
-   */
-  format?: string;
-};
+import { copyToClipboard } from '../utils';
 
 /**
- * React hook to copy content to clipboard
- *
- * @param text the text or value to copy
- * @param {Number} [optionsOrTimeout=1500] optionsOrTimeout -
- * delay (in ms) to switch back to initial state once copied.
- * @param {Object} optionsOrTimeout
- * @param {string} optionsOrTimeout.format - set the desired MIME type
- * @param {number} optionsOrTimeout.timeout -
- * delay (in ms) to switch back to initial state once copied.
+ * React hook to copy content to clipboard.
  */
-export function useClipboard(
-  text: string,
-  optionsOrTimeout: number | UseClipboardOptions = {},
-) {
-  const [hasCopied, setHasCopied] = React.useState(false);
-
-  const { timeout = 1500, ...copyOptions } = typeof optionsOrTimeout === 'number'
-    ? { timeout: optionsOrTimeout }
-    : optionsOrTimeout;
-
-  const onCopy = React.useCallback(() => {
-    const didCopy = copy(text, copyOptions);
-
-    setHasCopied(didCopy);
-  }, [text, copyOptions]);
+export function useClipboard() {
+  const [isCopied, setIsCopied] = React.useState(false);
+  const timeout = React.useRef<ReturnType<typeof setTimeout>>();
+  const mounted = React.useRef(false);
 
   React.useEffect(() => {
-    let timeoutId: number | null = null;
-
-    if (hasCopied) {
-      timeoutId = window.setTimeout(() => {
-        setHasCopied(false);
-      }, timeout);
-    }
+    mounted.current = true;
 
     return () => {
-      if (timeoutId) {
-        window.clearTimeout(timeoutId);
-      }
+      mounted.current = false;
     };
-  }, [timeout, hasCopied]);
+  }, []);
 
-  return { value: text, onCopy, hasCopied };
+  const copy = async (text: string) => {
+    try {
+      setIsCopied(true);
+      clearTimeout(timeout.current);
+
+      timeout.current = setTimeout(() => {
+        if (mounted) {
+          setIsCopied(false);
+        }
+      }, 1500);
+
+      copyToClipboard(text);
+    } catch (error) {
+      // ignore error
+    }
+  };
+
+  return { copy, isCopied };
 }
