@@ -33,6 +33,7 @@ exports[`<LinearProgress /> colors color "primary" 1`] = `
 
 <div
     class="emotion-0"
+    role="progressbar"
   >
     <div
       class="emotion-1"
@@ -74,6 +75,7 @@ exports[`<LinearProgress /> colors color "secondary" 1`] = `
 
 <div
     class="emotion-0"
+    role="progressbar"
   >
     <div
       class="emotion-1"
@@ -115,6 +117,7 @@ exports[`<LinearProgress /> should pass className 1`] = `
 
 <div
     class="my-class-name emotion-0"
+    role="progressbar"
   >
     <div
       class="emotion-1"
@@ -156,6 +159,7 @@ exports[`<LinearProgress /> should render with default styles 1`] = `
 
 <div
     class="emotion-0"
+    role="progressbar"
   >
     <div
       class="emotion-1"

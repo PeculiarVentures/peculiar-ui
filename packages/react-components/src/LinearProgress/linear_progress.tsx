@@ -69,6 +69,7 @@ export const LinearProgress = React.forwardRef<HTMLDivElement, LinearProgressPro
       <LinearProgressRoot
         ref={ref}
         background={color === 'primary' ? 'primary-tint-4' : 'secondary-tint-4'}
+        role="progressbar"
         {...other}
       >
         <LinearProgressProgress
