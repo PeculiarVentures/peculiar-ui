@@ -178,6 +178,7 @@ exports[`<Alert /> variants variant "attention" enable icon 1`] = `
       class="emotion-1"
     >
       <svg
+        aria-hidden="true"
         fill="none"
         height="24px"
         viewBox="0 0 24 24"
@@ -360,6 +361,7 @@ exports[`<Alert /> variants variant "pending" enable icon 1`] = `
       class="emotion-1"
     >
       <div
+        aria-hidden="true"
         class="emotion-2"
         role="progressbar"
       >
@@ -483,6 +485,7 @@ exports[`<Alert /> variants variant "success" enable icon 1`] = `
       class="emotion-1"
     >
       <svg
+        aria-hidden="true"
         fill="none"
         height="24px"
         viewBox="0 0 24 24"
@@ -609,6 +612,7 @@ exports[`<Alert /> variants variant "wrong" enable icon 1`] = `
       class="emotion-1"
     >
       <svg
+        aria-hidden="true"
         fill="none"
         height="24px"
         viewBox="0 0 24 24"

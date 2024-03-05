@@ -126,25 +126,35 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) =
   const renderIcon = () => {
     if (variant === 'wrong') {
       return (
-        <CloseCircleIcon />
+        <CloseCircleIcon
+          aria-hidden="true"
+        />
       );
     }
 
     if (variant === 'attention') {
       return (
-        <WarningIcon />
+        <WarningIcon
+          aria-hidden="true"
+        />
       );
     }
 
     if (variant === 'success') {
       return (
-        <CheckCircleIcon />
+        <CheckCircleIcon
+          aria-hidden="true"
+        />
       );
     }
 
     if (variant === 'pending') {
       return (
-        <CircularProgress size="small" color="secondary" />
+        <CircularProgress
+          size="small"
+          color="secondary"
+          aria-hidden="true"
+        />
       );
     }
 
@@ -159,7 +169,9 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) =
       {...other}
     >
       {!disableIcon && (
-        <AlertIcon variant={variant}>
+        <AlertIcon
+          variant={variant}
+        >
           {renderIcon()}
         </AlertIcon>
       )}
