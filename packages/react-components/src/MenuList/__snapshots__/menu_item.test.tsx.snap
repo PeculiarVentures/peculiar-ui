@@ -41,11 +41,13 @@ exports[`<MenuItem /> should have start & end icons 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:focus-visible {
+.emotion-0:focus-visible,
+.emotion-0[data-focused="true"] {
   background-color: var(--pv-color-gray-4);
 }
 
-.emotion-0:active {
+.emotion-0:active,
+.emotion-0[aria-selected="true"] {
   background-color: var(--pv-color-gray-5);
 }
 
@@ -163,11 +165,13 @@ exports[`<MenuItem /> should pass className 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:focus-visible {
+.emotion-0:focus-visible,
+.emotion-0[data-focused="true"] {
   background-color: var(--pv-color-gray-4);
 }
 
-.emotion-0:active {
+.emotion-0:active,
+.emotion-0[aria-selected="true"] {
   background-color: var(--pv-color-gray-5);
 }
 
@@ -242,11 +246,13 @@ exports[`<MenuItem /> should pass disabled 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:focus-visible {
+.emotion-0:focus-visible,
+.emotion-0[data-focused="true"] {
   background-color: var(--pv-color-gray-4);
 }
 
-.emotion-0:active {
+.emotion-0:active,
+.emotion-0[aria-selected="true"] {
   background-color: var(--pv-color-gray-5);
 }
 
@@ -321,11 +327,13 @@ exports[`<MenuItem /> should render with default styles 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-0:focus-visible {
+.emotion-0:focus-visible,
+.emotion-0[data-focused="true"] {
   background-color: var(--pv-color-gray-4);
 }
 
-.emotion-0:active {
+.emotion-0:active,
+.emotion-0[aria-selected="true"] {
   background-color: var(--pv-color-gray-5);
 }
 

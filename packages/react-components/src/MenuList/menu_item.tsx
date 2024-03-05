@@ -90,10 +90,10 @@ const MenuItemRoot = styled('li', {
       '&:hover': {
         backgroundColor: backgroundColorHover,
       },
-      '&:focus-visible': {
+      '&:focus-visible, &[data-focused="true"]': {
         backgroundColor: backgroundColorFocused,
       },
-      '&:active': {
+      '&:active, &[aria-selected="true"]': {
         backgroundColor: backgroundColorSelected,
       },
       ...(props.disabled && {

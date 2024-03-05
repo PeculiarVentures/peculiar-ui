@@ -973,18 +973,6 @@ exports[`<Autocomplete /> should pass options 1`] = `
   outline: none;
   width: 100%;
   height: var(--pv-size-base-7);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: pointer;
-  -webkit-transition: background-color 200ms;
-  transition: background-color 200ms;
-  background-color: transparent;
-  border: none;
-  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -998,22 +986,40 @@ exports[`<Autocomplete /> should pass options 1`] = `
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: background-color 200ms;
+  transition: background-color 200ms;
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  gap: var(--pv-size-base-2);
+  cursor: pointer;
   color: var(--pv-color-black);
 }
 
 .emotion-10:hover {
-  background-color: var(--pv-color-gray-2);
-}
-
-.emotion-10[data-focused="true"] {
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-10[aria-selected="true"] {
+.emotion-10:focus-visible,
+.emotion-10[data-focused="true"] {
   background-color: var(--pv-color-gray-4);
 }
 
+.emotion-10:active,
+.emotion-10[aria-selected="true"] {
+  background-color: var(--pv-color-gray-5);
+}
+
 .emotion-11 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
   margin: 0;
   color: inherit;
   font-weight: var(--pv-text-b3-weight);
@@ -1113,11 +1119,11 @@ exports[`<Autocomplete /> should pass options 1`] = `
           role="option"
           tabindex="-1"
         >
-          <p
+          <span
             class="emotion-11"
           >
             test-1
-          </p>
+          </span>
         </li>
         <li
           aria-selected="false"
@@ -1127,11 +1133,11 @@ exports[`<Autocomplete /> should pass options 1`] = `
           role="option"
           tabindex="-1"
         >
-          <p
+          <span
             class="emotion-11"
           >
             test-2
-          </p>
+          </span>
         </li>
       </ul>
     </div>

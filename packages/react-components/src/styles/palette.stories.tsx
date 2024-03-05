@@ -49,7 +49,7 @@ export const ColorItemExample: React.FC<{ title: string; colors: Record<string, 
   );
 };
 
-export const PalettePlayground = () => {
+export const PalettePlaygroundExample = () => {
   const [color, setColor] = React.useState<string>(colorsTheme.primary.primary);
   const palette = colorsTheme.generateColorPalette('custom', color);
 

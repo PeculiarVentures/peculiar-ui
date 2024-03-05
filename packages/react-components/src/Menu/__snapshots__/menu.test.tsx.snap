@@ -95,11 +95,13 @@ exports[`<Menu /> should pass className 1`] = `
   background-color: var(--pv-color-gray-3);
 }
 
-.emotion-4:focus-visible {
+.emotion-4:focus-visible,
+.emotion-4[data-focused="true"] {
   background-color: var(--pv-color-gray-4);
 }
 
-.emotion-4:active {
+.emotion-4:active,
+.emotion-4[aria-selected="true"] {
   background-color: var(--pv-color-gray-5);
 }
 

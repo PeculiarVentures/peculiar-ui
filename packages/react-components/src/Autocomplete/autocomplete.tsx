@@ -13,6 +13,7 @@ import { Box } from '../Box';
 import { Chip } from '../Chip';
 import { Button } from '../Button';
 import { ArrowDropDownIcon, PlusIcon } from '../icons';
+import { MenuItem } from '../MenuList';
 
 /**
  * Types.
@@ -259,56 +260,12 @@ const AutocompleteDropdownGroupList = styled('ul')({
   listStyleType: 'none',
 });
 
-const AutocompleteDropdownGroupListItem = styled('li')<Required<{ inGroup: boolean }>>(
+const AutocompleteDropdownGroupListItem = styled(MenuItem)<Required<{ inGroup: boolean }>>(
   (props) => ({
-    ...(props.inGroup ? {
+    ...(props.inGroup && {
       padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)',
-    } : {
-      padding: '0px var(--pv-size-base-2)',
     }),
-    fontFamily: 'inherit',
-    outline: 'none',
-    width: '100%',
-    height: 'var(--pv-size-base-7)',
-    textDecoration: 'none',
-    userSelect: 'none',
-    cursor: 'pointer',
-    transition: 'background-color 200ms',
-    backgroundColor: 'transparent',
-    border: 'none',
-    boxSizing: 'border-box',
-    display: 'flex',
-    textAlign: 'left',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
   }),
-  (props) => {
-    const isDark = props.theme.mode === 'dark';
-    let color = 'var(--pv-color-black)';
-    let backgroundColorHover = 'var(--pv-color-gray-2)';
-    let backgroundColorFocused = 'var(--pv-color-gray-3)';
-    let backgroundColorSelected = 'var(--pv-color-gray-4)';
-
-    if (isDark) {
-      color = 'var(--pv-color-white)';
-      backgroundColorHover = 'var(--pv-color-gray-4)';
-      backgroundColorFocused = 'var(--pv-color-gray-5)';
-      backgroundColorSelected = 'var(--pv-color-gray-6)';
-    }
-
-    return {
-      color,
-      '&:hover': {
-        backgroundColor: backgroundColorHover,
-      },
-      '&[data-focused="true"]': {
-        backgroundColor: backgroundColorFocused,
-      },
-      '&[aria-selected="true"]': {
-        backgroundColor: backgroundColorSelected,
-      },
-    };
-  },
 );
 
 const AutocompletePopover = styled(Popover)({
@@ -432,13 +389,7 @@ Multiple extends boolean | undefined = false,
       {...propsOption}
       inGroup={Boolean(groupBy)}
     >
-      <Typography
-        variant="b3"
-        color="inherit"
-        noWrap
-      >
-        {getOptionLabel(option)}
-      </Typography>
+      {getOptionLabel(option)}
     </AutocompleteDropdownGroupListItem>
   );
 
