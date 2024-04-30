@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { CheckIcon, MinusIcon } from '../icons';
 import { useId } from '../hooks';
 import { opacity } from '../styles/foundations';
@@ -16,6 +17,13 @@ type CheckboxOwnProps = {
    * If `true`, the component is checked by default.
    */
   defaultChecked?: boolean;
+  /**
+   * The color of the component.
+   */
+  color?: (
+    'primary' |
+    'secondary'
+  );
   /**
    * If `true`, the component appears indeterminate. This does not set the native
    * input element to indeterminate due to inconsistent behavior across browsers.
@@ -70,7 +78,9 @@ const CheckboxRoot = styled('label')({
   position: 'relative',
 });
 
-const CheckboxInput = styled('input')(
+const CheckboxInput = styled('input', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Required<Pick<CheckboxOwnProps, 'color'>>>(
   {
     width: '100%',
     height: '100%',
@@ -99,8 +109,8 @@ const CheckboxInput = styled('input')(
   (props) => {
     const isDark = props.theme.mode === 'dark';
     let color = 'var(--pv-color-gray-9)';
-    let colorChecked = 'var(--pv-color-primary-shade-1)';
-    let backgroundColorChecked = 'var(--pv-color-primary)';
+    let colorChecked = `var(--pv-color-${props.color}-shade-1)`;
+    let backgroundColorChecked = `var(--pv-color-${props.color})`;
     let colorDisabledChecked = 'var(--pv-color-gray-7)';
     let iconColorDisabledChecked = 'var(--pv-color-white)';
     let opacityHover = opacity.light.switch.hover;
@@ -109,8 +119,8 @@ const CheckboxInput = styled('input')(
 
     if (isDark) {
       color = 'var(--pv-color-gray-7)';
-      colorChecked = 'var(--pv-color-primary)';
-      backgroundColorChecked = 'var(--pv-color-primary-tint-1)';
+      colorChecked = `var(--pv-color-${props.color})`;
+      backgroundColorChecked = `var(--pv-color-${props.color}-tint-1)`;
       colorDisabledChecked = 'var(--pv-color-gray-5)';
       iconColorDisabledChecked = 'var(--pv-color-gray-8)';
       opacityHover = opacity.dark.switch.hover;
@@ -183,8 +193,9 @@ const CheckboxIcon = styled('svg')({
 export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
   const {
     checked,
-    indeterminate = false,
     defaultChecked,
+    color = 'primary',
+    indeterminate = false,
     required,
     inputProps,
     disabled,
@@ -213,6 +224,7 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
         defaultChecked={defaultChecked}
         required={required}
         disabled={disabled}
+        color={color}
         onChange={onChange}
       />
       <CheckboxIcon
@@ -225,4 +237,6 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props
 
 Checkbox.displayName = 'Checkbox';
 
-Checkbox.defaultProps = {};
+Checkbox.defaultProps = {
+  color: 'primary',
+};

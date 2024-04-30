@@ -137,6 +137,23 @@ describe('<Checkbox />', () => {
     });
   });
 
+  describe('Checkbox render colors', () => {
+    const colors: Array<React.ComponentProps<typeof Checkbox>['color']> = [
+      'primary',
+      'secondary',
+    ];
+
+    colors.forEach((color) => {
+      it(`color "${color}"`, () => {
+        const { asFragment } = render(
+          <Checkbox color={color} id="test-id" />,
+        );
+
+        expect(asFragment()).toMatchSnapshot();
+      });
+    });
+  });
+
   describe('Checkbox focus behaviour', () => {
     it('should have focus', async () => {
       render(<Checkbox />);

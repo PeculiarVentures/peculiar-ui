@@ -76,7 +76,6 @@ const SwitchInput = styled('input', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
 })<Required<Pick<SwitchOwnProps, 'color'>>>(
   {
-    label: 'Switch-input',
     overflow: 'hidden',
     width: '100%',
     height: '100%',
