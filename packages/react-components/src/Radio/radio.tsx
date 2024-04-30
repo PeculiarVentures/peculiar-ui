@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { DotIcon } from '../icons';
 import { useId } from '../hooks';
 import { opacity } from '../styles/foundations';
@@ -16,6 +17,13 @@ type RadioOwnProps = {
    * If `true`, the component is checked by default.
    */
   defaultChecked?: boolean;
+  /**
+   * The color of the component.
+   */
+  color?: (
+    'primary' |
+    'secondary'
+  );
   /**
    * Attributes applied to the input element.
    */
@@ -76,7 +84,9 @@ const RadioRoot = styled('label')(
   }),
 );
 
-const RadioInput = styled('input')(
+const RadioInput = styled('input', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Required<Pick<RadioOwnProps, 'color'>>>(
   {
     cursor: 'inherit',
     width: '100%',
@@ -106,8 +116,8 @@ const RadioInput = styled('input')(
   (props) => {
     const isDark = props.theme.mode === 'dark';
     let color = 'var(--pv-color-gray-9)';
-    let colorChecked = 'var(--pv-color-primary-shade-1)';
-    let ellipseColorChecked = 'var(--pv-color-primary)';
+    let colorChecked = `var(--pv-color-${props.color}-shade-1)`;
+    let ellipseColorChecked = `var(--pv-color-${props.color})`;
     let colorDisabled = 'var(--pv-color-gray-6)';
     let colorDisabledChecked = 'var(--pv-color-gray-7)';
     let opacityHover = opacity.light.switch.hover;
@@ -116,8 +126,8 @@ const RadioInput = styled('input')(
 
     if (isDark) {
       color = 'var(--pv-color-gray-7)';
-      colorChecked = 'var(--pv-color-primary)';
-      ellipseColorChecked = 'var(--pv-color-primary-tint-1)';
+      colorChecked = `var(--pv-color-${props.color})`;
+      ellipseColorChecked = `var(--pv-color-${props.color}-tint-1)`;
       colorDisabled = 'var(--pv-color-gray-5)';
       colorDisabled = 'var(--pv-color-gray-5)';
       colorDisabledChecked = 'var(--pv-color-gray-5)';
@@ -187,6 +197,7 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
   const {
     checked,
     defaultChecked,
+    color = 'primary',
     required,
     inputProps,
     disabled,
@@ -213,6 +224,7 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
         defaultChecked={defaultChecked}
         required={required}
         disabled={disabled}
+        color={color}
         onChange={onChange}
       />
       <CheckboxIcon
@@ -225,4 +237,6 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
 
 Radio.displayName = 'Radio';
 
-Radio.defaultProps = {};
+Radio.defaultProps = {
+  color: 'primary',
+};

@@ -122,7 +122,24 @@ describe('<Radio />', () => {
     });
   });
 
-  describe('Checkbox focus behaviour', () => {
+  describe('Radio render colors', () => {
+    const colors: Array<React.ComponentProps<typeof Radio>['color']> = [
+      'primary',
+      'secondary',
+    ];
+
+    colors.forEach((color) => {
+      it(`color "${color}"`, () => {
+        const { asFragment } = render(
+          <Radio color={color} id="test-id" />,
+        );
+
+        expect(asFragment()).toMatchSnapshot();
+      });
+    });
+  });
+
+  describe('Radio focus behaviour', () => {
     it('should have focus', async () => {
       render(<Radio />);
 
@@ -146,7 +163,7 @@ describe('<Radio />', () => {
     });
   });
 
-  describe('Checkbox keyboard behaviour', () => {
+  describe('Radio keyboard behaviour', () => {
     it('should be checked after pressed on space', async () => {
       render(<Radio />);
 
@@ -157,7 +174,7 @@ describe('<Radio />', () => {
     });
   });
 
-  describe('Checkbox click behaviour', () => {
+  describe('Radio click behaviour', () => {
     it('should be checked when clicked', () => {
       render(<Radio />);
 
@@ -197,7 +214,7 @@ describe('<Radio />', () => {
       expect(onChange).toBeCalledTimes(1);
     });
 
-    it('should be checked the right checkbox when clicked them in turn', () => {
+    it('should be checked the right radio when clicked them in turn', () => {
       render(
         <>
           <Radio name="test-name" />
