@@ -74,6 +74,7 @@ const RadioRoot = styled('label')(
     height: 'var(--pv-size-base-4)',
     borderRadius: '50%',
     position: 'relative',
+    flexShrink: 0,
   },
   (props) => ({
     ...(props.theme.mode === 'dark' ? {

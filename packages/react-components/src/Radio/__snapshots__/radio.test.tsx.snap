@@ -12,6 +12,9 @@ exports[`<Radio /> Radio render colors color "primary" 1`] = `
   height: var(--pv-size-base-4);
   border-radius: 50%;
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   color: var(--pv-color-gray-6);
 }
 
@@ -138,6 +141,9 @@ exports[`<Radio /> Radio render colors color "secondary" 1`] = `
   height: var(--pv-size-base-4);
   border-radius: 50%;
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   color: var(--pv-color-gray-6);
 }
 
@@ -264,6 +270,9 @@ exports[`<Radio /> Radio render variants should be checked, defaultChecked prop 
   height: var(--pv-size-base-4);
   border-radius: 50%;
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   color: var(--pv-color-gray-6);
 }
 
@@ -391,6 +400,9 @@ exports[`<Radio /> Radio render variants should be disabled 1`] = `
   height: var(--pv-size-base-4);
   border-radius: 50%;
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   color: var(--pv-color-gray-6);
 }
 
@@ -518,6 +530,9 @@ exports[`<Radio /> Radio render variants should have className 1`] = `
   height: var(--pv-size-base-4);
   border-radius: 50%;
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   color: var(--pv-color-gray-6);
 }
 
@@ -644,6 +659,9 @@ exports[`<Radio /> Radio render variants should have custom checked icon 1`] = `
   height: var(--pv-size-base-4);
   border-radius: 50%;
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   color: var(--pv-color-gray-6);
 }
 
@@ -769,6 +787,9 @@ exports[`<Radio /> Radio render variants should have name attr 1`] = `
   height: var(--pv-size-base-4);
   border-radius: 50%;
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   color: var(--pv-color-gray-6);
 }
 
@@ -896,6 +917,9 @@ exports[`<Radio /> Radio render variants should have required 1`] = `
   height: var(--pv-size-base-4);
   border-radius: 50%;
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   color: var(--pv-color-gray-6);
 }
 
@@ -1023,6 +1047,9 @@ exports[`<Radio /> Radio render variants should have test id 1`] = `
   height: var(--pv-size-base-4);
   border-radius: 50%;
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   color: var(--pv-color-gray-6);
 }
 
@@ -1150,6 +1177,9 @@ exports[`<Radio /> Radio render variants should render as default 1`] = `
   height: var(--pv-size-base-4);
   border-radius: 50%;
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   color: var(--pv-color-gray-6);
 }
 

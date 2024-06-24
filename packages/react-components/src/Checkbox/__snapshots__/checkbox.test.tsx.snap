@@ -10,6 +10,9 @@ exports[`<Checkbox /> Checkbox render colors color "primary" 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .emotion-1 {
@@ -141,6 +144,9 @@ exports[`<Checkbox /> Checkbox render colors color "secondary" 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .emotion-1 {
@@ -272,6 +278,9 @@ exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .emotion-1 {
@@ -404,6 +413,9 @@ exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .emotion-1 {
@@ -536,6 +548,9 @@ exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .emotion-1 {
@@ -668,6 +683,9 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .emotion-1 {
@@ -799,6 +817,9 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .emotion-1 {
@@ -931,6 +952,9 @@ exports[`<Checkbox /> Checkbox render variants should have name attr 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .emotion-1 {
@@ -1063,6 +1087,9 @@ exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .emotion-1 {
@@ -1195,6 +1222,9 @@ exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .emotion-1 {
@@ -1327,6 +1357,9 @@ exports[`<Checkbox /> Checkbox render variants should render as default 1`] = `
   width: var(--pv-size-base-4);
   height: var(--pv-size-base-4);
   position: relative;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .emotion-1 {

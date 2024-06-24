@@ -70,6 +70,7 @@ const SwitchRoot = styled('label')({
   justifyContent: 'center',
   position: 'relative',
   alignItems: 'center',
+  flexShrink: 0,
 });
 
 const SwitchInput = styled('input', {

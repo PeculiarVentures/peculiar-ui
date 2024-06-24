@@ -76,6 +76,7 @@ const CheckboxRoot = styled('label')({
   width: 'var(--pv-size-base-4)',
   height: 'var(--pv-size-base-4)',
   position: 'relative',
+  flexShrink: 0,
 });
 
 const CheckboxInput = styled('input', {
