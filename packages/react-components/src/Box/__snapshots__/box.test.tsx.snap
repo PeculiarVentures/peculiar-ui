@@ -102,6 +102,96 @@ exports[`<Box /> border positions position "vertical" 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<Box /> box shadow shadow "dark-hight" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  box-shadow: var(--pv-shadow-dark-hight);
+}
+
+<div
+    boxshadow="dark-hight"
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Box /> box shadow shadow "dark-medium" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  box-shadow: var(--pv-shadow-dark-medium);
+}
+
+<div
+    boxshadow="dark-medium"
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Box /> box shadow shadow "light-hight" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  box-shadow: var(--pv-shadow-light-hight);
+}
+
+<div
+    boxshadow="light-hight"
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Box /> box shadow shadow "light-low" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  box-shadow: var(--pv-shadow-light-low);
+}
+
+<div
+    boxshadow="light-low"
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Box /> box shadow shadow "light-medium" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  box-shadow: var(--pv-shadow-light-medium);
+}
+
+<div
+    boxshadow="light-medium"
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Box /> box shadow shadow "light-soft" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  box-shadow: var(--pv-shadow-light-soft);
+}
+
+<div
+    boxshadow="light-soft"
+    class="emotion-0"
+  >
+    Message
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<Box /> should pass className 1`] = `
 <DocumentFragment>
   <div
