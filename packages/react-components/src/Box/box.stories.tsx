@@ -138,3 +138,38 @@ export const BorderPositionExample = () => (
     </Box>
   </>
 );
+
+export const BoxShadowExample = () => (
+  <>
+    <Box
+      boxShadow="light-low"
+    >
+      Light-low
+    </Box>
+    <Box
+      boxShadow="light-medium"
+    >
+      Light-medium
+    </Box>
+    <Box
+      boxShadow="light-hight"
+    >
+      Light-hight
+    </Box>
+    <Box
+      boxShadow="light-soft"
+    >
+      Light-soft
+    </Box>
+    <Box
+      boxShadow="dark-medium"
+    >
+      Dark-medium
+    </Box>
+    <Box
+      boxShadow="dark-hight"
+    >
+      Dark-hight
+    </Box>
+  </>
+);

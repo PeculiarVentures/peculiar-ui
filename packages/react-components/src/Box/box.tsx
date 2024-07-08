@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { ColorType } from '../styles';
+import { ColorType, ShadowType } from '../styles';
 
 /**
  * Types.
@@ -17,6 +17,7 @@ export interface BoxOwnProps {
   borderStyle?: ('solid' | 'dashed');
   borderPosition?: ('horizontal' | 'vertical' | 'top' | 'right' | 'bottom' | 'left');
   borderRadius?: number;
+  boxShadow?: ShadowType;
 }
 
 export interface BoxTypeMap<P = {}, D extends React.ElementType = 'div'> {
@@ -46,6 +47,7 @@ const BoxRoot = styled('div', {
     borderColor: props.borderColor && `var(--pv-color-${props.borderColor})`,
     borderStyle: props.borderStyle,
     borderRadius: props.borderRadius,
+    boxShadow: props.boxShadow && `var(--pv-shadow-${props.boxShadow})`,
   }),
   (props) => {
     const { borderWidth, borderPosition } = props;

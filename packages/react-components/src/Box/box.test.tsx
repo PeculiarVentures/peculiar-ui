@@ -43,4 +43,29 @@ describe('<Box />', () => {
       });
     });
   });
+
+  describe('box shadow', () => {
+    const shadows: Array<React.ComponentProps<typeof Box>['boxShadow']> = [
+      'light-low',
+      'light-medium',
+      'light-hight',
+      'light-soft',
+      'dark-medium',
+      'dark-hight',
+    ];
+
+    shadows.forEach((shadow) => {
+      it(`shadow "${shadow}"`, () => {
+        const { asFragment } = render(
+          <Box
+            boxShadow={shadow}
+          >
+            Message
+          </Box>,
+        );
+
+        expect(asFragment()).toMatchSnapshot();
+      });
+    });
+  });
 });
