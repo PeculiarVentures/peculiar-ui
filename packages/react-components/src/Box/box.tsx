@@ -34,7 +34,7 @@ export type BoxProps<
  *
  */
 
-const reactPropsRegex = /^(as|background|borderColor|borderWidth|borderStyle|borderPosition|borderRadius)$/;
+const reactPropsRegex = /^(as|background|borderColor|borderWidth|borderStyle|borderPosition|borderRadius|boxShadow)$/;
 
 /**
  * Styles.
