@@ -109,7 +109,6 @@ exports[`<Box /> box shadow shadow "dark-hight" 1`] = `
 }
 
 <div
-    boxshadow="dark-hight"
     class="emotion-0"
   >
     Message
@@ -124,7 +123,6 @@ exports[`<Box /> box shadow shadow "dark-medium" 1`] = `
 }
 
 <div
-    boxshadow="dark-medium"
     class="emotion-0"
   >
     Message
@@ -139,7 +137,6 @@ exports[`<Box /> box shadow shadow "light-hight" 1`] = `
 }
 
 <div
-    boxshadow="light-hight"
     class="emotion-0"
   >
     Message
@@ -154,7 +151,6 @@ exports[`<Box /> box shadow shadow "light-low" 1`] = `
 }
 
 <div
-    boxshadow="light-low"
     class="emotion-0"
   >
     Message
@@ -169,7 +165,6 @@ exports[`<Box /> box shadow shadow "light-medium" 1`] = `
 }
 
 <div
-    boxshadow="light-medium"
     class="emotion-0"
   >
     Message
@@ -184,7 +179,6 @@ exports[`<Box /> box shadow shadow "light-soft" 1`] = `
 }
 
 <div
-    boxshadow="light-soft"
     class="emotion-0"
   >
     Message
