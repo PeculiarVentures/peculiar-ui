@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Modal } from '../Modal';
+import { Modal, ModalProps } from '../Modal';
 import { Slide } from '../Slide';
 
 /**
@@ -24,13 +24,9 @@ type DrawerOwnProps = {
    */
   transitionDuration?: number;
   /**
-   * If `true`, clicking the backdrop will not fire the `onClose` callback.
+   * Props applied to the `Modal` element.
    */
-  disableBackdropClick?: boolean;
-  /**
-   * If `true`, hitting escape will not fire the `onClose` callback.
-   */
-  disableEscapeKeyDown?: boolean;
+  modalProps?: Partial<Omit<ModalProps, 'transitionDuration' | 'open' | 'onClose' | 'keepMounted'>>;
   /**
    * Callback fired when the component requests to be closed.
    */
@@ -72,8 +68,7 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
     children,
     open,
     transitionDuration,
-    disableBackdropClick,
-    disableEscapeKeyDown,
+    modalProps = {},
     onClose,
     'data-testid': dataTestId,
     ...other
@@ -81,13 +76,12 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
 
   return (
     <Modal
+      {...modalProps}
       ref={ref}
       open={open}
       transitionDuration={transitionDuration}
       onClose={onClose}
       data-testid={dataTestId}
-      disableBackdropClick={disableBackdropClick}
-      disableEscapeKeyDown={disableEscapeKeyDown}
       keepMounted
     >
       <Slide
@@ -109,6 +103,4 @@ Drawer.displayName = 'Drawer';
 
 Drawer.defaultProps = {
   transitionDuration: 225,
-  disableBackdropClick: false,
-  disableEscapeKeyDown: false,
 };
