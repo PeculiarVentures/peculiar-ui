@@ -1,0 +1,33 @@
+import { Meta, ArgTypes, Canvas } from '@storybook/blocks';
+import * as Stories from './flex.stories';
+import { FlexContainer, Flex } from './index';
+
+<Meta of={Stories} />
+
+# Flex
+
+## Auto-layout
+
+The auto-layout feature gives equal space to all items present. When you set the width of one item, the others will automatically resize to match it.
+
+<Canvas of={Stories.AutoLayoutExample} />
+
+## Variable width content
+
+When a breakpoint's value is given as `auto`, then a column's size will automatically adjust to match the width of its content. The demo below shows how this works:
+
+<Canvas of={Stories.VariableWidthExample} />
+
+## Column
+
+<Canvas of={Stories.ColumnExample} />
+
+## Component API
+
+### FlexContainer
+
+<ArgTypes of={FlexContainer} />
+
+### Flex
+
+<ArgTypes of={Flex} />

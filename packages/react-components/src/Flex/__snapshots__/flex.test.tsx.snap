@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Flex /> should pass className 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  min-width: 0px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+}
+
+<div
+    class="my-class-name emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Flex /> should pass component 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  min-width: 0px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+}
+
+<p
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Flex /> should render size auto 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  min-width: 0px;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  max-width: none;
+  width: auto;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Flex /> should render size grow 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Flex /> should render with default styles 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  min-width: 0px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+}
+
+<div
+    class="emotion-0"
+  >
+    1
+  </div>
+</DocumentFragment>
+`;

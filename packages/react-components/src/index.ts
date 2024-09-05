@@ -35,3 +35,4 @@ export * from './Typography';
 export * from './styles';
 export * from './hooks';
 export * from './OverridableComponent';
+export * from './Flex';
