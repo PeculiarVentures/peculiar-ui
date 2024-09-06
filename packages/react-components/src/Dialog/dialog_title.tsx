@@ -35,10 +35,7 @@ const DialogTitleRoot = styled('header')({
   display: 'flex',
   flex: '0 0 auto',
   justifyContent: 'space-between',
-});
-
-const DialogTitleCloseButton = styled(IconButton)({
-  margin: '0 calc(var(--pv-size-base) * -1) 0 var(--pv-size-base-2)',
+  gap: 'var(--pv-size-base-2)',
 });
 /**
  *
@@ -65,12 +62,12 @@ export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((p
       </Typography>
 
       {onClose && (
-        <DialogTitleCloseButton
+        <IconButton
           size="small"
           onClick={onClose}
         >
           <CloseIcon />
-        </DialogTitleCloseButton>
+        </IconButton>
       )}
     </DialogTitleRoot>
   );

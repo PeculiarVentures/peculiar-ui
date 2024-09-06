@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Typography } from '../Typography';
 import { IconButton } from '../IconButton';
 import { CircularProgress } from '../CircularProgress';
+import { FlexContainer, Flex } from '../Flex';
 import {
   CloseCircleIcon,
   WarningIcon,
@@ -49,10 +50,10 @@ export type AlertProps = AlertOwnProps & Omit<React.HTMLAttributes<HTMLDivElemen
 /**
  * Styles.
  */
-const AlertRoot = styled('div')<AlertOwnProps>(
+const AlertRoot = styled(FlexContainer)<AlertOwnProps>(
   {
     width: '100%',
-    display: 'flex',
+    gap: 'var(--pv-size-base-2)',
     padding: 'var(--pv-size-base-2) var(--pv-size-base-4)',
     boxSizing: 'border-box',
     borderRadius: '4px',
@@ -87,10 +88,8 @@ const AlertRoot = styled('div')<AlertOwnProps>(
 
 const AlertIcon = styled('div')<Required<Pick<AlertOwnProps, 'variant'>>>(
   (props) => ({
-    marginRight: 'var(--pv-size-base-2)',
     width: '24px',
     display: 'flex',
-    padding: 'var(--pv-size-base-half) 0px',
     justifyContent: 'center',
     alignItems: 'center',
     ...(props.variant === 'wrong' && {
@@ -105,10 +104,10 @@ const AlertIcon = styled('div')<Required<Pick<AlertOwnProps, 'variant'>>>(
   }),
 );
 
-const AlertMessage = styled(Typography)({
+const AlertMessage = styled(Flex)({
   padding: 'var(--pv-size-base) 0px',
-  flex: '1',
   minHeight: 'var(--pv-text-b3-height)',
+  overflowWrap: 'break-word',
 });
 /**
  *
@@ -175,11 +174,13 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) =
           {renderIcon()}
         </AlertIcon>
       )}
-      <AlertMessage
-        variant="b3"
-        color={variant === 'wrong' ? 'wrong' : 'white'}
-      >
-        {children}
+      <AlertMessage size="grow">
+        <Typography
+          variant="b3"
+          color={variant === 'wrong' ? 'wrong' : 'white'}
+        >
+          {children}
+        </Typography>
       </AlertMessage>
       {onClose && (
         <IconButton
