@@ -3,11 +3,15 @@
 exports[`<Alert /> should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -15,28 +19,42 @@ exports[`<Alert /> should pass className 1`] = `
 }
 
 .emotion-1 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-2 {
   margin: 0;
   color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
 <div
     class="my-class-name emotion-0"
     role="alert"
   >
-    <p
+    <div
       class="emotion-1"
     >
-      Alert message
-    </p>
+      <p
+        class="emotion-2"
+      >
+        Alert message
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -44,11 +62,15 @@ exports[`<Alert /> should pass className 1`] = `
 exports[`<Alert /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -56,28 +78,42 @@ exports[`<Alert /> should render with default styles 1`] = `
 }
 
 .emotion-1 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-2 {
   margin: 0;
   color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
 <div
     class="emotion-0"
     role="alert"
   >
-    <p
+    <div
       class="emotion-1"
     >
-      Alert message
-    </p>
+      <p
+        class="emotion-2"
+      >
+        Alert message
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -85,11 +121,15 @@ exports[`<Alert /> should render with default styles 1`] = `
 exports[`<Alert /> variants variant "attention" disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -97,28 +137,43 @@ exports[`<Alert /> variants variant "attention" disable icon 1`] = `
 }
 
 .emotion-1 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-2 {
   margin: 0;
   color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
 <div
     class="emotion-0"
     role="alert"
+    variant="attention"
   >
-    <p
+    <div
       class="emotion-1"
     >
-      Messageattention
-    </p>
+      <p
+        class="emotion-2"
+      >
+        Messageattention
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -126,11 +181,15 @@ exports[`<Alert /> variants variant "attention" disable icon 1`] = `
 exports[`<Alert /> variants variant "attention" enable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -138,13 +197,11 @@ exports[`<Alert /> variants variant "attention" enable icon 1`] = `
 }
 
 .emotion-1 {
-  margin-right: var(--pv-size-base-2);
   width: 24px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: var(--pv-size-base-half) 0px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -157,22 +214,33 @@ exports[`<Alert /> variants variant "attention" enable icon 1`] = `
 }
 
 .emotion-2 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-3 {
   margin: 0;
   color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
 <div
     class="emotion-0"
     role="alert"
+    variant="attention"
   >
     <div
       class="emotion-1"
@@ -201,11 +269,15 @@ exports[`<Alert /> variants variant "attention" enable icon 1`] = `
         />
       </svg>
     </div>
-    <p
+    <div
       class="emotion-2"
     >
-      Messageattention
-    </p>
+      <p
+        class="emotion-3"
+      >
+        Messageattention
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -213,11 +285,15 @@ exports[`<Alert /> variants variant "attention" enable icon 1`] = `
 exports[`<Alert /> variants variant "pending" disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -225,28 +301,43 @@ exports[`<Alert /> variants variant "pending" disable icon 1`] = `
 }
 
 .emotion-1 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-2 {
   margin: 0;
   color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
 <div
     class="emotion-0"
     role="alert"
+    variant="pending"
   >
-    <p
+    <div
       class="emotion-1"
     >
-      Messagepending
-    </p>
+      <p
+        class="emotion-2"
+      >
+        Messagepending
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -287,11 +378,15 @@ exports[`<Alert /> variants variant "pending" enable icon 1`] = `
 }
 
 .emotion-0 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -299,13 +394,11 @@ exports[`<Alert /> variants variant "pending" enable icon 1`] = `
 }
 
 .emotion-1 {
-  margin-right: var(--pv-size-base-2);
   width: 24px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: var(--pv-size-base-half) 0px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -340,22 +433,33 @@ exports[`<Alert /> variants variant "pending" enable icon 1`] = `
 }
 
 .emotion-5 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-6 {
   margin: 0;
   color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
 <div
     class="emotion-0"
     role="alert"
+    variant="pending"
   >
     <div
       class="emotion-1"
@@ -380,11 +484,15 @@ exports[`<Alert /> variants variant "pending" enable icon 1`] = `
         </svg>
       </div>
     </div>
-    <p
+    <div
       class="emotion-5"
     >
-      Messagepending
-    </p>
+      <p
+        class="emotion-6"
+      >
+        Messagepending
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -392,11 +500,15 @@ exports[`<Alert /> variants variant "pending" enable icon 1`] = `
 exports[`<Alert /> variants variant "success" disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -404,28 +516,43 @@ exports[`<Alert /> variants variant "success" disable icon 1`] = `
 }
 
 .emotion-1 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-2 {
   margin: 0;
   color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
 <div
     class="emotion-0"
     role="alert"
+    variant="success"
   >
-    <p
+    <div
       class="emotion-1"
     >
-      Messagesuccess
-    </p>
+      <p
+        class="emotion-2"
+      >
+        Messagesuccess
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -433,11 +560,15 @@ exports[`<Alert /> variants variant "success" disable icon 1`] = `
 exports[`<Alert /> variants variant "success" enable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -445,13 +576,11 @@ exports[`<Alert /> variants variant "success" enable icon 1`] = `
 }
 
 .emotion-1 {
-  margin-right: var(--pv-size-base-2);
   width: 24px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: var(--pv-size-base-half) 0px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -464,22 +593,33 @@ exports[`<Alert /> variants variant "success" enable icon 1`] = `
 }
 
 .emotion-2 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-3 {
   margin: 0;
   color: var(--pv-color-white);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
 <div
     class="emotion-0"
     role="alert"
+    variant="success"
   >
     <div
       class="emotion-1"
@@ -507,11 +647,15 @@ exports[`<Alert /> variants variant "success" enable icon 1`] = `
         />
       </svg>
     </div>
-    <p
+    <div
       class="emotion-2"
     >
-      Messagesuccess
-    </p>
+      <p
+        class="emotion-3"
+      >
+        Messagesuccess
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -519,11 +663,15 @@ exports[`<Alert /> variants variant "success" enable icon 1`] = `
 exports[`<Alert /> variants variant "wrong" disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -531,28 +679,43 @@ exports[`<Alert /> variants variant "wrong" disable icon 1`] = `
 }
 
 .emotion-1 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-2 {
   margin: 0;
   color: var(--pv-color-wrong);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
 <div
     class="emotion-0"
     role="alert"
+    variant="wrong"
   >
-    <p
+    <div
       class="emotion-1"
     >
-      Messagewrong
-    </p>
+      <p
+        class="emotion-2"
+      >
+        Messagewrong
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -560,11 +723,15 @@ exports[`<Alert /> variants variant "wrong" disable icon 1`] = `
 exports[`<Alert /> variants variant "wrong" enable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -572,13 +739,11 @@ exports[`<Alert /> variants variant "wrong" enable icon 1`] = `
 }
 
 .emotion-1 {
-  margin-right: var(--pv-size-base-2);
   width: 24px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: var(--pv-size-base-half) 0px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -591,22 +756,33 @@ exports[`<Alert /> variants variant "wrong" enable icon 1`] = `
 }
 
 .emotion-2 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-3 {
   margin: 0;
   color: var(--pv-color-wrong);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
 <div
     class="emotion-0"
     role="alert"
+    variant="wrong"
   >
     <div
       class="emotion-1"
@@ -635,11 +811,15 @@ exports[`<Alert /> variants variant "wrong" enable icon 1`] = `
         />
       </svg>
     </div>
-    <p
+    <div
       class="emotion-2"
     >
-      Messagewrong
-    </p>
+      <p
+        class="emotion-3"
+      >
+        Messagewrong
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;

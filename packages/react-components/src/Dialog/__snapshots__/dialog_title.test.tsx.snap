@@ -14,6 +14,7 @@ exports[`<DialogTitle /> should pass className 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  gap: var(--pv-size-base-2);
 }
 
 .emotion-1 {
@@ -52,6 +53,7 @@ exports[`<DialogTitle /> should render close button 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  gap: var(--pv-size-base-2);
 }
 
 .emotion-1 {
@@ -99,7 +101,6 @@ exports[`<DialogTitle /> should render close button 1`] = `
   min-width: var(--pv-size-base-6);
   --pv-color-black: var(--pv-color-gray-9);
   border: none;
-  margin: 0 calc(var(--pv-size-base) * -1) 0 var(--pv-size-base-2);
 }
 
 .emotion-2:disabled {
@@ -189,6 +190,7 @@ exports[`<DialogTitle /> should render with default styles 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  gap: var(--pv-size-base-2);
 }
 
 .emotion-1 {

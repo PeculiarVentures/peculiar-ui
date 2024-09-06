@@ -36,11 +36,15 @@ exports[`<DialogContent /> should pass className 1`] = `
 }
 
 .emotion-3 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -50,20 +54,30 @@ exports[`<DialogContent /> should pass className 1`] = `
 }
 
 .emotion-4 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-5 {
   margin: 0;
   color: var(--pv-color-wrong);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
-.emotion-5 {
+.emotion-6 {
   overflow-y: auto;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
@@ -85,16 +99,21 @@ exports[`<DialogContent /> should pass className 1`] = `
           <div
             class="emotion-3"
             role="alert"
+            variant="wrong"
           >
-            <p
+            <div
               class="emotion-4"
-            />
+            >
+              <p
+                class="emotion-5"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="emotion-5"
+      class="emotion-6"
     >
       Content
     </div>
@@ -138,11 +157,15 @@ exports[`<DialogContent /> should render border 1`] = `
 }
 
 .emotion-3 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -152,20 +175,30 @@ exports[`<DialogContent /> should render border 1`] = `
 }
 
 .emotion-4 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-5 {
   margin: 0;
   color: var(--pv-color-wrong);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
-.emotion-5 {
+.emotion-6 {
   overflow-y: auto;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
@@ -187,16 +220,21 @@ exports[`<DialogContent /> should render border 1`] = `
           <div
             class="emotion-3"
             role="alert"
+            variant="wrong"
           >
-            <p
+            <div
               class="emotion-4"
-            />
+            >
+              <p
+                class="emotion-5"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="emotion-5"
+      class="emotion-6"
     >
       Content
     </div>
@@ -239,11 +277,15 @@ exports[`<DialogContent /> should render error 1`] = `
 }
 
 .emotion-3 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -253,20 +295,30 @@ exports[`<DialogContent /> should render error 1`] = `
 }
 
 .emotion-4 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-5 {
   margin: 0;
   color: var(--pv-color-wrong);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
-.emotion-5 {
+.emotion-6 {
   overflow-y: auto;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
@@ -288,18 +340,23 @@ exports[`<DialogContent /> should render error 1`] = `
           <div
             class="emotion-3"
             role="alert"
+            variant="wrong"
           >
-            <p
+            <div
               class="emotion-4"
             >
-              Some API error
-            </p>
+              <p
+                class="emotion-5"
+              >
+                Some API error
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="emotion-5"
+      class="emotion-6"
     >
       Content
     </div>
@@ -343,11 +400,15 @@ exports[`<DialogContent /> should render with default styles 1`] = `
 }
 
 .emotion-3 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--pv-size-base-2);
   padding: var(--pv-size-base-2) var(--pv-size-base-4);
   box-sizing: border-box;
   border-radius: 4px;
@@ -357,20 +418,30 @@ exports[`<DialogContent /> should render with default styles 1`] = `
 }
 
 .emotion-4 {
+  min-width: 0px;
+  -webkit-flex-basis: 0px;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: var(--pv-size-base) 0px;
+  min-height: var(--pv-text-b3-height);
+  overflow-wrap: break-word;
+}
+
+.emotion-5 {
   margin: 0;
   color: var(--pv-color-wrong);
   font-weight: var(--pv-text-b3-weight);
   font-size: var(--pv-text-b3-size);
   line-height: var(--pv-text-b3-height);
   letter-spacing: var(--pv-text-b3-spacing);
-  padding: var(--pv-size-base) 0px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-height: var(--pv-text-b3-height);
 }
 
-.emotion-5 {
+.emotion-6 {
   overflow-y: auto;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
@@ -392,16 +463,21 @@ exports[`<DialogContent /> should render with default styles 1`] = `
           <div
             class="emotion-3"
             role="alert"
+            variant="wrong"
           >
-            <p
+            <div
               class="emotion-4"
-            />
+            >
+              <p
+                class="emotion-5"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="emotion-5"
+      class="emotion-6"
     >
       Content
     </div>
