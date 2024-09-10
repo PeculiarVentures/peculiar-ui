@@ -590,7 +590,7 @@ Multiple extends boolean | undefined = false,
               })}
           </AutocompleteDropdownList>
         )}
-        {allowCreateOption && !loading && (
+        {(allowCreateOption && searchValue.length > 0 && !loading) && (
           <Box
             borderColor="gray-3"
             borderPosition="top"
@@ -603,7 +603,7 @@ Multiple extends boolean | undefined = false,
               onClick={handleCreate}
               startIcon={<PlusIcon />}
             >
-              {createOptionText}
+              {createOptionText.replace('{{value}}', searchValue)}
             </AutocompleteCreateNewButton>
           </Box>
         )}
@@ -621,6 +621,6 @@ Autocomplete.defaultProps = {
   limitTags: 2,
   required: false,
   allowCreateOption: false,
-  createOptionText: 'Create new',
+  createOptionText: 'Create "{{value}}"',
   size: 'medium',
 };
