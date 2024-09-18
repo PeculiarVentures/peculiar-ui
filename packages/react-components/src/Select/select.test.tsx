@@ -1,13 +1,13 @@
 import React from 'react';
 import { renderWithWrapper as render, screen, fireEvent } from '../test-utils';
-import { Autocomplete } from './index';
+import { Select } from './index';
 
-describe('<Autocomplete />', () => {
+describe('<Select />', () => {
   const options = ['test-1', 'test-2'];
 
   it('should render with default styles', () => {
     const { asFragment } = render(
-      <Autocomplete
+      <Select
         options={options}
         id="test-id"
       />,
@@ -18,7 +18,7 @@ describe('<Autocomplete />', () => {
 
   it('should render with default multiple styles', () => {
     const { asFragment } = render(
-      <Autocomplete
+      <Select
         options={options}
         id="test-id"
         multiple
@@ -30,7 +30,7 @@ describe('<Autocomplete />', () => {
 
   it('should pass className', () => {
     const { asFragment } = render(
-      <Autocomplete
+      <Select
         options={options}
         id="test-id"
         className="my-class-name"
@@ -41,7 +41,7 @@ describe('<Autocomplete />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Autocomplete>['size']> = [
+    const sizes: Array<React.ComponentProps<typeof Select>['size']> = [
       'small',
       'medium',
       'large',
@@ -50,7 +50,7 @@ describe('<Autocomplete />', () => {
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
         const { asFragment } = render(
-          <Autocomplete
+          <Select
             options={options}
             id="test-id"
             size={size}
@@ -64,7 +64,7 @@ describe('<Autocomplete />', () => {
 
   it('should pass loading', () => {
     const { baseElement } = render(
-      <Autocomplete
+      <Select
         options={[]}
         id="test-id"
         loading
@@ -79,7 +79,7 @@ describe('<Autocomplete />', () => {
 
   it('should pass error', () => {
     const { baseElement } = render(
-      <Autocomplete
+      <Select
         options={[]}
         id="test-id"
         error
@@ -94,7 +94,7 @@ describe('<Autocomplete />', () => {
 
   it('should pass options', () => {
     const { baseElement } = render(
-      <Autocomplete
+      <Select
         id="test-id"
         options={options}
       />,

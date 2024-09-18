@@ -22,7 +22,7 @@ export * from './Portal';
 export * from './Radio';
 export * from './NativeSelect';
 export * from './Skeleton';
-export * from './Autocomplete';
+export * from './Select';
 export * from './Slide';
 export * from './Slider';
 export * from './Switch';

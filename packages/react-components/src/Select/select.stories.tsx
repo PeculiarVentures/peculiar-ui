@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Autocomplete } from './index';
+import { Select } from './index';
 
 const top100Films = [
   { title: 'The Shawshank Redemption', year: 1994 },
@@ -104,10 +104,10 @@ const top100Films = [
   { title: 'Monty Python and the Holy Grail', year: 1975 },
 ];
 
-const meta: Meta<typeof Autocomplete> = {
-  title: 'Components/Autocomplete',
+const meta: Meta<typeof Select> = {
+  title: 'Components/Select',
   // @ts-ignore
-  component: Autocomplete,
+  component: Select,
   args: {
     options: top100Films,
     placeholder: 'Select a movie',
@@ -126,6 +126,6 @@ const meta: Meta<typeof Autocomplete> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Autocomplete>;
+type Story = StoryObj<typeof Select>;
 
 export const Playground: Story = {};
