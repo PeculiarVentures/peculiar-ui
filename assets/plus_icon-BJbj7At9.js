@@ -1,0 +1,1 @@
+import{j as r}from"./jsx-runtime-Du8NFWEI.js";const s=o=>r.jsx("svg",{...o,xmlns:"http://www.w3.org/2000/svg",fill:"none",viewBox:"0 0 24 24",width:"24px",height:"24px",children:r.jsx("path",{d:"M6 12.5h12M12 18.5v-12",stroke:"currentColor",strokeWidth:"1.5"})});try{s.displayName="PlusIcon",s.__docgenInfo={description:"",displayName:"PlusIcon",props:{}}}catch{}export{s as P};
