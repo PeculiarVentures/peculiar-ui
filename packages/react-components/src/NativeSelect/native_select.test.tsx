@@ -1,16 +1,16 @@
 import React from 'react';
 import { renderWithWrapper as render } from '../test-utils';
-import { Select } from './index';
+import { NativeSelect } from './index';
 
-describe('<Select />', () => {
-  const options: Partial<React.ComponentProps<typeof Select>>['options'] = [
+describe('<NativeSelect />', () => {
+  const options: Partial<React.ComponentProps<typeof NativeSelect>>['options'] = [
     { label: 'test-1', value: 'test1' },
     { label: 'test-2', value: 'test3' },
   ];
 
   it('should render with default styles', () => {
     const { asFragment } = render(
-      <Select options={options} />,
+      <NativeSelect options={options} />,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -18,14 +18,14 @@ describe('<Select />', () => {
 
   it('should pass className', () => {
     const { asFragment } = render(
-      <Select options={options} className="my-class-name" />,
+      <NativeSelect options={options} className="my-class-name" />,
     );
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Select>['size']> = [
+    const sizes: Array<React.ComponentProps<typeof NativeSelect>['size']> = [
       'small',
       'medium',
       'large',
@@ -34,7 +34,7 @@ describe('<Select />', () => {
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
         const { asFragment } = render(
-          <Select options={options} size={size} />,
+          <NativeSelect options={options} size={size} />,
         );
 
         expect(asFragment()).toMatchSnapshot();

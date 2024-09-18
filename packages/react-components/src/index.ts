@@ -20,7 +20,7 @@ export * from './Popper';
 export * from './Popover';
 export * from './Portal';
 export * from './Radio';
-export * from './Select';
+export * from './NativeSelect';
 export * from './Skeleton';
 export * from './Autocomplete';
 export * from './Slide';

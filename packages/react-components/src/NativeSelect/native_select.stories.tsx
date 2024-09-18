@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Select } from './index';
+import { NativeSelect } from './index';
 
-const meta: Meta<typeof Select> = {
-  title: 'Components/Select',
-  component: Select,
+const meta: Meta<typeof NativeSelect> = {
+  title: 'Components/NativeSelect',
+  component: NativeSelect,
   args: {
     options: [
       {
@@ -34,6 +34,6 @@ const meta: Meta<typeof Select> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Select>;
+type Story = StoryObj<typeof NativeSelect>;
 
 export const Playground: Story = {};

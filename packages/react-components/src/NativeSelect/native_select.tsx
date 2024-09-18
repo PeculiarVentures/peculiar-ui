@@ -6,7 +6,7 @@ import { ArrowDropDownIcon } from '../icons';
 /**
  * Types.
  */
-type SelectOwnProps = {
+type NativeSelectOwnProps = {
   options: {
     value: string;
     label: string;
@@ -78,9 +78,9 @@ type SelectOwnProps = {
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
 };
 
-type SelectProps = SelectOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
-type SelectRootProps = React.HTMLAttributes<HTMLSelectElement> & {
-  selectSize?: SelectOwnProps['size']
+type NativeSelectProps = NativeSelectOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type NativeSelectRootProps = React.HTMLAttributes<HTMLSelectElement> & {
+  selectSize?: NativeSelectOwnProps['size']
 };
 /**
  *
@@ -89,7 +89,7 @@ type SelectRootProps = React.HTMLAttributes<HTMLSelectElement> & {
 /**
  * Styles.
  */
-const SelectRoot = styled('select')<SelectRootProps>(
+const NativeSelectRoot = styled('select')<NativeSelectRootProps>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -170,20 +170,22 @@ const SelectRoot = styled('select')<SelectRootProps>(
   },
 );
 
-const SelectLabel = styled('label')({
+const NativeSelectLabel = styled('label')({
   marginBottom: '2px',
   display: 'inline-block',
 });
 
-const SelectErrorMessage = styled(Typography)({
+const NativeSelectErrorMessage = styled(Typography)({
   marginTop: '2px',
 });
 
-const SelectContainer = styled('div')({
+const NativeSelectContainer = styled('div')({
   position: 'relative',
 });
 
-const SelectArrowIcon = styled(ArrowDropDownIcon)<Required<{ disabled: boolean }>>((props) => ({
+const NativeSelectArrowIcon = styled(
+  ArrowDropDownIcon,
+)<Required<{ disabled: boolean }>>((props) => ({
   position: 'absolute',
   right: '0px',
   top: 'calc(50% - 12px)',
@@ -198,7 +200,7 @@ const SelectArrowIcon = styled(ArrowDropDownIcon)<Required<{ disabled: boolean }
  *
  */
 
-export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
+export const NativeSelect = React.forwardRef<HTMLDivElement, NativeSelectProps>((props, ref) => {
   const {
     options,
     size,
@@ -225,7 +227,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
       {...other}
     >
       {label && (
-        <SelectLabel
+        <NativeSelectLabel
           htmlFor={id}
         >
           <Typography
@@ -235,10 +237,10 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
           >
             {label}
           </Typography>
-        </SelectLabel>
+        </NativeSelectLabel>
       )}
-      <SelectContainer>
-        <SelectRoot
+      <NativeSelectContainer>
+        <NativeSelectRoot
           selectSize={size}
           disabled={disabled}
           defaultValue={defaultValue}
@@ -266,27 +268,27 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
               {option.label}
             </option>
           ))}
-        </SelectRoot>
-        <SelectArrowIcon
+        </NativeSelectRoot>
+        <NativeSelectArrowIcon
           disabled={disabled}
           aria-hidden
         />
-      </SelectContainer>
+      </NativeSelectContainer>
       {error && errorText && (
-        <SelectErrorMessage
+        <NativeSelectErrorMessage
           variant="c2"
           color="wrong"
         >
           {errorText}
-        </SelectErrorMessage>
+        </NativeSelectErrorMessage>
       )}
     </div>
   );
 });
 
-Select.displayName = 'Select';
+NativeSelect.displayName = 'NativeSelect';
 
-Select.defaultProps = {
+NativeSelect.defaultProps = {
   disabled: false,
   size: 'medium',
 };
