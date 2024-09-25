@@ -22,25 +22,31 @@ describe('useDebounceCallback()', () => {
     result.current();
     expect(callbackMock).not.toBeCalled();
 
-    jest.runAllTimers();
+    jest.advanceTimersByTime(DEBOUNCE_TIMEOUT);
     expect(callbackMock).toBeCalled();
   });
 
-  it('should clear previous timer on the next debounced function call', () => {
+  it.only('should clear previous timer on the next debounced function call', () => {
     const setTimeoutSpy = jest.spyOn(global, 'setTimeout');
+    const callbackMock = jest.fn();
     const { result } = renderHook(() => useDebounceCallback(
-      jest.fn(),
+      callbackMock,
       DEBOUNCE_TIMEOUT,
     ));
 
     // Call timeout with callback on first call
     result.current();
     expect(setTimeoutSpy).toBeCalled();
+    expect(callbackMock).not.toBeCalled();
 
     // Clear previous callback timeout and set a new one on second call
     result.current();
     expect(clearTimeoutSpy).toBeCalled();
     expect(setTimeoutSpy).toBeCalled();
+
+    jest.advanceTimersByTime(DEBOUNCE_TIMEOUT);
+
+    expect(callbackMock).toBeCalled();
   });
 
   it('should clear timer on unmount if `cleanUp=true', () => {
