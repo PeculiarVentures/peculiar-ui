@@ -136,6 +136,7 @@ Multiple extends boolean | undefined = undefined,
     onDelete?: (event: React.SyntheticEvent) => void;
   };
   getOptionLabel: (option: T) => string;
+  handleDeleteAllValues: (event: React.SyntheticEvent,) => void;
 };
 /**
  *
@@ -481,6 +482,7 @@ Multiple extends boolean | undefined = false,
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    handleOpen(event);
     // Wait until IME is settled.
     if (event.which !== 229) {
       switch (event.key) {
@@ -523,6 +525,20 @@ Multiple extends boolean | undefined = false,
 
   const handleTagDelete = (option: T, index: number) => (event: React.SyntheticEvent) => {
     selectNewValue(event, option, index, 'removeOption');
+  };
+
+  const handleDeleteAllValues = (event: React.SyntheticEvent) => {
+    let newValue: T | T[] = null;
+
+    if (multiple) {
+      newValue = [];
+    }
+
+    setValue(newValue as AutocompleteValue<T, Multiple>);
+
+    if (onChange) {
+      onChange(event, newValue as AutocompleteValue<T, Multiple>, { option: null, index: 0 }, 'removeOption');
+    }
   };
 
   let groupedOptions = filteredOptions;
@@ -608,6 +624,7 @@ Multiple extends boolean | undefined = false,
       tabIndex: -1,
       onDelete: readOnly ? undefined : handleTagDelete(option, index),
     }),
+    handleDeleteAllValues,
     getOptionLabel,
     groupedOptions,
     popupOpen,
