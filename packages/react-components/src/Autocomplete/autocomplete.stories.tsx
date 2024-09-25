@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Autocomplete } from './index';
 
@@ -113,8 +112,6 @@ const meta: Meta<typeof Autocomplete> = {
     options: top100Films,
     placeholder: 'Select a movie',
     getOptionLabel: (option: any) => option.title,
-    // value: [{ title: 'Monty Python and the Holy Grail', year: 1975 }],
-    // multiple: true,
   },
   tags: ['autodocs'],
   argTypes: {
@@ -132,29 +129,3 @@ export default meta;
 type Story = StoryObj<typeof Autocomplete>;
 
 export const Playground: Story = {};
-
-export const Autocomplete2 = () => (
-  <form
-    onSubmit={(e: any) => {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      const formProps = Object.fromEntries(formData);
-
-      console.log(formProps);
-    }}
-  >
-    <Autocomplete
-      options={top100Films}
-      required
-      getOptionLabel={(option: any) => option.title}
-      // multiple
-      name="testForm"
-    />
-
-    <button
-      type="submit"
-    >
-      submit
-    </button>
-  </form>
-);
