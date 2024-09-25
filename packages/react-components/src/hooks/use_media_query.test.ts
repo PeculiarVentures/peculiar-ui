@@ -46,19 +46,19 @@ describe('useMediaQuery()', () => {
     window.matchMedia = originalMatchMedia;
   });
 
-  it('Return false if query is not matched', () => {
+  it('should return `false` if query is not matched', () => {
     const { result } = renderHook(() => useMediaQuery('(max-width: 526px)'));
 
     expect(result.current).toBe(false);
   });
 
-  it('Return true if query is matched', () => {
+  it('should return `true` if query is matched', () => {
     const { result } = renderHook(() => useMediaQuery(mediaQuery));
 
     expect(result.current).toBe(true);
   });
 
-  it('Return update matches when query is changed', () => {
+  it('should update update matches when query is changed', () => {
     const { result } = renderHook(() => useMediaQuery(mediaQuery));
 
     expect(result.current).toBe(true);
