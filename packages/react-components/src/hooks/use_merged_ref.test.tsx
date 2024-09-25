@@ -16,7 +16,7 @@ const Component = ({ refs }: { refs: (MutableRefObject<any> | RefCallback<HTMLEl
 };
 
 describe('useMergedRef()', () => {
-  it('Assign node to the refs', () => {
+  it('should assign node to the refs', () => {
     const ref = createRef();
     const reference: { current: HTMLDivElement | null } = { current: null };
     let refFromCallback = null;

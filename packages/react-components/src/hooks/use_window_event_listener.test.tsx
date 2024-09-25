@@ -8,7 +8,7 @@ describe('useWindowEventListener()', () => {
     removeEventListenerSpy.mockClear();
   });
 
-  it('Call listener on event fire', () => {
+  it('should call listener on event fire', () => {
     const listenerMock = jest.fn();
 
     renderHook(() => useWindowEventListener(
@@ -21,7 +21,7 @@ describe('useWindowEventListener()', () => {
     expect(listenerMock).toBeCalled();
   });
 
-  it('Remove listener on unmount by default', () => {
+  it('should remove listener on unmount by default', () => {
     const listenerMock = jest.fn();
     const { unmount } = renderHook(() => useWindowEventListener(
       'click',
@@ -33,7 +33,7 @@ describe('useWindowEventListener()', () => {
     expect(removeEventListenerSpy).toBeCalledWith('click', listenerMock);
   });
 
-  it('Don\'t remove listener on unmount if `removeOnUnmount=false`', () => {
+  it('should don\'t remove listener on unmount if `removeOnUnmount=false`', () => {
     const { unmount } = renderHook(() => useWindowEventListener(
       'click',
       jest.fn(),

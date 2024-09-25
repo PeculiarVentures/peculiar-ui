@@ -7,7 +7,7 @@ import { intersectionObserver } from '../utils/intersection_observer';
 jest.mock('../utils/intersection_observer.ts');
 
 describe('useIntersectionObserver()', () => {
-  it('Don\'t add a node to the observer if the node doesn\'t exist', () => {
+  it('should do not add a node to the observer if the node doesn\'t exist', () => {
     const { result } = renderHook(useIntersectionObserver);
     const [refCallback] = result.current;
 
@@ -16,7 +16,7 @@ describe('useIntersectionObserver()', () => {
     expect(intersectionObserver.add).not.toBeCalled();
   });
 
-  it('Init hook and add a node to the observer', () => {
+  it('should init hook and add a node to the observer', () => {
     const { result } = renderHook(useIntersectionObserver);
     const [refCallback] = result.current;
 
@@ -28,7 +28,7 @@ describe('useIntersectionObserver()', () => {
     );
   });
 
-  it('Remove node from observer on unmount', () => {
+  it('should remove node from observer on unmount', () => {
     const { result, unmount } = renderHook(useIntersectionObserver);
     const [refCallback] = result.current;
 

@@ -9,7 +9,7 @@ import {
 import { useEventCallback } from './use_event_callback';
 
 describe('useEventCallback()', () => {
-  it('Do not call the callback during render', () => {
+  it('should do not call the callback during render', () => {
     const callbackMock = jest.fn();
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
@@ -21,7 +21,7 @@ describe('useEventCallback()', () => {
     expect(callbackMock).not.toBeCalled();
   });
 
-  it('Call callback on event trigger', () => {
+  it('should call callback on event trigger', () => {
     const callbackMock = jest.fn();
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
@@ -35,7 +35,7 @@ describe('useEventCallback()', () => {
     expect(callbackMock).toBeCalled();
   });
 
-  it('Do not change callback reference on re-render', () => {
+  it('should do not change callback reference on re-render', () => {
     const { result, rerender } = renderHook(() => useEventCallback(() => {}));
     const initialReference = result.current;
 

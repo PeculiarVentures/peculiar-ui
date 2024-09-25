@@ -1,6 +1,4 @@
-import { act } from 'react-dom/test-utils';
-
-import { renderHook } from '../test-utils';
+import { act, renderHook } from '../test-utils';
 import { useMediaQuery } from './use_media_query';
 
 const matchMediaInstances = new Map();

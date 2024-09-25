@@ -1,9 +1,8 @@
-import { act } from 'react-dom/test-utils';
-import { renderHook } from '../test-utils';
+import { act, renderHook } from '../test-utils';
 import { useControllableState } from './use_controllable';
 
 describe('useControllableState()', () => {
-  it('Set default value and change state', () => {
+  it('should set default value and change state', () => {
     const { result, rerender } = renderHook(() => useControllableState({
       defaultValue: 'default_value',
     }));
@@ -16,7 +15,7 @@ describe('useControllableState()', () => {
     expect(result.current[0]).toEqual('new_value');
   });
 
-  it('Call `onChange` on state update is `onChange` is passed', () => {
+  it('should call `onChange` on state update is `onChange` is passed', () => {
     const onChangeMock = jest.fn();
     const { result } = renderHook(() => useControllableState({
       onChange: onChangeMock,
@@ -27,7 +26,7 @@ describe('useControllableState()', () => {
     expect(onChangeMock).toBeCalled();
   });
 
-  it('Do not update state if `shouldUpdate` is passed but not resolved', () => {
+  it('should do not update state if `shouldUpdate` is passed but not resolved', () => {
     const shouldUpdateMock = jest.fn().mockImplementationOnce(() => false);
     const { result } = renderHook(() => useControllableState({
       shouldUpdate: shouldUpdateMock,
@@ -38,7 +37,7 @@ describe('useControllableState()', () => {
     expect(result.current[0]).toBeUndefined();
   });
 
-  it('Update state if `shouldUpdate` is passed and resolved', () => {
+  it('should update state if `shouldUpdate` is passed and resolved', () => {
     const shouldUpdateMock = jest.fn().mockImplementationOnce(() => true);
     const { result } = renderHook(() => useControllableState({
       shouldUpdate: shouldUpdateMock,

@@ -62,7 +62,7 @@ export const Toast: React.FC<ToastOwnProps> = (props) => {
     }
 
     return undefined;
-  });
+  }, []);
 
   return (
     <Fade in>

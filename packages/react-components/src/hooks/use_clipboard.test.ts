@@ -1,5 +1,4 @@
-import { act } from 'react-dom/test-utils';
-import { renderHook } from '../test-utils';
+import { act, renderHook } from '../test-utils';
 import { useClipboard } from './use_clipboard';
 import { copyToClipboard } from '../utils';
 
@@ -14,7 +13,7 @@ describe('useClipboard()', () => {
     jest.resetAllMocks();
   });
 
-  it('Return `isCopied=true` on successfully copied', async () => {
+  it('should return `isCopied=true` on successfully copied', async () => {
     const { result } = renderHook(useClipboard);
 
     await act(() => result.current.copy('text_stub'));
@@ -23,7 +22,7 @@ describe('useClipboard()', () => {
     expect(result.current.isCopied).toBe(true);
   });
 
-  it('Ignore an error that occurs during copying', async () => {
+  it('should ignore an error that occurs during copying', async () => {
     const { result } = renderHook(useClipboard);
 
     jest.mock('../utils', () => ({
@@ -37,13 +36,13 @@ describe('useClipboard()', () => {
     await expect(copy).resolves.toBeUndefined();
   });
 
-  it('`isCopied` remains `true` until the timeout expires and becomes `false` after', async () => {
+  it('should remain `isCopied=true` until the timeout expires and becomes `false` after', async () => {
     const { result, rerender } = renderHook(useClipboard);
 
     await act(() => result.current.copy('text_stub'));
 
     expect(result.current.isCopied).toBe(true);
-    jest.runAllTimers();
+    act(() => jest.advanceTimersByTime(1500));
     rerender();
     expect(result.current.isCopied).toBe(false);
   });
