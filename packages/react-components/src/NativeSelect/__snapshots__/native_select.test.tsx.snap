@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Select /> should pass className 1`] = `
+exports[`<NativeSelect /> should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   position: relative;
@@ -103,7 +103,7 @@ exports[`<Select /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Select /> should render with default styles 1`] = `
+exports[`<NativeSelect /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   position: relative;
@@ -204,7 +204,7 @@ exports[`<Select /> should render with default styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Select /> sizes size "large" 1`] = `
+exports[`<NativeSelect /> sizes size "large" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   position: relative;
@@ -305,7 +305,7 @@ exports[`<Select /> sizes size "large" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Select /> sizes size "medium" 1`] = `
+exports[`<NativeSelect /> sizes size "medium" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   position: relative;
@@ -406,7 +406,7 @@ exports[`<Select /> sizes size "medium" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Select /> sizes size "small" 1`] = `
+exports[`<NativeSelect /> sizes size "small" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   position: relative;
