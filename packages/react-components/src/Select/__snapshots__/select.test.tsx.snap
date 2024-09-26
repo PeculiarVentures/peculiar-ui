@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Autocomplete /> should pass className 1`] = `
+exports[`<Select /> should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -133,7 +133,7 @@ exports[`<Autocomplete /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Autocomplete /> should pass error 1`] = `
+exports[`<Select /> should pass error 1`] = `
 .emotion-0 {
   margin: 0;
   color: var(--pv-color-black);
@@ -452,7 +452,7 @@ exports[`<Autocomplete /> should pass error 1`] = `
 </body>
 `;
 
-exports[`<Autocomplete /> should pass loading 1`] = `
+exports[`<Select /> should pass loading 1`] = `
 .emotion-0 {
   margin: 0;
   color: var(--pv-color-black);
@@ -756,7 +756,7 @@ exports[`<Autocomplete /> should pass loading 1`] = `
 </body>
 `;
 
-exports[`<Autocomplete /> should pass options 1`] = `
+exports[`<Select /> should pass options 1`] = `
 .emotion-0 {
   margin: 0;
   color: var(--pv-color-black);
@@ -1145,7 +1145,7 @@ exports[`<Autocomplete /> should pass options 1`] = `
 </body>
 `;
 
-exports[`<Autocomplete /> should render with default multiple styles 1`] = `
+exports[`<Select /> should render with default multiple styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -1284,7 +1284,7 @@ exports[`<Autocomplete /> should render with default multiple styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Autocomplete /> should render with default styles 1`] = `
+exports[`<Select /> should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -1415,7 +1415,7 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Autocomplete /> sizes size "large" 1`] = `
+exports[`<Select /> sizes size "large" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -1546,7 +1546,7 @@ exports[`<Autocomplete /> sizes size "large" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Autocomplete /> sizes size "medium" 1`] = `
+exports[`<Select /> sizes size "medium" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -1677,7 +1677,7 @@ exports[`<Autocomplete /> sizes size "medium" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Autocomplete /> sizes size "small" 1`] = `
+exports[`<Select /> sizes size "small" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
