@@ -112,7 +112,6 @@ const meta: Meta<typeof Select> = {
     options: top100Films,
     placeholder: 'Select a movie',
     getOptionLabel: (option: any) => option.title,
-    value: { title: 'Monty Python and the Holy Grail', year: 1975 },
   },
   tags: ['autodocs'],
   argTypes: {
