@@ -531,18 +531,21 @@ export const Autocomplete = <
       component="label"
     >
       {multiple ? (
-        <AutocompleteInputField
-          {...otherInputProps}
-          noWrap
-          // @ts-ignore
-          component="input"
-          type="text"
-          variant={size === 'small' ? 'c1' : 'b3'}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          onChange={onChange}
-          onKeyDown={handleKeyDown}
-        />
+        <>
+          {isValueEmpty ? null : renderedValue}
+          <AutocompleteInputField
+            {...otherInputProps}
+            noWrap
+            // @ts-ignore
+            component="input"
+            type="text"
+            variant={size === 'small' ? 'c1' : 'b3'}
+            placeholder={placeholder}
+            readOnly={readOnly}
+            onChange={onChange}
+            onKeyDown={handleKeyDown}
+          />
+        </>
       ) : (
         <AutocompleteInputField
           {...otherInputProps}
