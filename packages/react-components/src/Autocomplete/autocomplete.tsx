@@ -520,13 +520,17 @@ export const Autocomplete = <
   const isValueEmpty = renderedValue === null;
   const popoverRef = useOutsideClick(popoverProps.onClose);
 
-  const defaultRenderRoot: AutocompleteOwnProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => (
+  const defaultRenderRoot: AutocompleteOwnProps<T, Multiple>['renderRoot'] = ({
+    // @ts-ignore
+    ref,
+    ...propsRoot
+  }, valueRoot) => (
     <AutocompleteField
-      {...propsRoot}
       aria-invalid={error || undefined}
       aria-placeholder={isValueEmpty || undefined}
       size={size}
       disabled={disabled}
+      ref={ref}
       // @ts-ignore
       component="label"
     >
@@ -535,6 +539,7 @@ export const Autocomplete = <
           {isValueEmpty ? null : renderedValue}
           <AutocompleteInputField
             {...otherInputProps}
+            {...propsRoot}
             noWrap
             // @ts-ignore
             component="input"
@@ -549,6 +554,7 @@ export const Autocomplete = <
       ) : (
         <AutocompleteInputField
           {...otherInputProps}
+          {...propsRoot}
           noWrap
           // @ts-ignore
           component="input"
