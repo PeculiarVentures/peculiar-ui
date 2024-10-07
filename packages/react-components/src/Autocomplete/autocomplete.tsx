@@ -11,7 +11,7 @@ import { Popper } from '../Popper';
 import { Typography, TypographyOwnProps } from '../Typography';
 import { Box } from '../Box';
 import { Chip } from '../Chip';
-import { ArrowDropDownIcon } from '../icons';
+import { ArrowDropDownIcon, CloseSmallIcon } from '../icons';
 import { MenuItem } from '../MenuList';
 
 /**
@@ -115,14 +115,15 @@ export type AutocompleteOwnProps<
  * Styles.
  */
 const AutocompleteField = styled(Box)<
-TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
+TypographyOwnProps
+& Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
+& { isHasClearIcon: boolean }
 >(
   (props) => ({
     outline: 'none',
     boxSizing: 'border-box',
     width: '100%',
     borderRadius: '4px',
-    padding: '3px calc(var(--pv-size-base-2) + 24px) 3px var(--pv-size-base-2)',
     backgroundColor: 'var(--pv-color-gray-1)',
     borderStyle: 'solid',
     borderWidth: '1px',
@@ -131,12 +132,13 @@ TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 
     userSelect: 'none',
     textAlign: 'left',
     fontFamily: 'inherit',
-    minHeight: 'var(--pv-size-base-8)',
     position: 'relative',
     display: 'inline-flex',
     alignItems: 'center',
     flexWrap: 'wrap',
     gap: 'var(--pv-size-base)',
+    minHeight: 'var(--pv-size-base-8)',
+    padding: '3px calc(var(--pv-size-base-2) + 24px) 3px var(--pv-size-base-2)',
     ...(props.size === 'small' && {
       minHeight: 'var(--pv-size-base-6)',
       padding: '1px calc(var(--pv-size-base-2) + 24px) 1px var(--pv-size-base-2)',
@@ -146,6 +148,29 @@ TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 
       padding: '2px calc(var(--pv-size-base-2) + 24px) 2px var(--pv-size-base-2)',
     }),
   }),
+  (props) => {
+    const actions = props.isHasClearIcon ? '48px' : '24px';
+
+    switch (props.size) {
+      case 'small':
+        return {
+          minHeight: 'var(--pv-size-base-6)',
+          padding: `1px calc(var(--pv-size-base-2) + ${actions}) 1px var(--pv-size-base-2)`,
+        };
+
+      case 'medium':
+        return {
+          minHeight: 'var(--pv-size-base-7)',
+          padding: `2px calc(var(--pv-size-base-2) + ${actions}) 2px var(--pv-size-base-2)`,
+        };
+
+      default:
+        return {
+          minHeight: 'var(--pv-size-base-8)',
+          padding: `3px calc(var(--pv-size-base-2) + ${actions}) 3px var(--pv-size-base-2)`,
+        };
+    }
+  },
   (props) => {
     const isDark = props.theme.mode === 'dark';
     const color = isDark
@@ -208,16 +233,34 @@ TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 
   },
 );
 
-const AutocompleteArrowIcon = styled(ArrowDropDownIcon)({
+const AutocompleteActions = styled('div')({
   position: 'absolute',
   right: '0px',
   top: 'calc(50% - 12px)',
+  display: 'flex',
+  alignItems: 'center',
   margin: '0px var(--pv-size-base)',
+});
+
+const AutocompleteRemoveIcon = styled(CloseSmallIcon)({
+  color: 'var(--pv-color-gray-10)',
+  cursor: 'pointer',
+  '&[aria-disabled="true"]': {
+    color: 'inherit',
+    pointerEvents: 'none',
+  },
+});
+
+const AutocompleteArrowIcon = styled(ArrowDropDownIcon)<{ open: boolean }>({
   color: 'var(--pv-color-gray-10)',
   '&[aria-disabled="true"]': {
     color: 'inherit',
   },
-});
+}, (props) => ({
+  ...(props.open && {
+    transform: 'rotate(180deg)',
+  }),
+}));
 
 const AutocompleteNativeInput = styled('input')({
   bottom: 0,
@@ -537,6 +580,7 @@ export const Autocomplete = <
       ref={ref}
       // @ts-ignore
       component="label"
+      isHasClearIcon={!isValueEmpty}
     >
       {multiple ? (
         <>
@@ -571,10 +615,20 @@ export const Autocomplete = <
           onKeyDown={handleKeyDown}
         />
       )}
-      <AutocompleteArrowIcon
-        aria-disabled={disabled}
-        aria-hidden
-      />
+      <AutocompleteActions>
+        {!isValueEmpty ? (
+          <AutocompleteRemoveIcon
+            aria-disabled={disabled}
+            // @ts-ignore
+            onClick={onClick}
+          />
+        ) : null}
+        <AutocompleteArrowIcon
+          aria-disabled={disabled}
+          aria-hidden
+          open={popoverProps.open}
+        />
+      </AutocompleteActions>
       <AutocompleteNativeInput
         type="text"
         value={isValueEmpty ? '' : JSON.stringify(valueRoot)}
