@@ -407,12 +407,15 @@ export const Autocomplete = <
     getPopoverProps,
     getTagProps,
     getOptionLabel,
-    handleDeleteAllValues,
+    getClearProps,
   } = useAutocomplete(props);
   const {
     onChange,
     ...otherInputProps
   } = getInputProps();
+  const {
+    onClick,
+  } = getClearProps();
 
   const rootProps = getRootProps();
   const popoverProps = getPopoverProps();
@@ -423,7 +426,7 @@ export const Autocomplete = <
     const { value: valueInput } = event.target;
 
     if (valueInput === '') {
-      handleDeleteAllValues(event);
+      onClick(event);
     }
   };
 

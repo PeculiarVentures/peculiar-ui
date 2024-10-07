@@ -34,8 +34,8 @@ export type AutocompleteGroupedOption<T> = {
 };
 
 export type UseAutocompleteProps<
-T,
-Multiple extends boolean | undefined = undefined,
+  T,
+  Multiple extends boolean | undefined = undefined,
 > = {
   /**
    * This prop is used to help implement the accessibility logic.
@@ -114,8 +114,8 @@ Multiple extends boolean | undefined = undefined,
 };
 
 export type UseAutocompleteReturnType<
-T,
-Multiple extends boolean | undefined = undefined,
+  T,
+  Multiple extends boolean | undefined = undefined,
 > = {
   groupedOptions: ReadonlyArray<T> | ReadonlyArray<AutocompleteGroupedOption<T>>;
   value: AutocompleteValue<T, Multiple>;
@@ -127,7 +127,10 @@ Multiple extends boolean | undefined = undefined,
   getInputLabelProps: () => React.HTMLAttributes<HTMLLabelElement>;
   getRootProps: () => React.HTMLAttributes<HTMLDivElement>;
   getInputProps: () => React.HTMLAttributes<HTMLInputElement>;
-  getClearProps: () => React.HTMLAttributes<HTMLDivElement>;
+  getClearProps: () => {
+    tabIndex: -1;
+    onClick: (event: React.SyntheticEvent) => void;
+  };
   getPopoverProps: () => Pick<Required<PopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>;
   getTagProps: (option: T, index: number) => {
     key: number;
@@ -136,7 +139,6 @@ Multiple extends boolean | undefined = undefined,
     onDelete?: (event: React.SyntheticEvent) => void;
   };
   getOptionLabel: (option: T) => string;
-  handleDeleteAllValues: (event: React.SyntheticEvent,) => void;
 };
 /**
  *
@@ -160,8 +162,8 @@ const defaultFilterOptions: AutocompleteFilterOptionsType<any, false> = (
 };
 
 export function useAutocomplete<
-T,
-Multiple extends boolean | undefined = false,
+  T,
+  Multiple extends boolean | undefined = false,
 >(
   props: UseAutocompleteProps<T, Multiple>,
 ): UseAutocompleteReturnType<T, Multiple> {
@@ -473,11 +475,18 @@ Multiple extends boolean | undefined = false,
     }
   };
 
-  const handleClear = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleClear = (event: React.SyntheticEvent) => {
     setSearchValue('');
+    const newValue = (multiple ? [] : null) as AutocompleteValue<T, Multiple>;
 
     if (onInputChange) {
       onInputChange(event, '');
+    }
+
+    setValue(newValue);
+
+    if (onChange) {
+      onChange(event, newValue, { option: null, index: 0 }, 'removeOption');
     }
   };
 
@@ -525,20 +534,6 @@ Multiple extends boolean | undefined = false,
 
   const handleTagDelete = (option: T, index: number) => (event: React.SyntheticEvent) => {
     selectNewValue(event, option, index, 'removeOption');
-  };
-
-  const handleDeleteAllValues = (event: React.SyntheticEvent) => {
-    let newValue: T | T[] = null;
-
-    if (multiple) {
-      newValue = [];
-    }
-
-    setValue(newValue as AutocompleteValue<T, Multiple>);
-
-    if (onChange) {
-      onChange(event, newValue as AutocompleteValue<T, Multiple>, { option: null, index: 0 }, 'removeOption');
-    }
   };
 
   let groupedOptions = filteredOptions;
@@ -624,7 +619,6 @@ Multiple extends boolean | undefined = false,
       tabIndex: -1,
       onDelete: readOnly ? undefined : handleTagDelete(option, index),
     }),
-    handleDeleteAllValues,
     getOptionLabel,
     groupedOptions,
     popupOpen,
