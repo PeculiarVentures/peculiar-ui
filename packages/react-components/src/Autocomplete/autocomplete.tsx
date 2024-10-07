@@ -130,7 +130,6 @@ TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 
     appearance: 'none',
     userSelect: 'none',
     textAlign: 'left',
-    cursor: 'text',
     fontFamily: 'inherit',
     minHeight: 'var(--pv-size-base-8)',
     position: 'relative',
@@ -176,18 +175,19 @@ TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 
 
     return ({
       borderColor,
-      '&:hover': {
-        backgroundColor: 'var(--pv-color-gray-3)',
-        borderColor: borderColorHover,
-      },
-      '&:disabled': {
+      ...(props.disabled && {
         cursor: 'not-allowed',
         backgroundColor: 'var(--pv-color-gray-1)',
         borderColor: borderColorDisabled,
         color: colorDisabled,
-      },
-      '&:not(:disabled)': {
+      }),
+      ...(!props.disabled && {
         color,
+        cursor: 'text',
+        '&:hover': {
+          backgroundColor: 'var(--pv-color-gray-3)',
+          borderColor: borderColorHover,
+        },
         '&[aria-placeholder]': {
           color: colorPlaceholder,
         },
@@ -203,7 +203,7 @@ TypographyOwnProps & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 
           backgroundColor: backgroundColorFocus,
           borderColor: borderColorFocus,
         },
-      },
+      }),
     });
   },
 );
@@ -500,6 +500,7 @@ export const Autocomplete = <
               size={size}
               limitTags={limitTags}
               tagsLength={value.length}
+              disabled={disabled}
             >
               {getOptionLabel(v)}
             </AutocompleteTag>
