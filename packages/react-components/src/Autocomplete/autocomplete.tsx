@@ -13,6 +13,7 @@ import { Box } from '../Box';
 import { Chip } from '../Chip';
 import { ArrowDropDownIcon, CloseSmallIcon } from '../icons';
 import { MenuItem } from '../MenuList';
+import { FocusTrap } from '../FocusTrap';
 
 /**
  * Types.
@@ -572,19 +573,35 @@ export const Autocomplete = <
     ref,
     ...propsRoot
   }, valueRoot) => (
-    <AutocompleteField
-      aria-invalid={error || undefined}
-      aria-placeholder={isValueEmpty || undefined}
-      size={size}
-      disabled={disabled}
-      ref={ref}
-      // @ts-ignore
-      component="label"
-      isHasClearIcon={!isValueEmpty}
-    >
-      {multiple ? (
-        <>
-          {isValueEmpty ? null : renderedValue}
+    <FocusTrap open={popoverProps.open}>
+      <AutocompleteField
+        aria-invalid={error || undefined}
+        aria-placeholder={isValueEmpty || undefined}
+        size={size}
+        disabled={disabled}
+        ref={ref}
+        // @ts-ignore
+        component="label"
+        isHasClearIcon={!isValueEmpty}
+      >
+        {multiple ? (
+          <>
+            {isValueEmpty ? null : renderedValue}
+            <AutocompleteInputField
+              {...otherInputProps}
+              {...propsRoot}
+              noWrap
+              // @ts-ignore
+              component="input"
+              type="text"
+              variant={size === 'small' ? 'c1' : 'b3'}
+              placeholder={placeholder}
+              readOnly={readOnly}
+              onChange={onChange}
+              onKeyDown={handleKeyDown}
+            />
+          </>
+        ) : (
           <AutocompleteInputField
             {...otherInputProps}
             {...propsRoot}
@@ -592,57 +609,43 @@ export const Autocomplete = <
             // @ts-ignore
             component="input"
             type="text"
+            value={searchValue || renderedValue || ''}
             variant={size === 'small' ? 'c1' : 'b3'}
             placeholder={placeholder}
             readOnly={readOnly}
-            onChange={onChange}
+            onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
-        </>
-      ) : (
-        <AutocompleteInputField
-          {...otherInputProps}
-          {...propsRoot}
-          noWrap
-          // @ts-ignore
-          component="input"
-          type="text"
-          value={searchValue || renderedValue || ''}
-          variant={size === 'small' ? 'c1' : 'b3'}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-        />
-      )}
-      <AutocompleteActions>
-        {!isValueEmpty ? (
-          <AutocompleteRemoveIcon
+        )}
+        <AutocompleteActions>
+          {!isValueEmpty ? (
+            <AutocompleteRemoveIcon
+              aria-disabled={disabled}
+              // @ts-ignore
+              onClick={onClick}
+            />
+          ) : null}
+          <AutocompleteArrowIcon
             aria-disabled={disabled}
-            // @ts-ignore
-            onClick={onClick}
+            aria-hidden
+            open={popoverProps.open}
           />
-        ) : null}
-        <AutocompleteArrowIcon
-          aria-disabled={disabled}
-          aria-hidden
-          open={popoverProps.open}
+        </AutocompleteActions>
+        <AutocompleteNativeInput
+          type="text"
+          value={isValueEmpty ? '' : JSON.stringify(valueRoot)}
+          tabIndex={-1}
+          aria-hidden="true"
+          disabled={disabled}
+          autoComplete="off"
+          id={id}
+          name={name}
+          required={required}
+          readOnly={readOnly}
+          onChange={() => { }}
         />
-      </AutocompleteActions>
-      <AutocompleteNativeInput
-        type="text"
-        value={isValueEmpty ? '' : JSON.stringify(valueRoot)}
-        tabIndex={-1}
-        aria-hidden="true"
-        disabled={disabled}
-        autoComplete="off"
-        id={id}
-        name={name}
-        required={required}
-        readOnly={readOnly}
-        onChange={() => { }}
-      />
-    </AutocompleteField>
+      </AutocompleteField>
+    </FocusTrap>
   );
 
   const renderOption = renderOptionProp || defaultRenderOption;
