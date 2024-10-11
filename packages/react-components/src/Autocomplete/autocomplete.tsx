@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import {
   useAutocomplete,
   UseAutocompleteProps,
@@ -114,7 +115,7 @@ export type AutocompleteOwnProps<
 /**
  * Styles.
  */
-const AutocompleteField = styled(Box)<
+const AutocompleteField = styled(Box, { shouldForwardProp: isPropValid })<
 TypographyOwnProps
 & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
 & { isHasClearIcon: boolean }
