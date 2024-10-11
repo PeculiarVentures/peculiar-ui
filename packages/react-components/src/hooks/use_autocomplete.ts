@@ -465,16 +465,6 @@ export function useAutocomplete<
     }
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value: valueInput } = event.target;
-
-    setSearchValue(valueInput);
-
-    if (onInputChange) {
-      onInputChange(event, valueInput);
-    }
-  };
-
   const handleClear = (event: React.SyntheticEvent) => {
     setSearchValue('');
     const newValue = (multiple ? [] : null) as AutocompleteValue<T, Multiple>;
@@ -490,8 +480,27 @@ export function useAutocomplete<
     }
   };
 
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value: valueInput } = event.target;
+
+    if (searchValue !== valueInput) {
+      setSearchValue(valueInput);
+
+      if (onInputChange) {
+        onInputChange(event, valueInput);
+      }
+    }
+
+    if (valueInput === '') {
+      if (!multiple) {
+        handleClear(event);
+      }
+    } else {
+      handleOpen(event);
+    }
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    handleOpen(event);
     // Wait until IME is settled.
     if (event.which !== 229) {
       switch (event.key) {
