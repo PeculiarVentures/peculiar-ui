@@ -43,7 +43,7 @@
     "access": "public"
   },
   "engines": {
-    "node": ">=12.x"
+    "node": ">=18.x"
   },
   "license": "MIT"
 }
