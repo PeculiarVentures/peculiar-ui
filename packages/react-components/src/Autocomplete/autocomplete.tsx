@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import isPropValid from '@emotion/is-prop-valid';
 import {
   useAutocomplete,
   UseAutocompleteProps,
@@ -112,15 +111,17 @@ export type AutocompleteOwnProps<
  *
  */
 
+const reactPropsRegex = /^(as|size|disabled|isHasClearIcon)$/;
+
 /**
  * Styles.
  */
-const AutocompleteField = styled(Box, { shouldForwardProp: isPropValid })<
+const AutocompleteField = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<
 TypographyOwnProps
 & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
 & { isHasClearIcon: boolean }
 >(
-  (props) => ({
+  {
     outline: 'none',
     boxSizing: 'border-box',
     width: '100%',
@@ -139,16 +140,7 @@ TypographyOwnProps
     flexWrap: 'wrap',
     gap: 'var(--pv-size-base)',
     minHeight: 'var(--pv-size-base-8)',
-    padding: '3px calc(var(--pv-size-base-2) + 24px) 3px var(--pv-size-base-2)',
-    ...(props.size === 'small' && {
-      minHeight: 'var(--pv-size-base-6)',
-      padding: '1px calc(var(--pv-size-base-2) + 24px) 1px var(--pv-size-base-2)',
-    }),
-    ...(props.size === 'medium' && {
-      minHeight: 'var(--pv-size-base-7)',
-      padding: '2px calc(var(--pv-size-base-2) + 24px) 2px var(--pv-size-base-2)',
-    }),
-  }),
+  },
   (props) => {
     const actions = props.isHasClearIcon ? '48px' : '24px';
 
@@ -162,7 +154,7 @@ TypographyOwnProps
       case 'medium':
         return {
           minHeight: 'var(--pv-size-base-7)',
-          padding: `2px calc(var(--pv-size-base-2) + ${actions}) 2px var(--pv-size-base-2)`,
+          padding: `1px calc(var(--pv-size-base-2) + ${actions}) 1px var(--pv-size-base-2)`,
         };
 
       default:
