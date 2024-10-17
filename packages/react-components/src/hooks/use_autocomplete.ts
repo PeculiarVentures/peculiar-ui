@@ -509,6 +509,7 @@ export function useAutocomplete<
           event.preventDefault();
 
           changeHighlightedIndex(1, 'next', 'keyboard');
+          handleOpen(event);
           break;
 
         case 'ArrowUp':
@@ -516,6 +517,8 @@ export function useAutocomplete<
           event.preventDefault();
 
           changeHighlightedIndex(-1, 'previous', 'keyboard');
+          handleOpen(event);
+
           break;
 
         case 'Enter':
