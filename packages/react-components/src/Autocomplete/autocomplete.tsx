@@ -13,6 +13,7 @@ import { Box } from '../Box';
 import { Chip } from '../Chip';
 import { ArrowDropDownIcon, CloseSmallIcon } from '../icons';
 import { MenuItem } from '../MenuList';
+import { FocusTrap } from '../FocusTrap';
 
 /**
  * Types.
@@ -673,53 +674,57 @@ export const Autocomplete = <
         {...popoverProps}
         tabIndex={-1}
       >
-        <div ref={popoverRef}>
-          {loading && groupedOptions.length === 0 && (
-            <AutocompleteDropdownStateItem>
-              {typeof loadingText === 'string' ? (
-                <Typography
-                  variant="b2"
-                  color="gray-10"
-                >
-                  {loadingText}
-                </Typography>
-              ) : loadingText}
-            </AutocompleteDropdownStateItem>
-          )}
-          {groupedOptions.length === 0 && !loading && (
-            <AutocompleteDropdownStateItem>
-              {typeof noOptionsText === 'string' ? (
-                <Typography
-                  variant="b2"
-                  color="gray-10"
-                >
-                  {noOptionsText}
-                </Typography>
-              ) : noOptionsText}
-            </AutocompleteDropdownStateItem>
-          )}
-          {groupedOptions.length > 0 && (
-            <AutocompleteDropdownList {...getListboxProps()}>
-              {groupedOptions
-                // @ts-ignore
-                .map((option, index) => {
+        <FocusTrap
+          open={popoverProps.open}
+        >
+          <div ref={popoverRef}>
+            {loading && groupedOptions.length === 0 && (
+              <AutocompleteDropdownStateItem>
+                {typeof loadingText === 'string' ? (
+                  <Typography
+                    variant="b2"
+                    color="gray-10"
+                  >
+                    {loadingText}
+                  </Typography>
+                ) : loadingText}
+              </AutocompleteDropdownStateItem>
+            )}
+            {groupedOptions.length === 0 && !loading && (
+              <AutocompleteDropdownStateItem>
+                {typeof noOptionsText === 'string' ? (
+                  <Typography
+                    variant="b2"
+                    color="gray-10"
+                  >
+                    {noOptionsText}
+                  </Typography>
+                ) : noOptionsText}
+              </AutocompleteDropdownStateItem>
+            )}
+            {groupedOptions.length > 0 && (
+              <AutocompleteDropdownList {...getListboxProps()}>
+                {groupedOptions
                   // @ts-ignore
-                  if (groupBy && 'options' in option) {
-                    return renderGroup({
-                      key: option.key,
-                      group: option.group,
-                      // @ts-ignore
-                      children: option.options.map((option2, index2) => (
-                        renderListOption(option2, option.index + index2)
-                      )),
-                    });
-                  }
+                  .map((option, index) => {
+                    // @ts-ignore
+                    if (groupBy && 'options' in option) {
+                      return renderGroup({
+                        key: option.key,
+                        group: option.group,
+                        // @ts-ignore
+                        children: option.options.map((option2, index2) => (
+                          renderListOption(option2, option.index + index2)
+                        )),
+                      });
+                    }
 
-                  return renderListOption(option as T, index);
-                })}
-            </AutocompleteDropdownList>
-          )}
-        </div>
+                    return renderListOption(option as T, index);
+                  })}
+              </AutocompleteDropdownList>
+            )}
+          </div>
+        </FocusTrap>
       </AutocompletePopover>
     </div>
   );
