@@ -1,0 +1,2082 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Autocomplete /> should pass className 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: var(--pv-size-base);
+  min-height: var(--pv-size-base-8);
+  min-height: var(--pv-size-base-7);
+  padding: 1px calc(var(--pv-size-base-2) + 24px) 1px var(--pv-size-base-2);
+  border-color: var(--pv-color-gray-8);
+  color: var(--pv-color-black);
+  cursor: text;
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0[aria-placeholder] {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  min-width: 30px;
+  width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  background-color: transparent;
+  border-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-black);
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0px var(--pv-size-base);
+}
+
+.emotion-3 {
+  color: var(--pv-color-gray-10);
+}
+
+.emotion-3[aria-disabled="true"] {
+  color: inherit;
+}
+
+.emotion-4 {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+<div
+    class="my-class-name"
+  >
+    <label
+      aria-placeholder="true"
+      class="emotion-0"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id-listbox"
+        aria-expanded="false"
+        autocapitalize="none"
+        autocomplete="off"
+        autocorrect="false"
+        class="emotion-1"
+        id="test-id-toggle-button"
+        role="combobox"
+        spellcheck="false"
+        type="text"
+        value=""
+      />
+      <div
+        class="emotion-2"
+      >
+        <svg
+          aria-disabled="false"
+          aria-hidden="true"
+          class="emotion-3"
+          fill="none"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <input
+        aria-hidden="true"
+        autocomplete="off"
+        class="emotion-4"
+        id="test-id"
+        tabindex="-1"
+        type="text"
+        value=""
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Autocomplete /> should pass error 1`] = `
+.emotion-0 {
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: var(--pv-size-base);
+  min-height: var(--pv-size-base-8);
+  min-height: var(--pv-size-base-7);
+  padding: 1px calc(var(--pv-size-base-2) + 24px) 1px var(--pv-size-base-2);
+  border-color: var(--pv-color-gray-8);
+  color: var(--pv-color-black);
+  cursor: text;
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0[aria-placeholder] {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  min-width: 30px;
+  width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  background-color: transparent;
+  border-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-black);
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0px var(--pv-size-base);
+}
+
+.emotion-3 {
+  color: var(--pv-color-gray-10);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-3[aria-disabled="true"] {
+  color: inherit;
+}
+
+.emotion-4 {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.emotion-5 {
+  margin: 0;
+  color: var(--pv-color-wrong);
+  font-weight: var(--pv-text-c2-weight);
+  font-size: var(--pv-text-c2-size);
+  line-height: var(--pv-text-c2-height);
+  letter-spacing: var(--pv-text-c2-spacing);
+  margin-top: 2px;
+}
+
+.emotion-6 {
+  min-width: 240px;
+  outline: 0;
+  margin-top: 1px;
+  border-radius: 4px;
+  min-height: 16px;
+  max-height: calc(100% - 32px);
+  z-index: 1300;
+  background-color: var(--pv-color-white);
+  box-shadow: var(--pv-shadow-light-low);
+}
+
+.emotion-7 {
+  padding: var(--pv-size-base-3) var(--pv-size-base-2);
+}
+
+.emotion-8 {
+  margin: 0;
+  color: var(--pv-color-gray-10);
+  font-weight: var(--pv-text-b2-weight);
+  font-size: var(--pv-text-b2-size);
+  line-height: var(--pv-text-b2-height);
+  letter-spacing: var(--pv-text-b2-spacing);
+}
+
+<body>
+  <div>
+    <div>
+      <label
+        aria-invalid="true"
+        aria-placeholder="true"
+        class="emotion-0"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id-listbox"
+          aria-expanded="true"
+          autocapitalize="none"
+          autocomplete="off"
+          autocorrect="false"
+          class="emotion-1"
+          id="test-id-toggle-button"
+          role="combobox"
+          spellcheck="false"
+          type="text"
+          value=""
+        />
+        <div
+          class="emotion-2"
+        >
+          <svg
+            aria-disabled="false"
+            aria-hidden="true"
+            class="emotion-3"
+            fill="none"
+            height="24px"
+            open=""
+            viewBox="0 0 24 24"
+            width="24px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <input
+          aria-hidden="true"
+          autocomplete="off"
+          class="emotion-4"
+          id="test-id"
+          tabindex="-1"
+          type="text"
+          value=""
+        />
+      </label>
+      <p
+        class="emotion-5"
+      >
+        Error text
+      </p>
+    </div>
+  </div>
+  <div
+    class="emotion-6"
+    role="tooltip"
+    style="position: absolute; left: 0px; top: 0px; width: 0px;"
+    tabindex="-1"
+  >
+    <div>
+      <div
+        class="emotion-7"
+      >
+        <p
+          class="emotion-8"
+        >
+          No options
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Autocomplete /> should pass loading 1`] = `
+.emotion-0 {
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: var(--pv-size-base);
+  min-height: var(--pv-size-base-8);
+  min-height: var(--pv-size-base-7);
+  padding: 1px calc(var(--pv-size-base-2) + 24px) 1px var(--pv-size-base-2);
+  border-color: var(--pv-color-gray-8);
+  color: var(--pv-color-black);
+  cursor: text;
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0[aria-placeholder] {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  min-width: 30px;
+  width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  background-color: transparent;
+  border-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-black);
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0px var(--pv-size-base);
+}
+
+.emotion-3 {
+  color: var(--pv-color-gray-10);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-3[aria-disabled="true"] {
+  color: inherit;
+}
+
+.emotion-4 {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.emotion-5 {
+  min-width: 240px;
+  outline: 0;
+  margin-top: 1px;
+  border-radius: 4px;
+  min-height: 16px;
+  max-height: calc(100% - 32px);
+  z-index: 1300;
+  background-color: var(--pv-color-white);
+  box-shadow: var(--pv-shadow-light-low);
+}
+
+.emotion-6 {
+  padding: var(--pv-size-base-3) var(--pv-size-base-2);
+}
+
+.emotion-7 {
+  margin: 0;
+  color: var(--pv-color-gray-10);
+  font-weight: var(--pv-text-b2-weight);
+  font-size: var(--pv-text-b2-size);
+  line-height: var(--pv-text-b2-height);
+  letter-spacing: var(--pv-text-b2-spacing);
+}
+
+<body>
+  <div>
+    <div>
+      <label
+        aria-placeholder="true"
+        class="emotion-0"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id-listbox"
+          aria-expanded="true"
+          autocapitalize="none"
+          autocomplete="off"
+          autocorrect="false"
+          class="emotion-1"
+          id="test-id-toggle-button"
+          role="combobox"
+          spellcheck="false"
+          type="text"
+          value=""
+        />
+        <div
+          class="emotion-2"
+        >
+          <svg
+            aria-disabled="false"
+            aria-hidden="true"
+            class="emotion-3"
+            fill="none"
+            height="24px"
+            open=""
+            viewBox="0 0 24 24"
+            width="24px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <input
+          aria-hidden="true"
+          autocomplete="off"
+          class="emotion-4"
+          id="test-id"
+          tabindex="-1"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+  </div>
+  <div
+    class="emotion-5"
+    role="tooltip"
+    style="position: absolute; left: 0px; top: 0px; width: 0px;"
+    tabindex="-1"
+  >
+    <div>
+      <div
+        class="emotion-6"
+      >
+        <p
+          class="emotion-7"
+        >
+          Loading...
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Autocomplete /> should pass options 1`] = `
+.emotion-0 {
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: var(--pv-size-base);
+  min-height: var(--pv-size-base-8);
+  min-height: var(--pv-size-base-7);
+  padding: 1px calc(var(--pv-size-base-2) + 24px) 1px var(--pv-size-base-2);
+  border-color: var(--pv-color-gray-8);
+  color: var(--pv-color-black);
+  cursor: text;
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0[aria-placeholder] {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  min-width: 30px;
+  width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  background-color: transparent;
+  border-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-black);
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0px var(--pv-size-base);
+}
+
+.emotion-3 {
+  color: var(--pv-color-gray-10);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-3[aria-disabled="true"] {
+  color: inherit;
+}
+
+.emotion-4 {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.emotion-5 {
+  min-width: 240px;
+  outline: 0;
+  margin-top: 1px;
+  border-radius: 4px;
+  min-height: 16px;
+  max-height: calc(100% - 32px);
+  z-index: 1300;
+  background-color: var(--pv-color-white);
+  box-shadow: var(--pv-shadow-light-low);
+}
+
+.emotion-6 {
+  max-height: 36vh;
+  overflow-y: auto;
+  margin: 0;
+  list-style-type: none;
+  position: relative;
+  padding: 10px 0;
+}
+
+.emotion-7 {
+  padding: 0px var(--pv-size-base-2);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  height: var(--pv-size-base-7);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: background-color 200ms;
+  transition: background-color 200ms;
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  gap: var(--pv-size-base-2);
+  cursor: pointer;
+  color: var(--pv-color-black);
+}
+
+.emotion-7:hover {
+  background-color: var(--pv-color-gray-3);
+}
+
+.emotion-7:focus-visible,
+.emotion-7[data-focused="true"] {
+  background-color: var(--pv-color-gray-4);
+}
+
+.emotion-7:active,
+.emotion-7[aria-selected="true"] {
+  background-color: var(--pv-color-gray-5);
+}
+
+.emotion-8 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  margin: 0;
+  color: inherit;
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+<body>
+  <div>
+    <div>
+      <label
+        aria-placeholder="true"
+        class="emotion-0"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="test-id-listbox"
+          aria-expanded="true"
+          autocapitalize="none"
+          autocomplete="off"
+          autocorrect="false"
+          class="emotion-1"
+          id="test-id-toggle-button"
+          role="combobox"
+          spellcheck="false"
+          type="text"
+          value=""
+        />
+        <div
+          class="emotion-2"
+        >
+          <svg
+            aria-disabled="false"
+            aria-hidden="true"
+            class="emotion-3"
+            fill="none"
+            height="24px"
+            open=""
+            viewBox="0 0 24 24"
+            width="24px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <input
+          aria-hidden="true"
+          autocomplete="off"
+          class="emotion-4"
+          id="test-id"
+          tabindex="-1"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+  </div>
+  <div
+    class="emotion-5"
+    role="tooltip"
+    style="position: absolute; left: 0px; top: 0px; width: 0px;"
+    tabindex="-1"
+  >
+    <div>
+      <ul
+        class="emotion-6"
+        id="test-id-listbox"
+        role="listbox"
+        tabindex="-1"
+      >
+        <li
+          aria-selected="false"
+          class="emotion-7"
+          data-option-index="0"
+          id="test-id-option-0"
+          role="option"
+          tabindex="-1"
+        >
+          <span
+            class="emotion-8"
+          >
+            test-1
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="emotion-7"
+          data-option-index="1"
+          id="test-id-option-1"
+          role="option"
+          tabindex="-1"
+        >
+          <span
+            class="emotion-8"
+          >
+            test-2
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Autocomplete /> should render with default multiple styles 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: var(--pv-size-base);
+  min-height: var(--pv-size-base-8);
+  min-height: var(--pv-size-base-7);
+  padding: 1px calc(var(--pv-size-base-2) + 24px) 1px var(--pv-size-base-2);
+  border-color: var(--pv-color-gray-8);
+  color: var(--pv-color-black);
+  cursor: text;
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0[aria-placeholder] {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  min-width: 30px;
+  width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  background-color: transparent;
+  border-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-black);
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0px var(--pv-size-base);
+}
+
+.emotion-3 {
+  color: var(--pv-color-gray-10);
+}
+
+.emotion-3[aria-disabled="true"] {
+  color: inherit;
+}
+
+.emotion-4 {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+<div>
+    <label
+      aria-placeholder="true"
+      class="emotion-0"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id-listbox"
+        aria-expanded="false"
+        autocapitalize="none"
+        autocomplete="off"
+        autocorrect="false"
+        class="emotion-1"
+        id="test-id-toggle-button"
+        role="combobox"
+        spellcheck="false"
+        type="text"
+        value=""
+      />
+      <div
+        class="emotion-2"
+      >
+        <svg
+          aria-disabled="false"
+          aria-hidden="true"
+          class="emotion-3"
+          fill="none"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <input
+        aria-hidden="true"
+        autocomplete="off"
+        class="emotion-4"
+        id="test-id"
+        tabindex="-1"
+        type="text"
+        value=""
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Autocomplete /> should render with default styles 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: var(--pv-size-base);
+  min-height: var(--pv-size-base-8);
+  min-height: var(--pv-size-base-7);
+  padding: 1px calc(var(--pv-size-base-2) + 24px) 1px var(--pv-size-base-2);
+  border-color: var(--pv-color-gray-8);
+  color: var(--pv-color-black);
+  cursor: text;
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0[aria-placeholder] {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  min-width: 30px;
+  width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  background-color: transparent;
+  border-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-black);
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0px var(--pv-size-base);
+}
+
+.emotion-3 {
+  color: var(--pv-color-gray-10);
+}
+
+.emotion-3[aria-disabled="true"] {
+  color: inherit;
+}
+
+.emotion-4 {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+<div>
+    <label
+      aria-placeholder="true"
+      class="emotion-0"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id-listbox"
+        aria-expanded="false"
+        autocapitalize="none"
+        autocomplete="off"
+        autocorrect="false"
+        class="emotion-1"
+        id="test-id-toggle-button"
+        role="combobox"
+        spellcheck="false"
+        type="text"
+        value=""
+      />
+      <div
+        class="emotion-2"
+      >
+        <svg
+          aria-disabled="false"
+          aria-hidden="true"
+          class="emotion-3"
+          fill="none"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <input
+        aria-hidden="true"
+        autocomplete="off"
+        class="emotion-4"
+        id="test-id"
+        tabindex="-1"
+        type="text"
+        value=""
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Autocomplete /> sizes size "large" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: var(--pv-size-base);
+  min-height: var(--pv-size-base-8);
+  min-height: var(--pv-size-base-8);
+  padding: 3px calc(var(--pv-size-base-2) + 24px) 3px var(--pv-size-base-2);
+  border-color: var(--pv-color-gray-8);
+  color: var(--pv-color-black);
+  cursor: text;
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0[aria-placeholder] {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  min-width: 30px;
+  width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  background-color: transparent;
+  border-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-black);
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0px var(--pv-size-base);
+}
+
+.emotion-3 {
+  color: var(--pv-color-gray-10);
+}
+
+.emotion-3[aria-disabled="true"] {
+  color: inherit;
+}
+
+.emotion-4 {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+<div>
+    <label
+      aria-placeholder="true"
+      class="emotion-0"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id-listbox"
+        aria-expanded="false"
+        autocapitalize="none"
+        autocomplete="off"
+        autocorrect="false"
+        class="emotion-1"
+        id="test-id-toggle-button"
+        role="combobox"
+        spellcheck="false"
+        type="text"
+        value=""
+      />
+      <div
+        class="emotion-2"
+      >
+        <svg
+          aria-disabled="false"
+          aria-hidden="true"
+          class="emotion-3"
+          fill="none"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <input
+        aria-hidden="true"
+        autocomplete="off"
+        class="emotion-4"
+        id="test-id"
+        tabindex="-1"
+        type="text"
+        value=""
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Autocomplete /> sizes size "medium" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: var(--pv-size-base);
+  min-height: var(--pv-size-base-8);
+  min-height: var(--pv-size-base-7);
+  padding: 1px calc(var(--pv-size-base-2) + 24px) 1px var(--pv-size-base-2);
+  border-color: var(--pv-color-gray-8);
+  color: var(--pv-color-black);
+  cursor: text;
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0[aria-placeholder] {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-b3-weight);
+  font-size: var(--pv-text-b3-size);
+  line-height: var(--pv-text-b3-height);
+  letter-spacing: var(--pv-text-b3-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  min-width: 30px;
+  width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  background-color: transparent;
+  border-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-black);
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0px var(--pv-size-base);
+}
+
+.emotion-3 {
+  color: var(--pv-color-gray-10);
+}
+
+.emotion-3[aria-disabled="true"] {
+  color: inherit;
+}
+
+.emotion-4 {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+<div>
+    <label
+      aria-placeholder="true"
+      class="emotion-0"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id-listbox"
+        aria-expanded="false"
+        autocapitalize="none"
+        autocomplete="off"
+        autocorrect="false"
+        class="emotion-1"
+        id="test-id-toggle-button"
+        role="combobox"
+        spellcheck="false"
+        type="text"
+        value=""
+      />
+      <div
+        class="emotion-2"
+      >
+        <svg
+          aria-disabled="false"
+          aria-hidden="true"
+          class="emotion-3"
+          fill="none"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <input
+        aria-hidden="true"
+        autocomplete="off"
+        class="emotion-4"
+        id="test-id"
+        tabindex="-1"
+        type="text"
+        value=""
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Autocomplete /> sizes size "small" 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--pv-color-gray-1);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
+  transition: background-color 200ms,color 200ms,border-color 200ms;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: var(--pv-size-base);
+  min-height: var(--pv-size-base-8);
+  min-height: var(--pv-size-base-6);
+  padding: 1px calc(var(--pv-size-base-2) + 24px) 1px var(--pv-size-base-2);
+  border-color: var(--pv-color-gray-8);
+  color: var(--pv-color-black);
+  cursor: text;
+}
+
+.emotion-0:hover {
+  background-color: var(--pv-color-gray-3);
+  border-color: var(--pv-color-gray-7);
+}
+
+.emotion-0[aria-placeholder] {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-0[aria-invalid] {
+  background-color: var(--pv-color-wrong-tint-5);
+  border-color: var(--pv-color-wrong-tint-3);
+}
+
+.emotion-0:focus-visible {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within {
+  background-color: var(--pv-color-secondary-tint-5);
+  border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-1 {
+  margin: 0;
+  color: var(--pv-color-black);
+  font-weight: var(--pv-text-c1-weight);
+  font-size: var(--pv-text-c1-size);
+  line-height: var(--pv-text-c1-height);
+  letter-spacing: var(--pv-text-c1-spacing);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  min-width: 30px;
+  width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  background-color: transparent;
+  border-style: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: var(--pv-color-black);
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::-moz-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:-ms-input-placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1::placeholder {
+  color: var(--pv-color-gray-9);
+}
+
+.emotion-1:disabled {
+  cursor: not-allowed;
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 0px;
+  top: calc(50% - 12px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0px var(--pv-size-base);
+}
+
+.emotion-3 {
+  color: var(--pv-color-gray-10);
+}
+
+.emotion-3[aria-disabled="true"] {
+  color: inherit;
+}
+
+.emotion-4 {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+<div>
+    <label
+      aria-placeholder="true"
+      class="emotion-0"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="test-id-listbox"
+        aria-expanded="false"
+        autocapitalize="none"
+        autocomplete="off"
+        autocorrect="false"
+        class="emotion-1"
+        id="test-id-toggle-button"
+        role="combobox"
+        spellcheck="false"
+        type="text"
+        value=""
+      />
+      <div
+        class="emotion-2"
+      >
+        <svg
+          aria-disabled="false"
+          aria-hidden="true"
+          class="emotion-3"
+          fill="none"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.39 14.512a.5.5 0 01-.78 0l-2.96-3.7A.5.5 0 019.04 10h5.92a.5.5 0 01.39.812l-2.96 3.7z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <input
+        aria-hidden="true"
+        autocomplete="off"
+        class="emotion-4"
+        id="test-id"
+        tabindex="-1"
+        type="text"
+        value=""
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;
