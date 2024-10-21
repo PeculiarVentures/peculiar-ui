@@ -202,4 +202,112 @@ describe('<Autocomplete />', () => {
 
     await waitFor(() => expect(screen.queryByRole('listbox')).not.toBeInTheDocument());
   });
+
+  describe('multiple false', () => {
+    it('should select only one option', () => {
+      render(
+        <Autocomplete
+          id="test-id"
+          options={['option-1', 'option-2', 'option-3']}
+          multiple={false}
+        />,
+      );
+
+      fireEvent.click(screen.getByRole('combobox'));
+      fireEvent.click(screen.getByText('option-1'));
+
+      expect(screen.getByDisplayValue('option-1')).toBeInTheDocument();
+
+      fireEvent.click(screen.getByRole('combobox'));
+      fireEvent.click(screen.getByText('option-2'));
+
+      expect(screen.getByDisplayValue('option-2')).toBeInTheDocument();
+      expect(screen.queryByDisplayValue('option-1')).not.toBeInTheDocument();
+    });
+
+    it('should clear the selected option', async () => {
+      render(
+        <Autocomplete
+          id="test-id"
+          options={['option-1']}
+          multiple={false}
+        />,
+      );
+
+      fireEvent.click(screen.getByRole('combobox'));
+      fireEvent.click(screen.getByText('option-1'));
+
+      expect(screen.getByDisplayValue('option-1')).toBeInTheDocument();
+
+      await act(async () => {
+        fireEvent.click(screen.getByRole('button', { name: /clear/i }));
+      });
+
+      expect(screen.queryByDisplayValue('option-1')).not.toBeInTheDocument();
+    });
+  });
+
+  describe('multiple true', () => {
+    it('should allow selecting multiple options', async () => {
+      render(
+        <Autocomplete
+          id="test-id"
+          options={['option-1', 'option-2', 'option-3']}
+          multiple
+        />,
+      );
+
+      await act(async () => {
+        fireEvent.click(screen.getByRole('combobox'));
+      });
+      fireEvent.click(screen.getByText('option-1'));
+
+      await act(async () => {
+        fireEvent.click(screen.getByRole('combobox'));
+      });
+      fireEvent.click(screen.getByText('option-2'));
+
+      expect(screen.getByText('option-1')).toBeInTheDocument();
+      expect(screen.getByText('option-2')).toBeInTheDocument();
+    });
+
+    it('should display limitTags when multiple options are selected', () => {
+      render(
+        <Autocomplete
+          id="test-id"
+          options={['option-1', 'option-2', 'option-3']}
+          value={['option-1', 'option-2', 'option-3']}
+          limitTags={2}
+          multiple
+        />,
+      );
+
+      expect(screen.getByText('option-1')).toBeInTheDocument();
+      expect(screen.getByText('option-2')).toBeInTheDocument();
+      expect(screen.getByText('1 more')).toBeInTheDocument();
+    });
+
+    it('should allow clearing selected options', async () => {
+      render(
+        <Autocomplete
+          id="test-id"
+          options={['option-1', 'option-2']}
+          multiple
+          disableCloseOnSelect
+        />,
+      );
+
+      fireEvent.click(screen.getByRole('combobox'));
+      fireEvent.click(screen.getByText('option-1'));
+      fireEvent.click(screen.getByText('option-2'));
+
+      await act(async () => {
+        fireEvent.click(screen.getByRole('combobox'));
+      });
+
+      fireEvent.click(screen.getByRole('button', { name: /clear/i }));
+      expect(screen.queryByText('option-1')).not.toBeInTheDocument();
+      expect(screen.queryByText('option-2')).not.toBeInTheDocument();
+    });
+  });
 });

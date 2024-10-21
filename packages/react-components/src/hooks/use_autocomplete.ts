@@ -466,6 +466,8 @@ export function useAutocomplete<
   };
 
   const handleClear = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+
     setSearchValue('');
     const newValue = (multiple ? [] : null) as AutocompleteValue<T, Multiple>;
 

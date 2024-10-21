@@ -13,7 +13,6 @@ import { Box } from '../Box';
 import { Chip } from '../Chip';
 import { ArrowDropDownIcon, CloseSmallIcon } from '../icons';
 import { MenuItem } from '../MenuList';
-// import { FocusTrap } from '../FocusTrap';
 
 /**
  * Types.
@@ -460,6 +459,12 @@ export const Autocomplete = <
     // Wait until IME is settled.
     if (event.which !== 229) {
       switch (event.key) {
+        case 'Tab': {
+          if (popoverProps.open) {
+            popoverProps.onClose(event);
+          }
+          break;
+        }
         case 'Escape':
           // Prevent cursor move
           event.preventDefault();
@@ -580,7 +585,6 @@ export const Autocomplete = <
             readOnly={readOnly}
             onChange={onChange}
             onKeyDown={handleKeyDown}
-            onBlur={popoverProps.onClose}
           />
         </>
       ) : (
@@ -597,7 +601,6 @@ export const Autocomplete = <
           readOnly={readOnly}
           onChange={onChange}
           onKeyDown={handleKeyDown}
-          onBlur={popoverProps.onClose}
         />
       )}
       <AutocompleteActions>
