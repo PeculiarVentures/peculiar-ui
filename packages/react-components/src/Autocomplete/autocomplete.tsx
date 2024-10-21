@@ -568,7 +568,7 @@ export const Autocomplete = <
       ref={ref}
       // @ts-ignore
       component="label"
-      isHasClearIcon={!isValueEmpty}
+      isHasClearIcon={!isValueEmpty && !readOnly}
     >
       {multiple ? (
         <>
@@ -604,7 +604,7 @@ export const Autocomplete = <
         />
       )}
       <AutocompleteActions>
-        {!isValueEmpty ? (
+        {!isValueEmpty && !readOnly ? (
           <AutocompleteRemoveIcon
             role="button"
             title="clear"
