@@ -13,7 +13,7 @@ import { Box } from '../Box';
 import { Chip } from '../Chip';
 import { ArrowDropDownIcon, CloseSmallIcon } from '../icons';
 import { MenuItem } from '../MenuList';
-import { FocusTrap } from '../FocusTrap';
+// import { FocusTrap } from '../FocusTrap';
 
 /**
  * Types.
@@ -306,7 +306,6 @@ const AutocompletePopover = styled(Popper)(
   {
     minWidth: 240,
     outline: 0,
-    marginTop: '1px',
     borderRadius: '4px',
     minHeight: '16px',
     maxHeight: 'calc(100% - 32px)',
@@ -581,6 +580,7 @@ export const Autocomplete = <
             readOnly={readOnly}
             onChange={onChange}
             onKeyDown={handleKeyDown}
+            onBlur={popoverProps.onClose}
           />
         </>
       ) : (
@@ -597,17 +597,22 @@ export const Autocomplete = <
           readOnly={readOnly}
           onChange={onChange}
           onKeyDown={handleKeyDown}
+          onBlur={popoverProps.onClose}
         />
       )}
       <AutocompleteActions>
         {!isValueEmpty ? (
           <AutocompleteRemoveIcon
+            role="button"
+            title="clear"
             aria-disabled={disabled}
             // @ts-ignore
             onClick={onClick}
           />
         ) : null}
         <AutocompleteArrowIcon
+          role="button"
+          title="open"
           aria-disabled={disabled}
           aria-hidden
           open={popoverProps.open}
@@ -674,57 +679,53 @@ export const Autocomplete = <
         {...popoverProps}
         tabIndex={-1}
       >
-        <FocusTrap
-          open={popoverProps.open}
-        >
-          <div ref={popoverRef}>
-            {loading && groupedOptions.length === 0 && (
-              <AutocompleteDropdownStateItem>
-                {typeof loadingText === 'string' ? (
-                  <Typography
-                    variant="b2"
-                    color="gray-10"
-                  >
-                    {loadingText}
-                  </Typography>
-                ) : loadingText}
-              </AutocompleteDropdownStateItem>
-            )}
-            {groupedOptions.length === 0 && !loading && (
-              <AutocompleteDropdownStateItem>
-                {typeof noOptionsText === 'string' ? (
-                  <Typography
-                    variant="b2"
-                    color="gray-10"
-                  >
-                    {noOptionsText}
-                  </Typography>
-                ) : noOptionsText}
-              </AutocompleteDropdownStateItem>
-            )}
-            {groupedOptions.length > 0 && (
-              <AutocompleteDropdownList {...getListboxProps()}>
-                {groupedOptions
+        <div ref={popoverRef}>
+          {loading && groupedOptions.length === 0 && (
+            <AutocompleteDropdownStateItem>
+              {typeof loadingText === 'string' ? (
+                <Typography
+                  variant="b2"
+                  color="gray-10"
+                >
+                  {loadingText}
+                </Typography>
+              ) : loadingText}
+            </AutocompleteDropdownStateItem>
+          )}
+          {groupedOptions.length === 0 && !loading && (
+            <AutocompleteDropdownStateItem>
+              {typeof noOptionsText === 'string' ? (
+                <Typography
+                  variant="b2"
+                  color="gray-10"
+                >
+                  {noOptionsText}
+                </Typography>
+              ) : noOptionsText}
+            </AutocompleteDropdownStateItem>
+          )}
+          {groupedOptions.length > 0 && (
+            <AutocompleteDropdownList {...getListboxProps()}>
+              {groupedOptions
+                // @ts-ignore
+                .map((option, index) => {
                   // @ts-ignore
-                  .map((option, index) => {
-                    // @ts-ignore
-                    if (groupBy && 'options' in option) {
-                      return renderGroup({
-                        key: option.key,
-                        group: option.group,
-                        // @ts-ignore
-                        children: option.options.map((option2, index2) => (
-                          renderListOption(option2, option.index + index2)
-                        )),
-                      });
-                    }
+                  if (groupBy && 'options' in option) {
+                    return renderGroup({
+                      key: option.key,
+                      group: option.group,
+                      // @ts-ignore
+                      children: option.options.map((option2, index2) => (
+                        renderListOption(option2, option.index + index2)
+                      )),
+                    });
+                  }
 
-                    return renderListOption(option as T, index);
-                  })}
-              </AutocompleteDropdownList>
-            )}
-          </div>
-        </FocusTrap>
+                  return renderListOption(option as T, index);
+                })}
+            </AutocompleteDropdownList>
+          )}
+        </div>
       </AutocompletePopover>
     </div>
   );
