@@ -101,7 +101,7 @@ export type AutocompleteOwnProps<
   /**
    * Render the tags elements.
    */
-  renderTags?: (
+  renderTag?: (
     options: T[],
     getTagProps: UseAutocompleteReturnType<T, Multiple>['getTagProps'],
   ) => React.ReactNode;
@@ -336,19 +336,11 @@ const AutocompletePopover = styled(Popper)(
 );
 
 const AutocompleteTag = styled(Chip)<{
-  tagsLength: number,
-  limitTags: number,
   size: AutocompleteOwnProps<any>['size'],
 }>((props) => ({
   label: 'Autocomplete-tag',
   borderRadius: '3px',
   margin: 0,
-  ...(props.tagsLength === 1 && {
-    maxWidth: 'calc(100% - var(--pv-size-base))',
-  }),
-  ...(props.tagsLength > 1 && props.limitTags > 0 && {
-    maxWidth: `calc(${100 / props.limitTags}% - var(--pv-size-base))`,
-  }),
   ...(props.size === 'small' && {
     height: 'var(--pv-size-base-5)',
   }),
@@ -432,7 +424,7 @@ export const Autocomplete = <
     errorText,
     renderRoot: renderRootProp,
     renderOption: renderOptionProp,
-    renderTags: renderTagsProp,
+    renderTag: renderTagsProp,
     getLimitTagsText = (more) => `${more} more`,
     groupBy,
     onCreate,
@@ -519,7 +511,7 @@ export const Autocomplete = <
     </li>
   );
 
-  const defaultRenderTags: AutocompleteOwnProps<T, Multiple>['renderTags'] = (
+  const defaultRenderTags: AutocompleteOwnProps<T, Multiple>['renderTag'] = (
     options,
     getTagsProps,
   ) => options.map((o, index) => (
@@ -528,9 +520,7 @@ export const Autocomplete = <
       color="secondary"
       variant="contained"
       size={size}
-      limitTags={limitTags}
       disabled={disabled}
-      tagsLength={(value as T[]).length}
     >
       {getOptionLabel(o)}
     </AutocompleteTag>
