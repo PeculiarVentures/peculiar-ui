@@ -329,19 +329,11 @@ const AutocompletePopover = styled(Popper)(
 );
 
 const AutocompleteTag = styled(Chip)<{
-  tagsLength: number,
-  limitTags: number,
   size: AutocompleteOwnProps<any>['size'],
 }>((props) => ({
   label: 'Autocomplete-tag',
   borderRadius: '3px',
   margin: 0,
-  ...(props.tagsLength === 1 && {
-    maxWidth: 'calc(100% - var(--pv-size-base))',
-  }),
-  ...(props.tagsLength > 1 && props.limitTags > 0 && {
-    maxWidth: `calc(${100 / props.limitTags}% - var(--pv-size-base))`,
-  }),
   ...(props.size === 'small' && {
     height: 'var(--pv-size-base-5)',
   }),
@@ -529,8 +521,6 @@ export const Autocomplete = <
               color="secondary"
               variant="contained"
               size={size}
-              limitTags={limitTags}
-              tagsLength={value.length}
               disabled={disabled}
             >
               {getOptionLabel(v)}
