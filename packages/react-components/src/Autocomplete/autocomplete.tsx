@@ -99,6 +99,10 @@ export type AutocompleteOwnProps<
    */
   renderOption?: (props: object, option: T) => React.ReactNode;
   /**
+   * Render the tags elements.
+   */
+  renderTag?: (props: object, option: T) => React.ReactNode;
+  /**
    * The label to display when the tags are truncated (`limitTags`).
    */
   getLimitTagsText?: (more: number) => string;
@@ -417,6 +421,7 @@ export const Autocomplete = <
     errorText,
     renderRoot: renderRootProp,
     renderOption: renderOptionProp,
+    renderTag: renderTagProp,
     getLimitTagsText = (more) => `${more} more`,
     groupBy,
     onCreate,
@@ -503,6 +508,24 @@ export const Autocomplete = <
     </li>
   );
 
+  const defaultRenderTag: AutocompleteOwnProps<T, Multiple>['renderTag'] = (propsOption, option) => (
+    <AutocompleteTag
+      {...propsOption}
+      color="secondary"
+      variant="contained"
+      size={size}
+      disabled={disabled}
+    >
+      {getOptionLabel(option)}
+    </AutocompleteTag>
+  );
+  const renderRenderTag = renderTagProp || defaultRenderTag;
+  const renderListTag = (option: T, index: number) => {
+    const optionProps = getTagProps(option, index);
+
+    return renderRenderTag(optionProps, option);
+  };
+
   const renderValue = () => {
     if (!value || (Array.isArray(value) && value.length === 0)) {
       return null;
@@ -515,17 +538,7 @@ export const Autocomplete = <
 
       return (
         <>
-          {valueLimits.map((v, index) => (
-            <AutocompleteTag
-              {...getTagProps(v, index)}
-              color="secondary"
-              variant="contained"
-              size={size}
-              disabled={disabled}
-            >
-              {getOptionLabel(v)}
-            </AutocompleteTag>
-          ))}
+          {valueLimits.map(renderListTag)}
           {!!more && (
             <AutocompleteTagSize
               variant="c2"
