@@ -209,6 +209,9 @@ TypographyOwnProps
         '&:hover': {
           backgroundColor: 'var(--pv-color-gray-3)',
           borderColor: borderColorHover,
+          '[aria-hidden]': {
+            visibility: 'visible',
+          },
         },
         '&[aria-placeholder]': {
           color: colorPlaceholder,
@@ -220,10 +223,16 @@ TypographyOwnProps
         '&:focus-visible': {
           backgroundColor: backgroundColorFocus,
           borderColor: borderColorFocus,
+          '[aria-hidden]': {
+            visibility: 'visible',
+          },
         },
         '&:focus-within': {
           backgroundColor: backgroundColorFocus,
           borderColor: borderColorFocus,
+          '[aria-hidden]': {
+            visibility: 'visible',
+          },
         },
       }),
     });
@@ -242,6 +251,7 @@ const AutocompleteActions = styled('div')({
 const AutocompleteRemoveIcon = styled(CloseSmallIcon)({
   color: 'var(--pv-color-gray-10)',
   cursor: 'pointer',
+  visibility: 'hidden',
   '&[aria-disabled="true"]': {
     color: 'inherit',
     pointerEvents: 'none',
@@ -612,6 +622,7 @@ export const Autocomplete = <
             role="button"
             title="clear"
             aria-disabled={disabled}
+            aria-hidden
             // @ts-ignore
             onClick={onClick}
           />
@@ -620,7 +631,6 @@ export const Autocomplete = <
           role="button"
           title="open"
           aria-disabled={disabled}
-          aria-hidden
           open={popoverProps.open}
         />
       </AutocompleteActions>
