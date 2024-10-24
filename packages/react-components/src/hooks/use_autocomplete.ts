@@ -467,7 +467,6 @@ export function useAutocomplete<
 
   const handleClear = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    event.stopPropagation();
 
     setSearchValue('');
     const newValue = (multiple ? [] : null) as AutocompleteValue<T, Multiple>;
@@ -548,6 +547,8 @@ export function useAutocomplete<
   };
 
   const handleTagDelete = (option: T, index: number) => (event: React.SyntheticEvent) => {
+    event.preventDefault();
+
     selectNewValue(event, option, index, 'removeOption');
   };
 
