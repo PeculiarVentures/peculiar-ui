@@ -34,8 +34,8 @@ export type AutocompleteGroupedOption<T> = {
 };
 
 export type UseAutocompleteProps<
-T,
-Multiple extends boolean | undefined = undefined,
+  T,
+  Multiple extends boolean | undefined = undefined,
 > = {
   /**
    * This prop is used to help implement the accessibility logic.
@@ -114,8 +114,8 @@ Multiple extends boolean | undefined = undefined,
 };
 
 export type UseAutocompleteReturnType<
-T,
-Multiple extends boolean | undefined = undefined,
+  T,
+  Multiple extends boolean | undefined = undefined,
 > = {
   groupedOptions: ReadonlyArray<T> | ReadonlyArray<AutocompleteGroupedOption<T>>;
   value: AutocompleteValue<T, Multiple>;
@@ -127,7 +127,10 @@ Multiple extends boolean | undefined = undefined,
   getInputLabelProps: () => React.HTMLAttributes<HTMLLabelElement>;
   getRootProps: () => React.HTMLAttributes<HTMLDivElement>;
   getInputProps: () => React.HTMLAttributes<HTMLInputElement>;
-  getClearProps: () => React.HTMLAttributes<HTMLDivElement>;
+  getClearProps: () => {
+    tabIndex: -1;
+    onClick: (event: React.SyntheticEvent) => void;
+  };
   getPopoverProps: () => Pick<Required<PopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>;
   getTagProps: (option: T, index: number) => {
     key: number;
@@ -159,8 +162,8 @@ const defaultFilterOptions: AutocompleteFilterOptionsType<any, false> = (
 };
 
 export function useAutocomplete<
-T,
-Multiple extends boolean | undefined = false,
+  T,
+  Multiple extends boolean | undefined = false,
 >(
   props: UseAutocompleteProps<T, Multiple>,
 ): UseAutocompleteReturnType<T, Multiple> {
@@ -462,21 +465,40 @@ Multiple extends boolean | undefined = false,
     }
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value: valueInput } = event.target;
+  const handleClear = (event: React.SyntheticEvent) => {
+    event.preventDefault();
 
-    setSearchValue(valueInput);
-
-    if (onInputChange) {
-      onInputChange(event, valueInput);
-    }
-  };
-
-  const handleClear = (event: React.MouseEvent<HTMLDivElement>) => {
     setSearchValue('');
+    const newValue = (multiple ? [] : null) as AutocompleteValue<T, Multiple>;
 
     if (onInputChange) {
       onInputChange(event, '');
+    }
+
+    setValue(newValue);
+
+    if (onChange) {
+      onChange(event, newValue, { option: null, index: 0 }, 'removeOption');
+    }
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value: valueInput } = event.target;
+
+    if (searchValue !== valueInput) {
+      setSearchValue(valueInput);
+
+      if (onInputChange) {
+        onInputChange(event, valueInput);
+      }
+    }
+
+    if (valueInput === '') {
+      if (!multiple) {
+        handleClear(event);
+      }
+    } else {
+      handleOpen(event);
     }
   };
 
@@ -489,6 +511,7 @@ Multiple extends boolean | undefined = false,
           event.preventDefault();
 
           changeHighlightedIndex(1, 'next', 'keyboard');
+          handleOpen(event);
           break;
 
         case 'ArrowUp':
@@ -496,6 +519,8 @@ Multiple extends boolean | undefined = false,
           event.preventDefault();
 
           changeHighlightedIndex(-1, 'previous', 'keyboard');
+          handleOpen(event);
+
           break;
 
         case 'Enter':
