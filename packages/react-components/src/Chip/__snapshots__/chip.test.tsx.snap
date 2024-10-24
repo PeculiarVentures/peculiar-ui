@@ -32,6 +32,7 @@ exports[`<Chip /> should have custom delete icon 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  gap: var(--pv-size-base);
   background-color: var(--pv-color-secondary);
   color: var(--pv-color-secondary-contrast);
 }
@@ -49,7 +50,6 @@ exports[`<Chip /> should have custom delete icon 1`] = `
 }
 
 .emotion-2 {
-  margin-left: var(--pv-size-base);
   display: inherit;
 }
 
@@ -133,6 +133,7 @@ exports[`<Chip /> should have delete icon 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  gap: var(--pv-size-base);
   background-color: var(--pv-color-secondary);
   color: var(--pv-color-secondary-contrast);
 }
@@ -150,7 +151,6 @@ exports[`<Chip /> should have delete icon 1`] = `
 }
 
 .emotion-2 {
-  margin-left: var(--pv-size-base);
   display: inherit;
 }
 
@@ -235,6 +235,7 @@ exports[`<Chip /> should pass className 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  gap: var(--pv-size-base);
   background-color: var(--pv-color-secondary);
   color: var(--pv-color-secondary-contrast);
 }
@@ -295,6 +296,7 @@ exports[`<Chip /> should render with default styles 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  gap: var(--pv-size-base);
   background-color: var(--pv-color-secondary);
   color: var(--pv-color-secondary-contrast);
 }
@@ -355,6 +357,7 @@ exports[`<Chip /> variants & colors variant "contained, color "default" 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  gap: var(--pv-size-base);
   background-color: var(--pv-color-gray-4);
   color: var(--pv-color-black);
 }
@@ -415,6 +418,7 @@ exports[`<Chip /> variants & colors variant "contained, color "secondary" 1`] = 
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  gap: var(--pv-size-base);
   background-color: var(--pv-color-secondary);
   color: var(--pv-color-secondary-contrast);
 }
@@ -475,6 +479,7 @@ exports[`<Chip /> variants & colors variant "contained, color "wrong" 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  gap: var(--pv-size-base);
   background-color: var(--pv-color-wrong);
   color: var(--pv-color-wrong-contrast);
 }
@@ -535,6 +540,7 @@ exports[`<Chip /> variants & colors variant "outlined, color "default" 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  gap: var(--pv-size-base);
   border-color: var(--pv-color-gray-6);
   color: var(--pv-color-black);
 }
@@ -595,6 +601,7 @@ exports[`<Chip /> variants & colors variant "outlined, color "secondary" 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  gap: var(--pv-size-base);
   border-color: var(--pv-color-secondary-tint-2);
   color: var(--pv-color-secondary);
 }
@@ -655,6 +662,7 @@ exports[`<Chip /> variants & colors variant "outlined, color "wrong" 1`] = `
   white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
+  gap: var(--pv-size-base);
   border-color: var(--pv-color-wrong-tint-2);
   color: var(--pv-color-wrong);
 }

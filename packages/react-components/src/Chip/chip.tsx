@@ -81,6 +81,7 @@ const ChipRoot = styled('div', {
   alignItems: 'center',
   whiteSpace: 'nowrap',
   textDecoration: 'none',
+  gap: 'var(--pv-size-base)',
   ...(props.disabled && {
     pointerEvents: 'none',
   }),
@@ -204,12 +205,10 @@ const ChipDeleteIcon = styled('span')({
 });
 
 const ChipStartContent = styled('span')({
-  marginRight: 'var(--pv-size-base)',
   display: 'inherit',
 });
 
 const ChipEndContent = styled('span')({
-  marginLeft: 'var(--pv-size-base)',
   display: 'inherit',
 });
 

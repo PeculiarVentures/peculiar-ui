@@ -275,22 +275,17 @@ const SelectPopover = styled(Popover)({
 const SelectTagsList = styled('div')({
   overflow: 'hidden',
   width: '100%',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(0, max-content))',
+  gap: 'var(--pv-size-base)',
 });
 
 const SelectTag = styled(Chip)<{
-  tagsLength: number,
-  limitTags: number,
   size: SelectOwnProps<any>['size'],
 }>((props) => ({
   label: 'Select-tag',
   borderRadius: '3px',
-  margin: '0 var(--pv-size-base) 0 0',
-  ...(props.tagsLength === 1 && {
-    maxWidth: 'calc(100% - var(--pv-size-base))',
-  }),
-  ...(props.tagsLength > 1 && props.limitTags && {
-    maxWidth: `calc(${100 / props.limitTags}% - var(--pv-size-base))`,
-  }),
+  margin: 0,
   ...(props.size === 'small' && {
     height: 'var(--pv-size-base-5)',
   }),
@@ -425,8 +420,6 @@ Multiple extends boolean | undefined = false,
                 color="secondary"
                 variant="contained"
                 size={size}
-                limitTags={limitTags}
-                tagsLength={value.length}
               >
                 {getOptionLabel(v)}
               </SelectTag>
