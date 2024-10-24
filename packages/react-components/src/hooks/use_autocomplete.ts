@@ -547,6 +547,8 @@ export function useAutocomplete<
   };
 
   const handleTagDelete = (option: T, index: number) => (event: React.SyntheticEvent) => {
+    event.preventDefault();
+
     selectNewValue(event, option, index, 'removeOption');
   };
 
