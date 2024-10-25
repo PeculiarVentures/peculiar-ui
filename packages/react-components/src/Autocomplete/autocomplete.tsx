@@ -209,6 +209,9 @@ TypographyOwnProps
         '&:hover': {
           backgroundColor: 'var(--pv-color-gray-3)',
           borderColor: borderColorHover,
+          '[aria-label="Clear"]': {
+            visibility: 'visible',
+          },
         },
         '&[aria-placeholder]': {
           color: colorPlaceholder,
@@ -220,10 +223,16 @@ TypographyOwnProps
         '&:focus-visible': {
           backgroundColor: backgroundColorFocus,
           borderColor: borderColorFocus,
+          '[aria-label="Clear"]': {
+            visibility: 'visible',
+          },
         },
         '&:focus-within': {
           backgroundColor: backgroundColorFocus,
           borderColor: borderColorFocus,
+          '[aria-label="Clear"]': {
+            visibility: 'visible',
+          },
         },
       }),
     });
@@ -239,16 +248,19 @@ const AutocompleteActions = styled('div')({
   margin: '0px var(--pv-size-base)',
 });
 
-const AutocompleteRemoveIcon = styled(CloseSmallIcon)({
+const AutocompleteClearButton = styled('button')({
   color: 'var(--pv-color-gray-10)',
   cursor: 'pointer',
-  '&[aria-disabled="true"]': {
-    color: 'inherit',
-    pointerEvents: 'none',
-  },
+  visibility: 'hidden',
+  display: 'inline-flex',
+  appearance: 'none',
+  outline: '0px',
+  padding: '0px',
+  borderWidth: '0px',
+  background: 'transparent',
 });
 
-const AutocompleteArrowIcon = styled(ArrowDropDownIcon)<{ open: boolean }>({
+const AutocompleteOpenButton = styled(ArrowDropDownIcon)<{ open: boolean }>({
   color: 'var(--pv-color-gray-10)',
   '&[aria-disabled="true"]': {
     color: 'inherit',
@@ -445,9 +457,6 @@ export const Autocomplete = <
     onChange,
     ...otherInputProps
   } = getInputProps();
-  const {
-    onClick,
-  } = getClearProps();
 
   const rootProps = getRootProps();
   const popoverProps = getPopoverProps();
@@ -608,19 +617,23 @@ export const Autocomplete = <
       )}
       <AutocompleteActions>
         {!isValueEmpty && !readOnly ? (
-          <AutocompleteRemoveIcon
-            role="button"
-            title="clear"
-            aria-disabled={disabled}
-            // @ts-ignore
-            onClick={onClick}
-          />
+          <AutocompleteClearButton
+            type="button"
+            disabled={disabled}
+            title="Clear"
+            aria-label="Clear"
+            {...getClearProps()}
+          >
+            <CloseSmallIcon
+              aria-hidden
+            />
+          </AutocompleteClearButton>
         ) : null}
-        <AutocompleteArrowIcon
+        <AutocompleteOpenButton
           role="button"
-          title="open"
+          title="Open"
+          aria-label="Open"
           aria-disabled={disabled}
-          aria-hidden
           open={popoverProps.open}
         />
       </AutocompleteActions>
