@@ -5,6 +5,7 @@ import {
   fireEvent,
   act,
   waitFor,
+  userEvent,
 } from '../test-utils';
 import { Autocomplete } from './index';
 
@@ -156,11 +157,11 @@ describe('<Autocomplete />', () => {
 
     expect(screen.getByDisplayValue('clearable-option')).toBeInTheDocument();
 
-    await act(async () => {
-      fireEvent.click(screen.getByRole('combobox'));
-    });
+    await userEvent.hover(screen.getByRole('combobox'));
 
-    fireEvent.click(screen.getByRole('button', { name: /clear/i }));
+    await act(async () => {
+      fireEvent.click(screen.getByTitle('Clear'));
+    });
     expect(screen.queryByDisplayValue('clearable-option')).not.toBeInTheDocument();
   });
 
@@ -239,8 +240,10 @@ describe('<Autocomplete />', () => {
 
       expect(screen.getByDisplayValue('option-1')).toBeInTheDocument();
 
+      await userEvent.hover(screen.getByRole('combobox'));
+
       await act(async () => {
-        fireEvent.click(screen.getByRole('button', { name: /clear/i }));
+        fireEvent.click(screen.getByTitle('Clear'));
       });
 
       expect(screen.queryByDisplayValue('option-1')).not.toBeInTheDocument();
@@ -301,11 +304,11 @@ describe('<Autocomplete />', () => {
       fireEvent.click(screen.getByText('option-1'));
       fireEvent.click(screen.getByText('option-2'));
 
-      await act(async () => {
-        fireEvent.click(screen.getByRole('combobox'));
-      });
+      await userEvent.hover(screen.getByRole('combobox'));
 
-      fireEvent.click(screen.getByRole('button', { name: /clear/i }));
+      await act(async () => {
+        fireEvent.click(screen.getByTitle('Clear'));
+      });
       expect(screen.queryByText('option-1')).not.toBeInTheDocument();
       expect(screen.queryByText('option-2')).not.toBeInTheDocument();
     });

@@ -49,6 +49,10 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
   border-color: var(--pv-color-gray-7);
 }
 
+.emotion-0:hover [aria-label="Clear"] {
+  visibility: visible;
+}
+
 .emotion-0[aria-placeholder] {
   color: var(--pv-color-gray-9);
 }
@@ -63,9 +67,17 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
   border-color: var(--pv-color-secondary-tint-3);
 }
 
+.emotion-0:focus-visible [aria-label="Clear"] {
+  visibility: visible;
+}
+
 .emotion-0:focus-within {
   background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within [aria-label="Clear"] {
+  visibility: visible;
 }
 
 .emotion-1 {
@@ -175,12 +187,12 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
       >
         <svg
           aria-disabled="false"
-          aria-hidden="true"
+          aria-label="Open"
           class="emotion-3"
           fill="none"
           height="24px"
           role="button"
-          title="open"
+          title="Open"
           viewBox="0 0 24 24"
           width="24px"
           xmlns="http://www.w3.org/2000/svg"
@@ -254,6 +266,10 @@ exports[`<Autocomplete /> should render with multiple selection enabled 1`] = `
   border-color: var(--pv-color-gray-7);
 }
 
+.emotion-0:hover [aria-label="Clear"] {
+  visibility: visible;
+}
+
 .emotion-0[aria-placeholder] {
   color: var(--pv-color-gray-9);
 }
@@ -268,9 +284,17 @@ exports[`<Autocomplete /> should render with multiple selection enabled 1`] = `
   border-color: var(--pv-color-secondary-tint-3);
 }
 
+.emotion-0:focus-visible [aria-label="Clear"] {
+  visibility: visible;
+}
+
 .emotion-0:focus-within {
   background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within [aria-label="Clear"] {
+  visibility: visible;
 }
 
 .emotion-1 {
@@ -380,12 +404,12 @@ exports[`<Autocomplete /> should render with multiple selection enabled 1`] = `
       >
         <svg
           aria-disabled="false"
-          aria-hidden="true"
+          aria-label="Open"
           class="emotion-3"
           fill="none"
           height="24px"
           role="button"
-          title="open"
+          title="Open"
           viewBox="0 0 24 24"
           width="24px"
           xmlns="http://www.w3.org/2000/svg"
@@ -459,6 +483,10 @@ exports[`<Autocomplete /> sizes renders with size "large" 1`] = `
   border-color: var(--pv-color-gray-7);
 }
 
+.emotion-0:hover [aria-label="Clear"] {
+  visibility: visible;
+}
+
 .emotion-0[aria-placeholder] {
   color: var(--pv-color-gray-9);
 }
@@ -473,9 +501,17 @@ exports[`<Autocomplete /> sizes renders with size "large" 1`] = `
   border-color: var(--pv-color-secondary-tint-3);
 }
 
+.emotion-0:focus-visible [aria-label="Clear"] {
+  visibility: visible;
+}
+
 .emotion-0:focus-within {
   background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within [aria-label="Clear"] {
+  visibility: visible;
 }
 
 .emotion-1 {
@@ -585,12 +621,12 @@ exports[`<Autocomplete /> sizes renders with size "large" 1`] = `
       >
         <svg
           aria-disabled="false"
-          aria-hidden="true"
+          aria-label="Open"
           class="emotion-3"
           fill="none"
           height="24px"
           role="button"
-          title="open"
+          title="Open"
           viewBox="0 0 24 24"
           width="24px"
           xmlns="http://www.w3.org/2000/svg"
@@ -664,6 +700,10 @@ exports[`<Autocomplete /> sizes renders with size "medium" 1`] = `
   border-color: var(--pv-color-gray-7);
 }
 
+.emotion-0:hover [aria-label="Clear"] {
+  visibility: visible;
+}
+
 .emotion-0[aria-placeholder] {
   color: var(--pv-color-gray-9);
 }
@@ -678,9 +718,17 @@ exports[`<Autocomplete /> sizes renders with size "medium" 1`] = `
   border-color: var(--pv-color-secondary-tint-3);
 }
 
+.emotion-0:focus-visible [aria-label="Clear"] {
+  visibility: visible;
+}
+
 .emotion-0:focus-within {
   background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within [aria-label="Clear"] {
+  visibility: visible;
 }
 
 .emotion-1 {
@@ -790,12 +838,12 @@ exports[`<Autocomplete /> sizes renders with size "medium" 1`] = `
       >
         <svg
           aria-disabled="false"
-          aria-hidden="true"
+          aria-label="Open"
           class="emotion-3"
           fill="none"
           height="24px"
           role="button"
-          title="open"
+          title="Open"
           viewBox="0 0 24 24"
           width="24px"
           xmlns="http://www.w3.org/2000/svg"
@@ -869,6 +917,10 @@ exports[`<Autocomplete /> sizes renders with size "small" 1`] = `
   border-color: var(--pv-color-gray-7);
 }
 
+.emotion-0:hover [aria-label="Clear"] {
+  visibility: visible;
+}
+
 .emotion-0[aria-placeholder] {
   color: var(--pv-color-gray-9);
 }
@@ -883,9 +935,17 @@ exports[`<Autocomplete /> sizes renders with size "small" 1`] = `
   border-color: var(--pv-color-secondary-tint-3);
 }
 
+.emotion-0:focus-visible [aria-label="Clear"] {
+  visibility: visible;
+}
+
 .emotion-0:focus-within {
   background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary-tint-3);
+}
+
+.emotion-0:focus-within [aria-label="Clear"] {
+  visibility: visible;
 }
 
 .emotion-1 {
@@ -995,12 +1055,12 @@ exports[`<Autocomplete /> sizes renders with size "small" 1`] = `
       >
         <svg
           aria-disabled="false"
-          aria-hidden="true"
+          aria-label="Open"
           class="emotion-3"
           fill="none"
           height="24px"
           role="button"
-          title="open"
+          title="Open"
           viewBox="0 0 24 24"
           width="24px"
           xmlns="http://www.w3.org/2000/svg"
