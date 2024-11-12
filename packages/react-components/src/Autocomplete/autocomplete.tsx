@@ -78,10 +78,6 @@ export type AutocompleteOwnProps<
    */
   required?: boolean;
   /**
-   * If `true`, the create button element will be shown.
-   */
-  allowCreateOption?: boolean;
-  /**
    * If `true`, the `input` will indicate an error.
    */
   error?: boolean;
@@ -101,7 +97,10 @@ export type AutocompleteOwnProps<
   /**
    * Render the tags elements.
    */
-  renderTag?: (props: object, option: T) => React.ReactNode;
+  renderTag?: (
+    props: ReturnType<UseAutocompleteReturnType<T, Multiple>['getTagProps']>,
+    option: T,
+  ) => React.ReactNode;
   /**
    * The label to display when the tags are truncated (`limitTags`).
    */
@@ -461,6 +460,14 @@ export const Autocomplete = <
   const rootProps = getRootProps();
   const popoverProps = getPopoverProps();
 
+  const handleCreate = (event: React.SyntheticEvent) => {
+    if (onCreate && searchValue.length) {
+      onCreate(event, searchValue);
+    }
+
+    popoverProps.onClose(event);
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     // Wait until IME is settled.
     if (event.which !== 229) {
@@ -481,9 +488,7 @@ export const Autocomplete = <
           // Prevent cursor move
           event.preventDefault();
 
-          if (onCreate && !groupedOptions.length) {
-            onCreate(event, searchValue);
-          }
+          handleCreate(event);
 
           popoverProps.onKeyDown(event);
           break;
@@ -756,6 +761,5 @@ Autocomplete.defaultProps = {
   loading: false,
   loadingText: 'Loading...',
   required: false,
-  allowCreateOption: false,
   size: 'medium',
 };
