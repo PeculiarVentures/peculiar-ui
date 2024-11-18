@@ -172,7 +172,6 @@ describe('<Autocomplete />', () => {
       <Autocomplete
         id="test-id"
         options={[]}
-        allowCreateOption
         onCreate={handleCreate}
       />,
     );
