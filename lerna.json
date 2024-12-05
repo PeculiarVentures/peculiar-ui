@@ -3,5 +3,10 @@
   "version": "independent",
   "npmClient": "yarn",
   "npmClientArgs": ["--frozen-lockfile"],
-  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "command": {
+    "publish": {
+      "conventionalCommits": true
+    }
+  }
 }
