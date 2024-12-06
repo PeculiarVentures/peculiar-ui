@@ -5,7 +5,9 @@ const config: StorybookConfig = {
     '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
-  staticDirs: ['./static'],
+  core: {
+    disableTelemetry: true,
+  },
   addons: [
     {
       name: '@storybook/addon-essentials',
@@ -19,12 +21,10 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  docs: {
-    autodocs: 'tag',
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
   },
-  core: {
-    disableTelemetry: true,
-  },
+  staticDirs: ['./static'],
 };
 
 export default config;
