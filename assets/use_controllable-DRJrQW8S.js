@@ -1,0 +1,1 @@
+import{e as s}from"./index-Wp2u197Z.js";const p=(t,...e)=>typeof t=="function"?t(...e):t;function V(t){const{value:e,defaultValue:r,onChange:n,shouldUpdate:u}=t,[c,f]=s.useState(r),a=e!==void 0,o=a?e:c,i=s.useCallback(d=>{const l=p(d,o);u&&!u(o,l)||(a||f(l),n&&n(l))},[a,n,o,u]);return[o,i]}export{V as u};

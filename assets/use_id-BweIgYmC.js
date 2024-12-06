@@ -1,0 +1,1 @@
+import{e as t}from"./index-Wp2u197Z.js";let o=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((e,r)=>(r&=63,r<36?e+=r.toString(36):r<62?e+=(r-26).toString(36).toUpperCase():r>62?e+="-":e+="_",e),"");function u(n){const[e]=t.useState(()=>o());return n||e}export{u};
