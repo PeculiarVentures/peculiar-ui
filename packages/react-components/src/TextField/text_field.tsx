@@ -123,24 +123,21 @@ const TextFieldInput = styled(Typography)<TextFieldProps>(
 
     let borderColor = 'var(--pv-color-gray-8)';
     let colorPlaceholder = 'var(--pv-color-gray-9)';
-    let borderColorHover = 'var(--pv-color-gray-7)';
+    const borderColorHover = 'var(--pv-color-gray-10)';
     let borderColorDisabled = 'var(--pv-color-gray-5)';
     let colorDisabled = 'var(--pv-color-gray-7)';
     let invalidBackgroundColor = 'var(--pv-color-wrong-tint-5)';
-    let invalidBorderColor = 'var(--pv-color-wrong-tint-3)';
+    const invalidBorderColor = 'var(--pv-color-wrong)';
     let backgroundColorFocus = 'var(--pv-color-secondary-tint-5)';
-    let borderColorFocus = 'var(--pv-color-secondary-tint-3)';
+    const borderColorFocus = 'var(--pv-color-secondary)';
 
     if (isDark) {
       borderColor = 'var(--pv-color-gray-5)';
       colorPlaceholder = 'var(--pv-color-gray-6)';
-      borderColorHover = 'var(--pv-color-gray-4)';
       borderColorDisabled = 'var(--pv-color-gray-4)';
       colorDisabled = 'var(--pv-color-gray-4)';
       invalidBackgroundColor = 'var(--pv-color-wrong-shade-4)';
-      invalidBorderColor = 'var(--pv-color-wrong-shade-1)';
       backgroundColorFocus = 'var(--pv-color-secondary-shade-4)';
-      borderColorFocus = 'var(--pv-color-secondary-shade-1)';
     }
 
     return ({
