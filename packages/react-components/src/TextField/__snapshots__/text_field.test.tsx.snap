@@ -51,7 +51,7 @@ exports[`<TextField /> TextField render sizes size "large" 1`] = `
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -63,12 +63,12 @@ exports[`<TextField /> TextField render sizes size "large" 1`] = `
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div>
@@ -133,7 +133,7 @@ exports[`<TextField /> TextField render sizes size "medium" 1`] = `
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -145,12 +145,12 @@ exports[`<TextField /> TextField render sizes size "medium" 1`] = `
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div>
@@ -215,7 +215,7 @@ exports[`<TextField /> TextField render sizes size "small" 1`] = `
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -227,12 +227,12 @@ exports[`<TextField /> TextField render sizes size "small" 1`] = `
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div>
@@ -297,7 +297,7 @@ exports[`<TextField /> TextField render variants should be disabled 1`] = `
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -309,12 +309,12 @@ exports[`<TextField /> TextField render variants should be disabled 1`] = `
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div>
@@ -380,7 +380,7 @@ exports[`<TextField /> TextField render variants should have className 1`] = `
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -392,12 +392,12 @@ exports[`<TextField /> TextField render variants should have className 1`] = `
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div
@@ -464,7 +464,7 @@ exports[`<TextField /> TextField render variants should have defaultValue 1`] = 
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -476,12 +476,12 @@ exports[`<TextField /> TextField render variants should have defaultValue 1`] = 
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div>
@@ -546,7 +546,7 @@ exports[`<TextField /> TextField render variants should have error alert 1`] = `
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -558,12 +558,12 @@ exports[`<TextField /> TextField render variants should have error alert 1`] = `
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-1 {
@@ -658,7 +658,7 @@ exports[`<TextField /> TextField render variants should have label 1`] = `
 
 .emotion-2:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-2:disabled {
@@ -670,12 +670,12 @@ exports[`<TextField /> TextField render variants should have label 1`] = `
 
 .emotion-2:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-2:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div>
@@ -751,7 +751,7 @@ exports[`<TextField /> TextField render variants should have name attr 1`] = `
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -763,12 +763,12 @@ exports[`<TextField /> TextField render variants should have name attr 1`] = `
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div>
@@ -834,7 +834,7 @@ exports[`<TextField /> TextField render variants should have placeholder 1`] = `
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -846,12 +846,12 @@ exports[`<TextField /> TextField render variants should have placeholder 1`] = `
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div>
@@ -917,7 +917,7 @@ exports[`<TextField /> TextField render variants should have required 1`] = `
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -929,12 +929,12 @@ exports[`<TextField /> TextField render variants should have required 1`] = `
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div>
@@ -1000,7 +1000,7 @@ exports[`<TextField /> TextField render variants should have value 1`] = `
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -1012,12 +1012,12 @@ exports[`<TextField /> TextField render variants should have value 1`] = `
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div>
@@ -1082,7 +1082,7 @@ exports[`<TextField /> TextField render variants should render as default 1`] = 
 
 .emotion-0:hover {
   background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
@@ -1094,12 +1094,12 @@ exports[`<TextField /> TextField render variants should render as default 1`] = 
 
 .emotion-0:not(:disabled)[aria-invalid] {
   background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
   background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 <div>
