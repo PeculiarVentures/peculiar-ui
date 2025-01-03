@@ -45,8 +45,7 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:hover [aria-label="Clear"] {
@@ -58,13 +57,11 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
 }
 
 .emotion-0[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-0:focus-visible [aria-label="Clear"] {
@@ -72,8 +69,7 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
 }
 
 .emotion-0:focus-within {
-  background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-0:focus-within [aria-label="Clear"] {
@@ -262,8 +258,7 @@ exports[`<Autocomplete /> should render with multiple selection enabled 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:hover [aria-label="Clear"] {
@@ -275,13 +270,11 @@ exports[`<Autocomplete /> should render with multiple selection enabled 1`] = `
 }
 
 .emotion-0[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-0:focus-visible [aria-label="Clear"] {
@@ -289,8 +282,7 @@ exports[`<Autocomplete /> should render with multiple selection enabled 1`] = `
 }
 
 .emotion-0:focus-within {
-  background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-0:focus-within [aria-label="Clear"] {
@@ -479,8 +471,7 @@ exports[`<Autocomplete /> sizes renders with size "large" 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:hover [aria-label="Clear"] {
@@ -492,13 +483,11 @@ exports[`<Autocomplete /> sizes renders with size "large" 1`] = `
 }
 
 .emotion-0[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-0:focus-visible [aria-label="Clear"] {
@@ -506,8 +495,7 @@ exports[`<Autocomplete /> sizes renders with size "large" 1`] = `
 }
 
 .emotion-0:focus-within {
-  background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-0:focus-within [aria-label="Clear"] {
@@ -696,8 +684,7 @@ exports[`<Autocomplete /> sizes renders with size "medium" 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:hover [aria-label="Clear"] {
@@ -709,13 +696,11 @@ exports[`<Autocomplete /> sizes renders with size "medium" 1`] = `
 }
 
 .emotion-0[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-0:focus-visible [aria-label="Clear"] {
@@ -723,8 +708,7 @@ exports[`<Autocomplete /> sizes renders with size "medium" 1`] = `
 }
 
 .emotion-0:focus-within {
-  background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-0:focus-within [aria-label="Clear"] {
@@ -913,8 +897,7 @@ exports[`<Autocomplete /> sizes renders with size "small" 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:hover [aria-label="Clear"] {
@@ -926,13 +909,11 @@ exports[`<Autocomplete /> sizes renders with size "small" 1`] = `
 }
 
 .emotion-0[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
-  border-color: var(--pv-color-wrong-tint-3);
+  border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-0:focus-visible [aria-label="Clear"] {
@@ -940,8 +921,7 @@ exports[`<Autocomplete /> sizes renders with size "small" 1`] = `
 }
 
 .emotion-0:focus-within {
-  background-color: var(--pv-color-secondary-tint-5);
-  border-color: var(--pv-color-secondary-tint-3);
+  border-color: var(--pv-color-secondary);
 }
 
 .emotion-0:focus-within [aria-label="Clear"] {
