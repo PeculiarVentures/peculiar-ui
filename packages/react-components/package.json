@@ -1,7 +1,7 @@
 {
   "name": "@peculiar/react-components",
   "private": false,
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "PeculiarVentures Team",
   "description": "A simple and customizable component library to build faster, beautiful, and more accessible React applications.",
   "keywords": [
@@ -48,7 +48,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@peculiar/color": "^0.1.4",
+    "@peculiar/color": "^0.1.5",
     "@popperjs/core": "^2.11.7",
     "@types/flat": "^5.0.2",
     "@types/react-transition-group": "^4.4.5",
