@@ -45,7 +45,6 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
@@ -58,12 +57,10 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
 }
 
 .emotion-0[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -72,7 +69,6 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
 }
 
 .emotion-0:focus-within {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -262,7 +258,6 @@ exports[`<Autocomplete /> should render with multiple selection enabled 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
@@ -275,12 +270,10 @@ exports[`<Autocomplete /> should render with multiple selection enabled 1`] = `
 }
 
 .emotion-0[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -289,7 +282,6 @@ exports[`<Autocomplete /> should render with multiple selection enabled 1`] = `
 }
 
 .emotion-0:focus-within {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -479,7 +471,6 @@ exports[`<Autocomplete /> sizes renders with size "large" 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
@@ -492,12 +483,10 @@ exports[`<Autocomplete /> sizes renders with size "large" 1`] = `
 }
 
 .emotion-0[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -506,7 +495,6 @@ exports[`<Autocomplete /> sizes renders with size "large" 1`] = `
 }
 
 .emotion-0:focus-within {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -696,7 +684,6 @@ exports[`<Autocomplete /> sizes renders with size "medium" 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
@@ -709,12 +696,10 @@ exports[`<Autocomplete /> sizes renders with size "medium" 1`] = `
 }
 
 .emotion-0[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -723,7 +708,6 @@ exports[`<Autocomplete /> sizes renders with size "medium" 1`] = `
 }
 
 .emotion-0:focus-within {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -913,7 +897,6 @@ exports[`<Autocomplete /> sizes renders with size "small" 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
@@ -926,12 +909,10 @@ exports[`<Autocomplete /> sizes renders with size "small" 1`] = `
 }
 
 .emotion-0[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -940,7 +921,6 @@ exports[`<Autocomplete /> sizes renders with size "small" 1`] = `
 }
 
 .emotion-0:focus-within {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 

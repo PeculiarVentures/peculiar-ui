@@ -177,9 +177,7 @@ TypographyOwnProps
     const borderColorHover = 'var(--pv-color-gray-10)';
     let borderColorDisabled = 'var(--pv-color-gray-5)';
     let colorDisabled = 'var(--pv-color-gray-7)';
-    let invalidBackgroundColor = 'var(--pv-color-wrong-tint-5)';
     const invalidBorderColor = 'var(--pv-color-wrong)';
-    let backgroundColorFocus = 'var(--pv-color-secondary-tint-5)';
     const borderColorFocus = 'var(--pv-color-secondary)';
 
     if (isDark) {
@@ -187,15 +185,12 @@ TypographyOwnProps
       colorPlaceholder = 'var(--pv-color-gray-6)';
       borderColorDisabled = 'var(--pv-color-gray-4)';
       colorDisabled = 'var(--pv-color-gray-4)';
-      invalidBackgroundColor = 'var(--pv-color-wrong-shade-4)';
-      backgroundColorFocus = 'var(--pv-color-secondary-shade-4)';
     }
 
     return ({
       borderColor,
       ...(props.disabled && {
         cursor: 'not-allowed',
-        backgroundColor: 'var(--pv-color-gray-1)',
         borderColor: borderColorDisabled,
         color: colorDisabled,
       }),
@@ -203,7 +198,6 @@ TypographyOwnProps
         color,
         cursor: 'text',
         '&:hover': {
-          backgroundColor: 'var(--pv-color-gray-3)',
           borderColor: borderColorHover,
           '[aria-label="Clear"]': {
             visibility: 'visible',
@@ -213,18 +207,15 @@ TypographyOwnProps
           color: colorPlaceholder,
         },
         '&[aria-invalid]': {
-          backgroundColor: invalidBackgroundColor,
           borderColor: invalidBorderColor,
         },
         '&:focus-visible': {
-          backgroundColor: backgroundColorFocus,
           borderColor: borderColorFocus,
           '[aria-label="Clear"]': {
             visibility: 'visible',
           },
         },
         '&:focus-within': {
-          backgroundColor: backgroundColorFocus,
           borderColor: borderColorFocus,
           '[aria-label="Clear"]': {
             visibility: 'visible',

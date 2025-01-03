@@ -39,13 +39,11 @@ exports[`<Select /> should pass className 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
@@ -59,12 +57,10 @@ exports[`<Select /> should pass className 1`] = `
 }
 
 .emotion-0:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -171,13 +167,11 @@ exports[`<Select /> should pass error 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
@@ -191,12 +185,10 @@ exports[`<Select /> should pass error 1`] = `
 }
 
 .emotion-0:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -324,24 +316,20 @@ exports[`<Select /> should pass error 1`] = `
 }
 
 .emotion-9:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-9:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
 
 .emotion-9:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-9:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -490,13 +478,11 @@ exports[`<Select /> should pass loading 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
@@ -510,12 +496,10 @@ exports[`<Select /> should pass loading 1`] = `
 }
 
 .emotion-0:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -633,24 +617,20 @@ exports[`<Select /> should pass loading 1`] = `
 }
 
 .emotion-8:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-8:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
 
 .emotion-8:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-8:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -794,13 +774,11 @@ exports[`<Select /> should pass options 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
@@ -814,12 +792,10 @@ exports[`<Select /> should pass options 1`] = `
 }
 
 .emotion-0:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -937,24 +913,20 @@ exports[`<Select /> should pass options 1`] = `
 }
 
 .emotion-8:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-8:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
 
 .emotion-8:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-8:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -1192,13 +1164,11 @@ exports[`<Select /> should render with default multiple styles 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
@@ -1212,12 +1182,10 @@ exports[`<Select /> should render with default multiple styles 1`] = `
 }
 
 .emotion-0:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -1323,13 +1291,11 @@ exports[`<Select /> should render with default styles 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
@@ -1343,12 +1309,10 @@ exports[`<Select /> should render with default styles 1`] = `
 }
 
 .emotion-0:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -1454,13 +1418,11 @@ exports[`<Select /> sizes size "large" 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
@@ -1474,12 +1436,10 @@ exports[`<Select /> sizes size "large" 1`] = `
 }
 
 .emotion-0:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -1585,13 +1545,11 @@ exports[`<Select /> sizes size "medium" 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
@@ -1605,12 +1563,10 @@ exports[`<Select /> sizes size "medium" 1`] = `
 }
 
 .emotion-0:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
@@ -1716,13 +1672,11 @@ exports[`<Select /> sizes size "small" 1`] = `
 }
 
 .emotion-0:hover {
-  background-color: var(--pv-color-gray-3);
   border-color: var(--pv-color-gray-10);
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  background-color: var(--pv-color-gray-1);
   border-color: var(--pv-color-gray-5);
   color: var(--pv-color-gray-7);
 }
@@ -1736,12 +1690,10 @@ exports[`<Select /> sizes size "small" 1`] = `
 }
 
 .emotion-0:not(:disabled)[aria-invalid] {
-  background-color: var(--pv-color-wrong-tint-5);
   border-color: var(--pv-color-wrong);
 }
 
 .emotion-0:not(:disabled):focus-visible {
-  background-color: var(--pv-color-secondary-tint-5);
   border-color: var(--pv-color-secondary);
 }
 
