@@ -18,4 +18,9 @@ export default tseslint.config([
       ...reactHooksPlugin.configs.recommended.rules,
     },
   },
+  {
+    ignores: [
+      '**/dist/*',
+    ],
+  }
 ]);
