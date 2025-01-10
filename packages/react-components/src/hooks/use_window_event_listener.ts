@@ -4,7 +4,7 @@ export const useWindowEventListener = <T extends keyof WindowEventMap>(
   event: T,
   listener: (this: Window, ev: WindowEventMap[T]) => any,
   deps?: React.DependencyList,
-  removeOnUnmount: boolean = true,
+  removeOnUnmount = true,
 ) => {
   // eslint-disable-next-line consistent-return
   React.useEffect(() => {
