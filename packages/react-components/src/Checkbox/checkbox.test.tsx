@@ -138,7 +138,7 @@ describe('<Checkbox />', () => {
   });
 
   describe('Checkbox render colors', () => {
-    const colors: Array<React.ComponentProps<typeof Checkbox>['color']> = [
+    const colors: React.ComponentProps<typeof Checkbox>['color'][] = [
       'primary',
       'secondary',
     ];

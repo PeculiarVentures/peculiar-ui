@@ -34,7 +34,7 @@ describe('<Typography />', () => {
   });
 
   describe('should render correct colors', () => {
-    const colors: Array<React.ComponentProps<typeof Typography>['color']> = [
+    const colors: React.ComponentProps<typeof Typography>['color'][] = [
       'primary',
       'secondary',
       'wrong',
@@ -70,7 +70,7 @@ describe('<Typography />', () => {
   });
 
   describe('should render correct variants', () => {
-    const variants: Array<React.ComponentProps<typeof Typography>['variant']> = [
+    const variants: React.ComponentProps<typeof Typography>['variant'][] = [
       'h1',
       'h2',
       'h3',

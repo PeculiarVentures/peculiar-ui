@@ -16,7 +16,7 @@ describe('<Box />', () => {
   });
 
   describe('border positions', () => {
-    const positions: Array<React.ComponentProps<typeof Box>['borderPosition']> = [
+    const positions: React.ComponentProps<typeof Box>['borderPosition'][] = [
       'horizontal',
       'vertical',
       'top',
@@ -45,7 +45,7 @@ describe('<Box />', () => {
   });
 
   describe('box shadow', () => {
-    const shadows: Array<React.ComponentProps<typeof Box>['boxShadow']> = [
+    const shadows: React.ComponentProps<typeof Box>['boxShadow'][] = [
       'light-low',
       'light-medium',
       'light-hight',

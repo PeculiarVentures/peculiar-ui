@@ -24,7 +24,7 @@ describe('<Alert />', () => {
   });
 
   describe('variants', () => {
-    const variants: Array<React.ComponentProps<typeof Alert>['variant']> = [
+    const variants: React.ComponentProps<typeof Alert>['variant'][] = [
       'attention',
       'pending',
       'success',

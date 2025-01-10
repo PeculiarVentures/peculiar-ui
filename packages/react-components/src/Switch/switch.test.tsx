@@ -18,7 +18,7 @@ describe('<Switch />', () => {
   });
 
   describe('colors', () => {
-    const colors: Array<React.ComponentProps<typeof Switch>['color']> = [
+    const colors: React.ComponentProps<typeof Switch>['color'][] = [
       'primary',
       'secondary',
     ];

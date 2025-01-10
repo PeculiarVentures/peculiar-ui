@@ -48,7 +48,7 @@ describe('<Autocomplete />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Autocomplete>['size']> = [
+    const sizes: React.ComponentProps<typeof Autocomplete>['size'][] = [
       'small',
       'medium',
       'large',

@@ -16,7 +16,7 @@ describe('<Skeleton />', () => {
   });
 
   describe('should render correct variants', () => {
-    const variants: Array<React.ComponentProps<typeof Skeleton>['variant']> = [
+    const variants: React.ComponentProps<typeof Skeleton>['variant'][] = [
       'circle',
       'rect',
       'text',

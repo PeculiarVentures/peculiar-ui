@@ -52,16 +52,16 @@ describe('<ButtonBase />', () => {
   });
 
   describe('ButtonBase render (variants & colors)', () => {
-    const themeModes: Array<React.ComponentProps<typeof ThemeProvider>['mode']> = [
+    const themeModes: React.ComponentProps<typeof ThemeProvider>['mode'][] = [
       'light',
       'dark',
     ];
-    const variants: Array<React.ComponentProps<typeof ButtonBase>['variant']> = [
+    const variants: React.ComponentProps<typeof ButtonBase>['variant'][] = [
       'contained',
       'outlined',
       'text',
     ];
-    const colors: Array<React.ComponentProps<typeof ButtonBase>['color']> = [
+    const colors: React.ComponentProps<typeof ButtonBase>['color'][] = [
       'default',
       'primary',
       'secondary',
@@ -88,7 +88,7 @@ describe('<ButtonBase />', () => {
   });
 
   describe('ButtonBase render sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof ButtonBase>['size']> = [
+    const sizes: React.ComponentProps<typeof ButtonBase>['size'][] = [
       'small',
       'medium',
       'large',

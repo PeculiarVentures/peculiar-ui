@@ -123,7 +123,7 @@ describe('<Radio />', () => {
   });
 
   describe('Radio render colors', () => {
-    const colors: Array<React.ComponentProps<typeof Radio>['color']> = [
+    const colors: React.ComponentProps<typeof Radio>['color'][] = [
       'primary',
       'secondary',
     ];

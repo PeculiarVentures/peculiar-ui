@@ -131,7 +131,7 @@ describe('<TextField />', () => {
   });
 
   describe('TextField render sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof TextField>['size']> = [
+    const sizes: React.ComponentProps<typeof TextField>['size'][] = [
       'small',
       'medium',
       'large',

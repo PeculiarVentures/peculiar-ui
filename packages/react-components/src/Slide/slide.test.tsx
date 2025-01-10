@@ -14,7 +14,7 @@ describe('<Slide />', () => {
   });
 
   describe('directions', () => {
-    const directions: Array<React.ComponentProps<typeof Slide>['direction']> = [
+    const directions: React.ComponentProps<typeof Slide>['direction'][] = [
       'down',
       'left',
       'right',

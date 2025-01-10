@@ -16,7 +16,7 @@ describe('<LinearProgress />', () => {
   });
 
   describe('colors', () => {
-    const colors: Array<React.ComponentProps<typeof LinearProgress>['color']> = [
+    const colors: React.ComponentProps<typeof LinearProgress>['color'][] = [
       'primary',
       'secondary',
     ];

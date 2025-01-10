@@ -16,7 +16,7 @@ describe('<CircularProgress />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof CircularProgress>['size']> = [
+    const sizes: React.ComponentProps<typeof CircularProgress>['size'][] = [
       'small',
       'large',
     ];
@@ -33,7 +33,7 @@ describe('<CircularProgress />', () => {
   });
 
   describe('colors', () => {
-    const colors: Array<React.ComponentProps<typeof CircularProgress>['color']> = [
+    const colors: React.ComponentProps<typeof CircularProgress>['color'][] = [
       'primary',
       'secondary',
       'white',

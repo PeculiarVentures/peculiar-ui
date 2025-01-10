@@ -25,7 +25,7 @@ describe('<NativeSelect />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof NativeSelect>['size']> = [
+    const sizes: React.ComponentProps<typeof NativeSelect>['size'][] = [
       'small',
       'medium',
       'large',

@@ -44,7 +44,7 @@ describe('<IconButton />', () => {
   });
 
   describe('colors', () => {
-    const colors: Array<React.ComponentProps<typeof IconButton>['color']> = [
+    const colors: React.ComponentProps<typeof IconButton>['color'][] = [
       'default',
       'primary',
       'secondary',

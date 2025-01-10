@@ -34,7 +34,7 @@ describe('<Fab />', () => {
   });
 
   describe('variants', () => {
-    const variants: Array<React.ComponentProps<typeof Fab>['variant']> = [
+    const variants: React.ComponentProps<typeof Fab>['variant'][] = [
       'contained',
       'outlined',
     ];

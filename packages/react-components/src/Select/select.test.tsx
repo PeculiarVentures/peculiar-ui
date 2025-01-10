@@ -41,7 +41,7 @@ describe('<Select />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Select>['size']> = [
+    const sizes: React.ComponentProps<typeof Select>['size'][] = [
       'small',
       'medium',
       'large',

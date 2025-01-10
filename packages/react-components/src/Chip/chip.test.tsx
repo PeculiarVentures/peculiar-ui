@@ -46,11 +46,11 @@ describe('<Chip />', () => {
   });
 
   describe('variants & colors', () => {
-    const variants: Array<React.ComponentProps<typeof Chip>['variant']> = [
+    const variants: React.ComponentProps<typeof Chip>['variant'][] = [
       'contained',
       'outlined',
     ];
-    const colors: Array<React.ComponentProps<typeof Chip>['color']> = [
+    const colors: React.ComponentProps<typeof Chip>['color'][] = [
       'default',
       'secondary',
       'wrong',

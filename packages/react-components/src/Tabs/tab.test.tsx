@@ -28,7 +28,7 @@ describe('<Tab />', () => {
   });
 
   describe('should render colors', () => {
-    const colors: Array<React.ComponentProps<typeof Tab>['color']> = [
+    const colors: React.ComponentProps<typeof Tab>['color'][] = [
       'black',
       'white',
     ];

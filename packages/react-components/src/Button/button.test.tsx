@@ -64,12 +64,12 @@ describe('<Button />', () => {
   });
 
   describe('Button render (variants & colors)', () => {
-    const variants: Array<React.ComponentProps<typeof Button>['variant']> = [
+    const variants: React.ComponentProps<typeof Button>['variant'][] = [
       'contained',
       'outlined',
       'text',
     ];
-    const colors: Array<React.ComponentProps<typeof Button>['color']> = [
+    const colors: React.ComponentProps<typeof Button>['color'][] = [
       'default',
       'primary',
       'secondary',
@@ -91,7 +91,7 @@ describe('<Button />', () => {
   });
 
   describe('Button render sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Button>['size']> = [
+    const sizes: React.ComponentProps<typeof Button>['size'][] = [
       'small',
       'medium',
       'large',

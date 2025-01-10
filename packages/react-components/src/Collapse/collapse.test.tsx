@@ -16,7 +16,7 @@ describe('<Collapse />', () => {
   });
 
   describe('orientations', () => {
-    const orientations: Array<React.ComponentProps<typeof Collapse>['orientation']> = [
+    const orientations: React.ComponentProps<typeof Collapse>['orientation'][] = [
       'horizontal',
       'vertical',
     ];

@@ -20,11 +20,11 @@ export interface AutocompleteChangeDetails<T = string> {
 export type AutocompleteValue<T, Multiple> = Multiple extends | undefined | false ? T | null : T[];
 
 export type AutocompleteFilterOptionsType<T, Multiple> = (
-  options: ReadonlyArray<T>,
+  options: readonly T[],
   searchValue: string,
   value: AutocompleteValue<T, Multiple>,
   getOptionLabel: (option: T) => string,
-) => ReadonlyArray<T>;
+) => readonly T[];
 
 export interface AutocompleteGroupedOption<T> {
   key: number;
@@ -45,7 +45,7 @@ export interface UseAutocompleteProps<
   /**
    * Array of options.
    */
-  options: ReadonlyArray<T>;
+  options: readonly T[];
   /**
    * The default value. Use when the component is not controlled.
    */
@@ -117,7 +117,7 @@ export interface UseAutocompleteReturnType<
   T,
   Multiple extends boolean | undefined = undefined,
 > {
-  groupedOptions: ReadonlyArray<T> | ReadonlyArray<AutocompleteGroupedOption<T>>;
+  groupedOptions: readonly T[] | readonly AutocompleteGroupedOption<T>[];
   value: AutocompleteValue<T, Multiple>;
   searchValue: string;
   popupOpen: boolean;

@@ -44,7 +44,7 @@ describe('<Dialog />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Dialog>['size']> = [
+    const sizes: React.ComponentProps<typeof Dialog>['size'][] = [
       'small',
       'medium',
       'large',

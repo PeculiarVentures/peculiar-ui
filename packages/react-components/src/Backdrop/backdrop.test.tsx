@@ -20,7 +20,7 @@ describe('<Backdrop />', () => {
   });
 
   describe('variants', () => {
-    const variants: Array<React.ComponentProps<typeof Backdrop>['variant']> = [
+    const variants: React.ComponentProps<typeof Backdrop>['variant'][] = [
       'light',
       'medium',
       'heavy',

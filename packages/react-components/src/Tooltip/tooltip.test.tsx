@@ -56,7 +56,7 @@ describe('<Tooltip />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Tooltip>['size']> = [
+    const sizes: React.ComponentProps<typeof Tooltip>['size'][] = [
       'small',
       'large',
     ];
@@ -79,7 +79,7 @@ describe('<Tooltip />', () => {
   });
 
   describe('colors', () => {
-    const colors: Array<React.ComponentProps<typeof Tooltip>['color']> = [
+    const colors: React.ComponentProps<typeof Tooltip>['color'][] = [
       'black',
       'white',
     ];

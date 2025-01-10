@@ -86,7 +86,7 @@ describe('<Avatar />', () => {
   });
 
   describe('Avatar render sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Avatar>['size']> = [
+    const sizes: React.ComponentProps<typeof Avatar>['size'][] = [
       'small',
       'medium',
       'large',
