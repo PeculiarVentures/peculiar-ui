@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { useEnhancedEffect } from '../hooks';
 
-type BaseProps = {
+interface BaseProps {
   /**
    * The content of the component.
    */

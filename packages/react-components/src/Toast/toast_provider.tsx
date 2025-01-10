@@ -8,7 +8,7 @@ import { ToastContainer, ToastContainerProps } from './toast_container';
 import { Portal } from '../Portal';
 import { Toast } from './toast';
 
-type BaseProps = {
+interface BaseProps {
   /**
    * The content of the component.
    */

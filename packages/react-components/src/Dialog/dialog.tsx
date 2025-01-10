@@ -9,7 +9,7 @@ import { CircularProgress } from '../CircularProgress';
 /**
  * Types.
  */
-type DialogOwnProps = {
+interface DialogOwnProps {
   /**
    * If `true`, the Dialog is open.
    */

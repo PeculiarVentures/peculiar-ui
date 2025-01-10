@@ -11,7 +11,7 @@ import { Typography } from '../Typography';
 /**
  * Types.
  */
-export type TooltipOwnProps = {
+export interface TooltipOwnProps {
   /**
    * If `true`, the component is shown.
    */

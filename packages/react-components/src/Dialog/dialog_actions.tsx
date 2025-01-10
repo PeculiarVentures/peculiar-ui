@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 /**
  * Types.
  */
-type DialogActionsOwnProps = {
+interface DialogActionsOwnProps {
   /**
    * The content of the component.
    */

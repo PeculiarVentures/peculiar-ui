@@ -7,7 +7,7 @@ import { TypographyType } from '../styles';
 /**
  * Types.
  */
-type OptionOwnProps = {
+interface OptionOwnProps {
   label: string;
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
@@ -31,7 +31,7 @@ type MenuOptionProps = OptionProps & {
   subOptions?: OptionProps[];
 };
 
-type MenuOwnProps = {
+interface MenuOwnProps {
   /**
    * Menu reference element.
    */

@@ -1,6 +1,6 @@
 import { Color } from '@peculiar/color';
 
-type ColorPalletteSuffix = {
+interface ColorPalletteSuffix {
   '-tint-5': string;
   '-tint-4': string;
   '-tint-3': string;

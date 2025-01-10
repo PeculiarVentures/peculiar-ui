@@ -5,7 +5,7 @@ import createCache from '@emotion/cache';
 /**
  * Types.
  */
-type StyledEngineProviderProps = {
+interface StyledEngineProviderProps {
   children: React.ReactElement;
 };
 /**

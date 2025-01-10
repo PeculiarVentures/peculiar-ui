@@ -4,7 +4,7 @@ import { usePopper, PopperProps, Modifier } from 'react-popper';
 import { Modal, ModalProps } from '../Modal';
 import { Fade } from '../Fade';
 
-type BaseProps = {
+interface BaseProps {
   /**
    * If `true`, the popover is visible.
    */

@@ -8,7 +8,7 @@ import { opacity } from '../styles/foundations';
 /**
  * Types.
  */
-type CheckboxOwnProps = {
+interface CheckboxOwnProps {
   /**
    * If `true`, the component is checked.
    */

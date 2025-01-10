@@ -26,17 +26,17 @@ export type AutocompleteFilterOptionsType<T, Multiple> = (
   getOptionLabel: (option: T) => string,
 ) => ReadonlyArray<T>;
 
-export type AutocompleteGroupedOption<T> = {
+export interface AutocompleteGroupedOption<T> {
   key: number;
   index: number;
   group: string;
   options: T[];
 };
 
-export type UseAutocompleteProps<
+export interface UseAutocompleteProps<
   T,
   Multiple extends boolean | undefined = undefined,
-> = {
+> {
   /**
    * This prop is used to help implement the accessibility logic.
    * If you don't provide an id it will fall back to a randomly generated one.
@@ -113,10 +113,10 @@ export type UseAutocompleteProps<
   ) => void;
 };
 
-export type UseAutocompleteReturnType<
+export interface UseAutocompleteReturnType<
   T,
   Multiple extends boolean | undefined = undefined,
-> = {
+> {
   groupedOptions: ReadonlyArray<T> | ReadonlyArray<AutocompleteGroupedOption<T>>;
   value: AutocompleteValue<T, Multiple>;
   searchValue: string;

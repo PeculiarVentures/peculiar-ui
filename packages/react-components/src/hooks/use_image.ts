@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEnhancedEffect } from './use_enhanced_effect';
 
-export type UseImageOptionsType = {
+export interface UseImageOptionsType {
   /**
    * A callback for when the image `src` has been loaded.
    */
@@ -31,7 +31,7 @@ type Status = ('loading' | 'failed' | 'pending' | 'loaded');
  * ```
  */
 
-type UseImageReturnType = {
+interface UseImageReturnType {
   status: Status;
   image?: HTMLImageElement;
 };

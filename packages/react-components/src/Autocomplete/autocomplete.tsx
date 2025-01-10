@@ -17,7 +17,7 @@ import { MenuItem } from '../MenuList';
 /**
  * Types.
  */
-export type AutocompleteRenderGroupParams = {
+export interface AutocompleteRenderGroupParams {
   key: string | number;
   group: string;
   children?: React.ReactNode;

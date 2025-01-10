@@ -10,7 +10,7 @@ import { ThemeProvider } from '../src';
 import { themeLight, themeDark } from './themes';
 import './global.css';
 
-type ThemedDocsContainerProps = {
+interface ThemedDocsContainerProps {
   context: DocsContextProps;
   children?: React.ReactNode;
 };

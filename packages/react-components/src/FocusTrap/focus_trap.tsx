@@ -2,7 +2,7 @@ import React from 'react';
 import { createFocusTrap } from 'focus-trap';
 import { useMergedRef } from '../hooks';
 
-type BaseProps = {
+interface BaseProps {
   /**
    * A single child content element.
    */

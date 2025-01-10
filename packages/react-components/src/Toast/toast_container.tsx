@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 /**
  * Types.
  */
-type ToastContainerOwnProps = {
+interface ToastContainerOwnProps {
   /**
    * The content of the component.
    */

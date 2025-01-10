@@ -8,7 +8,7 @@ import { Portal } from '../Portal';
 /**
  * Types.
  */
-type ModalOwnProps = {
+interface ModalOwnProps {
   /**
    * A single child content element.
    */

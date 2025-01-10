@@ -8,7 +8,7 @@ import { opacity } from '../styles/foundations';
 /**
  * Types.
  */
-type RadioOwnProps = {
+interface RadioOwnProps {
   /**
    * If `true`, the component is checked.
    */

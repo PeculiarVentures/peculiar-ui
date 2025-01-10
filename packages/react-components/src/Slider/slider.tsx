@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 /**
  * Types.
  */
-type SliderOwnProps = {
+interface SliderOwnProps {
   className?: string;
   /**
    * The default element value. Use when the component is not controlled.

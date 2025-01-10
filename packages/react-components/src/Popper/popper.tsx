@@ -6,7 +6,7 @@ import { Portal } from '../Portal';
 /**
  * Types.
  */
-type BaseProps = {
+interface BaseProps {
   /**
    * If `true`, the popper is visible.
    */

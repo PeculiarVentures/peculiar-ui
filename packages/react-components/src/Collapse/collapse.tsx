@@ -16,7 +16,7 @@ type CollapseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onExiting'
 )>;
 
-type CollapseOwnProps = {
+interface CollapseOwnProps {
   /**
    * If `true`, the component will transition in.
    */

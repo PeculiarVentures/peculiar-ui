@@ -8,7 +8,7 @@ import { TypographyType } from '../styles';
 /**
  * Types.
  */
-type MenuItemOwnProps = {
+interface MenuItemOwnProps {
   children: React.ReactNode;
   /**
    * If `true`, the component is disabled.

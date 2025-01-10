@@ -6,7 +6,7 @@ import type { ThemeOptionsType } from './types';
 /**
  * Types.
  */
-type ThemeProviderProps = {
+interface ThemeProviderProps {
   children: React.ReactElement;
   theme?: ThemeOptionsType;
   mode?: ('light' | 'dark');

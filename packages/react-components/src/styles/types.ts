@@ -89,7 +89,7 @@ export type ShadowType = (
   'dark-hight'
 );
 
-export type TypographyPropertiesType = {
+export interface TypographyPropertiesType {
   weight: string;
   size: string;
   height: string;
@@ -131,14 +131,14 @@ export type SizeType = (
   'base-16'
 );
 
-export type ThemeType = {
+export interface ThemeType {
   color: Record<ColorType, string>;
   shadow: Record<ShadowType, string>;
   text: Record<TypographyType, TypographyPropertiesType>;
   size: Record<SizeType, string>;
 };
 
-export type ThemeOptionsType = {
+export interface ThemeOptionsType {
   color?: Partial<ThemeType['color']>;
   shadow?: Partial<ThemeType['shadow']>;
   text?: Partial<ThemeType['text']>;

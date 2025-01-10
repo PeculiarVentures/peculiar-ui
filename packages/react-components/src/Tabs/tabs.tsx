@@ -5,7 +5,7 @@ import { Tab, TabProps } from './tab';
 /**
  * Types.
  */
-type TabsOwnProps = {
+interface TabsOwnProps {
   /**
    * The content of the component.
    */

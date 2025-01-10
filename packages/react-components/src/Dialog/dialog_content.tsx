@@ -7,7 +7,7 @@ import { Alert } from '../Alert';
 /**
  * Types.
  */
-type DialogContentOwnProps = {
+interface DialogContentOwnProps {
   /**
    * The content of the component.
    */

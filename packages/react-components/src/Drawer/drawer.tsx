@@ -6,7 +6,7 @@ import { Slide } from '../Slide';
 /**
  * Types.
  */
-type DrawerOwnProps = {
+interface DrawerOwnProps {
   /**
    * If `true`, the component is shown.
    */

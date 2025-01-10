@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { AlertProps } from '../Alert';
 
-export type BaseToastType = {
+export interface BaseToastType {
   /**
    * The message of the toast.
    */
@@ -34,7 +34,7 @@ export type ToastType = BaseToastType & {
   createdAt: number;
 };
 
-export type ToastContextType = {
+export interface ToastContextType {
   addToast: (options: BaseToastType) => void;
   removeToast: (id: string) => void;
   removeAllToasts: () => void;

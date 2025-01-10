@@ -67,7 +67,7 @@ function moveFocus(
 /**
  * Types.
  */
-type MenuListOwnProps = {
+interface MenuListOwnProps {
   children: React.ReactElement[];
 };
 

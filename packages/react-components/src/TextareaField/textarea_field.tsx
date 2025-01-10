@@ -6,7 +6,7 @@ import { useId } from '../hooks/use_id';
 /**
  * Types.
  */
-type TextareaFieldOwnProps = {
+interface TextareaFieldOwnProps {
   /**
    * If `true`, the component is disabled.
    */

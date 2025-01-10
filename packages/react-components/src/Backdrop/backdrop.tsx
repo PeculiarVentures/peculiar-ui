@@ -6,7 +6,7 @@ import { Box } from '../Box';
 /**
  * Types.
  */
-type BackdropOwnProps = {
+interface BackdropOwnProps {
   /**
    * If `true`, the backdrop is open.
    */

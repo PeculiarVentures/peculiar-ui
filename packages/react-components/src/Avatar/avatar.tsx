@@ -13,7 +13,7 @@ type AvatarInitialsProps = Pick<AvatarOwnProps, 'children' | 'color'> & {
   'aria-label': string;
 };
 
-type AvatarOwnProps = {
+interface AvatarOwnProps {
   /**
    * Used to render badge inside the avatar.
    */

@@ -6,7 +6,7 @@ import { ArrowDropDownIcon } from '../icons';
 /**
  * Types.
  */
-type NativeSelectOwnProps = {
+interface NativeSelectOwnProps {
   options: {
     value: string;
     label: string;

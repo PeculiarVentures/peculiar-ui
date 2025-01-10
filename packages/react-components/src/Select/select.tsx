@@ -16,9 +16,9 @@ import { ArrowDropDownIcon, PlusIcon } from '../icons';
 import { MenuItem } from '../MenuList';
 
 /**
- * Types.
+ * Interfaces.
  */
-export type SelectRenderGroupParams = {
+export interface SelectRenderGroupParams {
   key: string | number;
   group: string;
   children?: React.ReactNode;

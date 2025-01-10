@@ -4,7 +4,7 @@ import { useImage } from '../hooks';
 /**
  * Types.
  */
-type ImageOwnProps = {
+interface ImageOwnProps {
   /**
    * The `src` attribute for the `img` element.
    */

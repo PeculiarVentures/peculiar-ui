@@ -6,7 +6,7 @@ import isPropValid from '@emotion/is-prop-valid';
 /**
  * Types.
  */
-type CircularProgressOwnProps = {
+interface CircularProgressOwnProps {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
