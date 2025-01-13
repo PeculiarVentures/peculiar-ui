@@ -19,6 +19,7 @@
   "devDependencies": {
     "@emotion/jest": "^11.13.0",
     "@eslint/js": "^9.17.0",
+    "@stylistic/eslint-plugin": "^2.13.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3 ",
