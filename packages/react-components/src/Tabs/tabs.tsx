@@ -65,7 +65,6 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => 
       const selected = childValue === value;
 
       return React.cloneElement(child, {
-        // @ts-ignore
         selected,
         onChange,
       });

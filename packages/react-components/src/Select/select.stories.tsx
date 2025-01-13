@@ -106,7 +106,7 @@ const top100Films = [
 
 const meta: Meta<typeof Select> = {
   title: 'Components/Select',
-  // @ts-ignore
+  // @ts-expect-error: TypeScript type incompatibility with `component` prop
   component: Select,
   args: {
     options: top100Films,

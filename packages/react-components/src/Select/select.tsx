@@ -436,7 +436,7 @@ export const Select = <
     <SelectField
       {...propsRoot}
       noWrap
-      // @ts-ignore
+      // @ts-expect-error: `component` is not a valid prop
       component="button"
       type="button"
       variant={size === 'small' ? 'c1' : 'b3'}
@@ -558,14 +558,12 @@ export const Select = <
         {groupedOptions.length > 0 && (
           <SelectDropdownList {...getListboxProps()}>
             {groupedOptions
-              // @ts-ignore
               .map((option, index) => {
-                // @ts-ignore
+                // @ts-expect-error: 'options' may exist when grouped
                 if (groupBy && 'options' in option) {
                   return renderGroup({
                     key: option.key,
                     group: option.group,
-                    // @ts-ignore
                     children: option.options.map((option2, index2) => (
                       renderListOption(option2, option.index + index2)
                     )),
@@ -598,7 +596,6 @@ export const Select = <
   );
 };
 
-// @ts-ignore
 Select.defaultProps = {
   disableSearch: false,
   noOptionsText: 'No options',

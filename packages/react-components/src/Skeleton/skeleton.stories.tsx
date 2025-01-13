@@ -7,7 +7,7 @@ const meta: Meta<typeof Skeleton> = {
   tags: ['autodocs'],
   argTypes: {
     children: { control: false },
-    // @ts-ignore
+    // @ts-expect-error: `component` is not a valid prop
     component: { control: false },
   },
 };

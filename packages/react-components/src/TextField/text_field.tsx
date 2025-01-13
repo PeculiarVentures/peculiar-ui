@@ -220,7 +220,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
       )}
       <TextFieldInput
         {...inputProps}
-        // @ts-ignore
+        // @ts-expect-error: `component` is not a valid prop
         component="input"
         variant={size === 'small' ? 'c1' : 'b3'}
         size={size}

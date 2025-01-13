@@ -15,7 +15,7 @@ const meta: Meta<typeof IconButton> = {
   argTypes: {
     children: { control: false },
     tooltipProps: { control: false },
-    // @ts-ignore
+    // @ts-expect-error: `component` is not a valid prop
     component: { control: false },
   },
 };

@@ -15,7 +15,7 @@ const meta: Meta<typeof Box> = {
   },
   argTypes: {
     children: { control: 'text' },
-    // @ts-ignore
+    // @ts-expect-error: `component` is not a valid prop
     component: { control: false },
   },
 };

@@ -182,7 +182,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
           loading={loading}
           fullScreen={fullScreen}
           tabIndex={-1}
-          // @ts-ignore
+          // @ts-expect-error: `component` is not a valid prop
           component="fieldset"
           disabled={loading}
           {...other}

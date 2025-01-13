@@ -74,8 +74,7 @@ export const Popper: React.FC<PopperProps> = (props) => {
           state.styles.popper.width = `${state.rects.reference.width}px`;
         },
         effect: ({ state }) => {
-          // @ts-ignore
-
+          // @ts-expect-error: TypeScript may not recognize the style property
           state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
         },
       },

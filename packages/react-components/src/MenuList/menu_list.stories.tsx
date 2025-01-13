@@ -33,7 +33,7 @@ const meta: Meta<typeof MenuList> = {
   },
   argTypes: {
     children: { control: false },
-    // @ts-ignore
+    // @ts-expect-error: `component` is not a valid prop
     component: { control: false },
   },
 };

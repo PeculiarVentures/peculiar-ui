@@ -14,7 +14,7 @@ const meta: Meta<typeof Chip> = {
     onDelete: { control: false },
     onClick: { control: false },
     startContent: { control: false },
-    // @ts-ignore
+    // @ts-expect-error: `component` is not a valid prop
     component: { control: false },
   },
 };

@@ -106,7 +106,7 @@ const top100Films = [
 
 const meta: Meta<typeof Autocomplete> = {
   title: 'Components/Autocomplete',
-  // @ts-ignore
+  // @ts-expect-error: TypeScript type incompatibility with `component` prop
   component: Autocomplete,
   args: {
     options: top100Films,

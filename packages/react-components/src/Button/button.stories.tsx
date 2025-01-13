@@ -13,7 +13,7 @@ const meta: Meta<typeof Button> = {
     children: { control: 'text' },
     startIcon: { control: false },
     endIcon: { control: false },
-    // @ts-ignore
+    // @ts-expect-error: `component` is not a valid prop
     component: { control: false },
   },
 };

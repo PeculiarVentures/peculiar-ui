@@ -563,7 +563,7 @@ export const Autocomplete = <
   const popoverRef = useOutsideClick(popoverProps.onClose);
 
   const defaultRenderRoot: AutocompleteOwnProps<T, Multiple>['renderRoot'] = ({
-    // @ts-ignore
+    // @ts-expect-error: 'ref' type may not match
     ref,
     ...propsRoot
   }, valueRoot) => (
@@ -573,7 +573,7 @@ export const Autocomplete = <
       size={size}
       disabled={disabled}
       ref={ref}
-      // @ts-ignore
+      // @ts-expect-error: `component` is not a valid prop
       component="label"
       isHasClearIcon={!isValueEmpty && !readOnly}
     >
@@ -584,7 +584,7 @@ export const Autocomplete = <
             {...otherInputProps}
             {...propsRoot}
             noWrap
-            // @ts-ignore
+            // @ts-expect-error: `component` is not a valid prop
             component="input"
             type="text"
             variant={size === 'small' ? 'c1' : 'b3'}
@@ -599,7 +599,7 @@ export const Autocomplete = <
           {...otherInputProps}
           {...propsRoot}
           noWrap
-          // @ts-ignore
+          // @ts-expect-error: `component` is not a valid prop
           component="input"
           type="text"
           value={searchValue || renderedValue || ''}
@@ -727,14 +727,12 @@ export const Autocomplete = <
           {groupedOptions.length > 0 && (
             <AutocompleteDropdownList {...getListboxProps()}>
               {groupedOptions
-                // @ts-ignore
                 .map((option, index) => {
-                  // @ts-ignore
+                  // @ts-expect-error: 'options' may exist when grouped
                   if (groupBy && 'options' in option) {
                     return renderGroup({
                       key: option.key,
                       group: option.group,
-                      // @ts-ignore
                       children: option.options.map((option2, index2) => (
                         renderListOption(option2, option.index + index2)
                       )),
@@ -751,7 +749,6 @@ export const Autocomplete = <
   );
 };
 
-// @ts-ignore
 Autocomplete.defaultProps = {
   noOptionsText: 'No options',
   loading: false,

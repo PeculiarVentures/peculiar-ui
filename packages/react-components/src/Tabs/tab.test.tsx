@@ -41,7 +41,7 @@ describe('<Tab />', () => {
       selectVariant.forEach((selected) => {
         it(`colors: "${color}" & selected: "${selected}"`, () => {
           const { asFragment } = render(
-            // @ts-ignore
+            // @ts-expect-error: `component` is declared here.
             <Tab
               id="tab1"
               color={color}

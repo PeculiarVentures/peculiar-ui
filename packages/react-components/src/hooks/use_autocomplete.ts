@@ -177,7 +177,7 @@ export function useAutocomplete<
     readOnly,
     popoverProps,
     groupBy,
-    // @ts-ignore
+    // @ts-expect-error: Property `label` does not exist on type 'T'.
     getOptionLabel = (option) => option.label ?? option,
     getOptionKey,
     filterOptions = defaultFilterOptions,

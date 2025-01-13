@@ -135,7 +135,7 @@ export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
     component,
     id,
     disabled,
-    // @ts-ignore
+    // @ts-expect-error: Property `selected` does not exist on type 'TabProps<"button">'
     selected,
     children,
     onChange,
