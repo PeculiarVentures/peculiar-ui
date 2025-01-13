@@ -7,7 +7,9 @@ describe('<Chip />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<Chip>Text</Chip>);
+    } = render(
+      <Chip>Text</Chip>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

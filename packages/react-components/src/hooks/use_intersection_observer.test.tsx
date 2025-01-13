@@ -23,7 +23,9 @@ describe('useIntersectionObserver()', () => {
     } = renderHook(useIntersectionObserver);
     const [refCallback] = result.current;
 
-    render(<div ref={refCallback} />);
+    render(
+      <div ref={refCallback} />,
+    );
 
     expect(intersectionObserver.add).toHaveBeenCalledWith(
       expect.any(HTMLDivElement),
@@ -37,7 +39,9 @@ describe('useIntersectionObserver()', () => {
     } = renderHook(useIntersectionObserver);
     const [refCallback] = result.current;
 
-    render(<div ref={refCallback} />);
+    render(
+      <div ref={refCallback} />,
+    );
 
     unmount();
 

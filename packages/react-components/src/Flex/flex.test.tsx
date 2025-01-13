@@ -6,7 +6,9 @@ describe('<Flex />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<Flex>1</Flex>);
+    } = render(
+      <Flex>1</Flex>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -14,7 +16,9 @@ describe('<Flex />', () => {
   it('should render size auto', () => {
     const {
       asFragment,
-    } = render(<Flex size="auto" />);
+    } = render(
+      <Flex size="auto" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -22,7 +26,9 @@ describe('<Flex />', () => {
   it('should render size grow', () => {
     const {
       asFragment,
-    } = render(<Flex size="grow" />);
+    } = render(
+      <Flex size="grow" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -30,7 +36,9 @@ describe('<Flex />', () => {
   it('should pass className', () => {
     const {
       asFragment,
-    } = render(<Flex className="my-class-name" />);
+    } = render(
+      <Flex className="my-class-name" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -38,7 +46,9 @@ describe('<Flex />', () => {
   it('should pass component', () => {
     const {
       asFragment,
-    } = render(<Flex component="p" />);
+    } = render(
+      <Flex component="p" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

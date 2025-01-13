@@ -6,7 +6,9 @@ describe('<FlexContainer />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<FlexContainer>1</FlexContainer>);
+    } = render(
+      <FlexContainer>1</FlexContainer>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -14,7 +16,9 @@ describe('<FlexContainer />', () => {
   it('should pass className', () => {
     const {
       asFragment,
-    } = render(<FlexContainer className="test-classname" />);
+    } = render(
+      <FlexContainer className="test-classname" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -22,7 +26,9 @@ describe('<FlexContainer />', () => {
   it('should pass gap', () => {
     const {
       asFragment,
-    } = render(<FlexContainer gap={10} />);
+    } = render(
+      <FlexContainer gap={10} />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -30,7 +36,9 @@ describe('<FlexContainer />', () => {
   it('should pass direction', () => {
     const {
       asFragment,
-    } = render(<FlexContainer direction="column" />);
+    } = render(
+      <FlexContainer direction="column" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -38,7 +46,9 @@ describe('<FlexContainer />', () => {
   it('should pass wrap', () => {
     const {
       asFragment,
-    } = render(<FlexContainer wrap="nowrap" />);
+    } = render(
+      <FlexContainer wrap="nowrap" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -46,7 +56,9 @@ describe('<FlexContainer />', () => {
   it('should pass align', () => {
     const {
       asFragment,
-    } = render(<FlexContainer align="center" />);
+    } = render(
+      <FlexContainer align="center" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -54,7 +66,9 @@ describe('<FlexContainer />', () => {
   it('should pass justify', () => {
     const {
       asFragment,
-    } = render(<FlexContainer justify="flex-end" />);
+    } = render(
+      <FlexContainer justify="flex-end" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -62,7 +76,9 @@ describe('<FlexContainer />', () => {
   it('should pass component', () => {
     const {
       asFragment,
-    } = render(<FlexContainer component="li" />);
+    } = render(
+      <FlexContainer component="li" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

@@ -6,7 +6,9 @@ describe('<Box />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<Box />);
+    } = render(
+      <Box />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -14,7 +16,9 @@ describe('<Box />', () => {
   it('should pass className', () => {
     const {
       asFragment,
-    } = render(<Box className="my-class-name" />);
+    } = render(
+      <Box className="my-class-name" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

@@ -11,7 +11,9 @@ describe('<Avatar />', () => {
     it('should render as default', () => {
       const {
         asFragment,
-      } = render(<Avatar />);
+      } = render(
+        <Avatar />,
+      );
 
       const img = screen.getByRole('img');
 
@@ -23,7 +25,9 @@ describe('<Avatar />', () => {
     it('should render as image', () => {
       const {
         asFragment,
-      } = render(<Avatar src={src} />);
+      } = render(
+        <Avatar src={src} />,
+      );
 
       const img = screen.getByRole('img');
 
@@ -36,26 +40,34 @@ describe('<Avatar />', () => {
     it('should render 1 initial with a 1-word name', () => {
       const {
         asFragment,
-      } = render(<Avatar name="First" />);
+      } = render(
+        <Avatar name="First" />,
+      );
 
       expect(screen.getByText('F')).toBeInTheDocument();
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should render 2 initials with a 2-word name', () => {
-      render(<Avatar name="First Last" />);
+      render(
+        <Avatar name="First Last" />,
+      );
       expect(screen.getByText('FL')).toBeInTheDocument();
     });
 
     it('should render 2 initials with a 3-word name', () => {
-      render(<Avatar name="First Middle Last" />);
+      render(
+        <Avatar name="First Middle Last" />,
+      );
       expect(screen.getByText('FM')).toBeInTheDocument();
     });
 
     it('should render initials with fn', () => {
       const {
         asFragment,
-      } = render(<Avatar name="First" getInitials={(str) => str.split('')[0]} />);
+      } = render(
+        <Avatar name="First" getInitials={(str) => str.split('')[0]} />,
+      );
 
       expect(screen.getByText('F')).toBeInTheDocument();
       expect(asFragment()).toMatchSnapshot();
@@ -64,7 +76,9 @@ describe('<Avatar />', () => {
     it('should prioritize render as image over initials', () => {
       const {
         asFragment,
-      } = render(<Avatar src={src} name="First" />);
+      } = render(
+        <Avatar src={src} name="First" />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -72,7 +86,9 @@ describe('<Avatar />', () => {
     it('should have test id', () => {
       const {
         asFragment,
-      } = render(<Avatar data-testid="test-id" />);
+      } = render(
+        <Avatar data-testid="test-id" />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -80,7 +96,9 @@ describe('<Avatar />', () => {
     it('should have class name', () => {
       const {
         asFragment,
-      } = render(<Avatar className="test-cls" />);
+      } = render(
+        <Avatar className="test-cls" />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -127,7 +145,9 @@ describe('<Avatar />', () => {
     it('should call onError handler', () => {
       const handleErr = jest.fn();
 
-      render(<Avatar src="broken.png" onError={handleErr} />);
+      render(
+        <Avatar src="broken.png" onError={handleErr} />,
+      );
 
       const img = screen.getByRole('img');
 
@@ -139,7 +159,9 @@ describe('<Avatar />', () => {
     it('should call onLoad handler', () => {
       const handleLoad = jest.fn();
 
-      render(<Avatar src={src} onLoad={handleLoad} />);
+      render(
+        <Avatar src={src} onLoad={handleLoad} />,
+      );
 
       const img = screen.getByRole('img');
 

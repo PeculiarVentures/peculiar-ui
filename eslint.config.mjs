@@ -109,6 +109,10 @@ export default tseslint.config([
           },
         },
       ],
+      '@stylistic/jsx-function-call-newline': [
+        'error',
+        'always',
+      ],
     },
   },
 ]);

@@ -29,7 +29,9 @@ describe('useMergedRef()', () => {
       refFromCallback = nodeRef;
     };
 
-    render(<Component refs={[ref, refCallback]} />);
+    render(
+      <Component refs={[ref, refCallback]} />,
+    );
 
     expect(refFromCallback).toBeInstanceOf(HTMLDivElement);
     expect(reference.current).toBeInstanceOf(HTMLDivElement);

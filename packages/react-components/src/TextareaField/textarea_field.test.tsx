@@ -6,7 +6,9 @@ describe('<TextareaField />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<TextareaField id="test-id" />);
+    } = render(
+      <TextareaField id="test-id" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -27,7 +29,9 @@ describe('<TextareaField />', () => {
   it('should be disabled', () => {
     const {
       asFragment,
-    } = render(<TextareaField disabled id="test-id" />);
+    } = render(
+      <TextareaField disabled id="test-id" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -35,7 +39,9 @@ describe('<TextareaField />', () => {
   it('should have required', () => {
     const {
       asFragment,
-    } = render(<TextareaField required id="test-id" />);
+    } = render(
+      <TextareaField required id="test-id" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -43,7 +49,9 @@ describe('<TextareaField />', () => {
   it('should have name attr', () => {
     const {
       asFragment,
-    } = render(<TextareaField name="test-name" id="test-id" />);
+    } = render(
+      <TextareaField name="test-name" id="test-id" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

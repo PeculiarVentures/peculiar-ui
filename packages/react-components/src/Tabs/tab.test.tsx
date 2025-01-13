@@ -6,7 +6,9 @@ describe('<Tab />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<Tab id="tab1">Tab-1</Tab>);
+    } = render(
+      <Tab id="tab1">Tab-1</Tab>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -14,7 +16,9 @@ describe('<Tab />', () => {
   it('should pass className', () => {
     const {
       asFragment,
-    } = render(<Tab id="tab1" className="my-class-name">Tab-1</Tab>);
+    } = render(
+      <Tab id="tab1" className="my-class-name">Tab-1</Tab>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -22,7 +26,9 @@ describe('<Tab />', () => {
   it('should pass disabled', () => {
     const {
       asFragment,
-    } = render(<Tab id="tab1" disabled>Tab-1</Tab>);
+    } = render(
+      <Tab id="tab1" disabled>Tab-1</Tab>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -30,7 +36,9 @@ describe('<Tab />', () => {
   it('should pass "component"', () => {
     const {
       asFragment,
-    } = render(<Tab id="tab1" component="a">Tab-1</Tab>);
+    } = render(
+      <Tab id="tab1" component="a">Tab-1</Tab>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

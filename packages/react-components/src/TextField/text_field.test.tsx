@@ -9,7 +9,9 @@ describe('<TextField />', () => {
     it('should render as default', () => {
       const {
         asFragment,
-      } = render(<TextField id="test-id" />);
+      } = render(
+        <TextField id="test-id" />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -36,7 +38,9 @@ describe('<TextField />', () => {
     it('should be disabled', () => {
       const {
         asFragment,
-      } = render(<TextField disabled id="test-id" />);
+      } = render(
+        <TextField disabled id="test-id" />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -44,7 +48,9 @@ describe('<TextField />', () => {
     it('should have required', () => {
       const {
         asFragment,
-      } = render(<TextField required id="test-id" />);
+      } = render(
+        <TextField required id="test-id" />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -52,7 +58,9 @@ describe('<TextField />', () => {
     it('should have name attr', () => {
       const {
         asFragment,
-      } = render(<TextField name="test-name" id="test-id" />);
+      } = render(
+        <TextField name="test-name" id="test-id" />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -76,7 +84,9 @@ describe('<TextField />', () => {
     it('should forwards ref to div element', () => {
       const ref = React.createRef<HTMLDivElement>();
 
-      render(<TextField ref={ref} />);
+      render(
+        <TextField ref={ref} />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -86,7 +96,9 @@ describe('<TextField />', () => {
     it('should forwards ref to input element', () => {
       const ref = React.createRef<HTMLInputElement>();
 
-      render(<TextField inputRef={ref} />);
+      render(
+        <TextField inputRef={ref} />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -96,7 +108,9 @@ describe('<TextField />', () => {
     it('should have placeholder', () => {
       const {
         asFragment,
-      } = render(<TextField placeholder="test-placeholder" id="test-id" />);
+      } = render(
+        <TextField placeholder="test-placeholder" id="test-id" />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -108,7 +122,9 @@ describe('<TextField />', () => {
     it('should have defaultValue', () => {
       const {
         asFragment,
-      } = render(<TextField defaultValue="test-value" id="test-id" />);
+      } = render(
+        <TextField defaultValue="test-value" id="test-id" />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -176,7 +192,9 @@ describe('<TextField />', () => {
 
   describe('TextField focus behaviour', () => {
     it('should have focus', async () => {
-      render(<TextField />);
+      render(
+        <TextField />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -187,7 +205,9 @@ describe('<TextField />', () => {
     });
 
     it('shouldn\'t have focus when disabled has been passed to the component', async () => {
-      render(<TextField disabled />);
+      render(
+        <TextField disabled />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -198,8 +218,9 @@ describe('<TextField />', () => {
     });
 
     it('should have focus when autoFocus has been passed to the component', () => {
-      // eslint-disable-next-line jsx-a11y/no-autofocus
-      render(<TextField autoFocus />);
+      render(
+        <TextField autoFocus />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -207,8 +228,9 @@ describe('<TextField />', () => {
     });
 
     it('shouldn\'t have focus when disabled & autoFocus has been passed to the component', async () => {
-      // eslint-disable-next-line jsx-a11y/no-autofocus
-      render(<TextField disabled autoFocus />);
+      render(
+        <TextField disabled autoFocus />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -218,7 +240,9 @@ describe('<TextField />', () => {
 
   describe('TextField keyboard behaviour', () => {
     it('should have correct value after user input', async () => {
-      render(<TextField />);
+      render(
+        <TextField />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -227,7 +251,9 @@ describe('<TextField />', () => {
     });
 
     it('shouldn\'t change value after user input when readOnly has been passed to the component', async () => {
-      render(<TextField readOnly defaultValue="test" />);
+      render(
+        <TextField readOnly defaultValue="test" />,
+      );
 
       const input = screen.getByRole('textbox');
 
@@ -240,7 +266,9 @@ describe('<TextField />', () => {
     it('should calls onChange after user input', async () => {
       const onChange = jest.fn();
 
-      render(<TextField onChange={onChange} />);
+      render(
+        <TextField onChange={onChange} />,
+      );
 
       const input = screen.getByRole('textbox');
 

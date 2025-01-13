@@ -6,7 +6,9 @@ describe('<LinearProgress />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<LinearProgress />);
+    } = render(
+      <LinearProgress />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -14,7 +16,9 @@ describe('<LinearProgress />', () => {
   it('should pass className', () => {
     const {
       asFragment,
-    } = render(<LinearProgress className="my-class-name" />);
+    } = render(
+      <LinearProgress className="my-class-name" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

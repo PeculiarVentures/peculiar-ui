@@ -6,7 +6,9 @@ describe('<Skeleton />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<Skeleton>Inside</Skeleton>);
+    } = render(
+      <Skeleton>Inside</Skeleton>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -14,7 +16,9 @@ describe('<Skeleton />', () => {
   it('should render with height & width', () => {
     const {
       asFragment,
-    } = render(<Skeleton height={30} width={50}>Inside</Skeleton>);
+    } = render(
+      <Skeleton height={30} width={50}>Inside</Skeleton>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

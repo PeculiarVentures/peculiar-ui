@@ -7,7 +7,9 @@ describe('<MenuItem />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<MenuItem>MenuItem</MenuItem>);
+    } = render(
+      <MenuItem>MenuItem</MenuItem>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -15,7 +17,9 @@ describe('<MenuItem />', () => {
   it('should pass className', () => {
     const {
       asFragment,
-    } = render(<MenuItem className="my-class-name">MenuItem</MenuItem>);
+    } = render(
+      <MenuItem className="my-class-name">MenuItem</MenuItem>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -23,7 +27,9 @@ describe('<MenuItem />', () => {
   it('should pass disabled', () => {
     const {
       asFragment,
-    } = render(<MenuItem disabled>MenuItem</MenuItem>);
+    } = render(
+      <MenuItem disabled>MenuItem</MenuItem>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

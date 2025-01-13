@@ -11,7 +11,9 @@ import { Button } from './index';
 describe('<Button />', () => {
   describe('Button render variants', () => {
     it('should render as default', () => {
-      render(<Button>Text</Button>);
+      render(
+        <Button>Text</Button>,
+      );
 
       const button = screen.getByRole('button');
 
@@ -23,7 +25,9 @@ describe('<Button />', () => {
     it('should be disabled', () => {
       const {
         asFragment,
-      } = render(<Button disabled>Text</Button>);
+      } = render(
+        <Button disabled>Text</Button>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -31,7 +35,9 @@ describe('<Button />', () => {
     it('should have start icon', () => {
       const {
         asFragment,
-      } = render(<Button startIcon={<PlusIcon />}>Text</Button>);
+      } = render(
+        <Button startIcon={<PlusIcon />}>Text</Button>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -39,7 +45,9 @@ describe('<Button />', () => {
     it('should have end icon', () => {
       const {
         asFragment,
-      } = render(<Button endIcon={<PlusIcon />}>Text</Button>);
+      } = render(
+        <Button endIcon={<PlusIcon />}>Text</Button>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -47,7 +55,9 @@ describe('<Button />', () => {
     it('should have text variant', () => {
       const {
         asFragment,
-      } = render(<Button textVariant="h1">Text</Button>);
+      } = render(
+        <Button textVariant="h1">Text</Button>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -55,7 +65,9 @@ describe('<Button />', () => {
     it('should have class name', () => {
       const {
         asFragment,
-      } = render(<Button className="test-cls">Text</Button>);
+      } = render(
+        <Button className="test-cls">Text</Button>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -63,7 +75,9 @@ describe('<Button />', () => {
     it('should have test id', () => {
       const {
         asFragment,
-      } = render(<Button data-testid="test-id">Text</Button>);
+      } = render(
+        <Button data-testid="test-id">Text</Button>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -71,7 +85,9 @@ describe('<Button />', () => {
     it('should have title', () => {
       const {
         asFragment,
-      } = render(<Button title="Test title">Text</Button>);
+      } = render(
+        <Button title="Test title">Text</Button>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -128,7 +144,9 @@ describe('<Button />', () => {
 
   describe('Button focus behaviour', () => {
     it('should have focus', async () => {
-      render(<Button>Click</Button>);
+      render(
+        <Button>Click</Button>,
+      );
 
       const button = screen.getByRole('button');
 
@@ -139,7 +157,9 @@ describe('<Button />', () => {
     });
 
     it('shouldn\'t have focus when disabled has been passed to the component', async () => {
-      render(<Button disabled>Click</Button>);
+      render(
+        <Button disabled>Click</Button>,
+      );
 
       const button = screen.getByRole('button');
 
@@ -154,7 +174,9 @@ describe('<Button />', () => {
     it('should calls onClick prop when clicked', () => {
       const handleClick = jest.fn();
 
-      render(<Button onClick={handleClick}>Click</Button>);
+      render(
+        <Button onClick={handleClick}>Click</Button>,
+      );
 
       fireEvent.click(screen.getByRole('button'));
       expect(handleClick).toHaveBeenCalledTimes(1);

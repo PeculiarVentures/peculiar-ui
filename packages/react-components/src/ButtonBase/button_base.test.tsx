@@ -11,7 +11,9 @@ import { ButtonBase } from './index';
 describe('<ButtonBase />', () => {
   describe('ButtonBase render variants', () => {
     it('should render as default', () => {
-      render(<ButtonBase>Text</ButtonBase>);
+      render(
+        <ButtonBase>Text</ButtonBase>,
+      );
 
       const button = screen.getByRole('button');
 
@@ -23,7 +25,9 @@ describe('<ButtonBase />', () => {
     it('should be disabled', () => {
       const {
         asFragment,
-      } = render(<ButtonBase disabled>Text</ButtonBase>);
+      } = render(
+        <ButtonBase disabled>Text</ButtonBase>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -31,7 +35,9 @@ describe('<ButtonBase />', () => {
     it('should have text variant', () => {
       const {
         asFragment,
-      } = render(<ButtonBase textVariant="h1">Text</ButtonBase>);
+      } = render(
+        <ButtonBase textVariant="h1">Text</ButtonBase>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -39,7 +45,9 @@ describe('<ButtonBase />', () => {
     it('should have class name', () => {
       const {
         asFragment,
-      } = render(<ButtonBase className="test-cls">Text</ButtonBase>);
+      } = render(
+        <ButtonBase className="test-cls">Text</ButtonBase>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -47,7 +55,9 @@ describe('<ButtonBase />', () => {
     it('should have test id', () => {
       const {
         asFragment,
-      } = render(<ButtonBase data-testid="test-id">Text</ButtonBase>);
+      } = render(
+        <ButtonBase data-testid="test-id">Text</ButtonBase>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -55,7 +65,9 @@ describe('<ButtonBase />', () => {
     it('should have title', () => {
       const {
         asFragment,
-      } = render(<ButtonBase title="Test title">Text</ButtonBase>);
+      } = render(
+        <ButtonBase title="Test title">Text</ButtonBase>,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -123,7 +135,9 @@ describe('<ButtonBase />', () => {
 
   describe('ButtonBase focus behaviour', () => {
     it('should have focus', async () => {
-      render(<ButtonBase>Click</ButtonBase>);
+      render(
+        <ButtonBase>Click</ButtonBase>,
+      );
 
       const button = screen.getByRole('button');
 
@@ -134,7 +148,9 @@ describe('<ButtonBase />', () => {
     });
 
     it('shouldn\'t have focus when disabled has been passed to the component', async () => {
-      render(<ButtonBase disabled>Click</ButtonBase>);
+      render(
+        <ButtonBase disabled>Click</ButtonBase>,
+      );
 
       const button = screen.getByRole('button');
 
@@ -149,7 +165,9 @@ describe('<ButtonBase />', () => {
     it('should calls onClick prop when clicked', () => {
       const handleClick = jest.fn();
 
-      render(<ButtonBase onClick={handleClick}>Click</ButtonBase>);
+      render(
+        <ButtonBase onClick={handleClick}>Click</ButtonBase>,
+      );
 
       fireEvent.click(screen.getByRole('button'));
       expect(handleClick).toHaveBeenCalledTimes(1);

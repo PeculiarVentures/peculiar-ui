@@ -6,7 +6,9 @@ describe('<Collapse />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<Collapse>Inside</Collapse>);
+    } = render(
+      <Collapse>Inside</Collapse>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -14,7 +16,9 @@ describe('<Collapse />', () => {
   it('should pass className', () => {
     const {
       asFragment,
-    } = render(<Collapse className="my-class-name">Inside</Collapse>);
+    } = render(
+      <Collapse className="my-class-name">Inside</Collapse>,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

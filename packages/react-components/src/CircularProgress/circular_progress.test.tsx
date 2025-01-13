@@ -6,7 +6,9 @@ describe('<CircularProgress />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<CircularProgress />);
+    } = render(
+      <CircularProgress />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -14,7 +16,9 @@ describe('<CircularProgress />', () => {
   it('should pass className', () => {
     const {
       asFragment,
-    } = render(<CircularProgress className="my-class-name" />);
+    } = render(
+      <CircularProgress className="my-class-name" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

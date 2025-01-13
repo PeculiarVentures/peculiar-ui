@@ -6,7 +6,9 @@ describe('<Switch />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<Switch id="test-id" />);
+    } = render(
+      <Switch id="test-id" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

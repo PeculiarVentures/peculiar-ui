@@ -6,7 +6,9 @@ describe('<Slider />', () => {
   it('should render with default styles', () => {
     const {
       asFragment,
-    } = render(<Slider />);
+    } = render(
+      <Slider />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -14,7 +16,9 @@ describe('<Slider />', () => {
   it('should pass className', () => {
     const {
       asFragment,
-    } = render(<Slider className="my-class-name" />);
+    } = render(
+      <Slider className="my-class-name" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

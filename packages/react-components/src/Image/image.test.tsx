@@ -10,7 +10,9 @@ describe('<Image />', () => {
   it('should render as default', () => {
     const {
       asFragment,
-    } = render(<Image src={src} />);
+    } = render(
+      <Image src={src} />,
+    );
 
     const img = screen.getByRole('img');
 
@@ -24,7 +26,9 @@ describe('<Image />', () => {
   it('should have test id', () => {
     const {
       asFragment,
-    } = render(<Image src={src} data-testid="test-id" />);
+    } = render(
+      <Image src={src} data-testid="test-id" />,
+    );
 
     const img = screen.getByRole('img');
 
@@ -36,7 +40,9 @@ describe('<Image />', () => {
   it('should have alt', () => {
     const {
       asFragment,
-    } = render(<Image src={src} alt="Test alt" />);
+    } = render(
+      <Image src={src} alt="Test alt" />,
+    );
 
     const img = screen.getByRole('img');
 
@@ -48,7 +54,9 @@ describe('<Image />', () => {
   it('should have class name', () => {
     const {
       asFragment,
-    } = render(<Image src={src} className="test-cls" />);
+    } = render(
+      <Image src={src} className="test-cls" />,
+    );
 
     const img = screen.getByRole('img');
 
@@ -60,7 +68,9 @@ describe('<Image />', () => {
   it('should call onError handler', () => {
     const handleErr = jest.fn();
 
-    render(<Image src="broken.png" onError={handleErr} />);
+    render(
+      <Image src="broken.png" onError={handleErr} />,
+    );
 
     const img = screen.getByRole('img');
 
@@ -72,7 +82,9 @@ describe('<Image />', () => {
   it('should call onLoad handler', () => {
     const handleLoad = jest.fn();
 
-    render(<Image src={src} onLoad={handleLoad} />);
+    render(
+      <Image src={src} onLoad={handleLoad} />,
+    );
 
     const img = screen.getByRole('img');
 
@@ -84,7 +96,9 @@ describe('<Image />', () => {
   it('should render loading component', () => {
     const {
       asFragment,
-    } = render(<Image src={undefined} loading={<div>Loading</div>} />);
+    } = render(
+      <Image src={undefined} loading={<div>Loading</div>} />,
+    );
 
     expect(screen.getByText(/Loading/i)).toBeInTheDocument();
 
