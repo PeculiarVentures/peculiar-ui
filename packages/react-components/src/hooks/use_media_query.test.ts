@@ -4,7 +4,7 @@ import { useMediaQuery } from './use_media_query';
 const matchMediaInstances = new Map();
 
 const createMatchMedia = (mediaQuery: string) => {
-  const listeners: Function[] = [];
+  const listeners: VoidFunction[] = [];
 
   return (query: string) => {
     let instance = matchMediaInstances.get(query)?.instance;
@@ -12,10 +12,10 @@ const createMatchMedia = (mediaQuery: string) => {
     if (!instance) {
       instance = {
         matches: query === mediaQuery,
-        addListener: (listener: Function) => {
+        addListener: (listener: VoidFunction) => {
           listeners.push(listener);
         },
-        removeListener: (listener: Function) => {
+        removeListener: (listener: VoidFunction) => {
           const index = listeners.indexOf(listener);
 
           if (index > -1) {

@@ -25,7 +25,7 @@ describe('<DialogTitle />', () => {
 
   it('should render close button', () => {
     const { asFragment } = render(
-      <DialogTitle onClose={() => {}}>
+      <DialogTitle onClose={jest.fn()}>
         Title
       </DialogTitle>,
     );
