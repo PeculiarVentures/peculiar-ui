@@ -131,6 +131,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
       textVariant: textVariantProp,
       startIcon,
       endIcon,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       onClick,
       ...other
     } = option;

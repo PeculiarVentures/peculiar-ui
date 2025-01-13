@@ -226,6 +226,7 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
         name={name}
         // @ts-expect-error: TypeScript may not recognize the ref prop type
         ref={inputRef}
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
         aria-invalid={error || undefined}
         // @ts-expect-error: TypeScript may not recognize the onChange prop type

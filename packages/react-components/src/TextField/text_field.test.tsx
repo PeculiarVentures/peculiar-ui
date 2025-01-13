@@ -172,6 +172,7 @@ describe('<TextField />', () => {
     });
 
     it('should have focus when autoFocus has been passed to the component', () => {
+      // eslint-disable-next-line jsx-a11y/no-autofocus
       render(<TextField autoFocus />);
 
       const input = screen.getByRole('textbox');
@@ -180,6 +181,7 @@ describe('<TextField />', () => {
     });
 
     it('shouldn\'t have focus when disabled & autoFocus has been passed to the component', async () => {
+      // eslint-disable-next-line jsx-a11y/no-autofocus
       render(<TextField disabled autoFocus />);
 
       const input = screen.getByRole('textbox');

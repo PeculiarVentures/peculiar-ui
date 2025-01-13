@@ -1,5 +1,5 @@
 class IntersectionObserverDirective {
-  private mapping: Map<Element, Function>;
+  private mapping: Map<Element, (isIntersecting: boolean) => void>;
 
   private observer?: IntersectionObserver;
 
@@ -18,8 +18,9 @@ class IntersectionObserverDirective {
           for (const entry of entries) {
             const callback = this.mapping.get(entry.target);
 
-            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-            (callback && callback(entry.isIntersecting));
+            if (callback) {
+              callback(entry.isIntersecting);
+            }
           }
         },
       );
@@ -36,7 +37,7 @@ class IntersectionObserverDirective {
 
   // I add the given Element for intersection observation. When the intersection status
   // changes, the given callback is invoked with the new status.
-  public add(element: HTMLElement, callback: Function): void {
+  public add(element: HTMLElement, callback: (isIntersecting: boolean) => void): void {
     this.assertObserver();
 
     this.mapping.set(element, callback);

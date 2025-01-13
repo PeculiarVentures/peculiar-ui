@@ -31,6 +31,7 @@ function previousItem(list: HTMLUListElement, item: Element) {
 function moveFocus(
   list: HTMLUListElement,
   currentFocus: Element,
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   traversalFunction: Function,
 ) {
   let wrappedOnce = false;

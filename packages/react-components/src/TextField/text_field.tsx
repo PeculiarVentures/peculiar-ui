@@ -232,6 +232,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         required={required}
         name={name}
         ref={inputRef}
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
         aria-invalid={error || undefined}
         onChange={onChange}

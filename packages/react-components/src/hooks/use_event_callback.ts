@@ -15,8 +15,8 @@ export function useEventCallback<Args extends unknown[], Return>(
 
   return React.useCallback(
     (...args: Args) =>
-    // @ts-expect-error hide `this`
-
+      // @ts-expect-error hide `this`
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       (0, ref.current!)(...args),
     [],
   );

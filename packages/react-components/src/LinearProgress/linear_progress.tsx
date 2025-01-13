@@ -61,6 +61,7 @@ export const LinearProgress = React.forwardRef<HTMLDivElement, LinearProgressPro
   (props, ref) => {
     const {
       color,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       variant,
       ...other
     } = props;

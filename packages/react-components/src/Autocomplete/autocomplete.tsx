@@ -577,6 +577,7 @@ export const Autocomplete = <
       component="label"
       isHasClearIcon={!isValueEmpty && !readOnly}
     >
+      {/* eslint-disable-next-line @stylistic/multiline-ternary */}
       {multiple ? (
         <>
           {isValueEmpty ? null : renderedValue}
@@ -645,6 +646,7 @@ export const Autocomplete = <
         name={name}
         required={required}
         readOnly={readOnly}
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         onChange={() => { }}
       />
     </AutocompleteField>

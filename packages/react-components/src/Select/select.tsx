@@ -404,6 +404,7 @@ export const Select = <
         <>
           <SelectTagsList>
             {valueLimits.map((v, index) => (
+              // eslint-disable-next-line react/jsx-key
               <SelectTag
                 {...getTagProps(v, index)}
                 color="secondary"
@@ -461,6 +462,7 @@ export const Select = <
         name={name}
         required={required}
         readOnly={readOnly}
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         onChange={() => { }}
       />
     </SelectField>
