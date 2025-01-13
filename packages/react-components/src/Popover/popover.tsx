@@ -88,12 +88,11 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>((props, re
       phase: 'beforeWrite',
       requires: ['computeStyles'],
       fn: ({ state }) => {
-        // eslint-disable-next-line no-param-reassign
         state.styles.popper.width = `${state.rects.reference.width}px`;
       },
       effect: ({ state }) => {
         // @ts-ignore
-        // eslint-disable-next-line no-param-reassign
+
         state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
       },
     }),

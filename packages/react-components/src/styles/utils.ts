@@ -48,15 +48,21 @@ export const createTheme = (mode: 'light' | 'dark', options?: ThemeOptionsType):
         ...wrong || {},
         ...attention || {},
         ...success || {},
-        ...(primary ? {
-          'primary-contrast': getContrastText(primary.primary),
-        } : {}),
-        ...(secondary ? {
-          'secondary-contrast': getContrastText(secondary.secondary),
-        } : {}),
-        ...(wrong ? {
-          'wrong-contrast': getContrastText(wrong.wrong),
-        } : {}),
+        ...(primary
+          ? {
+              'primary-contrast': getContrastText(primary.primary),
+            }
+          : {}),
+        ...(secondary
+          ? {
+              'secondary-contrast': getContrastText(secondary.secondary),
+            }
+          : {}),
+        ...(wrong
+          ? {
+              'wrong-contrast': getContrastText(wrong.wrong),
+            }
+          : {}),
       },
       options?.color || {},
     ]) as ThemeType['color'],

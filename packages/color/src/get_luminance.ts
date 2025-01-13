@@ -10,7 +10,6 @@ export function getLuminance(color: string | [r: number, g: number, b: number]) 
   let rgb: number[] = typeof color === 'string' ? hexToRgb(color) : color;
 
   rgb = rgb.map((val) => {
-    // eslint-disable-next-line no-param-reassign
     val /= 255; // normalized
 
     return val <= 0.03928 ? val / 12.92 : ((val + 0.055) / 1.055) ** 2.4;

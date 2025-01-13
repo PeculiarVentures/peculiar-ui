@@ -151,7 +151,7 @@ describe('<Radio />', () => {
       expect(input).toHaveFocus();
     });
 
-    it("shouldn't have focus when disabled has been passed to the component", async () => {
+    it('shouldn\'t have focus when disabled has been passed to the component', async () => {
       render(<Radio disabled />);
 
       const input = screen.getByRole('radio');

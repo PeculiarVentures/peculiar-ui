@@ -76,7 +76,7 @@ interface TextareaFieldOwnProps {
   /**
    * Callback fired when the value is changed.
    */
-  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
 };
 
 type TextareaFieldProps = TextareaFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;

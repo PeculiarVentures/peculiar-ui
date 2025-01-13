@@ -13,39 +13,39 @@ interface DialogOwnProps {
   /**
    * If `true`, the Dialog is open.
    */
-  open: boolean;
+  'open': boolean;
   /**
    * Dialog children, usually the included sub-components.
    */
-  children: React.ReactNode;
+  'children': React.ReactNode;
   /**
    * The className of Dialog container.
    */
-  className?: string;
+  'className'?: string;
   /**
    * The duration for the transition, in milliseconds.
    */
-  transitionDuration?: number;
+  'transitionDuration'?: number;
   /**
    * If `true`, the dialog will be full-screen.
    */
-  fullScreen?: boolean;
+  'fullScreen'?: boolean;
   /**
    * If `true`, clicking the backdrop will not fire the `onClose` callback.
    */
-  disableBackdropClick?: boolean;
+  'disableBackdropClick'?: boolean;
   /**
    * If `true`, hitting escape will not fire the `onClose` callback.
    */
-  disableEscapeKeyDown?: boolean;
+  'disableEscapeKeyDown'?: boolean;
   /**
    * Callback fired when the component requests to be closed.
    */
-  onClose?: () => void;
+  'onClose'?: () => void;
   /**
    * The size of the dialog.
    */
-  size?: (
+  'size'?: (
     'small' |
     'medium' |
     'large'
@@ -53,11 +53,11 @@ interface DialogOwnProps {
   /**
    * If `true`, the dialog will be show CircularProgress component and disable all interactions.
    */
-  loading?: boolean;
+  'loading'?: boolean;
   /**
    * The color of the CircularProgress component.
    */
-  loadingColor?: CircularProgressProps['color'];
+  'loadingColor'?: CircularProgressProps['color'];
   'data-testid'?: string;
 };
 

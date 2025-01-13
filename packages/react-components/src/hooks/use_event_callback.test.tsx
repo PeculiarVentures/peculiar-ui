@@ -14,7 +14,7 @@ describe('useEventCallback()', () => {
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
     render(
-      // eslint-disable-next-line react/button-has-type
+
       <button onClick={result.current}>Button</button>,
     );
 
@@ -26,7 +26,7 @@ describe('useEventCallback()', () => {
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
     render(
-      // eslint-disable-next-line react/button-has-type
+
       <button onClick={result.current}>Button</button>,
     );
 

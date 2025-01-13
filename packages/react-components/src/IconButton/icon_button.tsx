@@ -37,7 +37,7 @@ export type IconButtonProps<
  */
 const IconButtonRoot = styled(Button)({
   '--pv-color-black': 'var(--pv-color-gray-9)',
-  border: 'none',
+  'border': 'none',
 });
 /**
  *

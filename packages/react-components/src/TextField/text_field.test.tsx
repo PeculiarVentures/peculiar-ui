@@ -160,7 +160,7 @@ describe('<TextField />', () => {
       expect(input).toHaveFocus();
     });
 
-    it("shouldn't have focus when disabled has been passed to the component", async () => {
+    it('shouldn\'t have focus when disabled has been passed to the component', async () => {
       render(<TextField disabled />);
 
       const input = screen.getByRole('textbox');
@@ -179,7 +179,7 @@ describe('<TextField />', () => {
       expect(input).toHaveFocus();
     });
 
-    it("shouldn't have focus when disabled & autoFocus has been passed to the component", async () => {
+    it('shouldn\'t have focus when disabled & autoFocus has been passed to the component', async () => {
       render(<TextField disabled autoFocus />);
 
       const input = screen.getByRole('textbox');
@@ -198,7 +198,7 @@ describe('<TextField />', () => {
       expect(input).toHaveValue('test');
     });
 
-    it("shouldn't change value after user input when readOnly has been passed to the component", async () => {
+    it('shouldn\'t change value after user input when readOnly has been passed to the component', async () => {
       render(<TextField readOnly defaultValue="test" />);
 
       const input = screen.getByRole('textbox');

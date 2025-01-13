@@ -66,12 +66,12 @@ const SkeletonRoot = styled(Box, {
   height: '1.2em',
   animation: `${pulseKeyframe} 1.5s ease-in-out 0.5s infinite`,
   ...(props.variant === 'text' && {
-    marginTop: 0,
-    marginBottom: 0,
-    height: 'auto',
-    transformOrigin: '0 55%',
-    transform: 'scale(1, 0.60)',
-    borderRadius: '4px',
+    'marginTop': 0,
+    'marginBottom': 0,
+    'height': 'auto',
+    'transformOrigin': '0 55%',
+    'transform': 'scale(1, 0.60)',
+    'borderRadius': '4px',
     '&:empty:before': {
       content: '"\\00a0"',
     },

@@ -29,7 +29,7 @@ export const ToastProvider: React.FC<BaseProps> = (props) => {
     toastContainerProps,
     maxToasts = 1,
   } = props;
-  const [state, setState] = React.useState<{ toasts: ToastType[], queue: ToastType[] }>({
+  const [state, setState] = React.useState<{ toasts: ToastType[]; queue: ToastType[] }>({
     toasts: [],
     queue: [],
   });

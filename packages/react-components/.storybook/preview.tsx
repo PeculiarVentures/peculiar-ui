@@ -50,7 +50,7 @@ const ThemeWrapper: Decorator = (story) => {
       {story()}
     </ThemeProvider>
   );
-}
+};
 
 const preview: Preview = {
   decorators: [ThemeWrapper],

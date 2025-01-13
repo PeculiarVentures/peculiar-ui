@@ -27,8 +27,8 @@ interface BackdropOwnProps {
 };
 
 export type BackdropProps = BackdropOwnProps
-& BaseTransitionProps
-& React.HTMLAttributes<HTMLDivElement>;
+  & BaseTransitionProps
+  & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
  */

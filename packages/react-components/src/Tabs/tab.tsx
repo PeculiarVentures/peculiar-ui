@@ -51,7 +51,7 @@ export type TabProps<
  */
 const TabRoot = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Required<{ color: ColorType, selected: boolean }>>(
+})<Required<{ color: ColorType; selected: boolean }>>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',

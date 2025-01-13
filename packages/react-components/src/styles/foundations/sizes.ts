@@ -1,6 +1,6 @@
 export const generateSize = (grid = 5) => ({
   'base-half': `${grid / 2}px`,
-  base: `${grid}px`,
+  'base': `${grid}px`,
   'base-2': `${grid * 2}px`,
   'base-3': `${grid * 3}px`,
   'base-4': `${grid * 4}px`,

@@ -75,11 +75,13 @@ const CircularProgressRoot = styled('div', {
   position: 'relative',
   display: 'inline-block',
   color: `var(--pv-color-${props.color})`,
-  ...(props.variant === 'indeterminate' ? {
-    animation: `${circularRotateKeyframe} 1.4s linear infinite`,
-  } : {
-    transform: 'rotate(-90deg)',
-  }),
+  ...(props.variant === 'indeterminate'
+    ? {
+        animation: `${circularRotateKeyframe} 1.4s linear infinite`,
+      }
+    : {
+        transform: 'rotate(-90deg)',
+      }),
   ...(props.size === 'small' && {
     height: 'var(--pv-size-base-3)',
     width: 'var(--pv-size-base-3)',

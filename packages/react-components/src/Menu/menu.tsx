@@ -153,7 +153,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
 
     return (
       <MenuItem
-        // eslint-disable-next-line react/no-array-index-key
+
         key={index}
         component={component}
         textVariant={textVariantProp}
@@ -170,8 +170,8 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
   };
 
   const childrenProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> = {
-    ref: childRef,
-    onClick: handleChildClick,
+    'ref': childRef,
+    'onClick': handleChildClick,
     'aria-haspopup': 'menu',
     'aria-expanded': String(open) as any,
   };

@@ -15,7 +15,6 @@ class IntersectionObserverDirective {
     if (!this.observer) {
       this.observer = new IntersectionObserver(
         (entries: IntersectionObserverEntry[]) => {
-          // eslint-disable-next-line no-restricted-syntax
           for (const entry of entries) {
             const callback = this.mapping.get(entry.target);
 

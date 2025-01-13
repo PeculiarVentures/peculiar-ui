@@ -133,10 +133,10 @@ export interface UseAutocompleteReturnType<
   };
   getPopoverProps: () => Pick<Required<PopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>;
   getTagProps: (option: T, index: number) => {
-    key: number;
+    'key': number;
     'data-tag-index': number;
-    tabIndex: -1;
-    onDelete?: (event: React.SyntheticEvent) => void;
+    'tabIndex': -1;
+    'onDelete'?: (event: React.SyntheticEvent) => void;
   };
   getOptionLabel: (option: T) => string;
 };
@@ -575,13 +575,13 @@ export function useAutocomplete<
 
   return {
     getRootProps: () => ({
-      ref: anchorEl,
+      'ref': anchorEl,
       'aria-expanded': popupOpen,
       'aria-autocomplete': 'list',
       'aria-controls': `${id}-listbox`,
-      id: `${id}-toggle-button`,
-      role: 'combobox',
-      onClick: handleClick,
+      'id': `${id}-toggle-button`,
+      'role': 'combobox',
+      'onClick': handleClick,
     }),
     getInputLabelProps: () => ({
       id: `${id}-label`,
@@ -613,13 +613,13 @@ export function useAutocomplete<
       );
 
       return {
-        key: getOptionKey ? getOptionKey(option) : getOptionLabel(option),
-        tabIndex: -1,
-        role: 'option',
-        id: `${id}-option-${index}`,
+        'key': getOptionKey ? getOptionKey(option) : getOptionLabel(option),
+        'tabIndex': -1,
+        'role': 'option',
+        'id': `${id}-option-${index}`,
         'data-option-index': index,
         'aria-selected': selected,
-        onClick: handleOptionClick,
+        'onClick': handleOptionClick,
       };
     },
     getPopoverProps: () => ({
@@ -630,10 +630,10 @@ export function useAutocomplete<
       onKeyDown: handleKeyDown,
     }),
     getTagProps: (option, index) => ({
-      key: index,
+      'key': index,
       'data-tag-index': index,
-      tabIndex: -1,
-      onDelete: readOnly ? undefined : handleTagDelete(option, index),
+      'tabIndex': -1,
+      'onDelete': readOnly ? undefined : handleTagDelete(option, index),
     }),
     getOptionLabel,
     groupedOptions,

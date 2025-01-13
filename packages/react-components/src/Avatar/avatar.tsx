@@ -9,7 +9,7 @@ import { useImage } from '../hooks';
  * Types.
  */
 type AvatarInitialsProps = Pick<AvatarOwnProps, 'children' | 'color'> & {
-  role: string;
+  'role': string;
   'aria-label': string;
 };
 
@@ -140,8 +140,8 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
   } else if (showInitials) {
     children = renderInitials({
       color,
-      children: getInitials(name),
-      role: 'img',
+      'children': getInitials(name),
+      'role': 'img',
       'aria-label': name,
     });
   } else {

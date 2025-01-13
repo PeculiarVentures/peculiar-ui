@@ -120,7 +120,7 @@ describe('<Button />', () => {
       expect(button).toHaveFocus();
     });
 
-    it("shouldn't have focus when disabled has been passed to the component", async () => {
+    it('shouldn\'t have focus when disabled has been passed to the component', async () => {
       render(<Button disabled>Click</Button>);
 
       const button = screen.getByRole('button');
@@ -142,7 +142,7 @@ describe('<Button />', () => {
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
-    it("shouldn't calls onClick when disabled has been passed to the component", () => {
+    it('shouldn\'t calls onClick when disabled has been passed to the component', () => {
       const handleClick = jest.fn();
 
       render(

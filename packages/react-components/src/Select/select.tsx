@@ -25,8 +25,8 @@ export interface SelectRenderGroupParams {
 };
 
 export type SelectOwnProps<
-T,
-Multiple extends boolean | undefined = undefined,
+  T,
+  Multiple extends boolean | undefined = undefined,
 > = UseAutocompleteProps<T, Multiple> & {
   /**
    * The className of the component.
@@ -201,11 +201,11 @@ TypographyOwnProps & Required<Pick<SelectOwnProps<any, boolean>, 'size' | 'multi
 );
 
 const SelectArrowIcon = styled(ArrowDropDownIcon)({
-  position: 'absolute',
-  right: '0px',
-  top: 'calc(50% - 12px)',
-  margin: '0px var(--pv-size-base)',
-  color: 'var(--pv-color-gray-10)',
+  'position': 'absolute',
+  'right': '0px',
+  'top': 'calc(50% - 12px)',
+  'margin': '0px var(--pv-size-base)',
+  'color': 'var(--pv-color-gray-10)',
   '&[aria-disabled="true"]': {
     color: 'inherit',
   },
@@ -270,7 +270,7 @@ const SelectTagsList = styled('div')({
 });
 
 const SelectTag = styled(Chip)<{
-  size: SelectOwnProps<any>['size'],
+  size: SelectOwnProps<any>['size'];
 }>((props) => ({
   label: 'Select-tag',
   borderRadius: '3px',
@@ -309,11 +309,11 @@ const SelectLabel = styled('label')({
  */
 
 export const Select = <
-T,
-Multiple extends boolean | undefined = false,
+  T,
+  Multiple extends boolean | undefined = false,
 >(
-    props: SelectOwnProps<T, Multiple>,
-  ): JSX.Element => {
+  props: SelectOwnProps<T, Multiple>,
+): JSX.Element => {
   const {
     className,
     size,
@@ -529,26 +529,30 @@ Multiple extends boolean | undefined = false,
         )}
         {loading && groupedOptions.length === 0 && (
           <SelectDropdownStateItem>
-            {typeof loadingText === 'string' ? (
-              <Typography
-                variant="b2"
-                color="gray-10"
-              >
-                {loadingText}
-              </Typography>
-            ) : loadingText}
+            {typeof loadingText === 'string'
+              ? (
+                  <Typography
+                    variant="b2"
+                    color="gray-10"
+                  >
+                    {loadingText}
+                  </Typography>
+                )
+              : loadingText}
           </SelectDropdownStateItem>
         )}
         {groupedOptions.length === 0 && !loading && (
           <SelectDropdownStateItem>
-            {typeof noOptionsText === 'string' ? (
-              <Typography
-                variant="b2"
-                color="gray-10"
-              >
-                {noOptionsText}
-              </Typography>
-            ) : noOptionsText}
+            {typeof noOptionsText === 'string'
+              ? (
+                  <Typography
+                    variant="b2"
+                    color="gray-10"
+                  >
+                    {noOptionsText}
+                  </Typography>
+                )
+              : noOptionsText}
           </SelectDropdownStateItem>
         )}
         {groupedOptions.length > 0 && (

@@ -34,7 +34,7 @@ const Section = (props: { title: string }) => {
 export const DemoExample = () => (
   Array.from({ length: 5 }).map((_, index) => (
     <Section
-      // eslint-disable-next-line react/no-array-index-key
+
       key={index}
       title={`${index + 1}`}
     />

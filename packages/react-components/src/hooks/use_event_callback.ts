@@ -15,9 +15,8 @@ export function useEventCallback<Args extends unknown[], Return>(
 
   return React.useCallback(
     (...args: Args) =>
-      // @ts-expect-error hide `this`
-      // tslint:disable-next-line:ban-comma-operator
-      // eslint-disable-next-line implicit-arrow-linebreak
+    // @ts-expect-error hide `this`
+
       (0, ref.current!)(...args),
     [],
   );

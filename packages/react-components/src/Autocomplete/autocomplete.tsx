@@ -120,9 +120,9 @@ const reactPropsRegex = /^(as|size|disabled|isHasClearIcon)$/;
  * Styles.
  */
 const AutocompleteField = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<
-TypographyOwnProps
-& Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
-& { isHasClearIcon: boolean }
+  TypographyOwnProps
+  & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
+  & { isHasClearIcon: boolean }
 >(
   {
     outline: 'none',
@@ -196,9 +196,9 @@ TypographyOwnProps
       }),
       ...(!props.disabled && {
         color,
-        cursor: 'text',
+        'cursor': 'text',
         '&:hover': {
-          borderColor: borderColorHover,
+          'borderColor': borderColorHover,
           '[aria-label="Clear"]': {
             visibility: 'visible',
           },
@@ -210,13 +210,13 @@ TypographyOwnProps
           borderColor: invalidBorderColor,
         },
         '&:focus-visible': {
-          borderColor: borderColorFocus,
+          'borderColor': borderColorFocus,
           '[aria-label="Clear"]': {
             visibility: 'visible',
           },
         },
         '&:focus-within': {
-          borderColor: borderColorFocus,
+          'borderColor': borderColorFocus,
           '[aria-label="Clear"]': {
             visibility: 'visible',
           },
@@ -248,7 +248,7 @@ const AutocompleteClearButton = styled('button')({
 });
 
 const AutocompleteOpenButton = styled(ArrowDropDownIcon)<{ open: boolean }>({
-  color: 'var(--pv-color-gray-10)',
+  'color': 'var(--pv-color-gray-10)',
   '&[aria-disabled="true"]': {
     color: 'inherit',
   },
@@ -332,7 +332,7 @@ const AutocompletePopover = styled(Popper)(
 );
 
 const AutocompleteTag = styled(Chip)<{
-  size: AutocompleteOwnProps<any>['size'],
+  size: AutocompleteOwnProps<any>['size'];
 }>((props) => ({
   label: 'Autocomplete-tag',
   borderRadius: '3px',
@@ -535,7 +535,9 @@ export const Autocomplete = <
 
     if (Array.isArray(value)) {
       const more = (value.length > limitTags && limitTags !== -1)
-        && !popoverProps.open ? (value.length - limitTags) : 0;
+        && !popoverProps.open
+        ? (value.length - limitTags)
+        : 0;
       const valueLimits = more > 0 ? value.slice(0, limitTags) : value;
 
       return (
@@ -609,19 +611,21 @@ export const Autocomplete = <
         />
       )}
       <AutocompleteActions>
-        {!isValueEmpty && !readOnly ? (
-          <AutocompleteClearButton
-            type="button"
-            disabled={disabled}
-            title="Clear"
-            aria-label="Clear"
-            {...getClearProps()}
-          >
-            <CloseSmallIcon
-              aria-hidden
-            />
-          </AutocompleteClearButton>
-        ) : null}
+        {!isValueEmpty && !readOnly
+          ? (
+              <AutocompleteClearButton
+                type="button"
+                disabled={disabled}
+                title="Clear"
+                aria-label="Clear"
+                {...getClearProps()}
+              >
+                <CloseSmallIcon
+                  aria-hidden
+                />
+              </AutocompleteClearButton>
+            )
+          : null}
         <AutocompleteOpenButton
           role="button"
           title="Open"
@@ -694,26 +698,30 @@ export const Autocomplete = <
         <div ref={popoverRef}>
           {loading && groupedOptions.length === 0 && (
             <AutocompleteDropdownStateItem>
-              {typeof loadingText === 'string' ? (
-                <Typography
-                  variant="b2"
-                  color="gray-10"
-                >
-                  {loadingText}
-                </Typography>
-              ) : loadingText}
+              {typeof loadingText === 'string'
+                ? (
+                    <Typography
+                      variant="b2"
+                      color="gray-10"
+                    >
+                      {loadingText}
+                    </Typography>
+                  )
+                : loadingText}
             </AutocompleteDropdownStateItem>
           )}
           {groupedOptions.length === 0 && !loading && (
             <AutocompleteDropdownStateItem>
-              {typeof noOptionsText === 'string' ? (
-                <Typography
-                  variant="b2"
-                  color="gray-10"
-                >
-                  {noOptionsText}
-                </Typography>
-              ) : noOptionsText}
+              {typeof noOptionsText === 'string'
+                ? (
+                    <Typography
+                      variant="b2"
+                      color="gray-10"
+                    >
+                      {noOptionsText}
+                    </Typography>
+                  )
+                : noOptionsText}
             </AutocompleteDropdownStateItem>
           )}
           {groupedOptions.length > 0 && (
