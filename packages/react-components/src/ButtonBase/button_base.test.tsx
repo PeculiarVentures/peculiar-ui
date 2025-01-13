@@ -21,31 +21,41 @@ describe('<ButtonBase />', () => {
     });
 
     it('should be disabled', () => {
-      const { asFragment } = render(<ButtonBase disabled>Text</ButtonBase>);
+      const {
+        asFragment,
+      } = render(<ButtonBase disabled>Text</ButtonBase>);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have text variant', () => {
-      const { asFragment } = render(<ButtonBase textVariant="h1">Text</ButtonBase>);
+      const {
+        asFragment,
+      } = render(<ButtonBase textVariant="h1">Text</ButtonBase>);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have class name', () => {
-      const { asFragment } = render(<ButtonBase className="test-cls">Text</ButtonBase>);
+      const {
+        asFragment,
+      } = render(<ButtonBase className="test-cls">Text</ButtonBase>);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
-      const { asFragment } = render(<ButtonBase data-testid="test-id">Text</ButtonBase>);
+      const {
+        asFragment,
+      } = render(<ButtonBase data-testid="test-id">Text</ButtonBase>);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have title', () => {
-      const { asFragment } = render(<ButtonBase title="Test title">Text</ButtonBase>);
+      const {
+        asFragment,
+      } = render(<ButtonBase title="Test title">Text</ButtonBase>);
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -74,9 +84,13 @@ describe('<ButtonBase />', () => {
         variants.forEach((variant) => {
           colors.forEach((color) => {
             it(`variant: "${variant}" & color: "${color}"`, () => {
-              const { asFragment } = render(
+              const {
+                asFragment,
+              } = render(
                 <ButtonBase variant={variant} color={color}>Text</ButtonBase>,
-                { mode: themeMode },
+                {
+                  mode: themeMode,
+                },
               );
 
               expect(asFragment()).toMatchSnapshot();
@@ -96,7 +110,9 @@ describe('<ButtonBase />', () => {
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <ButtonBase size={size}>Text</ButtonBase>,
         );
 
@@ -157,7 +173,9 @@ describe('<ButtonBase />', () => {
     it('should rendered as an anchor', () => {
       const href = 'https://test.com';
 
-      const { asFragment } = render(
+      const {
+        asFragment,
+      } = render(
         <ButtonBase component="a" href={href}>
           Link
         </ButtonBase>,

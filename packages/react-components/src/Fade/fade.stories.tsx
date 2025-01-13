@@ -17,7 +17,9 @@ const meta: Meta<typeof Fade> = {
     ),
   },
   argTypes: {
-    children: { control: false },
+    children: {
+      control: false,
+    },
   },
 };
 

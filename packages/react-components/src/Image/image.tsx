@@ -37,7 +37,9 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>((props, ref)
     alt,
     ...other
   } = props;
-  const { status, image } = useImage(src);
+  const {
+    status, image,
+  } = useImage(src);
   const hasError = status === 'failed';
   const showImage = image?.src;
 

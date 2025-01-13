@@ -60,5 +60,7 @@ export function useIntersectionObserver(): IntersectionObserverHookResult {
     [],
   );
 
-  return [refCallback, { isIntersecting }];
+  return [refCallback, {
+    isIntersecting,
+  }];
 }

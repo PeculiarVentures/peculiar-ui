@@ -1,6 +1,4 @@
-export {
-  Skeleton,
-} from './skeleton';
+export { Skeleton } from './skeleton';
 export type {
   SkeletonOwnProps,
   SkeletonProps,

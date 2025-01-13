@@ -48,11 +48,15 @@ export const FocusTrap: React.FC<BaseProps> = (props) => {
     focusTrap.activate();
 
     return () => {
-      focusTrap.deactivate({ returnFocus: true });
+      focusTrap.deactivate({
+        returnFocus: true,
+      });
     };
   }, [open]);
 
-  return React.cloneElement(children, { ref: multiRef });
+  return React.cloneElement(children, {
+    ref: multiRef,
+  });
 };
 
 FocusTrap.displayName = 'FocusTrap';

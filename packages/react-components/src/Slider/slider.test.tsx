@@ -4,13 +4,17 @@ import { Slider } from './index';
 
 describe('<Slider />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(<Slider />);
+    const {
+      asFragment,
+    } = render(<Slider />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(<Slider className="my-class-name" />);
+    const {
+      asFragment,
+    } = render(<Slider className="my-class-name" />);
 
     expect(asFragment()).toMatchSnapshot();
   });

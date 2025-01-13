@@ -116,7 +116,9 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
     renderInitials: renderInitialsProp,
     ...other
   } = props;
-  const { image } = useImage(src);
+  const {
+    image,
+  } = useImage(src);
   const showImage = image?.src;
   const showInitials = name && getInitials;
   let children = null;

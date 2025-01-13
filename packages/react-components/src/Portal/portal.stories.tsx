@@ -9,8 +9,12 @@ const meta: Meta<typeof Portal> = {
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
   },
   argTypes: {
-    children: { control: 'text' },
-    container: { control: false },
+    children: {
+      control: 'text',
+    },
+    container: {
+      control: false,
+    },
   },
 };
 

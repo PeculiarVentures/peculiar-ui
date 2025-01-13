@@ -21,7 +21,9 @@ function getContainer(container: BaseProps['container']) {
 }
 
 export const Portal: React.FC<BaseProps> = (props) => {
-  const { children, container } = props;
+  const {
+    children, container,
+  } = props;
   const [mountNode, setMountNode] = React.useState(null);
 
   useEnhancedEffect(() => {

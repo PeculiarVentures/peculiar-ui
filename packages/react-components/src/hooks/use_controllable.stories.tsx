@@ -9,7 +9,9 @@ const meta = {
 export default meta;
 
 export const DemoExample = () => {
-  const [value, setValue] = useControllableState({ defaultValue: 40 });
+  const [value, setValue] = useControllableState({
+    defaultValue: 40,
+  });
 
   return (
     <div>

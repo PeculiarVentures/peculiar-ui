@@ -10,11 +10,19 @@ const meta: Meta<typeof Button> = {
     children: 'Action',
   },
   argTypes: {
-    children: { control: 'text' },
-    startIcon: { control: false },
-    endIcon: { control: false },
+    children: {
+      control: 'text',
+    },
+    startIcon: {
+      control: false,
+    },
+    endIcon: {
+      control: false,
+    },
     // @ts-expect-error: `component` is not a valid prop
-    component: { control: false },
+    component: {
+      control: false,
+    },
   },
 };
 

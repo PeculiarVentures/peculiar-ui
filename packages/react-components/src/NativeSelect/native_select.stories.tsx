@@ -23,12 +23,24 @@ const meta: Meta<typeof NativeSelect> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    options: { control: false },
-    inputProps: { control: false },
-    inputRef: { control: false },
-    defaultValue: { control: false },
-    value: { control: false },
-    onChange: { control: false },
+    options: {
+      control: false,
+    },
+    inputProps: {
+      control: false,
+    },
+    inputRef: {
+      control: false,
+    },
+    defaultValue: {
+      control: false,
+    },
+    value: {
+      control: false,
+    },
+    onChange: {
+      control: false,
+    },
   },
 };
 

@@ -50,7 +50,9 @@ const BoxRoot = styled('div', {
     boxShadow: props.boxShadow && `var(--pv-shadow-${props.boxShadow})`,
   }),
   (props) => {
-    const { borderWidth, borderPosition } = props;
+    const {
+      borderWidth, borderPosition,
+    } = props;
 
     if (typeof borderWidth !== 'number') {
       return {};

@@ -4,7 +4,9 @@ import { MenuList } from './index';
 
 describe('<MenuList />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <MenuList>
         <li>Item-1</li>
         <li>Item-2</li>
@@ -16,7 +18,9 @@ describe('<MenuList />', () => {
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <MenuList className="my-class-name">
         <li>Item-1</li>
         <li>Item-2</li>

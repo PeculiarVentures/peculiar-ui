@@ -4,7 +4,9 @@ import { SubMenuItem } from './index';
 
 describe('<SubMenuItem />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(<SubMenuItem>SubItem</SubMenuItem>);
+    const {
+      asFragment,
+    } = render(<SubMenuItem>SubItem</SubMenuItem>);
 
     expect(asFragment()).toMatchSnapshot();
   });

@@ -4,7 +4,9 @@ import { Alert } from './index';
 
 describe('<Alert />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Alert>
         Alert message
       </Alert>,
@@ -14,7 +16,9 @@ describe('<Alert />', () => {
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Alert className="my-class-name">
         Alert message
       </Alert>,
@@ -34,7 +38,9 @@ describe('<Alert />', () => {
     variants.forEach((variant) => {
       describe(`variant "${variant}"`, () => {
         it('enable icon', () => {
-          const { asFragment } = render(
+          const {
+            asFragment,
+          } = render(
             <Alert variant={variant} disableIcon={false}>
               Message
               {variant}
@@ -45,7 +51,9 @@ describe('<Alert />', () => {
         });
 
         it('disable icon', () => {
-          const { asFragment } = render(
+          const {
+            asFragment,
+          } = render(
             <Alert variant={variant} disableIcon>
               Message
               {variant}

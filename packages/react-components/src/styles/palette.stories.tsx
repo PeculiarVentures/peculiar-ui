@@ -12,7 +12,9 @@ export default {
 export const ColorItemExample: React.FC<{ title: string; colors: Record<string, string> }> = (
   props,
 ) => {
-  const { title, colors } = props;
+  const {
+    title, colors,
+  } = props;
 
   return (
     <div className="color_item_custom">

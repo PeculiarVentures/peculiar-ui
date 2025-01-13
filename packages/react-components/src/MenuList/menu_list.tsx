@@ -112,7 +112,9 @@ export const MenuList = React.forwardRef<any, MenuListProps>((props, ref) => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLUListElement>) => {
     const list = rootRef.current;
-    const { key } = event;
+    const {
+      key,
+    } = event;
     const currentFocus = ownerDocument(list).activeElement;
 
     if (key === 'ArrowDown') {

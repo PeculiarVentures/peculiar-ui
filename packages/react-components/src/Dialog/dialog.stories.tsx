@@ -51,7 +51,9 @@ const meta: Meta<typeof Dialog> = {
     ),
   },
   argTypes: {
-    children: { control: false },
+    children: {
+      control: false,
+    },
   },
 };
 

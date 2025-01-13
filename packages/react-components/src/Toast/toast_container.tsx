@@ -38,7 +38,9 @@ const ToastContainerRoot = styled('div')({
  */
 
 export const ToastContainer: React.FC<ToastContainerProps> = (props) => {
-  const { children, ...other } = props;
+  const {
+    children, ...other
+  } = props;
 
   return (
     <ToastContainerRoot

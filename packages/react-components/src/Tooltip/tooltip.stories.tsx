@@ -16,8 +16,12 @@ const meta: Meta<typeof Tooltip> = {
     ),
   },
   argTypes: {
-    children: { control: false },
-    title: { control: false },
+    children: {
+      control: false,
+    },
+    title: {
+      control: false,
+    },
   },
 };
 

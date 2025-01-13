@@ -461,7 +461,9 @@ export function useAutocomplete<
     }
 
     if (onChange) {
-      onChange(event, newValue as AutocompleteValue<T, Multiple>, { option, index }, reason);
+      onChange(event, newValue as AutocompleteValue<T, Multiple>, {
+        option, index,
+      }, reason);
     }
   };
 
@@ -478,12 +480,16 @@ export function useAutocomplete<
     setValue(newValue);
 
     if (onChange) {
-      onChange(event, newValue, { option: null, index: 0 }, 'removeOption');
+      onChange(event, newValue, {
+        option: null, index: 0,
+      }, 'removeOption');
     }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value: valueInput } = event.target;
+    const {
+      value: valueInput,
+    } = event.target;
 
     if (searchValue !== valueInput) {
       setSearchValue(valueInput);

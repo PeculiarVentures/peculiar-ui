@@ -6,8 +6,12 @@ const meta: Meta<typeof Radio> = {
   component: Radio,
   tags: ['autodocs'],
   argTypes: {
-    inputProps: { control: false },
-    checkedIcon: { control: false },
+    inputProps: {
+      control: false,
+    },
+    checkedIcon: {
+      control: false,
+    },
   },
 };
 

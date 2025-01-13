@@ -4,13 +4,17 @@ import { Box } from './index';
 
 describe('<Box />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(<Box />);
+    const {
+      asFragment,
+    } = render(<Box />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(<Box className="my-class-name" />);
+    const {
+      asFragment,
+    } = render(<Box className="my-class-name" />);
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -27,7 +31,9 @@ describe('<Box />', () => {
 
     positions.forEach((position) => {
       it(`position "${position}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Box
             borderPosition={position}
             borderColor="attention"
@@ -56,7 +62,9 @@ describe('<Box />', () => {
 
     shadows.forEach((shadow) => {
       it(`shadow "${shadow}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Box
             boxShadow={shadow}
           >

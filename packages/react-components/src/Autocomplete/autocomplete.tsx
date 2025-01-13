@@ -119,7 +119,9 @@ const reactPropsRegex = /^(as|size|disabled|isHasClearIcon)$/;
 /**
  * Styles.
  */
-const AutocompleteField = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<
+const AutocompleteField = styled(Box, {
+  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
+})<
   TypographyOwnProps
   & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
   & { isHasClearIcon: boolean }

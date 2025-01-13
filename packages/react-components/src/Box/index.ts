@@ -1,6 +1,4 @@
-export {
-  Box,
-} from './box';
+export { Box } from './box';
 export type {
   BoxOwnProps,
   BoxProps,

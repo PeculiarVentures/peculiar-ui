@@ -88,5 +88,7 @@ export function useImage(src: string, options: UseImageOptionsType = {}): UseIma
     };
   }, [src]);
 
-  return { status, image: imageRef.current };
+  return {
+    status, image: imageRef.current,
+  };
 }

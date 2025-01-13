@@ -82,6 +82,33 @@ export default tseslint.config([
           next: 'export',
         },
       ],
+      '@stylistic/jsx-max-props-per-line': [
+        'error',
+        {
+          maximum: 2,
+        },
+      ],
+      '@stylistic/object-curly-newline': [
+        'error',
+        {
+          ObjectExpression: {
+            multiline: true,
+            minProperties: 1,
+          },
+          ObjectPattern: {
+            multiline: true,
+            minProperties: 1,
+          },
+          ImportDeclaration: {
+            multiline: true,
+            minProperties: 3,
+          },
+          ExportDeclaration: {
+            multiline: true,
+            minProperties: 3,
+          },
+        },
+      ],
     },
   },
 ]);

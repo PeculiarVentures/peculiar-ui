@@ -78,7 +78,9 @@ export const createThemeCSSVariablesFromObject = (object: Record<string, any>) =
     {
       [`--${themeCSSVariablePrefix}`]: object,
     },
-    { delimiter: '-' },
+    {
+      delimiter: '-',
+    },
   );
 
   return flatted;

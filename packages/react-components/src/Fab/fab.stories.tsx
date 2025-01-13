@@ -11,9 +11,13 @@ const meta: Meta<typeof Fab> = {
     children: <PlusIcon />,
   },
   argTypes: {
-    children: { control: false },
+    children: {
+      control: false,
+    },
     // @ts-expect-error: `component` is not a valid prop
-    component: { control: false },
+    component: {
+      control: false,
+    },
   },
 };
 

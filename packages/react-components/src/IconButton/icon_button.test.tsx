@@ -5,7 +5,9 @@ import { PlusIcon } from '../icons';
 
 describe('<IconButton />', () => {
   it('should render as default', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <IconButton>
         <PlusIcon role="img" />
       </IconButton>,
@@ -22,7 +24,9 @@ describe('<IconButton />', () => {
   });
 
   it('should have title', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <IconButton title="Test title">
         <PlusIcon />
       </IconButton>,
@@ -34,7 +38,9 @@ describe('<IconButton />', () => {
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <IconButton className="my-class-name">
         <PlusIcon />
       </IconButton>,
@@ -54,7 +60,9 @@ describe('<IconButton />', () => {
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <IconButton color={color}>
             <PlusIcon />
           </IconButton>,

@@ -4,7 +4,9 @@ import { DialogContent } from './index';
 
 describe('<DialogContent />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <DialogContent>
         Content
       </DialogContent>,
@@ -14,7 +16,9 @@ describe('<DialogContent />', () => {
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <DialogContent className="my-class-name">
         Content
       </DialogContent>,
@@ -24,7 +28,9 @@ describe('<DialogContent />', () => {
   });
 
   it('should render border', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <DialogContent dividers>
         Content
       </DialogContent>,
@@ -34,7 +40,9 @@ describe('<DialogContent />', () => {
   });
 
   it('should render error', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <DialogContent error="Some API error">
         Content
       </DialogContent>,

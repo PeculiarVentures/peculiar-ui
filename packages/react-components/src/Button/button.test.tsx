@@ -21,43 +21,57 @@ describe('<Button />', () => {
     });
 
     it('should be disabled', () => {
-      const { asFragment } = render(<Button disabled>Text</Button>);
+      const {
+        asFragment,
+      } = render(<Button disabled>Text</Button>);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have start icon', () => {
-      const { asFragment } = render(<Button startIcon={<PlusIcon />}>Text</Button>);
+      const {
+        asFragment,
+      } = render(<Button startIcon={<PlusIcon />}>Text</Button>);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have end icon', () => {
-      const { asFragment } = render(<Button endIcon={<PlusIcon />}>Text</Button>);
+      const {
+        asFragment,
+      } = render(<Button endIcon={<PlusIcon />}>Text</Button>);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have text variant', () => {
-      const { asFragment } = render(<Button textVariant="h1">Text</Button>);
+      const {
+        asFragment,
+      } = render(<Button textVariant="h1">Text</Button>);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have class name', () => {
-      const { asFragment } = render(<Button className="test-cls">Text</Button>);
+      const {
+        asFragment,
+      } = render(<Button className="test-cls">Text</Button>);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
-      const { asFragment } = render(<Button data-testid="test-id">Text</Button>);
+      const {
+        asFragment,
+      } = render(<Button data-testid="test-id">Text</Button>);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have title', () => {
-      const { asFragment } = render(<Button title="Test title">Text</Button>);
+      const {
+        asFragment,
+      } = render(<Button title="Test title">Text</Button>);
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -80,7 +94,9 @@ describe('<Button />', () => {
     variants.forEach((variant) => {
       colors.forEach((color) => {
         it(`variant: "${variant}" & color: "${color}"`, () => {
-          const { asFragment } = render(
+          const {
+            asFragment,
+          } = render(
             <Button variant={variant} color={color}>Text</Button>,
           );
 
@@ -99,7 +115,9 @@ describe('<Button />', () => {
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Button size={size}>Text</Button>,
         );
 
@@ -160,7 +178,9 @@ describe('<Button />', () => {
     it('should rendered as an anchor', () => {
       const href = 'https://test.com';
 
-      const { asFragment } = render(
+      const {
+        asFragment,
+      } = render(
         <Button component="a" href={href}>
           Link
         </Button>,

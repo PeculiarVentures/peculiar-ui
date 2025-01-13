@@ -25,7 +25,9 @@ if (typeof document === 'object') {
 }
 
 export const StyledEngineProvider: React.FC<StyledEngineProviderProps> = (props) => {
-  const { children } = props;
+  const {
+    children,
+  } = props;
 
   if (!cache) {
     return children;

@@ -1,6 +1,4 @@
-export {
-  Fab,
-} from './fab';
+export { Fab } from './fab';
 export type {
   FabOwnProps,
   FabProps,

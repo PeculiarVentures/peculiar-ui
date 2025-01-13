@@ -9,7 +9,9 @@ const meta: Meta<typeof Alert> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    children: { control: 'text' },
+    children: {
+      control: 'text',
+    },
   },
 };
 

@@ -6,7 +6,9 @@ const meta: Meta<typeof Switch> = {
   component: Switch,
   tags: ['autodocs'],
   argTypes: {
-    inputProps: { control: false },
+    inputProps: {
+      control: false,
+    },
   },
 };
 

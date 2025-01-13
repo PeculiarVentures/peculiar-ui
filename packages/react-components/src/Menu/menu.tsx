@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Popover, PopoverProps } from '../Popover';
-import { MenuList, MenuItem, SubMenuItem } from '../MenuList';
+import {
+  MenuList, MenuItem, SubMenuItem,
+} from '../MenuList';
 import { TypographyType } from '../styles';
 
 /**

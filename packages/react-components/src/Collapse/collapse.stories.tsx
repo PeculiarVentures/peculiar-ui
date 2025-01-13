@@ -17,7 +17,9 @@ const meta: Meta<typeof Collapse> = {
     ),
   },
   argTypes: {
-    children: { control: false },
+    children: {
+      control: false,
+    },
   },
 };
 

@@ -55,7 +55,9 @@ const ThemeWrapper: Decorator = (story) => {
 const preview: Preview = {
   decorators: [ThemeWrapper],
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: {
+      argTypesRegex: '^on[A-Z].*',
+    },
     darkMode: {
       dark: themeDark,
       light: themeLight,

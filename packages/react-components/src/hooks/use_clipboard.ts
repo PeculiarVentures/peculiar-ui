@@ -34,5 +34,7 @@ export function useClipboard() {
     }
   };
 
-  return { copy, isCopied };
+  return {
+    copy, isCopied,
+  };
 }

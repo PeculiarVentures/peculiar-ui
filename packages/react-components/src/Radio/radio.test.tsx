@@ -11,7 +11,9 @@ import { Radio } from './index';
 describe('<Radio />', () => {
   describe('Radio render variants', () => {
     it('should render as default', () => {
-      const { asFragment } = render(<Radio id="test-id" />);
+      const {
+        asFragment,
+      } = render(<Radio id="test-id" />);
 
       const input = screen.getByRole('radio');
 
@@ -42,43 +44,57 @@ describe('<Radio />', () => {
     });
 
     it('should be disabled', () => {
-      const { asFragment } = render(<Radio id="test-id" disabled />);
+      const {
+        asFragment,
+      } = render(<Radio id="test-id" disabled />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have required', () => {
-      const { asFragment } = render(<Radio id="test-id" required />);
+      const {
+        asFragment,
+      } = render(<Radio id="test-id" required />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have name attr', () => {
-      const { asFragment } = render(<Radio id="test-id" name="test-name" />);
+      const {
+        asFragment,
+      } = render(<Radio id="test-id" name="test-name" />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
-      const { asFragment } = render(<Radio id="test-id" data-testid="test-id" />);
+      const {
+        asFragment,
+      } = render(<Radio id="test-id" data-testid="test-id" />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have className', () => {
-      const { asFragment } = render(<Radio id="test-id" className="test-cls" />);
+      const {
+        asFragment,
+      } = render(<Radio id="test-id" className="test-cls" />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have custom checked icon', () => {
-      const { asFragment } = render(<Radio id="test-id" checkedIcon={PlusIcon} />);
+      const {
+        asFragment,
+      } = render(<Radio id="test-id" checkedIcon={PlusIcon} />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be checked, defaultChecked prop', () => {
-      const { asFragment } = render(<Radio id="test-id" defaultChecked />);
+      const {
+        asFragment,
+      } = render(<Radio id="test-id" defaultChecked />);
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -130,7 +146,9 @@ describe('<Radio />', () => {
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Radio color={color} id="test-id" />,
         );
 

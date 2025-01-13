@@ -4,7 +4,9 @@ import { Backdrop } from './index';
 
 describe('<Backdrop />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Backdrop open />,
     );
 
@@ -12,7 +14,9 @@ describe('<Backdrop />', () => {
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Backdrop open className="my-class-name" />,
     );
 
@@ -28,7 +32,9 @@ describe('<Backdrop />', () => {
 
     variants.forEach((variant) => {
       it(`variant "${variant}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Backdrop open variant={variant} />,
         );
 

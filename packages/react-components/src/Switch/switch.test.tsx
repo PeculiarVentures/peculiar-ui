@@ -4,13 +4,17 @@ import { Switch } from './index';
 
 describe('<Switch />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(<Switch id="test-id" />);
+    const {
+      asFragment,
+    } = render(<Switch id="test-id" />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Switch className="my-class-name" id="test-id" />,
     );
 
@@ -25,7 +29,9 @@ describe('<Switch />', () => {
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Switch color={color} id="test-id" />,
         );
 
