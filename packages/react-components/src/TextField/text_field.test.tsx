@@ -219,6 +219,7 @@ describe('<TextField />', () => {
 
     it('should have focus when autoFocus has been passed to the component', () => {
       render(
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         <TextField autoFocus />,
       );
 
@@ -229,6 +230,7 @@ describe('<TextField />', () => {
 
     it('shouldn\'t have focus when disabled & autoFocus has been passed to the component', async () => {
       render(
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         <TextField disabled autoFocus />,
       );
 
