@@ -43,14 +43,14 @@ export interface ChipOwnProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
-export interface ChipTypeMap<P = {}, D extends React.ElementType = 'div'> {
+export interface ChipTypeMap<P = object, D extends React.ElementType = 'div'> {
   props: P & ChipOwnProps;
   defaultComponent: D;
 }
 
 export type ChipProps<
   D extends React.ElementType = ChipTypeMap['defaultComponent'],
-> = OverrideProps<ChipTypeMap<{}, D>, D> & {
+> = OverrideProps<ChipTypeMap<object, D>, D> & {
   component?: D;
 };
 /**

@@ -28,14 +28,14 @@ export interface SkeletonOwnProps {
   background?: ColorType;
 }
 
-export interface SkeletonTypeMap<P = {}, D extends React.ElementType = 'span'> {
+export interface SkeletonTypeMap<P = object, D extends React.ElementType = 'span'> {
   props: P & SkeletonOwnProps;
   defaultComponent: D;
 }
 
 export type SkeletonProps<
   D extends React.ElementType = SkeletonTypeMap['defaultComponent'],
-> = OverrideProps<SkeletonTypeMap<{}, D>, D> & {
+> = OverrideProps<SkeletonTypeMap<object, D>, D> & {
   component?: D;
 };
 /**

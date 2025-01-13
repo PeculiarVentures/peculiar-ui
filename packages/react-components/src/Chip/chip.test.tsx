@@ -23,7 +23,7 @@ describe('<Chip />', () => {
   it('should have delete icon', () => {
     const { asFragment } = render(
       <Chip
-        onDelete={() => {}}
+        onDelete={jest.fn()}
       >
         Text
       </Chip>,
@@ -36,7 +36,7 @@ describe('<Chip />', () => {
     const { asFragment } = render(
       <Chip
         deleteIcon={PlusIcon}
-        onDelete={() => {}}
+        onDelete={jest.fn()}
       >
         Text
       </Chip>,

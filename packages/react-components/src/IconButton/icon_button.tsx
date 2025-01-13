@@ -18,14 +18,14 @@ export interface IconButtonOwnProps extends Omit<ButtonOwnProps, 'variant' | 'wi
   tooltipProps?: Omit<TooltipOwnProps, 'open' | 'title' | 'children'>;
 }
 
-export interface IconButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
+export interface IconButtonTypeMap<P = object, D extends React.ElementType = 'button'> {
   props: P & IconButtonOwnProps;
   defaultComponent: D;
 }
 
 export type IconButtonProps<
   D extends React.ElementType = IconButtonTypeMap['defaultComponent'],
-> = OverrideProps<IconButtonTypeMap<{}, D>, D> & {
+> = OverrideProps<IconButtonTypeMap<object, D>, D> & {
   component?: D;
 };
 /**

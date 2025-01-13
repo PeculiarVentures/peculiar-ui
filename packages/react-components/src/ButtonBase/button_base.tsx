@@ -49,14 +49,14 @@ export interface ButtonBaseOwnProps {
   );
 }
 
-export interface ButtonBaseTypeMap<P = {}, D extends React.ElementType = 'button'> {
+export interface ButtonBaseTypeMap<P = object, D extends React.ElementType = 'button'> {
   props: P & ButtonBaseOwnProps;
   defaultComponent: D;
 }
 
 export type ButtonBaseProps<
   D extends React.ElementType = ButtonBaseTypeMap['defaultComponent'],
-> = OverrideProps<ButtonBaseTypeMap<{}, D>, D> & {
+> = OverrideProps<ButtonBaseTypeMap<object, D>, D> & {
   component?: D;
 };
 /**

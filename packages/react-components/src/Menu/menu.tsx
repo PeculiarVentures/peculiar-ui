@@ -153,7 +153,6 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
 
     return (
       <MenuItem
-
         key={index}
         component={component}
         textVariant={textVariantProp}

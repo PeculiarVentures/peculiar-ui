@@ -22,14 +22,14 @@ export interface ButtonOwnProps extends ButtonBaseOwnProps {
   withoutPadding?: boolean;
 }
 
-export interface ButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
+export interface ButtonTypeMap<P = object, D extends React.ElementType = 'button'> {
   props: P & ButtonOwnProps;
   defaultComponent: D;
 }
 
 export type ButtonProps<
   D extends React.ElementType = ButtonTypeMap['defaultComponent'],
-> = OverrideProps<ButtonTypeMap<{}, D>, D> & {
+> = OverrideProps<ButtonTypeMap<object, D>, D> & {
   component?: D;
 };
 /**

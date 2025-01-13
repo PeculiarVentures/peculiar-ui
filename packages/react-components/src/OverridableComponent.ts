@@ -62,6 +62,6 @@ export interface CommonProps {
 }
 
 export interface OverridableTypeMap {
-  props: {};
+  props: object;
   defaultComponent: React.ElementType;
 }
