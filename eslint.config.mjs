@@ -33,4 +33,9 @@ export default tseslint.config([
       '**/public/*',
     ],
   },
+  {
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  },
 ]);

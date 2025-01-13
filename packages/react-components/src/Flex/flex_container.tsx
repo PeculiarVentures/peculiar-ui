@@ -33,14 +33,14 @@ export interface FlexContainerOwnProps {
   justify?: Property.JustifyContent;
 }
 
-export interface FlexContainerTypeMap<P = {}, D extends React.ElementType = 'div'> {
+export interface FlexContainerTypeMap<P = object, D extends React.ElementType = 'div'> {
   props: P & FlexContainerOwnProps;
   defaultComponent: D;
 }
 
 export type FlexContainerProps<
   D extends React.ElementType = FlexContainerTypeMap['defaultComponent'],
-> = OverrideProps<FlexContainerTypeMap<{}, D>, D> & {
+> = OverrideProps<FlexContainerTypeMap<object, D>, D> & {
   component?: D;
 };
 /**

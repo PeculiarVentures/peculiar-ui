@@ -71,14 +71,14 @@ interface MenuListOwnProps {
   children: React.ReactElement[];
 };
 
-export interface MenuListTypeMap<P = {}, D extends React.ElementType = 'ul'> {
+export interface MenuListTypeMap<P = object, D extends React.ElementType = 'ul'> {
   props: P & MenuListOwnProps;
   defaultComponent: D;
 }
 
 export type MenuListProps<
   D extends React.ElementType = MenuListTypeMap['defaultComponent'],
-> = OverrideProps<MenuListTypeMap<{}, D>, D> & {
+> = OverrideProps<MenuListTypeMap<object, D>, D> & {
   component?: D;
 };
 /**

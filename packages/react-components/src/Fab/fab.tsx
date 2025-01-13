@@ -16,14 +16,14 @@ export interface FabOwnProps extends Omit<ButtonBaseOwnProps, 'size' | 'variant'
   );
 }
 
-export interface FabTypeMap<P = {}, D extends React.ElementType = 'button'> {
+export interface FabTypeMap<P = object, D extends React.ElementType = 'button'> {
   props: P & FabOwnProps;
   defaultComponent: D;
 }
 
 export type FabProps<
   D extends React.ElementType = FabTypeMap['defaultComponent'],
-> = OverrideProps<FabTypeMap<{}, D>, D> & {
+> = OverrideProps<FabTypeMap<object, D>, D> & {
   component?: D;
 };
 /**

@@ -30,14 +30,14 @@ export interface TypographyOwnProps {
   noWrap?: boolean;
 }
 
-export interface TypographyTypeMap<P = {}, D extends React.ElementType = 'p'> {
+export interface TypographyTypeMap<P = object, D extends React.ElementType = 'p'> {
   props: P & TypographyOwnProps;
   defaultComponent: D;
 }
 
 export type TypographyProps<
   D extends React.ElementType = TypographyTypeMap['defaultComponent'],
-> = OverrideProps<TypographyTypeMap<{}, D>, D> & {
+> = OverrideProps<TypographyTypeMap<object, D>, D> & {
   component?: D;
 };
 /**

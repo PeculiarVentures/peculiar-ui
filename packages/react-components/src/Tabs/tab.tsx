@@ -32,14 +32,14 @@ export interface TabOwnProps {
   onClick?: never;
 }
 
-export interface TabTypeMap<P = {}, D extends React.ElementType = 'button'> {
+export interface TabTypeMap<P = object, D extends React.ElementType = 'button'> {
   props: P & TabOwnProps;
   defaultComponent: D;
 }
 
 export type TabProps<
   D extends React.ElementType = TabTypeMap['defaultComponent'],
-> = OverrideProps<TabTypeMap<{}, D>, D> & {
+> = OverrideProps<TabTypeMap<object, D>, D> & {
   component?: D;
 };
 /**

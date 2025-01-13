@@ -14,7 +14,6 @@ describe('useEventCallback()', () => {
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
     render(
-
       <button onClick={result.current}>Button</button>,
     );
 
@@ -26,7 +25,6 @@ describe('useEventCallback()', () => {
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
     render(
-
       <button onClick={result.current}>Button</button>,
     );
 
@@ -36,7 +34,7 @@ describe('useEventCallback()', () => {
   });
 
   it('should do not change callback reference on re-render', () => {
-    const { result, rerender } = renderHook(() => useEventCallback(() => {}));
+    const { result, rerender } = renderHook(() => useEventCallback(jest.fn()));
     const initialReference = result.current;
 
     rerender();

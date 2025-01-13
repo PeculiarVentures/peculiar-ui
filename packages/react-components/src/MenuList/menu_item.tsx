@@ -28,14 +28,14 @@ interface MenuItemOwnProps {
   endIcon?: React.ReactNode;
 };
 
-export interface MenuItemTypeMap<P = {}, D extends React.ElementType = 'li'> {
+export interface MenuItemTypeMap<P = object, D extends React.ElementType = 'li'> {
   props: P & MenuItemOwnProps;
   defaultComponent: D;
 }
 
 export type MenuItemProps<
   D extends React.ElementType = MenuItemTypeMap['defaultComponent'],
-> = OverrideProps<MenuItemTypeMap<{}, D>, D> & {
+> = OverrideProps<MenuItemTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
