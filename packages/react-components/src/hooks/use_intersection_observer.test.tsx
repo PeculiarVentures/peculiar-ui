@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { render, renderHook } from '../test-utils';
 import { useIntersectionObserver } from './use_intersection_observer';
 import { intersectionObserver } from '../utils/intersection_observer';

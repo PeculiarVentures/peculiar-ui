@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-
 import { renderHook } from '../test-utils';
 import { useToast } from './use_toast';
 import { ToastContext } from './toast_context';

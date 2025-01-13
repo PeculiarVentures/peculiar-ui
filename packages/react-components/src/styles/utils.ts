@@ -9,6 +9,7 @@ import {
 } from './foundations';
 
 export const themeCSSVariablePrefix = 'pv';
+
 export const contrastThreshold = 2;
 
 export const createTheme = (mode: 'light' | 'dark', options?: ThemeOptionsType): ThemeType => {

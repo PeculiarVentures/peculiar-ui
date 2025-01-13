@@ -4,7 +4,6 @@ import React, {
   MutableRefObject,
   useRef,
 } from 'react';
-
 import { render } from '../test-utils';
 import { useMergedRef } from './use_merged_ref';
 

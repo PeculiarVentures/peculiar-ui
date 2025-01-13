@@ -43,6 +43,7 @@ function moveFocus(
       if (wrappedOnce) {
         return false;
       }
+
       wrappedOnce = true;
     }
 

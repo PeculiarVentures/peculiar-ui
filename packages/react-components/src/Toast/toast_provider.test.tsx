@@ -1,6 +1,5 @@
 import React from 'react';
 import { act, renderHook, screen } from '../test-utils';
-
 import { ToastProvider } from './toast_provider';
 import { useToast } from './use_toast';
 

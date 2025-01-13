@@ -36,6 +36,52 @@ export default tseslint.config([
   {
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
+      '@stylistic/padding-line-between-statements': [
+        'error',
+        {
+          blankLine: 'always',
+          prev: '*',
+          next: [
+            'return',
+            'throw',
+            'break',
+            'continue',
+            'export',
+          ],
+        },
+        {
+          blankLine: 'always',
+          prev: [
+            'block-like',
+            'for',
+            'switch',
+            'try',
+            'while',
+            'case',
+            'default',
+            'const',
+            'let',
+            'var',
+            'import',
+          ],
+          next: '*',
+        },
+        {
+          blankLine: 'any',
+          prev: ['const', 'let', 'var'],
+          next: ['const', 'let', 'var'],
+        },
+        {
+          blankLine: 'never',
+          prev: 'import',
+          next: 'import',
+        },
+        {
+          blankLine: 'any',
+          prev: 'export',
+          next: 'export',
+        },
+      ],
     },
   },
 ]);

@@ -464,21 +464,23 @@ export const Autocomplete = <
           if (popoverProps.open) {
             popoverProps.onClose(event);
           }
+
           break;
         }
+
         case 'Escape':
           // Prevent cursor move
           event.preventDefault();
-
           popoverProps.onClose(event);
+
           break;
+
         case 'Enter':
           // Prevent cursor move
           event.preventDefault();
-
           handleCreate(event);
-
           popoverProps.onKeyDown(event);
+
           break;
 
         default:

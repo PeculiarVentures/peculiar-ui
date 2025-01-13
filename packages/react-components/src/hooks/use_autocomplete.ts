@@ -509,9 +509,9 @@ export function useAutocomplete<
         case 'ArrowDown':
           // Prevent cursor move
           event.preventDefault();
-
           changeHighlightedIndex(1, 'next', 'keyboard');
           handleOpen(event);
+
           break;
 
         case 'ArrowUp':
@@ -532,6 +532,7 @@ export function useAutocomplete<
 
             selectNewValue(event, option, highlightedIndexRef.current, 'selectOption');
           }
+
           break;
 
         default:
