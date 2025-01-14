@@ -1,9 +1,11 @@
 import eslint from '@eslint/js';
+// eslint-disable-next-line import/no-unresolved
 import tseslint from 'typescript-eslint';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import stylistic from '@stylistic/eslint-plugin';
+import importPlugin from 'eslint-plugin-import';
 
 export default tseslint.config([
   eslint.configs.recommended,
@@ -11,6 +13,8 @@ export default tseslint.config([
   tseslint.configs.stylistic,
   jsxA11y.flatConfigs.recommended,
   reactPlugin.configs.flat.recommended,
+  importPlugin.flatConfigs.recommended,
+  importPlugin.flatConfigs.typescript,
   stylistic.configs.customize({
     semi: true,
     indent: 2,
