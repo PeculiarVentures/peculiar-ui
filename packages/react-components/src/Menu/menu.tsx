@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Popover, PopoverProps } from '../Popover';
-import { MenuList, MenuItem, SubMenuItem } from '../MenuList';
+import {
+  MenuList, MenuItem, SubMenuItem,
+} from '../MenuList';
 import { TypographyType } from '../styles';
 
 /**
  * Types.
  */
-type OptionOwnProps = {
+interface OptionOwnProps {
   label: string;
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
@@ -31,7 +33,7 @@ type MenuOptionProps = OptionProps & {
   subOptions?: OptionProps[];
 };
 
-type MenuOwnProps = {
+interface MenuOwnProps {
   /**
    * Menu reference element.
    */
@@ -131,6 +133,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
       textVariant: textVariantProp,
       startIcon,
       endIcon,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       onClick,
       ...other
     } = option;
@@ -153,7 +156,6 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
 
     return (
       <MenuItem
-        // eslint-disable-next-line react/no-array-index-key
         key={index}
         component={component}
         textVariant={textVariantProp}
@@ -170,8 +172,8 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
   };
 
   const childrenProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> = {
-    ref: childRef,
-    onClick: handleChildClick,
+    'ref': childRef,
+    'onClick': handleChildClick,
     'aria-haspopup': 'menu',
     'aria-expanded': String(open) as any,
   };

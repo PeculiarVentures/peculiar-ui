@@ -57,11 +57,11 @@ export interface CommonProps {
   /**
    * The className of the component.
    */
-  className?: string;
+  'className'?: string;
   'data-testid'?: string;
 }
 
 export interface OverridableTypeMap {
-  props: {};
+  props: object;
   defaultComponent: React.ElementType;
 }

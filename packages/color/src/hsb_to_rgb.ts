@@ -22,6 +22,7 @@ export function hsbToRgb(h: number, s: number, b: number): [r: number, g: number
       red = brightness;
       green = t;
       blue = p;
+
       break;
     }
 
@@ -29,6 +30,7 @@ export function hsbToRgb(h: number, s: number, b: number): [r: number, g: number
       red = q;
       green = brightness;
       blue = p;
+
       break;
     }
 
@@ -36,6 +38,7 @@ export function hsbToRgb(h: number, s: number, b: number): [r: number, g: number
       red = p;
       green = brightness;
       blue = t;
+
       break;
     }
 
@@ -43,6 +46,7 @@ export function hsbToRgb(h: number, s: number, b: number): [r: number, g: number
       red = p;
       green = q;
       blue = brightness;
+
       break;
     }
 
@@ -50,6 +54,7 @@ export function hsbToRgb(h: number, s: number, b: number): [r: number, g: number
       red = t;
       green = p;
       blue = brightness;
+
       break;
     }
 
@@ -57,6 +62,7 @@ export function hsbToRgb(h: number, s: number, b: number): [r: number, g: number
       red = brightness;
       green = p;
       blue = q;
+
       break;
     }
 

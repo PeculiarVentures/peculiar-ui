@@ -8,7 +8,7 @@ import { opacity } from '../styles/foundations';
 /**
  * Types.
  */
-type CheckboxOwnProps = {
+interface CheckboxOwnProps {
   /**
    * If `true`, the component is checked.
    */
@@ -83,17 +83,17 @@ const CheckboxInput = styled('input', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
 })<Required<Pick<CheckboxOwnProps, 'color'>>>(
   {
-    width: '100%',
-    height: '100%',
-    margin: 0,
-    padding: 0,
-    outline: 0,
-    borderRadius: '2px',
-    borderWidth: '2px',
-    borderStyle: 'solid',
-    appearance: 'none',
-    borderColor: 'currentColor',
-    backgroundColor: 'transparent',
+    'width': '100%',
+    'height': '100%',
+    'margin': 0,
+    'padding': 0,
+    'outline': 0,
+    'borderRadius': '2px',
+    'borderWidth': '2px',
+    'borderStyle': 'solid',
+    'appearance': 'none',
+    'borderColor': 'currentColor',
+    'backgroundColor': 'transparent',
     '&:before': {
       top: '-7px',
       left: '-7px',
@@ -137,10 +137,10 @@ const CheckboxInput = styled('input', {
         },
       },
       '&:not(:disabled)': {
-        cursor: 'pointer',
+        'cursor': 'pointer',
         '&:checked, &[data-indeterminate="true"]': {
-          color: colorChecked,
-          backgroundColor: backgroundColorChecked,
+          'color': colorChecked,
+          'backgroundColor': backgroundColorChecked,
           '+ [aria-hidden]': {
             color: 'var(--pv-color-white)',
           },
@@ -162,11 +162,11 @@ const CheckboxInput = styled('input', {
         },
       },
       '&:disabled': {
-        cursor: 'not-allowed',
-        color: 'var(--pv-color-gray-6)',
+        'cursor': 'not-allowed',
+        'color': 'var(--pv-color-gray-6)',
         '&:checked, &[data-indeterminate="true"]': {
-          color: colorDisabledChecked,
-          backgroundColor: 'var(--pv-color-gray-6)',
+          'color': colorDisabledChecked,
+          'backgroundColor': 'var(--pv-color-gray-6)',
 
           '+ [aria-hidden]': {
             color: iconColorDisabledChecked,

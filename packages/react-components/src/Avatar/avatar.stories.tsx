@@ -6,7 +6,9 @@ const meta: Meta<typeof Avatar> = {
   component: Avatar,
   tags: ['autodocs'],
   argTypes: {
-    children: { control: false },
+    children: {
+      control: false,
+    },
   },
 };
 

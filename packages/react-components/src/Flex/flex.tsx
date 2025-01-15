@@ -13,14 +13,14 @@ export interface FlexOwnProps {
   size?: ('auto' | 'grow');
 }
 
-export interface FlexTypeMap<P = {}, D extends React.ElementType = 'div'> {
+export interface FlexTypeMap<P = object, D extends React.ElementType = 'div'> {
   props: P & FlexOwnProps;
   defaultComponent: D;
 }
 
 export type FlexProps<
   D extends React.ElementType = FlexTypeMap['defaultComponent'],
-> = OverrideProps<FlexTypeMap<{}, D>, D> & {
+> = OverrideProps<FlexTypeMap<object, D>, D> & {
   component?: D;
 };
 /**

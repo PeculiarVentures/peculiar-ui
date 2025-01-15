@@ -20,23 +20,23 @@ export interface AutocompleteChangeDetails<T = string> {
 export type AutocompleteValue<T, Multiple> = Multiple extends | undefined | false ? T | null : T[];
 
 export type AutocompleteFilterOptionsType<T, Multiple> = (
-  options: ReadonlyArray<T>,
+  options: readonly T[],
   searchValue: string,
   value: AutocompleteValue<T, Multiple>,
   getOptionLabel: (option: T) => string,
-) => ReadonlyArray<T>;
+) => readonly T[];
 
-export type AutocompleteGroupedOption<T> = {
+export interface AutocompleteGroupedOption<T> {
   key: number;
   index: number;
   group: string;
   options: T[];
 };
 
-export type UseAutocompleteProps<
+export interface UseAutocompleteProps<
   T,
   Multiple extends boolean | undefined = undefined,
-> = {
+> {
   /**
    * This prop is used to help implement the accessibility logic.
    * If you don't provide an id it will fall back to a randomly generated one.
@@ -45,7 +45,7 @@ export type UseAutocompleteProps<
   /**
    * Array of options.
    */
-  options: ReadonlyArray<T>;
+  options: readonly T[];
   /**
    * The default value. Use when the component is not controlled.
    */
@@ -113,11 +113,11 @@ export type UseAutocompleteProps<
   ) => void;
 };
 
-export type UseAutocompleteReturnType<
+export interface UseAutocompleteReturnType<
   T,
   Multiple extends boolean | undefined = undefined,
-> = {
-  groupedOptions: ReadonlyArray<T> | ReadonlyArray<AutocompleteGroupedOption<T>>;
+> {
+  groupedOptions: readonly T[] | readonly AutocompleteGroupedOption<T>[];
   value: AutocompleteValue<T, Multiple>;
   searchValue: string;
   popupOpen: boolean;
@@ -133,10 +133,10 @@ export type UseAutocompleteReturnType<
   };
   getPopoverProps: () => Pick<Required<PopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>;
   getTagProps: (option: T, index: number) => {
-    key: number;
+    'key': number;
     'data-tag-index': number;
-    tabIndex: -1;
-    onDelete?: (event: React.SyntheticEvent) => void;
+    'tabIndex': -1;
+    'onDelete'?: (event: React.SyntheticEvent) => void;
   };
   getOptionLabel: (option: T) => string;
 };
@@ -177,7 +177,7 @@ export function useAutocomplete<
     readOnly,
     popoverProps,
     groupBy,
-    // @ts-ignore
+    // @ts-expect-error: Property `label` does not exist on type 'T'.
     getOptionLabel = (option) => option.label ?? option,
     getOptionKey,
     filterOptions = defaultFilterOptions,
@@ -461,7 +461,9 @@ export function useAutocomplete<
     }
 
     if (onChange) {
-      onChange(event, newValue as AutocompleteValue<T, Multiple>, { option, index }, reason);
+      onChange(event, newValue as AutocompleteValue<T, Multiple>, {
+        option, index,
+      }, reason);
     }
   };
 
@@ -478,12 +480,16 @@ export function useAutocomplete<
     setValue(newValue);
 
     if (onChange) {
-      onChange(event, newValue, { option: null, index: 0 }, 'removeOption');
+      onChange(event, newValue, {
+        option: null, index: 0,
+      }, 'removeOption');
     }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value: valueInput } = event.target;
+    const {
+      value: valueInput,
+    } = event.target;
 
     if (searchValue !== valueInput) {
       setSearchValue(valueInput);
@@ -509,9 +515,9 @@ export function useAutocomplete<
         case 'ArrowDown':
           // Prevent cursor move
           event.preventDefault();
-
           changeHighlightedIndex(1, 'next', 'keyboard');
           handleOpen(event);
+
           break;
 
         case 'ArrowUp':
@@ -532,6 +538,7 @@ export function useAutocomplete<
 
             selectNewValue(event, option, highlightedIndexRef.current, 'selectOption');
           }
+
           break;
 
         default:
@@ -575,13 +582,13 @@ export function useAutocomplete<
 
   return {
     getRootProps: () => ({
-      ref: anchorEl,
+      'ref': anchorEl,
       'aria-expanded': popupOpen,
       'aria-autocomplete': 'list',
       'aria-controls': `${id}-listbox`,
-      id: `${id}-toggle-button`,
-      role: 'combobox',
-      onClick: handleClick,
+      'id': `${id}-toggle-button`,
+      'role': 'combobox',
+      'onClick': handleClick,
     }),
     getInputLabelProps: () => ({
       id: `${id}-label`,
@@ -613,13 +620,13 @@ export function useAutocomplete<
       );
 
       return {
-        key: getOptionKey ? getOptionKey(option) : getOptionLabel(option),
-        tabIndex: -1,
-        role: 'option',
-        id: `${id}-option-${index}`,
+        'key': getOptionKey ? getOptionKey(option) : getOptionLabel(option),
+        'tabIndex': -1,
+        'role': 'option',
+        'id': `${id}-option-${index}`,
         'data-option-index': index,
         'aria-selected': selected,
-        onClick: handleOptionClick,
+        'onClick': handleOptionClick,
       };
     },
     getPopoverProps: () => ({
@@ -630,10 +637,10 @@ export function useAutocomplete<
       onKeyDown: handleKeyDown,
     }),
     getTagProps: (option, index) => ({
-      key: index,
+      'key': index,
       'data-tag-index': index,
-      tabIndex: -1,
-      onDelete: readOnly ? undefined : handleTagDelete(option, index),
+      'tabIndex': -1,
+      'onDelete': readOnly ? undefined : handleTagDelete(option, index),
     }),
     getOptionLabel,
     groupedOptions,

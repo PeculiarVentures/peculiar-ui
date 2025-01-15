@@ -11,7 +11,7 @@ import { Typography } from '../Typography';
 /**
  * Types.
  */
-export type TooltipOwnProps = {
+export interface TooltipOwnProps {
   /**
    * If `true`, the component is shown.
    */
@@ -35,7 +35,7 @@ export type TooltipOwnProps = {
   /**
    * Do not respond to focus events.
    */
-  disableFocusListener?: boolean,
+  disableFocusListener?: boolean;
   /**
    * Do not respond to hover events.
    */
@@ -140,8 +140,8 @@ const TooltipRoot = styled(Box, {
 );
 
 const TooltipPopper = styled(Popper)<Required<Pick<TooltipOwnProps, 'interactive'>>>((props) => ({
-  pointerEvents: props.interactive ? 'auto' : 'none',
-  zIndex: 1500,
+  'pointerEvents': props.interactive ? 'auto' : 'none',
+  'zIndex': 1500,
   '&[data-popper-placement^="bottom"]': {
     '[data-popper-arrow]': {
       top: 0,
@@ -172,11 +172,11 @@ const TooltipArrow = styled('span', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
 })<Required<Pick<TooltipOwnProps, 'color'>>>(
   {
-    width: '8px',
-    height: '8px',
-    background: 'transparent',
-    position: 'absolute',
-    display: 'block',
+    'width': '8px',
+    'height': '8px',
+    'background': 'transparent',
+    'position': 'absolute',
+    'display': 'block',
     '&::before': {
       content: '""',
       margin: 'auto',
@@ -341,13 +341,13 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
             {
               arrow
                 ? (
-                  <TooltipArrow
-                    data-popper-arrow
-                    ref={setArrowRef}
-                    style={style}
-                    color={color}
-                  />
-                )
+                    <TooltipArrow
+                      data-popper-arrow
+                      ref={setArrowRef}
+                      style={style}
+                      color={color}
+                    />
+                  )
                 : null
             }
           </TooltipRoot>

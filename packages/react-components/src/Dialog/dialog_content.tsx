@@ -7,7 +7,7 @@ import { Alert } from '../Alert';
 /**
  * Types.
  */
-type DialogContentOwnProps = {
+interface DialogContentOwnProps {
   /**
    * The content of the component.
    */
@@ -28,7 +28,7 @@ type DialogContentOwnProps = {
    * Props applied to the scrolled element.
    */
   scrolledElementProps?: React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+    React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 };
 
 type DialogContentProps = DialogContentOwnProps & React.HTMLAttributes<HTMLDivElement>;

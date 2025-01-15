@@ -14,7 +14,7 @@ import {
 /**
  * Types.
  */
-type AlertOwnProps = {
+interface AlertOwnProps {
   /**
    * The content of the component.
    */

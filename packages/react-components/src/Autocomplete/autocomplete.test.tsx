@@ -13,7 +13,9 @@ describe('<Autocomplete />', () => {
   const options = ['test-1', 'test-2', 'apple', 'banana', 'grape'];
 
   it('should render with default styles', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Autocomplete
         options={options}
         id="test-id"
@@ -24,7 +26,9 @@ describe('<Autocomplete />', () => {
   });
 
   it('should render with multiple selection enabled', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Autocomplete
         options={options}
         id="test-id"
@@ -36,7 +40,9 @@ describe('<Autocomplete />', () => {
   });
 
   it('should apply className', () => {
-    const { container } = render(
+    const {
+      container,
+    } = render(
       <Autocomplete
         options={options}
         id="test-id"
@@ -48,7 +54,7 @@ describe('<Autocomplete />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Autocomplete>['size']> = [
+    const sizes: React.ComponentProps<typeof Autocomplete>['size'][] = [
       'small',
       'medium',
       'large',
@@ -56,7 +62,9 @@ describe('<Autocomplete />', () => {
 
     sizes.forEach((size) => {
       it(`renders with size "${size}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Autocomplete
             options={options}
             id="test-id"
@@ -70,7 +78,9 @@ describe('<Autocomplete />', () => {
   });
 
   it('should display loading state', async () => {
-    const { getByText } = render(
+    const {
+      getByText,
+    } = render(
       <Autocomplete
         options={[]}
         id="test-id"
@@ -86,7 +96,9 @@ describe('<Autocomplete />', () => {
   });
 
   it('should show error message when in error state', () => {
-    const { getByText } = render(
+    const {
+      getByText,
+    } = render(
       <Autocomplete
         options={[]}
         id="test-id"
@@ -123,7 +135,11 @@ describe('<Autocomplete />', () => {
     const input = screen.getByRole('combobox');
 
     await act(async () => {
-      fireEvent.change(input, { target: { value: 'ap' } });
+      fireEvent.change(input, {
+        target: {
+          value: 'ap',
+        },
+      });
     });
 
     expect(screen.getByText('apple')).toBeInTheDocument();
@@ -177,10 +193,16 @@ describe('<Autocomplete />', () => {
     );
 
     await act(async () => {
-      fireEvent.change(screen.getByRole('combobox'), { target: { value: 'New Option' } });
+      fireEvent.change(screen.getByRole('combobox'), {
+        target: {
+          value: 'New Option',
+        },
+      });
     });
 
-    fireEvent.keyDown(screen.getByRole('combobox'), { key: 'Enter', code: 'Enter' });
+    fireEvent.keyDown(screen.getByRole('combobox'), {
+      key: 'Enter', code: 'Enter',
+    });
     expect(handleCreate).toHaveBeenCalledWith(expect.any(Object), 'New Option');
   });
 
@@ -198,7 +220,9 @@ describe('<Autocomplete />', () => {
 
     expect(screen.getByRole('listbox')).toBeInTheDocument();
 
-    fireEvent.keyDown(screen.getByRole('combobox'), { key: 'Escape', code: 'Escape' });
+    fireEvent.keyDown(screen.getByRole('combobox'), {
+      key: 'Escape', code: 'Escape',
+    });
 
     await waitFor(() => expect(screen.queryByRole('listbox')).not.toBeInTheDocument());
   });

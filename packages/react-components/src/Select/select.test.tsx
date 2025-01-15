@@ -1,12 +1,16 @@
 import React from 'react';
-import { renderWithWrapper as render, screen, fireEvent } from '../test-utils';
+import {
+  renderWithWrapper as render, screen, fireEvent,
+} from '../test-utils';
 import { Select } from './index';
 
 describe('<Select />', () => {
   const options = ['test-1', 'test-2'];
 
   it('should render with default styles', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Select
         options={options}
         id="test-id"
@@ -17,7 +21,9 @@ describe('<Select />', () => {
   });
 
   it('should render with default multiple styles', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Select
         options={options}
         id="test-id"
@@ -29,7 +35,9 @@ describe('<Select />', () => {
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Select
         options={options}
         id="test-id"
@@ -41,7 +49,7 @@ describe('<Select />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Select>['size']> = [
+    const sizes: React.ComponentProps<typeof Select>['size'][] = [
       'small',
       'medium',
       'large',
@@ -49,7 +57,9 @@ describe('<Select />', () => {
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Select
             options={options}
             id="test-id"
@@ -63,7 +73,9 @@ describe('<Select />', () => {
   });
 
   it('should pass loading', () => {
-    const { baseElement } = render(
+    const {
+      baseElement,
+    } = render(
       <Select
         options={[]}
         id="test-id"
@@ -78,7 +90,9 @@ describe('<Select />', () => {
   });
 
   it('should pass error', () => {
-    const { baseElement } = render(
+    const {
+      baseElement,
+    } = render(
       <Select
         options={[]}
         id="test-id"
@@ -93,7 +107,9 @@ describe('<Select />', () => {
   });
 
   it('should pass options', () => {
-    const { baseElement } = render(
+    const {
+      baseElement,
+    } = render(
       <Select
         id="test-id"
         options={options}

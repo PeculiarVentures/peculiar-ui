@@ -8,7 +8,7 @@ import { opacity } from '../styles/foundations';
 /**
  * Types.
  */
-type RadioOwnProps = {
+interface RadioOwnProps {
   /**
    * If `true`, the component is checked.
    */
@@ -77,11 +77,13 @@ const RadioRoot = styled('label')(
     flexShrink: 0,
   },
   (props) => ({
-    ...(props.theme.mode === 'dark' ? {
-      color: 'var(--pv-color-gray-5)',
-    } : {
-      color: 'var(--pv-color-gray-6)',
-    }),
+    ...(props.theme.mode === 'dark'
+      ? {
+          color: 'var(--pv-color-gray-5)',
+        }
+      : {
+          color: 'var(--pv-color-gray-6)',
+        }),
   }),
 );
 
@@ -89,18 +91,18 @@ const RadioInput = styled('input', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
 })<Required<Pick<RadioOwnProps, 'color'>>>(
   {
-    cursor: 'inherit',
-    width: '100%',
-    height: '100%',
-    margin: 0,
-    padding: 0,
-    outline: 0,
-    borderRadius: '50%',
-    borderWidth: '2px',
-    borderStyle: 'solid',
-    appearance: 'none',
-    borderColor: 'currentColor',
-    backgroundColor: 'transparent',
+    'cursor': 'inherit',
+    'width': '100%',
+    'height': '100%',
+    'margin': 0,
+    'padding': 0,
+    'outline': 0,
+    'borderRadius': '50%',
+    'borderWidth': '2px',
+    'borderStyle': 'solid',
+    'appearance': 'none',
+    'borderColor': 'currentColor',
+    'backgroundColor': 'transparent',
     '&:before': {
       top: '-7px',
       left: '-7px',
@@ -146,7 +148,7 @@ const RadioInput = styled('input', {
         },
       },
       '&:not(:disabled)': {
-        cursor: 'pointer',
+        'cursor': 'pointer',
         '&:checked': {
           color: colorChecked,
         },
@@ -167,11 +169,11 @@ const RadioInput = styled('input', {
         },
       },
       '&:disabled': {
-        cursor: 'not-allowed',
+        'cursor': 'not-allowed',
         '+ [aria-hidden]': {
           color: 'inherit',
         },
-        color: colorDisabled,
+        'color': colorDisabled,
         '&:checked': {
           color: colorDisabledChecked,
         },

@@ -1,6 +1,4 @@
-export {
-  Button,
-} from './button';
+export { Button } from './button';
 export type {
   ButtonOwnProps,
   ButtonProps,

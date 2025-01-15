@@ -2,7 +2,7 @@ import React from 'react';
 
 const runIfFn = (value: any, ...args: any[]) => (typeof value === 'function' ? value(...args) : value);
 
-export type UseControllableStateProps<T> = {
+export interface UseControllableStateProps<T> {
   /**
    * The value to used in controlled mode
    */

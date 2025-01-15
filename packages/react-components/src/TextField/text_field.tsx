@@ -6,7 +6,7 @@ import { useId } from '../hooks/use_id';
 /**
  * Types.
  */
-type TextFieldOwnProps = {
+interface TextFieldOwnProps {
   /**
    * If `true`, the component is disabled.
    */
@@ -220,7 +220,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
       )}
       <TextFieldInput
         {...inputProps}
-        // @ts-ignore
+        // @ts-expect-error: `component` is not a valid prop
         component="input"
         variant={size === 'small' ? 'c1' : 'b3'}
         size={size}
@@ -232,6 +232,7 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         required={required}
         name={name}
         ref={inputRef}
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
         aria-invalid={error || undefined}
         onChange={onChange}

@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { usePopper, PopperProps, Modifier } from 'react-popper';
+import {
+  usePopper, PopperProps, Modifier,
+} from 'react-popper';
 import { Modal, ModalProps } from '../Modal';
 import { Fade } from '../Fade';
 
-type BaseProps = {
+interface BaseProps {
   /**
    * If `true`, the popover is visible.
    */
@@ -87,19 +89,23 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>((props, re
       enabled: allowUseSameWidth,
       phase: 'beforeWrite',
       requires: ['computeStyles'],
-      fn: ({ state }) => {
-        // eslint-disable-next-line no-param-reassign
+      fn: ({
+        state,
+      }) => {
         state.styles.popper.width = `${state.rects.reference.width}px`;
       },
-      effect: ({ state }) => {
-        // @ts-ignore
-        // eslint-disable-next-line no-param-reassign
+      effect: ({
+        state,
+      }) => {
+        // @ts-expect-error: TypeScript may not recognize the style property
         state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
       },
     }),
     [],
   );
-  const { styles, attributes } = usePopper(
+  const {
+    styles, attributes,
+  } = usePopper(
     anchorEl,
     popperElement,
     {

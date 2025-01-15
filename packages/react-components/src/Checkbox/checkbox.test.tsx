@@ -11,7 +11,11 @@ import { Checkbox } from './index';
 describe('<Checkbox />', () => {
   describe('Checkbox render variants', () => {
     it('should render as default', () => {
-      const { asFragment } = render(<Checkbox id="test-id" />);
+      const {
+        asFragment,
+      } = render(
+        <Checkbox id="test-id" />,
+      );
       const input = screen.getByRole('checkbox');
 
       expect(input).toBeInTheDocument();
@@ -28,7 +32,9 @@ describe('<Checkbox />', () => {
     });
 
     it('should have id', () => {
-      render(<Checkbox id="test-id" />);
+      render(
+        <Checkbox id="test-id" />,
+      );
 
       const input = screen.getByRole('checkbox');
 
@@ -41,43 +47,71 @@ describe('<Checkbox />', () => {
     });
 
     it('should be disabled', () => {
-      const { asFragment } = render(<Checkbox id="test-id" disabled />);
+      const {
+        asFragment,
+      } = render(
+        <Checkbox id="test-id" disabled />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have required', () => {
-      const { asFragment } = render(<Checkbox id="test-id" required />);
+      const {
+        asFragment,
+      } = render(
+        <Checkbox id="test-id" required />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have name attr', () => {
-      const { asFragment } = render(<Checkbox id="test-id" name="test-name" />);
+      const {
+        asFragment,
+      } = render(
+        <Checkbox id="test-id" name="test-name" />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have test id', () => {
-      const { asFragment } = render(<Checkbox id="test-id" data-testid="test-id" />);
+      const {
+        asFragment,
+      } = render(
+        <Checkbox id="test-id" data-testid="test-id" />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have className', () => {
-      const { asFragment } = render(<Checkbox id="test-id" className="test-cls" />);
+      const {
+        asFragment,
+      } = render(
+        <Checkbox id="test-id" className="test-cls" />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should have custom checked icon', () => {
-      const { asFragment } = render(<Checkbox id="test-id" checkedIcon={PlusIcon} />);
+      const {
+        asFragment,
+      } = render(
+        <Checkbox id="test-id" checkedIcon={PlusIcon} />,
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be checked, defaultChecked prop', () => {
-      const { asFragment } = render(<Checkbox id="test-id" defaultChecked />);
+      const {
+        asFragment,
+      } = render(
+        <Checkbox id="test-id" defaultChecked />,
+      );
       const input = screen.getByRole('checkbox');
 
       expect(input).toBeChecked();
@@ -86,7 +120,9 @@ describe('<Checkbox />', () => {
     });
 
     it('should be unchecked, defaultChecked prop', () => {
-      render(<Checkbox defaultChecked={false} />);
+      render(
+        <Checkbox defaultChecked={false} />,
+      );
 
       const input = screen.getByRole('checkbox');
 
@@ -95,7 +131,9 @@ describe('<Checkbox />', () => {
 
     it('should be checked', () => {
       const onChange = jest.fn();
-      const { asFragment } = render(
+      const {
+        asFragment,
+      } = render(
         <Checkbox
           id="test-id"
           checked
@@ -129,7 +167,9 @@ describe('<Checkbox />', () => {
     it('should forwards ref to label element', () => {
       const ref = React.createRef<HTMLLabelElement>();
 
-      render(<Checkbox ref={ref} />);
+      render(
+        <Checkbox ref={ref} />,
+      );
 
       const input = screen.getByRole('checkbox');
 
@@ -138,14 +178,16 @@ describe('<Checkbox />', () => {
   });
 
   describe('Checkbox render colors', () => {
-    const colors: Array<React.ComponentProps<typeof Checkbox>['color']> = [
+    const colors: React.ComponentProps<typeof Checkbox>['color'][] = [
       'primary',
       'secondary',
     ];
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Checkbox color={color} id="test-id" />,
         );
 
@@ -156,7 +198,9 @@ describe('<Checkbox />', () => {
 
   describe('Checkbox focus behaviour', () => {
     it('should have focus', async () => {
-      render(<Checkbox />);
+      render(
+        <Checkbox />,
+      );
 
       const input = screen.getByRole('checkbox');
 
@@ -166,8 +210,10 @@ describe('<Checkbox />', () => {
       expect(input).toHaveFocus();
     });
 
-    it("shouldn't have focus when disabled has been passed to the component", async () => {
-      render(<Checkbox disabled />);
+    it('shouldn\'t have focus when disabled has been passed to the component', async () => {
+      render(
+        <Checkbox disabled />,
+      );
 
       const input = screen.getByRole('checkbox');
 
@@ -180,7 +226,9 @@ describe('<Checkbox />', () => {
 
   describe('Checkbox click behaviour', () => {
     it('should be checked when clicked', () => {
-      render(<Checkbox id="test-id" />);
+      render(
+        <Checkbox id="test-id" />,
+      );
 
       const input = screen.getByRole('checkbox');
 
@@ -190,7 +238,9 @@ describe('<Checkbox />', () => {
     });
 
     it('should be unchecked when clicked', () => {
-      render(<Checkbox id="test-id" defaultChecked />);
+      render(
+        <Checkbox id="test-id" defaultChecked />,
+      );
 
       const input = screen.getByRole('checkbox');
 
@@ -202,7 +252,9 @@ describe('<Checkbox />', () => {
     it('should calls onClick prop when clicked', () => {
       const handleClick = jest.fn();
 
-      render(<Checkbox id="test-id" onClick={handleClick} />);
+      render(
+        <Checkbox id="test-id" onClick={handleClick} />,
+      );
 
       fireEvent.click(screen.getByRole('checkbox'));
       expect(handleClick).toHaveBeenCalledTimes(1);
@@ -211,7 +263,9 @@ describe('<Checkbox />', () => {
     it('should calls onChange prop when clicked', () => {
       const onChange = jest.fn();
 
-      render(<Checkbox id="test-id" onChange={onChange} />);
+      render(
+        <Checkbox id="test-id" onChange={onChange} />,
+      );
 
       const input = screen.getByRole('checkbox');
 

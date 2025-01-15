@@ -3,7 +3,7 @@ import React from 'react';
 export function useDebounceCallback<Params extends any[]>(
   func: (...args: Params) => void,
   delay = 300,
-  cleanUp: boolean = false,
+  cleanUp = false,
 ) {
   const timeoutRef = React.useRef<NodeJS.Timeout>();
 

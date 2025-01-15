@@ -43,14 +43,14 @@ export interface ChipOwnProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
-export interface ChipTypeMap<P = {}, D extends React.ElementType = 'div'> {
+export interface ChipTypeMap<P = object, D extends React.ElementType = 'div'> {
   props: P & ChipOwnProps;
   defaultComponent: D;
 }
 
 export type ChipProps<
   D extends React.ElementType = ChipTypeMap['defaultComponent'],
-> = OverrideProps<ChipTypeMap<{}, D>, D> & {
+> = OverrideProps<ChipTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -192,13 +192,13 @@ const ChipRoot = styled('div', {
 });
 
 const ChipDeleteIcon = styled('span')({
-  width: '24px',
-  height: '24px',
-  cursor: 'pointer',
-  WebkitTapHighlightColor: 'transparent',
-  transition: 'opacity 200ms',
-  opacity: '0.6',
-  flexShrink: 0,
+  'width': '24px',
+  'height': '24px',
+  'cursor': 'pointer',
+  'WebkitTapHighlightColor': 'transparent',
+  'transition': 'opacity 200ms',
+  'opacity': '0.6',
+  'flexShrink': 0,
   '&:hover': {
     opacity: '1',
   },
@@ -232,9 +232,9 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
 
   const baseProps = {
     disabled,
-    role: clickable ? 'button' : undefined,
+    'role': clickable ? 'button' : undefined,
     'aria-disabled': disabled ? true : undefined,
-    tabIndex: clickable && !disabled ? 0 : undefined,
+    'tabIndex': clickable && !disabled ? 0 : undefined,
     onClick,
   };
 

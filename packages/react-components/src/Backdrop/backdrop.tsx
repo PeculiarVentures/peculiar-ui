@@ -6,7 +6,7 @@ import { Box } from '../Box';
 /**
  * Types.
  */
-type BackdropOwnProps = {
+interface BackdropOwnProps {
   /**
    * If `true`, the backdrop is open.
    */
@@ -27,8 +27,8 @@ type BackdropOwnProps = {
 };
 
 export type BackdropProps = BackdropOwnProps
-& BaseTransitionProps
-& React.HTMLAttributes<HTMLDivElement>;
+  & BaseTransitionProps
+  & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
  */

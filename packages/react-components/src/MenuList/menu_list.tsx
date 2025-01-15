@@ -31,6 +31,7 @@ function previousItem(list: HTMLUListElement, item: Element) {
 function moveFocus(
   list: HTMLUListElement,
   currentFocus: Element,
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   traversalFunction: Function,
 ) {
   let wrappedOnce = false;
@@ -42,6 +43,7 @@ function moveFocus(
       if (wrappedOnce) {
         return false;
       }
+
       wrappedOnce = true;
     }
 
@@ -67,18 +69,18 @@ function moveFocus(
 /**
  * Types.
  */
-type MenuListOwnProps = {
+interface MenuListOwnProps {
   children: React.ReactElement[];
 };
 
-export interface MenuListTypeMap<P = {}, D extends React.ElementType = 'ul'> {
+export interface MenuListTypeMap<P = object, D extends React.ElementType = 'ul'> {
   props: P & MenuListOwnProps;
   defaultComponent: D;
 }
 
 export type MenuListProps<
   D extends React.ElementType = MenuListTypeMap['defaultComponent'],
-> = OverrideProps<MenuListTypeMap<{}, D>, D> & {
+> = OverrideProps<MenuListTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -110,7 +112,9 @@ export const MenuList = React.forwardRef<any, MenuListProps>((props, ref) => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLUListElement>) => {
     const list = rootRef.current;
-    const { key } = event;
+    const {
+      key,
+    } = event;
     const currentFocus = ownerDocument(list).activeElement;
 
     if (key === 'ArrowDown') {

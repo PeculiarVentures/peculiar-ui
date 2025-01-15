@@ -20,14 +20,14 @@ export interface BoxOwnProps {
   boxShadow?: ShadowType;
 }
 
-export interface BoxTypeMap<P = {}, D extends React.ElementType = 'div'> {
+export interface BoxTypeMap<P = object, D extends React.ElementType = 'div'> {
   props: P & BoxOwnProps;
   defaultComponent: D;
 }
 
 export type BoxProps<
   D extends React.ElementType = BoxTypeMap['defaultComponent'],
-> = OverrideProps<BoxTypeMap<{}, D>, D> & {
+> = OverrideProps<BoxTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -50,7 +50,9 @@ const BoxRoot = styled('div', {
     boxShadow: props.boxShadow && `var(--pv-shadow-${props.boxShadow})`,
   }),
   (props) => {
-    const { borderWidth, borderPosition } = props;
+    const {
+      borderWidth, borderPosition,
+    } = props;
 
     if (typeof borderWidth !== 'number') {
       return {};

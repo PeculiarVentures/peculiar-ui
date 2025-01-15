@@ -1,6 +1,6 @@
 import { Color } from '@peculiar/color';
 
-type ColorPalletteSuffix = {
+interface ColorPalletteSuffix {
   '-tint-5': string;
   '-tint-4': string;
   '-tint-3': string;
@@ -49,7 +49,7 @@ export const additionalDark = {
 };
 
 export const grayscale = {
-  white: '#FFFFFF',
+  'white': '#FFFFFF',
   'gray-1': '#FBFCFD',
   'gray-2': '#F4F7FC',
   'gray-3': '#EFF1F6',
@@ -60,10 +60,10 @@ export const grayscale = {
   'gray-8': '#C4C8CC',
   'gray-9': '#8F999E',
   'gray-10': '#5C666A',
-  black: '#293033',
+  'black': '#293033',
 };
 export const grayscaleDark = {
-  white: '#FAFAFA',
+  'white': '#FAFAFA',
   'gray-1': '#2D3338',
   'gray-2': '#32383D',
   'gray-3': '#40474D',
@@ -74,7 +74,7 @@ export const grayscaleDark = {
   'gray-8': '#D4D6D7',
   'gray-9': '#E9EAEB',
   'gray-10': '#ECEDED',
-  black: '#23292B',
+  'black': '#23292B',
 };
 
 export const primary = generateColorPalette('primary', '#5EBC54');

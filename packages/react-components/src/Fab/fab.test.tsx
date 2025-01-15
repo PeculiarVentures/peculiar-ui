@@ -5,7 +5,9 @@ import { PlusIcon } from '../icons';
 
 describe('<Fab />', () => {
   it('should render as default', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Fab>
         <PlusIcon role="img" />
       </Fab>,
@@ -24,7 +26,9 @@ describe('<Fab />', () => {
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Fab className="my-class-name">
         <PlusIcon role="img" />
       </Fab>,
@@ -34,14 +38,16 @@ describe('<Fab />', () => {
   });
 
   describe('variants', () => {
-    const variants: Array<React.ComponentProps<typeof Fab>['variant']> = [
+    const variants: React.ComponentProps<typeof Fab>['variant'][] = [
       'contained',
       'outlined',
     ];
 
     variants.forEach((variant) => {
       it(`variant "${variant}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Fab variant={variant}>
             <PlusIcon role="img" />
           </Fab>,

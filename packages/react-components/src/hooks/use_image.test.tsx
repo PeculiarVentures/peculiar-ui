@@ -5,7 +5,9 @@ describe('useImage()', () => {
   const fakeImagePath = 'fake_path_to_img.png';
 
   it('should return "loading" status while loading', () => {
-    const { result } = renderHook(() => useImage(fakeImagePath));
+    const {
+      result,
+    } = renderHook(() => useImage(fakeImagePath));
 
     expect(result.current.status).toEqual('loading');
     expect(result.current.image).toBeInstanceOf(HTMLImageElement);
@@ -15,7 +17,9 @@ describe('useImage()', () => {
     const onErrorMock = jest.fn();
     const onLoadMock = jest.fn();
 
-    const { result } = renderHook(() => useImage(
+    const {
+      result,
+    } = renderHook(() => useImage(
       fakeImagePath,
       {
         onError: onErrorMock,
@@ -33,7 +37,9 @@ describe('useImage()', () => {
 
   it('should change image on `src` changing', () => {
     const newImagePath = 'new_image_path.png';
-    const { result, rerender } = renderHook(useImage, {
+    const {
+      result, rerender,
+    } = renderHook(useImage, {
       initialProps: fakeImagePath,
     });
 
@@ -50,7 +56,9 @@ describe('useImage()', () => {
     const onErrorMock = jest.fn();
     const onLoadMock = jest.fn();
 
-    const { result } = renderHook(() => useImage(
+    const {
+      result,
+    } = renderHook(() => useImage(
       './fake_path_to_img.png',
       {
         onError: onErrorMock,

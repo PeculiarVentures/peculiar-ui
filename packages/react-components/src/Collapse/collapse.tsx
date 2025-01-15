@@ -16,7 +16,7 @@ type CollapseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onExiting'
 )>;
 
-type CollapseOwnProps = {
+interface CollapseOwnProps {
   /**
    * If `true`, the component will transition in.
    */
@@ -28,7 +28,7 @@ type CollapseOwnProps = {
   /**
    * The transition orientation.
    */
-  orientation?: 'horizontal' | 'vertical',
+  orientation?: 'horizontal' | 'vertical';
   /**
    * A single child content element.
    */
@@ -36,8 +36,8 @@ type CollapseOwnProps = {
 };
 
 type CollapseProps = CollapseOwnProps
-& CollapseTransitionProps
-& React.HTMLAttributes<HTMLDivElement>;
+  & CollapseTransitionProps
+  & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
  */
@@ -50,19 +50,23 @@ const CollapseRoot = styled('div', {
 })<Required<Pick<CollapseOwnProps, 'orientation' | 'timeout' | 'in'> & { state: TransitionStatus }>>((props) => ({
   overflow: 'hidden',
   transition: `${props.orientation === 'horizontal' ? 'width' : 'height'} ${props.timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
-  ...(props.orientation === 'horizontal' ? {
-    height: 'auto',
-    width: 0,
-  } : {
-    height: 0,
-  }),
+  ...(props.orientation === 'horizontal'
+    ? {
+        height: 'auto',
+        width: 0,
+      }
+    : {
+        height: 0,
+      }),
   ...(props.state === 'entered' && {
     overflow: 'visible',
-    ...(props.orientation === 'horizontal' ? {
-      width: 'auto',
-    } : {
-      height: 'auto',
-    }),
+    ...(props.orientation === 'horizontal'
+      ? {
+          width: 'auto',
+        }
+      : {
+          height: 'auto',
+        }),
   }),
   ...(props.state === 'exited' && !props.in && {
     visibility: 'hidden',

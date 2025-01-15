@@ -4,7 +4,9 @@ import { Tooltip } from './index';
 
 describe('<Tooltip />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Tooltip title="tooltipText">
         <div>Text</div>
       </Tooltip>,
@@ -14,7 +16,9 @@ describe('<Tooltip />', () => {
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Tooltip
         open
         title="tooltipText"
@@ -28,7 +32,9 @@ describe('<Tooltip />', () => {
   });
 
   it('should pass arrow', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Tooltip
         open
         arrow
@@ -42,7 +48,9 @@ describe('<Tooltip />', () => {
   });
 
   it('should pass interactive', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Tooltip
         open
         interactive
@@ -56,14 +64,16 @@ describe('<Tooltip />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof Tooltip>['size']> = [
+    const sizes: React.ComponentProps<typeof Tooltip>['size'][] = [
       'small',
       'large',
     ];
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Tooltip
             open
             size={size}
@@ -79,14 +89,16 @@ describe('<Tooltip />', () => {
   });
 
   describe('colors', () => {
-    const colors: Array<React.ComponentProps<typeof Tooltip>['color']> = [
+    const colors: React.ComponentProps<typeof Tooltip>['color'][] = [
       'black',
       'white',
     ];
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Tooltip
             open
             color={color}

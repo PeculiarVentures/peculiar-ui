@@ -6,31 +6,31 @@ import { Slide } from '../Slide';
 /**
  * Types.
  */
-type DrawerOwnProps = {
+interface DrawerOwnProps {
   /**
    * If `true`, the component is shown.
    */
-  open: boolean;
+  'open': boolean;
   /**
    * The content of the component.
    */
-  children: React.ReactNode;
+  'children': React.ReactNode;
   /**
    * The className of Drawer container.
    */
-  className?: string;
+  'className'?: string;
   /**
    * The duration for the transition, in milliseconds.
    */
-  transitionDuration?: number;
+  'transitionDuration'?: number;
   /**
    * Props applied to the `Modal` element.
    */
-  modalProps?: Partial<Omit<ModalProps, 'transitionDuration' | 'open' | 'onClose' | 'keepMounted'>>;
+  'modalProps'?: Partial<Omit<ModalProps, 'transitionDuration' | 'open' | 'onClose' | 'keepMounted'>>;
   /**
    * Callback fired when the component requests to be closed.
    */
-  onClose?: () => void;
+  'onClose'?: () => void;
   'data-testid'?: string;
 };
 
@@ -52,11 +52,13 @@ const DrawerPaper = styled('div')(
     overflowY: 'auto',
     outline: 'none',
     boxSizing: 'border-box',
-    ...(props.theme.mode === 'dark' ? {
-      backgroundColor: 'var(--pv-color-gray-2)',
-    } : {
-      backgroundColor: 'var(--pv-color-white)',
-    }),
+    ...(props.theme.mode === 'dark'
+      ? {
+          backgroundColor: 'var(--pv-color-gray-2)',
+        }
+      : {
+          backgroundColor: 'var(--pv-color-white)',
+        }),
   }),
 );
 /**

@@ -10,7 +10,7 @@ import { ThemeProvider } from '../src';
 import { themeLight, themeDark } from './themes';
 import './global.css';
 
-type ThemedDocsContainerProps = {
+interface ThemedDocsContainerProps {
   context: DocsContextProps;
   children?: React.ReactNode;
 };
@@ -50,12 +50,14 @@ const ThemeWrapper: Decorator = (story) => {
       {story()}
     </ThemeProvider>
   );
-}
+};
 
 const preview: Preview = {
   decorators: [ThemeWrapper],
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: {
+      argTypesRegex: '^on[A-Z].*',
+    },
     darkMode: {
       dark: themeDark,
       light: themeLight,

@@ -4,7 +4,7 @@ import { useMediaQuery } from './use_media_query';
 const matchMediaInstances = new Map();
 
 const createMatchMedia = (mediaQuery: string) => {
-  const listeners: Function[] = [];
+  const listeners: VoidFunction[] = [];
 
   return (query: string) => {
     let instance = matchMediaInstances.get(query)?.instance;
@@ -12,10 +12,10 @@ const createMatchMedia = (mediaQuery: string) => {
     if (!instance) {
       instance = {
         matches: query === mediaQuery,
-        addListener: (listener: Function) => {
+        addListener: (listener: VoidFunction) => {
           listeners.push(listener);
         },
-        removeListener: (listener: Function) => {
+        removeListener: (listener: VoidFunction) => {
           const index = listeners.indexOf(listener);
 
           if (index > -1) {
@@ -47,19 +47,25 @@ describe('useMediaQuery()', () => {
   });
 
   it('should return `false` if query is not matched', () => {
-    const { result } = renderHook(() => useMediaQuery('(max-width: 526px)'));
+    const {
+      result,
+    } = renderHook(() => useMediaQuery('(max-width: 526px)'));
 
     expect(result.current).toBe(false);
   });
 
   it('should return `true` if query is matched', () => {
-    const { result } = renderHook(() => useMediaQuery(mediaQuery));
+    const {
+      result,
+    } = renderHook(() => useMediaQuery(mediaQuery));
 
     expect(result.current).toBe(true);
   });
 
   it('should update update matches when query is changed', () => {
-    const { result } = renderHook(() => useMediaQuery(mediaQuery));
+    const {
+      result,
+    } = renderHook(() => useMediaQuery(mediaQuery));
 
     expect(result.current).toBe(true);
 

@@ -4,7 +4,9 @@ import { Popover } from './index';
 
 describe('<Popover />', () => {
   it('should render with default styles', () => {
-    const { baseElement } = render(
+    const {
+      baseElement,
+    } = render(
       <Popover
         open={false}
         anchorEl={document.createElement('div')}
@@ -17,7 +19,9 @@ describe('<Popover />', () => {
   });
 
   it('should render with default open styles', () => {
-    const { baseElement } = render(
+    const {
+      baseElement,
+    } = render(
       <Popover
         open
         anchorEl={document.createElement('div')}

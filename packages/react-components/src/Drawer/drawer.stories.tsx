@@ -24,8 +24,12 @@ const meta: Meta<typeof Drawer> = {
     },
   },
   argTypes: {
-    children: { control: false },
-    style: { control: false },
+    children: {
+      control: false,
+    },
+    style: {
+      control: false,
+    },
   },
 };
 

@@ -6,7 +6,7 @@ import { ArrowDropDownIcon } from '../icons';
 /**
  * Types.
  */
-type NativeSelectOwnProps = {
+interface NativeSelectOwnProps {
   options: {
     value: string;
     label: string;
@@ -80,7 +80,7 @@ type NativeSelectOwnProps = {
 
 type NativeSelectProps = NativeSelectOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 type NativeSelectRootProps = React.HTMLAttributes<HTMLSelectElement> & {
-  selectSize?: NativeSelectOwnProps['size']
+  selectSize?: NativeSelectOwnProps['size'];
 };
 /**
  *

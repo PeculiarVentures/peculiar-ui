@@ -29,10 +29,12 @@ export function useClipboard() {
       }, 1500);
 
       copyToClipboard(text);
-    } catch (error) {
+    } catch {
       // ignore error
     }
   };
 
-  return { copy, isCopied };
+  return {
+    copy, isCopied,
+  };
 }

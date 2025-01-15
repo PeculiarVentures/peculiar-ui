@@ -7,7 +7,7 @@ import { CloseIcon } from '../icons';
 /**
  * Types.
  */
-type DialogTitleOwnProps = {
+interface DialogTitleOwnProps {
   /**
    * The content of the component.
    */

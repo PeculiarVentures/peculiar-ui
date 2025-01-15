@@ -4,26 +4,36 @@ import { CircularProgress } from './index';
 
 describe('<CircularProgress />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(<CircularProgress />);
+    const {
+      asFragment,
+    } = render(
+      <CircularProgress />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(<CircularProgress className="my-class-name" />);
+    const {
+      asFragment,
+    } = render(
+      <CircularProgress className="my-class-name" />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   describe('sizes', () => {
-    const sizes: Array<React.ComponentProps<typeof CircularProgress>['size']> = [
+    const sizes: React.ComponentProps<typeof CircularProgress>['size'][] = [
       'small',
       'large',
     ];
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <CircularProgress size={size} />,
         );
 
@@ -33,7 +43,7 @@ describe('<CircularProgress />', () => {
   });
 
   describe('colors', () => {
-    const colors: Array<React.ComponentProps<typeof CircularProgress>['color']> = [
+    const colors: React.ComponentProps<typeof CircularProgress>['color'][] = [
       'primary',
       'secondary',
       'white',
@@ -41,7 +51,9 @@ describe('<CircularProgress />', () => {
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <CircularProgress color={color} />,
         );
 

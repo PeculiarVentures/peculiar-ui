@@ -5,7 +5,7 @@ import { Fade } from '../Fade';
 /**
  * Types.
  */
-type ToastOwnProps = {
+interface ToastOwnProps {
   /**
    * The `id` of the toast. Mostly used when you need to prevent duplicate.
    */

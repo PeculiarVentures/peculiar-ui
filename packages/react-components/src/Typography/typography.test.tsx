@@ -4,7 +4,9 @@ import { Typography } from './index';
 
 describe('<Typography />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Typography>
         Typography message
       </Typography>,
@@ -14,7 +16,9 @@ describe('<Typography />', () => {
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Typography className="my-class-name">
         Typography message
       </Typography>,
@@ -24,7 +28,9 @@ describe('<Typography />', () => {
   });
 
   it('should pass "component"', () => {
-    const { asFragment } = render(
+    const {
+      asFragment,
+    } = render(
       <Typography component="div">
         Typography message
       </Typography>,
@@ -34,7 +40,7 @@ describe('<Typography />', () => {
   });
 
   describe('should render correct colors', () => {
-    const colors: Array<React.ComponentProps<typeof Typography>['color']> = [
+    const colors: React.ComponentProps<typeof Typography>['color'][] = [
       'primary',
       'secondary',
       'wrong',
@@ -58,7 +64,9 @@ describe('<Typography />', () => {
 
     colors.forEach((color) => {
       it(`color: "${color}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Typography color={color}>
             Typography message
           </Typography>,
@@ -70,7 +78,7 @@ describe('<Typography />', () => {
   });
 
   describe('should render correct variants', () => {
-    const variants: Array<React.ComponentProps<typeof Typography>['variant']> = [
+    const variants: React.ComponentProps<typeof Typography>['variant'][] = [
       'h1',
       'h2',
       'h3',
@@ -89,7 +97,9 @@ describe('<Typography />', () => {
 
     variants.forEach((variant) => {
       it(`variant: "${variant}"`, () => {
-        const { asFragment } = render(
+        const {
+          asFragment,
+        } = render(
           <Typography variant={variant}>
             Typography message
           </Typography>,

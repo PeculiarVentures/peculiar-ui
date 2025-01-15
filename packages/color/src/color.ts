@@ -60,7 +60,6 @@ export class Color {
   palette(): Record<PaletteTypes, Color> {
     const [h, s, b] = this.toHsb();
     const steps = 5;
-
     let saturationTintStep = (s - this.saturationMinMax[0]) / steps;
     let saturationShadeStep = (s - this.saturationMinMax[1]) / steps;
     let brightnessTintStep = (this.brightnessMinMax[1] - b) / steps;

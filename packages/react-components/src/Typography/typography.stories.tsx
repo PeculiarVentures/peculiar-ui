@@ -9,9 +9,13 @@ const meta: Meta<typeof Typography> = {
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
   },
   argTypes: {
-    children: { control: 'text' },
-    // @ts-ignore
-    component: { control: false },
+    children: {
+      control: 'text',
+    },
+    // @ts-expect-error: `component` is not a valid prop
+    component: {
+      control: false,
+    },
   },
 };
 

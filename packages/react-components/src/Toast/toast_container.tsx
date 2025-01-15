@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 /**
  * Types.
  */
-type ToastContainerOwnProps = {
+interface ToastContainerOwnProps {
   /**
    * The content of the component.
    */
@@ -20,15 +20,15 @@ export type ToastContainerProps = ToastContainerOwnProps & Omit<React.HTMLAttrib
  * Styles.
  */
 const ToastContainerRoot = styled('div')({
-  position: 'fixed',
-  bottom: 0,
-  padding: '10px',
-  zIndex: 1300,
-  width: '100%',
-  maxWidth: '460px',
-  wordBreak: 'break-word',
-  left: '50%',
-  transform: 'translateX(-50%)',
+  'position': 'fixed',
+  'bottom': 0,
+  'padding': '10px',
+  'zIndex': 1300,
+  'width': '100%',
+  'maxWidth': '460px',
+  'wordBreak': 'break-word',
+  'left': '50%',
+  'transform': 'translateX(-50%)',
   '& > * + *': {
     marginTop: '10px',
   },
@@ -38,7 +38,9 @@ const ToastContainerRoot = styled('div')({
  */
 
 export const ToastContainer: React.FC<ToastContainerProps> = (props) => {
-  const { children, ...other } = props;
+  const {
+    children, ...other
+  } = props;
 
   return (
     <ToastContainerRoot

@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { useEnhancedEffect } from '../hooks';
 
-type BaseProps = {
+interface BaseProps {
   /**
    * The content of the component.
    */
@@ -21,7 +21,9 @@ function getContainer(container: BaseProps['container']) {
 }
 
 export const Portal: React.FC<BaseProps> = (props) => {
-  const { children, container } = props;
+  const {
+    children, container,
+  } = props;
   const [mountNode, setMountNode] = React.useState(null);
 
   useEnhancedEffect(() => {

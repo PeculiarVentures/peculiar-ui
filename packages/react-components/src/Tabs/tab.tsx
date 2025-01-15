@@ -32,14 +32,14 @@ export interface TabOwnProps {
   onClick?: never;
 }
 
-export interface TabTypeMap<P = {}, D extends React.ElementType = 'button'> {
+export interface TabTypeMap<P = object, D extends React.ElementType = 'button'> {
   props: P & TabOwnProps;
   defaultComponent: D;
 }
 
 export type TabProps<
   D extends React.ElementType = TabTypeMap['defaultComponent'],
-> = OverrideProps<TabTypeMap<{}, D>, D> & {
+> = OverrideProps<TabTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -51,7 +51,7 @@ export type TabProps<
  */
 const TabRoot = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Required<{ color: ColorType, selected: boolean }>>(
+})<Required<{ color: ColorType; selected: boolean }>>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -135,7 +135,7 @@ export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
     component,
     id,
     disabled,
-    // @ts-ignore
+    // @ts-expect-error: Property `selected` does not exist on type 'TabProps<"button">'
     selected,
     children,
     onChange,

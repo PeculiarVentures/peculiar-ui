@@ -12,7 +12,7 @@ export type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onExiting'
 )>;
 
-type BaseProps = {
+interface BaseProps {
   /**
    * If `true`, the component will transition in.
    */

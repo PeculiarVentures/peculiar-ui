@@ -9,6 +9,7 @@ import {
 } from './foundations';
 
 export const themeCSSVariablePrefix = 'pv';
+
 export const contrastThreshold = 2;
 
 export const createTheme = (mode: 'light' | 'dark', options?: ThemeOptionsType): ThemeType => {
@@ -48,15 +49,21 @@ export const createTheme = (mode: 'light' | 'dark', options?: ThemeOptionsType):
         ...wrong || {},
         ...attention || {},
         ...success || {},
-        ...(primary ? {
-          'primary-contrast': getContrastText(primary.primary),
-        } : {}),
-        ...(secondary ? {
-          'secondary-contrast': getContrastText(secondary.secondary),
-        } : {}),
-        ...(wrong ? {
-          'wrong-contrast': getContrastText(wrong.wrong),
-        } : {}),
+        ...(primary
+          ? {
+              'primary-contrast': getContrastText(primary.primary),
+            }
+          : {}),
+        ...(secondary
+          ? {
+              'secondary-contrast': getContrastText(secondary.secondary),
+            }
+          : {}),
+        ...(wrong
+          ? {
+              'wrong-contrast': getContrastText(wrong.wrong),
+            }
+          : {}),
       },
       options?.color || {},
     ]) as ThemeType['color'],
@@ -71,7 +78,9 @@ export const createThemeCSSVariablesFromObject = (object: Record<string, any>) =
     {
       [`--${themeCSSVariablePrefix}`]: object,
     },
-    { delimiter: '-' },
+    {
+      delimiter: '-',
+    },
   );
 
   return flatted;

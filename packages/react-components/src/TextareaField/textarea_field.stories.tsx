@@ -9,9 +9,15 @@ const meta: Meta<typeof TextareaField> = {
     placeholder: 'Placeholder',
   },
   argTypes: {
-    inputProps: { control: false },
-    inputRef: { control: false },
-    onChange: { control: false },
+    inputProps: {
+      control: false,
+    },
+    inputRef: {
+      control: false,
+    },
+    onChange: {
+      control: false,
+    },
   },
 };
 

@@ -16,17 +16,17 @@ import { ArrowDropDownIcon, PlusIcon } from '../icons';
 import { MenuItem } from '../MenuList';
 
 /**
- * Types.
+ * Interfaces.
  */
-export type SelectRenderGroupParams = {
+export interface SelectRenderGroupParams {
   key: string | number;
   group: string;
   children?: React.ReactNode;
 };
 
 export type SelectOwnProps<
-T,
-Multiple extends boolean | undefined = undefined,
+  T,
+  Multiple extends boolean | undefined = undefined,
 > = UseAutocompleteProps<T, Multiple> & {
   /**
    * The className of the component.
@@ -201,11 +201,11 @@ TypographyOwnProps & Required<Pick<SelectOwnProps<any, boolean>, 'size' | 'multi
 );
 
 const SelectArrowIcon = styled(ArrowDropDownIcon)({
-  position: 'absolute',
-  right: '0px',
-  top: 'calc(50% - 12px)',
-  margin: '0px var(--pv-size-base)',
-  color: 'var(--pv-color-gray-10)',
+  'position': 'absolute',
+  'right': '0px',
+  'top': 'calc(50% - 12px)',
+  'margin': '0px var(--pv-size-base)',
+  'color': 'var(--pv-color-gray-10)',
   '&[aria-disabled="true"]': {
     color: 'inherit',
   },
@@ -270,7 +270,7 @@ const SelectTagsList = styled('div')({
 });
 
 const SelectTag = styled(Chip)<{
-  size: SelectOwnProps<any>['size'],
+  size: SelectOwnProps<any>['size'];
 }>((props) => ({
   label: 'Select-tag',
   borderRadius: '3px',
@@ -309,11 +309,11 @@ const SelectLabel = styled('label')({
  */
 
 export const Select = <
-T,
-Multiple extends boolean | undefined = false,
+  T,
+  Multiple extends boolean | undefined = false,
 >(
-    props: SelectOwnProps<T, Multiple>,
-  ): JSX.Element => {
+  props: SelectOwnProps<T, Multiple>,
+): JSX.Element => {
   const {
     className,
     size,
@@ -404,6 +404,7 @@ Multiple extends boolean | undefined = false,
         <>
           <SelectTagsList>
             {valueLimits.map((v, index) => (
+              // eslint-disable-next-line react/jsx-key
               <SelectTag
                 {...getTagProps(v, index)}
                 color="secondary"
@@ -436,7 +437,7 @@ Multiple extends boolean | undefined = false,
     <SelectField
       {...propsRoot}
       noWrap
-      // @ts-ignore
+      // @ts-expect-error: `component` is not a valid prop
       component="button"
       type="button"
       variant={size === 'small' ? 'c1' : 'b3'}
@@ -461,6 +462,7 @@ Multiple extends boolean | undefined = false,
         name={name}
         required={required}
         readOnly={readOnly}
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         onChange={() => { }}
       />
     </SelectField>
@@ -529,39 +531,41 @@ Multiple extends boolean | undefined = false,
         )}
         {loading && groupedOptions.length === 0 && (
           <SelectDropdownStateItem>
-            {typeof loadingText === 'string' ? (
-              <Typography
-                variant="b2"
-                color="gray-10"
-              >
-                {loadingText}
-              </Typography>
-            ) : loadingText}
+            {typeof loadingText === 'string'
+              ? (
+                  <Typography
+                    variant="b2"
+                    color="gray-10"
+                  >
+                    {loadingText}
+                  </Typography>
+                )
+              : loadingText}
           </SelectDropdownStateItem>
         )}
         {groupedOptions.length === 0 && !loading && (
           <SelectDropdownStateItem>
-            {typeof noOptionsText === 'string' ? (
-              <Typography
-                variant="b2"
-                color="gray-10"
-              >
-                {noOptionsText}
-              </Typography>
-            ) : noOptionsText}
+            {typeof noOptionsText === 'string'
+              ? (
+                  <Typography
+                    variant="b2"
+                    color="gray-10"
+                  >
+                    {noOptionsText}
+                  </Typography>
+                )
+              : noOptionsText}
           </SelectDropdownStateItem>
         )}
         {groupedOptions.length > 0 && (
           <SelectDropdownList {...getListboxProps()}>
             {groupedOptions
-              // @ts-ignore
               .map((option, index) => {
-                // @ts-ignore
+                // @ts-expect-error: 'options' may exist when grouped
                 if (groupBy && 'options' in option) {
                   return renderGroup({
                     key: option.key,
                     group: option.group,
-                    // @ts-ignore
                     children: option.options.map((option2, index2) => (
                       renderListOption(option2, option.index + index2)
                     )),
@@ -594,7 +598,6 @@ Multiple extends boolean | undefined = false,
   );
 };
 
-// @ts-ignore
 Select.defaultProps = {
   disableSearch: false,
   noOptionsText: 'No options',

@@ -5,7 +5,7 @@ import { Tab, TabProps } from './tab';
 /**
  * Types.
  */
-type TabsOwnProps = {
+interface TabsOwnProps {
   /**
    * The content of the component.
    */
@@ -65,7 +65,6 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => 
       const selected = childValue === value;
 
       return React.cloneElement(child, {
-        // @ts-ignore
         selected,
         onChange,
       });
@@ -82,3 +81,5 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => 
     </TabsRoot>
   );
 });
+
+Tabs.displayName = 'Tabs';
