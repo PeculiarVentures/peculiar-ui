@@ -17,6 +17,6 @@ const meta: Meta<typeof Image> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Image>;
+type TStory = StoryObj<typeof Image>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

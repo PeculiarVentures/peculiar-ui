@@ -326,6 +326,6 @@ const meta: Meta<typeof Autocomplete> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Autocomplete>;
+type TStory = StoryObj<typeof Autocomplete>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

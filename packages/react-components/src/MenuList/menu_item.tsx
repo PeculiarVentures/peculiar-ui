@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { Typography } from '../Typography';
 import { TypographyType } from '../styles';
 
 /**
  * Types.
  */
-interface MenuItemOwnProps {
+interface IMenuItemOwnProps {
   children: React.ReactNode;
   /**
    * If `true`, the component is disabled.
@@ -28,14 +28,14 @@ interface MenuItemOwnProps {
   endIcon?: React.ReactNode;
 };
 
-export interface MenuItemTypeMap<P = object, D extends React.ElementType = 'li'> {
-  props: P & MenuItemOwnProps;
+export interface IMenuItemTypeMap<P = object, D extends React.ElementType = 'li'> {
+  props: P & IMenuItemOwnProps;
   defaultComponent: D;
 }
 
-export type MenuItemProps<
-  D extends React.ElementType = MenuItemTypeMap['defaultComponent'],
-> = OverrideProps<MenuItemTypeMap<object, D>, D> & {
+export type TMenuItemProps<
+  D extends React.ElementType = IMenuItemTypeMap['defaultComponent'],
+> = TOverrideProps<IMenuItemTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -45,7 +45,7 @@ export type MenuItemProps<
 /**
  * Styles.
  */
-const MenuItemRoot = styled('li', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'disabled' })<MenuItemOwnProps>(
+const MenuItemRoot = styled('li', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'disabled' })<IMenuItemOwnProps>(
   (props) => ({
     padding: '0px var(--pv-size-base-2)',
     fontFamily: 'inherit',
@@ -106,7 +106,7 @@ const MenuItemLabel = styled('span')({ flex: '1 1 auto' });
  *
  */
 
-export const MenuItem = React.forwardRef<any, MenuItemProps>((props, ref) => {
+export const MenuItem = React.forwardRef<any, TMenuItemProps>((props, ref) => {
   const {
     component,
     children,
@@ -167,6 +167,6 @@ export const MenuItem = React.forwardRef<any, MenuItemProps>((props, ref) => {
       )}
     </MenuItemRoot>
   );
-}) as OverridableComponent<MenuItemTypeMap>;
+}) as IOverridableComponent<IMenuItemTypeMap>;
 
 MenuItem.displayName = 'MenuItem';

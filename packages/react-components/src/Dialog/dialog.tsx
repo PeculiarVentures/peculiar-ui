@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import type { CircularProgressProps } from '../CircularProgress';
+import type { TCircularProgressProps } from '../CircularProgress';
 import { Modal } from '../Modal';
 import { Box } from '../Box';
 import { Fade } from '../Fade';
@@ -9,7 +9,7 @@ import { CircularProgress } from '../CircularProgress';
 /**
  * Types.
  */
-interface DialogOwnProps {
+interface IDialogOwnProps {
   /**
    * If `true`, the Dialog is open.
    */
@@ -57,11 +57,11 @@ interface DialogOwnProps {
   /**
    * The color of the CircularProgress component.
    */
-  loadingColor?: CircularProgressProps['color'];
+  loadingColor?: TCircularProgressProps['color'];
   'data-testid'?: string;
 };
 
-type DialogProps = DialogOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type TDialogProps = IDialogOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -71,7 +71,7 @@ const reactPropsRegex = /^(loading|fullScreen)$/;
 /**
  * Styles.
  */
-const DialogRoot = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<DialogOwnProps>(
+const DialogRoot = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<IDialogOwnProps>(
   (props) => ({
     width: '100%',
     display: 'flex',
@@ -132,7 +132,7 @@ const DialogLoading = styled(Box)({
  *
  */
 
-export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref) => {
+export const Dialog = React.forwardRef<HTMLDivElement, TDialogProps>((props, ref) => {
   const {
     open,
     children,

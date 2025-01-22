@@ -17,13 +17,13 @@ import { MenuItem } from '../MenuList';
 /**
  * Types.
  */
-export interface AutocompleteRenderGroupParams {
+export interface IAutocompleteRenderGroupParams {
   key: string | number;
   group: string;
   children?: React.ReactNode;
 };
 
-export type AutocompleteOwnProps<
+export type TAutocompleteOwnProps<
   T,
   Multiple extends boolean | undefined = undefined,
 > = UseAutocompleteProps<T, Multiple> & {
@@ -121,7 +121,7 @@ const reactPropsRegex = /^(as|size|disabled|isHasClearIcon)$/;
  */
 const AutocompleteField = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<
   TypographyOwnProps
-  & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
+  & Required<Pick<TAutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
   & { isHasClearIcon: boolean }
 >(
   {
@@ -310,7 +310,7 @@ const AutocompletePopover = styled(Popper)(
 );
 
 const AutocompleteTag = styled(Chip)<{
-  size: AutocompleteOwnProps<any>['size'];
+  size: TAutocompleteOwnProps<any>['size'];
 }>((props) => ({
   label: 'Autocomplete-tag',
   borderRadius: '3px',
@@ -371,7 +371,7 @@ const AutocompleteLabel = styled('label')({
 export const Autocomplete = <
   T,
   Multiple extends boolean | undefined = false,
->(props: AutocompleteOwnProps<T, Multiple>): JSX.Element => {
+>(props: TAutocompleteOwnProps<T, Multiple>): JSX.Element => {
   const {
     className,
     size,
@@ -459,7 +459,7 @@ export const Autocomplete = <
     }
   };
 
-  const defaultRenderOption: AutocompleteOwnProps<T, Multiple>['renderOption'] = (propsOption, option) => (
+  const defaultRenderOption: TAutocompleteOwnProps<T, Multiple>['renderOption'] = (propsOption, option) => (
     <AutocompleteDropdownGroupListItem
       {...propsOption}
       inGroup={Boolean(groupBy)}
@@ -468,7 +468,7 @@ export const Autocomplete = <
     </AutocompleteDropdownGroupListItem>
   );
 
-  const renderGroup = (params: AutocompleteRenderGroupParams) => (
+  const renderGroup = (params: IAutocompleteRenderGroupParams) => (
     <li key={params.key}>
       <AutocompleteDropdownGroupName
         variant="c1"
@@ -482,7 +482,7 @@ export const Autocomplete = <
     </li>
   );
 
-  const defaultRenderTag: AutocompleteOwnProps<T, Multiple>['renderTag'] = (propsOption, option) => (
+  const defaultRenderTag: TAutocompleteOwnProps<T, Multiple>['renderTag'] = (propsOption, option) => (
     <AutocompleteTag
       {...propsOption}
       color="secondary"
@@ -534,7 +534,7 @@ export const Autocomplete = <
   const isValueEmpty = renderedValue === null;
   const popoverRef = useOutsideClick(popoverProps.onClose);
 
-  const defaultRenderRoot: AutocompleteOwnProps<T, Multiple>['renderRoot'] = ({
+  const defaultRenderRoot: TAutocompleteOwnProps<T, Multiple>['renderRoot'] = ({
     // @ts-expect-error: 'ref' type may not match
     ref,
     ...propsRoot

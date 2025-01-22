@@ -6,7 +6,7 @@ import isPropValid from '@emotion/is-prop-valid';
 /**
  * Types.
  */
-interface CircularProgressOwnProps {
+interface ICircularProgressOwnProps {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
@@ -35,7 +35,7 @@ interface CircularProgressOwnProps {
   value?: number;
 };
 
-export type CircularProgressProps = CircularProgressOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type TCircularProgressProps = ICircularProgressOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -67,7 +67,7 @@ const circularDashKeyframe = keyframes`
   }
 `;
 
-const CircularProgressRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<CircularProgressOwnProps>((props) => ({
+const CircularProgressRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<ICircularProgressOwnProps>((props) => ({
   label: 'CircularProgress',
   overflow: 'hidden',
   position: 'relative',
@@ -88,7 +88,7 @@ const CircularProgressRoot = styled('div', { shouldForwardProp: (prop) => isProp
 
 const CircularProgressSvg = styled('svg')({ display: 'block' });
 
-const CircularProgressCircle = styled('circle')<Required<Pick<CircularProgressOwnProps, 'variant'>>>((props) => ({
+const CircularProgressCircle = styled('circle')<Required<Pick<ICircularProgressOwnProps, 'variant'>>>((props) => ({
   stroke: 'currentcolor',
   strokeDasharray: '80px, 200px',
   strokeDashoffset: 0,
@@ -101,7 +101,7 @@ const CircularProgressCircle = styled('circle')<Required<Pick<CircularProgressOw
 const SIZE = 44;
 const THICKNESS = 4;
 
-export const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgressProps>(
+export const CircularProgress = React.forwardRef<HTMLDivElement, TCircularProgressProps>(
   (props, ref) => {
     const {
       size,

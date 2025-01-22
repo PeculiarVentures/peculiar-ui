@@ -11,7 +11,7 @@ import { Typography } from '../Typography';
 /**
  * Types.
  */
-export interface TooltipOwnProps {
+export interface ITooltipOwnProps {
   /**
    * If `true`, the component is shown.
    */
@@ -79,7 +79,7 @@ export interface TooltipOwnProps {
   offset?: number;
 };
 
-export type TooltipProps = TooltipOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
+export type TTooltipProps = ITooltipOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
 /**
  *
  */
@@ -96,7 +96,7 @@ const stylesKeyframeOpacity = keyframes`
   }
 `;
 
-const TooltipRoot = styled(Box, { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Pick<TooltipOwnProps, 'size'>>(
+const TooltipRoot = styled(Box, { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Pick<ITooltipOwnProps, 'size'>>(
   (props) => ({
     maxWidth: '300px',
     wordWrap: 'break-word',
@@ -133,7 +133,7 @@ const TooltipRoot = styled(Box, { shouldForwardProp: (prop) => isPropValid(prop)
   },
 );
 
-const TooltipPopper = styled(Popper)<Required<Pick<TooltipOwnProps, 'interactive'>>>((props) => ({
+const TooltipPopper = styled(Popper)<Required<Pick<ITooltipOwnProps, 'interactive'>>>((props) => ({
   pointerEvents: props.interactive ? 'auto' : 'none',
   zIndex: 1500,
   '&[data-popper-placement^="bottom"]': {
@@ -162,7 +162,7 @@ const TooltipPopper = styled(Popper)<Required<Pick<TooltipOwnProps, 'interactive
   },
 }));
 
-const TooltipArrow = styled('span', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<TooltipOwnProps, 'color'>>>(
+const TooltipArrow = styled('span', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<ITooltipOwnProps, 'color'>>>(
   {
     width: '8px',
     height: '8px',
@@ -200,7 +200,7 @@ const TooltipArrow = styled('span', { shouldForwardProp: (prop) => isPropValid(p
  *
  */
 
-export const Tooltip: React.FC<TooltipProps> = (props) => {
+export const Tooltip: React.FC<TTooltipProps> = (props) => {
   const {
     open: openProp,
     children,

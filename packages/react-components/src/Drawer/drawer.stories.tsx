@@ -29,6 +29,6 @@ const meta: Meta<typeof Drawer> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Drawer>;
+type TStory = StoryObj<typeof Drawer>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

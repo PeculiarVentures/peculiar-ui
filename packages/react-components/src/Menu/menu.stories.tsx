@@ -56,6 +56,6 @@ const meta: Meta<typeof Menu> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Menu>;
+type TStory = StoryObj<typeof Menu>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

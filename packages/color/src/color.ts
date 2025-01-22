@@ -4,7 +4,7 @@ import { rgbToHex } from './rgb_to_hex';
 import { hsbToRgb } from './hsb_to_rgb';
 import { getContrastRatio } from './get_contrast_ratio';
 
-type PaletteTypes = (
+type TPaletteTypes = (
   'tint5' |
   'tint4' |
   'tint3' |
@@ -57,7 +57,7 @@ export class Color {
     return rgbToHsb(this.red, this.green, this.blue);
   }
 
-  palette(): Record<PaletteTypes, Color> {
+  palette(): Record<TPaletteTypes, Color> {
     const [h, s, b] = this.toHsb();
     const steps = 5;
     let saturationTintStep = (s - this.saturationMinMax[0]) / steps;

@@ -6,7 +6,7 @@ import { Box } from '../Box';
 /**
  * Types.
  */
-interface BackdropOwnProps {
+interface IBackdropOwnProps {
   /**
    * If `true`, the backdrop is open.
    */
@@ -26,7 +26,7 @@ interface BackdropOwnProps {
   variant?: ('light' | 'medium' | 'heavy');
 };
 
-export type BackdropProps = BackdropOwnProps
+export type TBackdropProps = IBackdropOwnProps
   & BaseTransitionProps
   & React.HTMLAttributes<HTMLDivElement>;
 /**
@@ -38,7 +38,7 @@ const reactPropsRegex = /^(as|open|invisible|transitionDuration|variant)$/;
 /**
  * Styles.
  */
-const BackdropRoot = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<Required<Pick<BackdropOwnProps, 'invisible'>>>((props) => ({
+const BackdropRoot = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<Required<Pick<IBackdropOwnProps, 'invisible'>>>((props) => ({
   zIndex: -1,
   position: 'fixed',
   right: 0,
@@ -58,7 +58,7 @@ const variants = {
   heavy: 0.9,
 };
 
-export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, ref) => {
+export const Backdrop = React.forwardRef<HTMLDivElement, TBackdropProps>((props, ref) => {
   const {
     open,
     transitionDuration,

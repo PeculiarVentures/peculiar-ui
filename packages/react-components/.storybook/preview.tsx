@@ -10,14 +10,14 @@ import { ThemeProvider } from '../src';
 import { themeLight, themeDark } from './themes';
 import './global.css';
 
-interface ThemedDocsContainerProps {
+interface IThemedDocsContainerProps {
   context: DocsContextProps;
   children?: React.ReactNode;
 };
 
 const channel = addons.getChannel();
 
-const ThemedDocsContainer: React.FC<ThemedDocsContainerProps> = (props) => {
+const ThemedDocsContainer: React.FC<IThemedDocsContainerProps> = (props) => {
   const [isDark, setDark] = React.useState(false);
 
   React.useEffect(() => {

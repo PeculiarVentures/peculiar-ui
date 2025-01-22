@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { Button, ButtonOwnProps } from '../Button';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import { Button, IButtonOwnProps } from '../Button';
 import { Tooltip, TooltipOwnProps } from '../Tooltip';
 
 /**
  * Types.
  */
-export interface IconButtonOwnProps extends Omit<ButtonOwnProps, 'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'> {
+export interface IIconButtonOwnProps extends Omit<IButtonOwnProps, 'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'> {
   /**
    * The text that applied to `aria-label` attribute and Tooltip content.
    */
@@ -18,14 +18,14 @@ export interface IconButtonOwnProps extends Omit<ButtonOwnProps, 'variant' | 'wi
   tooltipProps?: Omit<TooltipOwnProps, 'open' | 'title' | 'children'>;
 }
 
-export interface IconButtonTypeMap<P = object, D extends React.ElementType = 'button'> {
-  props: P & IconButtonOwnProps;
+export interface IIconButtonTypeMap<P = object, D extends React.ElementType = 'button'> {
+  props: P & IIconButtonOwnProps;
   defaultComponent: D;
 }
 
-export type IconButtonProps<
-  D extends React.ElementType = IconButtonTypeMap['defaultComponent'],
-> = OverrideProps<IconButtonTypeMap<object, D>, D> & {
+export type TIconButtonProps<
+  D extends React.ElementType = IIconButtonTypeMap['defaultComponent'],
+> = TOverrideProps<IIconButtonTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -43,7 +43,7 @@ const IconButtonRoot = styled(Button)({
  *
  */
 
-export const IconButton = React.forwardRef<any, IconButtonProps>((props, ref) => {
+export const IconButton = React.forwardRef<any, TIconButtonProps>((props, ref) => {
   const {
     title,
     disabled,
@@ -75,7 +75,7 @@ export const IconButton = React.forwardRef<any, IconButtonProps>((props, ref) =>
       {component}
     </Tooltip>
   );
-}) as OverridableComponent<IconButtonTypeMap>;
+}) as IOverridableComponent<IIconButtonTypeMap>;
 
 IconButton.displayName = 'IconButton';
 

@@ -15,9 +15,9 @@ const meta: Meta<typeof Typography> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Typography>;
+type TStory = StoryObj<typeof Typography>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};
 
 export const VariantExample = () => (
   <>

@@ -7,7 +7,7 @@ import { Transition } from 'react-transition-group';
 /**
  * Types.
  */
-type CollapseTransitionProps = Pick<TransitionProps<HTMLElement>, (
+type TCollapseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onEnter' |
   'onEntered' |
   'onEntering' |
@@ -16,7 +16,7 @@ type CollapseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onExiting'
 )>;
 
-interface CollapseOwnProps {
+interface ICollapseOwnProps {
   /**
    * If `true`, the component will transition in.
    */
@@ -35,8 +35,8 @@ interface CollapseOwnProps {
   children: React.ReactNode;
 };
 
-type CollapseProps = CollapseOwnProps
-  & CollapseTransitionProps
+type TCollapseProps = ICollapseOwnProps
+  & TCollapseTransitionProps
   & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
@@ -45,7 +45,7 @@ type CollapseProps = CollapseOwnProps
 /**
  * Styles.
  */
-const CollapseRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && !['orientation', 'in'].includes(prop) })<Required<Pick<CollapseOwnProps, 'orientation' | 'timeout' | 'in'> & { state: TransitionStatus }>>((props) => ({
+const CollapseRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && !['orientation', 'in'].includes(prop) })<Required<Pick<ICollapseOwnProps, 'orientation' | 'timeout' | 'in'> & { state: TransitionStatus }>>((props) => ({
   overflow: 'hidden',
   transition: `${props.orientation === 'horizontal' ? 'width' : 'height'} ${props.timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
   ...(props.orientation === 'horizontal'
@@ -66,7 +66,7 @@ const CollapseRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(pr
  *
  */
 
-export const Collapse: React.FC<CollapseProps> = (props) => {
+export const Collapse: React.FC<TCollapseProps> = (props) => {
   const {
     timeout,
     in: inProp,

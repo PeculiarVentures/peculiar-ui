@@ -4,14 +4,14 @@ import styled from '@emotion/styled';
 /**
  * Types.
  */
-interface ToastContainerOwnProps {
+interface IToastContainerOwnProps {
   /**
    * The content of the component.
    */
   children: React.ReactNode;
 };
 
-export type ToastContainerProps = ToastContainerOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type TToastContainerProps = IToastContainerOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -35,7 +35,7 @@ const ToastContainerRoot = styled('div')({
  *
  */
 
-export const ToastContainer: React.FC<ToastContainerProps> = (props) => {
+export const ToastContainer: React.FC<TToastContainerProps> = (props) => {
   const { children, ...other } = props;
 
   return (

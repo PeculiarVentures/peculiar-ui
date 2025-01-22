@@ -1,14 +1,14 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { Typography } from '../Typography';
 import { CloseSmallIcon } from '../icons';
 
 /**
  * Types.
  */
-export interface ChipOwnProps {
+export interface IChipOwnProps {
   /**
    * The content of the component.
    */
@@ -43,14 +43,14 @@ export interface ChipOwnProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
-export interface ChipTypeMap<P = object, D extends React.ElementType = 'div'> {
-  props: P & ChipOwnProps;
+export interface IChipTypeMap<P = object, D extends React.ElementType = 'div'> {
+  props: P & IChipOwnProps;
   defaultComponent: D;
 }
 
-export type ChipProps<
-  D extends React.ElementType = ChipTypeMap['defaultComponent'],
-> = OverrideProps<ChipTypeMap<object, D>, D> & {
+export type TChipProps<
+  D extends React.ElementType = IChipTypeMap['defaultComponent'],
+> = TOverrideProps<IChipTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -60,7 +60,7 @@ export type ChipProps<
 /**
  * Styles.
  */
-const ChipRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<ChipOwnProps>((props) => ({
+const ChipRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<IChipOwnProps>((props) => ({
   display: 'inline-flex',
   maxWidth: '100%',
   fontFamily: 'inherit',
@@ -202,7 +202,7 @@ const ChipEndContent = styled('span')({ display: 'inherit' });
  *
  */
 
-export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
+export const Chip = React.forwardRef<any, TChipProps>((props, ref) => {
   const {
     children,
     disabled,
@@ -268,7 +268,7 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
       {endContent}
     </ChipRoot>
   );
-}) as OverridableComponent<ChipTypeMap>;
+}) as IOverridableComponent<IChipTypeMap>;
 
 Chip.displayName = 'Chip';
 

@@ -13,6 +13,6 @@ const meta: Meta<typeof Radio> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Radio>;
+type TStory = StoryObj<typeof Radio>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

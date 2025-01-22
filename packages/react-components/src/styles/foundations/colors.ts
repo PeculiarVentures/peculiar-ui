@@ -1,6 +1,6 @@
 import { Color } from '@peculiar/color';
 
-interface ColorPalletteSuffix {
+interface IColorPalletteSuffix {
   '-tint-5': string;
   '-tint-4': string;
   '-tint-3': string;
@@ -14,14 +14,14 @@ interface ColorPalletteSuffix {
   '-shade-5': string;
 };
 
-type RemapColorPaletteKeys<Type, Name extends string> = {
+type TRemapColorPaletteKeys<Type, Name extends string> = {
   [K in keyof Type as `${Name}${string & K}`]: Type[K];
 };
 
 export const generateColorPalette = <Name extends string>(
   name: Name,
   hex: string,
-): RemapColorPaletteKeys<ColorPalletteSuffix, Name> => {
+): TRemapColorPaletteKeys<IColorPalletteSuffix, Name> => {
   const palette = new Color(hex).palette();
 
   return {

@@ -10,6 +10,6 @@ const meta: Meta<typeof Switch> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Switch>;
+type TStory = StoryObj<typeof Switch>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

@@ -14,6 +14,6 @@ const meta: Meta<typeof Portal> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Portal>;
+type TStory = StoryObj<typeof Portal>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

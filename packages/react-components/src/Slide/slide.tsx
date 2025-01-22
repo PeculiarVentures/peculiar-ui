@@ -3,7 +3,7 @@ import type { TransitionProps } from 'react-transition-group/Transition';
 import { Transition } from 'react-transition-group';
 import { useMergedRef } from '../hooks';
 
-type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
+type TBaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onEnter' |
   'onEntered' |
   'onEntering' |
@@ -12,7 +12,7 @@ type BaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   'onExiting'
 )>;
 
-interface BaseProps {
+interface IBaseProps {
   /**
    * If `true`, the component will transition in.
    */
@@ -35,9 +35,9 @@ interface BaseProps {
   appear?: boolean;
 };
 
-type SlideProps = BaseProps & BaseTransitionProps;
+type TSlideProps = IBaseProps & TBaseTransitionProps;
 
-export const Slide = React.forwardRef<any, SlideProps>((props, ref) => {
+export const Slide = React.forwardRef<any, TSlideProps>((props, ref) => {
   const {
     timeout,
     in: inProp,

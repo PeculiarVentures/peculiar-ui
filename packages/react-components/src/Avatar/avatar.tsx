@@ -8,12 +8,12 @@ import { useImage } from '../hooks';
 /**
  * Types.
  */
-type AvatarInitialsProps = Pick<AvatarOwnProps, 'children' | 'color'> & {
+type TAvatarInitialsProps = Pick<IAvatarOwnProps, 'children' | 'color'> & {
   role: string;
   'aria-label': string;
 };
 
-interface AvatarOwnProps {
+interface IAvatarOwnProps {
   /**
    * Used to render badge inside the avatar.
    */
@@ -48,14 +48,14 @@ interface AvatarOwnProps {
   /**
    * Render the initials element.
    */
-  renderInitials?: (props: AvatarInitialsProps) => React.ReactNode;
+  renderInitials?: (props: TAvatarInitialsProps) => React.ReactNode;
   /**
    * Function to get the initials to display.
    */
   getInitials?: (name: string) => string;
 };
 
-type AvatarProps = AvatarOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type TAvatarProps = IAvatarOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -63,7 +63,7 @@ type AvatarProps = AvatarOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, '
 /**
  * Styles.
  */
-const AvatarRoot = styled(Box)<AvatarOwnProps>((props) => ({
+const AvatarRoot = styled(Box)<IAvatarOwnProps>((props) => ({
   userSelect: 'none',
   borderRadius: '50%',
   display: 'flex',
@@ -105,7 +105,7 @@ function initials(name: string) {
     : firstName.charAt(0);
 }
 
-export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
+export const Avatar = React.forwardRef<HTMLDivElement, TAvatarProps>((props, ref) => {
   const {
     children: childrenProp,
     src,
@@ -121,7 +121,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
   const showInitials = name && getInitials;
   let children = null;
 
-  const defaultRenderInitials = (propsInitials: AvatarInitialsProps) => (
+  const defaultRenderInitials = (propsInitials: TAvatarInitialsProps) => (
     <Typography
       {...propsInitials}
     />

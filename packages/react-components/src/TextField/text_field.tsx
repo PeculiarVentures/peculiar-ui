@@ -6,7 +6,7 @@ import { useId } from '../hooks/use_id';
 /**
  * Types.
  */
-interface TextFieldOwnProps {
+interface ITextFieldOwnProps {
   /**
    * If `true`, the component is disabled.
    */
@@ -83,7 +83,7 @@ interface TextFieldOwnProps {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-type TextFieldProps = TextFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
+type TTextFieldProps = ITextFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
 /**
  *
  */
@@ -91,7 +91,7 @@ type TextFieldProps = TextFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivEleme
 /**
  * Styles.
  */
-const TextFieldInput = styled(Typography)<TextFieldProps>(
+const TextFieldInput = styled(Typography)<TTextFieldProps>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -159,7 +159,7 @@ const TextFieldError = styled(Typography)({ marginTop: '2px' });
  *
  */
 
-export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props, ref) => {
+export const TextField = React.forwardRef<HTMLDivElement, TTextFieldProps>((props, ref) => {
   const {
     size,
     label,

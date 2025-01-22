@@ -8,7 +8,7 @@ import { opacity } from '../styles/foundations';
 /**
  * Types.
  */
-interface SwitchOwnProps {
+interface ISwitchOwnProps {
   /**
    * If `true`, the component is checked.
    */
@@ -54,7 +54,7 @@ interface SwitchOwnProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export type SwitchProps = SwitchOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type TSwitchProps = ISwitchOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 /**
  *
  */
@@ -73,7 +73,7 @@ const SwitchRoot = styled('label')({
   flexShrink: 0,
 });
 
-const SwitchInput = styled('input', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<SwitchOwnProps, 'color'>>>(
+const SwitchInput = styled('input', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<ISwitchOwnProps, 'color'>>>(
   {
     overflow: 'hidden',
     width: '100%',
@@ -165,7 +165,7 @@ const SwitchDot = styled(Box)({
  *
  */
 
-export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, ref) => {
+export const Switch = React.forwardRef<HTMLLabelElement, TSwitchProps>((props, ref) => {
   const {
     checked,
     defaultChecked,

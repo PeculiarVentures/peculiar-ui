@@ -9,6 +9,6 @@ const meta: Meta<typeof Slider> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Slider>;
+type TStory = StoryObj<typeof Slider>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

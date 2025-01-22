@@ -1,12 +1,12 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { ColorType, ShadowType } from '../styles';
 
 /**
  * Types.
  */
-export interface BoxOwnProps {
+export interface IBoxOwnProps {
   /**
    * The content of the component.
    */
@@ -20,14 +20,14 @@ export interface BoxOwnProps {
   boxShadow?: ShadowType;
 }
 
-export interface BoxTypeMap<P = object, D extends React.ElementType = 'div'> {
-  props: P & BoxOwnProps;
+export interface IBoxTypeMap<P = object, D extends React.ElementType = 'div'> {
+  props: P & IBoxOwnProps;
   defaultComponent: D;
 }
 
-export type BoxProps<
-  D extends React.ElementType = BoxTypeMap['defaultComponent'],
-> = OverrideProps<BoxTypeMap<object, D>, D> & {
+export type TBoxProps<
+  D extends React.ElementType = IBoxTypeMap['defaultComponent'],
+> = TOverrideProps<IBoxTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -39,7 +39,7 @@ const reactPropsRegex = /^(as|background|borderColor|borderWidth|borderStyle|bor
 /**
  * Styles.
  */
-const BoxRoot = styled('div', { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<BoxOwnProps>(
+const BoxRoot = styled('div', { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<IBoxOwnProps>(
   (props) => ({
     background: props.background && `var(--pv-color-${props.background})`,
     borderColor: props.borderColor && `var(--pv-color-${props.borderColor})`,
@@ -73,7 +73,7 @@ const BoxRoot = styled('div', { shouldForwardProp: (prop) => !reactPropsRegex.te
  *
  */
 
-export const Box = React.forwardRef<any, BoxProps>((props, ref) => {
+export const Box = React.forwardRef<any, TBoxProps>((props, ref) => {
   const {
     component,
     ...other
@@ -88,6 +88,6 @@ export const Box = React.forwardRef<any, BoxProps>((props, ref) => {
       {...other}
     />
   );
-}) as OverridableComponent<BoxTypeMap>;
+}) as IOverridableComponent<IBoxTypeMap>;
 
 Box.displayName = 'Box';

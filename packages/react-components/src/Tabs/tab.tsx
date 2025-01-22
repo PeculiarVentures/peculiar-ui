@@ -1,14 +1,14 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { ColorType } from '../styles';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import { TColorType } from '../styles';
 import { Typography } from '../Typography';
 
 /**
  * Types.
  */
-export interface TabOwnProps {
+export interface ITabOwnProps {
   /**
    * The content of the component.
    */
@@ -32,14 +32,14 @@ export interface TabOwnProps {
   onClick?: never;
 }
 
-export interface TabTypeMap<P = object, D extends React.ElementType = 'button'> {
-  props: P & TabOwnProps;
+export interface ITabTypeMap<P = object, D extends React.ElementType = 'button'> {
+  props: P & ITabOwnProps;
   defaultComponent: D;
 }
 
-export type TabProps<
-  D extends React.ElementType = TabTypeMap['defaultComponent'],
-> = OverrideProps<TabTypeMap<object, D>, D> & {
+export type TTabProps<
+  D extends React.ElementType = ITabTypeMap['defaultComponent'],
+> = TOverrideProps<ITabTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -49,7 +49,7 @@ export type TabProps<
 /**
  * Styles.
  */
-const TabRoot = styled('button', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<{ color: ColorType; selected: boolean }>>(
+const TabRoot = styled('button', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<{ color: TColorType; selected: boolean }>>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -119,7 +119,7 @@ const TabRoot = styled('button', { shouldForwardProp: (prop) => isPropValid(prop
  *
  */
 
-export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
+export const Tab = React.forwardRef<any, TTabProps>((props, ref) => {
   const {
     color = 'black',
     component,
@@ -162,7 +162,7 @@ export const Tab = React.forwardRef<any, TabProps>((props, ref) => {
       </Typography>
     </TabRoot>
   );
-}) as OverridableComponent<TabTypeMap>;
+}) as IOverridableComponent<ITabTypeMap>;
 
 Tab.displayName = 'Tab';
 

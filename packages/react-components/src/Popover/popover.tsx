@@ -3,10 +3,10 @@ import styled from '@emotion/styled';
 import {
   usePopper, PopperProps, Modifier,
 } from 'react-popper';
-import { Modal, ModalProps } from '../Modal';
+import { Modal, TModalProps } from '../Modal';
 import { Fade } from '../Fade';
 
-interface BaseProps {
+interface IBaseProps {
   /**
    * If `true`, the popover is visible.
    */
@@ -30,14 +30,14 @@ interface BaseProps {
   /**
    * Props applied to the `Modal` element.
    */
-  modalProps?: Partial<ModalProps>;
+  modalProps?: Partial<TModalProps>;
   /**
    * Make your popover the same width as the reference.
    */
   allowUseSameWidth?: boolean;
 };
 
-export type PopoverProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type TPopoverProps = IBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 
 /**
  * Styles.
@@ -70,7 +70,7 @@ const PopoverRoot = styled('div')(
  *
  */
 
-export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>((props, ref) => {
+export const Popover = React.forwardRef<HTMLDivElement, TPopoverProps>((props, ref) => {
   const {
     open,
     children,

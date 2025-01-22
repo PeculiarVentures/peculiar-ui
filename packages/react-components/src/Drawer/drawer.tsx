@@ -6,7 +6,7 @@ import { Slide } from '../Slide';
 /**
  * Types.
  */
-interface DrawerOwnProps {
+interface IDrawerOwnProps {
   /**
    * If `true`, the component is shown.
    */
@@ -34,7 +34,7 @@ interface DrawerOwnProps {
   'data-testid'?: string;
 };
 
-type DrawerProps = DrawerOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type TDrawerProps = IDrawerOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -61,7 +61,7 @@ const DrawerPaper = styled('div')(
  *
  */
 
-export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
+export const Drawer = React.forwardRef<HTMLDivElement, TDrawerProps>((props, ref) => {
   const {
     children,
     open,

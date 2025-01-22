@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 /**
  * Types.
  */
-interface SliderOwnProps {
+interface ISliderOwnProps {
   className?: string;
   /**
    * The default element value. Use when the component is not controlled.
@@ -40,7 +40,7 @@ interface SliderOwnProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export type SliderProps = SliderOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'defaultValue'>;
+export type TSliderProps = ISliderOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'defaultValue'>;
 /**
  *
  */
@@ -48,7 +48,7 @@ export type SliderProps = SliderOwnProps & Omit<React.HTMLAttributes<HTMLDivElem
 /**
  * Styles.
  */
-const SliderRoot = styled('div')<SliderProps>({
+const SliderRoot = styled('div')<TSliderProps>({
   height: '16px',
   width: '100%',
 });
@@ -105,7 +105,7 @@ const SliderInput = styled('input')({
  *
  */
 
-export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
+export const Slider = React.forwardRef<HTMLDivElement, TSliderProps>((props, ref) => {
   const {
     defaultValue,
     value,

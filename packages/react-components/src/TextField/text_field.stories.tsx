@@ -15,9 +15,9 @@ const meta: Meta<typeof TextField> = {
 
 export default meta;
 
-type Story = StoryObj<typeof TextField>;
+type TStory = StoryObj<typeof TextField>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};
 
 export const FormExample = () => (
   <>

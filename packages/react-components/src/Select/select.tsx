@@ -18,13 +18,13 @@ import { MenuItem } from '../MenuList';
 /**
  * Interfaces.
  */
-export interface SelectRenderGroupParams {
+export interface ISelectRenderGroupParams {
   key: string | number;
   group: string;
   children?: React.ReactNode;
 };
 
-export type SelectOwnProps<
+export type TSelectOwnProps<
   T,
   Multiple extends boolean | undefined = undefined,
 > = UseAutocompleteProps<T, Multiple> & {
@@ -124,7 +124,7 @@ export type SelectOwnProps<
  * Styles.
  */
 const SelectField = styled(Typography)<
-TypographyOwnProps & Required<Pick<SelectOwnProps<any, boolean>, 'size' | 'multiple'>>
+TypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'multiple'>>
 >(
   (props) => ({
     outline: 'none',
@@ -248,7 +248,7 @@ const SelectTagsList = styled('div')({
 });
 
 const SelectTag = styled(Chip)<{
-  size: SelectOwnProps<any>['size'];
+  size: TSelectOwnProps<any>['size'];
 }>((props) => ({
   label: 'Select-tag',
   borderRadius: '3px',
@@ -282,7 +282,7 @@ export const Select = <
   T,
   Multiple extends boolean | undefined = false,
 >(
-  props: SelectOwnProps<T, Multiple>,
+  props: TSelectOwnProps<T, Multiple>,
 ): JSX.Element => {
   const {
     className,
@@ -338,7 +338,7 @@ export const Select = <
     popoverProps.onClose(event);
   };
 
-  const defaultRenderOption: SelectOwnProps<T, Multiple>['renderOption'] = (propsOption, option) => (
+  const defaultRenderOption: TSelectOwnProps<T, Multiple>['renderOption'] = (propsOption, option) => (
     <SelectDropdownGroupListItem
       {...propsOption}
       inGroup={Boolean(groupBy)}
@@ -347,7 +347,7 @@ export const Select = <
     </SelectDropdownGroupListItem>
   );
 
-  const renderGroup = (params: SelectRenderGroupParams) => (
+  const renderGroup = (params: ISelectRenderGroupParams) => (
     <li key={params.key}>
       <SelectDropdownGroupName
         variant="c1"
@@ -403,7 +403,7 @@ export const Select = <
   const renderedValue = renderValue();
   const isValueEmpty = renderedValue === null;
 
-  const defaultRenderRoot: SelectOwnProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => (
+  const defaultRenderRoot: TSelectOwnProps<T, Multiple>['renderRoot'] = (propsRoot, valueRoot) => (
     <SelectField
       {...propsRoot}
       noWrap

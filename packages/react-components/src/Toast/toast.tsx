@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Alert, AlertProps } from '../Alert';
+import { Alert, TAlertProps } from '../Alert';
 import { Fade } from '../Fade';
 
 /**
  * Types.
  */
-interface ToastOwnProps {
+interface IToastOwnProps {
   /**
    * The `id` of the toast. Mostly used when you need to prevent duplicate.
    */
@@ -29,13 +29,13 @@ interface ToastOwnProps {
   /**
    * Props applied to the `Alert` element.
    */
-  alertProps?: Omit<AlertProps, 'children' | 'onClose'>;
+  alertProps?: Omit<TAlertProps, 'children' | 'onClose'>;
 };
 /**
  *
  */
 
-export const Toast: React.FC<ToastOwnProps> = (props) => {
+export const Toast: React.FC<IToastOwnProps> = (props) => {
   const {
     id,
     duration,

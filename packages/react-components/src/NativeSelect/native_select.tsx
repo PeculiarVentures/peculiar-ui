@@ -6,7 +6,7 @@ import { ArrowDropDownIcon } from '../icons';
 /**
  * Types.
  */
-interface NativeSelectOwnProps {
+interface INativeSelectOwnProps {
   options: {
     value: string;
     label: string;
@@ -78,9 +78,9 @@ interface NativeSelectOwnProps {
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
 };
 
-type NativeSelectProps = NativeSelectOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
-type NativeSelectRootProps = React.HTMLAttributes<HTMLSelectElement> & {
-  selectSize?: NativeSelectOwnProps['size'];
+type TNativeSelectProps = INativeSelectOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type TNativeSelectRootProps = React.HTMLAttributes<HTMLSelectElement> & {
+  selectSize?: INativeSelectOwnProps['size'];
 };
 /**
  *
@@ -89,7 +89,7 @@ type NativeSelectRootProps = React.HTMLAttributes<HTMLSelectElement> & {
 /**
  * Styles.
  */
-const NativeSelectRoot = styled('select')<NativeSelectRootProps>(
+const NativeSelectRoot = styled('select')<TNativeSelectRootProps>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -171,7 +171,7 @@ const NativeSelectArrowIcon = styled(
  *
  */
 
-export const NativeSelect = React.forwardRef<HTMLDivElement, NativeSelectProps>((props, ref) => {
+export const NativeSelect = React.forwardRef<HTMLDivElement, TNativeSelectProps>((props, ref) => {
   const {
     options,
     size,

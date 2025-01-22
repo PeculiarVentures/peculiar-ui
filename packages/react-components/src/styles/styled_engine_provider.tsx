@@ -5,7 +5,7 @@ import createCache from '@emotion/cache';
 /**
  * Types.
  */
-interface StyledEngineProviderProps {
+interface IStyledEngineProviderProps {
   children: React.ReactElement;
 };
 /**
@@ -24,7 +24,7 @@ if (typeof document === 'object') {
   });
 }
 
-export const StyledEngineProvider: React.FC<StyledEngineProviderProps> = (props) => {
+export const StyledEngineProvider: React.FC<IStyledEngineProviderProps> = (props) => {
   const { children } = props;
 
   if (!cache) {

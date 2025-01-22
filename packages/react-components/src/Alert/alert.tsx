@@ -14,7 +14,7 @@ import {
 /**
  * Types.
  */
-interface AlertOwnProps {
+interface IAlertOwnProps {
   /**
    * The content of the component.
    */
@@ -42,7 +42,7 @@ interface AlertOwnProps {
   onClose?: () => void;
 };
 
-export type AlertProps = AlertOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type TAlertProps = IAlertOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -50,7 +50,7 @@ export type AlertProps = AlertOwnProps & Omit<React.HTMLAttributes<HTMLDivElemen
 /**
  * Styles.
  */
-const AlertRoot = styled(FlexContainer)<AlertOwnProps>(
+const AlertRoot = styled(FlexContainer)<IAlertOwnProps>(
   {
     width: '100%',
     gap: 'var(--pv-size-base-2)',
@@ -82,7 +82,7 @@ const AlertRoot = styled(FlexContainer)<AlertOwnProps>(
   },
 );
 
-const AlertIcon = styled('div')<Required<Pick<AlertOwnProps, 'variant'>>>(
+const AlertIcon = styled('div')<Required<Pick<IAlertOwnProps, 'variant'>>>(
   (props) => ({
     width: '24px',
     display: 'flex',
@@ -103,7 +103,7 @@ const AlertMessage = styled(Flex)({
  *
  */
 
-export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
+export const Alert = React.forwardRef<HTMLDivElement, TAlertProps>((props, ref) => {
   const {
     children,
     variant,

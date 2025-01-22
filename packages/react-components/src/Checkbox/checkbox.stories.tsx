@@ -13,6 +13,6 @@ const meta: Meta<typeof Checkbox> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Checkbox>;
+type TStory = StoryObj<typeof Checkbox>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

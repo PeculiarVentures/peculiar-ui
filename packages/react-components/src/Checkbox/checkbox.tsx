@@ -8,7 +8,7 @@ import { opacity } from '../styles/foundations';
 /**
  * Types.
  */
-interface CheckboxOwnProps {
+interface ICheckboxOwnProps {
   /**
    * If `true`, the component is checked.
    */
@@ -63,7 +63,7 @@ interface CheckboxOwnProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export type CheckboxProps = CheckboxOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type TCheckboxProps = ICheckboxOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 /**
  *
  */
@@ -79,7 +79,7 @@ const CheckboxRoot = styled('label')({
   flexShrink: 0,
 });
 
-const CheckboxInput = styled('input', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<CheckboxOwnProps, 'color'>>>(
+const CheckboxInput = styled('input', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<ICheckboxOwnProps, 'color'>>>(
   {
     width: '100%',
     height: '100%',
@@ -169,7 +169,7 @@ const CheckboxIcon = styled('svg')({
  *
  */
 
-export const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
+export const Checkbox = React.forwardRef<HTMLLabelElement, TCheckboxProps>((props, ref) => {
   const {
     checked,
     defaultChecked,

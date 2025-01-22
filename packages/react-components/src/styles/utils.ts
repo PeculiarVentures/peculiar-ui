@@ -2,7 +2,7 @@ import flat from 'flat';
 import deepmerge from 'deepmerge';
 import { Color } from '@peculiar/color';
 import { defaultThemeLight, defaultThemeDark } from './default_theme';
-import type { ThemeOptionsType, ThemeType } from './types';
+import type { IThemeOptionsType, IThemeType } from './types';
 import {
   colors,
   generateSize,
@@ -12,7 +12,7 @@ export const themeCSSVariablePrefix = 'pv';
 
 export const contrastThreshold = 2;
 
-export const createTheme = (mode: 'light' | 'dark', options?: ThemeOptionsType): ThemeType => {
+export const createTheme = (mode: 'light' | 'dark', options?: IThemeOptionsType): IThemeType => {
   const defaultTheme = mode === 'dark' ? defaultThemeDark : defaultThemeLight;
 
   const getContrastText = (background: string) => {
@@ -60,7 +60,7 @@ export const createTheme = (mode: 'light' | 'dark', options?: ThemeOptionsType):
           : {}),
       },
       options?.color || {},
-    ]) as ThemeType['color'],
+    ]) as IThemeType['color'],
     shadow: deepmerge(defaultTheme.shadow, options?.shadow || {}),
     text: deepmerge(defaultTheme.text, options?.text || {}),
     size: generateSize(options?.size),

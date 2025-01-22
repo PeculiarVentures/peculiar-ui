@@ -55,6 +55,6 @@ const meta: Meta<typeof Dialog> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Dialog>;
+type TStory = StoryObj<typeof Dialog>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

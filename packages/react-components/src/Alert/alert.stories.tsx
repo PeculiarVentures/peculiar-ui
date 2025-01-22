@@ -11,6 +11,6 @@ const meta: Meta<typeof Alert> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Alert>;
+type TStory = StoryObj<typeof Alert>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

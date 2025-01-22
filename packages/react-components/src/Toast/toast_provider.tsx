@@ -2,13 +2,13 @@ import * as React from 'react';
 import { Portal } from '../Portal';
 import {
   ToastContext,
-  ToastType,
-  BaseToastType,
+  TToastType,
+  IBaseToastType,
 } from './toast_context';
-import { ToastContainer, ToastContainerProps } from './toast_container';
+import { ToastContainer, TToastContainerProps } from './toast_container';
 import { Toast } from './toast';
 
-interface BaseProps {
+interface IBaseProps {
   /**
    * The content of the component.
    */
@@ -20,36 +20,36 @@ interface BaseProps {
   /**
    * Props applied to the `ToastContainer` element.
    */
-  toastContainerProps?: Omit<ToastContainerProps, 'children'>;
+  toastContainerProps?: Omit<TToastContainerProps, 'children'>;
 };
 
-export const ToastProvider: React.FC<BaseProps> = (props) => {
+export const ToastProvider: React.FC<IBaseProps> = (props) => {
   const {
     children,
     toastContainerProps,
     maxToasts = 1,
   } = props;
-  const [state, setState] = React.useState<{ toasts: ToastType[]; queue: ToastType[] }>({
+  const [state, setState] = React.useState<{ toasts: TToastType[]; queue: TToastType[] }>({
     toasts: [],
     queue: [],
   });
 
-  const addToast = (options: BaseToastType) => {
+  const addToast = (options: IBaseToastType) => {
     const id = options.id || `${Date.now()}${Math.random()}`;
-    const newToast: ToastType = {
+    const newToast: TToastType = {
       ...options,
       id,
       createdAt: Date.now(),
     };
 
     setState((prevState) => {
-      const inQueue = prevState.queue.findIndex((item: ToastType) => item.id === id);
+      const inQueue = prevState.queue.findIndex((item: TToastType) => item.id === id);
 
       if (inQueue > -1) {
         return prevState;
       }
 
-      const inToasts = prevState.toasts.findIndex((item: ToastType) => item.id === id);
+      const inToasts = prevState.toasts.findIndex((item: TToastType) => item.id === id);
 
       if (inToasts > -1) {
         return prevState;
@@ -77,7 +77,7 @@ export const ToastProvider: React.FC<BaseProps> = (props) => {
 
   const removeToast = (id: string) => {
     setState((prevState) => {
-      const inToasts = prevState.toasts.findIndex((item: ToastType) => item.id === id);
+      const inToasts = prevState.toasts.findIndex((item: TToastType) => item.id === id);
 
       if (inToasts > -1 && prevState.queue.length) {
         const newList = [...prevState.toasts];
@@ -98,7 +98,7 @@ export const ToastProvider: React.FC<BaseProps> = (props) => {
         };
       }
 
-      const inQueue = prevState.queue.findIndex((item: ToastType) => item.id === id);
+      const inQueue = prevState.queue.findIndex((item: TToastType) => item.id === id);
 
       if (inQueue > -1) {
         return {

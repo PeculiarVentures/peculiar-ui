@@ -22,6 +22,6 @@ const meta: Meta<typeof IconButton> = {
 
 export default meta;
 
-type Story = StoryObj<typeof IconButton>;
+type TStory = StoryObj<typeof IconButton>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

@@ -9,6 +9,6 @@ const meta: Meta<typeof CircularProgress> = {
 
 export default meta;
 
-type Story = StoryObj<typeof CircularProgress>;
+type TStory = StoryObj<typeof CircularProgress>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

@@ -1,15 +1,15 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import {
-  ColorType,
-  TypographyType,
+  TColorType,
+  TTypographyType,
 } from '../styles';
 
 /**
  * Types.
  */
-export interface TypographyOwnProps {
+export interface ITypographyOwnProps {
   /**
    * The content of the component.
    */
@@ -17,11 +17,11 @@ export interface TypographyOwnProps {
   /**
    * The variant to use.
    */
-  variant?: TypographyType;
+  variant?: TTypographyType;
   /**
    * The color of the component.
    */
-  color?: ColorType | 'inherit';
+  color?: TColorType | 'inherit';
   /**
    * If `true`, the text will not wrap, but instead will truncate with a text overflow ellipsis.
    * Note that text overflow can only happen with block or inline-block level elements
@@ -30,14 +30,14 @@ export interface TypographyOwnProps {
   noWrap?: boolean;
 }
 
-export interface TypographyTypeMap<P = object, D extends React.ElementType = 'p'> {
-  props: P & TypographyOwnProps;
+export interface ITypographyTypeMap<P = object, D extends React.ElementType = 'p'> {
+  props: P & ITypographyOwnProps;
   defaultComponent: D;
 }
 
-export type TypographyProps<
-  D extends React.ElementType = TypographyTypeMap['defaultComponent'],
-> = OverrideProps<TypographyTypeMap<object, D>, D> & {
+export type TTypographyProps<
+  D extends React.ElementType = ITypographyTypeMap['defaultComponent'],
+> = TOverrideProps<ITypographyTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -49,7 +49,7 @@ const reactPropsRegex = /^(as|color|variant|noWrap)$/;
 /**
  * Styles.
  */
-const TypographyRoot = styled('p', { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<TypographyOwnProps>((props) => ({
+const TypographyRoot = styled('p', { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<ITypographyOwnProps>((props) => ({
   margin: 0,
   color: props.color === 'inherit' ? 'inherit' : `var(--pv-color-${props.color})`,
   fontWeight: `var(--pv-text-${props.variant}-weight)` as 'normal',
@@ -66,7 +66,7 @@ const TypographyRoot = styled('p', { shouldForwardProp: (prop) => !reactPropsReg
  *
  */
 
-const variantMapping: Record<TypographyType, 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'> = {
+const variantMapping: Record<TTypographyType, 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -83,7 +83,7 @@ const variantMapping: Record<TypographyType, 'p' | 'span' | 'h1' | 'h2' | 'h3' |
   c2: 'p',
 };
 
-export const Typography = React.forwardRef<any, TypographyProps>((props, ref) => {
+export const Typography = React.forwardRef<any, TTypographyProps>((props, ref) => {
   const {
     variant,
     component,
@@ -100,7 +100,7 @@ export const Typography = React.forwardRef<any, TypographyProps>((props, ref) =>
       {...other}
     />
   );
-}) as OverridableComponent<TypographyTypeMap>;
+}) as IOverridableComponent<ITypographyTypeMap>;
 
 Typography.displayName = 'Typography';
 

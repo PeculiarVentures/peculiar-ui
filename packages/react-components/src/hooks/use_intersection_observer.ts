@@ -1,14 +1,14 @@
 import React from 'react';
 import { intersectionObserver } from '../utils/intersection_observer';
 
-export type IntersectionObserverHookRefCallbackNode = HTMLElement | null;
+export type TIntersectionObserverHookRefCallbackNode = HTMLElement | null;
 
-export type IntersectionObserverHookRefCallback = (
-  node: IntersectionObserverHookRefCallbackNode,
+export type TIntersectionObserverHookRefCallback = (
+  node: TIntersectionObserverHookRefCallbackNode,
 ) => void;
 
-export type IntersectionObserverHookResult = [
-  IntersectionObserverHookRefCallback,
+export type TIntersectionObserverHookResult = [
+  TIntersectionObserverHookRefCallback,
   {
     isIntersecting: boolean;
   },
@@ -39,8 +39,8 @@ export type IntersectionObserverHookResult = [
  * }
  * ```
  */
-export function useIntersectionObserver(): IntersectionObserverHookResult {
-  const nodeRef = React.useRef<IntersectionObserverHookRefCallbackNode>(null);
+export function useIntersectionObserver(): TIntersectionObserverHookResult {
+  const nodeRef = React.useRef<TIntersectionObserverHookRefCallbackNode>(null);
   const [isIntersecting, setIntersecting] = React.useState(false);
 
   React.useEffect(() => () => {
@@ -49,7 +49,7 @@ export function useIntersectionObserver(): IntersectionObserverHookResult {
     }
   }, []);
 
-  const refCallback = React.useCallback<IntersectionObserverHookRefCallback>(
+  const refCallback = React.useCallback<TIntersectionObserverHookRefCallback>(
     (node) => {
       if (node) {
         intersectionObserver.init();

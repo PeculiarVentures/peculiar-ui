@@ -8,7 +8,7 @@ import { opacity } from '../styles/foundations';
 /**
  * Types.
  */
-interface RadioOwnProps {
+interface IRadioOwnProps {
   /**
    * If `true`, the component is checked.
    */
@@ -58,7 +58,7 @@ interface RadioOwnProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export type RadioProps = RadioOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type TRadioProps = IRadioOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 /**
  *
  */
@@ -83,7 +83,7 @@ const RadioRoot = styled('label')(
   }),
 );
 
-const RadioInput = styled('input', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<RadioOwnProps, 'color'>>>(
+const RadioInput = styled('input', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<IRadioOwnProps, 'color'>>>(
   {
     cursor: 'inherit',
     width: '100%',
@@ -172,7 +172,7 @@ const CheckboxIcon = styled('svg')({
  *
  */
 
-export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref) => {
+export const Radio = React.forwardRef<HTMLLabelElement, TRadioProps>((props, ref) => {
   const {
     checked,
     defaultChecked,
