@@ -45,7 +45,9 @@ type TCollapseProps = ICollapseOwnProps
 /**
  * Styles.
  */
-const CollapseRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && !['orientation', 'in'].includes(prop) })<Required<Pick<ICollapseOwnProps, 'orientation' | 'timeout' | 'in'> & { state: TransitionStatus }>>((props) => ({
+const CollapseRoot = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && !['orientation', 'in'].includes(prop),
+})<Required<Pick<ICollapseOwnProps, 'orientation' | 'timeout' | 'in'> & { state: TransitionStatus }>>((props) => ({
   overflow: 'hidden',
   transition: `${props.orientation === 'horizontal' ? 'width' : 'height'} ${props.timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
   ...(props.orientation === 'horizontal'
@@ -53,14 +55,22 @@ const CollapseRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(pr
         height: 'auto',
         width: 0,
       }
-    : { height: 0 }),
+    : {
+        height: 0,
+      }),
   ...(props.state === 'entered' && {
     overflow: 'visible',
     ...(props.orientation === 'horizontal'
-      ? { width: 'auto' }
-      : { height: 'auto' }),
+      ? {
+          width: 'auto',
+        }
+      : {
+          height: 'auto',
+        }),
   }),
-  ...(props.state === 'exited' && !props.in && { visibility: 'hidden' }),
+  ...(props.state === 'exited' && !props.in && {
+    visibility: 'hidden',
+  }),
 }));
 /**
  *

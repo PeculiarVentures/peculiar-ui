@@ -10,6 +10,15 @@ export default tseslint.config([
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       'react/jsx-props-no-spreading': 'off',
+      '@stylistic/object-curly-newline': [
+        'error',
+        {
+          ObjectExpression: {
+            multiline: true,
+            minProperties: 1,
+          },
+        },
+      ],
     },
   },
   {

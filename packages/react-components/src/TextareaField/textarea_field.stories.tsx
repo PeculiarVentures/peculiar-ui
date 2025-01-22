@@ -5,11 +5,19 @@ const meta: Meta<typeof TextareaField> = {
   title: 'Components/TextareaField',
   component: TextareaField,
   tags: ['autodocs'],
-  args: { placeholder: 'Placeholder' },
+  args: {
+    placeholder: 'Placeholder',
+  },
   argTypes: {
-    inputProps: { control: false },
-    inputRef: { control: false },
-    onChange: { control: false },
+    inputProps: {
+      control: false,
+    },
+    inputRef: {
+      control: false,
+    },
+    onChange: {
+      control: false,
+    },
   },
 };
 

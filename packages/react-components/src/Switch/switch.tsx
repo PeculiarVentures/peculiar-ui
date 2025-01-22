@@ -73,7 +73,9 @@ const SwitchRoot = styled('label')({
   flexShrink: 0,
 });
 
-const SwitchInput = styled('input', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<ISwitchOwnProps, 'color'>>>(
+const SwitchInput = styled('input', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Required<Pick<ISwitchOwnProps, 'color'>>>(
   {
     overflow: 'hidden',
     width: '100%',
@@ -112,7 +114,9 @@ const SwitchInput = styled('input', { shouldForwardProp: (prop) => isPropValid(p
         backgroundColor: backgroundColorChecked,
         '+ [aria-hidden]': {
           transform: 'translateX(calc(50% - 2px))',
-          '&:before': { backgroundColor: `var(--pv-color-${props.color}-shade-2)` },
+          '&:before': {
+            backgroundColor: `var(--pv-color-${props.color}-shade-2)`,
+          },
         },
       },
       '&:disabled': {
@@ -125,14 +129,30 @@ const SwitchInput = styled('input', { shouldForwardProp: (prop) => isPropValid(p
           backgroundColor: backgroundColorDisabled,
         },
 
-        '&:checked': { backgroundColor: backgroundColorDisabledChecked },
+        '&:checked': {
+          backgroundColor: backgroundColorDisabledChecked,
+        },
       },
       '&:not(:disabled)': {
         cursor: 'pointer',
-        '+ [aria-hidden]': { borderColor },
-        '&:hover': { '+ [aria-hidden]:before': { opacity: opacityHover } },
-        '&:focus-visible': { '+ [aria-hidden]:before': { opacity: opacityFocus } },
-        '&:active': { '+ [aria-hidden]:before': { opacity: opacityActive } },
+        '+ [aria-hidden]': {
+          borderColor,
+        },
+        '&:hover': {
+          '+ [aria-hidden]:before': {
+            opacity: opacityHover,
+          },
+        },
+        '&:focus-visible': {
+          '+ [aria-hidden]:before': {
+            opacity: opacityFocus,
+          },
+        },
+        '&:active': {
+          '+ [aria-hidden]:before': {
+            opacity: opacityActive,
+          },
+        },
       },
     };
   },
@@ -211,4 +231,6 @@ export const Switch = React.forwardRef<HTMLLabelElement, TSwitchProps>((props, r
 
 Switch.displayName = 'Switch';
 
-Switch.defaultProps = { color: 'primary' };
+Switch.defaultProps = {
+  color: 'primary',
+};

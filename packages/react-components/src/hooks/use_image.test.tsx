@@ -33,7 +33,9 @@ describe('useImage()', () => {
 
   it('should change image on `src` changing', () => {
     const newImagePath = 'new_image_path.png';
-    const { result, rerender } = renderHook(useImage, { initialProps: fakeImagePath });
+    const { result, rerender } = renderHook(useImage, {
+      initialProps: fakeImagePath,
+    });
 
     fireEvent.load(result.current.image);
 

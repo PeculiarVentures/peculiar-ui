@@ -49,7 +49,9 @@ const reactPropsRegex = /^(as|color|variant|noWrap)$/;
 /**
  * Styles.
  */
-const TypographyRoot = styled('p', { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<ITypographyOwnProps>((props) => ({
+const TypographyRoot = styled('p', {
+  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
+})<ITypographyOwnProps>((props) => ({
   margin: 0,
   color: props.color === 'inherit' ? 'inherit' : `var(--pv-color-${props.color})`,
   fontWeight: `var(--pv-text-${props.variant}-weight)` as 'normal',

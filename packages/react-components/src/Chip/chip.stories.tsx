@@ -5,15 +5,29 @@ const meta: Meta<typeof Chip> = {
   title: 'Components/Chip',
   component: Chip,
   tags: ['autodocs'],
-  args: { children: 'John Doe' },
+  args: {
+    children: 'John Doe',
+  },
   argTypes: {
-    children: { control: 'text' },
-    deleteIcon: { control: false },
-    onDelete: { control: false },
-    onClick: { control: false },
-    startContent: { control: false },
+    children: {
+      control: 'text',
+    },
+    deleteIcon: {
+      control: false,
+    },
+    onDelete: {
+      control: false,
+    },
+    onClick: {
+      control: false,
+    },
+    startContent: {
+      control: false,
+    },
     // @ts-expect-error: `component` is not a valid prop
-    component: { control: false },
+    component: {
+      control: false,
+    },
   },
 };
 

@@ -78,4 +78,6 @@ export const Toast: React.FC<IToastOwnProps> = (props) => {
 
 Toast.displayName = 'Toast';
 
-Toast.defaultProps = { duration: 4000 };
+Toast.defaultProps = {
+  duration: 4000,
+};

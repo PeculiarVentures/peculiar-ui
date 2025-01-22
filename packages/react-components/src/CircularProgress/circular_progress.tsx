@@ -67,15 +67,21 @@ const circularDashKeyframe = keyframes`
   }
 `;
 
-const CircularProgressRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<ICircularProgressOwnProps>((props) => ({
+const CircularProgressRoot = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<ICircularProgressOwnProps>((props) => ({
   label: 'CircularProgress',
   overflow: 'hidden',
   position: 'relative',
   display: 'inline-block',
   color: `var(--pv-color-${props.color})`,
   ...(props.variant === 'indeterminate'
-    ? { animation: `${circularRotateKeyframe} 1.4s linear infinite` }
-    : { transform: 'rotate(-90deg)' }),
+    ? {
+        animation: `${circularRotateKeyframe} 1.4s linear infinite`,
+      }
+    : {
+        transform: 'rotate(-90deg)',
+      }),
   ...(props.size === 'small' && {
     height: 'var(--pv-size-base-3)',
     width: 'var(--pv-size-base-3)',
@@ -86,13 +92,17 @@ const CircularProgressRoot = styled('div', { shouldForwardProp: (prop) => isProp
   }),
 }));
 
-const CircularProgressSvg = styled('svg')({ display: 'block' });
+const CircularProgressSvg = styled('svg')({
+  display: 'block',
+});
 
 const CircularProgressCircle = styled('circle')<Required<Pick<ICircularProgressOwnProps, 'variant'>>>((props) => ({
   stroke: 'currentcolor',
   strokeDasharray: '80px, 200px',
   strokeDashoffset: 0,
-  ...(props.variant === 'indeterminate' && { animation: `${circularDashKeyframe} 1.4s ease-in-out infinite` }),
+  ...(props.variant === 'indeterminate' && {
+    animation: `${circularDashKeyframe} 1.4s ease-in-out infinite`,
+  }),
 }));
 /**
  *

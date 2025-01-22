@@ -6,9 +6,15 @@ import { Menu } from './index';
 
 describe('<Menu />', () => {
   const options: Partial<React.ComponentProps<typeof Menu>>['options'] = [
-    { label: 'item-1' },
-    { label: 'item-2' },
-    { label: 'item-3' },
+    {
+      label: 'item-1',
+    },
+    {
+      label: 'item-2',
+    },
+    {
+      label: 'item-3',
+    },
   ];
 
   it('should render with default styles', () => {
@@ -27,7 +33,9 @@ describe('<Menu />', () => {
     const { baseElement } = render(
       <Menu
         options={options}
-        popoverProps={{ className: 'my-class-name' }}
+        popoverProps={{
+          className: 'my-class-name',
+        }}
       >
         <button type="button">Open</button>
       </Menu>,

@@ -113,7 +113,9 @@ export const Popover = React.forwardRef<HTMLDivElement, TPopoverProps>((props, r
       {...modalProps}
       ref={ref}
       open={open}
-      backdropProps={{ invisible: true }}
+      backdropProps={{
+        invisible: true,
+      }}
       onClose={onClose}
     >
       <Fade

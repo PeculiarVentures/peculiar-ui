@@ -39,7 +39,9 @@ const reactPropsRegex = /^(as|background|borderColor|borderWidth|borderStyle|bor
 /**
  * Styles.
  */
-const BoxRoot = styled('div', { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<IBoxOwnProps>(
+const BoxRoot = styled('div', {
+  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
+})<IBoxOwnProps>(
   (props) => ({
     background: props.background && `var(--pv-color-${props.background})`,
     borderColor: props.borderColor && `var(--pv-color-${props.borderColor})`,
@@ -66,7 +68,9 @@ const BoxRoot = styled('div', { shouldForwardProp: (prop) => !reactPropsRegex.te
       };
     }
 
-    return { borderWidth };
+    return {
+      borderWidth,
+    };
   },
 );
 /**

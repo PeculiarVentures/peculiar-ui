@@ -73,7 +73,9 @@ const reactPropsRegex = /^(loading|fullScreen)$/;
  */
 const DialogRoot = styled(
   Box,
-  { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) },
+  {
+    shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
+  },
 )<IDialogOwnProps>(
   (props) => ({
     width: '100%',
@@ -88,12 +90,22 @@ const DialogRoot = styled(
     padding: 0,
     boxShadow: 'var(--pv-shadow-dark-hight)',
     ...(props.loading && {
-      '[data-key="dialog.content"]': { opacity: 0.5 },
-      '[data-key="dialog.actions"]': { opacity: 0.5 },
+      '[data-key="dialog.content"]': {
+        opacity: 0.5,
+      },
+      '[data-key="dialog.actions"]': {
+        opacity: 0.5,
+      },
     }),
-    ...(props.size === 'small' && { maxWidth: '310px' }),
-    ...(props.size === 'medium' && { maxWidth: '640px' }),
-    ...(props.size === 'large' && { maxWidth: '1024px' }),
+    ...(props.size === 'small' && {
+      maxWidth: '310px',
+    }),
+    ...(props.size === 'medium' && {
+      maxWidth: '640px',
+    }),
+    ...(props.size === 'large' && {
+      maxWidth: '1024px',
+    }),
     ...(props.fullScreen && {
       height: '100%',
       margin: 0,
@@ -158,7 +170,9 @@ export const Dialog = React.forwardRef<HTMLDivElement, TDialogProps>((props, ref
       data-testid={dataTestId}
       disableBackdropClick={loading || disableBackdropClick}
       disableEscapeKeyDown={loading || disableEscapeKeyDown}
-      backdropProps={{ invisible: fullScreen }}
+      backdropProps={{
+        invisible: fullScreen,
+      }}
       onClose={onClose}
     >
       <Fade

@@ -19,11 +19,17 @@ const meta: Meta<typeof Drawer> = {
         </Button>
       </>
     ),
-    style: { padding: '20px' },
+    style: {
+      padding: '20px',
+    },
   },
   argTypes: {
-    children: { control: false },
-    style: { control: false },
+    children: {
+      control: false,
+    },
+    style: {
+      control: false,
+    },
   },
 };
 

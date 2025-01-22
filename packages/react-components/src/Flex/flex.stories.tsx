@@ -22,9 +22,13 @@ const meta: Meta<typeof FlexContainer> = {
     ),
   },
   argTypes: {
-    children: { control: false },
+    children: {
+      control: false,
+    },
     // @ts-expect-error: `component` is not a valid prop
-    component: { control: false },
+    component: {
+      control: false,
+    },
   },
 };
 
@@ -46,7 +50,9 @@ export const AutoLayoutExample = () => (
     <Flex
       component={Box}
       background="gray-8"
-      style={{ width: '60%' }}
+      style={{
+        width: '60%',
+      }}
     >
       size=60%
     </Flex>
@@ -72,7 +78,9 @@ export const VariableWidthExample = () => (
     <Flex
       component={Box}
       background="gray-8"
-      style={{ width: '60%' }}
+      style={{
+        width: '60%',
+      }}
     >
       size=60%
     </Flex>

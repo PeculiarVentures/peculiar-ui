@@ -85,8 +85,12 @@ const SliderInput = styled('input')({
     transition: 'background-color 200ms, border-color 200ms',
   },
   '&:not(:disabled)': {
-    '&:hover': { backgroundColor: 'var(--pv-color-primary-tint-1)' },
-    '&:focus-visible': { backgroundColor: 'var(--pv-color-primary-tint-2)' },
+    '&:hover': {
+      backgroundColor: 'var(--pv-color-primary-tint-1)',
+    },
+    '&:focus-visible': {
+      backgroundColor: 'var(--pv-color-primary-tint-2)',
+    },
   },
   '&:disabled': {
     cursor: 'not-allowed',

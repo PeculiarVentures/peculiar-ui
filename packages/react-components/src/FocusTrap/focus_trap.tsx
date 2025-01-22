@@ -40,17 +40,23 @@ export const FocusTrap: React.FC<IBaseProps> = (props) => {
       allowOutsideClick: true,
       escapeDeactivates: false,
       fallbackFocus: () => rootRef.current || 'body',
-      ...(disableAutoFocus && { initialFocus: () => rootRef.current }),
+      ...(disableAutoFocus && {
+        initialFocus: () => rootRef.current,
+      }),
     });
 
     focusTrap.activate();
 
     return () => {
-      focusTrap.deactivate({ returnFocus: true });
+      focusTrap.deactivate({
+        returnFocus: true,
+      });
     };
   }, [open]);
 
-  return React.cloneElement(children, { ref: multiRef });
+  return React.cloneElement(children, {
+    ref: multiRef,
+  });
 };
 
 FocusTrap.displayName = 'FocusTrap';

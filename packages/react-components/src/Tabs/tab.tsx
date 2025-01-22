@@ -49,7 +49,9 @@ export type TTabProps<
 /**
  * Styles.
  */
-const TabRoot = styled('button', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<{ color: TColorType; selected: boolean }>>(
+const TabRoot = styled('button', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Required<{ color: TColorType; selected: boolean }>>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -66,7 +68,9 @@ const TabRoot = styled('button', { shouldForwardProp: (prop) => isPropValid(prop
     alignItems: 'center',
     justifyContent: 'center',
     textDecoration: 'none',
-    ...(props.selected && ({ borderColor: 'var(--pv-color-secondary)' })),
+    ...(props.selected && ({
+      borderColor: 'var(--pv-color-secondary)',
+    })),
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
@@ -108,9 +112,15 @@ const TabRoot = styled('button', { shouldForwardProp: (prop) => isPropValid(prop
       },
       '&:not(:disabled)': {
         color,
-        '&:hover': { backgroundColor: backgroundColorHove },
-        '&:focus-visible': { backgroundColor: backgroundColorFocus },
-        '&:active': { backgroundColor: backgroundColorActive },
+        '&:hover': {
+          backgroundColor: backgroundColorHove,
+        },
+        '&:focus-visible': {
+          backgroundColor: backgroundColorFocus,
+        },
+        '&:active': {
+          backgroundColor: backgroundColorActive,
+        },
       },
     };
   },

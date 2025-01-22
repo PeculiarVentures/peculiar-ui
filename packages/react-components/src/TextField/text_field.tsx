@@ -105,9 +105,15 @@ const TextFieldInput = styled(Typography)<TTextFieldProps>(
     transition: 'background-color 200ms, color 200ms, border-color 200ms',
     display: 'inline-flex',
     appearance: 'none',
-    ...(props.size === 'small' && { height: 'var(--pv-size-base-6)' }),
-    ...(props.size === 'medium' && { height: 'var(--pv-size-base-7)' }),
-    ...(props.size === 'large' && { height: 'var(--pv-size-base-8)' }),
+    ...(props.size === 'small' && {
+      height: 'var(--pv-size-base-6)',
+    }),
+    ...(props.size === 'medium' && {
+      height: 'var(--pv-size-base-7)',
+    }),
+    ...(props.size === 'large' && {
+      height: 'var(--pv-size-base-8)',
+    }),
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
@@ -133,16 +139,24 @@ const TextFieldInput = styled(Typography)<TTextFieldProps>(
     return ({
       color,
       borderColor,
-      '&::placeholder': { color: colorPlaceholder },
-      '&:hover': { borderColor: borderColorHover },
+      '&::placeholder': {
+        color: colorPlaceholder,
+      },
+      '&:hover': {
+        borderColor: borderColorHover,
+      },
       '&:disabled': {
         cursor: 'not-allowed',
         borderColor: borderColorDisabled,
         color: colorDisabled,
       },
       '&:not(:disabled)': {
-        '&[aria-invalid]': { borderColor: invalidBorderColor },
-        '&:focus-visible': { borderColor: borderColorFocus },
+        '&[aria-invalid]': {
+          borderColor: invalidBorderColor,
+        },
+        '&:focus-visible': {
+          borderColor: borderColorFocus,
+        },
       },
     });
   },
@@ -154,7 +168,9 @@ const TextFieldLabel = styled('label')({
   display: 'inline-block',
 });
 
-const TextFieldError = styled(Typography)({ marginTop: '2px' });
+const TextFieldError = styled(Typography)({
+  marginTop: '2px',
+});
 /**
  *
  */

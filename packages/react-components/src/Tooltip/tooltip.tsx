@@ -96,7 +96,9 @@ const stylesKeyframeOpacity = keyframes`
   }
 `;
 
-const TooltipRoot = styled(Box, { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Pick<ITooltipOwnProps, 'size'>>(
+const TooltipRoot = styled(Box, {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Pick<ITooltipOwnProps, 'size'>>(
   (props) => ({
     maxWidth: '300px',
     wordWrap: 'break-word',
@@ -104,8 +106,12 @@ const TooltipRoot = styled(Box, { shouldForwardProp: (prop) => isPropValid(prop)
     animation: `${stylesKeyframeOpacity} 225ms`,
     position: 'relative',
     borderRadius: '4px',
-    ...(props.size === 'small' && { padding: '5px 8px' }),
-    ...(props.size === 'large' && { padding: '8px 10px' }),
+    ...(props.size === 'small' && {
+      padding: '5px 8px',
+    }),
+    ...(props.size === 'large' && {
+      padding: '8px 10px',
+    }),
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
@@ -162,7 +168,9 @@ const TooltipPopper = styled(Popper)<Required<Pick<ITooltipOwnProps, 'interactiv
   },
 }));
 
-const TooltipArrow = styled('span', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<ITooltipOwnProps, 'color'>>>(
+const TooltipArrow = styled('span', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Required<Pick<ITooltipOwnProps, 'color'>>>(
   {
     width: '8px',
     height: '8px',
@@ -193,7 +201,9 @@ const TooltipArrow = styled('span', { shouldForwardProp: (prop) => isPropValid(p
       color = 'var(--pv-color-white)';
     }
 
-    return { color };
+    return {
+      color,
+    };
   },
 );
 /**
@@ -262,7 +272,9 @@ export const Tooltip: React.FC<TTooltipProps> = (props) => {
   const childrenProps: React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLElement>,
     HTMLElement
-  > = { ref: multiRef };
+  > = {
+    ref: multiRef,
+  };
 
   if (!disableTouchListener) {
     childrenProps.onTouchStart = handleEnter;
@@ -309,7 +321,9 @@ export const Tooltip: React.FC<TTooltipProps> = (props) => {
           },
           {
             name: 'offset',
-            options: { offset: [0, offset] },
+            options: {
+              offset: [0, offset],
+            },
           },
         ]}
         {...popperProps}

@@ -123,7 +123,11 @@ describe('<Autocomplete />', () => {
     const input = screen.getByRole('combobox');
 
     await act(async () => {
-      fireEvent.change(input, { target: { value: 'ap' } });
+      fireEvent.change(input, {
+        target: {
+          value: 'ap',
+        },
+      });
     });
 
     expect(screen.getByText('apple')).toBeInTheDocument();
@@ -177,7 +181,11 @@ describe('<Autocomplete />', () => {
     );
 
     await act(async () => {
-      fireEvent.change(screen.getByRole('combobox'), { target: { value: 'New Option' } });
+      fireEvent.change(screen.getByRole('combobox'), {
+        target: {
+          value: 'New Option',
+        },
+      });
     });
 
     fireEvent.keyDown(screen.getByRole('combobox'), {

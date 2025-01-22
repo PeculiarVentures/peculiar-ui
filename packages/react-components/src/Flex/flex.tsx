@@ -32,7 +32,9 @@ const reactPropsRegex = /^(as|direction|wrap|gap|align|justify)$/;
 /**
  * Styles.
  */
-const FlexRoot = styled('div', { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<IFlexOwnProps>(
+const FlexRoot = styled('div', {
+  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
+})<IFlexOwnProps>(
   (props) => ({
     minWidth: '0px',
     ...(props.size === 'auto' && {

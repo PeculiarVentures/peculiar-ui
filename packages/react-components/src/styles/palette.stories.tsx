@@ -5,7 +5,9 @@ import { colors as colorsTheme } from './foundations';
 import { contrastThreshold } from './utils';
 import { defaultThemeLight } from './default_theme';
 
-export default { title: 'Palette' };
+export default {
+  title: 'Palette',
+};
 
 export const ColorItemExample: React.FC<{ title: string; colors: Record<string, string> }> = (
   props,
@@ -25,7 +27,9 @@ export const ColorItemExample: React.FC<{ title: string; colors: Record<string, 
           >
             <div
               className="color_item_custom-bg"
-              style={{ background: colors[key] }}
+              style={{
+                background: colors[key],
+              }}
             />
             <div>
               <Typography>

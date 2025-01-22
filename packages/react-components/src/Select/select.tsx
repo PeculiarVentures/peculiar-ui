@@ -143,8 +143,12 @@ ITypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'mul
     fontFamily: 'inherit',
     height: 'var(--pv-size-base-8)',
     position: 'relative',
-    ...(props.size === 'small' && { height: 'var(--pv-size-base-6)' }),
-    ...(props.size === 'medium' && { height: 'var(--pv-size-base-7)' }),
+    ...(props.size === 'small' && {
+      height: 'var(--pv-size-base-6)',
+    }),
+    ...(props.size === 'medium' && {
+      height: 'var(--pv-size-base-7)',
+    }),
     ...(props.multiple === true && {
       display: 'inline-flex',
       alignItems: 'center',
@@ -172,7 +176,9 @@ ITypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'mul
 
     return ({
       borderColor,
-      '&:hover': { borderColor: borderColorHover },
+      '&:hover': {
+        borderColor: borderColorHover,
+      },
       '&:disabled': {
         cursor: 'not-allowed',
         borderColor: borderColorDisabled,
@@ -180,9 +186,15 @@ ITypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'mul
       },
       '&:not(:disabled)': {
         color,
-        '&[aria-placeholder]': { color: colorPlaceholder },
-        '&[aria-invalid]': { borderColor: invalidBorderColor },
-        '&:focus-visible': { borderColor: borderColorFocus },
+        '&[aria-placeholder]': {
+          color: colorPlaceholder,
+        },
+        '&[aria-invalid]': {
+          borderColor: invalidBorderColor,
+        },
+        '&:focus-visible': {
+          borderColor: borderColorFocus,
+        },
       },
     });
   },
@@ -194,7 +206,9 @@ const SelectArrowIcon = styled(ArrowDropDownIcon)({
   top: 'calc(50% - 12px)',
   margin: '0px var(--pv-size-base)',
   color: 'var(--pv-color-gray-10)',
-  '&[aria-disabled="true"]': { color: 'inherit' },
+  '&[aria-disabled="true"]': {
+    color: 'inherit',
+  },
 });
 
 const SelectNativeInput = styled('input')({
@@ -208,7 +222,9 @@ const SelectNativeInput = styled('input')({
   boxSizing: 'border-box',
 });
 
-const SelectDropdownStateItem = styled('div')({ padding: 'var(--pv-size-base-3) var(--pv-size-base-2)' });
+const SelectDropdownStateItem = styled('div')({
+  padding: 'var(--pv-size-base-3) var(--pv-size-base-2)',
+});
 
 const SelectDropdownList = styled('ul')({
   maxHeight: '36vh',
@@ -234,10 +250,16 @@ const SelectDropdownGroupList = styled('ul')({
 });
 
 const SelectDropdownGroupListItem = styled(MenuItem)<Required<{ inGroup: boolean }>>(
-  (props) => ({ ...(props.inGroup && { padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)' }) }),
+  (props) => ({
+    ...(props.inGroup && {
+      padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)',
+    }),
+  }),
 );
 
-const SelectPopover = styled(Popover)({ minWidth: 240 });
+const SelectPopover = styled(Popover)({
+  minWidth: 240,
+});
 
 const SelectTagsList = styled('div')({
   overflow: 'hidden',
@@ -253,12 +275,18 @@ const SelectTag = styled(Chip)<{
   label: 'Select-tag',
   borderRadius: '3px',
   margin: 0,
-  ...(props.size === 'small' && { height: 'var(--pv-size-base-5)' }),
+  ...(props.size === 'small' && {
+    height: 'var(--pv-size-base-5)',
+  }),
 }));
 
-const SelectTagSize = styled(Typography)({ margin: '0 var(--pv-size-base-2)' });
+const SelectTagSize = styled(Typography)({
+  margin: '0 var(--pv-size-base-2)',
+});
 
-const SelectSearchInput = styled(TextField)({ padding: 'var(--pv-size-base-3) var(--pv-size-base-3) var(--pv-size-base-2)' });
+const SelectSearchInput = styled(TextField)({
+  padding: 'var(--pv-size-base-3) var(--pv-size-base-3) var(--pv-size-base-2)',
+});
 
 const SelectCreateNewButton = styled(Button)({
   width: '100%',
@@ -267,7 +295,9 @@ const SelectCreateNewButton = styled(Button)({
   padding: '0px var(--pv-size-base-2)',
 });
 
-const SelectError = styled(Typography)({ marginTop: '2px' });
+const SelectError = styled(Typography)({
+  marginTop: '2px',
+});
 
 const SelectLabel = styled('label')({
   label: 'TextField-label',

@@ -5,7 +5,11 @@ const meta: Meta<typeof Avatar> = {
   title: 'Components/Avatar',
   component: Avatar,
   tags: ['autodocs'],
-  argTypes: { children: { control: false } },
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
 };
 
 export default meta;

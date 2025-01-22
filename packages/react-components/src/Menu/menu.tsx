@@ -61,10 +61,18 @@ export type TMenuProps = IMenuOwnProps;
  * Styles.
  */
 const MenuPopover = styled(Popover)({
-  '&[data-popper-placement^="bottom"]': { margin: 'var(--pv-size-base-3) 0px' },
-  '&[data-popper-placement^="top"]': { margin: 'var(--pv-size-base-3) 0px' },
-  '&[data-popper-placement^="right"]': { margin: '0px var(--pv-size-base-3)' },
-  '&[data-popper-placement^="left"]': { margin: '0px var(--pv-size-base-3)' },
+  '&[data-popper-placement^="bottom"]': {
+    margin: 'var(--pv-size-base-3) 0px',
+  },
+  '&[data-popper-placement^="top"]': {
+    margin: 'var(--pv-size-base-3) 0px',
+  },
+  '&[data-popper-placement^="right"]': {
+    margin: '0px var(--pv-size-base-3)',
+  },
+  '&[data-popper-placement^="left"]': {
+    margin: '0px var(--pv-size-base-3)',
+  },
 });
 /**
  *

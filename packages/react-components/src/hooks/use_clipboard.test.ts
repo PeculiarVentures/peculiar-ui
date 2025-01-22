@@ -4,7 +4,9 @@ import { useClipboard } from './use_clipboard';
 
 jest.useFakeTimers();
 
-jest.mock('../utils', () => ({ copyToClipboard: jest.fn() }));
+jest.mock('../utils', () => ({
+  copyToClipboard: jest.fn(),
+}));
 
 describe('useClipboard()', () => {
   afterEach(() => {

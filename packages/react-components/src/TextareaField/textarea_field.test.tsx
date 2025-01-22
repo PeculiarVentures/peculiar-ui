@@ -51,7 +51,9 @@ describe('<TextareaField />', () => {
       <TextareaField
         className="div-cls"
         id="test-id"
-        inputProps={{ className: 'input-cls' }}
+        inputProps={{
+          className: 'input-cls',
+        }}
       />,
     );
 

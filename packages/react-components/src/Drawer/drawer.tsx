@@ -53,8 +53,12 @@ const DrawerPaper = styled('div')(
     outline: 'none',
     boxSizing: 'border-box',
     ...(props.theme.mode === 'dark'
-      ? { backgroundColor: 'var(--pv-color-gray-2)' }
-      : { backgroundColor: 'var(--pv-color-white)' }),
+      ? {
+          backgroundColor: 'var(--pv-color-gray-2)',
+        }
+      : {
+          backgroundColor: 'var(--pv-color-white)',
+        }),
   }),
 );
 /**
@@ -99,4 +103,6 @@ export const Drawer = React.forwardRef<HTMLDivElement, TDrawerProps>((props, ref
 
 Drawer.displayName = 'Drawer';
 
-Drawer.defaultProps = { transitionDuration: 225 };
+Drawer.defaultProps = {
+  transitionDuration: 225,
+};

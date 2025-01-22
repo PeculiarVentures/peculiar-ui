@@ -79,7 +79,9 @@ const CheckboxRoot = styled('label')({
   flexShrink: 0,
 });
 
-const CheckboxInput = styled('input', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<ICheckboxOwnProps, 'color'>>>(
+const CheckboxInput = styled('input', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Required<Pick<ICheckboxOwnProps, 'color'>>>(
   {
     width: '100%',
     height: '100%',
@@ -129,17 +131,35 @@ const CheckboxInput = styled('input', { shouldForwardProp: (prop) => isPropValid
 
     return ({
       color,
-      '&:checked, &[data-indeterminate="true"]': { '+ [aria-hidden]': { opacity: 1 } },
+      '&:checked, &[data-indeterminate="true"]': {
+        '+ [aria-hidden]': {
+          opacity: 1,
+        },
+      },
       '&:not(:disabled)': {
         cursor: 'pointer',
         '&:checked, &[data-indeterminate="true"]': {
           color: colorChecked,
           backgroundColor: backgroundColorChecked,
-          '+ [aria-hidden]': { color: 'var(--pv-color-white)' },
+          '+ [aria-hidden]': {
+            color: 'var(--pv-color-white)',
+          },
         },
-        '&:hover': { '&:before': { opacity: opacityHover } },
-        '&:focus-visible': { '&:before': { opacity: opacityFocus } },
-        '&:active': { '&:before': { opacity: opacityActive } },
+        '&:hover': {
+          '&:before': {
+            opacity: opacityHover,
+          },
+        },
+        '&:focus-visible': {
+          '&:before': {
+            opacity: opacityFocus,
+          },
+        },
+        '&:active': {
+          '&:before': {
+            opacity: opacityActive,
+          },
+        },
       },
       '&:disabled': {
         cursor: 'not-allowed',
@@ -148,7 +168,9 @@ const CheckboxInput = styled('input', { shouldForwardProp: (prop) => isPropValid
           color: colorDisabledChecked,
           backgroundColor: 'var(--pv-color-gray-6)',
 
-          '+ [aria-hidden]': { color: iconColorDisabledChecked },
+          '+ [aria-hidden]': {
+            color: iconColorDisabledChecked,
+          },
         },
       },
     });
@@ -216,4 +238,6 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, TCheckboxProps>((prop
 
 Checkbox.displayName = 'Checkbox';
 
-Checkbox.defaultProps = { color: 'primary' };
+Checkbox.defaultProps = {
+  color: 'primary',
+};

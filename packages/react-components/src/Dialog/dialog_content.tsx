@@ -51,7 +51,9 @@ const DialogContentAlertContainer = styled('div')({
   flex: '0 0 auto',
 });
 
-const DialogContentCollapse = styled(Collapse)({ margin: '0 calc(var(--pv-size-base-3) * -1)' });
+const DialogContentCollapse = styled(Collapse)({
+  margin: '0 calc(var(--pv-size-base-3) * -1)',
+});
 
 const DialogContentContent = styled('div')({
   overflowY: 'auto',
@@ -109,4 +111,6 @@ export const DialogContent = React.forwardRef<HTMLDivElement, TDialogContentProp
 
 DialogContent.displayName = 'DialogContent';
 
-DialogContent.defaultProps = { dividers: true };
+DialogContent.defaultProps = {
+  dividers: true,
+};

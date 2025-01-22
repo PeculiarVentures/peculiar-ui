@@ -29,7 +29,9 @@ const ToastContainerRoot = styled('div')({
   wordBreak: 'break-word',
   left: '50%',
   transform: 'translateX(-50%)',
-  '& > * + *': { marginTop: '10px' },
+  '& > * + *': {
+    marginTop: '10px',
+  },
 });
 /**
  *

@@ -88,7 +88,9 @@ describe('<ButtonBase />', () => {
             it(`variant: "${variant}" & color: "${color}"`, () => {
               const { asFragment } = render(
                 <ButtonBase variant={variant} color={color}>Text</ButtonBase>,
-                { mode: themeMode },
+                {
+                  mode: themeMode,
+                },
               );
 
               expect(asFragment()).toMatchSnapshot();

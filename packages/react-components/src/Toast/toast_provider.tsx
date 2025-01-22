@@ -156,4 +156,6 @@ export const ToastProvider: React.FC<IBaseProps> = (props) => {
 
 ToastProvider.displayName = 'ToastProvider';
 
-ToastProvider.defaultProps = { maxToasts: 1 };
+ToastProvider.defaultProps = {
+  maxToasts: 1,
+};

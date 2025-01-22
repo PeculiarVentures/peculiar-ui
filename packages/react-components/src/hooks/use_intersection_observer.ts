@@ -60,5 +60,7 @@ export function useIntersectionObserver(): TIntersectionObserverHookResult {
     [],
   );
 
-  return [refCallback, { isIntersecting }];
+  return [refCallback, {
+    isIntersecting,
+  }];
 }

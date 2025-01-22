@@ -66,7 +66,9 @@ export type TButtonBaseProps<
 /**
  * Styles.
  */
-const ButtonBaseRoot = styled('button', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<IButtonBaseOwnProps>({
+const ButtonBaseRoot = styled('button', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<IButtonBaseOwnProps>({
   fontFamily: 'inherit',
   outline: 'none',
   cursor: 'pointer',
@@ -215,8 +217,12 @@ const ButtonBaseRoot = styled('button', { shouldForwardProp: (prop) => isPropVal
       borderColor: borderColorDisabled,
     },
     '&:not(:disabled)': {
-      '&:hover': { backgroundColor: backgroundColorHover },
-      '&:focus-visible': { backgroundColor: backgroundColorFocus },
+      '&:hover': {
+        backgroundColor: backgroundColorHover,
+      },
+      '&:focus-visible': {
+        backgroundColor: backgroundColorFocus,
+      },
       '&:active': {
         backgroundColor: backgroundColorActive,
         boxShadow: boxShadowActive,

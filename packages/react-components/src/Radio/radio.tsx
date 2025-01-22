@@ -78,12 +78,18 @@ const RadioRoot = styled('label')(
   },
   (props) => ({
     ...(props.theme.mode === 'dark'
-      ? { color: 'var(--pv-color-gray-5)' }
-      : { color: 'var(--pv-color-gray-6)' }),
+      ? {
+          color: 'var(--pv-color-gray-5)',
+        }
+      : {
+          color: 'var(--pv-color-gray-6)',
+        }),
   }),
 );
 
-const RadioInput = styled('input', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<IRadioOwnProps, 'color'>>>(
+const RadioInput = styled('input', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<Required<Pick<IRadioOwnProps, 'color'>>>(
   {
     cursor: 'inherit',
     width: '100%',
@@ -143,16 +149,34 @@ const RadioInput = styled('input', { shouldForwardProp: (prop) => isPropValid(pr
       },
       '&:not(:disabled)': {
         cursor: 'pointer',
-        '&:checked': { color: colorChecked },
-        '&:hover': { '&:before': { opacity: opacityHover } },
-        '&:focus-visible': { '&:before': { opacity: opacityFocus } },
-        '&:active': { '&:before': { opacity: opacityActive } },
+        '&:checked': {
+          color: colorChecked,
+        },
+        '&:hover': {
+          '&:before': {
+            opacity: opacityHover,
+          },
+        },
+        '&:focus-visible': {
+          '&:before': {
+            opacity: opacityFocus,
+          },
+        },
+        '&:active': {
+          '&:before': {
+            opacity: opacityActive,
+          },
+        },
       },
       '&:disabled': {
         cursor: 'not-allowed',
-        '+ [aria-hidden]': { color: 'inherit' },
+        '+ [aria-hidden]': {
+          color: 'inherit',
+        },
         color: colorDisabled,
-        '&:checked': { color: colorDisabledChecked },
+        '&:checked': {
+          color: colorDisabledChecked,
+        },
       },
     });
   },
@@ -216,4 +240,6 @@ export const Radio = React.forwardRef<HTMLLabelElement, TRadioProps>((props, ref
 
 Radio.displayName = 'Radio';
 
-Radio.defaultProps = { color: 'primary' };
+Radio.defaultProps = {
+  color: 'primary',
+};

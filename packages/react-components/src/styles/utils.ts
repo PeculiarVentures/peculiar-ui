@@ -50,13 +50,19 @@ export const createTheme = (mode: 'light' | 'dark', options?: IThemeOptionsType)
         ...attention || {},
         ...success || {},
         ...(primary
-          ? { 'primary-contrast': getContrastText(primary.primary) }
+          ? {
+              'primary-contrast': getContrastText(primary.primary),
+            }
           : {}),
         ...(secondary
-          ? { 'secondary-contrast': getContrastText(secondary.secondary) }
+          ? {
+              'secondary-contrast': getContrastText(secondary.secondary),
+            }
           : {}),
         ...(wrong
-          ? { 'wrong-contrast': getContrastText(wrong.wrong) }
+          ? {
+              'wrong-contrast': getContrastText(wrong.wrong),
+            }
           : {}),
       },
       options?.color || {},
@@ -69,8 +75,12 @@ export const createTheme = (mode: 'light' | 'dark', options?: IThemeOptionsType)
 
 export const createThemeCSSVariablesFromObject = (object: Record<string, any>) => {
   const flatted = flat<typeof object, Record<string, string>>(
-    { [`--${themeCSSVariablePrefix}`]: object },
-    { delimiter: '-' },
+    {
+      [`--${themeCSSVariablePrefix}`]: object,
+    },
+    {
+      delimiter: '-',
+    },
   );
 
   return flatted;

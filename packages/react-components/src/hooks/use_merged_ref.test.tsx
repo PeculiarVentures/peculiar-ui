@@ -17,7 +17,9 @@ const Component = ({ refs }: { refs: (MutableRefObject<any> | RefCallback<HTMLEl
 describe('useMergedRef()', () => {
   it('should assign node to the refs', () => {
     const ref = createRef();
-    const reference: { current: HTMLDivElement | null } = { current: null };
+    const reference: { current: HTMLDivElement | null } = {
+      current: null,
+    };
     let refFromCallback = null;
 
     const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValue(reference);

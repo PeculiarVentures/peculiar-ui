@@ -60,7 +60,9 @@ export type TChipProps<
 /**
  * Styles.
  */
-const ChipRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<IChipOwnProps>((props) => ({
+const ChipRoot = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+})<IChipOwnProps>((props) => ({
   display: 'inline-flex',
   maxWidth: '100%',
   fontFamily: 'inherit',
@@ -80,7 +82,9 @@ const ChipRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) 
   whiteSpace: 'nowrap',
   textDecoration: 'none',
   gap: 'var(--pv-size-base)',
-  ...(props.disabled && { pointerEvents: 'none' }),
+  ...(props.disabled && {
+    pointerEvents: 'none',
+  }),
   ...(Boolean(props.onClick) && !props.disabled && {
     cursor: 'pointer',
     userSelect: 'none',
@@ -168,8 +172,12 @@ const ChipRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) 
     backgroundColor,
     color,
     ...(typeof props.onClick === 'function' && !props.disabled && {
-      '&:hover': { backgroundColor: backgroundColorHover },
-      '&:focus-visible': { backgroundColor: backgroundColorFocus },
+      '&:hover': {
+        backgroundColor: backgroundColorHover,
+      },
+      '&:focus-visible': {
+        backgroundColor: backgroundColorFocus,
+      },
       '&:active': {
         backgroundColor: backgroundColorActive,
         boxShadow: boxShadowActive,
@@ -191,12 +199,18 @@ const ChipDeleteIcon = styled('span')({
   transition: 'opacity 200ms',
   opacity: '0.6',
   flexShrink: 0,
-  '&:hover': { opacity: '1' },
+  '&:hover': {
+    opacity: '1',
+  },
 });
 
-const ChipStartContent = styled('span')({ display: 'inherit' });
+const ChipStartContent = styled('span')({
+  display: 'inherit',
+});
 
-const ChipEndContent = styled('span')({ display: 'inherit' });
+const ChipEndContent = styled('span')({
+  display: 'inherit',
+});
 
 /**
  *

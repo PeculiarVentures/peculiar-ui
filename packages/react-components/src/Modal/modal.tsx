@@ -65,14 +65,18 @@ export type TModalProps = IModalOwnProps & React.HTMLAttributes<HTMLDivElement>;
 /**
  * Styles.
  */
-const ModalRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'open' })<Required<Pick<IModalOwnProps, 'open'> & { exited: boolean }>>((props) => ({
+const ModalRoot = styled('div', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'open',
+})<Required<Pick<IModalOwnProps, 'open'> & { exited: boolean }>>((props) => ({
   position: 'fixed',
   zIndex: 1300,
   top: 0,
   bottom: 0,
   right: 0,
   left: 0,
-  ...(!props.open && props.exited && { visibility: 'hidden' }),
+  ...(!props.open && props.exited && {
+    visibility: 'hidden',
+  }),
 }));
 /**
  *
