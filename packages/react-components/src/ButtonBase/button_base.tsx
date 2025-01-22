@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
-import { TypographyType } from '../styles';
+import { TTypographyType } from '../styles';
 import { Typography } from '../Typography';
 
 /**
@@ -28,7 +28,7 @@ export interface IButtonBaseOwnProps {
   /**
    * The variant of text to use.
    */
-  textVariant?: TypographyType;
+  textVariant?: TTypographyType;
   /**
    * The color of the component.
    */

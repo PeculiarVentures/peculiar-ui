@@ -4,7 +4,7 @@ import { Popover, TPopoverProps } from '../Popover';
 import {
   MenuList, MenuItem, SubMenuItem,
 } from '../MenuList';
-import { TypographyType } from '../styles';
+import { TTypographyType } from '../styles';
 
 /**
  * Types.
@@ -17,7 +17,7 @@ interface IOptionOwnProps {
   /**
    * The variant of text to use.
    */
-  textVariant?: TypographyType;
+  textVariant?: TTypographyType;
   /**
    * Element placed before the children.
    */

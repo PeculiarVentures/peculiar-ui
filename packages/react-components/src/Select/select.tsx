@@ -2,13 +2,13 @@ import React from 'react';
 import styled from '@emotion/styled';
 import {
   useAutocomplete,
-  UseAutocompleteProps,
-  UseAutocompleteReturnType,
-  AutocompleteValue,
+  IUseAutocompleteProps,
+  IUseAutocompleteReturnType,
+  TAutocompleteValue,
 } from '../hooks';
 import { Popover } from '../Popover';
 import { TextField } from '../TextField';
-import { Typography, TypographyOwnProps } from '../Typography';
+import { Typography, ITypographyOwnProps } from '../Typography';
 import { Box } from '../Box';
 import { Chip } from '../Chip';
 import { Button } from '../Button';
@@ -27,7 +27,7 @@ export interface ISelectRenderGroupParams {
 export type TSelectOwnProps<
   T,
   Multiple extends boolean | undefined = undefined,
-> = UseAutocompleteProps<T, Multiple> & {
+> = IUseAutocompleteProps<T, Multiple> & {
   /**
    * The className of the component.
    */
@@ -100,8 +100,8 @@ export type TSelectOwnProps<
    */
   renderRoot?: (
     props: object,
-    value: AutocompleteValue<T, Multiple>,
-    getTagProps: UseAutocompleteReturnType<T, Multiple>['getTagProps'],
+    value: TAutocompleteValue<T, Multiple>,
+    getTagProps: IUseAutocompleteReturnType<T, Multiple>['getTagProps'],
   ) => React.ReactNode;
   /**
    * Render the option, use `getOptionLabel` by default.
@@ -124,7 +124,7 @@ export type TSelectOwnProps<
  * Styles.
  */
 const SelectField = styled(Typography)<
-TypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'multiple'>>
+ITypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'multiple'>>
 >(
   (props) => ({
     outline: 'none',

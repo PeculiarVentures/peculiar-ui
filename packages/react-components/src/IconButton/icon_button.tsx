@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { Button, IButtonOwnProps } from '../Button';
-import { Tooltip, TooltipOwnProps } from '../Tooltip';
+import { Tooltip, ITooltipOwnProps } from '../Tooltip';
 
 /**
  * Types.
@@ -15,7 +15,7 @@ export interface IIconButtonOwnProps extends Omit<IButtonOwnProps, 'variant' | '
   /**
    * Props applied to the `Tooltip` element.
    */
-  tooltipProps?: Omit<TooltipOwnProps, 'open' | 'title' | 'children'>;
+  tooltipProps?: Omit<ITooltipOwnProps, 'open' | 'title' | 'children'>;
 }
 
 export interface IIconButtonTypeMap<P = object, D extends React.ElementType = 'button'> {

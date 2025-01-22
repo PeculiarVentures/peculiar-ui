@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
-import { ColorType, ShadowType } from '../styles';
+import { TColorType, TShadowType } from '../styles';
 
 /**
  * Types.
@@ -11,13 +11,13 @@ export interface IBoxOwnProps {
    * The content of the component.
    */
   children?: React.ReactNode;
-  background?: ColorType;
-  borderColor?: ColorType;
+  background?: TColorType;
+  borderColor?: TColorType;
   borderWidth?: number;
   borderStyle?: ('solid' | 'dashed');
   borderPosition?: ('horizontal' | 'vertical' | 'top' | 'right' | 'bottom' | 'left');
   borderRadius?: number;
-  boxShadow?: ShadowType;
+  boxShadow?: TShadowType;
 }
 
 export interface IBoxTypeMap<P = object, D extends React.ElementType = 'div'> {

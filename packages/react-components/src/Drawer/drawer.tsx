@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Modal, ModalProps } from '../Modal';
+import { Modal, TModalProps } from '../Modal';
 import { Slide } from '../Slide';
 
 /**
@@ -26,7 +26,7 @@ interface IDrawerOwnProps {
   /**
    * Props applied to the `Modal` element.
    */
-  modalProps?: Partial<Omit<ModalProps, 'transitionDuration' | 'open' | 'onClose' | 'keepMounted'>>;
+  modalProps?: Partial<Omit<TModalProps, 'transitionDuration' | 'open' | 'onClose' | 'keepMounted'>>;
   /**
    * Callback fired when the component requests to be closed.
    */

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { Typography } from '../Typography';
-import { TypographyType } from '../styles';
+import { TTypographyType } from '../styles';
 
 /**
  * Types.
@@ -17,7 +17,7 @@ interface IMenuItemOwnProps {
   /**
    * The variant of text to use.
    */
-  textVariant?: TypographyType;
+  textVariant?: TTypographyType;
   /**
    * Element placed before the children.
    */

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { ColorType } from '../styles';
+import { TColorType } from '../styles';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { useImage } from '../hooks';
@@ -40,11 +40,11 @@ interface IAvatarOwnProps {
   /**
    * The color of component background.
    */
-  background?: ColorType;
+  background?: TColorType;
   /**
    * The color of initials text.
    */
-  color?: ColorType;
+  color?: TColorType;
   /**
    * Render the initials element.
    */

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { useMergedRef, useEnhancedEffect } from '../hooks';
 import { ownerDocument } from '../utils/owner_document';
 
@@ -80,7 +80,7 @@ export interface IMenuListTypeMap<P = object, D extends React.ElementType = 'ul'
 
 export type TMenuListProps<
   D extends React.ElementType = IMenuListTypeMap['defaultComponent'],
-> = OverrideProps<IMenuListTypeMap<object, D>, D> & {
+> = TOverrideProps<IMenuListTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -143,6 +143,6 @@ export const MenuList = React.forwardRef<any, TMenuListProps>((props, ref) => {
       {children}
     </MenuListRoot>
   );
-}) as OverridableComponent<IMenuListTypeMap>;
+}) as IOverridableComponent<IMenuListTypeMap>;
 
 MenuList.displayName = 'MenuList';

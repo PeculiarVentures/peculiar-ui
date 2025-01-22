@@ -2,13 +2,13 @@ import React from 'react';
 import styled from '@emotion/styled';
 import {
   useAutocomplete,
-  UseAutocompleteProps,
-  UseAutocompleteReturnType,
-  AutocompleteValue,
+  IUseAutocompleteProps,
+  IUseAutocompleteReturnType,
+  TAutocompleteValue,
   useOutsideClick,
 } from '../hooks';
 import { Popper } from '../Popper';
-import { Typography, TypographyOwnProps } from '../Typography';
+import { Typography, ITypographyOwnProps } from '../Typography';
 import { Box } from '../Box';
 import { Chip } from '../Chip';
 import { ArrowDropDownIcon, CloseSmallIcon } from '../icons';
@@ -26,7 +26,7 @@ export interface IAutocompleteRenderGroupParams {
 export type TAutocompleteOwnProps<
   T,
   Multiple extends boolean | undefined = undefined,
-> = UseAutocompleteProps<T, Multiple> & {
+> = IUseAutocompleteProps<T, Multiple> & {
   /**
    * The className of the component.
    */
@@ -87,8 +87,8 @@ export type TAutocompleteOwnProps<
    */
   renderRoot?: (
     props: object,
-    value: AutocompleteValue<T, Multiple>,
-    getTagProps: UseAutocompleteReturnType<T, Multiple>['getTagProps'],
+    value: TAutocompleteValue<T, Multiple>,
+    getTagProps: IUseAutocompleteReturnType<T, Multiple>['getTagProps'],
   ) => React.ReactNode;
   /**
    * Render the option, use `getOptionLabel` by default.
@@ -98,7 +98,7 @@ export type TAutocompleteOwnProps<
    * Render the tags elements.
    */
   renderTag?: (
-    props: ReturnType<UseAutocompleteReturnType<T, Multiple>['getTagProps']>,
+    props: ReturnType<IUseAutocompleteReturnType<T, Multiple>['getTagProps']>,
     option: T,
   ) => React.ReactNode;
   /**
@@ -120,7 +120,7 @@ const reactPropsRegex = /^(as|size|disabled|isHasClearIcon)$/;
  * Styles.
  */
 const AutocompleteField = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<
-  TypographyOwnProps
+  ITypographyOwnProps
   & Required<Pick<TAutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
   & { isHasClearIcon: boolean }
 >(
