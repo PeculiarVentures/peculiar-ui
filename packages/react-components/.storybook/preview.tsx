@@ -18,6 +18,7 @@ interface IThemedDocsContainerProps {
 const channel = addons.getChannel();
 
 const ThemedDocsContainer: React.FC<IThemedDocsContainerProps> = (props) => {
+  const { context, children } = props;
   const [isDark, setDark] = React.useState(false);
 
   React.useEffect(() => {
@@ -32,9 +33,9 @@ const ThemedDocsContainer: React.FC<IThemedDocsContainerProps> = (props) => {
     >
       <DocsContainer
         theme={isDark ? themeDark : themeLight}
-        context={props.context}
+        context={context}
       >
-        {props.children}
+        {children}
       </DocsContainer>
     </ThemeProvider>
   );

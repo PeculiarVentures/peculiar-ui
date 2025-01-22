@@ -71,7 +71,10 @@ const reactPropsRegex = /^(loading|fullScreen)$/;
 /**
  * Styles.
  */
-const DialogRoot = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<IDialogOwnProps>(
+const DialogRoot = styled(
+  Box,
+  { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) },
+)<IDialogOwnProps>(
   (props) => ({
     width: '100%',
     display: 'flex',

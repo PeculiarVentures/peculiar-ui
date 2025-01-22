@@ -35,7 +35,7 @@ export const DemoExample = () => (
   Array.from({ length: 5 }).map((_, index) => (
     <Section
 
-      key={index}
+      key={`${index + 1}`}
       title={`${index + 1}`}
     />
   ))

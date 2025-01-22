@@ -203,7 +203,10 @@ export function useAutocomplete<
     ? filterOptions(options, searchValue, value, getOptionLabel)
     : [];
 
-  const validOptionIndex = (index: number, direction: TAutocompleteHighlightChangeDirectionType) => {
+  const validOptionIndex = (
+    index: number,
+    direction: TAutocompleteHighlightChangeDirectionType,
+  ) => {
     if (!listboxRef.current || index === -1) {
       return -1;
     }

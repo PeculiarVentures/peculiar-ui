@@ -259,7 +259,10 @@ export const Tooltip: React.FC<TTooltipProps> = (props) => {
   };
 
   const popperProps: React.HTMLAttributes<HTMLDivElement> = {};
-  const childrenProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> = { ref: multiRef };
+  const childrenProps: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLElement>,
+    HTMLElement
+  > = { ref: multiRef };
 
   if (!disableTouchListener) {
     childrenProps.onTouchStart = handleEnter;

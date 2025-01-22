@@ -207,6 +207,7 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TTextareaFieldProp
         id={id}
         value={value}
         required={required}
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
         placeholder={placeholder}
         readOnly={readOnly}

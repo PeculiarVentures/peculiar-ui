@@ -218,10 +218,10 @@ export const TextField = React.forwardRef<HTMLDivElement, TTextFieldProps>((prop
         aria-invalid={error || undefined}
         placeholder={placeholder}
         readOnly={readOnly}
-        onChange={onChange}
         ref={inputRef}
         // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
+        onChange={onChange}
       />
       {error && errorText && (
         <TextFieldError

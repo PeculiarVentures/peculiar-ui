@@ -13,7 +13,7 @@ describe('useEventCallback()', () => {
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
     render(
-      <button onClick={result.current}>Button</button>,
+      <button type="button" onClick={result.current}>Button</button>,
     );
 
     expect(callbackMock).not.toBeCalled();
@@ -24,7 +24,7 @@ describe('useEventCallback()', () => {
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
     render(
-      <button onClick={result.current}>Button</button>,
+      <button type="button" onClick={result.current}>Button</button>,
     );
 
     fireEvent.click(screen.getByText('Button'));
