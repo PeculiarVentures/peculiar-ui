@@ -2012,10 +2012,10 @@
     node-addon-api "^3.2.1"
     node-gyp-build "^4.3.0"
 
-"@peculiar/eslint-config-base@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@peculiar/eslint-config-base/-/eslint-config-base-0.0.2.tgz#825bd21d7d4b8adcba4926c3c9690aed2a25cdfb"
-  integrity sha512-moEoWhUqdr7s9N+c8uF24QSXcyQaTxONnczVJ1OI1KB8cIHUGOPryeIp1Vr/dcW4id1rmb6K47XlmPsy7mrkMA==
+"@peculiar/eslint-config-base@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@peculiar/eslint-config-base/-/eslint-config-base-0.2.1.tgz#c4ba2518c120f5b1640dcc8d3b534c06ad646f15"
+  integrity sha512-pCSqgOpAYLwsVYaArsMR8NfXLp/Guj7N/ZdY8MWU2peGQHSxfqCYqelyY+RchHKNyu3GoMpQdndnLGjGq31kbw==
   dependencies:
     "@eslint/js" "^9.18.0"
     "@stylistic/eslint-plugin" "^2.13.0"
@@ -2025,10 +2025,10 @@
     eslint-plugin-import "^2.31.0"
     typescript-eslint "^8.20.0"
 
-"@peculiar/eslint-config-react@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@peculiar/eslint-config-react/-/eslint-config-react-0.0.2.tgz#418b21f7f281a6445d011cc6cfbbc5f6e3f08d84"
-  integrity sha512-EI2MY0M2YY5J2azvO7e26QhAne1ohsUhwvxSXDsamtUPawo5c98QrU+Shjk3ku4CUBkTiRtycmUNUjeDmh8AQw==
+"@peculiar/eslint-config-react@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@peculiar/eslint-config-react/-/eslint-config-react-0.2.0.tgz#a67c797318f90a7ba0270d426c3cbc7484e2b4a8"
+  integrity sha512-Kiu0GmFYYuPKE5y4u9HB/8vZiLdpKLi+sQkULPEE+WEfijsWhrTYUiLkR/908xBcTJtvBuAkyvXwddFvJyZ2kQ==
   dependencies:
     eslint-plugin-jsx-a11y "^6.10.2"
     eslint-plugin-react "^7.37.4"
