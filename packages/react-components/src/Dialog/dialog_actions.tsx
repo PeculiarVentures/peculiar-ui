@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 /**
  * Types.
  */
-interface DialogActionsOwnProps {
+interface IDialogActionsOwnProps {
   /**
    * The content of the component.
    */
@@ -15,7 +15,7 @@ interface DialogActionsOwnProps {
   className?: string;
 };
 
-type DialogActionsProps = DialogActionsOwnProps & React.HTMLAttributes<HTMLDivElement>;
+type TDialogActionsProps = IDialogActionsOwnProps & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
  */
@@ -35,7 +35,7 @@ const DialogActionsRoot = styled('footer')({
  *
  */
 
-export const DialogActions = React.forwardRef<HTMLDivElement, DialogActionsProps>((props, ref) => {
+export const DialogActions = React.forwardRef<HTMLDivElement, TDialogActionsProps>((props, ref) => {
   const {
     children,
     ...other

@@ -13,9 +13,7 @@ describe('<Autocomplete />', () => {
   const options = ['test-1', 'test-2', 'apple', 'banana', 'grape'];
 
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Autocomplete
         options={options}
         id="test-id"
@@ -26,9 +24,7 @@ describe('<Autocomplete />', () => {
   });
 
   it('should render with multiple selection enabled', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Autocomplete
         options={options}
         id="test-id"
@@ -40,9 +36,7 @@ describe('<Autocomplete />', () => {
   });
 
   it('should apply className', () => {
-    const {
-      container,
-    } = render(
+    const { container } = render(
       <Autocomplete
         options={options}
         id="test-id"
@@ -62,9 +56,7 @@ describe('<Autocomplete />', () => {
 
     sizes.forEach((size) => {
       it(`renders with size "${size}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <Autocomplete
             options={options}
             id="test-id"
@@ -78,9 +70,7 @@ describe('<Autocomplete />', () => {
   });
 
   it('should display loading state', async () => {
-    const {
-      getByText,
-    } = render(
+    const { getByText } = render(
       <Autocomplete
         options={[]}
         id="test-id"
@@ -96,9 +86,7 @@ describe('<Autocomplete />', () => {
   });
 
   it('should show error message when in error state', () => {
-    const {
-      getByText,
-    } = render(
+    const { getByText } = render(
       <Autocomplete
         options={[]}
         id="test-id"

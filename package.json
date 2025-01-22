@@ -18,8 +18,8 @@
   },
   "devDependencies": {
     "@emotion/jest": "^11.13.0",
-    "@peculiar/eslint-config-base": "^0.0.2",
-    "@peculiar/eslint-config-react": "^0.0.2",
+    "@peculiar/eslint-config-base": "^0.2.1",
+    "@peculiar/eslint-config-react": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3 ",

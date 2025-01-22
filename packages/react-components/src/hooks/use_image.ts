@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEnhancedEffect } from './use_enhanced_effect';
 
-export interface UseImageOptionsType {
+export interface IUseImageOptionsType {
   /**
    * A callback for when the image `src` has been loaded.
    */
@@ -12,7 +12,7 @@ export interface UseImageOptionsType {
   onError?: (error: string | React.SyntheticEvent<HTMLImageElement, Event>) => void;
 };
 
-type Status = ('loading' | 'failed' | 'pending' | 'loaded');
+type TStatus = ('loading' | 'failed' | 'pending' | 'loaded');
 
 /**
  * React hook that loads an image in the browser,
@@ -31,19 +31,19 @@ type Status = ('loading' | 'failed' | 'pending' | 'loaded');
  * ```
  */
 
-interface UseImageReturnType {
-  status: Status;
+interface IUseImageReturnType {
+  status: TStatus;
   image?: HTMLImageElement;
 };
 
-export function useImage(src: string, options: UseImageOptionsType = {}): UseImageReturnType {
+export function useImage(src: string, options: IUseImageOptionsType = {}): IUseImageReturnType {
   const {
     onLoad,
     onError,
   } = options;
 
-  const [status, setStatus] = React.useState<Status>('pending');
-  const imageRef = React.useRef<UseImageReturnType['image']>();
+  const [status, setStatus] = React.useState<TStatus>('pending');
+  const imageRef = React.useRef<IUseImageReturnType['image']>();
 
   useEnhancedEffect(() => {
     if (!src) {

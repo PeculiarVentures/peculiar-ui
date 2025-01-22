@@ -7,7 +7,7 @@ import { Alert } from '../Alert';
 /**
  * Types.
  */
-interface DialogContentOwnProps {
+interface IDialogContentOwnProps {
   /**
    * The content of the component.
    */
@@ -31,7 +31,7 @@ interface DialogContentOwnProps {
     React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 };
 
-type DialogContentProps = DialogContentOwnProps & React.HTMLAttributes<HTMLDivElement>;
+type TDialogContentProps = IDialogContentOwnProps & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
  */
@@ -69,7 +69,7 @@ const DialogContentAlertError = styled(Alert)({
  *
  */
 
-export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>((props, ref) => {
+export const DialogContent = React.forwardRef<HTMLDivElement, TDialogContentProps>((props, ref) => {
   const {
     children,
     dividers,

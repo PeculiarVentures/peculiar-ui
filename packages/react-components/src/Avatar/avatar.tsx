@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { ColorType } from '../styles';
+import { TColorType } from '../styles';
 import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { useImage } from '../hooks';
@@ -8,12 +8,12 @@ import { useImage } from '../hooks';
 /**
  * Types.
  */
-type AvatarInitialsProps = Pick<AvatarOwnProps, 'children' | 'color'> & {
-  'role': string;
+type TAvatarInitialsProps = Pick<IAvatarOwnProps, 'children' | 'color'> & {
+  role: string;
   'aria-label': string;
 };
 
-interface AvatarOwnProps {
+interface IAvatarOwnProps {
   /**
    * Used to render badge inside the avatar.
    */
@@ -40,22 +40,22 @@ interface AvatarOwnProps {
   /**
    * The color of component background.
    */
-  background?: ColorType;
+  background?: TColorType;
   /**
    * The color of initials text.
    */
-  color?: ColorType;
+  color?: TColorType;
   /**
    * Render the initials element.
    */
-  renderInitials?: (props: AvatarInitialsProps) => React.ReactNode;
+  renderInitials?: (props: TAvatarInitialsProps) => React.ReactNode;
   /**
    * Function to get the initials to display.
    */
   getInitials?: (name: string) => string;
 };
 
-type AvatarProps = AvatarOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type TAvatarProps = IAvatarOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -63,7 +63,7 @@ type AvatarProps = AvatarOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, '
 /**
  * Styles.
  */
-const AvatarRoot = styled(Box)<AvatarOwnProps>((props) => ({
+const AvatarRoot = styled(Box)<IAvatarOwnProps>((props) => ({
   userSelect: 'none',
   borderRadius: '50%',
   display: 'flex',
@@ -105,7 +105,7 @@ function initials(name: string) {
     : firstName.charAt(0);
 }
 
-export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
+export const Avatar = React.forwardRef<HTMLDivElement, TAvatarProps>((props, ref) => {
   const {
     children: childrenProp,
     src,
@@ -116,14 +116,12 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
     renderInitials: renderInitialsProp,
     ...other
   } = props;
-  const {
-    image,
-  } = useImage(src);
+  const { image } = useImage(src);
   const showImage = image?.src;
   const showInitials = name && getInitials;
   let children = null;
 
-  const defaultRenderInitials = (propsInitials: AvatarInitialsProps) => (
+  const defaultRenderInitials = (propsInitials: TAvatarInitialsProps) => (
     <Typography
       {...propsInitials}
     />
@@ -142,8 +140,8 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>((props, ref)
   } else if (showInitials) {
     children = renderInitials({
       color,
-      'children': getInitials(name),
-      'role': 'img',
+      children: getInitials(name),
+      role: 'img',
       'aria-label': name,
     });
   } else {
