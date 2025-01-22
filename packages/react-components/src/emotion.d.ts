@@ -1,7 +1,8 @@
 import '@emotion/react';
 
 declare module '@emotion/react' {
-  export interface ITheme {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  export interface Theme {
     mode: 'light' | 'dark';
   }
 }
