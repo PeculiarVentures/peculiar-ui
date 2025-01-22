@@ -108,15 +108,9 @@ const NativeSelectRoot = styled('select')<NativeSelectRootProps>(
     fontSize: 'var(--pv-text-c1-size)',
     lineHeight: 'var(--pv-text-c1-height)',
     letterSpacing: 'var(--pv-text-c1-spacing)',
-    ...(props.selectSize === 'small' && {
-      height: 'var(--pv-size-base-6)',
-    }),
-    ...(props.selectSize === 'medium' && {
-      height: 'var(--pv-size-base-7)',
-    }),
-    ...(props.selectSize === 'large' && {
-      height: 'var(--pv-size-base-8)',
-    }),
+    ...(props.selectSize === 'small' && { height: 'var(--pv-size-base-6)' }),
+    ...(props.selectSize === 'medium' && { height: 'var(--pv-size-base-7)' }),
+    ...(props.selectSize === 'large' && { height: 'var(--pv-size-base-8)' }),
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
@@ -139,21 +133,15 @@ const NativeSelectRoot = styled('select')<NativeSelectRootProps>(
     return ({
       color,
       borderColor,
-      '&:hover': {
-        borderColor: borderColorHover,
-      },
+      '&:hover': { borderColor: borderColorHover },
       '&:disabled': {
         cursor: 'not-allowed',
         borderColor: borderColorDisabled,
         color: colorDisabled,
       },
       '&:not(:disabled)': {
-        '&[aria-invalid]': {
-          borderColor: invalidBorderColor,
-        },
-        '&:focus-visible': {
-          borderColor: borderColorFocus,
-        },
+        '&[aria-invalid]': { borderColor: invalidBorderColor },
+        '&:focus-visible': { borderColor: borderColorFocus },
       },
     });
   },
@@ -164,13 +152,9 @@ const NativeSelectLabel = styled('label')({
   display: 'inline-block',
 });
 
-const NativeSelectErrorMessage = styled(Typography)({
-  marginTop: '2px',
-});
+const NativeSelectErrorMessage = styled(Typography)({ marginTop: '2px' });
 
-const NativeSelectContainer = styled('div')({
-  position: 'relative',
-});
+const NativeSelectContainer = styled('div')({ position: 'relative' });
 
 const NativeSelectArrowIcon = styled(
   ArrowDropDownIcon,
@@ -181,9 +165,7 @@ const NativeSelectArrowIcon = styled(
   pointerEvents: 'none',
   margin: '0px var(--pv-size-base)',
   color: 'var(--pv-color-gray-10)',
-  ...(props.disabled && {
-    color: 'var(--pv-color-gray-7)',
-  }),
+  ...(props.disabled && { color: 'var(--pv-color-gray-7)' }),
 }));
 /**
  *

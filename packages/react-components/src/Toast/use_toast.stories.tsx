@@ -9,9 +9,7 @@ const meta = {
 export default meta;
 
 const ToastStatusExample = () => {
-  const {
-    addToast, removeAllToasts,
-  } = useToast();
+  const { addToast, removeAllToasts } = useToast();
   const statuses = ['success', 'wrong', 'attention', 'pending'];
 
   return (

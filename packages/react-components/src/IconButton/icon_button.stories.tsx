@@ -13,16 +13,10 @@ const meta: Meta<typeof IconButton> = {
     ),
   },
   argTypes: {
-    children: {
-      control: false,
-    },
-    tooltipProps: {
-      control: false,
-    },
+    children: { control: false },
+    tooltipProps: { control: false },
     // @ts-expect-error: `component` is not a valid prop
-    component: {
-      control: false,
-    },
+    component: { control: false },
   },
 };
 

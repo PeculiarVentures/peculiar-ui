@@ -7,9 +7,7 @@ import { TextField } from './index';
 describe('<TextField />', () => {
   describe('TextField render variants', () => {
     it('should render as default', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <TextField id="test-id" />,
       );
 
@@ -23,9 +21,7 @@ describe('<TextField />', () => {
     });
 
     it('should have label', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <TextField
           label="Test label"
           id="test-id"
@@ -36,9 +32,7 @@ describe('<TextField />', () => {
     });
 
     it('should be disabled', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <TextField disabled id="test-id" />,
       );
 
@@ -46,9 +40,7 @@ describe('<TextField />', () => {
     });
 
     it('should have required', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <TextField required id="test-id" />,
       );
 
@@ -56,9 +48,7 @@ describe('<TextField />', () => {
     });
 
     it('should have name attr', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <TextField name="test-name" id="test-id" />,
       );
 
@@ -66,15 +56,11 @@ describe('<TextField />', () => {
     });
 
     it('should have className', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <TextField
           className="div-cls"
           id="test-id"
-          inputProps={{
-            className: 'input-cls',
-          }}
+          inputProps={{ className: 'input-cls' }}
         />,
       );
 
@@ -106,9 +92,7 @@ describe('<TextField />', () => {
     });
 
     it('should have placeholder', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <TextField placeholder="test-placeholder" id="test-id" />,
       );
 
@@ -120,9 +104,7 @@ describe('<TextField />', () => {
     });
 
     it('should have defaultValue', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <TextField defaultValue="test-value" id="test-id" />,
       );
 
@@ -136,13 +118,11 @@ describe('<TextField />', () => {
     it('should have value', () => {
       const onChange = jest.fn();
 
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <TextField
           value="test-value"
-          onChange={onChange}
           id="test-id"
+          onChange={onChange}
         />,
       );
 
@@ -154,9 +134,7 @@ describe('<TextField />', () => {
     });
 
     it('should have error alert', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <TextField
           error
           errorText="Error message"
@@ -179,9 +157,7 @@ describe('<TextField />', () => {
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <TextField size={size} id="test-id" />,
         );
 

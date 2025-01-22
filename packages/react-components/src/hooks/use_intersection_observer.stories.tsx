@@ -9,16 +9,10 @@ const meta = {
 export default meta;
 
 const Section = (props: { title: string }) => {
-  const {
-    title,
-  } = props;
-  const [refIntersecting, {
-    isIntersecting,
-  }] = useIntersectionObserver();
+  const { title } = props;
+  const [refIntersecting, { isIntersecting }] = useIntersectionObserver();
 
-  console.log(`Render Section ${title}`, {
-    isIntersecting,
-  });
+  console.log(`Render Section ${title}`, { isIntersecting });
 
   return (
     <div
@@ -30,10 +24,7 @@ const Section = (props: { title: string }) => {
         fontSize: '2rem',
       }}
     >
-      <div style={{
-        margin: 'auto',
-      }}
-      >
+      <div style={{ margin: 'auto' }}>
         {title}
       </div>
     </div>
@@ -41,9 +32,7 @@ const Section = (props: { title: string }) => {
 };
 
 export const DemoExample = () => (
-  Array.from({
-    length: 5,
-  }).map((_, index) => (
+  Array.from({ length: 5 }).map((_, index) => (
     <Section
 
       key={index}

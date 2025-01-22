@@ -5,19 +5,11 @@ import { TextField } from './index';
 const meta: Meta<typeof TextField> = {
   title: 'Components/TextField',
   component: TextField,
-  args: {
-    placeholder: 'Placeholder',
-  },
+  args: { placeholder: 'Placeholder' },
   argTypes: {
-    inputProps: {
-      control: false,
-    },
-    inputRef: {
-      control: false,
-    },
-    onChange: {
-      control: false,
-    },
+    inputProps: { control: false },
+    inputRef: { control: false },
+    onChange: { control: false },
   },
 };
 

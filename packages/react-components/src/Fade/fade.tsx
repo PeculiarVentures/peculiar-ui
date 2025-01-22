@@ -67,13 +67,13 @@ export const Fade = React.forwardRef<any, FadeProps>((props, ref) => {
       in={inProp}
       timeout={timeout}
       appear={appear}
+      nodeRef={nodeRef}
       onEnter={handleEnter}
       onEntered={onEntered}
       onEntering={onEntering}
       onExit={onExit}
       onExited={onExited}
       onExiting={onExiting}
-      nodeRef={nodeRef}
       {...other}
     >
       {(state) => (

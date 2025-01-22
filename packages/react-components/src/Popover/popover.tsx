@@ -89,23 +89,17 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>((props, re
       enabled: allowUseSameWidth,
       phase: 'beforeWrite',
       requires: ['computeStyles'],
-      fn: ({
-        state,
-      }) => {
+      fn: ({ state }) => {
         state.styles.popper.width = `${state.rects.reference.width}px`;
       },
-      effect: ({
-        state,
-      }) => {
+      effect: ({ state }) => {
         // @ts-expect-error: TypeScript may not recognize the style property
         state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
       },
     }),
     [],
   );
-  const {
-    styles, attributes,
-  } = usePopper(
+  const { styles, attributes } = usePopper(
     anchorEl,
     popperElement,
     {
@@ -119,10 +113,8 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>((props, re
       {...modalProps}
       ref={ref}
       open={open}
+      backdropProps={{ invisible: true }}
       onClose={onClose}
-      backdropProps={{
-        invisible: true,
-      }}
     >
       <Fade
         in={open}

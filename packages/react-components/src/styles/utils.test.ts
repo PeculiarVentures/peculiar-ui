@@ -13,24 +13,16 @@ describe('styles utils', () => {
       });
 
       it('expect palette generation only by single color', () => {
-        const theme = createTheme('light', {
-          color: {
-            secondary: '#b50ce4',
-          },
-        });
+        const theme = createTheme('light', { color: { secondary: '#b50ce4' } });
         const secondaryColors = colors.generateColorPalette('secondary', '#b50ce4');
 
-        expect(theme).toEqual(deepmerge(defaultThemeLight, {
-          color: {
-            ...secondaryColors,
-          },
-        }));
+        expect(theme).toEqual(deepmerge(defaultThemeLight, { color: { ...secondaryColors } }));
       });
 
       it('expect palette override', () => {
         const theme = createTheme('light', {
           color: {
-            'secondary': '#b50ce4',
+            secondary: '#b50ce4',
             'secondary-shade-3': '#cccccc',
           },
         });
@@ -53,24 +45,16 @@ describe('styles utils', () => {
       });
 
       it('expect palette generation only by single color', () => {
-        const theme = createTheme('dark', {
-          color: {
-            secondary: '#b50ce4',
-          },
-        });
+        const theme = createTheme('dark', { color: { secondary: '#b50ce4' } });
         const secondaryColors = colors.generateColorPalette('secondary', '#b50ce4');
 
-        expect(theme).toEqual(deepmerge(defaultThemeDark, {
-          color: {
-            ...secondaryColors,
-          },
-        }));
+        expect(theme).toEqual(deepmerge(defaultThemeDark, { color: { ...secondaryColors } }));
       });
 
       it('expect palette override', () => {
         const theme = createTheme('dark', {
           color: {
-            'secondary': '#b50ce4',
+            secondary: '#b50ce4',
             'secondary-shade-3': '#cccccc',
           },
         });

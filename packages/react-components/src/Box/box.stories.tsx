@@ -14,13 +14,9 @@ const meta: Meta<typeof Box> = {
     borderColor: 'secondary-tint-3',
   },
   argTypes: {
-    children: {
-      control: 'text',
-    },
+    children: { control: 'text' },
     // @ts-expect-error: `component` is not a valid prop
-    component: {
-      control: false,
-    },
+    component: { control: false },
   },
 };
 

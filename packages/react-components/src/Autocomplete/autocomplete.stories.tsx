@@ -315,24 +315,12 @@ const meta: Meta<typeof Autocomplete> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    options: {
-      control: false,
-    },
-    getOptionLabel: {
-      control: false,
-    },
-    defaultValue: {
-      control: false,
-    },
-    value: {
-      control: false,
-    },
-    filterOptions: {
-      control: false,
-    },
-    popoverProps: {
-      control: false,
-    },
+    options: { control: false },
+    getOptionLabel: { control: false },
+    defaultValue: { control: false },
+    value: { control: false },
+    filterOptions: { control: false },
+    popoverProps: { control: false },
   },
 };
 

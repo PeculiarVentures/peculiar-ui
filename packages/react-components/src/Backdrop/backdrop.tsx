@@ -38,9 +38,7 @@ const reactPropsRegex = /^(as|open|invisible|transitionDuration|variant)$/;
 /**
  * Styles.
  */
-const BackdropRoot = styled(Box, {
-  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<Required<Pick<BackdropOwnProps, 'invisible'>>>((props) => ({
+const BackdropRoot = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<Required<Pick<BackdropOwnProps, 'invisible'>>>((props) => ({
   zIndex: -1,
   position: 'fixed',
   right: 0,
@@ -48,9 +46,7 @@ const BackdropRoot = styled(Box, {
   top: 0,
   left: 0,
   WebkitTapHighlightColor: 'transparent',
-  ...(props.invisible && {
-    backgroundColor: 'transparent',
-  }),
+  ...(props.invisible && { backgroundColor: 'transparent' }),
 }));
 /**
  *
@@ -81,13 +77,13 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
     <Fade
       in={open}
       timeout={transitionDuration}
+      finalOpacity={variants[variant]}
       onEnter={onEnter}
       onEntered={onEntered}
       onEntering={onEntering}
       onExit={onExit}
       onExited={onExited}
       onExiting={onExiting}
-      finalOpacity={variants[variant]}
     >
       <BackdropRoot
         ref={ref}

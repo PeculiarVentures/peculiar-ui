@@ -39,9 +39,7 @@ const reactPropsRegex = /^(as|background|borderColor|borderWidth|borderStyle|bor
 /**
  * Styles.
  */
-const BoxRoot = styled('div', {
-  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<BoxOwnProps>(
+const BoxRoot = styled('div', { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<BoxOwnProps>(
   (props) => ({
     background: props.background && `var(--pv-color-${props.background})`,
     borderColor: props.borderColor && `var(--pv-color-${props.borderColor})`,
@@ -50,9 +48,7 @@ const BoxRoot = styled('div', {
     boxShadow: props.boxShadow && `var(--pv-shadow-${props.boxShadow})`,
   }),
   (props) => {
-    const {
-      borderWidth, borderPosition,
-    } = props;
+    const { borderWidth, borderPosition } = props;
 
     if (typeof borderWidth !== 'number') {
       return {};
@@ -70,9 +66,7 @@ const BoxRoot = styled('div', {
       };
     }
 
-    return {
-      borderWidth,
-    };
+    return { borderWidth };
   },
 );
 /**

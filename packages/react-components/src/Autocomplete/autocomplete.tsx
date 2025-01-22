@@ -119,9 +119,7 @@ const reactPropsRegex = /^(as|size|disabled|isHasClearIcon)$/;
 /**
  * Styles.
  */
-const AutocompleteField = styled(Box, {
-  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<
+const AutocompleteField = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<
   TypographyOwnProps
   & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
   & { isHasClearIcon: boolean }
@@ -198,30 +196,20 @@ const AutocompleteField = styled(Box, {
       }),
       ...(!props.disabled && {
         color,
-        'cursor': 'text',
+        cursor: 'text',
         '&:hover': {
-          'borderColor': borderColorHover,
-          '[aria-label="Clear"]': {
-            visibility: 'visible',
-          },
+          borderColor: borderColorHover,
+          '[aria-label="Clear"]': { visibility: 'visible' },
         },
-        '&[aria-placeholder]': {
-          color: colorPlaceholder,
-        },
-        '&[aria-invalid]': {
-          borderColor: invalidBorderColor,
-        },
+        '&[aria-placeholder]': { color: colorPlaceholder },
+        '&[aria-invalid]': { borderColor: invalidBorderColor },
         '&:focus-visible': {
-          'borderColor': borderColorFocus,
-          '[aria-label="Clear"]': {
-            visibility: 'visible',
-          },
+          borderColor: borderColorFocus,
+          '[aria-label="Clear"]': { visibility: 'visible' },
         },
         '&:focus-within': {
-          'borderColor': borderColorFocus,
-          '[aria-label="Clear"]': {
-            visibility: 'visible',
-          },
+          borderColor: borderColorFocus,
+          '[aria-label="Clear"]': { visibility: 'visible' },
         },
       }),
     });
@@ -250,15 +238,9 @@ const AutocompleteClearButton = styled('button')({
 });
 
 const AutocompleteOpenButton = styled(ArrowDropDownIcon)<{ open: boolean }>({
-  'color': 'var(--pv-color-gray-10)',
-  '&[aria-disabled="true"]': {
-    color: 'inherit',
-  },
-}, (props) => ({
-  ...(props.open && {
-    transform: 'rotate(180deg)',
-  }),
-}));
+  color: 'var(--pv-color-gray-10)',
+  '&[aria-disabled="true"]': { color: 'inherit' },
+}, (props) => ({ ...(props.open && { transform: 'rotate(180deg)' }) }));
 
 const AutocompleteNativeInput = styled('input')({
   bottom: 0,
@@ -271,9 +253,7 @@ const AutocompleteNativeInput = styled('input')({
   boxSizing: 'border-box',
 });
 
-const AutocompleteDropdownStateItem = styled('div')({
-  padding: 'var(--pv-size-base-3) var(--pv-size-base-2)',
-});
+const AutocompleteDropdownStateItem = styled('div')({ padding: 'var(--pv-size-base-3) var(--pv-size-base-2)' });
 
 const AutocompleteDropdownList = styled('ul')({
   maxHeight: '36vh',
@@ -299,11 +279,7 @@ const AutocompleteDropdownGroupList = styled('ul')({
 });
 
 const AutocompleteDropdownGroupListItem = styled(MenuItem)<Required<{ inGroup: boolean }>>(
-  (props) => ({
-    ...(props.inGroup && {
-      padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)',
-    }),
-  }),
+  (props) => ({ ...(props.inGroup && { padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)' }) }),
 );
 
 const AutocompletePopover = styled(Popper)(
@@ -339,14 +315,10 @@ const AutocompleteTag = styled(Chip)<{
   label: 'Autocomplete-tag',
   borderRadius: '3px',
   margin: 0,
-  ...(props.size === 'small' && {
-    height: 'var(--pv-size-base-5)',
-  }),
+  ...(props.size === 'small' && { height: 'var(--pv-size-base-5)' }),
 }));
 
-const AutocompleteTagSize = styled(Typography)({
-  margin: '0 var(--pv-size-base-2)',
-});
+const AutocompleteTagSize = styled(Typography)({ margin: '0 var(--pv-size-base-2)' });
 
 const AutocompleteInputField = styled(Typography)(
   () => ({
@@ -376,9 +348,7 @@ const AutocompleteInputField = styled(Typography)(
 
     return ({
       color,
-      '&::placeholder': {
-        color: colorPlaceholder,
-      },
+      '&::placeholder': { color: colorPlaceholder },
       '&:disabled': {
         cursor: 'not-allowed',
         color: colorDisabled,
@@ -387,9 +357,7 @@ const AutocompleteInputField = styled(Typography)(
   },
 );
 
-const AutocompleteError = styled(Typography)({
-  marginTop: '2px',
-});
+const AutocompleteError = styled(Typography)({ marginTop: '2px' });
 
 const AutocompleteLabel = styled('label')({
   label: 'TextField-label',

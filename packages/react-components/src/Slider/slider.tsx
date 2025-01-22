@@ -54,16 +54,16 @@ const SliderRoot = styled('div')<SliderProps>({
 });
 
 const SliderInput = styled('input')({
-  'appearance': 'none',
-  'width': '100%',
-  'height': '100%',
-  'outline': 'none',
-  'backgroundColor': 'var(--pv-color-primary-shade-1)',
-  'borderRadius': '16px',
-  'margin': 0,
-  'padding': 0,
-  'cursor': 'pointer',
-  'transition': 'background-color 200ms',
+  appearance: 'none',
+  width: '100%',
+  height: '100%',
+  outline: 'none',
+  backgroundColor: 'var(--pv-color-primary-shade-1)',
+  borderRadius: '16px',
+  margin: 0,
+  padding: 0,
+  cursor: 'pointer',
+  transition: 'background-color 200ms',
   '&::-webkit-slider-thumb': {
     appearance: 'none',
     height: '16px',
@@ -85,16 +85,12 @@ const SliderInput = styled('input')({
     transition: 'background-color 200ms, border-color 200ms',
   },
   '&:not(:disabled)': {
-    '&:hover': {
-      backgroundColor: 'var(--pv-color-primary-tint-1)',
-    },
-    '&:focus-visible': {
-      backgroundColor: 'var(--pv-color-primary-tint-2)',
-    },
+    '&:hover': { backgroundColor: 'var(--pv-color-primary-tint-1)' },
+    '&:focus-visible': { backgroundColor: 'var(--pv-color-primary-tint-2)' },
   },
   '&:disabled': {
-    'cursor': 'not-allowed',
-    'backgroundColor': 'var(--pv-color-gray-4)',
+    cursor: 'not-allowed',
+    backgroundColor: 'var(--pv-color-gray-4)',
     '&::-webkit-slider-thumb': {
       backgroundColor: 'var(--pv-color-gray-8)',
       borderColor: 'var(--pv-color-gray-8)',
@@ -135,8 +131,8 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
         step={step}
         value={value}
         defaultValue={defaultValue}
-        onChange={onChange}
         disabled={disabled}
+        onChange={onChange}
       />
     </SliderRoot>
   );

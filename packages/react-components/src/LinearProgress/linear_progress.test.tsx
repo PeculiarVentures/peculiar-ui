@@ -4,9 +4,7 @@ import { LinearProgress } from './index';
 
 describe('<LinearProgress />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <LinearProgress />,
     );
 
@@ -14,9 +12,7 @@ describe('<LinearProgress />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <LinearProgress className="my-class-name" />,
     );
 
@@ -31,9 +27,7 @@ describe('<LinearProgress />', () => {
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <LinearProgress color={color} />,
         );
 

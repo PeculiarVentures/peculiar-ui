@@ -5,15 +5,11 @@ const config: StorybookConfig = {
     '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
-  core: {
-    disableTelemetry: true,
-  },
+  core: { disableTelemetry: true },
   addons: [
     {
       name: '@storybook/addon-essentials',
-      options: {
-        backgrounds: false,
-      },
+      options: { backgrounds: false },
     },
     'storybook-dark-mode',
   ],
@@ -21,9 +17,7 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  typescript: {
-    reactDocgen: 'react-docgen-typescript',
-  },
+  typescript: { reactDocgen: 'react-docgen-typescript' },
   staticDirs: ['./static'],
 };
 

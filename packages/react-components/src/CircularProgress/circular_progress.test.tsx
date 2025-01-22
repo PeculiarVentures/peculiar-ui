@@ -4,9 +4,7 @@ import { CircularProgress } from './index';
 
 describe('<CircularProgress />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <CircularProgress />,
     );
 
@@ -14,9 +12,7 @@ describe('<CircularProgress />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <CircularProgress className="my-class-name" />,
     );
 
@@ -31,9 +27,7 @@ describe('<CircularProgress />', () => {
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <CircularProgress size={size} />,
         );
 
@@ -51,9 +45,7 @@ describe('<CircularProgress />', () => {
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <CircularProgress color={color} />,
         );
 

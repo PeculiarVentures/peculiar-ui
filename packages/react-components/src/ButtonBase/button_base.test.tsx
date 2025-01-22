@@ -23,9 +23,7 @@ describe('<ButtonBase />', () => {
     });
 
     it('should be disabled', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <ButtonBase disabled>Text</ButtonBase>,
       );
 
@@ -33,9 +31,7 @@ describe('<ButtonBase />', () => {
     });
 
     it('should have text variant', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <ButtonBase textVariant="h1">Text</ButtonBase>,
       );
 
@@ -43,9 +39,7 @@ describe('<ButtonBase />', () => {
     });
 
     it('should have class name', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <ButtonBase className="test-cls">Text</ButtonBase>,
       );
 
@@ -53,9 +47,7 @@ describe('<ButtonBase />', () => {
     });
 
     it('should have test id', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <ButtonBase data-testid="test-id">Text</ButtonBase>,
       );
 
@@ -63,9 +55,7 @@ describe('<ButtonBase />', () => {
     });
 
     it('should have title', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <ButtonBase title="Test title">Text</ButtonBase>,
       );
 
@@ -96,13 +86,9 @@ describe('<ButtonBase />', () => {
         variants.forEach((variant) => {
           colors.forEach((color) => {
             it(`variant: "${variant}" & color: "${color}"`, () => {
-              const {
-                asFragment,
-              } = render(
+              const { asFragment } = render(
                 <ButtonBase variant={variant} color={color}>Text</ButtonBase>,
-                {
-                  mode: themeMode,
-                },
+                { mode: themeMode },
               );
 
               expect(asFragment()).toMatchSnapshot();
@@ -122,9 +108,7 @@ describe('<ButtonBase />', () => {
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <ButtonBase size={size}>Text</ButtonBase>,
         );
 
@@ -177,7 +161,7 @@ describe('<ButtonBase />', () => {
       const handleClick = jest.fn();
 
       render(
-        <ButtonBase onClick={handleClick} disabled>
+        <ButtonBase disabled onClick={handleClick}>
           Click
         </ButtonBase>,
       );
@@ -191,9 +175,7 @@ describe('<ButtonBase />', () => {
     it('should rendered as an anchor', () => {
       const href = 'https://test.com';
 
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <ButtonBase component="a" href={href}>
           Link
         </ButtonBase>,

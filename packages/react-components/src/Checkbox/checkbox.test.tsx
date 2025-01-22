@@ -11,9 +11,7 @@ import { Checkbox } from './index';
 describe('<Checkbox />', () => {
   describe('Checkbox render variants', () => {
     it('should render as default', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Checkbox id="test-id" />,
       );
       const input = screen.getByRole('checkbox');
@@ -47,9 +45,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should be disabled', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Checkbox id="test-id" disabled />,
       );
 
@@ -57,9 +53,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should have required', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Checkbox id="test-id" required />,
       );
 
@@ -67,9 +61,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should have name attr', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Checkbox id="test-id" name="test-name" />,
       );
 
@@ -77,9 +69,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should have test id', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Checkbox id="test-id" data-testid="test-id" />,
       );
 
@@ -87,9 +77,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should have className', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Checkbox id="test-id" className="test-cls" />,
       );
 
@@ -97,9 +85,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should have custom checked icon', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Checkbox id="test-id" checkedIcon={PlusIcon} />,
       );
 
@@ -107,9 +93,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should be checked, defaultChecked prop', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Checkbox id="test-id" defaultChecked />,
       );
       const input = screen.getByRole('checkbox');
@@ -131,9 +115,7 @@ describe('<Checkbox />', () => {
 
     it('should be checked', () => {
       const onChange = jest.fn();
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Checkbox
           id="test-id"
           checked
@@ -185,9 +167,7 @@ describe('<Checkbox />', () => {
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <Checkbox color={color} id="test-id" />,
         );
 

@@ -102,15 +102,9 @@ const TextareaFieldInput = styled(Typography)<TextareaFieldProps>(
     display: 'block',
     appearance: 'none',
     resize: 'none',
-    ...(props.size === 'small' && {
-      minHeight: 'var(--pv-size-base-12)',
-    }),
-    ...(props.size === 'medium' && {
-      minHeight: 'var(--pv-size-base-14)',
-    }),
-    ...(props.size === 'large' && {
-      minHeight: 'var(--pv-size-base-16)',
-    }),
+    ...(props.size === 'small' && { minHeight: 'var(--pv-size-base-12)' }),
+    ...(props.size === 'medium' && { minHeight: 'var(--pv-size-base-14)' }),
+    ...(props.size === 'large' && { minHeight: 'var(--pv-size-base-16)' }),
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
@@ -136,24 +130,16 @@ const TextareaFieldInput = styled(Typography)<TextareaFieldProps>(
     return ({
       color,
       borderColor,
-      '&::placeholder': {
-        color: colorPlaceholder,
-      },
-      '&:hover': {
-        borderColor: borderColorHover,
-      },
+      '&::placeholder': { color: colorPlaceholder },
+      '&:hover': { borderColor: borderColorHover },
       '&:disabled': {
         cursor: 'not-allowed',
         borderColor: borderColorDisabled,
         color: colorDisabled,
       },
       '&:not(:disabled)': {
-        '&[aria-invalid]': {
-          borderColor: invalidBorderColor,
-        },
-        '&:focus-visible': {
-          borderColor: borderColorFocus,
-        },
+        '&[aria-invalid]': { borderColor: invalidBorderColor },
+        '&:focus-visible': { borderColor: borderColorFocus },
       },
     });
   },
@@ -164,9 +150,7 @@ const TextareaFieldLabel = styled('label')({
   display: 'inline-block',
 });
 
-const TextareaFieldError = styled(Typography)({
-  marginTop: '2px',
-});
+const TextareaFieldError = styled(Typography)({ marginTop: '2px' });
 /**
  *
  */
@@ -223,16 +207,16 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
         id={id}
         value={value}
         required={required}
+        autoFocus={autoFocus}
+
+        placeholder={placeholder}
+        readOnly={readOnly}
         name={name}
         // @ts-expect-error: TypeScript may not recognize the ref prop type
         ref={inputRef}
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        autoFocus={autoFocus}
         aria-invalid={error || undefined}
         // @ts-expect-error: TypeScript may not recognize the onChange prop type
         onChange={onChange}
-        placeholder={placeholder}
-        readOnly={readOnly}
       />
       {error && errorText && (
         <TextareaFieldError

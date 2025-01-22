@@ -105,15 +105,9 @@ const TextFieldInput = styled(Typography)<TextFieldProps>(
     transition: 'background-color 200ms, color 200ms, border-color 200ms',
     display: 'inline-flex',
     appearance: 'none',
-    ...(props.size === 'small' && {
-      height: 'var(--pv-size-base-6)',
-    }),
-    ...(props.size === 'medium' && {
-      height: 'var(--pv-size-base-7)',
-    }),
-    ...(props.size === 'large' && {
-      height: 'var(--pv-size-base-8)',
-    }),
+    ...(props.size === 'small' && { height: 'var(--pv-size-base-6)' }),
+    ...(props.size === 'medium' && { height: 'var(--pv-size-base-7)' }),
+    ...(props.size === 'large' && { height: 'var(--pv-size-base-8)' }),
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
@@ -139,24 +133,16 @@ const TextFieldInput = styled(Typography)<TextFieldProps>(
     return ({
       color,
       borderColor,
-      '&::placeholder': {
-        color: colorPlaceholder,
-      },
-      '&:hover': {
-        borderColor: borderColorHover,
-      },
+      '&::placeholder': { color: colorPlaceholder },
+      '&:hover': { borderColor: borderColorHover },
       '&:disabled': {
         cursor: 'not-allowed',
         borderColor: borderColorDisabled,
         color: colorDisabled,
       },
       '&:not(:disabled)': {
-        '&[aria-invalid]': {
-          borderColor: invalidBorderColor,
-        },
-        '&:focus-visible': {
-          borderColor: borderColorFocus,
-        },
+        '&[aria-invalid]': { borderColor: invalidBorderColor },
+        '&:focus-visible': { borderColor: borderColorFocus },
       },
     });
   },
@@ -168,9 +154,7 @@ const TextFieldLabel = styled('label')({
   display: 'inline-block',
 });
 
-const TextFieldError = styled(Typography)({
-  marginTop: '2px',
-});
+const TextFieldError = styled(Typography)({ marginTop: '2px' });
 /**
  *
  */
@@ -231,13 +215,13 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         value={value}
         required={required}
         name={name}
+        aria-invalid={error || undefined}
+        placeholder={placeholder}
+        readOnly={readOnly}
+        onChange={onChange}
         ref={inputRef}
         // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
-        aria-invalid={error || undefined}
-        onChange={onChange}
-        placeholder={placeholder}
-        readOnly={readOnly}
       />
       {error && errorText && (
         <TextFieldError

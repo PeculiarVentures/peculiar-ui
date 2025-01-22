@@ -96,9 +96,7 @@ const stylesKeyframeOpacity = keyframes`
   }
 `;
 
-const TooltipRoot = styled(Box, {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Pick<TooltipOwnProps, 'size'>>(
+const TooltipRoot = styled(Box, { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Pick<TooltipOwnProps, 'size'>>(
   (props) => ({
     maxWidth: '300px',
     wordWrap: 'break-word',
@@ -106,12 +104,8 @@ const TooltipRoot = styled(Box, {
     animation: `${stylesKeyframeOpacity} 225ms`,
     position: 'relative',
     borderRadius: '4px',
-    ...(props.size === 'small' && {
-      padding: '5px 8px',
-    }),
-    ...(props.size === 'large' && {
-      padding: '8px 10px',
-    }),
+    ...(props.size === 'small' && { padding: '5px 8px' }),
+    ...(props.size === 'large' && { padding: '8px 10px' }),
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
@@ -140,8 +134,8 @@ const TooltipRoot = styled(Box, {
 );
 
 const TooltipPopper = styled(Popper)<Required<Pick<TooltipOwnProps, 'interactive'>>>((props) => ({
-  'pointerEvents': props.interactive ? 'auto' : 'none',
-  'zIndex': 1500,
+  pointerEvents: props.interactive ? 'auto' : 'none',
+  zIndex: 1500,
   '&[data-popper-placement^="bottom"]': {
     '[data-popper-arrow]': {
       top: 0,
@@ -168,15 +162,13 @@ const TooltipPopper = styled(Popper)<Required<Pick<TooltipOwnProps, 'interactive
   },
 }));
 
-const TooltipArrow = styled('span', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Required<Pick<TooltipOwnProps, 'color'>>>(
+const TooltipArrow = styled('span', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<TooltipOwnProps, 'color'>>>(
   {
-    'width': '8px',
-    'height': '8px',
-    'background': 'transparent',
-    'position': 'absolute',
-    'display': 'block',
+    width: '8px',
+    height: '8px',
+    background: 'transparent',
+    position: 'absolute',
+    display: 'block',
     '&::before': {
       content: '""',
       margin: 'auto',
@@ -201,9 +193,7 @@ const TooltipArrow = styled('span', {
       color = 'var(--pv-color-white)';
     }
 
-    return {
-      color,
-    };
+    return { color };
   },
 );
 /**
@@ -269,9 +259,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
   };
 
   const popperProps: React.HTMLAttributes<HTMLDivElement> = {};
-  const childrenProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> = {
-    ref: multiRef,
-  };
+  const childrenProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> = { ref: multiRef };
 
   if (!disableTouchListener) {
     childrenProps.onTouchStart = handleEnter;
@@ -318,9 +306,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
           },
           {
             name: 'offset',
-            options: {
-              offset: [0, offset],
-            },
+            options: { offset: [0, offset] },
           },
         ]}
         {...popperProps}

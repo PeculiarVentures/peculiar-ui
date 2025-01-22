@@ -59,44 +59,28 @@ const pulseKeyframe = keyframes`
   }
 `;
 
-const SkeletonRoot = styled(Box, {
-  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<SkeletonProps>((props) => ({
+const SkeletonRoot = styled(Box, { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<SkeletonProps>((props) => ({
   display: 'block',
   height: '1.2em',
   animation: `${pulseKeyframe} 1.5s ease-in-out 0.5s infinite`,
   ...(props.variant === 'text' && {
-    'marginTop': 0,
-    'marginBottom': 0,
-    'height': 'auto',
-    'transformOrigin': '0 55%',
-    'transform': 'scale(1, 0.60)',
-    'borderRadius': '4px',
-    '&:empty:before': {
-      content: '"\\00a0"',
-    },
+    marginTop: 0,
+    marginBottom: 0,
+    height: 'auto',
+    transformOrigin: '0 55%',
+    transform: 'scale(1, 0.60)',
+    borderRadius: '4px',
+    '&:empty:before': { content: '"\\00a0"' },
   }),
-  ...(props.variant === 'circle' && {
-    borderRadius: '50%',
-  }),
+  ...(props.variant === 'circle' && { borderRadius: '50%' }),
   ...(props.children && {
-    '& > *': {
-      visibility: 'hidden',
-    },
+    '& > *': { visibility: 'hidden' },
 
-    ...(!props.width && {
-      maxWidth: 'fit-content',
-    }),
-    ...(!props.height && {
-      height: 'auto',
-    }),
+    ...(!props.width && { maxWidth: 'fit-content' }),
+    ...(!props.height && { height: 'auto' }),
   }),
-  ...(props.height && {
-    height: props.height,
-  }),
-  ...(props.width && {
-    width: props.width,
-  }),
+  ...(props.height && { height: props.height }),
+  ...(props.width && { width: props.width }),
 }));
 /**
  *

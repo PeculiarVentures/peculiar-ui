@@ -6,11 +6,7 @@ import reactConfig from '@peculiar/eslint-config-react';
 export default tseslint.config([
   ...baseConfig,
   ...reactConfig,
-  {
-    rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-    },
-  },
+  { rules: { '@typescript-eslint/no-explicit-any': 'off' } },
   {
     ignores: [
       '**/dist/*',

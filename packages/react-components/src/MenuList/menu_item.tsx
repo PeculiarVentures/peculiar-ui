@@ -45,9 +45,7 @@ export type MenuItemProps<
 /**
  * Styles.
  */
-const MenuItemRoot = styled('li', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'disabled',
-})<MenuItemOwnProps>(
+const MenuItemRoot = styled('li', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'disabled' })<MenuItemOwnProps>(
   (props) => ({
     padding: '0px var(--pv-size-base-2)',
     fontFamily: 'inherit',
@@ -87,15 +85,9 @@ const MenuItemRoot = styled('li', {
 
     return {
       color,
-      '&:hover': {
-        backgroundColor: backgroundColorHover,
-      },
-      '&:focus-visible, &[data-focused="true"]': {
-        backgroundColor: backgroundColorFocused,
-      },
-      '&:active, &[aria-selected="true"]': {
-        backgroundColor: backgroundColorSelected,
-      },
+      '&:hover': { backgroundColor: backgroundColorHover },
+      '&:focus-visible, &[data-focused="true"]': { backgroundColor: backgroundColorFocused },
+      '&:active, &[aria-selected="true"]': { backgroundColor: backgroundColorSelected },
       ...(props.disabled && {
         color: colorDisabled,
         pointerEvents: 'none',
@@ -109,9 +101,7 @@ const MenuItemIcon = styled('span')({
   display: 'inline-flex',
 });
 
-const MenuItemLabel = styled('span')({
-  flex: '1 1 auto',
-});
+const MenuItemLabel = styled('span')({ flex: '1 1 auto' });
 /**
  *
  */

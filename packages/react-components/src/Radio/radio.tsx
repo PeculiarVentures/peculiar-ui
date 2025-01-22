@@ -78,31 +78,25 @@ const RadioRoot = styled('label')(
   },
   (props) => ({
     ...(props.theme.mode === 'dark'
-      ? {
-          color: 'var(--pv-color-gray-5)',
-        }
-      : {
-          color: 'var(--pv-color-gray-6)',
-        }),
+      ? { color: 'var(--pv-color-gray-5)' }
+      : { color: 'var(--pv-color-gray-6)' }),
   }),
 );
 
-const RadioInput = styled('input', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Required<Pick<RadioOwnProps, 'color'>>>(
+const RadioInput = styled('input', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<RadioOwnProps, 'color'>>>(
   {
-    'cursor': 'inherit',
-    'width': '100%',
-    'height': '100%',
-    'margin': 0,
-    'padding': 0,
-    'outline': 0,
-    'borderRadius': '50%',
-    'borderWidth': '2px',
-    'borderStyle': 'solid',
-    'appearance': 'none',
-    'borderColor': 'currentColor',
-    'backgroundColor': 'transparent',
+    cursor: 'inherit',
+    width: '100%',
+    height: '100%',
+    margin: 0,
+    padding: 0,
+    outline: 0,
+    borderRadius: '50%',
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    appearance: 'none',
+    borderColor: 'currentColor',
+    backgroundColor: 'transparent',
     '&:before': {
       top: '-7px',
       left: '-7px',
@@ -148,35 +142,17 @@ const RadioInput = styled('input', {
         },
       },
       '&:not(:disabled)': {
-        'cursor': 'pointer',
-        '&:checked': {
-          color: colorChecked,
-        },
-        '&:hover': {
-          '&:before': {
-            opacity: opacityHover,
-          },
-        },
-        '&:focus-visible': {
-          '&:before': {
-            opacity: opacityFocus,
-          },
-        },
-        '&:active': {
-          '&:before': {
-            opacity: opacityActive,
-          },
-        },
+        cursor: 'pointer',
+        '&:checked': { color: colorChecked },
+        '&:hover': { '&:before': { opacity: opacityHover } },
+        '&:focus-visible': { '&:before': { opacity: opacityFocus } },
+        '&:active': { '&:before': { opacity: opacityActive } },
       },
       '&:disabled': {
-        'cursor': 'not-allowed',
-        '+ [aria-hidden]': {
-          color: 'inherit',
-        },
-        'color': colorDisabled,
-        '&:checked': {
-          color: colorDisabledChecked,
-        },
+        cursor: 'not-allowed',
+        '+ [aria-hidden]': { color: 'inherit' },
+        color: colorDisabled,
+        '&:checked': { color: colorDisabledChecked },
       },
     });
   },
@@ -240,6 +216,4 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref)
 
 Radio.displayName = 'Radio';
 
-Radio.defaultProps = {
-  color: 'primary',
-};
+Radio.defaultProps = { color: 'primary' };

@@ -6,23 +6,13 @@ import { Button } from './index';
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
-  args: {
-    children: 'Action',
-  },
+  args: { children: 'Action' },
   argTypes: {
-    children: {
-      control: 'text',
-    },
-    startIcon: {
-      control: false,
-    },
-    endIcon: {
-      control: false,
-    },
+    children: { control: 'text' },
+    startIcon: { control: false },
+    endIcon: { control: false },
     // @ts-expect-error: `component` is not a valid prop
-    component: {
-      control: false,
-    },
+    component: { control: false },
   },
 };
 

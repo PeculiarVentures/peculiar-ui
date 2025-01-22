@@ -5,16 +5,10 @@ const meta: Meta<typeof Portal> = {
   title: 'Components/Portal',
   component: Portal,
   tags: ['autodocs'],
-  args: {
-    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
-  },
+  args: { children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur' },
   argTypes: {
-    children: {
-      control: 'text',
-    },
-    container: {
-      control: false,
-    },
+    children: { control: 'text' },
+    container: { control: false },
   },
 };
 

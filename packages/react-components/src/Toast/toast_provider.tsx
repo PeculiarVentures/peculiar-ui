@@ -1,11 +1,11 @@
 import * as React from 'react';
+import { Portal } from '../Portal';
 import {
   ToastContext,
   ToastType,
   BaseToastType,
 } from './toast_context';
 import { ToastContainer, ToastContainerProps } from './toast_container';
-import { Portal } from '../Portal';
 import { Toast } from './toast';
 
 interface BaseProps {
@@ -136,13 +136,13 @@ export const ToastProvider: React.FC<BaseProps> = (props) => {
               <Toast
                 key={toast.id}
                 id={toast.id}
-                onClose={removeToast}
                 isClosable={toast.isClosable}
                 duration={toast.duration}
                 alertProps={{
                   disableIcon: toast.disableIcon,
                   variant: toast.variant,
                 }}
+                onClose={removeToast}
               >
                 {toast.message}
               </Toast>
@@ -156,6 +156,4 @@ export const ToastProvider: React.FC<BaseProps> = (props) => {
 
 ToastProvider.displayName = 'ToastProvider';
 
-ToastProvider.defaultProps = {
-  maxToasts: 1,
-};
+ToastProvider.defaultProps = { maxToasts: 1 };

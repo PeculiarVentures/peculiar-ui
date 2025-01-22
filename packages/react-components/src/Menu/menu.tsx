@@ -61,18 +61,10 @@ export type MenuProps = MenuOwnProps;
  * Styles.
  */
 const MenuPopover = styled(Popover)({
-  '&[data-popper-placement^="bottom"]': {
-    margin: 'var(--pv-size-base-3) 0px',
-  },
-  '&[data-popper-placement^="top"]': {
-    margin: 'var(--pv-size-base-3) 0px',
-  },
-  '&[data-popper-placement^="right"]': {
-    margin: '0px var(--pv-size-base-3)',
-  },
-  '&[data-popper-placement^="left"]': {
-    margin: '0px var(--pv-size-base-3)',
-  },
+  '&[data-popper-placement^="bottom"]': { margin: 'var(--pv-size-base-3) 0px' },
+  '&[data-popper-placement^="top"]': { margin: 'var(--pv-size-base-3) 0px' },
+  '&[data-popper-placement^="right"]': { margin: '0px var(--pv-size-base-3)' },
+  '&[data-popper-placement^="left"]': { margin: '0px var(--pv-size-base-3)' },
 });
 /**
  *
@@ -85,9 +77,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
     onClose,
     popoverProps = {},
   } = props;
-  const {
-    modalProps = {},
-  } = popoverProps;
+  const { modalProps = {} } = popoverProps;
   const [open, setOpen] = React.useState(false);
   const childRef = React.useRef(null);
 
@@ -160,10 +150,10 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
         component={component}
         textVariant={textVariantProp}
         disabled={disabled}
-        onClick={handleMenuItemClick(option)}
         className={classNameProp}
         startIcon={startIcon}
         endIcon={endIcon}
+        onClick={handleMenuItemClick(option)}
         {...other}
       >
         {label}
@@ -172,8 +162,8 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
   };
 
   const childrenProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> = {
-    'ref': childRef,
-    'onClick': handleChildClick,
+    ref: childRef,
+    onClick: handleChildClick,
     'aria-haspopup': 'menu',
     'aria-expanded': String(open) as any,
   };

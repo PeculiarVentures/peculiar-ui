@@ -31,14 +31,10 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
 
   return (
     <ThemeProviderEmotion
-      theme={{
-        mode,
-      }}
+      theme={{ mode }}
     >
       <Global
-        styles={{
-          [cssVarsRoot]: theme,
-        }}
+        styles={{ [cssVarsRoot]: theme }}
       />
       {children}
     </ThemeProviderEmotion>
@@ -47,6 +43,4 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
 
 ThemeProvider.displayName = 'ThemeProvider';
 
-ThemeProvider.defaultProps = {
-  mode: 'light',
-};
+ThemeProvider.defaultProps = { mode: 'light' };

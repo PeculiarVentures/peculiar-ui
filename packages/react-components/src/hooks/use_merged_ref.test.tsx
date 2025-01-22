@@ -7,9 +7,7 @@ import React, {
 import { render } from '../test-utils';
 import { useMergedRef } from './use_merged_ref';
 
-const Component = ({
-  refs,
-}: { refs: (MutableRefObject<any> | RefCallback<HTMLElement>)[] }) => {
+const Component = ({ refs }: { refs: (MutableRefObject<any> | RefCallback<HTMLElement>)[] }) => {
   const ref = useRef();
   const mergedRef = useMergedRef(ref, ...refs);
 
@@ -19,9 +17,7 @@ const Component = ({
 describe('useMergedRef()', () => {
   it('should assign node to the refs', () => {
     const ref = createRef();
-    const reference: { current: HTMLDivElement | null } = {
-      current: null,
-    };
+    const reference: { current: HTMLDivElement | null } = { current: null };
     let refFromCallback = null;
 
     const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValue(reference);

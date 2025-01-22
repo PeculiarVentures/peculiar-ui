@@ -6,12 +6,8 @@ const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
   tags: ['autodocs'],
   argTypes: {
-    inputProps: {
-      control: false,
-    },
-    checkedIcon: {
-      control: false,
-    },
+    inputProps: { control: false },
+    checkedIcon: { control: false },
   },
 };
 

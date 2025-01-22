@@ -5,16 +5,12 @@ import { colors as colorsTheme } from './foundations';
 import { contrastThreshold } from './utils';
 import { defaultThemeLight } from './default_theme';
 
-export default {
-  title: 'Palette',
-};
+export default { title: 'Palette' };
 
 export const ColorItemExample: React.FC<{ title: string; colors: Record<string, string> }> = (
   props,
 ) => {
-  const {
-    title, colors,
-  } = props;
+  const { title, colors } = props;
 
   return (
     <div className="color_item_custom">
@@ -29,9 +25,7 @@ export const ColorItemExample: React.FC<{ title: string; colors: Record<string, 
           >
             <div
               className="color_item_custom-bg"
-              style={{
-                background: colors[key],
-              }}
+              style={{ background: colors[key] }}
             />
             <div>
               <Typography>
@@ -68,8 +62,8 @@ export const PalettePlaygroundExample = () => {
         <input
           type="color"
           defaultValue={color}
-          onChange={handleChange}
           className="color_item_custom-picker_input"
+          onChange={handleChange}
         />
         <h4
           style={{

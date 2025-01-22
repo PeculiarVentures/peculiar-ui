@@ -48,15 +48,9 @@ const meta: Meta<typeof Menu> = {
     ],
   },
   argTypes: {
-    children: {
-      control: false,
-    },
-    options: {
-      control: false,
-    },
-    popoverProps: {
-      control: false,
-    },
+    children: { control: false },
+    options: { control: false },
+    popoverProps: { control: false },
   },
 };
 

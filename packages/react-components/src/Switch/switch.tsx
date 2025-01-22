@@ -73,9 +73,7 @@ const SwitchRoot = styled('label')({
   flexShrink: 0,
 });
 
-const SwitchInput = styled('input', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Required<Pick<SwitchOwnProps, 'color'>>>(
+const SwitchInput = styled('input', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<Required<Pick<SwitchOwnProps, 'color'>>>(
   {
     overflow: 'hidden',
     width: '100%',
@@ -111,63 +109,45 @@ const SwitchInput = styled('input', {
 
     return {
       '&:checked': {
-        'backgroundColor': backgroundColorChecked,
+        backgroundColor: backgroundColorChecked,
         '+ [aria-hidden]': {
-          'transform': 'translateX(calc(50% - 2px))',
-          '&:before': {
-            backgroundColor: `var(--pv-color-${props.color}-shade-2)`,
-          },
+          transform: 'translateX(calc(50% - 2px))',
+          '&:before': { backgroundColor: `var(--pv-color-${props.color}-shade-2)` },
         },
       },
       '&:disabled': {
-        'cursor': 'not-allowed',
-        'pointerEvents': 'none',
-        'backgroundColor': 'var(--pv-color-gray-4)',
+        cursor: 'not-allowed',
+        pointerEvents: 'none',
+        backgroundColor: 'var(--pv-color-gray-4)',
 
         '+ [aria-hidden]': {
           borderColor: borderColorDisabled,
           backgroundColor: backgroundColorDisabled,
         },
 
-        '&:checked': {
-          backgroundColor: backgroundColorDisabledChecked,
-        },
+        '&:checked': { backgroundColor: backgroundColorDisabledChecked },
       },
       '&:not(:disabled)': {
-        'cursor': 'pointer',
-        '+ [aria-hidden]': {
-          borderColor,
-        },
-        '&:hover': {
-          '+ [aria-hidden]:before': {
-            opacity: opacityHover,
-          },
-        },
-        '&:focus-visible': {
-          '+ [aria-hidden]:before': {
-            opacity: opacityFocus,
-          },
-        },
-        '&:active': {
-          '+ [aria-hidden]:before': {
-            opacity: opacityActive,
-          },
-        },
+        cursor: 'pointer',
+        '+ [aria-hidden]': { borderColor },
+        '&:hover': { '+ [aria-hidden]:before': { opacity: opacityHover } },
+        '&:focus-visible': { '+ [aria-hidden]:before': { opacity: opacityFocus } },
+        '&:active': { '+ [aria-hidden]:before': { opacity: opacityActive } },
       },
     };
   },
 );
 
 const SwitchDot = styled(Box)({
-  'display': 'block',
-  'position': 'absolute',
-  'width': 'var(--pv-size-base-3)',
-  'height': 'var(--pv-size-base-3)',
-  'transition': 'transform 200ms',
-  'boxShadow': 'var(--pv-shadow-light-low)',
-  'transform': 'translateX(calc(-50% + 2px))',
-  'pointerEvents': 'none',
-  'boxSizing': 'content-box',
+  display: 'block',
+  position: 'absolute',
+  width: 'var(--pv-size-base-3)',
+  height: 'var(--pv-size-base-3)',
+  transition: 'transform 200ms',
+  boxShadow: 'var(--pv-shadow-light-low)',
+  transform: 'translateX(calc(-50% + 2px))',
+  pointerEvents: 'none',
+  boxSizing: 'content-box',
   '&:before': {
     top: '-10px',
     left: '-10px',
@@ -231,6 +211,4 @@ export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, re
 
 Switch.displayName = 'Switch';
 
-Switch.defaultProps = {
-  color: 'primary',
-};
+Switch.defaultProps = { color: 'primary' };

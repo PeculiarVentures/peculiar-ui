@@ -7,17 +7,11 @@ const meta: Meta<typeof Fab> = {
   title: 'Components/Fab',
   component: Fab,
   tags: ['autodocs'],
-  args: {
-    children: <PlusIcon />,
-  },
+  args: { children: <PlusIcon /> },
   argTypes: {
-    children: {
-      control: false,
-    },
+    children: { control: false },
     // @ts-expect-error: `component` is not a valid prop
-    component: {
-      control: false,
-    },
+    component: { control: false },
   },
 };
 

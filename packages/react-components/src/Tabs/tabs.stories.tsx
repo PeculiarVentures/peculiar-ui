@@ -25,12 +25,8 @@ const meta: Meta<typeof Tabs> = {
     value: 'home',
   },
   argTypes: {
-    children: {
-      control: false,
-    },
-    value: {
-      control: false,
-    },
+    children: { control: false },
+    value: { control: false },
   },
 };
 

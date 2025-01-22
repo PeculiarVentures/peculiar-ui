@@ -65,18 +65,14 @@ export type ModalProps = ModalOwnProps & React.HTMLAttributes<HTMLDivElement>;
 /**
  * Styles.
  */
-const ModalRoot = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'open',
-})<Required<Pick<ModalOwnProps, 'open'> & { exited: boolean }>>((props) => ({
+const ModalRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'open' })<Required<Pick<ModalOwnProps, 'open'> & { exited: boolean }>>((props) => ({
   position: 'fixed',
   zIndex: 1300,
   top: 0,
   bottom: 0,
   right: 0,
   left: 0,
-  ...(!props.open && props.exited && {
-    visibility: 'hidden',
-  }),
+  ...(!props.open && props.exited && { visibility: 'hidden' }),
 }));
 /**
  *
@@ -142,10 +138,10 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
         <Backdrop
           {...backdropProps}
           open={open}
+          transitionDuration={transitionDuration}
           onClick={handleBackdropClick}
           onEnter={() => setExited(false)}
           onExited={() => setExited(true)}
-          transitionDuration={transitionDuration}
         />
         <FocusTrap
           open={disableEnforceFocus ? false : open}

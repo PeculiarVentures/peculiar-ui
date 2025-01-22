@@ -10,12 +10,8 @@ const meta: Meta<typeof Image> = {
     alt: 'Perfect Latte',
   },
   argTypes: {
-    fallback: {
-      control: false,
-    },
-    loading: {
-      control: false,
-    },
+    fallback: { control: false },
+    loading: { control: false },
   },
 };
 

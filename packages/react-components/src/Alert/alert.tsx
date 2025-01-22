@@ -69,9 +69,7 @@ const AlertRoot = styled(FlexContainer)<AlertOwnProps>(
         backgroundColor = 'var(--pv-color-wrong-tint-5)';
       }
 
-      return {
-        backgroundColor,
-      };
+      return { backgroundColor };
     }
 
     if (isDark) {
@@ -80,9 +78,7 @@ const AlertRoot = styled(FlexContainer)<AlertOwnProps>(
       backgroundColor = 'var(--pv-color-black)';
     }
 
-    return {
-      backgroundColor,
-    };
+    return { backgroundColor };
   },
 );
 
@@ -92,15 +88,9 @@ const AlertIcon = styled('div')<Required<Pick<AlertOwnProps, 'variant'>>>(
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    ...(props.variant === 'wrong' && {
-      color: 'var(--pv-color-wrong)',
-    }),
-    ...(props.variant === 'attention' && {
-      color: 'var(--pv-color-attention)',
-    }),
-    ...(props.variant === 'success' && {
-      color: 'var(--pv-color-success)',
-    }),
+    ...(props.variant === 'wrong' && { color: 'var(--pv-color-wrong)' }),
+    ...(props.variant === 'attention' && { color: 'var(--pv-color-attention)' }),
+    ...(props.variant === 'success' && { color: 'var(--pv-color-success)' }),
   }),
 );
 
@@ -198,6 +188,4 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) =
 
 Alert.displayName = 'Alert';
 
-Alert.defaultProps = {
-  disableIcon: true,
-};
+Alert.defaultProps = { disableIcon: true };

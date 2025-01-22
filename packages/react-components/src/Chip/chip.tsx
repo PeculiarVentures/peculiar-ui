@@ -60,9 +60,7 @@ export type ChipProps<
 /**
  * Styles.
  */
-const ChipRoot = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<ChipOwnProps>((props) => ({
+const ChipRoot = styled('div', { shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color' })<ChipOwnProps>((props) => ({
   display: 'inline-flex',
   maxWidth: '100%',
   fontFamily: 'inherit',
@@ -82,9 +80,7 @@ const ChipRoot = styled('div', {
   whiteSpace: 'nowrap',
   textDecoration: 'none',
   gap: 'var(--pv-size-base)',
-  ...(props.disabled && {
-    pointerEvents: 'none',
-  }),
+  ...(props.disabled && { pointerEvents: 'none' }),
   ...(Boolean(props.onClick) && !props.disabled && {
     cursor: 'pointer',
     userSelect: 'none',
@@ -172,12 +168,8 @@ const ChipRoot = styled('div', {
     backgroundColor,
     color,
     ...(typeof props.onClick === 'function' && !props.disabled && {
-      '&:hover': {
-        backgroundColor: backgroundColorHover,
-      },
-      '&:focus-visible': {
-        backgroundColor: backgroundColorFocus,
-      },
+      '&:hover': { backgroundColor: backgroundColorHover },
+      '&:focus-visible': { backgroundColor: backgroundColorFocus },
       '&:active': {
         backgroundColor: backgroundColorActive,
         boxShadow: boxShadowActive,
@@ -192,25 +184,19 @@ const ChipRoot = styled('div', {
 });
 
 const ChipDeleteIcon = styled('span')({
-  'width': '24px',
-  'height': '24px',
-  'cursor': 'pointer',
-  'WebkitTapHighlightColor': 'transparent',
-  'transition': 'opacity 200ms',
-  'opacity': '0.6',
-  'flexShrink': 0,
-  '&:hover': {
-    opacity: '1',
-  },
+  width: '24px',
+  height: '24px',
+  cursor: 'pointer',
+  WebkitTapHighlightColor: 'transparent',
+  transition: 'opacity 200ms',
+  opacity: '0.6',
+  flexShrink: 0,
+  '&:hover': { opacity: '1' },
 });
 
-const ChipStartContent = styled('span')({
-  display: 'inherit',
-});
+const ChipStartContent = styled('span')({ display: 'inherit' });
 
-const ChipEndContent = styled('span')({
-  display: 'inherit',
-});
+const ChipEndContent = styled('span')({ display: 'inherit' });
 
 /**
  *
@@ -232,9 +218,9 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
 
   const baseProps = {
     disabled,
-    'role': clickable ? 'button' : undefined,
+    role: clickable ? 'button' : undefined,
     'aria-disabled': disabled ? true : undefined,
-    'tabIndex': clickable && !disabled ? 0 : undefined,
+    tabIndex: clickable && !disabled ? 0 : undefined,
     onClick,
   };
 

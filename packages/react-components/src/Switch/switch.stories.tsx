@@ -5,11 +5,7 @@ const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch,
   tags: ['autodocs'],
-  argTypes: {
-    inputProps: {
-      control: false,
-    },
-  },
+  argTypes: { inputProps: { control: false } },
 };
 
 export default meta;

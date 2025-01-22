@@ -16,11 +16,7 @@ const meta: Meta<typeof Slide> = {
       </Typography>
     ),
   },
-  argTypes: {
-    children: {
-      control: false,
-    },
-  },
+  argTypes: { children: { control: false } },
 };
 
 export default meta;

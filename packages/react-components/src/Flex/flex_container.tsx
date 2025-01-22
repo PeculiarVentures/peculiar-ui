@@ -52,9 +52,7 @@ const reactPropsRegex = /^(as|direction|wrap|gap|align|justify)$/;
 /**
  * Styles.
  */
-const FlexRoot = styled('div', {
-  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<FlexContainerOwnProps>(
+const FlexRoot = styled('div', { shouldForwardProp: (prop) => !reactPropsRegex.test(prop) })<FlexContainerOwnProps>(
   (props) => ({
     display: 'flex',
     flexDirection: props.direction,
@@ -86,6 +84,4 @@ export const FlexContainer = React.forwardRef<any, FlexContainerProps>((props, r
 
 FlexContainer.displayName = 'FlexContainer';
 
-FlexContainer.defaultProps = {
-  direction: 'row',
-};
+FlexContainer.defaultProps = { direction: 'row' };

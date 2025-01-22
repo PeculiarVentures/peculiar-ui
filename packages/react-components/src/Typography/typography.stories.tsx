@@ -5,17 +5,11 @@ import { Typography } from './index';
 const meta: Meta<typeof Typography> = {
   title: 'Components/Typography',
   component: Typography,
-  args: {
-    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
-  },
+  args: { children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur' },
   argTypes: {
-    children: {
-      control: 'text',
-    },
+    children: { control: 'text' },
     // @ts-expect-error: `component` is not a valid prop
-    component: {
-      control: false,
-    },
+    component: { control: false },
   },
 };
 
