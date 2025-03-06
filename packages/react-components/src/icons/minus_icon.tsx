@@ -1,8 +1,8 @@
 import React from 'react';
 
-type IconProps = React.HTMLAttributes<HTMLOrSVGElement>;
+type TIconProps = React.HTMLAttributes<HTMLOrSVGElement>;
 
-export const MinusIcon: React.FC<IconProps> = (props) => (
+export const MinusIcon: React.FC<TIconProps> = (props) => (
   <svg
     {...props}
     xmlns="http://www.w3.org/2000/svg"

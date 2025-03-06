@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { useMergedRef, useEnhancedEffect } from '../hooks';
 import { ownerDocument } from '../utils/owner_document';
 
@@ -69,18 +69,18 @@ function moveFocus(
 /**
  * Types.
  */
-interface MenuListOwnProps {
+interface IMenuListOwnProps {
   children: React.ReactElement[];
 };
 
-export interface MenuListTypeMap<P = object, D extends React.ElementType = 'ul'> {
-  props: P & MenuListOwnProps;
+export interface IMenuListTypeMap<P = object, D extends React.ElementType = 'ul'> {
+  props: P & IMenuListOwnProps;
   defaultComponent: D;
 }
 
-export type MenuListProps<
-  D extends React.ElementType = MenuListTypeMap['defaultComponent'],
-> = OverrideProps<MenuListTypeMap<object, D>, D> & {
+export type TMenuListProps<
+  D extends React.ElementType = IMenuListTypeMap['defaultComponent'],
+> = TOverrideProps<IMenuListTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -100,7 +100,7 @@ const MenuListRoot = styled('ul')({
  *
  */
 
-export const MenuList = React.forwardRef<any, MenuListProps>((props, ref) => {
+export const MenuList = React.forwardRef<any, TMenuListProps>((props, ref) => {
   const {
     children,
     component,
@@ -112,9 +112,7 @@ export const MenuList = React.forwardRef<any, MenuListProps>((props, ref) => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLUListElement>) => {
     const list = rootRef.current;
-    const {
-      key,
-    } = event;
+    const { key } = event;
     const currentFocus = ownerDocument(list).activeElement;
 
     if (key === 'ArrowDown') {
@@ -145,6 +143,6 @@ export const MenuList = React.forwardRef<any, MenuListProps>((props, ref) => {
       {children}
     </MenuListRoot>
   );
-}) as OverridableComponent<MenuListTypeMap>;
+}) as IOverridableComponent<IMenuListTypeMap>;
 
 MenuList.displayName = 'MenuList';

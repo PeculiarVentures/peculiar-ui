@@ -4,9 +4,7 @@ import { Slide } from './index';
 
 describe('<Slide />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Slide>
         <div>Inside</div>
       </Slide>,
@@ -26,9 +24,7 @@ describe('<Slide />', () => {
     directions.forEach((direction) => {
       describe(`direction "${direction}"`, () => {
         it('before animation', () => {
-          const {
-            asFragment,
-          } = render(
+          const { asFragment } = render(
             <Slide direction={direction}>
               <div>Inside</div>
             </Slide>,
@@ -38,9 +34,7 @@ describe('<Slide />', () => {
         });
 
         it('after animation', () => {
-          const {
-            asFragment,
-          } = render(
+          const { asFragment } = render(
             <Slide in direction={direction}>
               <div>Inside</div>
             </Slide>,

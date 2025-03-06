@@ -14,6 +14,6 @@ const meta: Meta<typeof Avatar> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Avatar>;
+type TStory = StoryObj<typeof Avatar>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

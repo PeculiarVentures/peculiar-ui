@@ -12,9 +12,7 @@ export default {
 export const ColorItemExample: React.FC<{ title: string; colors: Record<string, string> }> = (
   props,
 ) => {
-  const {
-    title, colors,
-  } = props;
+  const { title, colors } = props;
 
   return (
     <div className="color_item_custom">
@@ -68,8 +66,8 @@ export const PalettePlaygroundExample = () => {
         <input
           type="color"
           defaultValue={color}
-          onChange={handleChange}
           className="color_item_custom-picker_input"
+          onChange={handleChange}
         />
         <h4
           style={{

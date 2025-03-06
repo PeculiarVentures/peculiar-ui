@@ -2,7 +2,7 @@ import React from 'react';
 import { createFocusTrap } from 'focus-trap';
 import { useMergedRef } from '../hooks';
 
-interface BaseProps {
+interface IBaseProps {
   /**
    * A single child content element.
    */
@@ -19,7 +19,7 @@ interface BaseProps {
   disableAutoFocus?: boolean;
 };
 
-export const FocusTrap: React.FC<BaseProps> = (props) => {
+export const FocusTrap: React.FC<IBaseProps> = (props) => {
   const {
     children,
     open,
