@@ -1,3 +1,0 @@
-var r={};Object.defineProperty(r,"__esModule",{value:!0});var h=r.dedent=void 0;function l(a){for(var c=[],t=1;t<arguments.length;t++)c[t-1]=arguments[t];var e=Array.from(typeof a=="string"?[a]:a);e[e.length-1]=e[e.length-1].replace(/\r?\n([\t ]*)$/,"");var v=e.reduce(function(n,u){var i=u.match(/\n([\t ]+|(?!\s).)/g);return i?n.concat(i.map(function(s){var d,o;return(o=(d=s.match(/[\t ]/g))===null||d===void 0?void 0:d.length)!==null&&o!==void 0?o:0})):n},[]);if(v.length){var f=new RegExp(`
-[	 ]{`+Math.min.apply(Math,v)+"}","g");e=e.map(function(n){return n.replace(f,`
-`)})}e[0]=e[0].replace(/^\r?\n/,"");var g=e[0];return c.forEach(function(n,u){g+=n+e[u+1]}),g}h=r.dedent=l;r.default=l;export{h as d};
