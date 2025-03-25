@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { ColorType } from '../styles';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import { TColorType } from '../styles';
 import { Box } from '../Box';
 
 /**
  * Types.
  */
-export interface SkeletonOwnProps {
+export interface ISkeletonOwnProps {
   /**
    * Optional children to infer width and height from.
    */
@@ -25,17 +25,17 @@ export interface SkeletonOwnProps {
    * The type of content that will be rendered.
    */
   variant?: ('text' | 'rect' | 'circle');
-  background?: ColorType;
+  background?: TColorType;
 }
 
-export interface SkeletonTypeMap<P = object, D extends React.ElementType = 'span'> {
-  props: P & SkeletonOwnProps;
+export interface ISkeletonTypeMap<P = object, D extends React.ElementType = 'span'> {
+  props: P & ISkeletonOwnProps;
   defaultComponent: D;
 }
 
-export type SkeletonProps<
-  D extends React.ElementType = SkeletonTypeMap['defaultComponent'],
-> = OverrideProps<SkeletonTypeMap<object, D>, D> & {
+export type TSkeletonProps<
+  D extends React.ElementType = ISkeletonTypeMap['defaultComponent'],
+> = TOverrideProps<ISkeletonTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -59,19 +59,22 @@ const pulseKeyframe = keyframes`
   }
 `;
 
-const SkeletonRoot = styled(Box, {
-  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<SkeletonProps>((props) => ({
+const SkeletonRoot = styled(
+  Box,
+  {
+    shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
+  },
+)<TSkeletonProps>((props) => ({
   display: 'block',
   height: '1.2em',
   animation: `${pulseKeyframe} 1.5s ease-in-out 0.5s infinite`,
   ...(props.variant === 'text' && {
-    'marginTop': 0,
-    'marginBottom': 0,
-    'height': 'auto',
-    'transformOrigin': '0 55%',
-    'transform': 'scale(1, 0.60)',
-    'borderRadius': '4px',
+    marginTop: 0,
+    marginBottom: 0,
+    height: 'auto',
+    transformOrigin: '0 55%',
+    transform: 'scale(1, 0.60)',
+    borderRadius: '4px',
     '&:empty:before': {
       content: '"\\00a0"',
     },
@@ -102,7 +105,7 @@ const SkeletonRoot = styled(Box, {
  *
  */
 
-export const Skeleton = React.forwardRef<any, SkeletonProps>((props, ref) => {
+export const Skeleton = React.forwardRef<any, TSkeletonProps>((props, ref) => {
   const {
     children,
     ...other
@@ -116,7 +119,7 @@ export const Skeleton = React.forwardRef<any, SkeletonProps>((props, ref) => {
       {children}
     </SkeletonRoot>
   );
-}) as OverridableComponent<SkeletonTypeMap>;
+}) as IOverridableComponent<ISkeletonTypeMap>;
 
 Skeleton.displayName = 'Skeleton';
 

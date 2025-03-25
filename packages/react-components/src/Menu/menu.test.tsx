@@ -18,9 +18,7 @@ describe('<Menu />', () => {
   ];
 
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Menu
         options={options}
       >
@@ -32,9 +30,7 @@ describe('<Menu />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      baseElement,
-    } = render(
+    const { baseElement } = render(
       <Menu
         options={options}
         popoverProps={{

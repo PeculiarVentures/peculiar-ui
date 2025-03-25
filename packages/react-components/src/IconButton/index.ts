@@ -1,5 +1,5 @@
 export { IconButton } from './icon_button';
 export type {
-  IconButtonOwnProps,
-  IconButtonProps,
+  IIconButtonOwnProps,
+  TIconButtonProps,
 } from './icon_button';

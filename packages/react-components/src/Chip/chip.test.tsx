@@ -5,9 +5,7 @@ import { Chip } from './index';
 
 describe('<Chip />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Chip>Text</Chip>,
     );
 
@@ -15,9 +13,7 @@ describe('<Chip />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Chip className="my-class-name">
         Text
       </Chip>,
@@ -27,9 +23,7 @@ describe('<Chip />', () => {
   });
 
   it('should have delete icon', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Chip
         onDelete={jest.fn()}
       >
@@ -41,9 +35,7 @@ describe('<Chip />', () => {
   });
 
   it('should have custom delete icon', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Chip
         deleteIcon={PlusIcon}
         onDelete={jest.fn()}
@@ -69,9 +61,7 @@ describe('<Chip />', () => {
     variants.forEach((variant) => {
       colors.forEach((color) => {
         it(`variant "${variant}, color "${color}"`, () => {
-          const {
-            asFragment,
-          } = render(
+          const { asFragment } = render(
             <Chip variant={variant} color={color}>
               Text
             </Chip>,

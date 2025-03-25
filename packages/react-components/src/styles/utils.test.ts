@@ -30,7 +30,7 @@ describe('styles utils', () => {
       it('expect palette override', () => {
         const theme = createTheme('light', {
           color: {
-            'secondary': '#b50ce4',
+            secondary: '#b50ce4',
             'secondary-shade-3': '#cccccc',
           },
         });
@@ -70,7 +70,7 @@ describe('styles utils', () => {
       it('expect palette override', () => {
         const theme = createTheme('dark', {
           color: {
-            'secondary': '#b50ce4',
+            secondary: '#b50ce4',
             'secondary-shade-3': '#cccccc',
           },
         });

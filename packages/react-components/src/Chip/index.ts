@@ -1,5 +1,5 @@
 export { Chip } from './chip';
 export type {
-  ChipOwnProps,
-  ChipProps,
+  IChipOwnProps,
+  TChipProps,
 } from './chip';

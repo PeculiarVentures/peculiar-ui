@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 
 /**
  * Types.
  */
-export interface FlexOwnProps {
+export interface IFlexOwnProps {
   /**
    * The content of the component.
    */
@@ -13,14 +13,14 @@ export interface FlexOwnProps {
   size?: ('auto' | 'grow');
 }
 
-export interface FlexTypeMap<P = object, D extends React.ElementType = 'div'> {
-  props: P & FlexOwnProps;
+export interface IFlexTypeMap<P = object, D extends React.ElementType = 'div'> {
+  props: P & IFlexOwnProps;
   defaultComponent: D;
 }
 
-export type FlexProps<
-  D extends React.ElementType = FlexTypeMap['defaultComponent'],
-> = OverrideProps<FlexTypeMap<object, D>, D> & {
+export type TFlexProps<
+  D extends React.ElementType = IFlexTypeMap['defaultComponent'],
+> = TOverrideProps<IFlexTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -34,7 +34,7 @@ const reactPropsRegex = /^(as|direction|wrap|gap|align|justify)$/;
  */
 const FlexRoot = styled('div', {
   shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<FlexOwnProps>(
+})<IFlexOwnProps>(
   (props) => ({
     minWidth: '0px',
     ...(props.size === 'auto' && {
@@ -57,7 +57,7 @@ const FlexRoot = styled('div', {
  *
  */
 
-export const Flex = React.forwardRef<any, FlexProps>((props, ref) => {
+export const Flex = React.forwardRef<any, TFlexProps>((props, ref) => {
   const {
     component,
     ...other
@@ -71,7 +71,7 @@ export const Flex = React.forwardRef<any, FlexProps>((props, ref) => {
       {...other}
     />
   );
-}) as OverridableComponent<FlexTypeMap>;
+}) as IOverridableComponent<IFlexTypeMap>;
 
 Flex.displayName = 'Flex';
 

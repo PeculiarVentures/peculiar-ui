@@ -4,9 +4,7 @@ import { Flex } from './index';
 
 describe('<Flex />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Flex>1</Flex>,
     );
 
@@ -14,9 +12,7 @@ describe('<Flex />', () => {
   });
 
   it('should render size auto', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Flex size="auto" />,
     );
 
@@ -24,9 +20,7 @@ describe('<Flex />', () => {
   });
 
   it('should render size grow', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Flex size="grow" />,
     );
 
@@ -34,9 +28,7 @@ describe('<Flex />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Flex className="my-class-name" />,
     );
 
@@ -44,9 +36,7 @@ describe('<Flex />', () => {
   });
 
   it('should pass component', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Flex component="p" />,
     );
 

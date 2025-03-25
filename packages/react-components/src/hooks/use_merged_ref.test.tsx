@@ -7,9 +7,7 @@ import React, {
 import { render } from '../test-utils';
 import { useMergedRef } from './use_merged_ref';
 
-const Component = ({
-  refs,
-}: { refs: (MutableRefObject<any> | RefCallback<HTMLElement>)[] }) => {
+const Component = ({ refs }: { refs: (MutableRefObject<any> | RefCallback<HTMLElement>)[] }) => {
   const ref = useRef();
   const mergedRef = useMergedRef(ref, ...refs);
 

@@ -36,6 +36,6 @@ const meta: Meta<typeof Tabs> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Tabs>;
+type TStory = StoryObj<typeof Tabs>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};
