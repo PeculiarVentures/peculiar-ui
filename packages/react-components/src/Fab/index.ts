@@ -1,5 +1,5 @@
 export { Fab } from './fab';
 export type {
-  FabOwnProps,
-  FabProps,
+  IFabOwnProps,
+  TFabProps,
 } from './fab';

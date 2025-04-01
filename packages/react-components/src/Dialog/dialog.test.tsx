@@ -4,9 +4,7 @@ import { Dialog } from './index';
 
 describe('<Dialog />', () => {
   it('should render with default styles', () => {
-    const {
-      baseElement,
-    } = render(
+    const { baseElement } = render(
       <Dialog open={false}>
         Dialog Content
       </Dialog>,
@@ -16,9 +14,7 @@ describe('<Dialog />', () => {
   });
 
   it('should render with default open styles', () => {
-    const {
-      baseElement,
-    } = render(
+    const { baseElement } = render(
       <Dialog open>
         Dialog Content
       </Dialog>,
@@ -28,9 +24,7 @@ describe('<Dialog />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      baseElement,
-    } = render(
+    const { baseElement } = render(
       <Dialog open className="my-class-name">
         Dialog Content
       </Dialog>,
@@ -40,9 +34,7 @@ describe('<Dialog />', () => {
   });
 
   it('should render fullscreen', () => {
-    const {
-      baseElement,
-    } = render(
+    const { baseElement } = render(
       <Dialog open fullScreen>
         Dialog Content
       </Dialog>,
@@ -60,9 +52,7 @@ describe('<Dialog />', () => {
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const {
-          baseElement,
-        } = render(
+        const { baseElement } = render(
           <Dialog open size={size}>
             Dialog Content
           </Dialog>,

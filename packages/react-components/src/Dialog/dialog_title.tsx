@@ -7,7 +7,7 @@ import { CloseIcon } from '../icons';
 /**
  * Types.
  */
-interface DialogTitleOwnProps {
+interface IDialogTitleOwnProps {
   /**
    * The content of the component.
    */
@@ -22,7 +22,7 @@ interface DialogTitleOwnProps {
   onClose?: () => void;
 };
 
-type DialogTitleProps = DialogTitleOwnProps & React.HTMLAttributes<HTMLDivElement>;
+type TDialogTitleProps = IDialogTitleOwnProps & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
  */
@@ -41,7 +41,7 @@ const DialogTitleRoot = styled('header')({
  *
  */
 
-export const DialogTitle = React.forwardRef<HTMLDivElement, DialogTitleProps>((props, ref) => {
+export const DialogTitle = React.forwardRef<HTMLDivElement, TDialogTitleProps>((props, ref) => {
   const {
     children,
     onClose,

@@ -2,13 +2,13 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import { FocusTrap } from '../FocusTrap';
-import { Backdrop, BackdropProps } from '../Backdrop';
+import { Backdrop, TBackdropProps } from '../Backdrop';
 import { Portal } from '../Portal';
 
 /**
  * Types.
  */
-interface ModalOwnProps {
+interface IModalOwnProps {
   /**
    * A single child content element.
    */
@@ -44,7 +44,7 @@ interface ModalOwnProps {
   /**
    * Props applied to the `Backdrop` element.
    */
-  backdropProps?: Partial<BackdropProps>;
+  backdropProps?: Partial<TBackdropProps>;
   /**
    * If `true`, the modal will not prevent focus from leaving the modal while open.
    */
@@ -57,7 +57,7 @@ interface ModalOwnProps {
   disableAutoFocus?: boolean;
 };
 
-export type ModalProps = ModalOwnProps & React.HTMLAttributes<HTMLDivElement>;
+export type TModalProps = IModalOwnProps & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
  */
@@ -67,7 +67,7 @@ export type ModalProps = ModalOwnProps & React.HTMLAttributes<HTMLDivElement>;
  */
 const ModalRoot = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'open',
-})<Required<Pick<ModalOwnProps, 'open'> & { exited: boolean }>>((props) => ({
+})<Required<Pick<IModalOwnProps, 'open'> & { exited: boolean }>>((props) => ({
   position: 'fixed',
   zIndex: 1300,
   top: 0,
@@ -82,7 +82,7 @@ const ModalRoot = styled('div', {
  *
  */
 
-export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
+export const Modal = React.forwardRef<HTMLDivElement, TModalProps>((props, ref) => {
   const {
     children,
     open,
@@ -142,10 +142,10 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) =
         <Backdrop
           {...backdropProps}
           open={open}
+          transitionDuration={transitionDuration}
           onClick={handleBackdropClick}
           onEnter={() => setExited(false)}
           onExited={() => setExited(true)}
-          transitionDuration={transitionDuration}
         />
         <FocusTrap
           open={disableEnforceFocus ? false : open}

@@ -9,9 +9,7 @@ const meta = {
 export default meta;
 
 export const DemoExample = () => {
-  const {
-    copy, isCopied,
-  } = useClipboard();
+  const { copy, isCopied } = useClipboard();
 
   return (
     <button

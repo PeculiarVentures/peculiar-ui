@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Global, ThemeProvider as ThemeProviderEmotion } from '@emotion/react';
 import { createTheme, createThemeCSSVariablesFromObject } from './utils';
-import type { ThemeOptionsType } from './types';
+import type { IThemeOptionsType } from './types';
 
 /**
  * Types.
  */
-interface ThemeProviderProps {
+interface IThemeProviderProps {
   children: React.ReactElement;
-  theme?: ThemeOptionsType;
+  theme?: IThemeOptionsType;
   mode?: ('light' | 'dark');
   cssVarsRoot?: string;
 };
@@ -16,7 +16,7 @@ interface ThemeProviderProps {
  *
  */
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
+export const ThemeProvider: React.FC<IThemeProviderProps> = (props) => {
   const {
     children,
     mode,

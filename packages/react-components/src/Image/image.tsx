@@ -4,7 +4,7 @@ import { useImage } from '../hooks';
 /**
  * Types.
  */
-interface ImageOwnProps {
+interface IImageOwnProps {
   /**
    * The `src` attribute for the `img` element.
    */
@@ -23,12 +23,12 @@ interface ImageOwnProps {
   className?: string;
 };
 
-type ImageProps = ImageOwnProps & Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'loading'>;
+type TImageProps = IImageOwnProps & Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'loading'>;
 /**
  *
  */
 
-export const Image = React.forwardRef<HTMLImageElement, ImageProps>((props, ref) => {
+export const Image = React.forwardRef<HTMLImageElement, TImageProps>((props, ref) => {
   const {
     className,
     src,
@@ -37,9 +37,7 @@ export const Image = React.forwardRef<HTMLImageElement, ImageProps>((props, ref)
     alt,
     ...other
   } = props;
-  const {
-    status, image,
-  } = useImage(src);
+  const { status, image } = useImage(src);
   const hasError = status === 'failed';
   const showImage = image?.src;
 

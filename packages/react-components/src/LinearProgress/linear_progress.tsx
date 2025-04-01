@@ -6,7 +6,7 @@ import { Box } from '../Box';
 /**
  * Types.
  */
-interface LinearProgressOwnProps {
+interface ILinearProgressOwnProps {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
@@ -21,7 +21,7 @@ interface LinearProgressOwnProps {
   className?: string;
 };
 
-type LinearProgressProps = LinearProgressOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type TLinearProgressProps = ILinearProgressOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -57,7 +57,7 @@ const LinearProgressProgress = styled(Box)({
  *
  */
 
-export const LinearProgress = React.forwardRef<HTMLDivElement, LinearProgressProps>(
+export const LinearProgress = React.forwardRef<HTMLDivElement, TLinearProgressProps>(
   (props, ref) => {
     const {
       color,
