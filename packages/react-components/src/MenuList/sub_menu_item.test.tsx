@@ -4,9 +4,7 @@ import { SubMenuItem } from './index';
 
 describe('<SubMenuItem />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <SubMenuItem>SubItem</SubMenuItem>,
     );
 

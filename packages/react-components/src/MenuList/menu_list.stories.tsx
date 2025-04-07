@@ -24,8 +24,8 @@ const meta: Meta<typeof MenuList> = {
       </MenuItem>,
       <MenuItem
         key="3"
-        onClick={() => console.log('delete')}
         startIcon={<WarningIcon />}
+        onClick={() => console.log('delete')}
       >
         Delete
       </MenuItem>,
@@ -44,6 +44,6 @@ const meta: Meta<typeof MenuList> = {
 
 export default meta;
 
-type Story = StoryObj<typeof MenuList>;
+type TStory = StoryObj<typeof MenuList>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

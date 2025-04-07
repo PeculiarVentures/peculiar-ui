@@ -4,9 +4,7 @@ import { Drawer } from './index';
 
 describe('<Drawer />', () => {
   it('should render with default styles', () => {
-    const {
-      baseElement,
-    } = render(
+    const { baseElement } = render(
       <Drawer open={false}>
         Inside
       </Drawer>,
@@ -16,9 +14,7 @@ describe('<Drawer />', () => {
   });
 
   it('should render with default open styles', () => {
-    const {
-      baseElement,
-    } = render(
+    const { baseElement } = render(
       <Drawer open>
         Inside
       </Drawer>,
@@ -28,9 +24,7 @@ describe('<Drawer />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      baseElement,
-    } = render(
+    const { baseElement } = render(
       <Drawer open={false} className="my-class-name">
         Inside
       </Drawer>,

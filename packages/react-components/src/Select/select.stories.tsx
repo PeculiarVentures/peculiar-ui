@@ -338,6 +338,6 @@ const meta: Meta<typeof Select> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Select>;
+type TStory = StoryObj<typeof Select>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

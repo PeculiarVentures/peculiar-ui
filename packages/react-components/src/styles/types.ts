@@ -1,4 +1,4 @@
-export type ColorType = (
+export type TColorType = (
   // primary
   'primary-tint-5' |
   'primary-tint-4' |
@@ -80,7 +80,7 @@ export type ColorType = (
   'extra-2'
 );
 
-export type ShadowType = (
+export type TShadowType = (
   'light-low' |
   'light-medium' |
   'light-hight' |
@@ -89,14 +89,14 @@ export type ShadowType = (
   'dark-hight'
 );
 
-export interface TypographyPropertiesType {
+export interface ITypographyPropertiesType {
   weight: string;
   size: string;
   height: string;
   spacing: string;
 };
 
-export type TypographyType = (
+export type TTypographyType = (
   'h1' |
   'h2' |
   'h3' |
@@ -113,7 +113,7 @@ export type TypographyType = (
   'c2'
 );
 
-export type SizeType = (
+export type TSizeType = (
   'base-half' |
   'base' |
   'base-2' |
@@ -131,16 +131,16 @@ export type SizeType = (
   'base-16'
 );
 
-export interface ThemeType {
-  color: Record<ColorType, string>;
-  shadow: Record<ShadowType, string>;
-  text: Record<TypographyType, TypographyPropertiesType>;
-  size: Record<SizeType, string>;
+export interface IThemeType {
+  color: Record<TColorType, string>;
+  shadow: Record<TShadowType, string>;
+  text: Record<TTypographyType, ITypographyPropertiesType>;
+  size: Record<TSizeType, string>;
 };
 
-export interface ThemeOptionsType {
-  color?: Partial<ThemeType['color']>;
-  shadow?: Partial<ThemeType['shadow']>;
-  text?: Partial<ThemeType['text']>;
+export interface IThemeOptionsType {
+  color?: Partial<IThemeType['color']>;
+  shadow?: Partial<IThemeType['shadow']>;
+  text?: Partial<IThemeType['text']>;
   size?: number;
 };

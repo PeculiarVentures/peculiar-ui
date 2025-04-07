@@ -8,7 +8,7 @@ import { opacity } from '../styles/foundations';
 /**
  * Types.
  */
-interface RadioOwnProps {
+interface IRadioOwnProps {
   /**
    * If `true`, the component is checked.
    */
@@ -58,7 +58,7 @@ interface RadioOwnProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export type RadioProps = RadioOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type TRadioProps = IRadioOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 /**
  *
  */
@@ -89,20 +89,20 @@ const RadioRoot = styled('label')(
 
 const RadioInput = styled('input', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Required<Pick<RadioOwnProps, 'color'>>>(
+})<Required<Pick<IRadioOwnProps, 'color'>>>(
   {
-    'cursor': 'inherit',
-    'width': '100%',
-    'height': '100%',
-    'margin': 0,
-    'padding': 0,
-    'outline': 0,
-    'borderRadius': '50%',
-    'borderWidth': '2px',
-    'borderStyle': 'solid',
-    'appearance': 'none',
-    'borderColor': 'currentColor',
-    'backgroundColor': 'transparent',
+    cursor: 'inherit',
+    width: '100%',
+    height: '100%',
+    margin: 0,
+    padding: 0,
+    outline: 0,
+    borderRadius: '50%',
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    appearance: 'none',
+    borderColor: 'currentColor',
+    backgroundColor: 'transparent',
     '&:before': {
       top: '-7px',
       left: '-7px',
@@ -148,7 +148,7 @@ const RadioInput = styled('input', {
         },
       },
       '&:not(:disabled)': {
-        'cursor': 'pointer',
+        cursor: 'pointer',
         '&:checked': {
           color: colorChecked,
         },
@@ -169,11 +169,11 @@ const RadioInput = styled('input', {
         },
       },
       '&:disabled': {
-        'cursor': 'not-allowed',
+        cursor: 'not-allowed',
         '+ [aria-hidden]': {
           color: 'inherit',
         },
-        'color': colorDisabled,
+        color: colorDisabled,
         '&:checked': {
           color: colorDisabledChecked,
         },
@@ -196,7 +196,7 @@ const CheckboxIcon = styled('svg')({
  *
  */
 
-export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>((props, ref) => {
+export const Radio = React.forwardRef<HTMLLabelElement, TRadioProps>((props, ref) => {
   const {
     checked,
     defaultChecked,

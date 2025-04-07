@@ -1,14 +1,14 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { TypographyType } from '../styles';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import { TTypographyType } from '../styles';
 import { Typography } from '../Typography';
 
 /**
  * Types.
  */
-export interface ButtonBaseOwnProps {
+export interface IButtonBaseOwnProps {
   /**
    * The content of the component.
    */
@@ -28,7 +28,7 @@ export interface ButtonBaseOwnProps {
   /**
    * The variant of text to use.
    */
-  textVariant?: TypographyType;
+  textVariant?: TTypographyType;
   /**
    * The color of the component.
    */
@@ -49,14 +49,14 @@ export interface ButtonBaseOwnProps {
   );
 }
 
-export interface ButtonBaseTypeMap<P = object, D extends React.ElementType = 'button'> {
-  props: P & ButtonBaseOwnProps;
+export interface IButtonBaseTypeMap<P = object, D extends React.ElementType = 'button'> {
+  props: P & IButtonBaseOwnProps;
   defaultComponent: D;
 }
 
-export type ButtonBaseProps<
-  D extends React.ElementType = ButtonBaseTypeMap['defaultComponent'],
-> = OverrideProps<ButtonBaseTypeMap<object, D>, D> & {
+export type TButtonBaseProps<
+  D extends React.ElementType = IButtonBaseTypeMap['defaultComponent'],
+> = TOverrideProps<IButtonBaseTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -68,7 +68,7 @@ export type ButtonBaseProps<
  */
 const ButtonBaseRoot = styled('button', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<ButtonBaseOwnProps>({
+})<IButtonBaseOwnProps>({
   fontFamily: 'inherit',
   outline: 'none',
   cursor: 'pointer',
@@ -241,7 +241,7 @@ const ButtonBaseLabel = styled(Typography)({
  *
  */
 
-export const ButtonBase = React.forwardRef<any, ButtonBaseProps>((props, ref) => {
+export const ButtonBase = React.forwardRef<any, TButtonBaseProps>((props, ref) => {
   const {
     textVariant: textVariantProp,
     size,
@@ -270,7 +270,7 @@ export const ButtonBase = React.forwardRef<any, ButtonBaseProps>((props, ref) =>
       </ButtonBaseLabel>
     </ButtonBaseRoot>
   );
-}) as OverridableComponent<ButtonBaseTypeMap>;
+}) as IOverridableComponent<IButtonBaseTypeMap>;
 
 ButtonBase.displayName = 'ButtonBase';
 

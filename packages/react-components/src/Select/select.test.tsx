@@ -8,9 +8,7 @@ describe('<Select />', () => {
   const options = ['test-1', 'test-2'];
 
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Select
         options={options}
         id="test-id"
@@ -21,9 +19,7 @@ describe('<Select />', () => {
   });
 
   it('should render with default multiple styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Select
         options={options}
         id="test-id"
@@ -35,9 +31,7 @@ describe('<Select />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Select
         options={options}
         id="test-id"
@@ -57,9 +51,7 @@ describe('<Select />', () => {
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <Select
             options={options}
             id="test-id"
@@ -73,9 +65,7 @@ describe('<Select />', () => {
   });
 
   it('should pass loading', () => {
-    const {
-      baseElement,
-    } = render(
+    const { baseElement } = render(
       <Select
         options={[]}
         id="test-id"
@@ -90,9 +80,7 @@ describe('<Select />', () => {
   });
 
   it('should pass error', () => {
-    const {
-      baseElement,
-    } = render(
+    const { baseElement } = render(
       <Select
         options={[]}
         id="test-id"
@@ -107,9 +95,7 @@ describe('<Select />', () => {
   });
 
   it('should pass options', () => {
-    const {
-      baseElement,
-    } = render(
+    const { baseElement } = render(
       <Select
         id="test-id"
         options={options}

@@ -1,5 +1,5 @@
 export { Skeleton } from './skeleton';
 export type {
-  SkeletonOwnProps,
-  SkeletonProps,
+  ISkeletonOwnProps,
+  TSkeletonProps,
 } from './skeleton';
