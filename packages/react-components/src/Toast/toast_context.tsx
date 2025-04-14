@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { AlertProps } from '../Alert';
+import { TAlertProps } from '../Alert';
 
-export interface BaseToastType {
+export interface IBaseToastType {
   /**
    * The message of the toast.
    */
@@ -9,7 +9,7 @@ export interface BaseToastType {
   /**
    * The status of the toast.
    */
-  variant?: AlertProps['variant'];
+  variant?: TAlertProps['variant'];
   /**
    * If `true`, the toast start icon will be hidden.
    */
@@ -30,12 +30,12 @@ export interface BaseToastType {
   id?: string;
 };
 
-export type ToastType = BaseToastType & {
+export type TToastType = IBaseToastType & {
   createdAt: number;
 };
 
-export interface ToastContextType {
-  addToast: (options: BaseToastType) => void;
+export interface IToastContextType {
+  addToast: (options: IBaseToastType) => void;
   removeToast: (id: string) => void;
   removeAllToasts: () => void;
 };
@@ -44,10 +44,10 @@ const stub = (): never => {
   throw new Error('You forgot to wrap your component in <ToastProvider>.');
 };
 
-const initialContext: ToastContextType = {
+const initialContext: IToastContextType = {
   addToast: stub,
   removeToast: stub,
   removeAllToasts: stub,
 };
 
-export const ToastContext = React.createContext<ToastContextType>(initialContext);
+export const ToastContext = React.createContext<IToastContextType>(initialContext);

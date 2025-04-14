@@ -4,9 +4,7 @@ import { DialogTitle } from './index';
 
 describe('<DialogTitle />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <DialogTitle>
         Title
       </DialogTitle>,
@@ -16,9 +14,7 @@ describe('<DialogTitle />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <DialogTitle className="my-class-name">
         Title
       </DialogTitle>,
@@ -28,9 +24,7 @@ describe('<DialogTitle />', () => {
   });
 
   it('should render close button', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <DialogTitle onClose={jest.fn()}>
         Title
       </DialogTitle>,

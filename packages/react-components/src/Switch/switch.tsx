@@ -8,7 +8,7 @@ import { opacity } from '../styles/foundations';
 /**
  * Types.
  */
-interface SwitchOwnProps {
+interface ISwitchOwnProps {
   /**
    * If `true`, the component is checked.
    */
@@ -54,7 +54,7 @@ interface SwitchOwnProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export type SwitchProps = SwitchOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type TSwitchProps = ISwitchOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 /**
  *
  */
@@ -75,7 +75,7 @@ const SwitchRoot = styled('label')({
 
 const SwitchInput = styled('input', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Required<Pick<SwitchOwnProps, 'color'>>>(
+})<Required<Pick<ISwitchOwnProps, 'color'>>>(
   {
     overflow: 'hidden',
     width: '100%',
@@ -111,18 +111,18 @@ const SwitchInput = styled('input', {
 
     return {
       '&:checked': {
-        'backgroundColor': backgroundColorChecked,
+        backgroundColor: backgroundColorChecked,
         '+ [aria-hidden]': {
-          'transform': 'translateX(calc(50% - 2px))',
+          transform: 'translateX(calc(50% - 2px))',
           '&:before': {
             backgroundColor: `var(--pv-color-${props.color}-shade-2)`,
           },
         },
       },
       '&:disabled': {
-        'cursor': 'not-allowed',
-        'pointerEvents': 'none',
-        'backgroundColor': 'var(--pv-color-gray-4)',
+        cursor: 'not-allowed',
+        pointerEvents: 'none',
+        backgroundColor: 'var(--pv-color-gray-4)',
 
         '+ [aria-hidden]': {
           borderColor: borderColorDisabled,
@@ -134,7 +134,7 @@ const SwitchInput = styled('input', {
         },
       },
       '&:not(:disabled)': {
-        'cursor': 'pointer',
+        cursor: 'pointer',
         '+ [aria-hidden]': {
           borderColor,
         },
@@ -159,15 +159,15 @@ const SwitchInput = styled('input', {
 );
 
 const SwitchDot = styled(Box)({
-  'display': 'block',
-  'position': 'absolute',
-  'width': 'var(--pv-size-base-3)',
-  'height': 'var(--pv-size-base-3)',
-  'transition': 'transform 200ms',
-  'boxShadow': 'var(--pv-shadow-light-low)',
-  'transform': 'translateX(calc(-50% + 2px))',
-  'pointerEvents': 'none',
-  'boxSizing': 'content-box',
+  display: 'block',
+  position: 'absolute',
+  width: 'var(--pv-size-base-3)',
+  height: 'var(--pv-size-base-3)',
+  transition: 'transform 200ms',
+  boxShadow: 'var(--pv-shadow-light-low)',
+  transform: 'translateX(calc(-50% + 2px))',
+  pointerEvents: 'none',
+  boxSizing: 'content-box',
   '&:before': {
     top: '-10px',
     left: '-10px',
@@ -185,7 +185,7 @@ const SwitchDot = styled(Box)({
  *
  */
 
-export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>((props, ref) => {
+export const Switch = React.forwardRef<HTMLLabelElement, TSwitchProps>((props, ref) => {
   const {
     checked,
     defaultChecked,

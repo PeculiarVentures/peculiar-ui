@@ -1,15 +1,15 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Tab, TabProps } from './tab';
+import { Tab, TTabProps } from './tab';
 
 /**
  * Types.
  */
-interface TabsOwnProps {
+interface ITabsOwnProps {
   /**
    * The content of the component.
    */
-  children: React.ReactElement<TabProps, typeof Tab>[];
+  children: React.ReactElement<TTabProps, typeof Tab>[];
   /**
    * The value of the currently selected `Tab`.
    */
@@ -24,7 +24,7 @@ interface TabsOwnProps {
   onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
 };
 
-type TabsProps = TabsOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type TTabsProps = ITabsOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 /**
  *
  */
@@ -40,7 +40,7 @@ const TabsRoot = styled('div')({
  *
  */
 
-export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
+export const Tabs = React.forwardRef<HTMLDivElement, TTabsProps>((props, ref) => {
   const {
     children: childrenProp,
     value,
@@ -50,7 +50,7 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>((props, ref) => 
 
   const children = React.Children.map(
     childrenProp,
-    (child: React.ReactElement<TabProps, typeof Tab>) => {
+    (child: React.ReactElement<TTabProps, typeof Tab>) => {
       if (!React.isValidElement<typeof Tab>(child)) {
         return null;
       }

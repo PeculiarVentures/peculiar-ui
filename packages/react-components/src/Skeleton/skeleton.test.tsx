@@ -4,9 +4,7 @@ import { Skeleton } from './index';
 
 describe('<Skeleton />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Skeleton>Inside</Skeleton>,
     );
 
@@ -14,9 +12,7 @@ describe('<Skeleton />', () => {
   });
 
   it('should render with height & width', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Skeleton height={30} width={50}>Inside</Skeleton>,
     );
 
@@ -32,9 +28,7 @@ describe('<Skeleton />', () => {
 
     variants.forEach((variant) => {
       it(`variant: ${variant}`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <Skeleton variant={variant}>Inside</Skeleton>,
         );
 
