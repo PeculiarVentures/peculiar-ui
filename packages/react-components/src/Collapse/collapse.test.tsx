@@ -4,9 +4,7 @@ import { Collapse } from './index';
 
 describe('<Collapse />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Collapse>Inside</Collapse>,
     );
 
@@ -14,9 +12,7 @@ describe('<Collapse />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Collapse className="my-class-name">Inside</Collapse>,
     );
 
@@ -32,9 +28,7 @@ describe('<Collapse />', () => {
     orientations.forEach((orientation) => {
       describe(`orientation "${orientation}"`, () => {
         it('before animation', () => {
-          const {
-            asFragment,
-          } = render(
+          const { asFragment } = render(
             <Collapse orientation={orientation}>
               <div>Inside</div>
             </Collapse>,
@@ -44,9 +38,7 @@ describe('<Collapse />', () => {
         });
 
         it('after animation', () => {
-          const {
-            asFragment,
-          } = render(
+          const { asFragment } = render(
             <Collapse in orientation={orientation}>
               <div>Inside</div>
             </Collapse>,

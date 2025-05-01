@@ -1,4 +1,4 @@
-import { ThemeType } from './types';
+import { IThemeType } from './types';
 import {
   size,
   text,
@@ -6,7 +6,7 @@ import {
   colors,
 } from './foundations';
 
-export const defaultThemeLight: ThemeType = {
+export const defaultThemeLight: IThemeType = {
   color: {
     /**
      * primary
@@ -45,7 +45,7 @@ export const defaultThemeLight: ThemeType = {
   size,
 };
 
-export const defaultThemeDark: ThemeType = {
+export const defaultThemeDark: IThemeType = {
   color: {
     /**
      * primary

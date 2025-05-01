@@ -8,9 +8,7 @@ const src = 'https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=
 
 describe('<Image />', () => {
   it('should render as default', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Image src={src} />,
     );
 
@@ -24,9 +22,7 @@ describe('<Image />', () => {
   });
 
   it('should have test id', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Image src={src} data-testid="test-id" />,
     );
 
@@ -38,9 +34,7 @@ describe('<Image />', () => {
   });
 
   it('should have alt', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Image src={src} alt="Test alt" />,
     );
 
@@ -52,9 +46,7 @@ describe('<Image />', () => {
   });
 
   it('should have class name', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Image src={src} className="test-cls" />,
     );
 
@@ -94,9 +86,7 @@ describe('<Image />', () => {
   });
 
   it('should render loading component', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Image src={undefined} loading={<div>Loading</div>} />,
     );
 

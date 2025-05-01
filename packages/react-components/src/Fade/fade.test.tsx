@@ -4,9 +4,7 @@ import { Fade } from './index';
 
 describe('<Fade />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Fade>
         <div>Inside</div>
       </Fade>,
@@ -16,9 +14,7 @@ describe('<Fade />', () => {
   });
 
   it('should finish animation', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Fade in>
         <div>Inside</div>
       </Fade>,

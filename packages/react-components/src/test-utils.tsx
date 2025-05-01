@@ -10,11 +10,11 @@ import {
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from './styles/theme_provider';
 
-type RenderOptionsType = Omit<React.ComponentProps<typeof ThemeProvider>, 'children'>;
+type TRenderOptionsType = Omit<React.ComponentProps<typeof ThemeProvider>, 'children'>;
 
 const renderWithWrapper = (
   ui: React.ReactElement,
-  options?: RenderOptionsType,
+  options?: TRenderOptionsType,
 ) => (
   render(
     ui,
