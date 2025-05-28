@@ -13,9 +13,7 @@ describe('<NativeSelect />', () => {
   ];
 
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <NativeSelect options={options} />,
     );
 
@@ -23,9 +21,7 @@ describe('<NativeSelect />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <NativeSelect options={options} className="my-class-name" />,
     );
 
@@ -41,9 +37,7 @@ describe('<NativeSelect />', () => {
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <NativeSelect options={options} size={size} />,
         );
 

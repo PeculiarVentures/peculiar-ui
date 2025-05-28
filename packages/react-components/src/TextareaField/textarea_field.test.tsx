@@ -4,9 +4,7 @@ import { TextareaField } from './index';
 
 describe('<TextareaField />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <TextareaField id="test-id" />,
     );
 
@@ -14,9 +12,7 @@ describe('<TextareaField />', () => {
   });
 
   it('should have label', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <TextareaField
         label="Test label"
         id="test-id"
@@ -27,9 +23,7 @@ describe('<TextareaField />', () => {
   });
 
   it('should be disabled', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <TextareaField disabled id="test-id" />,
     );
 
@@ -37,9 +31,7 @@ describe('<TextareaField />', () => {
   });
 
   it('should have required', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <TextareaField required id="test-id" />,
     );
 
@@ -47,9 +39,7 @@ describe('<TextareaField />', () => {
   });
 
   it('should have name attr', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <TextareaField name="test-name" id="test-id" />,
     );
 
@@ -57,9 +47,7 @@ describe('<TextareaField />', () => {
   });
 
   it('should have className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <TextareaField
         className="div-cls"
         id="test-id"

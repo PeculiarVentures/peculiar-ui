@@ -1,12 +1,12 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import type { Property } from 'csstype';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 
 /**
  * Types.
  */
-export interface FlexContainerOwnProps {
+export interface IFlexContainerOwnProps {
   /**
    * The content of the component.
    */
@@ -33,14 +33,14 @@ export interface FlexContainerOwnProps {
   justify?: Property.JustifyContent;
 }
 
-export interface FlexContainerTypeMap<P = object, D extends React.ElementType = 'div'> {
-  props: P & FlexContainerOwnProps;
+export interface IFlexContainerTypeMap<P = object, D extends React.ElementType = 'div'> {
+  props: P & IFlexContainerOwnProps;
   defaultComponent: D;
 }
 
-export type FlexContainerProps<
-  D extends React.ElementType = FlexContainerTypeMap['defaultComponent'],
-> = OverrideProps<FlexContainerTypeMap<object, D>, D> & {
+export type TFlexContainerProps<
+  D extends React.ElementType = IFlexContainerTypeMap['defaultComponent'],
+> = TOverrideProps<IFlexContainerTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -54,7 +54,7 @@ const reactPropsRegex = /^(as|direction|wrap|gap|align|justify)$/;
  */
 const FlexRoot = styled('div', {
   shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<FlexContainerOwnProps>(
+})<IFlexContainerOwnProps>(
   (props) => ({
     display: 'flex',
     flexDirection: props.direction,
@@ -68,7 +68,7 @@ const FlexRoot = styled('div', {
  *
  */
 
-export const FlexContainer = React.forwardRef<any, FlexContainerProps>((props, ref) => {
+export const FlexContainer = React.forwardRef<any, TFlexContainerProps>((props, ref) => {
   const {
     component,
     ...other
@@ -82,7 +82,7 @@ export const FlexContainer = React.forwardRef<any, FlexContainerProps>((props, r
       {...other}
     />
   );
-}) as OverridableComponent<FlexContainerTypeMap>;
+}) as IOverridableComponent<IFlexContainerTypeMap>;
 
 FlexContainer.displayName = 'FlexContainer';
 

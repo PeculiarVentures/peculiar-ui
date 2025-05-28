@@ -11,9 +11,7 @@ import { Radio } from './index';
 describe('<Radio />', () => {
   describe('Radio render variants', () => {
     it('should render as default', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Radio id="test-id" />,
       );
 
@@ -48,9 +46,7 @@ describe('<Radio />', () => {
     });
 
     it('should be disabled', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Radio id="test-id" disabled />,
       );
 
@@ -58,9 +54,7 @@ describe('<Radio />', () => {
     });
 
     it('should have required', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Radio id="test-id" required />,
       );
 
@@ -68,9 +62,7 @@ describe('<Radio />', () => {
     });
 
     it('should have name attr', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Radio id="test-id" name="test-name" />,
       );
 
@@ -78,9 +70,7 @@ describe('<Radio />', () => {
     });
 
     it('should have test id', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Radio id="test-id" data-testid="test-id" />,
       );
 
@@ -88,9 +78,7 @@ describe('<Radio />', () => {
     });
 
     it('should have className', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Radio id="test-id" className="test-cls" />,
       );
 
@@ -98,9 +86,7 @@ describe('<Radio />', () => {
     });
 
     it('should have custom checked icon', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Radio id="test-id" checkedIcon={PlusIcon} />,
       );
 
@@ -108,9 +94,7 @@ describe('<Radio />', () => {
     });
 
     it('should be checked, defaultChecked prop', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Radio id="test-id" defaultChecked />,
       );
 
@@ -172,9 +156,7 @@ describe('<Radio />', () => {
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <Radio color={color} id="test-id" />,
         );
 

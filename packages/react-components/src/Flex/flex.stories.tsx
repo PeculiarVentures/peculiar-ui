@@ -34,9 +34,9 @@ const meta: Meta<typeof FlexContainer> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Flex>;
+type TStory = StoryObj<typeof Flex>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};
 
 export const AutoLayoutExample = () => (
   <FlexContainer gap={20}>

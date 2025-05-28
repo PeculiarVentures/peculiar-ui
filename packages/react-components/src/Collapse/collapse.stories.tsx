@@ -25,6 +25,6 @@ const meta: Meta<typeof Collapse> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Collapse>;
+type TStory = StoryObj<typeof Collapse>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

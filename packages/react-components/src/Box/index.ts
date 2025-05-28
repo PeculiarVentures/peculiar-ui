@@ -1,5 +1,5 @@
 export { Box } from './box';
 export type {
-  BoxOwnProps,
-  BoxProps,
+  IBoxOwnProps,
+  TBoxProps,
 } from './box';

@@ -18,6 +18,6 @@ const meta: Meta<typeof Skeleton> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Skeleton>;
+type TStory = StoryObj<typeof Skeleton>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

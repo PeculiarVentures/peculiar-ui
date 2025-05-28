@@ -46,6 +46,6 @@ const meta: Meta<typeof NativeSelect> = {
 
 export default meta;
 
-type Story = StoryObj<typeof NativeSelect>;
+type TStory = StoryObj<typeof NativeSelect>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

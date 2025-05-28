@@ -16,8 +16,8 @@ export const DemoExample = () => {
   return (
     <div>
       <button
-        onClick={() => setValue(value + 1)}
         type="button"
+        onClick={() => setValue(value + 1)}
       >
         +
       </button>
@@ -25,8 +25,8 @@ export const DemoExample = () => {
         {value}
       </span>
       <button
-        onClick={() => setValue(value - 1)}
         type="button"
+        onClick={() => setValue(value - 1)}
       >
         -
       </button>

@@ -1,6 +1,6 @@
-type SuccessCallback = () => void;
+type TSuccessCallback = () => void;
 
-const fallbackCopyToClipboard = (text: string, onSuccess?: SuccessCallback) => {
+const fallbackCopyToClipboard = (text: string, onSuccess?: TSuccessCallback) => {
   const textareaElement = document.createElement('textarea');
 
   textareaElement.value = text;
@@ -39,7 +39,7 @@ const fallbackCopyToClipboard = (text: string, onSuccess?: SuccessCallback) => {
   document.body.removeChild(textareaElement);
 };
 
-export const copyToClipboard = (text: string, onSuccess?: SuccessCallback) => {
+export const copyToClipboard = (text: string, onSuccess?: TSuccessCallback) => {
   if (!navigator.clipboard) {
     fallbackCopyToClipboard(text, onSuccess);
 

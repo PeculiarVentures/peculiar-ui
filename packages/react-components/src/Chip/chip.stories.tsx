@@ -33,6 +33,6 @@ const meta: Meta<typeof Chip> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Chip>;
+type TStory = StoryObj<typeof Chip>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

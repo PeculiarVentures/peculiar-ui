@@ -27,6 +27,6 @@ const meta: Meta<typeof Tooltip> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Tooltip>;
+type TStory = StoryObj<typeof Tooltip>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

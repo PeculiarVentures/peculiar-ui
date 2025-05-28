@@ -1,12 +1,12 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { ButtonBaseOwnProps, ButtonBase } from '../ButtonBase';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import { IButtonBaseOwnProps, ButtonBase } from '../ButtonBase';
 
 /**
  * Types.
  */
-export interface FabOwnProps extends Omit<ButtonBaseOwnProps, 'size' | 'variant'> {
+export interface IFabOwnProps extends Omit<IButtonBaseOwnProps, 'size' | 'variant'> {
   /**
    * The variant to use.
    */
@@ -16,14 +16,14 @@ export interface FabOwnProps extends Omit<ButtonBaseOwnProps, 'size' | 'variant'
   );
 }
 
-export interface FabTypeMap<P = object, D extends React.ElementType = 'button'> {
-  props: P & FabOwnProps;
+export interface IFabTypeMap<P = object, D extends React.ElementType = 'button'> {
+  props: P & IFabOwnProps;
   defaultComponent: D;
 }
 
-export type FabProps<
-  D extends React.ElementType = FabTypeMap['defaultComponent'],
-> = OverrideProps<FabTypeMap<object, D>, D> & {
+export type TFabProps<
+  D extends React.ElementType = IFabTypeMap['defaultComponent'],
+> = TOverrideProps<IFabTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -33,7 +33,7 @@ export type FabProps<
 /**
  * Styles.
  */
-const FabRoot = styled(ButtonBase)<FabOwnProps>({
+const FabRoot = styled(ButtonBase)<IFabOwnProps>({
   borderRadius: '50%',
   height: 'var(--pv-size-base-11)',
   width: 'var(--pv-size-base-11)',
@@ -69,13 +69,13 @@ const FabRoot = styled(ButtonBase)<FabOwnProps>({
  *
  */
 
-export const Fab = React.forwardRef<any, FabProps>((props, ref) => (
+export const Fab = React.forwardRef<any, TFabProps>((props, ref) => (
   <FabRoot
     ref={ref}
     size="large"
     {...props}
   />
-)) as OverridableComponent<FabTypeMap>;
+)) as IOverridableComponent<IFabTypeMap>;
 
 Fab.displayName = 'Fab';
 

@@ -25,6 +25,6 @@ const meta: Meta<typeof Fade> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Fade>;
+type TStory = StoryObj<typeof Fade>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

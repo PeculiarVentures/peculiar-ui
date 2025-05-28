@@ -6,7 +6,7 @@ import { useId } from '../hooks/use_id';
 /**
  * Types.
  */
-interface TextareaFieldOwnProps {
+interface ITextareaFieldOwnProps {
   /**
    * If `true`, the component is disabled.
    */
@@ -79,7 +79,7 @@ interface TextareaFieldOwnProps {
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
 };
 
-type TextareaFieldProps = TextareaFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
+type TTextareaFieldProps = ITextareaFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
 /**
  *
  */
@@ -87,7 +87,7 @@ type TextareaFieldProps = TextareaFieldOwnProps & Omit<React.HTMLAttributes<HTML
 /**
  * Styles.
  */
-const TextareaFieldInput = styled(Typography)<TextareaFieldProps>(
+const TextareaFieldInput = styled(Typography)<TTextareaFieldProps>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -171,7 +171,7 @@ const TextareaFieldError = styled(Typography)({
  *
  */
 
-export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps>((props, ref) => {
+export const TextareaField = React.forwardRef<HTMLDivElement, TTextareaFieldProps>((props, ref) => {
   const {
     size,
     label,
@@ -223,16 +223,16 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TextareaFieldProps
         id={id}
         value={value}
         required={required}
+        // eslint-disable-next-line jsx-a11y/no-autofocus
+        autoFocus={autoFocus}
+        placeholder={placeholder}
+        readOnly={readOnly}
         name={name}
         // @ts-expect-error: TypeScript may not recognize the ref prop type
         ref={inputRef}
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        autoFocus={autoFocus}
         aria-invalid={error || undefined}
         // @ts-expect-error: TypeScript may not recognize the onChange prop type
         onChange={onChange}
-        placeholder={placeholder}
-        readOnly={readOnly}
       />
       {error && errorText && (
         <TextareaFieldError

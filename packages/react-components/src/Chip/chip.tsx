@@ -1,14 +1,14 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { Typography } from '../Typography';
 import { CloseSmallIcon } from '../icons';
 
 /**
  * Types.
  */
-export interface ChipOwnProps {
+export interface IChipOwnProps {
   /**
    * The content of the component.
    */
@@ -43,14 +43,14 @@ export interface ChipOwnProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
-export interface ChipTypeMap<P = object, D extends React.ElementType = 'div'> {
-  props: P & ChipOwnProps;
+export interface IChipTypeMap<P = object, D extends React.ElementType = 'div'> {
+  props: P & IChipOwnProps;
   defaultComponent: D;
 }
 
-export type ChipProps<
-  D extends React.ElementType = ChipTypeMap['defaultComponent'],
-> = OverrideProps<ChipTypeMap<object, D>, D> & {
+export type TChipProps<
+  D extends React.ElementType = IChipTypeMap['defaultComponent'],
+> = TOverrideProps<IChipTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -62,7 +62,7 @@ export type ChipProps<
  */
 const ChipRoot = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<ChipOwnProps>((props) => ({
+})<IChipOwnProps>((props) => ({
   display: 'inline-flex',
   maxWidth: '100%',
   fontFamily: 'inherit',
@@ -192,13 +192,13 @@ const ChipRoot = styled('div', {
 });
 
 const ChipDeleteIcon = styled('span')({
-  'width': '24px',
-  'height': '24px',
-  'cursor': 'pointer',
-  'WebkitTapHighlightColor': 'transparent',
-  'transition': 'opacity 200ms',
-  'opacity': '0.6',
-  'flexShrink': 0,
+  width: '24px',
+  height: '24px',
+  cursor: 'pointer',
+  WebkitTapHighlightColor: 'transparent',
+  transition: 'opacity 200ms',
+  opacity: '0.6',
+  flexShrink: 0,
   '&:hover': {
     opacity: '1',
   },
@@ -216,7 +216,7 @@ const ChipEndContent = styled('span')({
  *
  */
 
-export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
+export const Chip = React.forwardRef<any, TChipProps>((props, ref) => {
   const {
     children,
     disabled,
@@ -232,9 +232,9 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
 
   const baseProps = {
     disabled,
-    'role': clickable ? 'button' : undefined,
+    role: clickable ? 'button' : undefined,
     'aria-disabled': disabled ? true : undefined,
-    'tabIndex': clickable && !disabled ? 0 : undefined,
+    tabIndex: clickable && !disabled ? 0 : undefined,
     onClick,
   };
 
@@ -282,7 +282,7 @@ export const Chip = React.forwardRef<any, ChipProps>((props, ref) => {
       {endContent}
     </ChipRoot>
   );
-}) as OverridableComponent<ChipTypeMap>;
+}) as IOverridableComponent<IChipTypeMap>;
 
 Chip.displayName = 'Chip';
 

@@ -4,9 +4,7 @@ import { Slider } from './index';
 
 describe('<Slider />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Slider />,
     );
 
@@ -14,9 +12,7 @@ describe('<Slider />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Slider className="my-class-name" />,
     );
 

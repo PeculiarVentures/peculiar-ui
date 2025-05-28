@@ -4,9 +4,7 @@ import { Box } from './index';
 
 describe('<Box />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Box />,
     );
 
@@ -14,9 +12,7 @@ describe('<Box />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Box className="my-class-name" />,
     );
 
@@ -35,9 +31,7 @@ describe('<Box />', () => {
 
     positions.forEach((position) => {
       it(`position "${position}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <Box
             borderPosition={position}
             borderColor="attention"
@@ -66,9 +60,7 @@ describe('<Box />', () => {
 
     shadows.forEach((shadow) => {
       it(`shadow "${shadow}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <Box
             boxShadow={shadow}
           >

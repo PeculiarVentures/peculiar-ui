@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Popover, PopoverProps } from '../Popover';
+import { Popover, TPopoverProps } from '../Popover';
 import {
   MenuList, MenuItem, SubMenuItem,
 } from '../MenuList';
-import { TypographyType } from '../styles';
+import { TTypographyType } from '../styles';
 
 /**
  * Types.
  */
-interface OptionOwnProps {
+interface IOptionOwnProps {
   label: string;
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
@@ -17,7 +17,7 @@ interface OptionOwnProps {
   /**
    * The variant of text to use.
    */
-  textVariant?: TypographyType;
+  textVariant?: TTypographyType;
   /**
    * Element placed before the children.
    */
@@ -28,12 +28,12 @@ interface OptionOwnProps {
   endIcon?: React.ReactNode;
 };
 
-type OptionProps = OptionOwnProps & Omit<React.AllHTMLAttributes<HTMLElement>, 'children'>;
-type MenuOptionProps = OptionProps & {
-  subOptions?: OptionProps[];
+type TOptionProps = IOptionOwnProps & Omit<React.AllHTMLAttributes<HTMLElement>, 'children'>;
+type TMenuOptionProps = TOptionProps & {
+  subOptions?: TOptionProps[];
 };
 
-interface MenuOwnProps {
+interface IMenuOwnProps {
   /**
    * Menu reference element.
    */
@@ -41,7 +41,7 @@ interface MenuOwnProps {
   /**
    * Menu contents.
    */
-  options: MenuOptionProps[];
+  options: TMenuOptionProps[];
   /**
    * Callback fired when the component requests to be closed.
    */
@@ -49,10 +49,10 @@ interface MenuOwnProps {
   /**
    * Props applied to the `Popover` element.
    */
-  popoverProps?: Partial<PopoverProps>;
+  popoverProps?: Partial<TPopoverProps>;
 };
 
-export type MenuProps = MenuOwnProps;
+export type TMenuProps = IMenuOwnProps;
 /**
  *
  */
@@ -78,16 +78,14 @@ const MenuPopover = styled(Popover)({
  *
  */
 
-export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
+export const Menu = React.forwardRef<HTMLDivElement, TMenuProps>((props, ref) => {
   const {
     children,
     options,
     onClose,
     popoverProps = {},
   } = props;
-  const {
-    modalProps = {},
-  } = popoverProps;
+  const { modalProps = {} } = popoverProps;
   const [open, setOpen] = React.useState(false);
   const childRef = React.useRef(null);
 
@@ -104,7 +102,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
   };
 
   const handleMenuItemClick = (
-    option: OptionProps,
+    option: TOptionProps,
   ) => (
     event: React.MouseEvent<HTMLButtonElement>,
   ) => {
@@ -123,7 +121,7 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
     }
   };
 
-  const renderOption = (option: MenuOptionProps, index: number) => {
+  const renderOption = (option: TMenuOptionProps, index: number) => {
     const {
       component,
       disabled,
@@ -160,10 +158,10 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
         component={component}
         textVariant={textVariantProp}
         disabled={disabled}
-        onClick={handleMenuItemClick(option)}
         className={classNameProp}
         startIcon={startIcon}
         endIcon={endIcon}
+        onClick={handleMenuItemClick(option)}
         {...other}
       >
         {label}
@@ -172,8 +170,8 @@ export const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => 
   };
 
   const childrenProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> = {
-    'ref': childRef,
-    'onClick': handleChildClick,
+    ref: childRef,
+    onClick: handleChildClick,
     'aria-haspopup': 'menu',
     'aria-expanded': String(open) as any,
   };
