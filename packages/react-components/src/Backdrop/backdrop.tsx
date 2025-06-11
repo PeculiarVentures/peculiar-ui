@@ -1,12 +1,12 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Fade, BaseTransitionProps } from '../Fade';
+import { Fade, TBaseTransitionProps } from '../Fade';
 import { Box } from '../Box';
 
 /**
  * Types.
  */
-interface BackdropOwnProps {
+interface IBackdropOwnProps {
   /**
    * If `true`, the backdrop is open.
    */
@@ -26,8 +26,8 @@ interface BackdropOwnProps {
   variant?: ('light' | 'medium' | 'heavy');
 };
 
-export type BackdropProps = BackdropOwnProps
-  & BaseTransitionProps
+export type TBackdropProps = IBackdropOwnProps
+  & TBaseTransitionProps
   & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
@@ -40,7 +40,7 @@ const reactPropsRegex = /^(as|open|invisible|transitionDuration|variant)$/;
  */
 const BackdropRoot = styled(Box, {
   shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<Required<Pick<BackdropOwnProps, 'invisible'>>>((props) => ({
+})<Required<Pick<IBackdropOwnProps, 'invisible'>>>((props) => ({
   zIndex: -1,
   position: 'fixed',
   right: 0,
@@ -62,7 +62,7 @@ const variants = {
   heavy: 0.9,
 };
 
-export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, ref) => {
+export const Backdrop = React.forwardRef<HTMLDivElement, TBackdropProps>((props, ref) => {
   const {
     open,
     transitionDuration,
@@ -81,13 +81,13 @@ export const Backdrop = React.forwardRef<HTMLDivElement, BackdropProps>((props, 
     <Fade
       in={open}
       timeout={transitionDuration}
+      finalOpacity={variants[variant]}
       onEnter={onEnter}
       onEntered={onEntered}
       onEntering={onEntering}
       onExit={onExit}
       onExited={onExited}
       onExiting={onExiting}
-      finalOpacity={variants[variant]}
     >
       <BackdropRoot
         ref={ref}

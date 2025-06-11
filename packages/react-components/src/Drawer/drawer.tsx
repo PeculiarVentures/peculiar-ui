@@ -1,40 +1,40 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Modal, ModalProps } from '../Modal';
+import { Modal, TModalProps } from '../Modal';
 import { Slide } from '../Slide';
 
 /**
  * Types.
  */
-interface DrawerOwnProps {
+interface IDrawerOwnProps {
   /**
    * If `true`, the component is shown.
    */
-  'open': boolean;
+  open: boolean;
   /**
    * The content of the component.
    */
-  'children': React.ReactNode;
+  children: React.ReactNode;
   /**
    * The className of Drawer container.
    */
-  'className'?: string;
+  className?: string;
   /**
    * The duration for the transition, in milliseconds.
    */
-  'transitionDuration'?: number;
+  transitionDuration?: number;
   /**
    * Props applied to the `Modal` element.
    */
-  'modalProps'?: Partial<Omit<ModalProps, 'transitionDuration' | 'open' | 'onClose' | 'keepMounted'>>;
+  modalProps?: Partial<Omit<TModalProps, 'transitionDuration' | 'open' | 'onClose' | 'keepMounted'>>;
   /**
    * Callback fired when the component requests to be closed.
    */
-  'onClose'?: () => void;
+  onClose?: () => void;
   'data-testid'?: string;
 };
 
-type DrawerProps = DrawerOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type TDrawerProps = IDrawerOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -65,7 +65,7 @@ const DrawerPaper = styled('div')(
  *
  */
 
-export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
+export const Drawer = React.forwardRef<HTMLDivElement, TDrawerProps>((props, ref) => {
   const {
     children,
     open,
@@ -82,9 +82,9 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref)
       ref={ref}
       open={open}
       transitionDuration={transitionDuration}
-      onClose={onClose}
       data-testid={dataTestId}
       keepMounted
+      onClose={onClose}
     >
       <Slide
         in={open}

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { Button, ButtonOwnProps } from '../Button';
-import { Tooltip, TooltipOwnProps } from '../Tooltip';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import { Button, IButtonOwnProps } from '../Button';
+import { Tooltip, ITooltipOwnProps } from '../Tooltip';
 
 /**
  * Types.
  */
-export interface IconButtonOwnProps extends Omit<ButtonOwnProps, 'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'> {
+export interface IIconButtonOwnProps extends Omit<IButtonOwnProps, 'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'> {
   /**
    * The text that applied to `aria-label` attribute and Tooltip content.
    */
@@ -15,17 +15,17 @@ export interface IconButtonOwnProps extends Omit<ButtonOwnProps, 'variant' | 'wi
   /**
    * Props applied to the `Tooltip` element.
    */
-  tooltipProps?: Omit<TooltipOwnProps, 'open' | 'title' | 'children'>;
+  tooltipProps?: Omit<ITooltipOwnProps, 'open' | 'title' | 'children'>;
 }
 
-export interface IconButtonTypeMap<P = object, D extends React.ElementType = 'button'> {
-  props: P & IconButtonOwnProps;
+export interface IIconButtonTypeMap<P = object, D extends React.ElementType = 'button'> {
+  props: P & IIconButtonOwnProps;
   defaultComponent: D;
 }
 
-export type IconButtonProps<
-  D extends React.ElementType = IconButtonTypeMap['defaultComponent'],
-> = OverrideProps<IconButtonTypeMap<object, D>, D> & {
+export type TIconButtonProps<
+  D extends React.ElementType = IIconButtonTypeMap['defaultComponent'],
+> = TOverrideProps<IIconButtonTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -37,13 +37,13 @@ export type IconButtonProps<
  */
 const IconButtonRoot = styled(Button)({
   '--pv-color-black': 'var(--pv-color-gray-9)',
-  'border': 'none',
+  border: 'none',
 });
 /**
  *
  */
 
-export const IconButton = React.forwardRef<any, IconButtonProps>((props, ref) => {
+export const IconButton = React.forwardRef<any, TIconButtonProps>((props, ref) => {
   const {
     title,
     disabled,
@@ -75,7 +75,7 @@ export const IconButton = React.forwardRef<any, IconButtonProps>((props, ref) =>
       {component}
     </Tooltip>
   );
-}) as OverridableComponent<IconButtonTypeMap>;
+}) as IOverridableComponent<IIconButtonTypeMap>;
 
 IconButton.displayName = 'IconButton';
 

@@ -2,13 +2,13 @@ import React from 'react';
 import styled from '@emotion/styled';
 import {
   useAutocomplete,
-  UseAutocompleteProps,
-  UseAutocompleteReturnType,
-  AutocompleteValue,
+  IUseAutocompleteProps,
+  IUseAutocompleteReturnType,
+  TAutocompleteValue,
   useOutsideClick,
 } from '../hooks';
 import { Popper } from '../Popper';
-import { Typography, TypographyOwnProps } from '../Typography';
+import { Typography, ITypographyOwnProps } from '../Typography';
 import { Box } from '../Box';
 import { Chip } from '../Chip';
 import { ArrowDropDownIcon, CloseSmallIcon } from '../icons';
@@ -17,16 +17,16 @@ import { MenuItem } from '../MenuList';
 /**
  * Types.
  */
-export interface AutocompleteRenderGroupParams {
+export interface IAutocompleteRenderGroupParams {
   key: string | number;
   group: string;
   children?: React.ReactNode;
 };
 
-export type AutocompleteOwnProps<
+export type TAutocompleteOwnProps<
   T,
   Multiple extends boolean | undefined = undefined,
-> = UseAutocompleteProps<T, Multiple> & {
+> = IUseAutocompleteProps<T, Multiple> & {
   /**
    * The className of the component.
    */
@@ -87,8 +87,8 @@ export type AutocompleteOwnProps<
    */
   renderRoot?: (
     props: object,
-    value: AutocompleteValue<T, Multiple>,
-    getTagProps: UseAutocompleteReturnType<T, Multiple>['getTagProps'],
+    value: TAutocompleteValue<T, Multiple>,
+    getTagProps: IUseAutocompleteReturnType<T, Multiple>['getTagProps'],
   ) => React.ReactNode;
   /**
    * Render the option, use `getOptionLabel` by default.
@@ -98,7 +98,7 @@ export type AutocompleteOwnProps<
    * Render the tags elements.
    */
   renderTag?: (
-    props: ReturnType<UseAutocompleteReturnType<T, Multiple>['getTagProps']>,
+    props: ReturnType<IUseAutocompleteReturnType<T, Multiple>['getTagProps']>,
     option: T,
   ) => React.ReactNode;
   /**
@@ -122,8 +122,8 @@ const reactPropsRegex = /^(as|size|disabled|isHasClearIcon)$/;
 const AutocompleteField = styled(Box, {
   shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
 })<
-  TypographyOwnProps
-  & Required<Pick<AutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
+  ITypographyOwnProps
+  & Required<Pick<TAutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
   & { isHasClearIcon: boolean }
 >(
   {
@@ -198,9 +198,9 @@ const AutocompleteField = styled(Box, {
       }),
       ...(!props.disabled && {
         color,
-        'cursor': 'text',
+        cursor: 'text',
         '&:hover': {
-          'borderColor': borderColorHover,
+          borderColor: borderColorHover,
           '[aria-label="Clear"]': {
             visibility: 'visible',
           },
@@ -212,13 +212,13 @@ const AutocompleteField = styled(Box, {
           borderColor: invalidBorderColor,
         },
         '&:focus-visible': {
-          'borderColor': borderColorFocus,
+          borderColor: borderColorFocus,
           '[aria-label="Clear"]': {
             visibility: 'visible',
           },
         },
         '&:focus-within': {
-          'borderColor': borderColorFocus,
+          borderColor: borderColorFocus,
           '[aria-label="Clear"]': {
             visibility: 'visible',
           },
@@ -250,7 +250,7 @@ const AutocompleteClearButton = styled('button')({
 });
 
 const AutocompleteOpenButton = styled(ArrowDropDownIcon)<{ open: boolean }>({
-  'color': 'var(--pv-color-gray-10)',
+  color: 'var(--pv-color-gray-10)',
   '&[aria-disabled="true"]': {
     color: 'inherit',
   },
@@ -334,7 +334,7 @@ const AutocompletePopover = styled(Popper)(
 );
 
 const AutocompleteTag = styled(Chip)<{
-  size: AutocompleteOwnProps<any>['size'];
+  size: TAutocompleteOwnProps<any>['size'];
 }>((props) => ({
   label: 'Autocomplete-tag',
   borderRadius: '3px',
@@ -403,7 +403,7 @@ const AutocompleteLabel = styled('label')({
 export const Autocomplete = <
   T,
   Multiple extends boolean | undefined = false,
->(props: AutocompleteOwnProps<T, Multiple>): JSX.Element => {
+>(props: TAutocompleteOwnProps<T, Multiple>): JSX.Element => {
   const {
     className,
     size,
@@ -491,7 +491,7 @@ export const Autocomplete = <
     }
   };
 
-  const defaultRenderOption: AutocompleteOwnProps<T, Multiple>['renderOption'] = (propsOption, option) => (
+  const defaultRenderOption: TAutocompleteOwnProps<T, Multiple>['renderOption'] = (propsOption, option) => (
     <AutocompleteDropdownGroupListItem
       {...propsOption}
       inGroup={Boolean(groupBy)}
@@ -500,7 +500,7 @@ export const Autocomplete = <
     </AutocompleteDropdownGroupListItem>
   );
 
-  const renderGroup = (params: AutocompleteRenderGroupParams) => (
+  const renderGroup = (params: IAutocompleteRenderGroupParams) => (
     <li key={params.key}>
       <AutocompleteDropdownGroupName
         variant="c1"
@@ -514,7 +514,7 @@ export const Autocomplete = <
     </li>
   );
 
-  const defaultRenderTag: AutocompleteOwnProps<T, Multiple>['renderTag'] = (propsOption, option) => (
+  const defaultRenderTag: TAutocompleteOwnProps<T, Multiple>['renderTag'] = (propsOption, option) => (
     <AutocompleteTag
       {...propsOption}
       color="secondary"
@@ -566,7 +566,7 @@ export const Autocomplete = <
   const isValueEmpty = renderedValue === null;
   const popoverRef = useOutsideClick(popoverProps.onClose);
 
-  const defaultRenderRoot: AutocompleteOwnProps<T, Multiple>['renderRoot'] = ({
+  const defaultRenderRoot: TAutocompleteOwnProps<T, Multiple>['renderRoot'] = ({
     // @ts-expect-error: 'ref' type may not match
     ref,
     ...propsRoot

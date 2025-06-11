@@ -1,39 +1,39 @@
 import React from 'react';
+import type { TPopoverProps } from '../Popover';
 import { useId } from './use_id';
 import { useControllableState } from './use_controllable';
 import { useEventCallback } from './use_event_callback';
-import type { PopoverProps } from '../Popover';
 
 /**
  * Types.
  */
-export type AutocompleteHighlightChangeReason = ('auto' | 'mouse' | 'keyboard');
-export type AutocompleteHighlightChangeDirectionType = ('next' | 'previous');
-export type AutocompleteHighlightChangeDiffType = (number | 'reset' | 'start' | 'end');
-export type AutocompleteChangeReason = ('selectOption' | 'removeOption');
+export type TAutocompleteHighlightChangeReason = ('auto' | 'mouse' | 'keyboard');
+export type TAutocompleteHighlightChangeDirectionType = ('next' | 'previous');
+export type TAutocompleteHighlightChangeDiffType = (number | 'reset' | 'start' | 'end');
+export type TAutocompleteChangeReason = ('selectOption' | 'removeOption');
 
-export interface AutocompleteChangeDetails<T = string> {
+export interface IAutocompleteChangeDetails<T = string> {
   option: T;
   index: number;
 }
 
-export type AutocompleteValue<T, Multiple> = Multiple extends | undefined | false ? T | null : T[];
+export type TAutocompleteValue<T, Multiple> = Multiple extends | undefined | false ? T | null : T[];
 
-export type AutocompleteFilterOptionsType<T, Multiple> = (
+export type TAutocompleteFilterOptionsType<T, Multiple> = (
   options: readonly T[],
   searchValue: string,
-  value: AutocompleteValue<T, Multiple>,
+  value: TAutocompleteValue<T, Multiple>,
   getOptionLabel: (option: T) => string,
 ) => readonly T[];
 
-export interface AutocompleteGroupedOption<T> {
+export interface IAutocompleteGroupedOption<T> {
   key: number;
   index: number;
   group: string;
   options: T[];
 };
 
-export interface UseAutocompleteProps<
+export interface IUseAutocompleteProps<
   T,
   Multiple extends boolean | undefined = undefined,
 > {
@@ -49,11 +49,11 @@ export interface UseAutocompleteProps<
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue?: AutocompleteValue<T, Multiple>;
+  defaultValue?: TAutocompleteValue<T, Multiple>;
   /**
    * The value of the select.
    */
-  value?: AutocompleteValue<T, Multiple>;
+  value?: TAutocompleteValue<T, Multiple>;
   /**
    * If `true`, the popup won't close when a value is selected.
    */
@@ -86,7 +86,7 @@ export interface UseAutocompleteProps<
   /**
   * A filter function that determines the options that are eligible.
   */
-  filterOptions?: AutocompleteFilterOptionsType<T, Multiple>;
+  filterOptions?: TAutocompleteFilterOptionsType<T, Multiple>;
   /**
    * Callback fired when the popup requests to be closed.
    */
@@ -100,9 +100,9 @@ export interface UseAutocompleteProps<
    */
   onChange?: (
     event: React.SyntheticEvent,
-    value: AutocompleteValue<T, Multiple>,
-    details: AutocompleteChangeDetails<T>,
-    reason: AutocompleteChangeReason,
+    value: TAutocompleteValue<T, Multiple>,
+    details: IAutocompleteChangeDetails<T>,
+    reason: TAutocompleteChangeReason,
   ) => void;
   /**
    * Callback fired when the input value changes.
@@ -113,12 +113,12 @@ export interface UseAutocompleteProps<
   ) => void;
 };
 
-export interface UseAutocompleteReturnType<
+export interface IUseAutocompleteReturnType<
   T,
   Multiple extends boolean | undefined = undefined,
 > {
-  groupedOptions: readonly T[] | readonly AutocompleteGroupedOption<T>[];
-  value: AutocompleteValue<T, Multiple>;
+  groupedOptions: readonly T[] | readonly IAutocompleteGroupedOption<T>[];
+  value: TAutocompleteValue<T, Multiple>;
   searchValue: string;
   popupOpen: boolean;
   id: string;
@@ -131,12 +131,12 @@ export interface UseAutocompleteReturnType<
     tabIndex: -1;
     onClick: (event: React.SyntheticEvent) => void;
   };
-  getPopoverProps: () => Pick<Required<PopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>;
+  getPopoverProps: () => Pick<Required<TPopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>;
   getTagProps: (option: T, index: number) => {
-    'key': number;
+    key: number;
     'data-tag-index': number;
-    'tabIndex': -1;
-    'onDelete'?: (event: React.SyntheticEvent) => void;
+    tabIndex: -1;
+    onDelete?: (event: React.SyntheticEvent) => void;
   };
   getOptionLabel: (option: T) => string;
 };
@@ -144,7 +144,7 @@ export interface UseAutocompleteReturnType<
  *
  */
 
-const defaultFilterOptions: AutocompleteFilterOptionsType<any, false> = (
+const defaultFilterOptions: TAutocompleteFilterOptionsType<any, false> = (
   options,
   searchValue,
   _,
@@ -165,12 +165,12 @@ export function useAutocomplete<
   T,
   Multiple extends boolean | undefined = false,
 >(
-  props: UseAutocompleteProps<T, Multiple>,
-): UseAutocompleteReturnType<T, Multiple> {
+  props: IUseAutocompleteProps<T, Multiple>,
+): IUseAutocompleteReturnType<T, Multiple> {
   const {
     id: idProp,
     options,
-    defaultValue = props.multiple ? [] as AutocompleteValue<T, Multiple> : null,
+    defaultValue = props.multiple ? [] as TAutocompleteValue<T, Multiple> : null,
     value: valueProp,
     disableCloseOnSelect = false,
     multiple = false,
@@ -203,7 +203,10 @@ export function useAutocomplete<
     ? filterOptions(options, searchValue, value, getOptionLabel)
     : [];
 
-  const validOptionIndex = (index: number, direction: AutocompleteHighlightChangeDirectionType) => {
+  const validOptionIndex = (
+    index: number,
+    direction: TAutocompleteHighlightChangeDirectionType,
+  ) => {
     if (!listboxRef.current || index === -1) {
       return -1;
     }
@@ -230,7 +233,7 @@ export function useAutocomplete<
     }
   };
 
-  const setHighlightedIndex = useEventCallback((index: number, reason: AutocompleteHighlightChangeReason = 'auto') => {
+  const setHighlightedIndex = useEventCallback((index: number, reason: TAutocompleteHighlightChangeReason = 'auto') => {
     highlightedIndexRef.current = index;
 
     const listboxNode = listboxRef.current;
@@ -281,9 +284,9 @@ export function useAutocomplete<
   });
 
   const changeHighlightedIndex = useEventCallback((
-    diff: AutocompleteHighlightChangeDiffType,
-    direction: AutocompleteHighlightChangeDirectionType = 'next',
-    reason: AutocompleteHighlightChangeReason = 'auto',
+    diff: TAutocompleteHighlightChangeDiffType,
+    direction: TAutocompleteHighlightChangeDirectionType = 'next',
+    reason: TAutocompleteHighlightChangeReason = 'auto',
   ) => {
     if (!popupOpen) {
       return;
@@ -436,7 +439,7 @@ export function useAutocomplete<
     event: React.SyntheticEvent,
     option: T,
     index: number,
-    reasonProp: AutocompleteChangeReason,
+    reasonProp: TAutocompleteChangeReason,
   ) => {
     let newValue: T | T[] = option;
     let reason = reasonProp;
@@ -454,14 +457,14 @@ export function useAutocomplete<
       }
     }
 
-    setValue(newValue as AutocompleteValue<T, Multiple>);
+    setValue(newValue as TAutocompleteValue<T, Multiple>);
 
     if (!disableCloseOnSelect) {
       handleClose(event);
     }
 
     if (onChange) {
-      onChange(event, newValue as AutocompleteValue<T, Multiple>, {
+      onChange(event, newValue as TAutocompleteValue<T, Multiple>, {
         option, index,
       }, reason);
     }
@@ -471,7 +474,7 @@ export function useAutocomplete<
     event.preventDefault();
 
     setSearchValue('');
-    const newValue = (multiple ? [] : null) as AutocompleteValue<T, Multiple>;
+    const newValue = (multiple ? [] : null) as TAutocompleteValue<T, Multiple>;
 
     if (onInputChange) {
       onInputChange(event, '');
@@ -487,9 +490,7 @@ export function useAutocomplete<
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const {
-      value: valueInput,
-    } = event.target;
+    const { value: valueInput } = event.target;
 
     if (searchValue !== valueInput) {
       setSearchValue(valueInput);
@@ -582,13 +583,13 @@ export function useAutocomplete<
 
   return {
     getRootProps: () => ({
-      'ref': anchorEl,
+      ref: anchorEl,
       'aria-expanded': popupOpen,
       'aria-autocomplete': 'list',
       'aria-controls': `${id}-listbox`,
-      'id': `${id}-toggle-button`,
-      'role': 'combobox',
-      'onClick': handleClick,
+      id: `${id}-toggle-button`,
+      role: 'combobox',
+      onClick: handleClick,
     }),
     getInputLabelProps: () => ({
       id: `${id}-label`,
@@ -620,13 +621,13 @@ export function useAutocomplete<
       );
 
       return {
-        'key': getOptionKey ? getOptionKey(option) : getOptionLabel(option),
-        'tabIndex': -1,
-        'role': 'option',
-        'id': `${id}-option-${index}`,
+        key: getOptionKey ? getOptionKey(option) : getOptionLabel(option),
+        tabIndex: -1,
+        role: 'option',
+        id: `${id}-option-${index}`,
         'data-option-index': index,
         'aria-selected': selected,
-        'onClick': handleOptionClick,
+        onClick: handleOptionClick,
       };
     },
     getPopoverProps: () => ({
@@ -637,10 +638,10 @@ export function useAutocomplete<
       onKeyDown: handleKeyDown,
     }),
     getTagProps: (option, index) => ({
-      'key': index,
+      key: index,
       'data-tag-index': index,
-      'tabIndex': -1,
-      'onDelete': readOnly ? undefined : handleTagDelete(option, index),
+      tabIndex: -1,
+      onDelete: readOnly ? undefined : handleTagDelete(option, index),
     }),
     getOptionLabel,
     groupedOptions,

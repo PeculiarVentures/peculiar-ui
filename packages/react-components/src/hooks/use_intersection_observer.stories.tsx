@@ -9,12 +9,8 @@ const meta = {
 export default meta;
 
 const Section = (props: { title: string }) => {
-  const {
-    title,
-  } = props;
-  const [refIntersecting, {
-    isIntersecting,
-  }] = useIntersectionObserver();
+  const { title } = props;
+  const [refIntersecting, { isIntersecting }] = useIntersectionObserver();
 
   console.log(`Render Section ${title}`, {
     isIntersecting,
@@ -46,7 +42,7 @@ export const DemoExample = () => (
   }).map((_, index) => (
     <Section
 
-      key={index}
+      key={`${index + 1}`}
       title={`${index + 1}`}
     />
   ))

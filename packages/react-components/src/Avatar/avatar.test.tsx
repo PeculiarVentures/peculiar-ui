@@ -9,9 +9,7 @@ const src = 'https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=
 describe('<Avatar />', () => {
   describe('Avatar render variants', () => {
     it('should render as default', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Avatar />,
       );
 
@@ -23,9 +21,7 @@ describe('<Avatar />', () => {
     });
 
     it('should render as image', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Avatar src={src} />,
       );
 
@@ -38,9 +34,7 @@ describe('<Avatar />', () => {
     });
 
     it('should render 1 initial with a 1-word name', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Avatar name="First" />,
       );
 
@@ -63,9 +57,7 @@ describe('<Avatar />', () => {
     });
 
     it('should render initials with fn', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Avatar name="First" getInitials={(str) => str.split('')[0]} />,
       );
 
@@ -74,9 +66,7 @@ describe('<Avatar />', () => {
     });
 
     it('should prioritize render as image over initials', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Avatar src={src} name="First" />,
       );
 
@@ -84,9 +74,7 @@ describe('<Avatar />', () => {
     });
 
     it('should have test id', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Avatar data-testid="test-id" />,
       );
 
@@ -94,9 +82,7 @@ describe('<Avatar />', () => {
     });
 
     it('should have class name', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Avatar className="test-cls" />,
       );
 
@@ -104,9 +90,7 @@ describe('<Avatar />', () => {
     });
 
     it('shoul change initials render element', () => {
-      const {
-        asFragment,
-      } = render(
+      const { asFragment } = render(
         <Avatar
           name="First"
           renderInitials={(props) => (
@@ -130,9 +114,7 @@ describe('<Avatar />', () => {
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
-        const {
-          asFragment,
-        } = render(
+        const { asFragment } = render(
           <Avatar size={size} />,
         );
 

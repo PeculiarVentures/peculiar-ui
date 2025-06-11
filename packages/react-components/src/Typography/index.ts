@@ -1,5 +1,5 @@
 export { Typography } from './typography';
 export type {
-  TypographyOwnProps,
-  TypographyProps,
+  ITypographyOwnProps,
+  TTypographyProps,
 } from './typography';

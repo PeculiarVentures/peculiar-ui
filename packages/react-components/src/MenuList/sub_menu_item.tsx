@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { OverridableComponent } from '../OverridableComponent';
+import { IOverridableComponent } from '../OverridableComponent';
 import { Popper } from '../Popper';
 import { Box } from '../Box';
 import { useMergedRef } from '../hooks';
 import { ArrowRightIcon } from '../icons';
 import { MenuItem } from './menu_item';
-import type { MenuItemTypeMap, MenuItemProps } from './menu_item';
+import type { IMenuItemTypeMap, TMenuItemProps } from './menu_item';
 import { MenuList } from './menu_list';
 
 /**
  * Types.
  */
-type SubMenuItemOwnProps = MenuItemProps & {
+type TSubMenuItemOwnProps = TMenuItemProps & {
   label: React.ReactNode;
   children: React.ReactElement[];
 };
@@ -42,7 +42,7 @@ const SubMenuItemRoot = styled(MenuList)(
  *
  */
 
-export const SubMenuItem = React.forwardRef<any, SubMenuItemOwnProps>((props, ref) => {
+export const SubMenuItem = React.forwardRef<any, TSubMenuItemOwnProps>((props, ref) => {
   const {
     label,
     children,
@@ -82,6 +82,6 @@ export const SubMenuItem = React.forwardRef<any, SubMenuItemOwnProps>((props, re
       </Popper>
     </MenuItem>
   );
-}) as OverridableComponent<MenuItemTypeMap>;
+}) as IOverridableComponent<IMenuItemTypeMap>;
 
 SubMenuItem.displayName = 'SubMenuItem';

@@ -1,5 +1,5 @@
 export { Button } from './button';
 export type {
-  ButtonOwnProps,
-  ButtonProps,
+  IButtonOwnProps,
+  TButtonProps,
 } from './button';

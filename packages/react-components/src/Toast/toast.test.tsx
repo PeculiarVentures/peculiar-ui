@@ -6,9 +6,7 @@ describe('<Toast />', () => {
   it('should render with default styles', () => {
     const onClose = jest.fn();
 
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <Toast
         id="toast1"
         onClose={onClose}

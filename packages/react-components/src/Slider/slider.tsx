@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 /**
  * Types.
  */
-interface SliderOwnProps {
+interface ISliderOwnProps {
   className?: string;
   /**
    * The default element value. Use when the component is not controlled.
@@ -40,7 +40,7 @@ interface SliderOwnProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export type SliderProps = SliderOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'defaultValue'>;
+export type TSliderProps = ISliderOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'defaultValue'>;
 /**
  *
  */
@@ -48,22 +48,22 @@ export type SliderProps = SliderOwnProps & Omit<React.HTMLAttributes<HTMLDivElem
 /**
  * Styles.
  */
-const SliderRoot = styled('div')<SliderProps>({
+const SliderRoot = styled('div')<TSliderProps>({
   height: '16px',
   width: '100%',
 });
 
 const SliderInput = styled('input')({
-  'appearance': 'none',
-  'width': '100%',
-  'height': '100%',
-  'outline': 'none',
-  'backgroundColor': 'var(--pv-color-primary-shade-1)',
-  'borderRadius': '16px',
-  'margin': 0,
-  'padding': 0,
-  'cursor': 'pointer',
-  'transition': 'background-color 200ms',
+  appearance: 'none',
+  width: '100%',
+  height: '100%',
+  outline: 'none',
+  backgroundColor: 'var(--pv-color-primary-shade-1)',
+  borderRadius: '16px',
+  margin: 0,
+  padding: 0,
+  cursor: 'pointer',
+  transition: 'background-color 200ms',
   '&::-webkit-slider-thumb': {
     appearance: 'none',
     height: '16px',
@@ -93,8 +93,8 @@ const SliderInput = styled('input')({
     },
   },
   '&:disabled': {
-    'cursor': 'not-allowed',
-    'backgroundColor': 'var(--pv-color-gray-4)',
+    cursor: 'not-allowed',
+    backgroundColor: 'var(--pv-color-gray-4)',
     '&::-webkit-slider-thumb': {
       backgroundColor: 'var(--pv-color-gray-8)',
       borderColor: 'var(--pv-color-gray-8)',
@@ -109,7 +109,7 @@ const SliderInput = styled('input')({
  *
  */
 
-export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
+export const Slider = React.forwardRef<HTMLDivElement, TSliderProps>((props, ref) => {
   const {
     defaultValue,
     value,
@@ -135,8 +135,8 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
         step={step}
         value={value}
         defaultValue={defaultValue}
-        onChange={onChange}
         disabled={disabled}
+        onChange={onChange}
       />
     </SliderRoot>
   );

@@ -1,6 +1,6 @@
 import { act, renderHook } from '../test-utils';
-import { useClipboard } from './use_clipboard';
 import { copyToClipboard } from '../utils';
+import { useClipboard } from './use_clipboard';
 
 jest.useFakeTimers();
 
@@ -14,9 +14,7 @@ describe('useClipboard()', () => {
   });
 
   it('should return `isCopied=true` on successfully copied', async () => {
-    const {
-      result,
-    } = renderHook(useClipboard);
+    const { result } = renderHook(useClipboard);
 
     await act(() => result.current.copy('text_stub'));
 
@@ -25,9 +23,7 @@ describe('useClipboard()', () => {
   });
 
   it('should ignore an error that occurs during copying', async () => {
-    const {
-      result,
-    } = renderHook(useClipboard);
+    const { result } = renderHook(useClipboard);
 
     jest.mock('../utils', () => ({
       copyToClipboard: () => {
@@ -41,9 +37,7 @@ describe('useClipboard()', () => {
   });
 
   it('should remain `isCopied=true` until the timeout expires and becomes `false` after', async () => {
-    const {
-      result, rerender,
-    } = renderHook(useClipboard);
+    const { result, rerender } = renderHook(useClipboard);
 
     await act(() => result.current.copy('text_stub'));
 

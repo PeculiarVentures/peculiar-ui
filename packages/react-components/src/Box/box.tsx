@@ -1,33 +1,33 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { ColorType, ShadowType } from '../styles';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import { TColorType, TShadowType } from '../styles';
 
 /**
  * Types.
  */
-export interface BoxOwnProps {
+export interface IBoxOwnProps {
   /**
    * The content of the component.
    */
   children?: React.ReactNode;
-  background?: ColorType;
-  borderColor?: ColorType;
+  background?: TColorType;
+  borderColor?: TColorType;
   borderWidth?: number;
   borderStyle?: ('solid' | 'dashed');
   borderPosition?: ('horizontal' | 'vertical' | 'top' | 'right' | 'bottom' | 'left');
   borderRadius?: number;
-  boxShadow?: ShadowType;
+  boxShadow?: TShadowType;
 }
 
-export interface BoxTypeMap<P = object, D extends React.ElementType = 'div'> {
-  props: P & BoxOwnProps;
+export interface IBoxTypeMap<P = object, D extends React.ElementType = 'div'> {
+  props: P & IBoxOwnProps;
   defaultComponent: D;
 }
 
-export type BoxProps<
-  D extends React.ElementType = BoxTypeMap['defaultComponent'],
-> = OverrideProps<BoxTypeMap<object, D>, D> & {
+export type TBoxProps<
+  D extends React.ElementType = IBoxTypeMap['defaultComponent'],
+> = TOverrideProps<IBoxTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -41,7 +41,7 @@ const reactPropsRegex = /^(as|background|borderColor|borderWidth|borderStyle|bor
  */
 const BoxRoot = styled('div', {
   shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<BoxOwnProps>(
+})<IBoxOwnProps>(
   (props) => ({
     background: props.background && `var(--pv-color-${props.background})`,
     borderColor: props.borderColor && `var(--pv-color-${props.borderColor})`,
@@ -50,9 +50,7 @@ const BoxRoot = styled('div', {
     boxShadow: props.boxShadow && `var(--pv-shadow-${props.boxShadow})`,
   }),
   (props) => {
-    const {
-      borderWidth, borderPosition,
-    } = props;
+    const { borderWidth, borderPosition } = props;
 
     if (typeof borderWidth !== 'number') {
       return {};
@@ -79,7 +77,7 @@ const BoxRoot = styled('div', {
  *
  */
 
-export const Box = React.forwardRef<any, BoxProps>((props, ref) => {
+export const Box = React.forwardRef<any, TBoxProps>((props, ref) => {
   const {
     component,
     ...other
@@ -94,6 +92,6 @@ export const Box = React.forwardRef<any, BoxProps>((props, ref) => {
       {...other}
     />
   );
-}) as OverridableComponent<BoxTypeMap>;
+}) as IOverridableComponent<IBoxTypeMap>;
 
 Box.displayName = 'Box';

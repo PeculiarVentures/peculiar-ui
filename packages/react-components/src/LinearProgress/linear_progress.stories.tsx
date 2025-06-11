@@ -9,6 +9,6 @@ const meta: Meta<typeof LinearProgress> = {
 
 export default meta;
 
-type Story = StoryObj<typeof LinearProgress>;
+type TStory = StoryObj<typeof LinearProgress>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};

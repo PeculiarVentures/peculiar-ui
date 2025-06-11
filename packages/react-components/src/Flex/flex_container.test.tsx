@@ -4,9 +4,7 @@ import { FlexContainer } from './index';
 
 describe('<FlexContainer />', () => {
   it('should render with default styles', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <FlexContainer>1</FlexContainer>,
     );
 
@@ -14,9 +12,7 @@ describe('<FlexContainer />', () => {
   });
 
   it('should pass className', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <FlexContainer className="test-classname" />,
     );
 
@@ -24,9 +20,7 @@ describe('<FlexContainer />', () => {
   });
 
   it('should pass gap', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <FlexContainer gap={10} />,
     );
 
@@ -34,9 +28,7 @@ describe('<FlexContainer />', () => {
   });
 
   it('should pass direction', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <FlexContainer direction="column" />,
     );
 
@@ -44,9 +36,7 @@ describe('<FlexContainer />', () => {
   });
 
   it('should pass wrap', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <FlexContainer wrap="nowrap" />,
     );
 
@@ -54,9 +44,7 @@ describe('<FlexContainer />', () => {
   });
 
   it('should pass align', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <FlexContainer align="center" />,
     );
 
@@ -64,9 +52,7 @@ describe('<FlexContainer />', () => {
   });
 
   it('should pass justify', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <FlexContainer justify="flex-end" />,
     );
 
@@ -74,9 +60,7 @@ describe('<FlexContainer />', () => {
   });
 
   it('should pass component', () => {
-    const {
-      asFragment,
-    } = render(
+    const { asFragment } = render(
       <FlexContainer component="li" />,
     );
 

@@ -6,7 +6,7 @@ import { useId } from '../hooks/use_id';
 /**
  * Types.
  */
-interface TextFieldOwnProps {
+interface ITextFieldOwnProps {
   /**
    * If `true`, the component is disabled.
    */
@@ -83,7 +83,7 @@ interface TextFieldOwnProps {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-type TextFieldProps = TextFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
+type TTextFieldProps = ITextFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
 /**
  *
  */
@@ -91,7 +91,7 @@ type TextFieldProps = TextFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivEleme
 /**
  * Styles.
  */
-const TextFieldInput = styled(Typography)<TextFieldProps>(
+const TextFieldInput = styled(Typography)<TTextFieldProps>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -175,7 +175,7 @@ const TextFieldError = styled(Typography)({
  *
  */
 
-export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props, ref) => {
+export const TextField = React.forwardRef<HTMLDivElement, TTextFieldProps>((props, ref) => {
   const {
     size,
     label,
@@ -231,13 +231,13 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>((props
         value={value}
         required={required}
         name={name}
+        aria-invalid={error || undefined}
+        placeholder={placeholder}
+        readOnly={readOnly}
         ref={inputRef}
         // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
-        aria-invalid={error || undefined}
         onChange={onChange}
-        placeholder={placeholder}
-        readOnly={readOnly}
       />
       {error && errorText && (
         <TextFieldError

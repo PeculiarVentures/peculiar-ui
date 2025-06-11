@@ -26,9 +26,9 @@ const meta: Meta<typeof Box> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Box>;
+type TStory = StoryObj<typeof Box>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};
 
 export const BackgroundColorExample = () => (
   <>

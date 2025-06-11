@@ -8,7 +8,7 @@ import { Portal } from '../Portal';
 /**
  * Types.
  */
-interface BaseProps {
+interface IBaseProps {
   /**
    * If `true`, the popper is visible.
    */
@@ -40,7 +40,7 @@ interface BaseProps {
   modifiers?: Modifier<any>[];
 };
 
-type PopperProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type TPopperProps = IBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -53,7 +53,7 @@ const PopperTooltip = styled('div')({});
  *
  */
 
-export const Popper: React.FC<PopperProps> = (props) => {
+export const Popper: React.FC<TPopperProps> = (props) => {
   const {
     children,
     anchorEl,
@@ -72,14 +72,10 @@ export const Popper: React.FC<PopperProps> = (props) => {
         enabled: allowUseSameWidth,
         phase: 'beforeWrite',
         requires: ['computeStyles'],
-        fn: ({
-          state,
-        }) => {
+        fn: ({ state }) => {
           state.styles.popper.width = `${state.rects.reference.width}px`;
         },
-        effect: ({
-          state,
-        }) => {
+        effect: ({ state }) => {
           // @ts-expect-error: TypeScript may not recognize the style property
           state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
         },
@@ -93,9 +89,7 @@ export const Popper: React.FC<PopperProps> = (props) => {
     return baseModifiers;
   }, [allowUseSameWidth, modifiers]);
 
-  const {
-    styles, attributes,
-  } = usePopper(
+  const { styles, attributes } = usePopper(
     anchorEl,
     popperElement,
     {

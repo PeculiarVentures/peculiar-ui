@@ -1,12 +1,12 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { OverridableComponent, OverrideProps } from '../OverridableComponent';
-import { ButtonBase, ButtonBaseOwnProps } from '../ButtonBase';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import { ButtonBase, IButtonBaseOwnProps } from '../ButtonBase';
 
 /**
  * Types.
  */
-export interface ButtonOwnProps extends ButtonBaseOwnProps {
+export interface IButtonOwnProps extends IButtonBaseOwnProps {
   circled?: boolean;
   /**
    * Element placed before the children.
@@ -22,14 +22,14 @@ export interface ButtonOwnProps extends ButtonBaseOwnProps {
   withoutPadding?: boolean;
 }
 
-export interface ButtonTypeMap<P = object, D extends React.ElementType = 'button'> {
-  props: P & ButtonOwnProps;
+export interface IButtonTypeMap<P = object, D extends React.ElementType = 'button'> {
+  props: P & IButtonOwnProps;
   defaultComponent: D;
 }
 
-export type ButtonProps<
-  D extends React.ElementType = ButtonTypeMap['defaultComponent'],
-> = OverrideProps<ButtonTypeMap<object, D>, D> & {
+export type TButtonProps<
+  D extends React.ElementType = IButtonTypeMap['defaultComponent'],
+> = TOverrideProps<IButtonTypeMap<object, D>, D> & {
   component?: D;
 };
 /**
@@ -39,7 +39,7 @@ export type ButtonProps<
 /**
  * Styles.
  */
-const ButtonRoot = styled(ButtonBase)<ButtonOwnProps>((props) => ({
+const ButtonRoot = styled(ButtonBase)<IButtonOwnProps>((props) => ({
   borderRadius: '4px',
   ...(props.size === 'small' && {
     height: 'var(--pv-size-base-6)',
@@ -86,7 +86,7 @@ const ButtonEndIcon = styled('span')({
  *
  */
 
-export const Button = React.forwardRef<any, ButtonProps>((props, ref) => {
+export const Button = React.forwardRef<any, TButtonProps>((props, ref) => {
   const {
     children,
     startIcon: startIconProp,
@@ -116,7 +116,7 @@ export const Button = React.forwardRef<any, ButtonProps>((props, ref) => {
       {endIcon}
     </ButtonRoot>
   );
-}) as OverridableComponent<ButtonTypeMap>;
+}) as IOverridableComponent<IButtonTypeMap>;
 
 Button.displayName = 'Button';
 

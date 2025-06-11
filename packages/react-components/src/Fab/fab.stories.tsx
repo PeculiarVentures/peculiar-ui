@@ -23,6 +23,6 @@ const meta: Meta<typeof Fab> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Fab>;
+type TStory = StoryObj<typeof Fab>;
 
-export const Playground: Story = {};
+export const Playground: TStory = {};
