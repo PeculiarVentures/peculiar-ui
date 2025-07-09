@@ -99,7 +99,7 @@ exports[`<DialogTitle /> should render close button 1`] = `
   border-radius: 4px;
   height: var(--pv-size-base-6);
   min-width: var(--pv-size-base-6);
-  --pv-color-black: var(--pv-color-gray-9);
+  --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
 

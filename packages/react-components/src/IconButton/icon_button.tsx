@@ -36,7 +36,7 @@ export type TIconButtonProps<
  * Styles.
  */
 const IconButtonRoot = styled(Button)({
-  '--pv-color-black': 'var(--pv-color-gray-9)',
+  '--pv-color-black': 'var(--pv-color-gray-10)',
   border: 'none',
 });
 /**

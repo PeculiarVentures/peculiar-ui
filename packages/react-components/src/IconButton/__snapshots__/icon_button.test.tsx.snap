@@ -36,7 +36,7 @@ exports[`<IconButton /> colors color "default" 1`] = `
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
-  --pv-color-black: var(--pv-color-gray-9);
+  --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
 
@@ -138,7 +138,7 @@ exports[`<IconButton /> colors color "primary" 1`] = `
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
-  --pv-color-black: var(--pv-color-gray-9);
+  --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
 
@@ -240,7 +240,7 @@ exports[`<IconButton /> colors color "secondary" 1`] = `
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
-  --pv-color-black: var(--pv-color-gray-9);
+  --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
 
@@ -342,7 +342,7 @@ exports[`<IconButton /> colors color "white" 1`] = `
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
-  --pv-color-black: var(--pv-color-gray-9);
+  --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
 
@@ -444,7 +444,7 @@ exports[`<IconButton /> colors color "wrong" 1`] = `
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
-  --pv-color-black: var(--pv-color-gray-9);
+  --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
 
@@ -546,7 +546,7 @@ exports[`<IconButton /> should have title 1`] = `
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
-  --pv-color-black: var(--pv-color-gray-9);
+  --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
 
@@ -649,7 +649,7 @@ exports[`<IconButton /> should pass className 1`] = `
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
-  --pv-color-black: var(--pv-color-gray-9);
+  --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
 
@@ -751,7 +751,7 @@ exports[`<IconButton /> should render as default 1`] = `
   border-radius: 4px;
   height: var(--pv-size-base-7);
   min-width: var(--pv-size-base-7);
-  --pv-color-black: var(--pv-color-gray-9);
+  --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
 
