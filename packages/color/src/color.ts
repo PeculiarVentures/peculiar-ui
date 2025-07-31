@@ -5,17 +5,17 @@ import { hsbToRgb } from './hsb_to_rgb';
 import { getContrastRatio } from './get_contrast_ratio';
 
 type TPaletteTypes = (
-  'tint5' |
-  'tint4' |
-  'tint3' |
-  'tint2' |
-  'tint1' |
-  'base' |
-  'shade1' |
-  'shade2' |
-  'shade3' |
-  'shade4' |
-  'shade5'
+  'tint5'
+  | 'tint4'
+  | 'tint3'
+  | 'tint2'
+  | 'tint1'
+  | 'base'
+  | 'shade1'
+  | 'shade2'
+  | 'shade3'
+  | 'shade4'
+  | 'shade5'
 );
 
 export class Color {

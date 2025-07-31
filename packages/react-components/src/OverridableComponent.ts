@@ -41,9 +41,9 @@ export type TOverrideProps<
 /**
  * Props if `component={Component}` is NOT used.
  */
-export type TDefaultComponentProps<M extends IOverridableTypeMap> =
-  & TBaseProps<M>
-  & TDistributiveOmit<React.ComponentPropsWithRef<M['defaultComponent']>, keyof TBaseProps<M>>;
+export type TDefaultComponentProps<M extends IOverridableTypeMap>
+  = & TBaseProps<M>
+    & TDistributiveOmit<React.ComponentPropsWithRef<M['defaultComponent']>, keyof TBaseProps<M>>;
 
 /**
  * Props defined on the component.

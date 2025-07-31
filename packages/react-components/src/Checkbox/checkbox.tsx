@@ -21,8 +21,8 @@ interface ICheckboxOwnProps {
    * The color of the component.
    */
   color?: (
-    'primary' |
-    'secondary'
+    'primary'
+    | 'secondary'
   );
   /**
    * If `true`, the component appears indeterminate. This does not set the native

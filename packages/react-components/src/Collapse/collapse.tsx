@@ -8,12 +8,12 @@ import { Transition } from 'react-transition-group';
  * Types.
  */
 type TCollapseTransitionProps = Pick<TransitionProps<HTMLElement>, (
-  'onEnter' |
-  'onEntered' |
-  'onEntering' |
-  'onExit' |
-  'onExited' |
-  'onExiting'
+  'onEnter'
+  | 'onEntered'
+  | 'onEntering'
+  | 'onExit'
+  | 'onExited'
+  | 'onExiting'
 )>;
 
 interface ICollapseOwnProps {

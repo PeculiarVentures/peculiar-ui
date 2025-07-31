@@ -4,12 +4,12 @@ import { Transition } from 'react-transition-group';
 import { useMergedRef } from '../hooks';
 
 type TBaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
-  'onEnter' |
-  'onEntered' |
-  'onEntering' |
-  'onExit' |
-  'onExited' |
-  'onExiting'
+  'onEnter'
+  | 'onEntered'
+  | 'onEntering'
+  | 'onExit'
+  | 'onExited'
+  | 'onExiting'
 )>;
 
 interface IBaseProps {

@@ -19,9 +19,9 @@ interface INativeSelectOwnProps {
    * The size of the select.
    */
   size?: (
-    'small' |
-    'medium' |
-    'large'
+    'small'
+    | 'medium'
+    | 'large'
   );
   /**
    * The className of the component.

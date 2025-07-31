@@ -35,9 +35,9 @@ export type TAutocompleteOwnProps<
    * The size of the root component.
    */
   size?: (
-    'small' |
-    'medium' |
-    'large'
+    'small'
+    | 'medium'
+    | 'large'
   );
   /**
    * The short hint displayed in the `input` before the user enters a value.

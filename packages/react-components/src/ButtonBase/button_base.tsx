@@ -21,9 +21,9 @@ export interface IButtonBaseOwnProps {
    * The variant to use.
    */
   variant?: (
-    'contained' |
-    'outlined' |
-    'text'
+    'contained'
+    | 'outlined'
+    | 'text'
   );
   /**
    * The variant of text to use.
@@ -33,19 +33,19 @@ export interface IButtonBaseOwnProps {
    * The color of the component.
    */
   color?: (
-    'primary' |
-    'secondary' |
-    'wrong' |
-    'white' |
-    'default'
+    'primary'
+    | 'secondary'
+    | 'wrong'
+    | 'white'
+    | 'default'
   );
   /**
    * The size of the button.
    */
   size?: (
-    'small' |
-    'medium' |
-    'large'
+    'small'
+    | 'medium'
+    | 'large'
   );
 }
 

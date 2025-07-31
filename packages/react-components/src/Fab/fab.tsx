@@ -11,8 +11,8 @@ export interface IFabOwnProps extends Omit<IButtonBaseOwnProps, 'size' | 'varian
    * The variant to use.
    */
   variant?: (
-    'contained' |
-    'outlined'
+    'contained'
+    | 'outlined'
   );
 }
 

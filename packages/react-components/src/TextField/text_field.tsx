@@ -15,9 +15,9 @@ interface ITextFieldOwnProps {
    * The size of the input.
    */
   size?: (
-    'small' |
-    'medium' |
-    'large'
+    'small'
+    | 'medium'
+    | 'large'
   );
   /**
    * The className of the component.

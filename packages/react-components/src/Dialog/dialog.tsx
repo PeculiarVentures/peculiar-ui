@@ -46,9 +46,9 @@ interface IDialogOwnProps {
    * The size of the dialog.
    */
   size?: (
-    'small' |
-    'medium' |
-    'large'
+    'small'
+    | 'medium'
+    | 'large'
   );
   /**
    * If `true`, the dialog will be show CircularProgress component and disable all interactions.

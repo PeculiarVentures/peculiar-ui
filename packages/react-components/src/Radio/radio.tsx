@@ -21,8 +21,8 @@ interface IRadioOwnProps {
    * The color of the component.
    */
   color?: (
-    'primary' |
-    'secondary'
+    'primary'
+    | 'secondary'
   );
   /**
    * Attributes applied to the input element.

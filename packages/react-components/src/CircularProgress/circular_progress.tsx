@@ -11,9 +11,9 @@ interface ICircularProgressOwnProps {
    * The color of the component. It supports those theme colors that make sense for this component.
    */
   color?: (
-    'primary' |
-    'secondary' |
-    'white'
+    'primary'
+    | 'secondary'
+    | 'white'
   );
   /**
    * The className of the component.

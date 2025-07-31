@@ -27,10 +27,10 @@ interface IAlertOwnProps {
    * The type of the component.
    */
   variant?: (
-    'wrong' |
-    'attention' |
-    'success' |
-    'pending'
+    'wrong'
+    | 'attention'
+    | 'success'
+    | 'pending'
   );
   /**
    * If `true`, the start icon will be hidden.
