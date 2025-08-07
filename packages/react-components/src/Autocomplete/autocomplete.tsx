@@ -13,6 +13,7 @@ import { Box } from '../Box';
 import { Chip } from '../Chip';
 import { ArrowDropDownIcon, CloseSmallIcon } from '../icons';
 import { MenuItem } from '../MenuList';
+import { Checkbox } from '../Checkbox';
 
 /**
  * Types.
@@ -333,16 +334,15 @@ const AutocompletePopover = styled(Popper)(
   },
 );
 
-const AutocompleteTag = styled(Chip)<{
-  size: TAutocompleteOwnProps<any>['size'];
-}>((props) => ({
+const AutocompleteTag = styled(Chip)({
   label: 'Autocomplete-tag',
-  borderRadius: '3px',
+  borderRadius: '4px',
+  height: 'var(--pv-size-base-5)',
   margin: 0,
-  ...(props.size === 'small' && {
-    height: 'var(--pv-size-base-5)',
-  }),
-}));
+  backgroundColor: 'var(--pv-color-gray-2)',
+  borderColor: 'var(--pv-color-gray-5)',
+  gap: '0px',
+});
 
 const AutocompleteTagSize = styled(Typography)({
   margin: '0 var(--pv-size-base-2)',
@@ -495,6 +495,12 @@ export const Autocomplete = <
     <AutocompleteDropdownGroupListItem
       {...propsOption}
       inGroup={Boolean(groupBy)}
+      startIcon={
+        multiple
+          // @ts-expect-error: 'aria-selected' is not a valid prop
+          ? <Checkbox checked={propsOption['aria-selected']} />
+          : undefined
+      }
     >
       {getOptionLabel(option)}
     </AutocompleteDropdownGroupListItem>
@@ -517,9 +523,8 @@ export const Autocomplete = <
   const defaultRenderTag: TAutocompleteOwnProps<T, Multiple>['renderTag'] = (propsOption, option) => (
     <AutocompleteTag
       {...propsOption}
-      color="secondary"
-      variant="contained"
-      size={size}
+      color="default"
+      variant="outlined"
       disabled={disabled}
     >
       {getOptionLabel(option)}
