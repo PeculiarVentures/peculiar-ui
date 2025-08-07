@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   renderWithWrapper as render, screen, fireEvent,
 } from '../test-utils';

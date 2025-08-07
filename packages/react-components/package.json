@@ -22,7 +22,7 @@
     "directory": "packages/react-components"
   },
   "scripts": {
-    "start": "storybook dev -p 3000",
+    "dev": "storybook dev -p 3000",
     "prebuild": "yarn clean",
     "build": "yarn build:esm && yarn build:cjs && yarn build:esnext",
     "build:esm": "tsc -p tsconfig.build.json",

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useClipboard } from './index';
 
 const meta = {

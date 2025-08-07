@@ -4,6 +4,7 @@
     "packages/*"
   ],
   "scripts": {
+    "dev": "yarn workspace @peculiar/react-components dev",
     "bootstrap": "yarn",
     "bootstrap:undo": "lerna clean --yes",
     "bootstrap:upgrade": "yarn upgrade-interactive --latest",
@@ -11,15 +12,15 @@
     "build": "yarn workspaces run build",
     "test:unit:coverage": "yarn workspaces run test:unit:coverage",
     "check:types": "yarn workspaces run check:types",
-    "lint": "yarn eslint",
+    "lint": "eslint",
     "prepare": "yarn build",
     "publish:version": "lerna publish",
     "publish:canary": "lerna publish --canary"
   },
   "devDependencies": {
     "@emotion/jest": "^11.13.0",
-    "@peculiar/eslint-config-base": "^0.2.5",
-    "@peculiar/eslint-config-react": "^0.2.5",
+    "@peculiar/eslint-config-base": "^0.2.7",
+    "@peculiar/eslint-config-react": "^0.2.7",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3 ",

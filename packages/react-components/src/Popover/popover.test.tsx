@@ -1,4 +1,3 @@
-import React from 'react';
 import { renderWithWrapper as render } from '../test-utils';
 import { Popover } from './index';
 

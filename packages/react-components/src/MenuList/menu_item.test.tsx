@@ -1,4 +1,3 @@
-import React from 'react';
 import { renderWithWrapper as render } from '../test-utils';
 import { PlusIcon } from '../icons';
 import { MenuItem } from './index';

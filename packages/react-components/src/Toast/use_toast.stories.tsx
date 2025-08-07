@@ -1,4 +1,3 @@
-import React from 'react';
 import { useToast, ToastProvider } from './index';
 
 const meta = {
