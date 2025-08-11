@@ -14,6 +14,7 @@ import { Chip } from '../Chip';
 import { Button } from '../Button';
 import { ArrowDropDownIcon, PlusIcon } from '../icons';
 import { MenuItem } from '../MenuList';
+import { Checkbox } from '../Checkbox';
 
 /**
  * Interfaces.
@@ -269,16 +270,15 @@ const SelectTagsList = styled('div')({
   gap: 'var(--pv-size-base)',
 });
 
-const SelectTag = styled(Chip)<{
-  size: TSelectOwnProps<any>['size'];
-}>((props) => ({
+const SelectTag = styled(Chip)({
   label: 'Select-tag',
-  borderRadius: '3px',
+  borderRadius: '4px',
+  height: 'var(--pv-size-base-5)',
   margin: 0,
-  ...(props.size === 'small' && {
-    height: 'var(--pv-size-base-5)',
-  }),
-}));
+  backgroundColor: 'var(--pv-color-gray-2)',
+  borderColor: 'var(--pv-color-gray-5)',
+  gap: '0px',
+});
 
 const SelectTagSize = styled(Typography)({
   margin: '0 var(--pv-size-base-2)',
@@ -372,6 +372,19 @@ export const Select = <
     <SelectDropdownGroupListItem
       {...propsOption}
       inGroup={Boolean(groupBy)}
+      startIcon={
+        multiple
+          ? (
+              <Checkbox
+                // @ts-expect-error: 'aria-selected' is not a valid prop
+                checked={propsOption['aria-selected']}
+                inputProps={{
+                  readOnly: true,
+                }}
+              />
+            )
+          : undefined
+      }
     >
       {getOptionLabel(option)}
     </SelectDropdownGroupListItem>
@@ -407,9 +420,8 @@ export const Select = <
               // eslint-disable-next-line react/jsx-key
               <SelectTag
                 {...getTagProps(v, index)}
-                color="secondary"
-                variant="contained"
-                size={size}
+                color="default"
+                variant="outlined"
               >
                 {getOptionLabel(v)}
               </SelectTag>

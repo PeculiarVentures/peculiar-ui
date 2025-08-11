@@ -497,8 +497,15 @@ export const Autocomplete = <
       inGroup={Boolean(groupBy)}
       startIcon={
         multiple
-          // @ts-expect-error: 'aria-selected' is not a valid prop
-          ? <Checkbox checked={propsOption['aria-selected']} />
+          ? (
+              <Checkbox
+                // @ts-expect-error: 'aria-selected' is not a valid prop
+                checked={propsOption['aria-selected']}
+                inputProps={{
+                  readOnly: true,
+                }}
+              />
+            )
           : undefined
       }
     >
