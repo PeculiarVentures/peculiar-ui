@@ -94,7 +94,10 @@ export type TAutocompleteOwnProps<
   /**
    * Render the option, use `getOptionLabel` by default.
    */
-  renderOption?: (props: object, option: T) => React.ReactNode;
+  renderOption?: (
+    props: ReturnType<IUseAutocompleteReturnType<T, Multiple>['getOptionProps']>,
+    option: T,
+  ) => React.ReactNode;
   /**
    * Render the tags elements.
    */
@@ -491,15 +494,15 @@ export const Autocomplete = <
     }
   };
 
-  const defaultRenderOption: TAutocompleteOwnProps<T, Multiple>['renderOption'] = (propsOption, option) => (
+  const defaultRenderOption: TAutocompleteOwnProps<T, Multiple>['renderOption'] = ({ key, ...propsOption }, option) => (
     <AutocompleteDropdownGroupListItem
+      key={key}
       {...propsOption}
       inGroup={Boolean(groupBy)}
       startIcon={
         multiple
           ? (
               <Checkbox
-                // @ts-expect-error: 'aria-selected' is not a valid prop
                 checked={propsOption['aria-selected']}
                 inputProps={{
                   readOnly: true,
@@ -527,8 +530,9 @@ export const Autocomplete = <
     </li>
   );
 
-  const defaultRenderTag: TAutocompleteOwnProps<T, Multiple>['renderTag'] = (propsOption, option) => (
+  const defaultRenderTag: TAutocompleteOwnProps<T, Multiple>['renderTag'] = ({ key, ...propsOption }, option) => (
     <AutocompleteTag
+      key={key}
       {...propsOption}
       color="default"
       variant="outlined"

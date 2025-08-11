@@ -15,6 +15,7 @@ import { Button } from '../Button';
 import { ArrowDropDownIcon, PlusIcon } from '../icons';
 import { MenuItem } from '../MenuList';
 import { Checkbox } from '../Checkbox';
+import { TAutocompleteOwnProps } from '../Autocomplete/autocomplete';
 
 /**
  * Interfaces.
@@ -107,7 +108,10 @@ export type TSelectOwnProps<
   /**
    * Render the option, use `getOptionLabel` by default.
    */
-  renderOption?: (props: object, option: T) => React.ReactNode;
+  renderOption?: (
+    props: ReturnType<IUseAutocompleteReturnType<T, Multiple>['getOptionProps']>,
+    option: T,
+  ) => React.ReactNode;
   /**
    * The label to display when the tags are truncated (`limitTags`).
    */
@@ -368,15 +372,15 @@ export const Select = <
     popoverProps.onClose(event);
   };
 
-  const defaultRenderOption: TSelectOwnProps<T, Multiple>['renderOption'] = (propsOption, option) => (
+  const defaultRenderOption: TSelectOwnProps<T, Multiple>['renderOption'] = ({ key, ...propsOption }, option) => (
     <SelectDropdownGroupListItem
+      key={key}
       {...propsOption}
       inGroup={Boolean(groupBy)}
       startIcon={
         multiple
           ? (
               <Checkbox
-                // @ts-expect-error: 'aria-selected' is not a valid prop
                 checked={propsOption['aria-selected']}
                 inputProps={{
                   readOnly: true,
@@ -404,6 +408,24 @@ export const Select = <
     </li>
   );
 
+  const defaultRenderTag: TAutocompleteOwnProps<T, Multiple>['renderTag'] = ({ key, ...propsOption }, option) => (
+    <SelectTag
+      key={key}
+      {...propsOption}
+      color="default"
+      variant="outlined"
+      disabled={disabled}
+    >
+      {getOptionLabel(option)}
+    </SelectTag>
+  );
+
+  const renderListTag = (option: T, index: number) => {
+    const optionProps = getTagProps(option, index);
+
+    return defaultRenderTag(optionProps, option);
+  };
+
   const renderValue = () => {
     if (!value || (Array.isArray(value) && value.length === 0)) {
       return null;
@@ -416,16 +438,7 @@ export const Select = <
       return (
         <>
           <SelectTagsList>
-            {valueLimits.map((v, index) => (
-              // eslint-disable-next-line react/jsx-key
-              <SelectTag
-                {...getTagProps(v, index)}
-                color="default"
-                variant="outlined"
-              >
-                {getOptionLabel(v)}
-              </SelectTag>
-            ))}
+            {valueLimits.map(renderListTag)}
           </SelectTagsList>
           {!!more && (
             <SelectTagSize

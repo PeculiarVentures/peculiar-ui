@@ -122,7 +122,15 @@ export interface IUseAutocompleteReturnType<
   searchValue: string;
   popupOpen: boolean;
   id: string;
-  getOptionProps: (option: T, index: number) => React.HTMLAttributes<HTMLLIElement>;
+  getOptionProps: (option: T, index: number) => {
+    key: string;
+    tabIndex: number;
+    role: string;
+    id: string;
+    'data-option-index': number;
+    'aria-selected': boolean;
+    onClick: (event: React.SyntheticEvent) => void;
+  };
   getListboxProps: () => React.HTMLAttributes<HTMLUListElement>;
   getInputLabelProps: () => React.HTMLAttributes<HTMLLabelElement>;
   getRootProps: () => React.HTMLAttributes<HTMLDivElement>;
