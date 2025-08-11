@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.2.0...@peculiar/react-components@1.3.0) (2025-08-11)
+
+
+### Features
+
+* **Autocomplete, Select:** update renderOption and renderTag types to use getOptionProps structure ([c9c9830](https://github.com/PeculiarVentures/peculiar-ui/commit/c9c98309091fbe4ef048368d739fb4caf797e1ac))
+
+
+
+
+
 # [1.2.0](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.1.3...@peculiar/react-components@1.2.0) (2025-08-11)
 
 
