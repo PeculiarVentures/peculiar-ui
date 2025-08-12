@@ -91,6 +91,7 @@ export const Button = React.forwardRef<any, TButtonProps>((props, ref) => {
     children,
     startIcon: startIconProp,
     endIcon: endIconProp,
+    size = 'medium',
     ...other
   } = props;
 
@@ -109,6 +110,7 @@ export const Button = React.forwardRef<any, TButtonProps>((props, ref) => {
   return (
     <ButtonRoot
       ref={ref}
+      size={size}
       {...other}
     >
       {startIcon}
