@@ -11,39 +11,44 @@ import { CircularProgress } from '../CircularProgress';
  */
 interface IDialogOwnProps {
   /**
+   * A single child content element.
+   */
+  children: React.ReactNode;
+  /**
    * If `true`, the Dialog is open.
    */
   open: boolean;
-  /**
-   * Dialog children, usually the included sub-components.
-   */
-  children: React.ReactNode;
   /**
    * The className of Dialog container.
    */
   className?: string;
   /**
    * The duration for the transition, in milliseconds.
+   * @default 225
    */
   transitionDuration?: number;
   /**
    * If `true`, the dialog will be full-screen.
+   * @default false
    */
   fullScreen?: boolean;
   /**
    * If `true`, clicking the backdrop will not fire the `onClose` callback.
+   * @default false
    */
   disableBackdropClick?: boolean;
   /**
    * If `true`, hitting escape will not fire the `onClose` callback.
+   * @default false
    */
   disableEscapeKeyDown?: boolean;
   /**
    * Callback fired when the component requests to be closed.
    */
-  onClose?: () => void;
+  onClose?: (event: React.SyntheticEvent) => void;
   /**
    * The size of the dialog.
+   * @default 'medium'
    */
   size?: (
     'small'
@@ -56,6 +61,7 @@ interface IDialogOwnProps {
   loading?: boolean;
   /**
    * The color of the CircularProgress component.
+   * @default 'secondary'
    */
   loadingColor?: TCircularProgressProps['color'];
   'data-testid'?: string;
@@ -151,14 +157,15 @@ export const Dialog = React.forwardRef<HTMLDivElement, TDialogProps>((props, ref
   const {
     open,
     children,
-    fullScreen,
-    transitionDuration,
-    disableBackdropClick,
-    disableEscapeKeyDown,
+    fullScreen = false,
+    transitionDuration = 225,
+    disableBackdropClick = false,
+    disableEscapeKeyDown = false,
     loading,
-    loadingColor,
+    loadingColor = 'secondary',
     onClose,
     'data-testid': dataTestId,
+    size = 'medium',
     ...other
   } = props;
 
@@ -184,6 +191,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, TDialogProps>((props, ref
           borderRadius={fullScreen ? 0 : 4}
           loading={loading}
           fullScreen={fullScreen}
+          size={size}
           tabIndex={-1}
           // @ts-expect-error: `component` is not a valid prop
           component="fieldset"
@@ -203,12 +211,3 @@ export const Dialog = React.forwardRef<HTMLDivElement, TDialogProps>((props, ref
 });
 
 Dialog.displayName = 'Dialog';
-
-Dialog.defaultProps = {
-  transitionDuration: 225,
-  fullScreen: false,
-  disableBackdropClick: false,
-  disableEscapeKeyDown: false,
-  size: 'medium',
-  loadingColor: 'secondary',
-};

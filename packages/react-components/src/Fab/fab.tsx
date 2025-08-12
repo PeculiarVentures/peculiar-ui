@@ -9,6 +9,7 @@ import { IButtonBaseOwnProps, ButtonBase } from '../ButtonBase';
 export interface IFabOwnProps extends Omit<IButtonBaseOwnProps, 'size' | 'variant'> {
   /**
    * The variant to use.
+   * @default 'contained'
    */
   variant?: (
     'contained'
@@ -69,18 +70,24 @@ const FabRoot = styled(ButtonBase)<IFabOwnProps>({
  *
  */
 
-export const Fab = React.forwardRef<any, TFabProps>((props, ref) => (
-  <FabRoot
-    ref={ref}
-    size="large"
-    {...props}
-  />
-)) as IOverridableComponent<IFabTypeMap>;
+export const Fab = React.forwardRef<any, TFabProps>((props, ref) => {
+  const {
+    disabled = false,
+    variant = 'contained',
+    color = 'primary',
+    ...other
+  } = props;
+
+  return (
+    <FabRoot
+      ref={ref}
+      size="large"
+      disabled={disabled}
+      variant={variant}
+      color={color}
+      {...other}
+    />
+  );
+}) as IOverridableComponent<IFabTypeMap>;
 
 Fab.displayName = 'Fab';
-
-Fab.defaultProps = {
-  disabled: false,
-  variant: 'contained',
-  color: 'primary',
-};

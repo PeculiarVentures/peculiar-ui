@@ -21,6 +21,7 @@ interface IDrawerOwnProps {
   className?: string;
   /**
    * The duration for the transition, in milliseconds.
+   * @default 225
    */
   transitionDuration?: number;
   /**
@@ -69,7 +70,7 @@ export const Drawer = React.forwardRef<HTMLDivElement, TDrawerProps>((props, ref
   const {
     children,
     open,
-    transitionDuration,
+    transitionDuration = 225,
     modalProps = {},
     onClose,
     'data-testid': dataTestId,
@@ -102,7 +103,3 @@ export const Drawer = React.forwardRef<HTMLDivElement, TDrawerProps>((props, ref
 });
 
 Drawer.displayName = 'Drawer';
-
-Drawer.defaultProps = {
-  transitionDuration: 225,
-};

@@ -26,6 +26,7 @@ export interface ITooltipOwnProps {
   title: React.ReactNode;
   /**
    * Tooltip placement.
+   * @default 'bottom'
    */
   placement?: Placement;
   /**
@@ -34,14 +35,17 @@ export interface ITooltipOwnProps {
   className?: string;
   /**
    * Do not respond to focus events.
+   * @default false
    */
   disableFocusListener?: boolean;
   /**
    * Do not respond to hover events.
+   * @default false
    */
   disableHoverListener?: boolean;
   /**
    * Do not respond to long press touch events.
+   * @default false
    */
   disableTouchListener?: boolean;
   /**
@@ -50,31 +54,38 @@ export interface ITooltipOwnProps {
   interactive?: boolean;
   /**
    * The size of the tooltip.
+   * @default 'small'
    */
   size?: ('small' | 'large');
   /**
    * The color of the tooltip.
+   * @default 'white'
    */
   color?: ('black' | 'white');
   /**
    * Disable the portal behavior. The children stay within it's parent DOM hierarchy.
+   * @default true
    */
   disablePortal?: boolean;
   /**
    * Add delay in showing the tooltip.
+   * @default 100
    */
   enterDelay?: number;
   /**
    * Add delay in hiding the tooltip.
+   * @default 0
    */
   leaveDelay?: number;
   /**
    * If `true`, adds an arrow to the tooltip.
+   * @default false
    */
   arrow?: boolean;
   /**
    * This can be useful if you need to apply some margin between them
    * or if you need to fine tune the position according to some custom logic.
+   * @default 15
    */
   offset?: number;
 };
@@ -215,18 +226,18 @@ export const Tooltip: React.FC<TTooltipProps> = (props) => {
     open: openProp,
     children,
     title,
-    placement,
-    disableFocusListener,
-    disableHoverListener,
-    disableTouchListener,
+    placement = 'bottom',
+    disableFocusListener = false,
+    disableHoverListener = false,
+    disableTouchListener = false,
     interactive,
-    size,
-    color,
-    disablePortal,
-    enterDelay,
-    leaveDelay,
-    arrow,
-    offset,
+    size = 'small',
+    color = 'white',
+    disablePortal = true,
+    enterDelay = 100,
+    leaveDelay = 0,
+    arrow = false,
+    offset = 15,
     ...other
   } = props;
   const [open, setOpen] = useControllableState({
@@ -361,17 +372,3 @@ export const Tooltip: React.FC<TTooltipProps> = (props) => {
 };
 
 Tooltip.displayName = 'Tooltip';
-
-Tooltip.defaultProps = {
-  placement: 'bottom',
-  size: 'small',
-  color: 'white',
-  enterDelay: 100,
-  leaveDelay: 0,
-  arrow: false,
-  offset: 15,
-  disableFocusListener: false,
-  disableHoverListener: false,
-  disableTouchListener: false,
-  disablePortal: true,
-};

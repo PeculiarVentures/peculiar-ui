@@ -21,6 +21,7 @@ interface IBaseProps {
   anchorEl: Element;
   /**
    * Popover placement.
+   * @default 'bottom-end'
    */
   placement?: PopperProps<unknown>['placement'];
   /**
@@ -33,6 +34,7 @@ interface IBaseProps {
   modalProps?: Partial<TModalProps>;
   /**
    * Make your popover the same width as the reference.
+   * @default false
    */
   allowUseSameWidth?: boolean;
 };
@@ -75,9 +77,9 @@ export const Popover = React.forwardRef<HTMLDivElement, TPopoverProps>((props, r
     open,
     children,
     anchorEl,
-    placement,
+    placement = 'bottom-end',
     modalProps,
-    allowUseSameWidth,
+    allowUseSameWidth = false,
     onClose,
     ...other
   } = props;
@@ -136,8 +138,3 @@ export const Popover = React.forwardRef<HTMLDivElement, TPopoverProps>((props, r
 });
 
 Popover.displayName = 'Popover';
-
-Popover.defaultProps = {
-  placement: 'bottom-end',
-  allowUseSameWidth: false,
-};

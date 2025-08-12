@@ -19,6 +19,7 @@ interface ICheckboxOwnProps {
   defaultChecked?: boolean;
   /**
    * The color of the component.
+   * @default 'primary'
    */
   color?: (
     'primary'
@@ -237,7 +238,3 @@ export const Checkbox = React.forwardRef<HTMLLabelElement, TCheckboxProps>((prop
 });
 
 Checkbox.displayName = 'Checkbox';
-
-Checkbox.defaultProps = {
-  color: 'primary',
-};

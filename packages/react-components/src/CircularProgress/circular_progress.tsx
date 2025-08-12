@@ -9,6 +9,7 @@ import isPropValid from '@emotion/is-prop-valid';
 interface ICircularProgressOwnProps {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
+   * @default 'primary'
    */
   color?: (
     'primary'
@@ -21,16 +22,19 @@ interface ICircularProgressOwnProps {
   className?: string;
   /**
    * The size of the progress.
+   * @default 'large'
    */
   size?: ('small' | 'large');
   /**
    * The variant to use.
    * Use indeterminate when there is no progress value.
+   * @default 'indeterminate'
    */
   variant?: 'determinate' | 'indeterminate';
   /**
    * The value of the progress indicator for the determinate variant.
    * Value between 0 and 100.
+   * @default 0
    */
   value?: number;
 };
@@ -114,9 +118,10 @@ const THICKNESS = 4;
 export const CircularProgress = React.forwardRef<HTMLDivElement, TCircularProgressProps>(
   (props, ref) => {
     const {
-      size,
+      size = 'large',
       variant = 'indeterminate',
       value = 0,
+      color = 'primary',
       ...other
     } = props;
     const circleStyle: React.CSSProperties = {};
@@ -134,6 +139,7 @@ export const CircularProgress = React.forwardRef<HTMLDivElement, TCircularProgre
         role="progressbar"
         variant={variant}
         size={size}
+        color={color}
         {...other}
       >
         <CircularProgressSvg
@@ -155,10 +161,3 @@ export const CircularProgress = React.forwardRef<HTMLDivElement, TCircularProgre
 );
 
 CircularProgress.displayName = 'CircularProgress';
-
-CircularProgress.defaultProps = {
-  color: 'primary',
-  size: 'large',
-  variant: 'indeterminate',
-  value: 0,
-};

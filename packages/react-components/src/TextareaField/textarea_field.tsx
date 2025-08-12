@@ -9,10 +9,12 @@ import { useId } from '../hooks/use_id';
 interface ITextareaFieldOwnProps {
   /**
    * If `true`, the component is disabled.
+   * @default false
    */
   disabled?: boolean;
   /**
    * The size of the input.
+   * @default 'medium'
    */
   size?: (
     'small'
@@ -173,10 +175,10 @@ const TextareaFieldError = styled(Typography)({
 
 export const TextareaField = React.forwardRef<HTMLDivElement, TTextareaFieldProps>((props, ref) => {
   const {
-    size,
+    size = 'medium',
     label,
     inputProps = {},
-    disabled,
+    disabled = false,
     defaultValue,
     id: idProp,
     value,
@@ -247,8 +249,3 @@ export const TextareaField = React.forwardRef<HTMLDivElement, TTextareaFieldProp
 });
 
 TextareaField.displayName = 'TextareaField';
-
-TextareaField.defaultProps = {
-  disabled: false,
-  size: 'medium',
-};

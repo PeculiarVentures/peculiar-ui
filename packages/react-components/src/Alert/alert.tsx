@@ -34,6 +34,7 @@ interface IAlertOwnProps {
   );
   /**
    * If `true`, the start icon will be hidden.
+   * @default true
    */
   disableIcon?: boolean;
   /**
@@ -117,7 +118,7 @@ export const Alert = React.forwardRef<HTMLDivElement, TAlertProps>((props, ref) 
   const {
     children,
     variant,
-    disableIcon,
+    disableIcon = true,
     onClose,
     ...other
   } = props;
@@ -197,7 +198,3 @@ export const Alert = React.forwardRef<HTMLDivElement, TAlertProps>((props, ref) 
 });
 
 Alert.displayName = 'Alert';
-
-Alert.defaultProps = {
-  disableIcon: true,
-};

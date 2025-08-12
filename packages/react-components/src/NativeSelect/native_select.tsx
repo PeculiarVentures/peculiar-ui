@@ -13,10 +13,12 @@ interface INativeSelectOwnProps {
   }[];
   /**
    * If `true`, the component is disabled.
+   * @default false
    */
   disabled?: boolean;
   /**
    * The size of the select.
+   * @default 'medium'
    */
   size?: (
     'small'
@@ -192,10 +194,10 @@ const NativeSelectArrowIcon = styled(
 export const NativeSelect = React.forwardRef<HTMLDivElement, TNativeSelectProps>((props, ref) => {
   const {
     options,
-    size,
+    size = 'medium',
     label,
     inputProps,
-    disabled,
+    disabled = false,
     defaultValue,
     id,
     value,
@@ -276,8 +278,3 @@ export const NativeSelect = React.forwardRef<HTMLDivElement, TNativeSelectProps>
 });
 
 NativeSelect.displayName = 'NativeSelect';
-
-NativeSelect.defaultProps = {
-  disabled: false,
-  size: 'medium',
-};

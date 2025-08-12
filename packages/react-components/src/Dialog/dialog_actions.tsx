@@ -53,5 +53,3 @@ export const DialogActions = React.forwardRef<HTMLDivElement, TDialogActionsProp
 });
 
 DialogActions.displayName = 'DialogActions';
-
-DialogActions.defaultProps = {};

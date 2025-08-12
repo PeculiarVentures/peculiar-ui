@@ -74,5 +74,3 @@ export const DialogTitle = React.forwardRef<HTMLDivElement, TDialogTitleProps>((
 });
 
 DialogTitle.displayName = 'DialogTitle';
-
-DialogTitle.defaultProps = {};

@@ -74,5 +74,3 @@ export const Flex = React.forwardRef<any, TFlexProps>((props, ref) => {
 }) as IOverridableComponent<IFlexTypeMap>;
 
 Flex.displayName = 'Flex';
-
-Flex.defaultProps = {};

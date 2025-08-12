@@ -13,6 +13,7 @@ export interface IFlexContainerOwnProps {
   children?: React.ReactNode;
   /**
    * Defines the `flex-direction` style property.
+   * @default 'row'
    */
   direction?: Property.FlexDirection;
   /**
@@ -71,6 +72,7 @@ const FlexRoot = styled('div', {
 export const FlexContainer = React.forwardRef<any, TFlexContainerProps>((props, ref) => {
   const {
     component,
+    direction = 'row',
     ...other
   } = props;
   const Component = component || 'div';
@@ -79,13 +81,10 @@ export const FlexContainer = React.forwardRef<any, TFlexContainerProps>((props, 
     <FlexRoot
       as={Component}
       ref={ref}
+      direction={direction}
       {...other}
     />
   );
 }) as IOverridableComponent<IFlexContainerTypeMap>;
 
 FlexContainer.displayName = 'FlexContainer';
-
-FlexContainer.defaultProps = {
-  direction: 'row',
-};

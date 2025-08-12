@@ -23,6 +23,7 @@ interface IBaseProps {
   anchorEl?: Element;
   /**
    * Popper placement.
+   * @default 'bottom'
    */
   placement?: PopperReactProps<unknown>['placement'];
   /**
@@ -31,6 +32,7 @@ interface IBaseProps {
   disablePortal?: boolean;
   /**
    * Make your popper the same width as the reference.
+   * @default false
    */
   allowUseSameWidth?: boolean;
   /**
@@ -57,10 +59,10 @@ export const Popper: React.FC<TPopperProps> = (props) => {
   const {
     children,
     anchorEl,
-    placement,
+    placement = 'bottom',
     open,
     disablePortal,
-    allowUseSameWidth,
+    allowUseSameWidth = false,
     modifiers,
     ...other
   } = props;
@@ -126,8 +128,3 @@ export const Popper: React.FC<TPopperProps> = (props) => {
 };
 
 Popper.displayName = 'Popper';
-
-Popper.defaultProps = {
-  placement: 'bottom',
-  allowUseSameWidth: false,
-};

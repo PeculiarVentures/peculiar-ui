@@ -35,14 +35,17 @@ interface IAvatarOwnProps {
   className?: string;
   /**
    * The size of the avatar.
+   * @default 'medium'
    */
   size?: ('small' | 'medium' | 'large');
   /**
    * The color of component background.
+   * @default 'gray-7'
    */
   background?: TColorType;
   /**
    * The color of initials text.
+   * @default 'white'
    */
   color?: TColorType;
   /**
@@ -111,8 +114,9 @@ export const Avatar = React.forwardRef<HTMLDivElement, TAvatarProps>((props, ref
     src,
     name,
     getInitials = initials,
-    background,
-    color,
+    background = 'gray-7',
+    color = 'white',
+    size = 'medium',
     renderInitials: renderInitialsProp,
     ...other
   } = props;
@@ -166,6 +170,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, TAvatarProps>((props, ref
     <AvatarRoot
       ref={ref}
       background={background}
+      size={size}
       {...other}
     >
       {children}
@@ -175,9 +180,3 @@ export const Avatar = React.forwardRef<HTMLDivElement, TAvatarProps>((props, ref
 });
 
 Avatar.displayName = 'Avatar';
-
-Avatar.defaultProps = {
-  size: 'medium',
-  background: 'gray-7',
-  color: 'white',
-};

@@ -15,6 +15,7 @@ interface IBaseProps {
   children: React.ReactNode;
   /**
    * Maximum snackbars that can be stacked on bottom of one another.
+   * @default 1
    */
   maxToasts?: number;
   /**
@@ -155,7 +156,3 @@ export const ToastProvider: React.FC<IBaseProps> = (props) => {
 };
 
 ToastProvider.displayName = 'ToastProvider';
-
-ToastProvider.defaultProps = {
-  maxToasts: 1,
-};

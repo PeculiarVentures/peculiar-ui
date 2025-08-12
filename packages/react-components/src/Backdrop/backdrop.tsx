@@ -17,12 +17,17 @@ interface IBackdropOwnProps {
   className?: string;
   /**
    * If `true`, the backdrop is invisible.
+   * @default false
    */
   invisible?: boolean;
   /**
    * The duration for the transition, in milliseconds.
+   * @default 225
    */
   transitionDuration?: number;
+  /**
+   * @default 'medium'
+   */
   variant?: ('light' | 'medium' | 'heavy');
 };
 
@@ -65,9 +70,9 @@ const variants = {
 export const Backdrop = React.forwardRef<HTMLDivElement, TBackdropProps>((props, ref) => {
   const {
     open,
-    transitionDuration,
-    variant,
-    invisible,
+    transitionDuration = 225,
+    variant = 'medium',
+    invisible = false,
     onEnter,
     onEntered,
     onEntering,
@@ -101,9 +106,3 @@ export const Backdrop = React.forwardRef<HTMLDivElement, TBackdropProps>((props,
 });
 
 Backdrop.displayName = 'Backdrop';
-
-Backdrop.defaultProps = {
-  variant: 'medium',
-  invisible: false,
-  transitionDuration: 225,
-};

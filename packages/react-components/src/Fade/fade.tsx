@@ -19,15 +19,20 @@ interface IBaseProps {
   in?: boolean;
   /**
    * The duration for the transition, in milliseconds.
+   * @default 225
    */
   timeout?: number;
   /**
    * A single child content element.
    */
   children: React.ReactElement;
+  /**
+   * @default 1
+   */
   finalOpacity?: number;
   /**
    * Perform the enter transition when it first mounts if `in` is also `true`.
+   * @default true
    */
   appear?: boolean;
 };
@@ -36,11 +41,11 @@ type TFadeProps = IBaseProps & TBaseTransitionProps;
 
 export const Fade = React.forwardRef<any, TFadeProps>((props, ref) => {
   const {
-    timeout,
+    timeout = 225,
     in: inProp,
     children,
-    finalOpacity,
-    appear,
+    finalOpacity = 1,
+    appear = true,
     onEnter,
     onEntered,
     onEntering,
@@ -92,9 +97,3 @@ export const Fade = React.forwardRef<any, TFadeProps>((props, ref) => {
 });
 
 Fade.displayName = 'Fade';
-
-Fade.defaultProps = {
-  timeout: 225,
-  finalOpacity: 1,
-  appear: true,
-};

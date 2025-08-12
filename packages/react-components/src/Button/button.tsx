@@ -119,10 +119,3 @@ export const Button = React.forwardRef<any, TButtonProps>((props, ref) => {
 }) as IOverridableComponent<IButtonTypeMap>;
 
 Button.displayName = 'Button';
-
-Button.defaultProps = {
-  disabled: false,
-  variant: 'text',
-  color: 'default',
-  size: 'medium',
-};

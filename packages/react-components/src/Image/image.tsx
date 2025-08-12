@@ -65,5 +65,3 @@ export const Image = React.forwardRef<HTMLImageElement, TImageProps>((props, ref
 });
 
 Image.displayName = 'Image';
-
-Image.defaultProps = {};

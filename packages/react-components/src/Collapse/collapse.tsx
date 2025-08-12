@@ -23,10 +23,12 @@ interface ICollapseOwnProps {
   in?: boolean;
   /**
    * The duration for the transition, in milliseconds.
+   * @default 225
    */
   timeout?: number;
   /**
    * The transition orientation.
+   * @default 'vertical'
    */
   orientation?: 'horizontal' | 'vertical';
   /**
@@ -78,10 +80,10 @@ const CollapseRoot = styled('div', {
 
 export const Collapse: React.FC<TCollapseProps> = (props) => {
   const {
-    timeout,
+    timeout = 225,
     in: inProp,
     children,
-    orientation,
+    orientation = 'vertical',
     onEnter,
     onEntered,
     onEntering,
@@ -193,8 +195,3 @@ export const Collapse: React.FC<TCollapseProps> = (props) => {
 };
 
 Collapse.displayName = 'Collapse';
-
-Collapse.defaultProps = {
-  timeout: 225,
-  orientation: 'vertical',
-};

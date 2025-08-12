@@ -78,9 +78,3 @@ export const IconButton = React.forwardRef<any, TIconButtonProps>((props, ref) =
 }) as IOverridableComponent<IIconButtonTypeMap>;
 
 IconButton.displayName = 'IconButton';
-
-IconButton.defaultProps = {
-  disabled: false,
-  color: 'default',
-  size: 'medium',
-};

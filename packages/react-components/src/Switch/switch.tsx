@@ -19,6 +19,7 @@ interface ISwitchOwnProps {
   defaultChecked?: boolean;
   /**
    * The color of the component.
+   * @default 'primary'
    */
   color?: (
     'primary'
@@ -230,7 +231,3 @@ export const Switch = React.forwardRef<HTMLLabelElement, TSwitchProps>((props, r
 });
 
 Switch.displayName = 'Switch';
-
-Switch.defaultProps = {
-  color: 'primary',
-};

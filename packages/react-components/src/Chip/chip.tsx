@@ -15,6 +15,7 @@ export interface IChipOwnProps {
   children: React.ReactNode;
   /**
    * If `true`, the chip will be disabled.
+   * @default false
    */
   disabled?: boolean;
   /**
@@ -23,10 +24,12 @@ export interface IChipOwnProps {
   deleteIcon?: React.ElementType<any>;
   /**
    * The variant to use.
+   * @default 'contained'
    */
   variant?: ('contained' | 'outlined');
   /**
    * The color of the component.
+   * @default 'secondary'
    */
   color?: ('secondary' | 'wrong' | 'default');
   /**
@@ -219,12 +222,14 @@ const ChipEndContent = styled('span')({
 export const Chip = React.forwardRef<any, TChipProps>((props, ref) => {
   const {
     children,
-    disabled,
+    disabled = false,
     deleteIcon = CloseSmallIcon,
     startContent: startContentProp,
     component,
     onClick,
     onDelete,
+    variant = 'contained',
+    color = 'secondary',
     ...other
   } = props;
   const Component = component || 'div';
@@ -267,6 +272,8 @@ export const Chip = React.forwardRef<any, TChipProps>((props, ref) => {
     <ChipRoot
       as={Component}
       ref={ref}
+      variant={variant}
+      color={color}
       {...baseProps}
       {...other}
     >
@@ -285,9 +292,3 @@ export const Chip = React.forwardRef<any, TChipProps>((props, ref) => {
 }) as IOverridableComponent<IChipTypeMap>;
 
 Chip.displayName = 'Chip';
-
-Chip.defaultProps = {
-  disabled: false,
-  variant: 'contained',
-  color: 'secondary',
-};
