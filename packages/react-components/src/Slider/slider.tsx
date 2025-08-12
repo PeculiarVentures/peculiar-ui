@@ -16,14 +16,17 @@ interface ISliderOwnProps {
   value?: number;
   /**
    * If `true`, the slider will be disabled.
+   * @default false
    */
   disabled?: boolean;
   /**
    * The maximum allowed value of the slider. Should not be equal to min.
+   * @default 100
    */
   max?: number;
   /**
    * The minimum allowed value of the slider. Should not be equal to max.
+   * @default 0
    */
   min?: number;
   /**
@@ -32,6 +35,7 @@ interface ISliderOwnProps {
   name?: string;
   /**
    * The granularity with which the slider can step through values
+   * @default 1
    */
   step?: number;
   /**
@@ -113,11 +117,11 @@ export const Slider = React.forwardRef<HTMLDivElement, TSliderProps>((props, ref
   const {
     defaultValue,
     value,
-    disabled,
-    max,
-    min,
+    disabled = false,
+    max = 100,
+    min = 0,
     name,
-    step,
+    step = 1,
     onChange,
     ...other
   } = props;
@@ -143,10 +147,3 @@ export const Slider = React.forwardRef<HTMLDivElement, TSliderProps>((props, ref
 });
 
 Slider.displayName = 'Slider';
-
-Slider.defaultProps = {
-  disabled: false,
-  max: 100,
-  min: 0,
-  step: 1,
-};

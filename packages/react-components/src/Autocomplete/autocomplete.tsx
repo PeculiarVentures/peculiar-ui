@@ -34,6 +34,7 @@ export type TAutocompleteOwnProps<
   className?: string;
   /**
    * The size of the root component.
+   * @default 'medium'
    */
   size?: (
     'small'
@@ -50,24 +51,29 @@ export type TAutocompleteOwnProps<
   label?: string;
   /**
    * Text to display when there are no options.
+   * @default 'No options'
    */
   noOptionsText?: React.ReactNode;
   /**
    * If `true`, the component is in a loading state.
    * This shows the `loadingText` in place of suggestions (only if there are no
    * suggestions to show, e.g. `options` are empty).
+   * @default false
    */
   loading?: boolean;
   /**
    * Text to display when in a loading state.
+   * @default 'Loading...'
    */
   loadingText?: React.ReactNode;
   /**
    * The maximum number of tags that will be visible when not focused.
+   * @default 2
    */
   limitTags?: number;
   /**
    * If `true`, the autocomplete will be disabled.
+   * @default false
    */
   disabled?: boolean;
   /**
@@ -76,12 +82,16 @@ export type TAutocompleteOwnProps<
   name?: string;
   /**
    * If `true`, the `input` element is required.
+   * @default false
    */
   required?: boolean;
   /**
    * If `true`, the `input` will indicate an error.
    */
   error?: boolean;
+  /**
+   * The content of the error message.
+   */
   errorText?: string;
   /**
    * Render the root element.
@@ -107,6 +117,7 @@ export type TAutocompleteOwnProps<
   ) => React.ReactNode;
   /**
    * The label to display when the tags are truncated (`limitTags`).
+   * @default (more) => `${more} more`
    */
   getLimitTagsText?: (more: number) => string;
   /**
@@ -409,16 +420,16 @@ export const Autocomplete = <
 >(props: TAutocompleteOwnProps<T, Multiple>): JSX.Element => {
   const {
     className,
-    size,
+    size = 'medium',
     placeholder,
     label,
     disabled = false,
-    noOptionsText,
-    loading,
-    loadingText,
+    noOptionsText = 'No options',
+    loading = false,
+    loadingText = 'Loading...',
     limitTags = -1,
     name,
-    required,
+    required = false,
     multiple = false,
     readOnly,
     error,
@@ -771,10 +782,4 @@ export const Autocomplete = <
   );
 };
 
-Autocomplete.defaultProps = {
-  noOptionsText: 'No options',
-  loading: false,
-  loadingText: 'Loading...',
-  required: false,
-  size: 'medium',
-};
+Autocomplete.displayName = 'Autocomplete';

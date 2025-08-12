@@ -23,14 +23,17 @@ interface IModalOwnProps {
   className?: string;
   /**
    * The duration for the transition, in milliseconds.
+   * @default 225
    */
   transitionDuration?: number;
   /**
    * If `true`, clicking the backdrop will not fire the `onClose` callback.
+   * @default false
    */
   disableBackdropClick?: boolean;
   /**
    * If `true`, hitting escape will not fire the `onClose` callback.
+   * @default false
    */
   disableEscapeKeyDown?: boolean;
   /**
@@ -86,12 +89,12 @@ export const Modal = React.forwardRef<HTMLDivElement, TModalProps>((props, ref) 
   const {
     children,
     open,
-    transitionDuration,
-    disableBackdropClick,
-    disableEscapeKeyDown,
-    keepMounted,
+    transitionDuration = 225,
+    disableBackdropClick = false,
+    disableEscapeKeyDown = false,
+    keepMounted = false,
     backdropProps,
-    disableEnforceFocus,
+    disableEnforceFocus = false,
     disableAutoFocus,
     onClose,
     ...other
@@ -159,11 +162,3 @@ export const Modal = React.forwardRef<HTMLDivElement, TModalProps>((props, ref) 
 });
 
 Modal.displayName = 'Modal';
-
-Modal.defaultProps = {
-  transitionDuration: 225,
-  disableBackdropClick: false,
-  disableEscapeKeyDown: false,
-  keepMounted: false,
-  disableEnforceFocus: false,
-};

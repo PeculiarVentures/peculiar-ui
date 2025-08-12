@@ -9,10 +9,12 @@ import { Box } from '../Box';
 interface ILinearProgressOwnProps {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
+   * @default 'primary'
    */
   color?: ('primary' | 'secondary');
   /**
    * The variant to use.
+   * @default 'indeterminate'
    */
   variant?: ('indeterminate');
   /**
@@ -60,9 +62,9 @@ const LinearProgressProgress = styled(Box)({
 export const LinearProgress = React.forwardRef<HTMLDivElement, TLinearProgressProps>(
   (props, ref) => {
     const {
-      color,
+      color = 'primary',
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      variant,
+      variant = 'indeterminate',
       ...other
     } = props;
 
@@ -82,8 +84,3 @@ export const LinearProgress = React.forwardRef<HTMLDivElement, TLinearProgressPr
 );
 
 LinearProgress.displayName = 'LinearProgress';
-
-LinearProgress.defaultProps = {
-  color: 'primary',
-  variant: 'indeterminate',
-};

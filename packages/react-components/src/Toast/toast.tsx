@@ -20,6 +20,7 @@ interface IToastOwnProps {
   onClose: (id: string) => void;
   /**
    * The delay before the toast hides (in milliseconds). If set to `null`, toast will never dismiss.
+   * @default 4000
    */
   duration?: number | null;
   /**
@@ -38,7 +39,7 @@ interface IToastOwnProps {
 export const Toast: React.FC<IToastOwnProps> = (props) => {
   const {
     id,
-    duration,
+    duration = 4000,
     isClosable,
     alertProps,
     children,
@@ -77,7 +78,3 @@ export const Toast: React.FC<IToastOwnProps> = (props) => {
 };
 
 Toast.displayName = 'Toast';
-
-Toast.defaultProps = {
-  duration: 4000,
-};

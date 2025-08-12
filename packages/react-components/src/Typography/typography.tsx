@@ -16,10 +16,12 @@ export interface ITypographyOwnProps {
   children?: React.ReactNode;
   /**
    * The variant to use.
+   * @default 'b1'
    */
   variant?: TTypographyType;
   /**
    * The color of the component.
+   * @default 'black'
    */
   color?: TColorType | 'inherit';
   /**
@@ -87,8 +89,9 @@ const variantMapping: Record<TTypographyType, 'p' | 'span' | 'h1' | 'h2' | 'h3' 
 
 export const Typography = React.forwardRef<any, TTypographyProps>((props, ref) => {
   const {
-    variant,
+    variant = 'b1',
     component,
+    color = 'black',
     ...other
   } = props;
 
@@ -99,14 +102,10 @@ export const Typography = React.forwardRef<any, TTypographyProps>((props, ref) =
       as={Component}
       ref={ref}
       variant={variant}
+      color={color}
       {...other}
     />
   );
 }) as IOverridableComponent<ITypographyTypeMap>;
 
 Typography.displayName = 'Typography';
-
-Typography.defaultProps = {
-  variant: 'b1',
-  color: 'black',
-};

@@ -15,10 +15,12 @@ export interface IButtonBaseOwnProps {
   children: React.ReactNode;
   /**
    * If `true`, the button will be disabled.
+   * @default false
    */
   disabled?: boolean;
   /**
    * The variant to use.
+   * @default 'text'
    */
   variant?: (
     'contained'
@@ -31,6 +33,7 @@ export interface IButtonBaseOwnProps {
   textVariant?: TTypographyType;
   /**
    * The color of the component.
+   * @default 'default'
    */
   color?: (
     'primary'
@@ -41,6 +44,7 @@ export interface IButtonBaseOwnProps {
   );
   /**
    * The size of the button.
+   * @default 'medium'
    */
   size?: (
     'small'
@@ -244,10 +248,12 @@ const ButtonBaseLabel = styled(Typography)({
 export const ButtonBase = React.forwardRef<any, TButtonBaseProps>((props, ref) => {
   const {
     textVariant: textVariantProp,
-    size,
+    size = 'medium',
     children,
     type = 'button',
     component,
+    variant = 'text',
+    color = 'default',
     ...other
   } = props;
 
@@ -260,6 +266,8 @@ export const ButtonBase = React.forwardRef<any, TButtonBaseProps>((props, ref) =
       ref={ref}
       type={type}
       size={size}
+      variant={variant}
+      color={color}
       {...other}
     >
       <ButtonBaseLabel
@@ -273,8 +281,3 @@ export const ButtonBase = React.forwardRef<any, TButtonBaseProps>((props, ref) =
 }) as IOverridableComponent<IButtonBaseTypeMap>;
 
 ButtonBase.displayName = 'ButtonBase';
-
-ButtonBase.defaultProps = {
-  variant: 'text',
-  color: 'default',
-};

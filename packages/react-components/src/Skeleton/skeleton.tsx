@@ -23,8 +23,12 @@ export interface ISkeletonOwnProps {
   width?: number | string;
   /**
    * The type of content that will be rendered.
+   * @default 'text'
    */
   variant?: ('text' | 'rect' | 'circle');
+  /**
+   * @default 'gray-4'
+   */
   background?: TColorType;
 }
 
@@ -108,12 +112,16 @@ const SkeletonRoot = styled(
 export const Skeleton = React.forwardRef<any, TSkeletonProps>((props, ref) => {
   const {
     children,
+    variant = 'text',
+    background = 'gray-4',
     ...other
   } = props;
 
   return (
     <SkeletonRoot
       ref={ref as React.Ref<any>}
+      variant={variant}
+      background={background}
       {...other}
     >
       {children}
@@ -122,8 +130,3 @@ export const Skeleton = React.forwardRef<any, TSkeletonProps>((props, ref) => {
 }) as IOverridableComponent<ISkeletonTypeMap>;
 
 Skeleton.displayName = 'Skeleton';
-
-Skeleton.defaultProps = {
-  variant: 'text',
-  background: 'gray-4',
-};

@@ -2,7 +2,8 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "outDir": "./dist/esm",
-    "declarationDir": "./dist/types"
+    "declarationDir": "./dist/types",
+    "jsx": "react"
   },
   "include": [
     "src/**/*.ts*"

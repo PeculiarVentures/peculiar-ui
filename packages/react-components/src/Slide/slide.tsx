@@ -19,6 +19,7 @@ interface IBaseProps {
   in?: boolean;
   /**
    * The duration for the transition, in milliseconds.
+   * @default 225
    */
   timeout?: number;
   /**
@@ -27,10 +28,12 @@ interface IBaseProps {
   children: React.ReactElement;
   /**
    * Direction the child node will enter from.
+   * @default 'right'
    */
   direction?: ('right' | 'left' | 'up' | 'down');
   /**
    * Perform the enter transition when it first mounts if `in` is also `true`.
+   * @default true
    */
   appear?: boolean;
 };
@@ -39,17 +42,17 @@ type TSlideProps = IBaseProps & TBaseTransitionProps;
 
 export const Slide = React.forwardRef<any, TSlideProps>((props, ref) => {
   const {
-    timeout,
+    timeout = 225,
     in: inProp,
     children,
-    appear,
+    appear = true,
     onEnter,
     onEntered,
     onEntering,
     onExit,
     onExited,
     onExiting,
-    direction,
+    direction = 'right',
   } = props;
   const nodeRef = React.useRef<HTMLElement>(null);
   const multiRef = useMergedRef((children as any).ref, ref, nodeRef);
@@ -125,9 +128,3 @@ export const Slide = React.forwardRef<any, TSlideProps>((props, ref) => {
 });
 
 Slide.displayName = 'Slide';
-
-Slide.defaultProps = {
-  timeout: 225,
-  direction: 'right',
-  appear: true,
-};

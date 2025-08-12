@@ -7,9 +7,23 @@ import type { IThemeOptionsType } from './types';
  * Types.
  */
 interface IThemeProviderProps {
+  /**
+   * The content of the component.
+   */
   children: React.ReactElement;
+  /**
+   * The theme object.
+   */
   theme?: IThemeOptionsType;
+  /**
+   * The theme mode.
+   * @default 'light'
+   */
   mode?: ('light' | 'dark');
+  /**
+   * The CSS variables root selector.
+   * @default 'html, ::backdrop'
+   */
   cssVarsRoot?: string;
 };
 /**
@@ -19,7 +33,7 @@ interface IThemeProviderProps {
 export const ThemeProvider: React.FC<IThemeProviderProps> = (props) => {
   const {
     children,
-    mode,
+    mode = 'light',
     theme: themeProp,
     cssVarsRoot = 'html, ::backdrop',
   } = props;
@@ -46,7 +60,3 @@ export const ThemeProvider: React.FC<IThemeProviderProps> = (props) => {
 };
 
 ThemeProvider.displayName = 'ThemeProvider';
-
-ThemeProvider.defaultProps = {
-  mode: 'light',
-};

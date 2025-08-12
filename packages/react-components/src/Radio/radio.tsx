@@ -19,6 +19,7 @@ interface IRadioOwnProps {
   defaultChecked?: boolean;
   /**
    * The color of the component.
+   * @default 'primary'
    */
   color?: (
     'primary'
@@ -239,7 +240,3 @@ export const Radio = React.forwardRef<HTMLLabelElement, TRadioProps>((props, ref
 });
 
 Radio.displayName = 'Radio';
-
-Radio.defaultProps = {
-  color: 'primary',
-};

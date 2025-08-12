@@ -18,6 +18,7 @@ interface IDialogContentOwnProps {
   className?: string;
   /**
    * Display the top and bottom dividers.
+   * @default true
    */
   dividers?: boolean;
   /**
@@ -72,7 +73,7 @@ const DialogContentAlertError = styled(Alert)({
 export const DialogContent = React.forwardRef<HTMLDivElement, TDialogContentProps>((props, ref) => {
   const {
     children,
-    dividers,
+    dividers = true,
     error,
     scrolledElementProps = {},
     ...other
@@ -110,7 +111,3 @@ export const DialogContent = React.forwardRef<HTMLDivElement, TDialogContentProp
 });
 
 DialogContent.displayName = 'DialogContent';
-
-DialogContent.defaultProps = {
-  dividers: true,
-};

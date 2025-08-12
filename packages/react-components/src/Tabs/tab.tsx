@@ -19,10 +19,12 @@ export interface ITabOwnProps {
   id: string;
   /**
    * If `true`, the tab will be disabled.
+   * @default false
    */
   disabled?: boolean;
   /**
    * The color of the component.
+   * @default 'black'
    */
   color?: ('black' | 'white');
   /**
@@ -134,7 +136,7 @@ export const Tab = React.forwardRef<any, TTabProps>((props, ref) => {
     color = 'black',
     component,
     id,
-    disabled,
+    disabled = false,
     // @ts-expect-error: Property `selected` does not exist on type 'TabProps<"button">'
     selected,
     children,
@@ -175,8 +177,3 @@ export const Tab = React.forwardRef<any, TTabProps>((props, ref) => {
 }) as IOverridableComponent<ITabTypeMap>;
 
 Tab.displayName = 'Tab';
-
-Tab.defaultProps = {
-  disabled: false,
-  color: 'black',
-};

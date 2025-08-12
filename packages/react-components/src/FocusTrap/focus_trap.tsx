@@ -60,5 +60,3 @@ export const FocusTrap: React.FC<IBaseProps> = (props) => {
 };
 
 FocusTrap.displayName = 'FocusTrap';
-
-FocusTrap.defaultProps = {};

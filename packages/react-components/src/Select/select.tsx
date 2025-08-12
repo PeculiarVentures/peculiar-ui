@@ -36,6 +36,7 @@ export type TSelectOwnProps<
   className?: string;
   /**
    * The size of the root component.
+   * @default 'medium'
    */
   size?: (
     'small'
@@ -52,28 +53,34 @@ export type TSelectOwnProps<
   label?: string;
   /**
    * Text to display when there are no options.
+   * @default 'No options'
    */
   noOptionsText?: React.ReactNode;
   /**
    * If `true`, the component is in a loading state.
    * This shows the `loadingText` in place of suggestions (only if there are no
    * suggestions to show, e.g. `options` are empty).
+   * @default false
    */
   loading?: boolean;
   /**
    * Text to display when in a loading state.
+   * @default 'Loading...'
    */
   loadingText?: React.ReactNode;
   /**
    * The maximum number of tags that will be visible when not focused.
+   * @default 2
    */
   limitTags?: number;
   /**
    * If `true`, the popup search input will be hidden.
+   * @default false
    */
   disableSearch?: boolean;
   /**
    * If `true`, the autocomplete will be disabled.
+   * @default false
    */
   disabled?: boolean;
   /**
@@ -82,20 +89,26 @@ export type TSelectOwnProps<
   name?: string;
   /**
    * If `true`, the `input` element is required.
+   * @default false
    */
   required?: boolean;
   /**
    * Text to display when in the create button element.
+   * @default 'Create "{{value}}"'
    */
   createOptionText?: string;
   /**
    * If `true`, the create button element will be shown.
+   * @default false
    */
   allowCreateOption?: boolean;
   /**
    * If `true`, the `input` will indicate an error.
    */
   error?: boolean;
+  /**
+   * The content of the error message.
+   */
   errorText?: string;
   /**
    * Render the root element.
@@ -114,6 +127,7 @@ export type TSelectOwnProps<
   ) => React.ReactNode;
   /**
    * The label to display when the tags are truncated (`limitTags`).
+   * @default (more) => `${more} more`
    */
   getLimitTagsText?: (more: number) => string;
   /**
@@ -320,21 +334,21 @@ export const Select = <
 ): JSX.Element => {
   const {
     className,
-    size,
+    size = 'medium',
     placeholder,
     label,
-    disableSearch,
+    disableSearch = false,
     disabled = false,
-    noOptionsText,
-    loading,
-    loadingText,
+    noOptionsText = 'No options',
+    loading = false,
+    loadingText = 'Loading...',
     limitTags = 2,
     name,
-    required,
+    required = false,
     multiple = false,
     readOnly,
-    createOptionText,
-    allowCreateOption,
+    createOptionText = 'Create "{{value}}"',
+    allowCreateOption = false,
     error,
     errorText,
     renderRoot: renderRootProp,
@@ -623,14 +637,4 @@ export const Select = <
   );
 };
 
-Select.defaultProps = {
-  disableSearch: false,
-  noOptionsText: 'No options',
-  loading: false,
-  loadingText: 'Loading...',
-  limitTags: 2,
-  required: false,
-  allowCreateOption: false,
-  createOptionText: 'Create "{{value}}"',
-  size: 'medium',
-};
+Select.displayName = 'Select';

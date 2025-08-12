@@ -200,5 +200,3 @@ export const Menu = React.forwardRef<HTMLDivElement, TMenuProps>((props, ref) =>
 });
 
 Menu.displayName = 'Menu';
-
-Menu.defaultProps = {};
