@@ -32,7 +32,7 @@ jobs:
         run: yarn check:types
 
       - name: Test
-        run: yarn test:unit:coverage
+        run: yarn test
 
       - name: Deploy prepare
         if: github.ref == 'refs/heads/main'

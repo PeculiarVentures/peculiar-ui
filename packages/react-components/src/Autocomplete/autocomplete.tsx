@@ -124,6 +124,11 @@ export type TAutocompleteOwnProps<
    * Callback fired when the create button clicked.
    */
   onCreate?: (event: React.SyntheticEvent, value: string) => void;
+  /**
+   * If `true`, the `input` element will be read only.
+   * @default false
+   */
+  disableSearch?: boolean;
 };
 /**
  *
@@ -440,6 +445,7 @@ export const Autocomplete = <
     getLimitTagsText = (more) => `${more} more`,
     groupBy,
     onCreate,
+    disableSearch = false,
   } = props;
   const {
     id,
@@ -456,10 +462,7 @@ export const Autocomplete = <
     getOptionLabel,
     getClearProps,
   } = useAutocomplete(props);
-  const {
-    onChange,
-    ...otherInputProps
-  } = getInputProps();
+  const inputProps = getInputProps();
 
   const rootProps = getRootProps();
   const popoverProps = getPopoverProps();
@@ -596,7 +599,7 @@ export const Autocomplete = <
   const defaultRenderRoot: TAutocompleteOwnProps<T, Multiple>['renderRoot'] = ({
     // @ts-expect-error: 'ref' type may not match
     ref,
-    ...propsRoot
+    ...other
   }, valueRoot) => (
     <AutocompleteField
       aria-invalid={error || undefined}
@@ -613,23 +616,22 @@ export const Autocomplete = <
         <>
           {isValueEmpty ? null : renderedValue}
           <AutocompleteInputField
-            {...otherInputProps}
-            {...propsRoot}
+            {...inputProps}
+            {...other}
             noWrap
             // @ts-expect-error: `component` is not a valid prop
             component="input"
             type="text"
             variant={size === 'small' ? 'c1' : 'b3'}
             placeholder={placeholder}
-            readOnly={readOnly}
-            onChange={onChange}
+            readOnly={readOnly || disableSearch}
             onKeyDown={handleKeyDown}
           />
         </>
       ) : (
         <AutocompleteInputField
-          {...otherInputProps}
-          {...propsRoot}
+          {...inputProps}
+          {...other}
           noWrap
           // @ts-expect-error: `component` is not a valid prop
           component="input"
@@ -637,8 +639,7 @@ export const Autocomplete = <
           value={searchValue || renderedValue || ''}
           variant={size === 'small' ? 'c1' : 'b3'}
           placeholder={placeholder}
-          readOnly={readOnly}
-          onChange={onChange}
+          readOnly={readOnly || disableSearch}
           onKeyDown={handleKeyDown}
         />
       )}

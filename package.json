@@ -10,7 +10,7 @@
     "bootstrap:upgrade": "yarn upgrade-interactive --latest",
     "clean": "lerna run --parallel clean",
     "build": "yarn workspaces run build",
-    "test:unit:coverage": "yarn workspaces run test:unit:coverage",
+    "test": "yarn workspaces run test:unit:coverage",
     "check:types": "yarn workspaces run check:types",
     "lint": "eslint",
     "prepare": "yarn build",
