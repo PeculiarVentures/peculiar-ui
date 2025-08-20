@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.4.0...@peculiar/react-components@1.5.0) (2025-08-20)
+
+
+### Features
+
+* **react-components:** add isOptionEqualToValue prop for custom option comparison ([966c974](https://github.com/PeculiarVentures/peculiar-ui/commit/966c9740f1b214883852dba7472d69a0dd6b606d))
+
+
+
+
+
 # [1.4.0](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.3.2...@peculiar/react-components@1.4.0) (2025-08-19)
 
 
