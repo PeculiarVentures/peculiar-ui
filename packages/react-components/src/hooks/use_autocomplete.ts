@@ -88,6 +88,11 @@ export interface IUseAutocompleteProps<
   */
   filterOptions?: TAutocompleteFilterOptionsType<T, Multiple>;
   /**
+   * Used to determine if the option represents the given value. Uses strict equality by default.
+   * ⚠️ Both arguments need to be handled, an option can only match with one value.
+   */
+  isOptionEqualToValue?: (option: T, value: T) => boolean;
+  /**
    * Callback fired when the popup requests to be closed.
    */
   onClose?: (event: React.SyntheticEvent) => void;
@@ -187,6 +192,7 @@ export function useAutocomplete<
     groupBy,
     // @ts-expect-error: Property `label` does not exist on type 'T'.
     getOptionLabel = (option) => option.label ?? option,
+    isOptionEqualToValue = (option, value) => option === value,
     getOptionKey,
     filterOptions = defaultFilterOptions,
     onOpen,
@@ -367,7 +373,8 @@ export function useAutocomplete<
     }
 
     if (valueItem != null) {
-      const itemIndex = filteredOptions.findIndex((o) => o === valueItem);
+      const itemIndex = filteredOptions
+        .findIndex((optionItem) => isOptionEqualToValue(optionItem, valueItem));
 
       if (itemIndex === -1) {
         changeHighlightedIndex('reset');
@@ -455,7 +462,8 @@ export function useAutocomplete<
     if (multiple) {
       newValue = Array.isArray(value) ? value.slice() : [];
 
-      const itemIndex = newValue.findIndex((v) => option === v);
+      const itemIndex = newValue
+        .findIndex((valueItem) => isOptionEqualToValue(option, valueItem));
 
       if (itemIndex === -1) {
         newValue.push(option);
@@ -625,7 +633,7 @@ export function useAutocomplete<
     }),
     getOptionProps: (option, index) => {
       const selected = (Array.isArray(value) ? value : [value]).some(
-        (v) => v != null && option === v,
+        (value2) => value2 != null && isOptionEqualToValue(option, value2),
       );
 
       return {
