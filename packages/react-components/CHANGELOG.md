@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.5.0...@peculiar/react-components@1.5.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* **react-components:** update placeholder color for disabled TextField and Select components ([a4adbdd](https://github.com/PeculiarVentures/peculiar-ui/commit/a4adbdd41de94db537ad804ea416ea8230662a00))
+
+
+
+
+
 # [1.5.0](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.4.0...@peculiar/react-components@1.5.0) (2025-08-20)
 
 
