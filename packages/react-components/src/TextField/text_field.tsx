@@ -151,6 +151,9 @@ const TextFieldInput = styled(Typography)<TTextFieldProps>(
         cursor: 'not-allowed',
         borderColor: borderColorDisabled,
         color: colorDisabled,
+        '&::placeholder': {
+          color: colorDisabled,
+        },
       },
       '&:not(:disabled)': {
         '&[aria-invalid]': {

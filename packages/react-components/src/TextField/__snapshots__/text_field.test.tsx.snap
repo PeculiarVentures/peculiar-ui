@@ -59,6 +59,22 @@ exports[`<TextField /> TextField render sizes size "large" 1`] = `
   color: var(--pv-color-gray-7);
 }
 
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
+  color: var(--pv-color-gray-7);
+}
+
 .emotion-0:not(:disabled)[aria-invalid] {
   border-color: var(--pv-color-wrong);
 }
@@ -134,6 +150,22 @@ exports[`<TextField /> TextField render sizes size "medium" 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
   color: var(--pv-color-gray-7);
 }
 
@@ -215,6 +247,22 @@ exports[`<TextField /> TextField render sizes size "small" 1`] = `
   color: var(--pv-color-gray-7);
 }
 
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
+  color: var(--pv-color-gray-7);
+}
+
 .emotion-0:not(:disabled)[aria-invalid] {
   border-color: var(--pv-color-wrong);
 }
@@ -290,6 +338,22 @@ exports[`<TextField /> TextField render variants should be disabled 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
   color: var(--pv-color-gray-7);
 }
 
@@ -369,6 +433,22 @@ exports[`<TextField /> TextField render variants should have className 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
   color: var(--pv-color-gray-7);
 }
 
@@ -452,6 +532,22 @@ exports[`<TextField /> TextField render variants should have defaultValue 1`] = 
   color: var(--pv-color-gray-7);
 }
 
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
+  color: var(--pv-color-gray-7);
+}
+
 .emotion-0:not(:disabled)[aria-invalid] {
   border-color: var(--pv-color-wrong);
 }
@@ -527,6 +623,22 @@ exports[`<TextField /> TextField render variants should have error alert 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
   color: var(--pv-color-gray-7);
 }
 
@@ -638,6 +750,22 @@ exports[`<TextField /> TextField render variants should have label 1`] = `
   color: var(--pv-color-gray-7);
 }
 
+.emotion-2:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-2:disabled::placeholder {
+  color: var(--pv-color-gray-7);
+}
+
 .emotion-2:not(:disabled)[aria-invalid] {
   border-color: var(--pv-color-wrong);
 }
@@ -727,6 +855,22 @@ exports[`<TextField /> TextField render variants should have name attr 1`] = `
   color: var(--pv-color-gray-7);
 }
 
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
+  color: var(--pv-color-gray-7);
+}
+
 .emotion-0:not(:disabled)[aria-invalid] {
   border-color: var(--pv-color-wrong);
 }
@@ -803,6 +947,22 @@ exports[`<TextField /> TextField render variants should have placeholder 1`] = `
 .emotion-0:disabled {
   cursor: not-allowed;
   border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
   color: var(--pv-color-gray-7);
 }
 
@@ -885,6 +1045,22 @@ exports[`<TextField /> TextField render variants should have required 1`] = `
   color: var(--pv-color-gray-7);
 }
 
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
+  color: var(--pv-color-gray-7);
+}
+
 .emotion-0:not(:disabled)[aria-invalid] {
   border-color: var(--pv-color-wrong);
 }
@@ -964,6 +1140,22 @@ exports[`<TextField /> TextField render variants should have value 1`] = `
   color: var(--pv-color-gray-7);
 }
 
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
+  color: var(--pv-color-gray-7);
+}
+
 .emotion-0:not(:disabled)[aria-invalid] {
   border-color: var(--pv-color-wrong);
 }
@@ -1039,6 +1231,22 @@ exports[`<TextField /> TextField render variants should render as default 1`] = 
 .emotion-0:disabled {
   cursor: not-allowed;
   border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-0:disabled::placeholder {
   color: var(--pv-color-gray-7);
 }
 

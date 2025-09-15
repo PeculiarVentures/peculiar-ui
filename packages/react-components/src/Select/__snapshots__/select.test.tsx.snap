@@ -325,6 +325,22 @@ exports[`<Select /> should pass error 1`] = `
   color: var(--pv-color-gray-7);
 }
 
+.emotion-9:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-9:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-9:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-9:disabled::placeholder {
+  color: var(--pv-color-gray-7);
+}
+
 .emotion-9:not(:disabled)[aria-invalid] {
   border-color: var(--pv-color-wrong);
 }
@@ -626,6 +642,22 @@ exports[`<Select /> should pass loading 1`] = `
   color: var(--pv-color-gray-7);
 }
 
+.emotion-8:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-8:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-8:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-8:disabled::placeholder {
+  color: var(--pv-color-gray-7);
+}
+
 .emotion-8:not(:disabled)[aria-invalid] {
   border-color: var(--pv-color-wrong);
 }
@@ -919,6 +951,22 @@ exports[`<Select /> should pass options 1`] = `
 .emotion-8:disabled {
   cursor: not-allowed;
   border-color: var(--pv-color-gray-5);
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-8:disabled::-webkit-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-8:disabled::-moz-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-8:disabled:-ms-input-placeholder {
+  color: var(--pv-color-gray-7);
+}
+
+.emotion-8:disabled::placeholder {
   color: var(--pv-color-gray-7);
 }
 
