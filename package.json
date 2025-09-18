@@ -29,7 +29,7 @@
     "jest-environment-jsdom": "^30.0.0",
     "jest-watch-typeahead": "^2.2.2",
     "jsdom": "^24.1.1",
-    "lerna": "^8.2.1",
+    "lerna": "^8.2.4",
     "ts-jest": "^29.2.4"
   },
   "license": "MIT",
