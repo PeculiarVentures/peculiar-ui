@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.5.1...@peculiar/react-components@1.5.2) (2025-10-09)
+
+
+### Bug Fixes
+
+* **Checkbox:** update border radius and icon for consistency ([9b6803f](https://github.com/PeculiarVentures/peculiar-ui/commit/9b6803f0781b0096964bf906e40e5a8e654f145d))
+
+
+
+
+
 ## [1.5.1](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.5.0...@peculiar/react-components@1.5.1) (2025-09-15)
 
 
