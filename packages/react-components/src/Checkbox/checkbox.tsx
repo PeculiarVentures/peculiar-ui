@@ -89,7 +89,7 @@ const CheckboxInput = styled('input', {
     margin: 0,
     padding: 0,
     outline: 0,
-    borderRadius: '2px',
+    borderRadius: '4px',
     borderWidth: '2px',
     borderStyle: 'solid',
     appearance: 'none',
