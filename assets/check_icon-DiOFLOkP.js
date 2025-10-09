@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime-xF634gn_.js";const r=o=>e.jsx("svg",{...o,xmlns:"http://www.w3.org/2000/svg",fill:"none",viewBox:"0 0 20 20",width:"20px",height:"20px",children:e.jsx("path",{stroke:"currentColor",strokeWidth:"1.5",d:"m5 11 3 3 8-8"})});try{r.displayName="CheckIcon",r.__docgenInfo={description:"",displayName:"CheckIcon",props:{}}}catch{}export{r as C};
