@@ -31,7 +31,7 @@
     "build:storybook": "storybook build -o public",
     "clean": "rimraf public dist themes",
     "test:unit": "jest --passWithNoTests --watchAll",
-    "test:unit:coverage": "npm run test:unit --coverage --watchAll=false",
+    "test:unit:coverage": "npm run test:unit -- --coverage --watchAll=false",
     "test:unit:updateSnapshot": "jest --updateSnapshot",
     "check:types": "tsc --noEmit"
   },
