@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "contained" & color: "default" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "contained" & color: "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -89,7 +89,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "con
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "contained" & color: "primary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "contained" & color: "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -178,7 +178,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "con
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "contained" & color: "secondary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "contained" & color: "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -267,7 +267,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "con
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "contained" & color: "white" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "contained" & color: "white" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -356,7 +356,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "con
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "contained" & color: "wrong" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "contained" & color: "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -445,7 +445,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "con
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "outlined" & color: "default" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "outlined" & color: "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -532,7 +532,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "out
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "outlined" & color: "primary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "outlined" & color: "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -619,7 +619,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "out
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "outlined" & color: "secondary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "outlined" & color: "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -706,7 +706,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "out
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "outlined" & color: "white" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "outlined" & color: "white" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -793,7 +793,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "out
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "outlined" & color: "wrong" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "outlined" & color: "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -880,7 +880,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "out
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "text" & color: "default" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "text" & color: "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -965,7 +965,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "tex
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "text" & color: "primary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "text" & color: "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1050,7 +1050,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "tex
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "text" & color: "secondary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "text" & color: "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1135,7 +1135,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "tex
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "text" & color: "white" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "text" & color: "white" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1220,7 +1220,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "tex
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "text" & color: "wrong" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant: "text" & color: "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1305,7 +1305,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) dark variant: "tex
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "contained" & color: "default" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "contained" & color: "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1394,7 +1394,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "co
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "contained" & color: "primary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "contained" & color: "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1483,7 +1483,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "co
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "contained" & color: "secondary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "contained" & color: "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1572,7 +1572,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "co
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "contained" & color: "white" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "contained" & color: "white" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1661,7 +1661,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "co
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "contained" & color: "wrong" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "contained" & color: "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1750,7 +1750,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "co
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "outlined" & color: "default" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "outlined" & color: "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1837,7 +1837,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "ou
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "outlined" & color: "primary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "outlined" & color: "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -1924,7 +1924,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "ou
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "outlined" & color: "secondary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "outlined" & color: "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2011,7 +2011,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "ou
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "outlined" & color: "white" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "outlined" & color: "white" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2098,7 +2098,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "ou
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "outlined" & color: "wrong" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "outlined" & color: "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2185,7 +2185,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "ou
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "text" & color: "default" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "text" & color: "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2270,7 +2270,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "te
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "text" & color: "primary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "text" & color: "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2355,7 +2355,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "te
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "text" & color: "secondary" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "text" & color: "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2440,7 +2440,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "te
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "text" & color: "white" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "text" & color: "white" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2525,7 +2525,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "te
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "text" & color: "wrong" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > variant: "text" & color: "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2610,7 +2610,7 @@ exports[`<ButtonBase /> ButtonBase render (variants & colors) light variant: "te
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render as an anchor should rendered as an anchor 1`] = `
+exports[`<ButtonBase /> > ButtonBase render as an anchor > should rendered as an anchor 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2696,7 +2696,7 @@ exports[`<ButtonBase /> ButtonBase render as an anchor should rendered as an anc
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render sizes size "large" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render sizes > size "large" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2781,7 +2781,7 @@ exports[`<ButtonBase /> ButtonBase render sizes size "large" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render sizes size "medium" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render sizes > size "medium" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2866,7 +2866,7 @@ exports[`<ButtonBase /> ButtonBase render sizes size "medium" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render sizes size "small" 1`] = `
+exports[`<ButtonBase /> > ButtonBase render sizes > size "small" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -2951,7 +2951,7 @@ exports[`<ButtonBase /> ButtonBase render sizes size "small" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render variants should be disabled 1`] = `
+exports[`<ButtonBase /> > ButtonBase render variants > should be disabled 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -3037,7 +3037,7 @@ exports[`<ButtonBase /> ButtonBase render variants should be disabled 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render variants should have class name 1`] = `
+exports[`<ButtonBase /> > ButtonBase render variants > should have class name 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -3122,7 +3122,7 @@ exports[`<ButtonBase /> ButtonBase render variants should have class name 1`] = 
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render variants should have test id 1`] = `
+exports[`<ButtonBase /> > ButtonBase render variants > should have test id 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -3208,7 +3208,7 @@ exports[`<ButtonBase /> ButtonBase render variants should have test id 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render variants should have text variant 1`] = `
+exports[`<ButtonBase /> > ButtonBase render variants > should have text variant 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -3293,7 +3293,7 @@ exports[`<ButtonBase /> ButtonBase render variants should have text variant 1`] 
 </DocumentFragment>
 `;
 
-exports[`<ButtonBase /> ButtonBase render variants should have title 1`] = `
+exports[`<ButtonBase /> > ButtonBase render variants > should have title 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;

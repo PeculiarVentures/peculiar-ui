@@ -31,12 +31,11 @@
     "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/cjs",
     "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
     "clean": "rimraf public dist",
-    "test:unit": "jest --passWithNoTests --watchAll",
-    "test:unit:coverage": "npm run test:unit -- --coverage --watchAll=false",
+    "test:unit": "vitest",
+    "test:unit:coverage": "vitest --coverage",
     "check:types": "tsc --noEmit"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2",
     "typescript": "5.1.6"
   },
   "publishConfig": {

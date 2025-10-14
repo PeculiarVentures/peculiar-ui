@@ -125,7 +125,7 @@ describe('<Avatar />', () => {
 
   describe('Avatar handlers', () => {
     it('should call onError handler', () => {
-      const handleErr = jest.fn();
+      const handleErr = vi.fn();
 
       render(
         <Avatar src="broken.png" onError={handleErr} />,
@@ -139,7 +139,7 @@ describe('<Avatar />', () => {
     });
 
     it('should call onLoad handler', () => {
-      const handleLoad = jest.fn();
+      const handleLoad = vi.fn();
 
       render(
         <Avatar src={src} onLoad={handleLoad} />,

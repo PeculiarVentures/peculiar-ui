@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Typography /> should pass "component" 1`] = `
+exports[`<Typography /> > should pass "component" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -19,7 +19,7 @@ exports[`<Typography /> should pass "component" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should pass className 1`] = `
+exports[`<Typography /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -38,7 +38,7 @@ exports[`<Typography /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "attention" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "attention" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -57,7 +57,7 @@ exports[`<Typography /> should render correct colors color: "attention" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "black" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "black" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -76,7 +76,7 @@ exports[`<Typography /> should render correct colors color: "black" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "extra-1" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "extra-1" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -95,7 +95,7 @@ exports[`<Typography /> should render correct colors color: "extra-1" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "extra-2" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "extra-2" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -114,7 +114,7 @@ exports[`<Typography /> should render correct colors color: "extra-2" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "gray-1" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "gray-1" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -133,7 +133,7 @@ exports[`<Typography /> should render correct colors color: "gray-1" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "gray-2" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "gray-2" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -152,7 +152,7 @@ exports[`<Typography /> should render correct colors color: "gray-2" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "gray-3" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "gray-3" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -171,7 +171,7 @@ exports[`<Typography /> should render correct colors color: "gray-3" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "gray-4" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "gray-4" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -190,7 +190,7 @@ exports[`<Typography /> should render correct colors color: "gray-4" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "gray-5" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "gray-5" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -209,7 +209,7 @@ exports[`<Typography /> should render correct colors color: "gray-5" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "gray-6" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "gray-6" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -228,7 +228,7 @@ exports[`<Typography /> should render correct colors color: "gray-6" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "gray-7" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "gray-7" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -247,7 +247,7 @@ exports[`<Typography /> should render correct colors color: "gray-7" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "gray-8" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "gray-8" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -266,7 +266,7 @@ exports[`<Typography /> should render correct colors color: "gray-8" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "gray-9" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "gray-9" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -285,7 +285,7 @@ exports[`<Typography /> should render correct colors color: "gray-9" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "gray-10" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "gray-10" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -304,7 +304,7 @@ exports[`<Typography /> should render correct colors color: "gray-10" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "inherit" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "inherit" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -323,7 +323,7 @@ exports[`<Typography /> should render correct colors color: "inherit" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "primary" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -342,7 +342,7 @@ exports[`<Typography /> should render correct colors color: "primary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "secondary" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -361,7 +361,7 @@ exports[`<Typography /> should render correct colors color: "secondary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "white" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "white" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -380,7 +380,7 @@ exports[`<Typography /> should render correct colors color: "white" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct colors color: "wrong" 1`] = `
+exports[`<Typography /> > should render correct colors > color: "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -399,7 +399,7 @@ exports[`<Typography /> should render correct colors color: "wrong" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "b1" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "b1" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -418,7 +418,7 @@ exports[`<Typography /> should render correct variants variant: "b1" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "b2" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "b2" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -437,7 +437,7 @@ exports[`<Typography /> should render correct variants variant: "b2" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "b3" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "b3" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -456,7 +456,7 @@ exports[`<Typography /> should render correct variants variant: "b3" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "btn1" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "btn1" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -475,7 +475,7 @@ exports[`<Typography /> should render correct variants variant: "btn1" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "btn2" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "btn2" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -494,7 +494,7 @@ exports[`<Typography /> should render correct variants variant: "btn2" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "c1" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "c1" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -513,7 +513,7 @@ exports[`<Typography /> should render correct variants variant: "c1" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "c2" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "c2" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -532,7 +532,7 @@ exports[`<Typography /> should render correct variants variant: "c2" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "h1" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "h1" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -551,7 +551,7 @@ exports[`<Typography /> should render correct variants variant: "h1" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "h2" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "h2" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -570,7 +570,7 @@ exports[`<Typography /> should render correct variants variant: "h2" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "h3" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "h3" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -589,7 +589,7 @@ exports[`<Typography /> should render correct variants variant: "h3" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "h4" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "h4" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -608,7 +608,7 @@ exports[`<Typography /> should render correct variants variant: "h4" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "h5" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "h5" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -627,7 +627,7 @@ exports[`<Typography /> should render correct variants variant: "h5" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "s1" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "s1" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -646,7 +646,7 @@ exports[`<Typography /> should render correct variants variant: "s1" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render correct variants variant: "s2" 1`] = `
+exports[`<Typography /> > should render correct variants > variant: "s2" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -665,7 +665,7 @@ exports[`<Typography /> should render correct variants variant: "s2" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Typography /> should render with default styles 1`] = `
+exports[`<Typography /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;

@@ -112,7 +112,7 @@ describe('<Radio />', () => {
     });
 
     it('should be checked', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       render(
         <Radio checked onChange={onChange} />,
@@ -124,7 +124,7 @@ describe('<Radio />', () => {
     });
 
     it('should be unchecked', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       render(
         <Radio checked={false} onChange={onChange} />,
@@ -232,7 +232,7 @@ describe('<Radio />', () => {
     });
 
     it('should calls onClick prop when clicked', () => {
-      const handleClick = jest.fn();
+      const handleClick = vi.fn();
 
       render(
         <Radio onClick={handleClick} />,
@@ -242,7 +242,7 @@ describe('<Radio />', () => {
     });
 
     it('should calls onChange prop when clicked', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       render(
         <Radio onChange={onChange} />,

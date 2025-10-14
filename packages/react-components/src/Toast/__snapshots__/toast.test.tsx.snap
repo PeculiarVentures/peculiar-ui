@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Toast /> should render with default styles 1`] = `
+exports[`<Toast /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;

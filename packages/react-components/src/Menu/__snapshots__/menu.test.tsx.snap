@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Menu /> should pass className 1`] = `
+exports[`<Menu /> > should pass className 1`] = `
 .emotion-0 {
   position: fixed;
   z-index: 1300;
@@ -189,7 +189,7 @@ exports[`<Menu /> should pass className 1`] = `
 </body>
 `;
 
-exports[`<Menu /> should render with default styles 1`] = `
+exports[`<Menu /> > should render with default styles 1`] = `
 <DocumentFragment>
   <button
     aria-expanded="false"

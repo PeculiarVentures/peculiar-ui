@@ -30,9 +30,8 @@
     "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
     "build:storybook": "storybook build -o public",
     "clean": "rimraf public dist themes",
-    "test:unit": "jest --passWithNoTests --watchAll",
-    "test:unit:coverage": "npm run test:unit -- --coverage --watchAll=false",
-    "test:unit:updateSnapshot": "jest --updateSnapshot",
+    "test:unit": "vitest",
+    "test:unit:coverage": "vitest --coverage",
     "check:types": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -46,8 +45,8 @@
     }
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
     "@peculiar/color": "^0.1.8",
     "@popperjs/core": "^2.11.7",
     "@types/flat": "^5.0.2",
@@ -66,10 +65,8 @@
     "@storybook/react-vite": "8.6.4",
     "@types/react": "^18.0.34",
     "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react-swc": "^3.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rimraf": "^3.0.2",
     "storybook": "8.6.4",
     "storybook-dark-mode": "^4.0.2",
     "typescript": "5.1.6",

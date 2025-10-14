@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Collapse /> orientations orientation "horizontal" after animation 1`] = `
+exports[`<Collapse /> > orientations > orientation "horizontal" > after animation 1`] = `
 <DocumentFragment>
   .emotion-0 {
   overflow: visible;
@@ -22,7 +22,7 @@ exports[`<Collapse /> orientations orientation "horizontal" after animation 1`] 
 </DocumentFragment>
 `;
 
-exports[`<Collapse /> orientations orientation "horizontal" before animation 1`] = `
+exports[`<Collapse /> > orientations > orientation "horizontal" > before animation 1`] = `
 <DocumentFragment>
   .emotion-0 {
   overflow: hidden;
@@ -45,7 +45,7 @@ exports[`<Collapse /> orientations orientation "horizontal" before animation 1`]
 </DocumentFragment>
 `;
 
-exports[`<Collapse /> orientations orientation "vertical" after animation 1`] = `
+exports[`<Collapse /> > orientations > orientation "vertical" > after animation 1`] = `
 <DocumentFragment>
   .emotion-0 {
   overflow: visible;
@@ -66,7 +66,7 @@ exports[`<Collapse /> orientations orientation "vertical" after animation 1`] = 
 </DocumentFragment>
 `;
 
-exports[`<Collapse /> orientations orientation "vertical" before animation 1`] = `
+exports[`<Collapse /> > orientations > orientation "vertical" > before animation 1`] = `
 <DocumentFragment>
   .emotion-0 {
   overflow: hidden;
@@ -88,7 +88,7 @@ exports[`<Collapse /> orientations orientation "vertical" before animation 1`] =
 </DocumentFragment>
 `;
 
-exports[`<Collapse /> should pass className 1`] = `
+exports[`<Collapse /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   overflow: hidden;
@@ -108,7 +108,7 @@ exports[`<Collapse /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Collapse /> should render with default styles 1`] = `
+exports[`<Collapse /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   overflow: hidden;

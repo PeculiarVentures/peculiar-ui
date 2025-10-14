@@ -13,7 +13,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => (
   </ToastProvider>
 );
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 describe('<ToastProvider />', () => {
   it('should render toast', () => {
@@ -41,7 +41,7 @@ describe('<ToastProvider />', () => {
 
     expect(screen.queryByText('Toast')).toBeInTheDocument();
 
-    act(() => jest.advanceTimersByTime(DURATION));
+    act(() => vi.advanceTimersByTime(DURATION));
 
     expect(screen.queryByText('Toast')).not.toBeInTheDocument();
   });
@@ -80,12 +80,12 @@ describe('<ToastProvider />', () => {
 
     expect(screen.queryAllByText(/^Toast/)).toHaveLength(2);
 
-    act(() => jest.advanceTimersByTime(10));
+    act(() => vi.advanceTimersByTime(10));
 
     expect(screen.queryByText('Toast-1')).toBeInTheDocument();
     expect(screen.queryByText('Toast-2')).toBeInTheDocument();
 
-    act(jest.runAllTimers);
+    act(vi.runAllTimers);
   });
 
   it('should render maximum `maxToasts` toasts', () => {

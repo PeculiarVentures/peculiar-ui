@@ -16,7 +16,7 @@ describe('useControllableState()', () => {
   });
 
   it('should call `onChange` on state update is `onChange` is passed', () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const { result } = renderHook(() => useControllableState({
       onChange: onChangeMock,
     }));
@@ -27,7 +27,7 @@ describe('useControllableState()', () => {
   });
 
   it('should do not update state if `shouldUpdate` is passed but not resolved', () => {
-    const shouldUpdateMock = jest.fn().mockImplementationOnce(() => false);
+    const shouldUpdateMock = vi.fn().mockImplementationOnce(() => false);
     const { result } = renderHook(() => useControllableState({
       shouldUpdate: shouldUpdateMock,
     }));
@@ -38,7 +38,7 @@ describe('useControllableState()', () => {
   });
 
   it('should update state if `shouldUpdate` is passed and resolved', () => {
-    const shouldUpdateMock = jest.fn().mockImplementationOnce(() => true);
+    const shouldUpdateMock = vi.fn().mockImplementationOnce(() => true);
     const { result } = renderHook(() => useControllableState({
       shouldUpdate: shouldUpdateMock,
     }));
