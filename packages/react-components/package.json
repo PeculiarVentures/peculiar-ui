@@ -23,15 +23,15 @@
   },
   "scripts": {
     "dev": "storybook dev -p 3000",
-    "prebuild": "yarn clean",
-    "build": "yarn build:esm && yarn build:cjs && yarn build:esnext",
+    "prebuild": "npm run clean",
+    "build": "npm run build:esm && npm run build:cjs && npm run build:esnext",
     "build:esm": "tsc -p tsconfig.build.json",
     "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/cjs",
     "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
     "build:storybook": "storybook build -o public",
     "clean": "rimraf public dist themes",
     "test:unit": "jest --passWithNoTests --watchAll",
-    "test:unit:coverage": "yarn test:unit --coverage --watchAll=false",
+    "test:unit:coverage": "npm run test:unit --coverage --watchAll=false",
     "test:unit:updateSnapshot": "jest --updateSnapshot",
     "check:types": "tsc --noEmit"
   },

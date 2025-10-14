@@ -17,26 +17,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Check types
-        run: yarn check:types
+        run: npm run check:types
 
       - name: Test
-        run: yarn test
+        run: npm run test
 
       - name: Deploy prepare
         if: github.ref == 'refs/heads/main'
-        run: yarn --cwd packages/react-components build:storybook
+        run: npm run --cwd packages/react-components build:storybook
 
       - name: Deploy to gh-pages
         if: github.ref == 'refs/heads/main'
