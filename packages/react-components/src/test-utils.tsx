@@ -21,7 +21,7 @@ const renderWithWrapper = (
     {
       wrapper: (props) => (
         <ThemeProvider {...(options || {})}>
-          {props.children}
+          {props.children as React.ReactElement}
         </ThemeProvider>
       ),
     },
