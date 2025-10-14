@@ -26,7 +26,7 @@ describe('useDebounceCallback()', () => {
     expect(callbackMock).toHaveBeenCalled();
   });
 
-  it.only('should clear previous timer on the next debounced function call', () => {
+  it('should clear previous timer on the next debounced function call', () => {
     const setTimeoutSpy = vi.spyOn(global, 'setTimeout');
     const callbackMock = vi.fn();
     const { result } = renderHook(() => useDebounceCallback(
