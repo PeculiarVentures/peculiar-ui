@@ -36,7 +36,7 @@ jobs:
 
       - name: Deploy prepare
         if: github.ref == 'refs/heads/main'
-        run: npm run --cwd packages/react-components build:storybook
+        run: npm run --workspace packages/react-components build:storybook
 
       - name: Deploy to gh-pages
         if: github.ref == 'refs/heads/main'
