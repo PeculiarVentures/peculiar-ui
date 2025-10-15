@@ -3,7 +3,7 @@ import { Toast } from './toast';
 
 describe('<Toast />', () => {
   it('should render with default styles', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
 
     const { asFragment } = render(
       <Toast

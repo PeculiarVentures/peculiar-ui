@@ -12,8 +12,8 @@ describe('useImage()', () => {
   });
 
   it('should return "loaded" status and call `onLoad` on successfully loaded', () => {
-    const onErrorMock = jest.fn();
-    const onLoadMock = jest.fn();
+    const onErrorMock = vi.fn();
+    const onLoadMock = vi.fn();
 
     const { result } = renderHook(() => useImage(
       fakeImagePath,
@@ -47,8 +47,8 @@ describe('useImage()', () => {
   });
 
   it('should return "failed" status and call `onError` on loading error', () => {
-    const onErrorMock = jest.fn();
-    const onLoadMock = jest.fn();
+    const onErrorMock = vi.fn();
+    const onLoadMock = vi.fn();
 
     const { result } = renderHook(() => useImage(
       './fake_path_to_img.png',

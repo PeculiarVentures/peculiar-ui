@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Chip /> should have custom delete icon 1`] = `
+exports[`<Chip /> > should have custom delete icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -101,7 +101,7 @@ exports[`<Chip /> should have custom delete icon 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Chip /> should have delete icon 1`] = `
+exports[`<Chip /> > should have delete icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -203,7 +203,7 @@ exports[`<Chip /> should have delete icon 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Chip /> should pass className 1`] = `
+exports[`<Chip /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -264,7 +264,7 @@ exports[`<Chip /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Chip /> should render with default styles 1`] = `
+exports[`<Chip /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -325,7 +325,7 @@ exports[`<Chip /> should render with default styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Chip /> variants & colors variant "contained, color "default" 1`] = `
+exports[`<Chip /> > variants & colors > variant "contained, color "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -386,7 +386,7 @@ exports[`<Chip /> variants & colors variant "contained, color "default" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Chip /> variants & colors variant "contained, color "secondary" 1`] = `
+exports[`<Chip /> > variants & colors > variant "contained, color "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -447,7 +447,7 @@ exports[`<Chip /> variants & colors variant "contained, color "secondary" 1`] = 
 </DocumentFragment>
 `;
 
-exports[`<Chip /> variants & colors variant "contained, color "wrong" 1`] = `
+exports[`<Chip /> > variants & colors > variant "contained, color "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -508,7 +508,7 @@ exports[`<Chip /> variants & colors variant "contained, color "wrong" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Chip /> variants & colors variant "outlined, color "default" 1`] = `
+exports[`<Chip /> > variants & colors > variant "outlined, color "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -569,7 +569,7 @@ exports[`<Chip /> variants & colors variant "outlined, color "default" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Chip /> variants & colors variant "outlined, color "secondary" 1`] = `
+exports[`<Chip /> > variants & colors > variant "outlined, color "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -630,7 +630,7 @@ exports[`<Chip /> variants & colors variant "outlined, color "secondary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Chip /> variants & colors variant "outlined, color "wrong" 1`] = `
+exports[`<Chip /> > variants & colors > variant "outlined, color "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;

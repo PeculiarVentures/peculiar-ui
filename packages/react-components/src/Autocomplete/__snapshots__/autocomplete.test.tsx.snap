@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Autocomplete /> should render with default styles 1`] = `
+exports[`<Autocomplete /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   outline: none;
@@ -213,7 +213,7 @@ exports[`<Autocomplete /> should render with default styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Autocomplete /> should render with multiple selection enabled 1`] = `
+exports[`<Autocomplete /> > should render with multiple selection enabled 1`] = `
 <DocumentFragment>
   .emotion-0 {
   outline: none;
@@ -426,7 +426,7 @@ exports[`<Autocomplete /> should render with multiple selection enabled 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Autocomplete /> sizes renders with size "large" 1`] = `
+exports[`<Autocomplete /> > sizes > renders with size "large" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   outline: none;
@@ -639,7 +639,7 @@ exports[`<Autocomplete /> sizes renders with size "large" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Autocomplete /> sizes renders with size "medium" 1`] = `
+exports[`<Autocomplete /> > sizes > renders with size "medium" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   outline: none;
@@ -852,7 +852,7 @@ exports[`<Autocomplete /> sizes renders with size "medium" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Autocomplete /> sizes renders with size "small" 1`] = `
+exports[`<Autocomplete /> > sizes > renders with size "small" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   outline: none;

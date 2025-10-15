@@ -170,7 +170,7 @@ describe('<Autocomplete />', () => {
   });
 
   it('should allow creating new options', async () => {
-    const handleCreate = jest.fn();
+    const handleCreate = vi.fn();
 
     render(
       <Autocomplete

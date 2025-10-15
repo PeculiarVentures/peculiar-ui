@@ -13,5 +13,6 @@
     "src/**/*.stories.ts*",
     "src/test-utils.tsx",
     "src/**/*.snap",
+    "src/setupTests.ts"
   ]
 }

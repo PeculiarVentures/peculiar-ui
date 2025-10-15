@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Fab /> should pass className 1`] = `
+exports[`<Fab /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -106,7 +106,7 @@ exports[`<Fab /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Fab /> should render as default 1`] = `
+exports[`<Fab /> > should render as default 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -212,7 +212,7 @@ exports[`<Fab /> should render as default 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Fab /> variants variant "contained" 1`] = `
+exports[`<Fab /> > variants > variant "contained" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -318,7 +318,7 @@ exports[`<Fab /> variants variant "contained" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Fab /> variants variant "outlined" 1`] = `
+exports[`<Fab /> > variants > variant "outlined" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;

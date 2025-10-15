@@ -149,7 +149,7 @@ describe('<ButtonBase />', () => {
 
   describe('ButtonBase click behaviour', () => {
     it('should calls onClick prop when clicked', () => {
-      const handleClick = jest.fn();
+      const handleClick = vi.fn();
 
       render(
         <ButtonBase onClick={handleClick}>Click</ButtonBase>,
@@ -160,7 +160,7 @@ describe('<ButtonBase />', () => {
     });
 
     it('shouldn\'t calls onClick when disabled has been passed to the component', () => {
-      const handleClick = jest.fn();
+      const handleClick = vi.fn();
 
       render(
         <ButtonBase disabled onClick={handleClick}>

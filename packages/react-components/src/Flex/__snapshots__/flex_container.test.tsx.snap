@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<FlexContainer /> should pass align 1`] = `
+exports[`<FlexContainer /> > should pass align 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -22,7 +22,7 @@ exports[`<FlexContainer /> should pass align 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<FlexContainer /> should pass className 1`] = `
+exports[`<FlexContainer /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -40,7 +40,7 @@ exports[`<FlexContainer /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<FlexContainer /> should pass component 1`] = `
+exports[`<FlexContainer /> > should pass component 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -58,7 +58,7 @@ exports[`<FlexContainer /> should pass component 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<FlexContainer /> should pass direction 1`] = `
+exports[`<FlexContainer /> > should pass direction 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -76,7 +76,7 @@ exports[`<FlexContainer /> should pass direction 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<FlexContainer /> should pass gap 1`] = `
+exports[`<FlexContainer /> > should pass gap 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -95,7 +95,7 @@ exports[`<FlexContainer /> should pass gap 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<FlexContainer /> should pass justify 1`] = `
+exports[`<FlexContainer /> > should pass justify 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -117,7 +117,7 @@ exports[`<FlexContainer /> should pass justify 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<FlexContainer /> should pass wrap 1`] = `
+exports[`<FlexContainer /> > should pass wrap 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -139,7 +139,7 @@ exports[`<FlexContainer /> should pass wrap 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<FlexContainer /> should render with default styles 1`] = `
+exports[`<FlexContainer /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Skeleton /> should render correct variants variant: circle 1`] = `
+exports[`<Skeleton /> > should render correct variants > variant: circle 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -68,7 +68,7 @@ exports[`<Skeleton /> should render correct variants variant: circle 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Skeleton /> should render correct variants variant: rect 1`] = `
+exports[`<Skeleton /> > should render correct variants > variant: rect 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -149,7 +149,7 @@ exports[`<Skeleton /> should render correct variants variant: rect 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Skeleton /> should render correct variants variant: text 1`] = `
+exports[`<Skeleton /> > should render correct variants > variant: text 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -242,7 +242,7 @@ exports[`<Skeleton /> should render correct variants variant: text 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Skeleton /> should render with default styles 1`] = `
+exports[`<Skeleton /> > should render with default styles 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -293,7 +293,7 @@ exports[`<Skeleton /> should render with default styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Skeleton /> should render with height & width 1`] = `
+exports[`<Skeleton /> > should render with height & width 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {

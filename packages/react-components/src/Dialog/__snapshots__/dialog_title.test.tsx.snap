@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<DialogTitle /> should pass className 1`] = `
+exports[`<DialogTitle /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   padding: var(--pv-size-base-4) var(--pv-size-base-4) var(--pv-size-base-2);
@@ -39,7 +39,7 @@ exports[`<DialogTitle /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<DialogTitle /> should render close button 1`] = `
+exports[`<DialogTitle /> > should render close button 1`] = `
 <DocumentFragment>
   .emotion-0 {
   padding: var(--pv-size-base-4) var(--pv-size-base-4) var(--pv-size-base-2);
@@ -176,7 +176,7 @@ exports[`<DialogTitle /> should render close button 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<DialogTitle /> should render with default styles 1`] = `
+exports[`<DialogTitle /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   padding: var(--pv-size-base-4) var(--pv-size-base-4) var(--pv-size-base-2);

@@ -2,7 +2,7 @@ import { render, renderHook } from '../test-utils';
 import { intersectionObserver } from '../utils/intersection_observer';
 import { useIntersectionObserver } from './use_intersection_observer';
 
-jest.mock('../utils/intersection_observer.ts');
+vi.mock('../utils/intersection_observer.ts');
 
 describe('useIntersectionObserver()', () => {
   it('should do not add a node to the observer if the node doesn\'t exist', () => {
@@ -11,7 +11,7 @@ describe('useIntersectionObserver()', () => {
 
     refCallback(null);
 
-    expect(intersectionObserver.add).not.toBeCalled();
+    expect(intersectionObserver.add).not.toHaveBeenCalled();
   });
 
   it('should init hook and add a node to the observer', () => {

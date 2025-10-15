@@ -57,7 +57,7 @@ describe('<Image />', () => {
   });
 
   it('should call onError handler', () => {
-    const handleErr = jest.fn();
+    const handleErr = vi.fn();
 
     render(
       <Image src="broken.png" onError={handleErr} />,
@@ -71,7 +71,7 @@ describe('<Image />', () => {
   });
 
   it('should call onLoad handler', () => {
-    const handleLoad = jest.fn();
+    const handleLoad = vi.fn();
 
     render(
       <Image src={src} onLoad={handleLoad} />,

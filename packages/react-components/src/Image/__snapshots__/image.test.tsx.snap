@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Image /> should have alt 1`] = `
+exports[`<Image /> > should have alt 1`] = `
 <DocumentFragment>
   <img
     alt="Test alt"
@@ -9,7 +9,7 @@ exports[`<Image /> should have alt 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Image /> should have class name 1`] = `
+exports[`<Image /> > should have class name 1`] = `
 <DocumentFragment>
   <img
     class="test-cls"
@@ -18,7 +18,7 @@ exports[`<Image /> should have class name 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Image /> should have test id 1`] = `
+exports[`<Image /> > should have test id 1`] = `
 <DocumentFragment>
   <img
     data-testid="test-id"
@@ -27,7 +27,7 @@ exports[`<Image /> should have test id 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Image /> should render as default 1`] = `
+exports[`<Image /> > should render as default 1`] = `
 <DocumentFragment>
   <img
     src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
@@ -35,7 +35,7 @@ exports[`<Image /> should render as default 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Image /> should render loading component 1`] = `
+exports[`<Image /> > should render loading component 1`] = `
 <DocumentFragment>
   <div>
     Loading

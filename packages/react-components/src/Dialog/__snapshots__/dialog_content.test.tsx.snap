@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<DialogContent /> should pass className 1`] = `
+exports[`<DialogContent /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-color: var(--pv-color-gray-5);
@@ -121,7 +121,7 @@ exports[`<DialogContent /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<DialogContent /> should render border 1`] = `
+exports[`<DialogContent /> > should render border 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-color: var(--pv-color-gray-5);
@@ -242,7 +242,7 @@ exports[`<DialogContent /> should render border 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<DialogContent /> should render error 1`] = `
+exports[`<DialogContent /> > should render error 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-color: var(--pv-color-gray-5);
@@ -364,7 +364,7 @@ exports[`<DialogContent /> should render error 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<DialogContent /> should render with default styles 1`] = `
+exports[`<DialogContent /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-color: var(--pv-color-gray-5);

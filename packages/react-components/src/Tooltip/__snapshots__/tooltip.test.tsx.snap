@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Tooltip /> colors color "black" 1`] = `
+exports[`<Tooltip /> > colors > color "black" 1`] = `
 <DocumentFragment>
   <div>
     Text
@@ -100,7 +100,7 @@ exports[`<Tooltip /> colors color "black" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Tooltip /> colors color "white" 1`] = `
+exports[`<Tooltip /> > colors > color "white" 1`] = `
 <DocumentFragment>
   <div>
     Text
@@ -200,7 +200,7 @@ exports[`<Tooltip /> colors color "white" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Tooltip /> should pass arrow 1`] = `
+exports[`<Tooltip /> > should pass arrow 1`] = `
 <DocumentFragment>
   <div>
     Text
@@ -307,7 +307,7 @@ exports[`<Tooltip /> should pass arrow 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Tooltip /> should pass className 1`] = `
+exports[`<Tooltip /> > should pass className 1`] = `
 <DocumentFragment>
   <div>
     Text
@@ -387,7 +387,7 @@ exports[`<Tooltip /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Tooltip /> should pass interactive 1`] = `
+exports[`<Tooltip /> > should pass interactive 1`] = `
 <DocumentFragment>
   <div>
     Text
@@ -467,7 +467,7 @@ exports[`<Tooltip /> should pass interactive 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Tooltip /> should render with default styles 1`] = `
+exports[`<Tooltip /> > should render with default styles 1`] = `
 <DocumentFragment>
   <div>
     Text
@@ -475,7 +475,7 @@ exports[`<Tooltip /> should render with default styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Tooltip /> sizes size "large" 1`] = `
+exports[`<Tooltip /> > sizes > size "large" 1`] = `
 <DocumentFragment>
   <div>
     Text
@@ -565,7 +565,7 @@ exports[`<Tooltip /> sizes size "large" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Tooltip /> sizes size "small" 1`] = `
+exports[`<Tooltip /> > sizes > size "small" 1`] = `
 <DocumentFragment>
   <div>
     Text

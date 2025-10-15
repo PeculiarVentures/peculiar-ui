@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Switch /> colors color "primary" 1`] = `
+exports[`<Switch /> > colors > color "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -140,7 +140,7 @@ exports[`<Switch /> colors color "primary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Switch /> colors color "secondary" 1`] = `
+exports[`<Switch /> > colors > color "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -280,7 +280,7 @@ exports[`<Switch /> colors color "secondary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Switch /> should pass className 1`] = `
+exports[`<Switch /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -420,7 +420,7 @@ exports[`<Switch /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Switch /> should render with default styles 1`] = `
+exports[`<Switch /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;

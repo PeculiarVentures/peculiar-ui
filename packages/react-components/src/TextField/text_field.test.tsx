@@ -118,7 +118,7 @@ describe('<TextField />', () => {
     });
 
     it('should have value', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       const { asFragment } = render(
         <TextField
@@ -244,7 +244,7 @@ describe('<TextField />', () => {
 
   describe('TextField change behaviour', () => {
     it('should calls onChange after user input', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       render(
         <TextField onChange={onChange} />,

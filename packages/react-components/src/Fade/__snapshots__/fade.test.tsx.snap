@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Fade /> should finish animation 1`] = `
+exports[`<Fade /> > should finish animation 1`] = `
 <DocumentFragment>
   <div
     style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -10,7 +10,7 @@ exports[`<Fade /> should finish animation 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Fade /> should render with default styles 1`] = `
+exports[`<Fade /> > should render with default styles 1`] = `
 <DocumentFragment>
   <div
     style="opacity: 0; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; visibility: hidden;"

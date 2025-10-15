@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<IconButton /> colors color "default" 1`] = `
+exports[`<IconButton /> > colors > color "default" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -102,7 +102,7 @@ exports[`<IconButton /> colors color "default" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<IconButton /> colors color "primary" 1`] = `
+exports[`<IconButton /> > colors > color "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -204,7 +204,7 @@ exports[`<IconButton /> colors color "primary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<IconButton /> colors color "secondary" 1`] = `
+exports[`<IconButton /> > colors > color "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -306,7 +306,7 @@ exports[`<IconButton /> colors color "secondary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<IconButton /> colors color "white" 1`] = `
+exports[`<IconButton /> > colors > color "white" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -408,7 +408,7 @@ exports[`<IconButton /> colors color "white" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<IconButton /> colors color "wrong" 1`] = `
+exports[`<IconButton /> > colors > color "wrong" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -510,7 +510,7 @@ exports[`<IconButton /> colors color "wrong" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<IconButton /> should have title 1`] = `
+exports[`<IconButton /> > should have title 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -613,7 +613,7 @@ exports[`<IconButton /> should have title 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<IconButton /> should pass className 1`] = `
+exports[`<IconButton /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;
@@ -715,7 +715,7 @@ exports[`<IconButton /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<IconButton /> should render as default 1`] = `
+exports[`<IconButton /> > should render as default 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: inherit;

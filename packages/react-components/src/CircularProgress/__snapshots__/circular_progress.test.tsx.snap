@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<CircularProgress /> colors color "primary" 1`] = `
+exports[`<CircularProgress /> > colors > color "primary" 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -95,7 +95,7 @@ exports[`<CircularProgress /> colors color "primary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<CircularProgress /> colors color "secondary" 1`] = `
+exports[`<CircularProgress /> > colors > color "secondary" 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -206,7 +206,7 @@ exports[`<CircularProgress /> colors color "secondary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<CircularProgress /> colors color "white" 1`] = `
+exports[`<CircularProgress /> > colors > color "white" 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -333,7 +333,7 @@ exports[`<CircularProgress /> colors color "white" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<CircularProgress /> should pass className 1`] = `
+exports[`<CircularProgress /> > should pass className 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -412,7 +412,7 @@ exports[`<CircularProgress /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<CircularProgress /> should render with default styles 1`] = `
+exports[`<CircularProgress /> > should render with default styles 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -491,7 +491,7 @@ exports[`<CircularProgress /> should render with default styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<CircularProgress /> sizes size "large" 1`] = `
+exports[`<CircularProgress /> > sizes > size "large" 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -586,7 +586,7 @@ exports[`<CircularProgress /> sizes size "large" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<CircularProgress /> sizes size "small" 1`] = `
+exports[`<CircularProgress /> > sizes > size "small" 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {

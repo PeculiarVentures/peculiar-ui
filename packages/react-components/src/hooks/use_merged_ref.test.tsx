@@ -1,14 +1,10 @@
-import React, {
-  createRef,
-  RefCallback,
-  MutableRefObject,
-  useRef,
-} from 'react';
+import React from 'react';
 import { render } from '../test-utils';
 import { useMergedRef } from './use_merged_ref';
 
-const Component = ({ refs }: { refs: (MutableRefObject<any> | RefCallback<HTMLElement>)[] }) => {
-  const ref = useRef();
+// eslint-disable-next-line @stylistic/max-len
+const Component = ({ refs }: { refs: (React.MutableRefObject<any> | React.RefCallback<HTMLElement>)[] }) => {
+  const ref = React.useRef();
   const mergedRef = useMergedRef(ref, ...refs);
 
   return <div ref={mergedRef} />;
@@ -16,14 +12,14 @@ const Component = ({ refs }: { refs: (MutableRefObject<any> | RefCallback<HTMLEl
 
 describe('useMergedRef()', () => {
   it('should assign node to the refs', () => {
-    const ref = createRef();
+    const ref = React.createRef();
     const reference: { current: HTMLDivElement | null } = {
       current: null,
     };
     let refFromCallback = null;
 
-    const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValue(reference);
-    const refCallback: RefCallback<HTMLElement> = (nodeRef) => {
+    const useRefSpy = vi.spyOn(React, 'useRef').mockReturnValue(reference);
+    const refCallback: React.RefCallback<HTMLElement> = (nodeRef) => {
       refFromCallback = nodeRef;
     };
 

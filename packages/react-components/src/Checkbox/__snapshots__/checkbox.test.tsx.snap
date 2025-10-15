@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Checkbox /> Checkbox render colors color "primary" 1`] = `
+exports[`<Checkbox /> > Checkbox render colors > color "primary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -135,7 +135,7 @@ exports[`<Checkbox /> Checkbox render colors color "primary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Checkbox /> Checkbox render colors color "secondary" 1`] = `
+exports[`<Checkbox /> > Checkbox render colors > color "secondary" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -270,7 +270,7 @@ exports[`<Checkbox /> Checkbox render colors color "secondary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
+exports[`<Checkbox /> > Checkbox render variants > should be checked 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -406,7 +406,7 @@ exports[`<Checkbox /> Checkbox render variants should be checked 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked prop 1`] = `
+exports[`<Checkbox /> > Checkbox render variants > should be checked, defaultChecked prop 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -542,7 +542,7 @@ exports[`<Checkbox /> Checkbox render variants should be checked, defaultChecked
 </DocumentFragment>
 `;
 
-exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
+exports[`<Checkbox /> > Checkbox render variants > should be disabled 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -678,7 +678,7 @@ exports[`<Checkbox /> Checkbox render variants should be disabled 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
+exports[`<Checkbox /> > Checkbox render variants > should have className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -813,7 +813,7 @@ exports[`<Checkbox /> Checkbox render variants should have className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1`] = `
+exports[`<Checkbox /> > Checkbox render variants > should have custom checked icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -948,7 +948,7 @@ exports[`<Checkbox /> Checkbox render variants should have custom checked icon 1
 </DocumentFragment>
 `;
 
-exports[`<Checkbox /> Checkbox render variants should have name attr 1`] = `
+exports[`<Checkbox /> > Checkbox render variants > should have name attr 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -1084,7 +1084,7 @@ exports[`<Checkbox /> Checkbox render variants should have name attr 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
+exports[`<Checkbox /> > Checkbox render variants > should have required 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -1220,7 +1220,7 @@ exports[`<Checkbox /> Checkbox render variants should have required 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
+exports[`<Checkbox /> > Checkbox render variants > should have test id 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;
@@ -1356,7 +1356,7 @@ exports[`<Checkbox /> Checkbox render variants should have test id 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Checkbox /> Checkbox render variants should render as default 1`] = `
+exports[`<Checkbox /> > Checkbox render variants > should render as default 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-inline-box;

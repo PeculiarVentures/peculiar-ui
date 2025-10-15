@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Select /> should pass className 1`] = `
+exports[`<Select /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -129,7 +129,7 @@ exports[`<Select /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Select /> should pass error 1`] = `
+exports[`<Select /> > should pass error 1`] = `
 .emotion-0 {
   margin: 0;
   color: var(--pv-color-black);
@@ -456,7 +456,7 @@ exports[`<Select /> should pass error 1`] = `
 </body>
 `;
 
-exports[`<Select /> should pass loading 1`] = `
+exports[`<Select /> > should pass loading 1`] = `
 .emotion-0 {
   margin: 0;
   color: var(--pv-color-black);
@@ -768,7 +768,7 @@ exports[`<Select /> should pass loading 1`] = `
 </body>
 `;
 
-exports[`<Select /> should pass options 1`] = `
+exports[`<Select /> > should pass options 1`] = `
 .emotion-0 {
   margin: 0;
   color: var(--pv-color-black);
@@ -1165,7 +1165,7 @@ exports[`<Select /> should pass options 1`] = `
 </body>
 `;
 
-exports[`<Select /> should render with default multiple styles 1`] = `
+exports[`<Select /> > should render with default multiple styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -1300,7 +1300,7 @@ exports[`<Select /> should render with default multiple styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Select /> should render with default styles 1`] = `
+exports[`<Select /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -1427,7 +1427,7 @@ exports[`<Select /> should render with default styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Select /> sizes size "large" 1`] = `
+exports[`<Select /> > sizes > size "large" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -1554,7 +1554,7 @@ exports[`<Select /> sizes size "large" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Select /> sizes size "medium" 1`] = `
+exports[`<Select /> > sizes > size "medium" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;
@@ -1681,7 +1681,7 @@ exports[`<Select /> sizes size "medium" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Select /> sizes size "small" 1`] = `
+exports[`<Select /> > sizes > size "small" 1`] = `
 <DocumentFragment>
   .emotion-0 {
   margin: 0;

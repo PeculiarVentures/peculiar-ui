@@ -368,7 +368,7 @@ const AutocompleteTagSize = styled(Typography)({
 });
 
 const AutocompleteInputField = styled(Typography)(
-  () => ({
+  {
     fontFamily: 'inherit',
     outline: 'none',
     boxSizing: 'border-box',
@@ -378,7 +378,7 @@ const AutocompleteInputField = styled(Typography)(
     backgroundColor: 'transparent',
     borderStyle: 'none',
     appearance: 'none',
-  }),
+  },
   (props) => {
     const isDark = props.theme.mode === 'dark';
     const color = isDark

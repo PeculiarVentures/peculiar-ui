@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Flex /> should pass className 1`] = `
+exports[`<Flex /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   min-width: 0px;
@@ -19,7 +19,7 @@ exports[`<Flex /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Flex /> should pass component 1`] = `
+exports[`<Flex /> > should pass component 1`] = `
 <DocumentFragment>
   .emotion-0 {
   min-width: 0px;
@@ -38,7 +38,7 @@ exports[`<Flex /> should pass component 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Flex /> should render size auto 1`] = `
+exports[`<Flex /> > should render size auto 1`] = `
 <DocumentFragment>
   .emotion-0 {
   min-width: 0px;
@@ -55,7 +55,7 @@ exports[`<Flex /> should render size auto 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Flex /> should render size grow 1`] = `
+exports[`<Flex /> > should render size grow 1`] = `
 <DocumentFragment>
   .emotion-0 {
   min-width: 0px;
@@ -75,7 +75,7 @@ exports[`<Flex /> should render size grow 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Flex /> should render with default styles 1`] = `
+exports[`<Flex /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   min-width: 0px;

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<LinearProgress /> colors color "primary" 1`] = `
+exports[`<LinearProgress /> > colors > color "primary" 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -42,7 +42,7 @@ exports[`<LinearProgress /> colors color "primary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<LinearProgress /> colors color "secondary" 1`] = `
+exports[`<LinearProgress /> > colors > color "secondary" 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -84,7 +84,7 @@ exports[`<LinearProgress /> colors color "secondary" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<LinearProgress /> should pass className 1`] = `
+exports[`<LinearProgress /> > should pass className 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -126,7 +126,7 @@ exports[`<LinearProgress /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<LinearProgress /> should render with default styles 1`] = `
+exports[`<LinearProgress /> > should render with default styles 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {

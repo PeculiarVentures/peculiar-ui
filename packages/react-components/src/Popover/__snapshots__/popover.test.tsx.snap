@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Popover /> should render with default open styles 1`] = `
+exports[`<Popover /> > should render with default open styles 1`] = `
 .emotion-0 {
   position: fixed;
   z-index: 1300;
@@ -58,7 +58,7 @@ exports[`<Popover /> should render with default open styles 1`] = `
 </body>
 `;
 
-exports[`<Popover /> should render with default styles 1`] = `
+exports[`<Popover /> > should render with default styles 1`] = `
 <body>
   <div />
 </body>

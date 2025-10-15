@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Slider /> should pass className 1`] = `
+exports[`<Slider /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   height: 16px;
@@ -92,7 +92,7 @@ exports[`<Slider /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Slider /> should render with default styles 1`] = `
+exports[`<Slider /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   height: 16px;

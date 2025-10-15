@@ -114,7 +114,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should be checked', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { asFragment } = render(
         <Checkbox
           id="test-id"
@@ -131,7 +131,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should be unchecked', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       render(
         <Checkbox
@@ -230,7 +230,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should calls onClick prop when clicked', () => {
-      const handleClick = jest.fn();
+      const handleClick = vi.fn();
 
       render(
         <Checkbox id="test-id" onClick={handleClick} />,
@@ -241,7 +241,7 @@ describe('<Checkbox />', () => {
     });
 
     it('should calls onChange prop when clicked', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       render(
         <Checkbox id="test-id" onChange={onChange} />,

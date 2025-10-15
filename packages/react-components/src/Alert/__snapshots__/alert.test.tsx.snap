@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Alert /> should pass className 1`] = `
+exports[`<Alert /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -59,7 +59,7 @@ exports[`<Alert /> should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Alert /> should render with default styles 1`] = `
+exports[`<Alert /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -118,7 +118,7 @@ exports[`<Alert /> should render with default styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Alert /> variants variant "attention" disable icon 1`] = `
+exports[`<Alert /> > variants > variant "attention" > disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -178,7 +178,7 @@ exports[`<Alert /> variants variant "attention" disable icon 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Alert /> variants variant "attention" enable icon 1`] = `
+exports[`<Alert /> > variants > variant "attention" > enable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -282,7 +282,7 @@ exports[`<Alert /> variants variant "attention" enable icon 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Alert /> variants variant "pending" disable icon 1`] = `
+exports[`<Alert /> > variants > variant "pending" > disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -342,7 +342,7 @@ exports[`<Alert /> variants variant "pending" disable icon 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Alert /> variants variant "pending" enable icon 1`] = `
+exports[`<Alert /> > variants > variant "pending" > enable icon 1`] = `
 <DocumentFragment>
   @keyframes animation-0 {
   0% {
@@ -497,7 +497,7 @@ exports[`<Alert /> variants variant "pending" enable icon 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Alert /> variants variant "success" disable icon 1`] = `
+exports[`<Alert /> > variants > variant "success" > disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -557,7 +557,7 @@ exports[`<Alert /> variants variant "success" disable icon 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Alert /> variants variant "success" enable icon 1`] = `
+exports[`<Alert /> > variants > variant "success" > enable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -660,7 +660,7 @@ exports[`<Alert /> variants variant "success" enable icon 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Alert /> variants variant "wrong" disable icon 1`] = `
+exports[`<Alert /> > variants > variant "wrong" > disable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;
@@ -720,7 +720,7 @@ exports[`<Alert /> variants variant "wrong" disable icon 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Alert /> variants variant "wrong" enable icon 1`] = `
+exports[`<Alert /> > variants > variant "wrong" > enable icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: -webkit-box;

@@ -8,7 +8,7 @@ import { useEventCallback } from './use_event_callback';
 
 describe('useEventCallback()', () => {
   it('should do not call the callback during render', () => {
-    const callbackMock = jest.fn();
+    const callbackMock = vi.fn();
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
     render(
@@ -19,7 +19,7 @@ describe('useEventCallback()', () => {
   });
 
   it('should call callback on event trigger', () => {
-    const callbackMock = jest.fn();
+    const callbackMock = vi.fn();
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
     render(
@@ -32,7 +32,7 @@ describe('useEventCallback()', () => {
   });
 
   it('should do not change callback reference on re-render', () => {
-    const { result, rerender } = renderHook(() => useEventCallback(jest.fn()));
+    const { result, rerender } = renderHook(() => useEventCallback(vi.fn()));
     const initialReference = result.current;
 
     rerender();
