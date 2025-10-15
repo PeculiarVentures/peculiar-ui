@@ -142,7 +142,10 @@ exports[`<Menu /> > should pass className 1`] = `
     />
     <div
       class="my-class-name emotion-2"
-      style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; position: absolute; left: 0px; top: 0px;"
+      data-popper-escaped="true"
+      data-popper-placement="bottom-end"
+      data-popper-reference-hidden="true"
+      style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; position: absolute; left: auto; top: 0px; right: 0px; bottom: auto; transform: translate(0px, 0px);"
       tabindex="-1"
     >
       <ul

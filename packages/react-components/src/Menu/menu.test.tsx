@@ -1,6 +1,9 @@
 import React from 'react';
 import {
-  renderWithWrapper as render, fireEvent, screen,
+  renderWithWrapper as render,
+  fireEvent,
+  screen,
+  act,
 } from '../test-utils';
 import { Menu } from './index';
 
@@ -29,7 +32,7 @@ describe('<Menu />', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('should pass className', () => {
+  it('should pass className', async () => {
     const { baseElement } = render(
       <Menu
         options={options}
@@ -42,6 +45,9 @@ describe('<Menu />', () => {
     );
 
     fireEvent.click(screen.getByRole('button'));
+
+    // Popper update() - https://github.com/popperjs/react-popper/issues/350
+    await act(async () => await null);
 
     expect(baseElement).toMatchSnapshot();
   });

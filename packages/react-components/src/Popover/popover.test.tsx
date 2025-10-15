@@ -1,8 +1,8 @@
-import { renderWithWrapper as render } from '../test-utils';
+import { act, renderWithWrapper as render } from '../test-utils';
 import { Popover } from './index';
 
 describe('<Popover />', () => {
-  it('should render with default styles', () => {
+  it('should render with default styles', async () => {
     const { baseElement } = render(
       <Popover
         open={false}
@@ -12,10 +12,13 @@ describe('<Popover />', () => {
       </Popover>,
     );
 
+    // Popper update() - https://github.com/popperjs/react-popper/issues/350
+    await act(async () => await null);
+
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should render with default open styles', () => {
+  it('should render with default open styles', async () => {
     const { baseElement } = render(
       <Popover
         open
@@ -24,6 +27,9 @@ describe('<Popover />', () => {
         <div>Inside</div>
       </Popover>,
     );
+
+    // Popper update() - https://github.com/popperjs/react-popper/issues/350
+    await act(async () => await null);
 
     expect(baseElement).toMatchSnapshot();
   });

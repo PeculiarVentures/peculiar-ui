@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithWrapper as render } from '../test-utils';
+import { renderWithWrapper as render, act } from '../test-utils';
 import { Tooltip } from './index';
 
 describe('<Tooltip />', () => {
@@ -27,7 +27,7 @@ describe('<Tooltip />', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('should pass arrow', () => {
+  it('should pass arrow', async () => {
     const { asFragment } = render(
       <Tooltip
         open
@@ -37,6 +37,9 @@ describe('<Tooltip />', () => {
         <div>Text</div>
       </Tooltip>,
     );
+
+    // Popper update() - https://github.com/popperjs/react-popper/issues/350
+    await act(async () => await null);
 
     expect(asFragment()).toMatchSnapshot();
   });

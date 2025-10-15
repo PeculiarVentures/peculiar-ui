@@ -420,7 +420,10 @@ exports[`<Select /> > should pass error 1`] = `
     />
     <div
       class="emotion-6"
-      style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; position: absolute; left: 0px; top: 0px; width: 0px;"
+      data-popper-escaped="true"
+      data-popper-placement="bottom-start"
+      data-popper-reference-hidden="true"
+      style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; position: absolute; left: 0px; top: 0px; width: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
       tabindex="-1"
     >
       <div
@@ -731,7 +734,10 @@ exports[`<Select /> > should pass loading 1`] = `
     />
     <div
       class="emotion-5"
-      style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; position: absolute; left: 0px; top: 0px; width: 0px;"
+      data-popper-escaped="true"
+      data-popper-placement="bottom-start"
+      data-popper-reference-hidden="true"
+      style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; position: absolute; left: 0px; top: 0px; width: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
       tabindex="-1"
     >
       <div
@@ -1103,7 +1109,10 @@ exports[`<Select /> > should pass options 1`] = `
     />
     <div
       class="emotion-5"
-      style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; position: absolute; left: 0px; top: 0px; width: 0px;"
+      data-popper-escaped="true"
+      data-popper-placement="bottom-start"
+      data-popper-reference-hidden="true"
+      style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; position: absolute; left: 0px; top: 0px; width: 0px; right: auto; bottom: auto; transform: translate(0px, 0px);"
       tabindex="-1"
     >
       <div

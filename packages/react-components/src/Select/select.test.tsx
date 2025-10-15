@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { act } from 'react';
 import {
   renderWithWrapper as render, screen, fireEvent,
 } from '../test-utils';
@@ -64,7 +64,7 @@ describe('<Select />', () => {
     });
   });
 
-  it('should pass loading', () => {
+  it('should pass loading', async () => {
     const { baseElement } = render(
       <Select
         options={[]}
@@ -76,10 +76,13 @@ describe('<Select />', () => {
 
     fireEvent.click(screen.getByRole('combobox'));
 
+    // Popper update() - https://github.com/popperjs/react-popper/issues/350
+    await act(async () => await null);
+
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should pass error', () => {
+  it('should pass error', async () => {
     const { baseElement } = render(
       <Select
         options={[]}
@@ -91,10 +94,13 @@ describe('<Select />', () => {
 
     fireEvent.click(screen.getByRole('combobox'));
 
+    // Popper update() - https://github.com/popperjs/react-popper/issues/350
+    await act(async () => await null);
+
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should pass options', () => {
+  it('should pass options', async () => {
     const { baseElement } = render(
       <Select
         id="test-id"
@@ -103,6 +109,9 @@ describe('<Select />', () => {
     );
 
     fireEvent.click(screen.getByRole('combobox'));
+
+    // Popper update() - https://github.com/popperjs/react-popper/issues/350
+    await act(async () => await null);
 
     expect(baseElement).toMatchSnapshot();
   });
