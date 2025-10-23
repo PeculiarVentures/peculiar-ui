@@ -331,7 +331,7 @@ export const Select = <
   Multiple extends boolean | undefined = false,
 >(
   props: TSelectOwnProps<T, Multiple>,
-): JSX.Element => {
+): React.JSX.Element => {
   const {
     className,
     size = 'medium',

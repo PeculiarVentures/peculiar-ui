@@ -20,8 +20,8 @@ export interface IOverridableComponent<M extends IOverridableTypeMap> {
        */
       component: C;
     } & TOverrideProps<M, C>,
-  ): JSX.Element | null;
-  (props: TDefaultComponentProps<M>): JSX.Element | null;
+  ): React.JSX.Element | null;
+  (props: TDefaultComponentProps<M>): React.JSX.Element | null;
   propTypes?: any;
   displayName?: string;
   defaultProps?: Partial<TDefaultComponentProps<M>>;

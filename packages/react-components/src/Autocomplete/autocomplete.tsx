@@ -422,7 +422,7 @@ const AutocompleteLabel = styled('label')({
 export const Autocomplete = <
   T,
   Multiple extends boolean | undefined = false,
->(props: TAutocompleteOwnProps<T, Multiple>): JSX.Element => {
+>(props: TAutocompleteOwnProps<T, Multiple>): React.JSX.Element => {
   const {
     className,
     size = 'medium',
