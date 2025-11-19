@@ -1,8 +1,12 @@
 {
-  "packages": ["packages/*"],
+  "packages": [
+    "packages/*"
+  ],
   "version": "independent",
   "npmClient": "npm",
-  "npmClientArgs": ["ci"],
+  "npmClientArgs": [
+    "ci"
+  ],
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "command": {
     "publish": {
