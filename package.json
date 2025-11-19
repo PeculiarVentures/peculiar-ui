@@ -35,6 +35,11 @@
   },
   "license": "MIT",
   "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=24",
+      "onFail": "warn"
+    },
     "packageManager": {
       "name": "npm",
       "version": ">=10",
