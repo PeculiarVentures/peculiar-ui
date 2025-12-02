@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.5.3...@peculiar/react-components@1.6.0) (2025-12-02)
+
+
+### Features
+
+* **react-components:** add 'divider' option to menu ([b1e73b2](https://github.com/PeculiarVentures/peculiar-ui/commit/b1e73b273f80907e161c7525fa94a3b17319dc08))
+
+
+
+
+
 ## [1.5.3](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.5.2...@peculiar/react-components@1.5.3) (2025-10-23)
 
 **Note:** Version bump only for package @peculiar/react-components
