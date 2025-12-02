@@ -23,6 +23,7 @@ const meta: Meta<typeof Menu> = {
         label: 'Save to my profile',
         startIcon: <PlusIcon />,
       },
+      'divider',
       {
         label: 'Options',
         subOptions: [

@@ -41,7 +41,7 @@ interface IMenuOwnProps {
   /**
    * Menu contents.
    */
-  options: TMenuOptionProps[];
+  options: (TMenuOptionProps | 'divider')[];
   /**
    * Callback fired when the component requests to be closed.
    */
@@ -60,6 +60,13 @@ export type TMenuProps = IMenuOwnProps;
 /**
  * Styles.
  */
+const Divider = styled('hr')({
+  height: '1px',
+  backgroundColor: 'var(--pv-color-gray-5)',
+  margin: 'var(--pv-size-base) 0px',
+  border: 'none',
+});
+
 const MenuPopover = styled(Popover)({
   '&[data-popper-placement^="bottom"]': {
     margin: 'var(--pv-size-base-3) 0px',
@@ -121,7 +128,13 @@ export const Menu = React.forwardRef<HTMLDivElement, TMenuProps>((props, ref) =>
     }
   };
 
-  const renderOption = (option: TMenuOptionProps, index: number) => {
+  const renderOption = (option: IMenuOwnProps['options'][number], index: number) => {
+    if (option === 'divider') {
+      return (
+        <Divider key={index} />
+      );
+    }
+
     const {
       component,
       disabled,
