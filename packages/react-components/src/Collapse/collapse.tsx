@@ -167,6 +167,7 @@ export const Collapse: React.FC<TCollapseProps> = (props) => {
     <Transition
       in={inProp}
       timeout={timeout}
+      nodeRef={nodeRef}
       onEnter={handleEnter}
       onEntering={handleEntering}
       onEntered={handleEntered}
