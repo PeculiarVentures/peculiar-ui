@@ -20,3 +20,4 @@ export { useEventCallback } from './use_event_callback';
 export { useEnhancedEffect } from './use_enhanced_effect';
 export { useDebounceCallback } from './use_debounce_callback';
 export { useOutsideClick } from './use_outside_click';
+export { createDialog } from './create_dialog';

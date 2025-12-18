@@ -1,0 +1,82 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import * as Stories from './create_dialog.stories';
+
+<Meta title="Hooks/createDialog" />
+
+## Overview
+
+Generic hook factory for managing dialog state. The `createDialog` function creates a reusable hook that manages the open/close state of a dialog component and provides parameters to the dialog when opened.
+
+## Usage
+
+The `createDialog` function is a factory that accepts a component function and returns a hook. The component function receives `openParams` (the parameters passed when opening the dialog) and a `close` function.
+
+```tsx
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+  createDialog,
+} from '@peculiar/react-components';
+
+interface IConfirmDialogParams {
+  message: string;
+  onConfirm: VoidFunction;
+}
+
+const useConfirmDialog = createDialog<IConfirmDialogParams>(({
+  openParams,
+  close,
+}) => {
+  const handleConfirm = () => {
+    openParams.onConfirm();
+    close();
+  };
+
+  return (
+    <Dialog open onClose={close}>
+      <DialogTitle>
+        Confirm Action
+      </DialogTitle>
+      <DialogContent dividers={false}>
+        {openParams.message}
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={close}>Cancel</Button>
+        <Button variant="contained" onClick={handleConfirm}>
+          Confirm
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+});
+
+// Usage in component
+function MyComponent() {
+  const confirmDialog = useConfirmDialog();
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          confirmDialog.open({
+            message: 'Are you sure?',
+            onConfirm: () => {
+              console.log('Confirmed!');
+            },
+          });
+        }}
+      >
+        Open Dialog
+      </Button>
+      {confirmDialog.dialog}
+    </>
+  );
+}
+```
+
+## Demo
+
+<Canvas of={Stories.ConfirmDialogExample} />
