@@ -24,12 +24,13 @@ type TDialogActionsProps = IDialogActionsOwnProps & React.HTMLAttributes<HTMLDiv
  * Styles.
  */
 const DialogActionsRoot = styled('footer')({
-  padding: 'var(--pv-size-base-3) var(--pv-size-base-4) var(--pv-size-base-4)',
+  padding: '0 calc(var(--pv-size-base) * 6)',
   flex: '0 0 auto',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
-  gap: 'var(--pv-size-base-2)',
+  gap: 'calc(var(--pv-size-base) * 2)',
+  height: 'calc(var(--pv-size-base) * 19)',
 });
 /**
  *

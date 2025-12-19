@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Typography } from '../Typography';
-import { IconButton } from '../IconButton';
-import { CloseIcon } from '../icons';
 
 /**
  * Types.
@@ -17,9 +15,9 @@ interface IDialogTitleOwnProps {
    */
   className?: string;
   /**
-   * Callback fired when the component requests to be closed.
+   * Element placed before the title.
    */
-  onClose?: () => void;
+  startIcon?: React.ReactNode;
 };
 
 type TDialogTitleProps = IDialogTitleOwnProps & React.HTMLAttributes<HTMLDivElement>;
@@ -31,11 +29,13 @@ type TDialogTitleProps = IDialogTitleOwnProps & React.HTMLAttributes<HTMLDivElem
  * Styles.
  */
 const DialogTitleRoot = styled('header')({
-  padding: 'var(--pv-size-base-4) var(--pv-size-base-4) var(--pv-size-base-2)',
+  padding: '0 calc(var(--pv-size-base) * 6)',
+  alignItems: 'center',
   display: 'flex',
   flex: '0 0 auto',
-  justifyContent: 'space-between',
-  gap: 'var(--pv-size-base-2)',
+  gap: 'calc(var(--pv-size-base) * 2)',
+  height: 'calc(var(--pv-size-base) * 12)',
+  borderBottom: '1px solid var(--pv-color-gray-5)',
 });
 /**
  *
@@ -44,7 +44,7 @@ const DialogTitleRoot = styled('header')({
 export const DialogTitle = React.forwardRef<HTMLDivElement, TDialogTitleProps>((props, ref) => {
   const {
     children,
-    onClose,
+    startIcon,
     ...other
   } = props;
 
@@ -54,21 +54,13 @@ export const DialogTitle = React.forwardRef<HTMLDivElement, TDialogTitleProps>((
       data-key="dialog.title"
       {...other}
     >
+      {startIcon}
       <Typography
         variant="h4"
         color="inherit"
       >
         {children}
       </Typography>
-
-      {onClose && (
-        <IconButton
-          size="small"
-          onClick={onClose}
-        >
-          <CloseIcon />
-        </IconButton>
-      )}
     </DialogTitleRoot>
   );
 });
