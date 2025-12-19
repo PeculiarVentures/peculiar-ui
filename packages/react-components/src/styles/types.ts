@@ -113,23 +113,7 @@ export type TTypographyType = (
   | 'c2'
 );
 
-export type TSizeType = (
-  'base-half'
-  | 'base'
-  | 'base-2'
-  | 'base-3'
-  | 'base-4'
-  | 'base-5'
-  | 'base-6'
-  | 'base-7'
-  | 'base-8'
-  | 'base-9'
-  | 'base-10'
-  | 'base-11'
-  | 'base-12'
-  | 'base-14'
-  | 'base-16'
-);
+export type TSizeType = 'base';
 
 export interface IThemeType {
   color: Record<TColorType, string>;

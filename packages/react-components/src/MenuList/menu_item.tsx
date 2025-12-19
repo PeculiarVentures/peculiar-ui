@@ -49,11 +49,11 @@ const MenuItemRoot = styled('li', {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'disabled',
 })<IMenuItemOwnProps>(
   (props) => ({
-    padding: '0px var(--pv-size-base-2)',
+    padding: '0px calc(var(--pv-size-base) * 2)',
     fontFamily: 'inherit',
     outline: 'none',
     width: '100%',
-    height: 'var(--pv-size-base-7)',
+    height: 'calc(var(--pv-size-base) * 7)',
     display: 'flex',
     textAlign: 'left',
     alignItems: 'center',
@@ -64,7 +64,7 @@ const MenuItemRoot = styled('li', {
     backgroundColor: 'transparent',
     border: 'none',
     boxSizing: 'border-box',
-    gap: 'var(--pv-size-base-2)',
+    gap: 'calc(var(--pv-size-base) * 2)',
     cursor: props.disabled
       ? 'not-allowed'
       : 'pointer',

@@ -36,9 +36,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "contained" &
   color: var(--pv-color-black);
   box-shadow: var(--pv-shadow-light-low);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -129,9 +129,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "contained" &
   color: var(--pv-color-primary-contrast);
   box-shadow: var(--pv-shadow-light-low);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -222,9 +222,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "contained" &
   color: var(--pv-color-secondary-contrast);
   box-shadow: var(--pv-shadow-light-low);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -315,9 +315,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "contained" &
   color: var(--pv-color-black);
   box-shadow: var(--pv-shadow-light-low);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -408,9 +408,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "contained" &
   color: var(--pv-color-wrong-contrast);
   box-shadow: var(--pv-shadow-light-low);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -500,9 +500,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "outlined" & 
   border-color: var(--pv-color-gray-7);
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -591,9 +591,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "outlined" & 
   border-color: var(--pv-color-primary-tint-2);
   color: var(--pv-color-primary);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -682,9 +682,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "outlined" & 
   border-color: var(--pv-color-secondary-tint-2);
   color: var(--pv-color-secondary);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -773,9 +773,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "outlined" & 
   border-color: var(--pv-color-white);
   color: var(--pv-color-white);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -864,9 +864,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "outlined" & 
   border-color: var(--pv-color-wrong-tint-2);
   color: var(--pv-color-wrong);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -954,9 +954,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "text" & colo
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -1043,9 +1043,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "text" & colo
   text-decoration: none;
   color: var(--pv-color-primary);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -1132,9 +1132,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "text" & colo
   text-decoration: none;
   color: var(--pv-color-secondary);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -1221,9 +1221,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "text" & colo
   text-decoration: none;
   color: var(--pv-color-white);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -1310,9 +1310,9 @@ exports[`<Button /> > Button render (variants & colors) > variant: "text" & colo
   text-decoration: none;
   color: var(--pv-color-wrong);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -1399,9 +1399,9 @@ exports[`<Button /> > Button render as an anchor > should rendered as an anchor 
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -1489,9 +1489,9 @@ exports[`<Button /> > Button render sizes > size "large" 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-8);
-  min-width: var(--pv-size-base-8);
-  padding: 0 var(--pv-size-base-4);
+  height: calc(var(--pv-size-base) * 8);
+  min-width: calc(var(--pv-size-base) * 8);
+  padding: 0 calc(var(--pv-size-base) * 4);
 }
 
 .emotion-0:disabled {
@@ -1578,9 +1578,9 @@ exports[`<Button /> > Button render sizes > size "medium" 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -1667,9 +1667,9 @@ exports[`<Button /> > Button render sizes > size "small" 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-6);
-  min-width: var(--pv-size-base-6);
-  padding: 0 var(--pv-size-base-2);
+  height: calc(var(--pv-size-base) * 6);
+  min-width: calc(var(--pv-size-base) * 6);
+  padding: 0 calc(var(--pv-size-base) * 2);
 }
 
 .emotion-0:disabled {
@@ -1756,9 +1756,9 @@ exports[`<Button /> > Button render variants > should be disabled 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -1846,9 +1846,9 @@ exports[`<Button /> > Button render variants > should have class name 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -1935,9 +1935,9 @@ exports[`<Button /> > Button render variants > should have end icon 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -2046,9 +2046,9 @@ exports[`<Button /> > Button render variants > should have start icon 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -2157,9 +2157,9 @@ exports[`<Button /> > Button render variants > should have test id 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -2247,9 +2247,9 @@ exports[`<Button /> > Button render variants > should have text variant 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {
@@ -2336,9 +2336,9 @@ exports[`<Button /> > Button render variants > should have title 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
-  padding: 0 var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
+  padding: 0 calc(var(--pv-size-base) * 3);
 }
 
 .emotion-0:disabled {

@@ -65,9 +65,9 @@ export type TSwitchProps = ISwitchOwnProps & Omit<React.LabelHTMLAttributes<HTML
  */
 const SwitchRoot = styled('label')({
   display: 'inline-flex',
-  width: 'var(--pv-size-base-7)',
-  height: 'var(--pv-size-base-4)',
-  borderRadius: 'var(--pv-size-base-4)',
+  width: 'calc(var(--pv-size-base) * 7)',
+  height: 'calc(var(--pv-size-base) * 4)',
+  borderRadius: 'calc(var(--pv-size-base) * 4)',
   justifyContent: 'center',
   position: 'relative',
   alignItems: 'center',
@@ -162,8 +162,8 @@ const SwitchInput = styled('input', {
 const SwitchDot = styled(Box)({
   display: 'block',
   position: 'absolute',
-  width: 'var(--pv-size-base-3)',
-  height: 'var(--pv-size-base-3)',
+  width: 'calc(var(--pv-size-base) * 3)',
+  height: 'calc(var(--pv-size-base) * 3)',
   transition: 'transform 200ms',
   boxShadow: 'var(--pv-shadow-light-low)',
   transform: 'translateX(calc(-50% + 2px))',

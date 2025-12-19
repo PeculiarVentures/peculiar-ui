@@ -13,7 +13,7 @@ exports[`<NativeSelect /> > should pass className 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -28,7 +28,7 @@ exports[`<NativeSelect /> > should pass className 1`] = `
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -112,7 +112,7 @@ exports[`<NativeSelect /> > should render with default styles 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -127,7 +127,7 @@ exports[`<NativeSelect /> > should render with default styles 1`] = `
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -209,7 +209,7 @@ exports[`<NativeSelect /> > sizes > size "large" 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -224,7 +224,7 @@ exports[`<NativeSelect /> > sizes > size "large" 1`] = `
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  height: var(--pv-size-base-8);
+  height: calc(var(--pv-size-base) * 8);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -306,7 +306,7 @@ exports[`<NativeSelect /> > sizes > size "medium" 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -321,7 +321,7 @@ exports[`<NativeSelect /> > sizes > size "medium" 1`] = `
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -403,7 +403,7 @@ exports[`<NativeSelect /> > sizes > size "small" 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -418,7 +418,7 @@ exports[`<NativeSelect /> > sizes > size "small" 1`] = `
   font-size: var(--pv-text-c1-size);
   line-height: var(--pv-text-c1-height);
   letter-spacing: var(--pv-text-c1-spacing);
-  height: var(--pv-size-base-6);
+  height: calc(var(--pv-size-base) * 6);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }

@@ -11,8 +11,8 @@ exports[`<Alert /> > should pass className 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   width: 100%;
-  gap: var(--pv-size-base-2);
-  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  gap: calc(var(--pv-size-base) * 2);
+  padding: calc(var(--pv-size-base) * 2) calc(var(--pv-size-base) * 4);
   box-sizing: border-box;
   border-radius: 4px;
   background-color: var(--pv-color-black);
@@ -70,8 +70,8 @@ exports[`<Alert /> > should render with default styles 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   width: 100%;
-  gap: var(--pv-size-base-2);
-  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  gap: calc(var(--pv-size-base) * 2);
+  padding: calc(var(--pv-size-base) * 2) calc(var(--pv-size-base) * 4);
   box-sizing: border-box;
   border-radius: 4px;
   background-color: var(--pv-color-black);
@@ -129,8 +129,8 @@ exports[`<Alert /> > variants > variant "attention" > disable icon 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   width: 100%;
-  gap: var(--pv-size-base-2);
-  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  gap: calc(var(--pv-size-base) * 2);
+  padding: calc(var(--pv-size-base) * 2) calc(var(--pv-size-base) * 4);
   box-sizing: border-box;
   border-radius: 4px;
   background-color: var(--pv-color-black);
@@ -189,8 +189,8 @@ exports[`<Alert /> > variants > variant "attention" > enable icon 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   width: 100%;
-  gap: var(--pv-size-base-2);
-  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  gap: calc(var(--pv-size-base) * 2);
+  padding: calc(var(--pv-size-base) * 2) calc(var(--pv-size-base) * 4);
   box-sizing: border-box;
   border-radius: 4px;
   background-color: var(--pv-color-black);
@@ -293,8 +293,8 @@ exports[`<Alert /> > variants > variant "pending" > disable icon 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   width: 100%;
-  gap: var(--pv-size-base-2);
-  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  gap: calc(var(--pv-size-base) * 2);
+  padding: calc(var(--pv-size-base) * 2) calc(var(--pv-size-base) * 4);
   box-sizing: border-box;
   border-radius: 4px;
   background-color: var(--pv-color-black);
@@ -386,8 +386,8 @@ exports[`<Alert /> > variants > variant "pending" > enable icon 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   width: 100%;
-  gap: var(--pv-size-base-2);
-  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  gap: calc(var(--pv-size-base) * 2);
+  padding: calc(var(--pv-size-base) * 2) calc(var(--pv-size-base) * 4);
   box-sizing: border-box;
   border-radius: 4px;
   background-color: var(--pv-color-black);
@@ -416,8 +416,8 @@ exports[`<Alert /> > variants > variant "pending" > enable icon 1`] = `
   color: var(--pv-color-secondary);
   -webkit-animation: animation-0 1.4s linear infinite;
   animation: animation-0 1.4s linear infinite;
-  height: var(--pv-size-base-3);
-  width: var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 3);
+  width: calc(var(--pv-size-base) * 3);
 }
 
 .emotion-3 {
@@ -508,8 +508,8 @@ exports[`<Alert /> > variants > variant "success" > disable icon 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   width: 100%;
-  gap: var(--pv-size-base-2);
-  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  gap: calc(var(--pv-size-base) * 2);
+  padding: calc(var(--pv-size-base) * 2) calc(var(--pv-size-base) * 4);
   box-sizing: border-box;
   border-radius: 4px;
   background-color: var(--pv-color-black);
@@ -568,8 +568,8 @@ exports[`<Alert /> > variants > variant "success" > enable icon 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   width: 100%;
-  gap: var(--pv-size-base-2);
-  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  gap: calc(var(--pv-size-base) * 2);
+  padding: calc(var(--pv-size-base) * 2) calc(var(--pv-size-base) * 4);
   box-sizing: border-box;
   border-radius: 4px;
   background-color: var(--pv-color-black);
@@ -671,8 +671,8 @@ exports[`<Alert /> > variants > variant "wrong" > disable icon 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   width: 100%;
-  gap: var(--pv-size-base-2);
-  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  gap: calc(var(--pv-size-base) * 2);
+  padding: calc(var(--pv-size-base) * 2) calc(var(--pv-size-base) * 4);
   box-sizing: border-box;
   border-radius: 4px;
   background-color: var(--pv-color-wrong-tint-5);
@@ -731,8 +731,8 @@ exports[`<Alert /> > variants > variant "wrong" > enable icon 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   width: 100%;
-  gap: var(--pv-size-base-2);
-  padding: var(--pv-size-base-2) var(--pv-size-base-4);
+  gap: calc(var(--pv-size-base) * 2);
+  padding: calc(var(--pv-size-base) * 2) calc(var(--pv-size-base) * 4);
   box-sizing: border-box;
   border-radius: 4px;
   background-color: var(--pv-color-wrong-tint-5);

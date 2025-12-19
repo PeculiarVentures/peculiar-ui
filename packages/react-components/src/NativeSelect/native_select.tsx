@@ -99,7 +99,7 @@ const NativeSelectRoot = styled('select')<TNativeSelectRootProps>(
     boxSizing: 'border-box',
     width: '100%',
     borderRadius: '4px',
-    padding: '0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2)',
+    padding: '0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2)',
     backgroundColor: 'var(--pv-color-gray-1)',
     borderStyle: 'solid',
     borderWidth: '1px',
@@ -111,13 +111,13 @@ const NativeSelectRoot = styled('select')<TNativeSelectRootProps>(
     lineHeight: 'var(--pv-text-c1-height)',
     letterSpacing: 'var(--pv-text-c1-spacing)',
     ...(props.selectSize === 'small' && {
-      height: 'var(--pv-size-base-6)',
+      height: 'calc(var(--pv-size-base) * 6)',
     }),
     ...(props.selectSize === 'medium' && {
-      height: 'var(--pv-size-base-7)',
+      height: 'calc(var(--pv-size-base) * 7)',
     }),
     ...(props.selectSize === 'large' && {
-      height: 'var(--pv-size-base-8)',
+      height: 'calc(var(--pv-size-base) * 8)',
     }),
   }),
   (props) => {

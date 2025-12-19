@@ -74,8 +74,8 @@ export type TCheckboxProps = ICheckboxOwnProps & Omit<React.LabelHTMLAttributes<
  */
 const CheckboxRoot = styled('label')({
   display: 'inline-flex',
-  width: 'var(--pv-size-base-4)',
-  height: 'var(--pv-size-base-4)',
+  width: 'calc(var(--pv-size-base) * 4)',
+  height: 'calc(var(--pv-size-base) * 4)',
   position: 'relative',
   flexShrink: 0,
 });

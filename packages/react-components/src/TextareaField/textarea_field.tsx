@@ -96,7 +96,7 @@ const TextareaFieldInput = styled(Typography)<TTextareaFieldProps>(
     boxSizing: 'border-box',
     width: '100%',
     borderRadius: '4px',
-    padding: 'var(--pv-size-base) var(--pv-size-base-2)',
+    padding: 'var(--pv-size-base) calc(var(--pv-size-base) * 2)',
     backgroundColor: 'var(--pv-color-gray-1)',
     borderStyle: 'solid',
     borderWidth: '1px',
@@ -105,13 +105,13 @@ const TextareaFieldInput = styled(Typography)<TTextareaFieldProps>(
     appearance: 'none',
     resize: 'none',
     ...(props.size === 'small' && {
-      minHeight: 'var(--pv-size-base-12)',
+      minHeight: 'calc(var(--pv-size-base) * 12)',
     }),
     ...(props.size === 'medium' && {
-      minHeight: 'var(--pv-size-base-14)',
+      minHeight: 'calc(var(--pv-size-base) * 14)',
     }),
     ...(props.size === 'large' && {
-      minHeight: 'var(--pv-size-base-16)',
+      minHeight: 'calc(var(--pv-size-base) * 16)',
     }),
   }),
   (props) => {

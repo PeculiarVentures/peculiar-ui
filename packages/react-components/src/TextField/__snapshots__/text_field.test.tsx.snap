@@ -14,7 +14,7 @@ exports[`<TextField /> > TextField render sizes > size "large" 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -28,7 +28,7 @@ exports[`<TextField /> > TextField render sizes > size "large" 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-8);
+  height: calc(var(--pv-size-base) * 8);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -108,7 +108,7 @@ exports[`<TextField /> > TextField render sizes > size "medium" 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -122,7 +122,7 @@ exports[`<TextField /> > TextField render sizes > size "medium" 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -202,7 +202,7 @@ exports[`<TextField /> > TextField render sizes > size "small" 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -216,7 +216,7 @@ exports[`<TextField /> > TextField render sizes > size "small" 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-6);
+  height: calc(var(--pv-size-base) * 6);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -296,7 +296,7 @@ exports[`<TextField /> > TextField render variants > should be disabled 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -310,7 +310,7 @@ exports[`<TextField /> > TextField render variants > should be disabled 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -391,7 +391,7 @@ exports[`<TextField /> > TextField render variants > should have className 1`] =
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -405,7 +405,7 @@ exports[`<TextField /> > TextField render variants > should have className 1`] =
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -487,7 +487,7 @@ exports[`<TextField /> > TextField render variants > should have defaultValue 1`
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -501,7 +501,7 @@ exports[`<TextField /> > TextField render variants > should have defaultValue 1`
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -581,7 +581,7 @@ exports[`<TextField /> > TextField render variants > should have error alert 1`]
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -595,7 +595,7 @@ exports[`<TextField /> > TextField render variants > should have error alert 1`]
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -705,7 +705,7 @@ exports[`<TextField /> > TextField render variants > should have label 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -719,7 +719,7 @@ exports[`<TextField /> > TextField render variants > should have label 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -810,7 +810,7 @@ exports[`<TextField /> > TextField render variants > should have name attr 1`] =
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -824,7 +824,7 @@ exports[`<TextField /> > TextField render variants > should have name attr 1`] =
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -905,7 +905,7 @@ exports[`<TextField /> > TextField render variants > should have placeholder 1`]
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -919,7 +919,7 @@ exports[`<TextField /> > TextField render variants > should have placeholder 1`]
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -1000,7 +1000,7 @@ exports[`<TextField /> > TextField render variants > should have required 1`] = 
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -1014,7 +1014,7 @@ exports[`<TextField /> > TextField render variants > should have required 1`] = 
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -1095,7 +1095,7 @@ exports[`<TextField /> > TextField render variants > should have value 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -1109,7 +1109,7 @@ exports[`<TextField /> > TextField render variants > should have value 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -1189,7 +1189,7 @@ exports[`<TextField /> > TextField render variants > should render as default 1`
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -1203,7 +1203,7 @@ exports[`<TextField /> > TextField render variants > should render as default 1`
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }

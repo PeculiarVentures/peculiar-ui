@@ -164,7 +164,7 @@ const AutocompleteField = styled(Box, {
     alignItems: 'center',
     flexWrap: 'wrap',
     gap: 'var(--pv-size-base)',
-    minHeight: 'var(--pv-size-base-8)',
+    minHeight: 'calc(var(--pv-size-base) * 8)',
   },
   (props) => {
     const actions = props.isHasClearIcon ? '48px' : '24px';
@@ -172,20 +172,20 @@ const AutocompleteField = styled(Box, {
     switch (props.size) {
       case 'small':
         return {
-          minHeight: 'var(--pv-size-base-6)',
-          padding: `1px calc(var(--pv-size-base-2) + ${actions}) 1px var(--pv-size-base-2)`,
+          minHeight: 'calc(var(--pv-size-base) * 6)',
+          padding: `1px calc(var(--pv-size-base) * 2 + ${actions}) 1px calc(var(--pv-size-base) * 2)`,
         };
 
       case 'medium':
         return {
-          minHeight: 'var(--pv-size-base-7)',
-          padding: `1px calc(var(--pv-size-base-2) + ${actions}) 1px var(--pv-size-base-2)`,
+          minHeight: 'calc(var(--pv-size-base) * 7)',
+          padding: `1px calc(var(--pv-size-base) * 2 + ${actions}) 1px calc(var(--pv-size-base) * 2)`,
         };
 
       default:
         return {
-          minHeight: 'var(--pv-size-base-8)',
-          padding: `3px calc(var(--pv-size-base-2) + ${actions}) 3px var(--pv-size-base-2)`,
+          minHeight: 'calc(var(--pv-size-base) * 8)',
+          padding: `3px calc(var(--pv-size-base) * 2 + ${actions}) 3px calc(var(--pv-size-base) * 2)`,
         };
     }
   },
@@ -292,7 +292,7 @@ const AutocompleteNativeInput = styled('input')({
 });
 
 const AutocompleteDropdownStateItem = styled('div')({
-  padding: 'var(--pv-size-base-3) var(--pv-size-base-2)',
+  padding: 'calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2)',
 });
 
 const AutocompleteDropdownList = styled('ul')({
@@ -306,7 +306,7 @@ const AutocompleteDropdownList = styled('ul')({
 
 const AutocompleteDropdownGroupName = styled(Typography)(
   (props) => ({
-    padding: 'var(--pv-size-base-2)',
+    padding: 'calc(var(--pv-size-base) * 2)',
     color: props.theme.mode === 'dark'
       ? 'var(--pv-color-gray-6)'
       : 'var(--pv-color-gray-9)',
@@ -321,7 +321,7 @@ const AutocompleteDropdownGroupList = styled('ul')({
 const AutocompleteDropdownGroupListItem = styled(MenuItem)<Required<{ inGroup: boolean }>>(
   (props) => ({
     ...(props.inGroup && {
-      padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)',
+      padding: '0px calc(var(--pv-size-base) * 2) 0 calc(var(--pv-size-base) * 3)',
     }),
   }),
 );
@@ -356,7 +356,7 @@ const AutocompletePopover = styled(Popper)(
 const AutocompleteTag = styled(Chip)({
   label: 'Autocomplete-tag',
   borderRadius: '4px',
-  height: 'var(--pv-size-base-5)',
+  height: 'calc(var(--pv-size-base) * 5)',
   margin: 0,
   backgroundColor: 'var(--pv-color-gray-2)',
   borderColor: 'var(--pv-color-gray-5)',
@@ -364,7 +364,7 @@ const AutocompleteTag = styled(Chip)({
 });
 
 const AutocompleteTagSize = styled(Typography)({
-  margin: '0 var(--pv-size-base-2)',
+  margin: '0 calc(var(--pv-size-base) * 2)',
 });
 
 const AutocompleteInputField = styled(Typography)(

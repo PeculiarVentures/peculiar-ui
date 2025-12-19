@@ -36,9 +36,9 @@ exports[`<Fab /> > should pass className 1`] = `
   color: var(--pv-color-primary-contrast);
   box-shadow: var(--pv-shadow-light-low);
   border-radius: 50%;
-  height: var(--pv-size-base-11);
-  width: var(--pv-size-base-11);
-  padding: var(--pv-size-base-2);
+  height: calc(var(--pv-size-base) * 11);
+  width: calc(var(--pv-size-base) * 11);
+  padding: calc(var(--pv-size-base) * 2);
 }
 
 .emotion-0:disabled {
@@ -142,9 +142,9 @@ exports[`<Fab /> > should render as default 1`] = `
   color: var(--pv-color-primary-contrast);
   box-shadow: var(--pv-shadow-light-low);
   border-radius: 50%;
-  height: var(--pv-size-base-11);
-  width: var(--pv-size-base-11);
-  padding: var(--pv-size-base-2);
+  height: calc(var(--pv-size-base) * 11);
+  width: calc(var(--pv-size-base) * 11);
+  padding: calc(var(--pv-size-base) * 2);
 }
 
 .emotion-0:disabled {
@@ -248,9 +248,9 @@ exports[`<Fab /> > variants > variant "contained" 1`] = `
   color: var(--pv-color-primary-contrast);
   box-shadow: var(--pv-shadow-light-low);
   border-radius: 50%;
-  height: var(--pv-size-base-11);
-  width: var(--pv-size-base-11);
-  padding: var(--pv-size-base-2);
+  height: calc(var(--pv-size-base) * 11);
+  width: calc(var(--pv-size-base) * 11);
+  padding: calc(var(--pv-size-base) * 2);
 }
 
 .emotion-0:disabled {
@@ -353,9 +353,9 @@ exports[`<Fab /> > variants > variant "outlined" 1`] = `
   border-color: var(--pv-color-primary-tint-2);
   color: var(--pv-color-primary);
   border-radius: 50%;
-  height: var(--pv-size-base-11);
-  width: var(--pv-size-base-11);
-  padding: var(--pv-size-base-2);
+  height: calc(var(--pv-size-base) * 11);
+  width: calc(var(--pv-size-base) * 11);
+  padding: calc(var(--pv-size-base) * 2);
 }
 
 .emotion-0:disabled {

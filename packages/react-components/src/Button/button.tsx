@@ -42,33 +42,33 @@ export type TButtonProps<
 const ButtonRoot = styled(ButtonBase)<IButtonOwnProps>((props) => ({
   borderRadius: '4px',
   ...(props.size === 'small' && {
-    height: 'var(--pv-size-base-6)',
-    minWidth: 'var(--pv-size-base-6)',
+    height: 'calc(var(--pv-size-base) * 6)',
+    minWidth: 'calc(var(--pv-size-base) * 6)',
     ...(props.circled && {
-      borderRadius: 'var(--pv-size-base-6)',
+      borderRadius: 'calc(var(--pv-size-base) * 6)',
     }),
     ...(!props.withoutPadding && {
-      padding: '0 var(--pv-size-base-2)',
+      padding: '0 calc(var(--pv-size-base) * 2)',
     }),
   }),
   ...(props.size === 'medium' && {
-    height: 'var(--pv-size-base-7)',
-    minWidth: 'var(--pv-size-base-7)',
+    height: 'calc(var(--pv-size-base) * 7)',
+    minWidth: 'calc(var(--pv-size-base) * 7)',
     ...(props.circled && {
-      borderRadius: 'var(--pv-size-base-7)',
+      borderRadius: 'calc(var(--pv-size-base) * 7)',
     }),
     ...(!props.withoutPadding && {
-      padding: '0 var(--pv-size-base-3)',
+      padding: '0 calc(var(--pv-size-base) * 3)',
     }),
   }),
   ...(props.size === 'large' && {
-    height: 'var(--pv-size-base-8)',
-    minWidth: 'var(--pv-size-base-8)',
+    height: 'calc(var(--pv-size-base) * 8)',
+    minWidth: 'calc(var(--pv-size-base) * 8)',
     ...(props.circled && {
-      borderRadius: 'var(--pv-size-base-8)',
+      borderRadius: 'calc(var(--pv-size-base) * 8)',
     }),
     ...(!props.withoutPadding && {
-      padding: '0 var(--pv-size-base-4)',
+      padding: '0 calc(var(--pv-size-base) * 4)',
     }),
   }),
 }));

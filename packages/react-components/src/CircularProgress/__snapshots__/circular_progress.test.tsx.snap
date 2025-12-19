@@ -58,8 +58,8 @@ exports[`<CircularProgress /> > colors > color "primary" 1`] = `
   color: var(--pv-color-primary);
   -webkit-animation: animation-0 1.4s linear infinite;
   animation: animation-0 1.4s linear infinite;
-  height: var(--pv-size-base-6);
-  width: var(--pv-size-base-6);
+  height: calc(var(--pv-size-base) * 6);
+  width: calc(var(--pv-size-base) * 6);
 }
 
 .emotion-1 {
@@ -169,8 +169,8 @@ exports[`<CircularProgress /> > colors > color "secondary" 1`] = `
   color: var(--pv-color-secondary);
   -webkit-animation: animation-0 1.4s linear infinite;
   animation: animation-0 1.4s linear infinite;
-  height: var(--pv-size-base-6);
-  width: var(--pv-size-base-6);
+  height: calc(var(--pv-size-base) * 6);
+  width: calc(var(--pv-size-base) * 6);
 }
 
 .emotion-1 {
@@ -296,8 +296,8 @@ exports[`<CircularProgress /> > colors > color "white" 1`] = `
   color: var(--pv-color-white);
   -webkit-animation: animation-0 1.4s linear infinite;
   animation: animation-0 1.4s linear infinite;
-  height: var(--pv-size-base-6);
-  width: var(--pv-size-base-6);
+  height: calc(var(--pv-size-base) * 6);
+  width: calc(var(--pv-size-base) * 6);
 }
 
 .emotion-1 {
@@ -375,8 +375,8 @@ exports[`<CircularProgress /> > should pass className 1`] = `
   color: var(--pv-color-primary);
   -webkit-animation: animation-0 1.4s linear infinite;
   animation: animation-0 1.4s linear infinite;
-  height: var(--pv-size-base-6);
-  width: var(--pv-size-base-6);
+  height: calc(var(--pv-size-base) * 6);
+  width: calc(var(--pv-size-base) * 6);
 }
 
 .emotion-1 {
@@ -454,8 +454,8 @@ exports[`<CircularProgress /> > should render with default styles 1`] = `
   color: var(--pv-color-primary);
   -webkit-animation: animation-0 1.4s linear infinite;
   animation: animation-0 1.4s linear infinite;
-  height: var(--pv-size-base-6);
-  width: var(--pv-size-base-6);
+  height: calc(var(--pv-size-base) * 6);
+  width: calc(var(--pv-size-base) * 6);
 }
 
 .emotion-1 {
@@ -549,8 +549,8 @@ exports[`<CircularProgress /> > sizes > size "large" 1`] = `
   color: var(--pv-color-primary);
   -webkit-animation: animation-0 1.4s linear infinite;
   animation: animation-0 1.4s linear infinite;
-  height: var(--pv-size-base-6);
-  width: var(--pv-size-base-6);
+  height: calc(var(--pv-size-base) * 6);
+  width: calc(var(--pv-size-base) * 6);
 }
 
 .emotion-1 {
@@ -644,8 +644,8 @@ exports[`<CircularProgress /> > sizes > size "small" 1`] = `
   color: var(--pv-color-primary);
   -webkit-animation: animation-0 1.4s linear infinite;
   animation: animation-0 1.4s linear infinite;
-  height: var(--pv-size-base-3);
-  width: var(--pv-size-base-3);
+  height: calc(var(--pv-size-base) * 3);
+  width: calc(var(--pv-size-base) * 3);
 }
 
 .emotion-1 {

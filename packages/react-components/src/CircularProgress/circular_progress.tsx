@@ -87,12 +87,12 @@ const CircularProgressRoot = styled('div', {
         transform: 'rotate(-90deg)',
       }),
   ...(props.size === 'small' && {
-    height: 'var(--pv-size-base-3)',
-    width: 'var(--pv-size-base-3)',
+    height: 'calc(var(--pv-size-base) * 3)',
+    width: 'calc(var(--pv-size-base) * 3)',
   }),
   ...(props.size === 'large' && {
-    height: 'var(--pv-size-base-6)',
-    width: 'var(--pv-size-base-6)',
+    height: 'calc(var(--pv-size-base) * 6)',
+    width: 'calc(var(--pv-size-base) * 6)',
   }),
 }));
 
