@@ -15,11 +15,7 @@ const meta: Meta<typeof Dialog> = {
   args: {
     children: (
       <>
-        <DialogTitle
-          onClose={() => {
-            console.log('Close callback!');
-          }}
-        >
+        <DialogTitle>
           Sign in
         </DialogTitle>
         <DialogContent>

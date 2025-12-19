@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Box } from '../Box';
 import { Collapse } from '../Collapse';
 import { Alert } from '../Alert';
 
@@ -16,11 +15,6 @@ interface IDialogContentOwnProps {
    * The className of the component.
    */
   className?: string;
-  /**
-   * Display the top and bottom dividers.
-   * @default true
-   */
-  dividers?: boolean;
   /**
    * The content of the error message.
    */
@@ -40,7 +34,7 @@ type TDialogContentProps = IDialogContentOwnProps & React.HTMLAttributes<HTMLDiv
 /**
  * Styles.
  */
-const DialogContentRoot = styled(Box)({
+const DialogContentRoot = styled('div')({
   flex: '1 1 auto',
   overflow: 'hidden',
   display: 'flex',
@@ -48,23 +42,22 @@ const DialogContentRoot = styled(Box)({
 });
 
 const DialogContentAlertContainer = styled('div')({
-  padding: '0 var(--pv-size-base-4)',
+  padding: '0 calc(var(--pv-size-base) * 4)',
   flex: '0 0 auto',
 });
 
 const DialogContentCollapse = styled(Collapse)({
-  margin: '0 calc(var(--pv-size-base-3) * -1)',
+  margin: '0 calc(var(--pv-size-base) * -2)',
 });
 
 const DialogContentContent = styled('div')({
   overflowY: 'auto',
   flex: '1 1 auto',
-  padding: 'var(--pv-size-base-3) var(--pv-size-base-4) var(--pv-size-base-6) var(--pv-size-base-4)',
+  padding: 'calc(var(--pv-size-base) * 6)',
 });
 
 const DialogContentAlertError = styled(Alert)({
-  margin: 'var(--pv-size-base-2) 0',
-  padding: 'var(--pv-size-base-2) var(--pv-size-base-3)',
+  margin: 'calc(var(--pv-size-base) * 2) 0',
 });
 /**
  *
@@ -73,7 +66,6 @@ const DialogContentAlertError = styled(Alert)({
 export const DialogContent = React.forwardRef<HTMLDivElement, TDialogContentProps>((props, ref) => {
   const {
     children,
-    dividers = true,
     error,
     scrolledElementProps = {},
     ...other
@@ -82,10 +74,6 @@ export const DialogContent = React.forwardRef<HTMLDivElement, TDialogContentProp
   return (
     <DialogContentRoot
       ref={ref}
-      borderColor="gray-5"
-      borderWidth={dividers ? 1 : 0}
-      borderStyle="solid"
-      borderPosition="horizontal"
       data-key="dialog.content"
       {...other}
     >

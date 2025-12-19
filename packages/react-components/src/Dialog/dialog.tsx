@@ -48,11 +48,10 @@ interface IDialogOwnProps {
   onClose?: (event: React.SyntheticEvent) => void;
   /**
    * The size of the dialog.
-   * @default 'medium'
+   * @default 'small'
    */
   size?: (
     'small'
-    | 'medium'
     | 'large'
   );
   /**
@@ -88,7 +87,7 @@ const DialogRoot = styled(
     display: 'flex',
     maxHeight: 'calc(100% - 60px)',
     flexDirection: 'column',
-    margin: 'var(--pv-size-base-6)',
+    margin: `calc(var(--pv-size-base) * 6)`,
     position: 'relative',
     outline: 'none',
     overflow: 'hidden',
@@ -104,13 +103,10 @@ const DialogRoot = styled(
       },
     }),
     ...(props.size === 'small' && {
-      maxWidth: '310px',
-    }),
-    ...(props.size === 'medium' && {
-      maxWidth: '640px',
+      maxWidth: '500px',
     }),
     ...(props.size === 'large' && {
-      maxWidth: '1024px',
+      maxWidth: '870px',
     }),
     ...(props.fullScreen && {
       height: '100%',
@@ -165,7 +161,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, TDialogProps>((props, ref
     loadingColor = 'secondary',
     onClose,
     'data-testid': dataTestId,
-    size = 'medium',
+    size = 'small',
     ...other
   } = props;
 

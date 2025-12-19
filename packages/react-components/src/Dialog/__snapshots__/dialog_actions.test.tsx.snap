@@ -3,7 +3,7 @@
 exports[`<DialogActions /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  padding: var(--pv-size-base-3) var(--pv-size-base-4) var(--pv-size-base-4);
+  padding: 0 calc(var(--pv-size-base) * 6);
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -19,7 +19,8 @@ exports[`<DialogActions /> > should pass className 1`] = `
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
-  gap: var(--pv-size-base-2);
+  gap: calc(var(--pv-size-base) * 2);
+  height: calc(var(--pv-size-base) * 19);
 }
 
 <footer
@@ -34,7 +35,7 @@ exports[`<DialogActions /> > should pass className 1`] = `
 exports[`<DialogActions /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  padding: var(--pv-size-base-3) var(--pv-size-base-4) var(--pv-size-base-4);
+  padding: 0 calc(var(--pv-size-base) * 6);
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -50,7 +51,8 @@ exports[`<DialogActions /> > should render with default styles 1`] = `
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
-  gap: var(--pv-size-base-2);
+  gap: calc(var(--pv-size-base) * 2);
+  height: calc(var(--pv-size-base) * 19);
 }
 
 <footer

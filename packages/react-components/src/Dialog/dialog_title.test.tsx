@@ -21,14 +21,4 @@ describe('<DialogTitle />', () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
-
-  it('should render close button', () => {
-    const { asFragment } = render(
-      <DialogTitle onClose={vi.fn()}>
-        Title
-      </DialogTitle>,
-    );
-
-    expect(asFragment()).toMatchSnapshot();
-  });
 });

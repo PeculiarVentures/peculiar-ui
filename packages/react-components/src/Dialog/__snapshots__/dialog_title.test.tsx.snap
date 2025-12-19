@@ -3,7 +3,11 @@
 exports[`<DialogTitle /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  padding: var(--pv-size-base-4) var(--pv-size-base-4) var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 6);
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11,10 +15,9 @@ exports[`<DialogTitle /> > should pass className 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  gap: var(--pv-size-base-2);
+  gap: calc(var(--pv-size-base) * 2);
+  height: calc(var(--pv-size-base) * 12);
+  border-bottom: 1px solid var(--pv-color-gray-5);
 }
 
 .emotion-1 {
@@ -39,147 +42,14 @@ exports[`<DialogTitle /> > should pass className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<DialogTitle /> > should render close button 1`] = `
+exports[`<DialogTitle /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  padding: var(--pv-size-base-4) var(--pv-size-base-4) var(--pv-size-base-2);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  gap: var(--pv-size-base-2);
-}
-
-.emotion-1 {
-  margin: 0;
-  color: inherit;
-  font-weight: var(--pv-text-h4-weight);
-  font-size: var(--pv-text-h4-size);
-  line-height: var(--pv-text-h4-height);
-  letter-spacing: var(--pv-text-h4-spacing);
-}
-
-.emotion-2 {
-  font-family: inherit;
-  outline: none;
-  cursor: pointer;
-  box-sizing: border-box;
-  border: 1px solid transparent;
-  -webkit-transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
-  transition: background-color 200ms,color 200ms,box-shadow 200ms,border-color 200ms;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  white-space: nowrap;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  padding: 0 calc(var(--pv-size-base) * 6);
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  vertical-align: middle;
-  background-color: transparent;
-  padding: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  color: var(--pv-color-black);
-  border-radius: 4px;
-  height: var(--pv-size-base-6);
-  min-width: var(--pv-size-base-6);
-  --pv-color-black: var(--pv-color-gray-10);
-  border: none;
-}
-
-.emotion-2:disabled {
-  cursor: not-allowed;
-  box-shadow: none;
-  color: var(--pv-color-gray-7);
-}
-
-.emotion-2:not(:disabled):hover {
-  background-color: var(--pv-color-gray-3);
-}
-
-.emotion-2:not(:disabled):focus-visible {
-  background-color: var(--pv-color-gray-4);
-}
-
-.emotion-2:not(:disabled):active {
-  background-color: var(--pv-color-gray-5);
-}
-
-.emotion-3 {
-  margin: 0;
-  color: inherit;
-  font-weight: var(--pv-text-btn2-weight);
-  font-size: var(--pv-text-btn2-size);
-  line-height: var(--pv-text-btn2-height);
-  letter-spacing: var(--pv-text-btn2-spacing);
-  width: 100%;
-  display: inherit;
-  -webkit-align-items: inherit;
-  -webkit-box-align: inherit;
-  -ms-flex-align: inherit;
-  align-items: inherit;
-  -webkit-box-pack: inherit;
-  -ms-flex-pack: inherit;
-  -webkit-justify-content: inherit;
-  justify-content: inherit;
-}
-
-<header
-    class="emotion-0"
-    data-key="dialog.title"
-  >
-    <h4
-      class="emotion-1"
-    >
-      Title
-    </h4>
-    <button
-      class="emotion-2"
-      type="button"
-    >
-      <span
-        class="emotion-3"
-      >
-        <svg
-          fill="none"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            clip-rule="evenodd"
-            d="M13.174 12l4.665 4.663a.556.556 0 010 .783l-.393.392a.554.554 0 01-.783 0l-4.664-4.663-4.662 4.663a.555.555 0 01-.784 0l-.392-.392a.556.556 0 010-.783L10.826 12 6.16 7.337a.556.556 0 010-.783l.392-.392a.555.555 0 01.784 0l4.662 4.663 4.664-4.663a.554.554 0 01.783 0l.393.392a.556.556 0 010 .783L13.174 12z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </span>
-    </button>
-  </header>
-</DocumentFragment>
-`;
-
-exports[`<DialogTitle /> > should render with default styles 1`] = `
-<DocumentFragment>
-  .emotion-0 {
-  padding: var(--pv-size-base-4) var(--pv-size-base-4) var(--pv-size-base-2);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -187,10 +57,9 @@ exports[`<DialogTitle /> > should render with default styles 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  gap: var(--pv-size-base-2);
+  gap: calc(var(--pv-size-base) * 2);
+  height: calc(var(--pv-size-base) * 12);
+  border-bottom: 1px solid var(--pv-color-gray-5);
 }
 
 .emotion-1 {

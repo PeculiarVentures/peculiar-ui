@@ -22,16 +22,6 @@ describe('<DialogContent />', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('should render border', () => {
-    const { asFragment } = render(
-      <DialogContent dividers>
-        Content
-      </DialogContent>,
-    );
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-
   it('should render error', () => {
     const { asFragment } = render(
       <DialogContent error="Some API error">
