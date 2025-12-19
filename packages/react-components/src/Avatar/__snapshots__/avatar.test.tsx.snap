@@ -22,8 +22,8 @@ exports[`<Avatar /> > Avatar render sizes > size "large" 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  height: var(--pv-size-base-8);
-  width: var(--pv-size-base-8);
+  height: calc(var(--pv-size-base) * 8);
+  width: calc(var(--pv-size-base) * 8);
 }
 
 <div
@@ -68,8 +68,8 @@ exports[`<Avatar /> > Avatar render sizes > size "medium" 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  height: var(--pv-size-base-7);
-  width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  width: calc(var(--pv-size-base) * 7);
 }
 
 <div
@@ -114,8 +114,8 @@ exports[`<Avatar /> > Avatar render sizes > size "small" 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  height: var(--pv-size-base-6);
-  width: var(--pv-size-base-6);
+  height: calc(var(--pv-size-base) * 6);
+  width: calc(var(--pv-size-base) * 6);
 }
 
 <div
@@ -160,8 +160,8 @@ exports[`<Avatar /> > Avatar render variants > shoul change initials render elem
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  height: var(--pv-size-base-7);
-  width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  width: calc(var(--pv-size-base) * 7);
 }
 
 <div
@@ -200,8 +200,8 @@ exports[`<Avatar /> > Avatar render variants > should have class name 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  height: var(--pv-size-base-7);
-  width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  width: calc(var(--pv-size-base) * 7);
 }
 
 <div
@@ -246,8 +246,8 @@ exports[`<Avatar /> > Avatar render variants > should have test id 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  height: var(--pv-size-base-7);
-  width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  width: calc(var(--pv-size-base) * 7);
 }
 
 <div
@@ -293,8 +293,8 @@ exports[`<Avatar /> > Avatar render variants > should prioritize render as image
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  height: var(--pv-size-base-7);
-  width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  width: calc(var(--pv-size-base) * 7);
 }
 
 .emotion-1 {
@@ -342,8 +342,8 @@ exports[`<Avatar /> > Avatar render variants > should render 1 initial with a 1-
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  height: var(--pv-size-base-7);
-  width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  width: calc(var(--pv-size-base) * 7);
 }
 
 .emotion-1 {
@@ -391,8 +391,8 @@ exports[`<Avatar /> > Avatar render variants > should render as default 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  height: var(--pv-size-base-7);
-  width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  width: calc(var(--pv-size-base) * 7);
 }
 
 <div
@@ -437,8 +437,8 @@ exports[`<Avatar /> > Avatar render variants > should render as image 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  height: var(--pv-size-base-7);
-  width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  width: calc(var(--pv-size-base) * 7);
 }
 
 .emotion-1 {
@@ -485,8 +485,8 @@ exports[`<Avatar /> > Avatar render variants > should render initials with fn 1`
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  height: var(--pv-size-base-7);
-  width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  width: calc(var(--pv-size-base) * 7);
 }
 
 .emotion-1 {

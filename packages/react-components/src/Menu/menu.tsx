@@ -69,16 +69,16 @@ const Divider = styled('hr')({
 
 const MenuPopover = styled(Popover)({
   '&[data-popper-placement^="bottom"]': {
-    margin: 'var(--pv-size-base-3) 0px',
+    margin: 'calc(var(--pv-size-base) * 3) 0px',
   },
   '&[data-popper-placement^="top"]': {
-    margin: 'var(--pv-size-base-3) 0px',
+    margin: 'calc(var(--pv-size-base) * 3) 0px',
   },
   '&[data-popper-placement^="right"]': {
-    margin: '0px var(--pv-size-base-3)',
+    margin: '0px calc(var(--pv-size-base) * 3)',
   },
   '&[data-popper-placement^="left"]': {
-    margin: '0px var(--pv-size-base-3)',
+    margin: '0px calc(var(--pv-size-base) * 3)',
   },
 });
 /**

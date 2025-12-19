@@ -14,7 +14,7 @@ exports[`<TextareaField /> > should be disabled 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: var(--pv-size-base) var(--pv-size-base-2);
+  padding: var(--pv-size-base) calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -26,7 +26,7 @@ exports[`<TextareaField /> > should be disabled 1`] = `
   -ms-appearance: none;
   appearance: none;
   resize: none;
-  min-height: var(--pv-size-base-14);
+  min-height: calc(var(--pv-size-base) * 14);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -89,7 +89,7 @@ exports[`<TextareaField /> > should have className 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: var(--pv-size-base) var(--pv-size-base-2);
+  padding: var(--pv-size-base) calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -101,7 +101,7 @@ exports[`<TextareaField /> > should have className 1`] = `
   -ms-appearance: none;
   appearance: none;
   resize: none;
-  min-height: var(--pv-size-base-14);
+  min-height: calc(var(--pv-size-base) * 14);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -179,7 +179,7 @@ exports[`<TextareaField /> > should have label 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: var(--pv-size-base) var(--pv-size-base-2);
+  padding: var(--pv-size-base) calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -191,7 +191,7 @@ exports[`<TextareaField /> > should have label 1`] = `
   -ms-appearance: none;
   appearance: none;
   resize: none;
-  min-height: var(--pv-size-base-14);
+  min-height: calc(var(--pv-size-base) * 14);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -264,7 +264,7 @@ exports[`<TextareaField /> > should have name attr 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: var(--pv-size-base) var(--pv-size-base-2);
+  padding: var(--pv-size-base) calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -276,7 +276,7 @@ exports[`<TextareaField /> > should have name attr 1`] = `
   -ms-appearance: none;
   appearance: none;
   resize: none;
-  min-height: var(--pv-size-base-14);
+  min-height: calc(var(--pv-size-base) * 14);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -339,7 +339,7 @@ exports[`<TextareaField /> > should have required 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: var(--pv-size-base) var(--pv-size-base-2);
+  padding: var(--pv-size-base) calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -351,7 +351,7 @@ exports[`<TextareaField /> > should have required 1`] = `
   -ms-appearance: none;
   appearance: none;
   resize: none;
-  min-height: var(--pv-size-base-14);
+  min-height: calc(var(--pv-size-base) * 14);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -414,7 +414,7 @@ exports[`<TextareaField /> > should render with default styles 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: var(--pv-size-base) var(--pv-size-base-2);
+  padding: var(--pv-size-base) calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -426,7 +426,7 @@ exports[`<TextareaField /> > should render with default styles 1`] = `
   -ms-appearance: none;
   appearance: none;
   resize: none;
-  min-height: var(--pv-size-base-14);
+  min-height: calc(var(--pv-size-base) * 14);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }

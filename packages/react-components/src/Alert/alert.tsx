@@ -54,8 +54,8 @@ export type TAlertProps = IAlertOwnProps & Omit<React.HTMLAttributes<HTMLDivElem
 const AlertRoot = styled(FlexContainer)<IAlertOwnProps>(
   {
     width: '100%',
-    gap: 'var(--pv-size-base-2)',
-    padding: 'var(--pv-size-base-2) var(--pv-size-base-4)',
+    gap: 'calc(var(--pv-size-base) * 2)',
+    padding: 'calc(var(--pv-size-base) * 2) calc(var(--pv-size-base) * 4)',
     boxSizing: 'border-box',
     borderRadius: '4px',
   },

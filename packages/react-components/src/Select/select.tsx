@@ -150,7 +150,7 @@ ITypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'mul
     boxSizing: 'border-box',
     width: '100%',
     borderRadius: '4px',
-    padding: '0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2)',
+    padding: '0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2)',
     backgroundColor: 'var(--pv-color-gray-1)',
     borderStyle: 'solid',
     borderWidth: '1px',
@@ -160,13 +160,13 @@ ITypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'mul
     textAlign: 'left',
     cursor: 'pointer',
     fontFamily: 'inherit',
-    height: 'var(--pv-size-base-8)',
+    height: 'calc(var(--pv-size-base) * 8)',
     position: 'relative',
     ...(props.size === 'small' && {
-      height: 'var(--pv-size-base-6)',
+      height: 'calc(var(--pv-size-base) * 6)',
     }),
     ...(props.size === 'medium' && {
-      height: 'var(--pv-size-base-7)',
+      height: 'calc(var(--pv-size-base) * 7)',
     }),
     ...(props.multiple === true && {
       display: 'inline-flex',
@@ -242,7 +242,7 @@ const SelectNativeInput = styled('input')({
 });
 
 const SelectDropdownStateItem = styled('div')({
-  padding: 'var(--pv-size-base-3) var(--pv-size-base-2)',
+  padding: 'calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2)',
 });
 
 const SelectDropdownList = styled('ul')({
@@ -256,7 +256,7 @@ const SelectDropdownList = styled('ul')({
 
 const SelectDropdownGroupName = styled(Typography)(
   (props) => ({
-    padding: 'var(--pv-size-base-2)',
+    padding: 'calc(var(--pv-size-base) * 2)',
     color: props.theme.mode === 'dark'
       ? 'var(--pv-color-gray-6)'
       : 'var(--pv-color-gray-9)',
@@ -271,7 +271,7 @@ const SelectDropdownGroupList = styled('ul')({
 const SelectDropdownGroupListItem = styled(MenuItem)<Required<{ inGroup: boolean }>>(
   (props) => ({
     ...(props.inGroup && {
-      padding: '0px var(--pv-size-base-2) 0 var(--pv-size-base-3)',
+      padding: '0px calc(var(--pv-size-base) * 2) 0 calc(var(--pv-size-base) * 3)',
     }),
   }),
 );
@@ -291,7 +291,7 @@ const SelectTagsList = styled('div')({
 const SelectTag = styled(Chip)({
   label: 'Select-tag',
   borderRadius: '4px',
-  height: 'var(--pv-size-base-5)',
+  height: 'calc(var(--pv-size-base) * 5)',
   margin: 0,
   backgroundColor: 'var(--pv-color-gray-2)',
   borderColor: 'var(--pv-color-gray-5)',
@@ -299,18 +299,18 @@ const SelectTag = styled(Chip)({
 });
 
 const SelectTagSize = styled(Typography)({
-  margin: '0 var(--pv-size-base-2)',
+  margin: '0 calc(var(--pv-size-base) * 2)',
 });
 
 const SelectSearchInput = styled(TextField)({
-  padding: 'var(--pv-size-base-3) var(--pv-size-base-3) var(--pv-size-base-2)',
+  padding: 'calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2)',
 });
 
 const SelectCreateNewButton = styled(Button)({
   width: '100%',
   borderRadius: 0,
   justifyContent: 'left',
-  padding: '0px var(--pv-size-base-2)',
+  padding: '0px calc(var(--pv-size-base) * 2)',
 });
 
 const SelectError = styled(Typography)({

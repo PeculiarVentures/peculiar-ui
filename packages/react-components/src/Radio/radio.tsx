@@ -71,8 +71,8 @@ const RadioRoot = styled('label')(
   {
     cursor: 'pointer',
     display: 'inline-flex',
-    width: 'var(--pv-size-base-4)',
-    height: 'var(--pv-size-base-4)',
+    width: 'calc(var(--pv-size-base) * 4)',
+    height: 'calc(var(--pv-size-base) * 4)',
     borderRadius: '50%',
     position: 'relative',
     flexShrink: 0,

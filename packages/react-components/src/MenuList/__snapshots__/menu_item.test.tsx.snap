@@ -3,11 +3,11 @@
 exports[`<MenuItem /> > should have start & end icons 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  padding: 0px var(--pv-size-base-2);
+  padding: 0px calc(var(--pv-size-base) * 2);
   font-family: inherit;
   outline: none;
   width: 100%;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32,7 +32,7 @@ exports[`<MenuItem /> > should have start & end icons 1`] = `
   background-color: transparent;
   border: none;
   box-sizing: border-box;
-  gap: var(--pv-size-base-2);
+  gap: calc(var(--pv-size-base) * 2);
   cursor: pointer;
   color: var(--pv-color-black);
 }
@@ -127,11 +127,11 @@ exports[`<MenuItem /> > should have start & end icons 1`] = `
 exports[`<MenuItem /> > should pass className 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  padding: 0px var(--pv-size-base-2);
+  padding: 0px calc(var(--pv-size-base) * 2);
   font-family: inherit;
   outline: none;
   width: 100%;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -156,7 +156,7 @@ exports[`<MenuItem /> > should pass className 1`] = `
   background-color: transparent;
   border: none;
   box-sizing: border-box;
-  gap: var(--pv-size-base-2);
+  gap: calc(var(--pv-size-base) * 2);
   cursor: pointer;
   color: var(--pv-color-black);
 }
@@ -207,11 +207,11 @@ exports[`<MenuItem /> > should pass className 1`] = `
 exports[`<MenuItem /> > should pass disabled 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  padding: 0px var(--pv-size-base-2);
+  padding: 0px calc(var(--pv-size-base) * 2);
   font-family: inherit;
   outline: none;
   width: 100%;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -236,7 +236,7 @@ exports[`<MenuItem /> > should pass disabled 1`] = `
   background-color: transparent;
   border: none;
   box-sizing: border-box;
-  gap: var(--pv-size-base-2);
+  gap: calc(var(--pv-size-base) * 2);
   cursor: not-allowed;
   color: var(--pv-color-gray-7);
   pointer-events: none;
@@ -289,11 +289,11 @@ exports[`<MenuItem /> > should pass disabled 1`] = `
 exports[`<MenuItem /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  padding: 0px var(--pv-size-base-2);
+  padding: 0px calc(var(--pv-size-base) * 2);
   font-family: inherit;
   outline: none;
   width: 100%;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -318,7 +318,7 @@ exports[`<MenuItem /> > should render with default styles 1`] = `
   background-color: transparent;
   border: none;
   box-sizing: border-box;
-  gap: var(--pv-size-base-2);
+  gap: calc(var(--pv-size-base) * 2);
   cursor: pointer;
   color: var(--pv-color-black);
 }

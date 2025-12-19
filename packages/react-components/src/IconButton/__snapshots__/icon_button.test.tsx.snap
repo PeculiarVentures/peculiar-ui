@@ -34,8 +34,8 @@ exports[`<IconButton /> > colors > color "default" 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
   --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
@@ -136,8 +136,8 @@ exports[`<IconButton /> > colors > color "primary" 1`] = `
   text-decoration: none;
   color: var(--pv-color-primary);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
   --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
@@ -238,8 +238,8 @@ exports[`<IconButton /> > colors > color "secondary" 1`] = `
   text-decoration: none;
   color: var(--pv-color-secondary);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
   --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
@@ -340,8 +340,8 @@ exports[`<IconButton /> > colors > color "white" 1`] = `
   text-decoration: none;
   color: var(--pv-color-white);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
   --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
@@ -442,8 +442,8 @@ exports[`<IconButton /> > colors > color "wrong" 1`] = `
   text-decoration: none;
   color: var(--pv-color-wrong);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
   --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
@@ -544,8 +544,8 @@ exports[`<IconButton /> > should have title 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
   --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
@@ -647,8 +647,8 @@ exports[`<IconButton /> > should pass className 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
   --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }
@@ -749,8 +749,8 @@ exports[`<IconButton /> > should render as default 1`] = `
   text-decoration: none;
   color: var(--pv-color-black);
   border-radius: 4px;
-  height: var(--pv-size-base-7);
-  min-width: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
+  min-width: calc(var(--pv-size-base) * 7);
   --pv-color-black: var(--pv-color-gray-10);
   border: none;
 }

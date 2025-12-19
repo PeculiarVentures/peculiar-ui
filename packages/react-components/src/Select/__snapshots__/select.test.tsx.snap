@@ -16,7 +16,7 @@ exports[`<Select /> > should pass className 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -33,7 +33,7 @@ exports[`<Select /> > should pass className 1`] = `
   text-align: left;
   cursor: pointer;
   font-family: inherit;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   position: relative;
   border-color: var(--pv-color-gray-8);
 }
@@ -144,7 +144,7 @@ exports[`<Select /> > should pass error 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -161,7 +161,7 @@ exports[`<Select /> > should pass error 1`] = `
   text-align: left;
   cursor: pointer;
   font-family: inherit;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   position: relative;
   border-color: var(--pv-color-gray-8);
 }
@@ -265,7 +265,7 @@ exports[`<Select /> > should pass error 1`] = `
 }
 
 .emotion-8 {
-  padding: var(--pv-size-base-3) var(--pv-size-base-3) var(--pv-size-base-2);
+  padding: calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2);
 }
 
 .emotion-9 {
@@ -280,7 +280,7 @@ exports[`<Select /> > should pass error 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -294,7 +294,7 @@ exports[`<Select /> > should pass error 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -350,7 +350,7 @@ exports[`<Select /> > should pass error 1`] = `
 }
 
 .emotion-10 {
-  padding: var(--pv-size-base-3) var(--pv-size-base-2);
+  padding: calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2);
 }
 
 .emotion-11 {
@@ -474,7 +474,7 @@ exports[`<Select /> > should pass loading 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -491,7 +491,7 @@ exports[`<Select /> > should pass loading 1`] = `
   text-align: left;
   cursor: pointer;
   font-family: inherit;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   position: relative;
   border-color: var(--pv-color-gray-8);
 }
@@ -585,7 +585,7 @@ exports[`<Select /> > should pass loading 1`] = `
 }
 
 .emotion-7 {
-  padding: var(--pv-size-base-3) var(--pv-size-base-3) var(--pv-size-base-2);
+  padding: calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2);
 }
 
 .emotion-8 {
@@ -600,7 +600,7 @@ exports[`<Select /> > should pass loading 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -614,7 +614,7 @@ exports[`<Select /> > should pass loading 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -670,7 +670,7 @@ exports[`<Select /> > should pass loading 1`] = `
 }
 
 .emotion-9 {
-  padding: var(--pv-size-base-3) var(--pv-size-base-2);
+  padding: calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2);
 }
 
 .emotion-10 {
@@ -789,7 +789,7 @@ exports[`<Select /> > should pass options 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -806,7 +806,7 @@ exports[`<Select /> > should pass options 1`] = `
   text-align: left;
   cursor: pointer;
   font-family: inherit;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   position: relative;
   border-color: var(--pv-color-gray-8);
 }
@@ -900,7 +900,7 @@ exports[`<Select /> > should pass options 1`] = `
 }
 
 .emotion-7 {
-  padding: var(--pv-size-base-3) var(--pv-size-base-3) var(--pv-size-base-2);
+  padding: calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2);
 }
 
 .emotion-8 {
@@ -915,7 +915,7 @@ exports[`<Select /> > should pass options 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -929,7 +929,7 @@ exports[`<Select /> > should pass options 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   color: var(--pv-color-black);
   border-color: var(--pv-color-gray-8);
 }
@@ -994,11 +994,11 @@ exports[`<Select /> > should pass options 1`] = `
 }
 
 .emotion-10 {
-  padding: 0px var(--pv-size-base-2);
+  padding: 0px calc(var(--pv-size-base) * 2);
   font-family: inherit;
   outline: none;
   width: 100%;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1023,7 +1023,7 @@ exports[`<Select /> > should pass options 1`] = `
   background-color: transparent;
   border: none;
   box-sizing: border-box;
-  gap: var(--pv-size-base-2);
+  gap: calc(var(--pv-size-base) * 2);
   cursor: pointer;
   color: var(--pv-color-black);
 }
@@ -1190,7 +1190,7 @@ exports[`<Select /> > should render with default multiple styles 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -1207,7 +1207,7 @@ exports[`<Select /> > should render with default multiple styles 1`] = `
   text-align: left;
   cursor: pointer;
   font-family: inherit;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   position: relative;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -1325,7 +1325,7 @@ exports[`<Select /> > should render with default styles 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -1342,7 +1342,7 @@ exports[`<Select /> > should render with default styles 1`] = `
   text-align: left;
   cursor: pointer;
   font-family: inherit;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   position: relative;
   border-color: var(--pv-color-gray-8);
 }
@@ -1452,7 +1452,7 @@ exports[`<Select /> > sizes > size "large" 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -1469,7 +1469,7 @@ exports[`<Select /> > sizes > size "large" 1`] = `
   text-align: left;
   cursor: pointer;
   font-family: inherit;
-  height: var(--pv-size-base-8);
+  height: calc(var(--pv-size-base) * 8);
   position: relative;
   border-color: var(--pv-color-gray-8);
 }
@@ -1579,7 +1579,7 @@ exports[`<Select /> > sizes > size "medium" 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -1596,7 +1596,7 @@ exports[`<Select /> > sizes > size "medium" 1`] = `
   text-align: left;
   cursor: pointer;
   font-family: inherit;
-  height: var(--pv-size-base-7);
+  height: calc(var(--pv-size-base) * 7);
   position: relative;
   border-color: var(--pv-color-gray-8);
 }
@@ -1706,7 +1706,7 @@ exports[`<Select /> > sizes > size "small" 1`] = `
   box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
-  padding: 0 calc(var(--pv-size-base-2) + 24px) 0 var(--pv-size-base-2);
+  padding: 0 calc(var(--pv-size-base) * 2 + 24px) 0 calc(var(--pv-size-base) * 2);
   background-color: var(--pv-color-gray-1);
   border-style: solid;
   border-width: 1px;
@@ -1723,7 +1723,7 @@ exports[`<Select /> > sizes > size "small" 1`] = `
   text-align: left;
   cursor: pointer;
   font-family: inherit;
-  height: var(--pv-size-base-6);
+  height: calc(var(--pv-size-base) * 6);
   position: relative;
   border-color: var(--pv-color-gray-8);
 }

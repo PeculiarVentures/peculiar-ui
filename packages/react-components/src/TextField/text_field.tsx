@@ -100,7 +100,7 @@ const TextFieldInput = styled(Typography)<TTextFieldProps>(
     boxSizing: 'border-box',
     width: '100%',
     borderRadius: '4px',
-    padding: '0 var(--pv-size-base-2)',
+    padding: '0 calc(var(--pv-size-base) * 2)',
     backgroundColor: 'var(--pv-color-gray-1)',
     borderStyle: 'solid',
     borderWidth: '1px',
@@ -108,13 +108,13 @@ const TextFieldInput = styled(Typography)<TTextFieldProps>(
     display: 'inline-flex',
     appearance: 'none',
     ...(props.size === 'small' && {
-      height: 'var(--pv-size-base-6)',
+      height: 'calc(var(--pv-size-base) * 6)',
     }),
     ...(props.size === 'medium' && {
-      height: 'var(--pv-size-base-7)',
+      height: 'calc(var(--pv-size-base) * 7)',
     }),
     ...(props.size === 'large' && {
-      height: 'var(--pv-size-base-8)',
+      height: 'calc(var(--pv-size-base) * 8)',
     }),
   }),
   (props) => {

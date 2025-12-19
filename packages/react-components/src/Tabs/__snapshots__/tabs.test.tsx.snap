@@ -14,9 +14,9 @@ exports[`<Tabs /> > should pass className 1`] = `
   box-sizing: border-box;
   border: 0;
   border-bottom: 3px solid transparent;
-  min-height: var(--pv-size-base-12);
+  min-height: calc(var(--pv-size-base) * 12);
   height: 100%;
-  padding: 0 var(--pv-size-base-3);
+  padding: 0 calc(var(--pv-size-base) * 3);
   background-color: transparent;
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
@@ -74,9 +74,9 @@ exports[`<Tabs /> > should pass className 1`] = `
   box-sizing: border-box;
   border: 0;
   border-bottom: 3px solid transparent;
-  min-height: var(--pv-size-base-12);
+  min-height: calc(var(--pv-size-base) * 12);
   height: 100%;
-  padding: 0 var(--pv-size-base-3);
+  padding: 0 calc(var(--pv-size-base) * 3);
   background-color: transparent;
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
@@ -165,9 +165,9 @@ exports[`<Tabs /> > should render with default styles 1`] = `
   box-sizing: border-box;
   border: 0;
   border-bottom: 3px solid transparent;
-  min-height: var(--pv-size-base-12);
+  min-height: calc(var(--pv-size-base) * 12);
   height: 100%;
-  padding: 0 var(--pv-size-base-3);
+  padding: 0 calc(var(--pv-size-base) * 3);
   background-color: transparent;
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;
@@ -225,9 +225,9 @@ exports[`<Tabs /> > should render with default styles 1`] = `
   box-sizing: border-box;
   border: 0;
   border-bottom: 3px solid transparent;
-  min-height: var(--pv-size-base-12);
+  min-height: calc(var(--pv-size-base) * 12);
   height: 100%;
-  padding: 0 var(--pv-size-base-3);
+  padding: 0 calc(var(--pv-size-base) * 3);
   background-color: transparent;
   -webkit-transition: background-color 200ms,color 200ms,border-color 200ms;
   transition: background-color 200ms,color 200ms,border-color 200ms;

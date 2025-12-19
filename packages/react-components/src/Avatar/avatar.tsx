@@ -74,16 +74,16 @@ const AvatarRoot = styled(Box)<IAvatarOwnProps>((props) => ({
   justifyContent: 'center',
   position: 'relative',
   ...(props.size === 'small' && {
-    height: 'var(--pv-size-base-6)',
-    width: 'var(--pv-size-base-6)',
+    height: 'calc(var(--pv-size-base) * 6)',
+    width: 'calc(var(--pv-size-base) * 6)',
   }),
   ...(props.size === 'medium' && {
-    height: 'var(--pv-size-base-7)',
-    width: 'var(--pv-size-base-7)',
+    height: 'calc(var(--pv-size-base) * 7)',
+    width: 'calc(var(--pv-size-base) * 7)',
   }),
   ...(props.size === 'large' && {
-    height: 'var(--pv-size-base-8)',
-    width: 'var(--pv-size-base-8)',
+    height: 'calc(var(--pv-size-base) * 8)',
+    width: 'calc(var(--pv-size-base) * 8)',
   }),
 }));
 

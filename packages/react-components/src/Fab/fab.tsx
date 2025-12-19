@@ -36,9 +36,9 @@ export type TFabProps<
  */
 const FabRoot = styled(ButtonBase)<IFabOwnProps>({
   borderRadius: '50%',
-  height: 'var(--pv-size-base-11)',
-  width: 'var(--pv-size-base-11)',
-  padding: 'var(--pv-size-base-2)',
+  height: 'calc(var(--pv-size-base) * 11)',
+  width: 'calc(var(--pv-size-base) * 11)',
+  padding: 'calc(var(--pv-size-base) * 2)',
 }, (props) => {
   const isDark = props.theme.mode === 'dark';
 
