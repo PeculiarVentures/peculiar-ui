@@ -34,6 +34,16 @@ describe('<Chip />', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
+  it('should have start content', () => {
+    const { asFragment } = render(
+      <Chip startContent={<span>Start</span>}>
+        Text
+      </Chip>,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it('should have custom delete icon', () => {
     const { asFragment } = render(
       <Chip

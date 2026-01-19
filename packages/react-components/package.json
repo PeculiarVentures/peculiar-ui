@@ -30,8 +30,8 @@
     "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
     "build:storybook": "storybook build -o public",
     "clean": "rimraf public dist themes",
-    "test:unit": "vitest",
-    "test:unit:coverage": "vitest --coverage",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "check:types": "tsc --noEmit -p tsconfig.build.json"
   },
   "peerDependencies": {

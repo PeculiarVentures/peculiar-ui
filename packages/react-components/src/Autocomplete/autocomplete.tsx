@@ -280,7 +280,7 @@ const AutocompleteOpenButton = styled(ArrowDropDownIcon)<{ open: boolean }>({
   }),
 }));
 
-const AutocompleteNativeInput = styled('input')({
+export const AutocompleteNativeInput = styled('input')({
   bottom: 0,
   left: 0,
   height: '100%',
@@ -291,11 +291,11 @@ const AutocompleteNativeInput = styled('input')({
   boxSizing: 'border-box',
 });
 
-const AutocompleteDropdownStateItem = styled('div')({
+export const AutocompleteDropdownStateItem = styled('div')({
   padding: 'calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2)',
 });
 
-const AutocompleteDropdownList = styled('ul')({
+export const AutocompleteDropdownList = styled('ul')({
   maxHeight: '36vh',
   overflowY: 'auto',
   margin: 0,
@@ -304,7 +304,7 @@ const AutocompleteDropdownList = styled('ul')({
   padding: '10px 0',
 });
 
-const AutocompleteDropdownGroupName = styled(Typography)(
+export const AutocompleteDropdownGroupName = styled(Typography)(
   (props) => ({
     padding: 'calc(var(--pv-size-base) * 2)',
     color: props.theme.mode === 'dark'
@@ -313,12 +313,12 @@ const AutocompleteDropdownGroupName = styled(Typography)(
   }),
 );
 
-const AutocompleteDropdownGroupList = styled('ul')({
+export const AutocompleteDropdownGroupList = styled('ul')({
   padding: 0,
   listStyleType: 'none',
 });
 
-const AutocompleteDropdownGroupListItem = styled(MenuItem)<Required<{ inGroup: boolean }>>(
+export const AutocompleteDropdownGroupListItem = styled(MenuItem)<Required<{ inGroup: boolean }>>(
   (props) => ({
     ...(props.inGroup && {
       padding: '0px calc(var(--pv-size-base) * 2) 0 calc(var(--pv-size-base) * 3)',
@@ -353,7 +353,7 @@ const AutocompletePopover = styled(Popper)(
   },
 );
 
-const AutocompleteTag = styled(Chip)({
+export const AutocompleteTag = styled(Chip)({
   label: 'Autocomplete-tag',
   borderRadius: '4px',
   height: 'calc(var(--pv-size-base) * 5)',
@@ -363,7 +363,7 @@ const AutocompleteTag = styled(Chip)({
   gap: '0px',
 });
 
-const AutocompleteTagSize = styled(Typography)({
+export const AutocompleteTagSize = styled(Typography)({
   margin: '0 calc(var(--pv-size-base) * 2)',
 });
 
@@ -406,11 +406,11 @@ const AutocompleteInputField = styled(Typography)(
   },
 );
 
-const AutocompleteError = styled(Typography)({
+export const AutocompleteError = styled(Typography)({
   marginTop: '2px',
 });
 
-const AutocompleteLabel = styled('label')({
+export const AutocompleteLabel = styled('label')({
   label: 'TextField-label',
   marginBottom: '2px',
   display: 'inline-block',

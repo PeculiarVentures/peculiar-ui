@@ -31,8 +31,8 @@
     "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/cjs",
     "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
     "clean": "rimraf public dist",
-    "test:unit": "vitest",
-    "test:unit:coverage": "vitest --coverage",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "check:types": "tsc --noEmit -p tsconfig.build.json"
   },
   "devDependencies": {

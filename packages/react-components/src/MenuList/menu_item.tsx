@@ -8,7 +8,7 @@ import { TTypographyType } from '../styles';
 /**
  * Types.
  */
-interface IMenuItemOwnProps {
+export interface IMenuItemOwnProps {
   children: React.ReactNode;
   /**
    * If `true`, the component is disabled.

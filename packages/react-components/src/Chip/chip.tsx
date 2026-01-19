@@ -60,11 +60,13 @@ export type TChipProps<
  *
  */
 
+const reactPropsRegex = /^(color|onDelete)$/;
+
 /**
  * Styles.
  */
 const ChipRoot = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
+  shouldForwardProp: (prop) => isPropValid(prop) && !reactPropsRegex.test(prop),
 })<IChipOwnProps>((props) => ({
   display: 'inline-flex',
   maxWidth: '100%',
@@ -72,7 +74,12 @@ const ChipRoot = styled('div', {
   outline: '0',
   boxSizing: 'border-box',
   borderRadius: 'calc(var(--pv-size-base) * 3)',
-  padding: '0 calc(var(--pv-size-base) * 2)',
+  padding: [
+    0,
+    props.onDelete ? 'var(--pv-size-base)' : 'calc(var(--pv-size-base) * 2)',
+    0,
+    props.startContent ? 'var(--pv-size-base)' : 'calc(var(--pv-size-base) * 2)',
+  ].join(' '),
   height: 'calc(var(--pv-size-base) * 6)',
   backgroundColor: 'transparent',
   transition: 'background-color 200ms, color 200ms, border-color 200ms, box-shadow 200ms',
@@ -195,8 +202,8 @@ const ChipRoot = styled('div', {
 });
 
 const ChipDeleteIcon = styled('span')({
-  width: '24px',
-  height: '24px',
+  width: '20px',
+  height: '20px',
   cursor: 'pointer',
   WebkitTapHighlightColor: 'transparent',
   transition: 'opacity 200ms',
@@ -274,6 +281,8 @@ export const Chip = React.forwardRef<any, TChipProps>((props, ref) => {
       ref={ref}
       variant={variant}
       color={color}
+      startContent={startContent}
+      onDelete={onDelete}
       {...baseProps}
       {...other}
     >

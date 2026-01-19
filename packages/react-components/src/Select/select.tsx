@@ -10,12 +10,22 @@ import { Popover } from '../Popover';
 import { TextField } from '../TextField';
 import { Typography, ITypographyOwnProps } from '../Typography';
 import { Box } from '../Box';
-import { Chip } from '../Chip';
 import { Button } from '../Button';
 import { ArrowDropDownIcon, PlusIcon } from '../icons';
-import { MenuItem } from '../MenuList';
 import { Checkbox } from '../Checkbox';
-import { TAutocompleteOwnProps } from '../Autocomplete/autocomplete';
+import {
+  TAutocompleteOwnProps,
+  AutocompleteTag,
+  AutocompleteTagSize,
+  AutocompleteNativeInput,
+  AutocompleteDropdownStateItem,
+  AutocompleteDropdownList,
+  AutocompleteDropdownGroupName,
+  AutocompleteDropdownGroupList,
+  AutocompleteDropdownGroupListItem,
+  AutocompleteLabel,
+  AutocompleteError,
+} from '../Autocomplete/autocomplete';
 
 /**
  * Interfaces.
@@ -230,52 +240,6 @@ const SelectArrowIcon = styled(ArrowDropDownIcon)({
   },
 });
 
-const SelectNativeInput = styled('input')({
-  bottom: 0,
-  left: 0,
-  height: '100%',
-  position: 'absolute',
-  opacity: 0,
-  pointerEvents: 'none',
-  width: '100%',
-  boxSizing: 'border-box',
-});
-
-const SelectDropdownStateItem = styled('div')({
-  padding: 'calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2)',
-});
-
-const SelectDropdownList = styled('ul')({
-  maxHeight: '36vh',
-  overflowY: 'auto',
-  margin: 0,
-  listStyleType: 'none',
-  position: 'relative',
-  padding: '10px 0',
-});
-
-const SelectDropdownGroupName = styled(Typography)(
-  (props) => ({
-    padding: 'calc(var(--pv-size-base) * 2)',
-    color: props.theme.mode === 'dark'
-      ? 'var(--pv-color-gray-6)'
-      : 'var(--pv-color-gray-9)',
-  }),
-);
-
-const SelectDropdownGroupList = styled('ul')({
-  padding: 0,
-  listStyleType: 'none',
-});
-
-const SelectDropdownGroupListItem = styled(MenuItem)<Required<{ inGroup: boolean }>>(
-  (props) => ({
-    ...(props.inGroup && {
-      padding: '0px calc(var(--pv-size-base) * 2) 0 calc(var(--pv-size-base) * 3)',
-    }),
-  }),
-);
-
 const SelectPopover = styled(Popover)({
   minWidth: 240,
 });
@@ -288,20 +252,6 @@ const SelectTagsList = styled('div')({
   gap: 'var(--pv-size-base)',
 });
 
-const SelectTag = styled(Chip)({
-  label: 'Select-tag',
-  borderRadius: '4px',
-  height: 'calc(var(--pv-size-base) * 5)',
-  margin: 0,
-  backgroundColor: 'var(--pv-color-gray-2)',
-  borderColor: 'var(--pv-color-gray-5)',
-  gap: '0px',
-});
-
-const SelectTagSize = styled(Typography)({
-  margin: '0 calc(var(--pv-size-base) * 2)',
-});
-
 const SelectSearchInput = styled(TextField)({
   padding: 'calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2)',
 });
@@ -311,16 +261,6 @@ const SelectCreateNewButton = styled(Button)({
   borderRadius: 0,
   justifyContent: 'left',
   padding: '0px calc(var(--pv-size-base) * 2)',
-});
-
-const SelectError = styled(Typography)({
-  marginTop: '2px',
-});
-
-const SelectLabel = styled('label')({
-  label: 'TextField-label',
-  marginBottom: '2px',
-  display: 'inline-block',
 });
 /**
  *
@@ -387,7 +327,7 @@ export const Select = <
   };
 
   const defaultRenderOption: TSelectOwnProps<T, Multiple>['renderOption'] = ({ key, ...propsOption }, option) => (
-    <SelectDropdownGroupListItem
+    <AutocompleteDropdownGroupListItem
       key={key}
       {...propsOption}
       inGroup={Boolean(groupBy)}
@@ -405,25 +345,25 @@ export const Select = <
       }
     >
       {getOptionLabel(option)}
-    </SelectDropdownGroupListItem>
+    </AutocompleteDropdownGroupListItem>
   );
 
   const renderGroup = (params: ISelectRenderGroupParams) => (
     <li key={params.key}>
-      <SelectDropdownGroupName
+      <AutocompleteDropdownGroupName
         variant="c1"
         color="gray-10"
       >
         {params.group}
-      </SelectDropdownGroupName>
-      <SelectDropdownGroupList>
+      </AutocompleteDropdownGroupName>
+      <AutocompleteDropdownGroupList>
         {params.children}
-      </SelectDropdownGroupList>
+      </AutocompleteDropdownGroupList>
     </li>
   );
 
   const defaultRenderTag: TAutocompleteOwnProps<T, Multiple>['renderTag'] = ({ key, ...propsOption }, option) => (
-    <SelectTag
+    <AutocompleteTag
       key={key}
       {...propsOption}
       color="default"
@@ -431,7 +371,7 @@ export const Select = <
       disabled={disabled}
     >
       {getOptionLabel(option)}
-    </SelectTag>
+    </AutocompleteTag>
   );
 
   const renderListTag = (option: T, index: number) => {
@@ -455,12 +395,12 @@ export const Select = <
             {valueLimits.map(renderListTag)}
           </SelectTagsList>
           {!!more && (
-            <SelectTagSize
+            <AutocompleteTagSize
               variant="c2"
               color="gray-9"
             >
               {getLimitTagsText(more)}
-            </SelectTagSize>
+            </AutocompleteTagSize>
           )}
         </>
       );
@@ -490,7 +430,7 @@ export const Select = <
         aria-disabled={disabled}
         aria-hidden
       />
-      <SelectNativeInput
+      <AutocompleteNativeInput
         type="text"
         value={isValueEmpty ? '' : JSON.stringify(valueRoot)}
         tabIndex={-1}
@@ -519,7 +459,7 @@ export const Select = <
   return (
     <div className={className}>
       {label && (
-        <SelectLabel
+        <AutocompleteLabel
           {...getInputLabelProps()}
         >
           <Typography
@@ -529,7 +469,7 @@ export const Select = <
           >
             {label}
           </Typography>
-        </SelectLabel>
+        </AutocompleteLabel>
       )}
       {renderRoot(
         {
@@ -540,12 +480,12 @@ export const Select = <
         getTagProps,
       )}
       {error && errorText && (
-        <SelectError
+        <AutocompleteError
           variant="c2"
           color="wrong"
         >
           {errorText}
-        </SelectError>
+        </AutocompleteError>
       )}
       <SelectPopover
         placement="bottom-start"
@@ -569,7 +509,7 @@ export const Select = <
           </Box>
         )}
         {loading && groupedOptions.length === 0 && (
-          <SelectDropdownStateItem>
+          <AutocompleteDropdownStateItem>
             {typeof loadingText === 'string'
               ? (
                   <Typography
@@ -580,10 +520,10 @@ export const Select = <
                   </Typography>
                 )
               : loadingText}
-          </SelectDropdownStateItem>
+          </AutocompleteDropdownStateItem>
         )}
         {groupedOptions.length === 0 && !loading && (
-          <SelectDropdownStateItem>
+          <AutocompleteDropdownStateItem>
             {typeof noOptionsText === 'string'
               ? (
                   <Typography
@@ -594,10 +534,10 @@ export const Select = <
                   </Typography>
                 )
               : noOptionsText}
-          </SelectDropdownStateItem>
+          </AutocompleteDropdownStateItem>
         )}
         {groupedOptions.length > 0 && (
-          <SelectDropdownList {...getListboxProps()}>
+          <AutocompleteDropdownList {...getListboxProps()}>
             {groupedOptions
               .map((option, index) => {
                 // @ts-expect-error: 'options' may exist when grouped
@@ -613,7 +553,7 @@ export const Select = <
 
                 return renderListOption(option as T, index);
               })}
-          </SelectDropdownList>
+          </AutocompleteDropdownList>
         )}
         {(allowCreateOption && searchValue.length > 0 && !loading) && (
           <Box

@@ -10,7 +10,7 @@
     "bootstrap:upgrade": "npm upgrade-interactive --latest",
     "clean": "lerna run --parallel clean",
     "build": "npm run build --workspaces",
-    "test": "npm run test:unit:coverage --workspaces",
+    "test": "npm run test:coverage --workspaces",
     "check:types": "npm run check:types --workspaces",
     "lint": "eslint",
     "prepare": "npm run build",
