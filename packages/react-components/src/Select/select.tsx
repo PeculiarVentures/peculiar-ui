@@ -15,7 +15,6 @@ import { ArrowDropDownIcon, PlusIcon } from '../icons';
 import { Checkbox } from '../Checkbox';
 import {
   TAutocompleteOwnProps,
-  AutocompleteTag,
   AutocompleteTagSize,
   AutocompleteNativeInput,
   AutocompleteDropdownStateItem,
@@ -26,6 +25,7 @@ import {
   AutocompleteLabel,
   AutocompleteError,
 } from '../Autocomplete/autocomplete';
+import { AutocompleteTag } from '../Autocomplete/autocomplete_tag';
 
 /**
  * Interfaces.
@@ -366,9 +366,6 @@ export const Select = <
     <AutocompleteTag
       key={key}
       {...propsOption}
-      color="default"
-      variant="outlined"
-      disabled={disabled}
     >
       {getOptionLabel(option)}
     </AutocompleteTag>

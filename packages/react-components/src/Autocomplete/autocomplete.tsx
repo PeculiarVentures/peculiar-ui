@@ -10,10 +10,10 @@ import {
 import { Popper } from '../Popper';
 import { Typography, ITypographyOwnProps } from '../Typography';
 import { Box } from '../Box';
-import { Chip } from '../Chip';
 import { ArrowDropDownIcon, CloseSmallIcon } from '../icons';
 import { MenuItem } from '../MenuList';
 import { Checkbox } from '../Checkbox';
+import { AutocompleteTag } from './autocomplete_tag';
 
 /**
  * Types.
@@ -71,11 +71,6 @@ export type TAutocompleteOwnProps<
    * @default 2
    */
   limitTags?: number;
-  /**
-   * If `true`, the autocomplete will be disabled.
-   * @default false
-   */
-  disabled?: boolean;
   /**
    * Name attribute of the `input` element.
    */
@@ -353,16 +348,6 @@ const AutocompletePopover = styled(Popper)(
   },
 );
 
-export const AutocompleteTag = styled(Chip)({
-  label: 'Autocomplete-tag',
-  borderRadius: '4px',
-  height: 'calc(var(--pv-size-base) * 5)',
-  margin: 0,
-  backgroundColor: 'var(--pv-color-gray-2)',
-  borderColor: 'var(--pv-color-gray-5)',
-  gap: '0px',
-});
-
 export const AutocompleteTagSize = styled(Typography)({
   margin: '0 calc(var(--pv-size-base) * 2)',
 });
@@ -548,9 +533,6 @@ export const Autocomplete = <
     <AutocompleteTag
       key={key}
       {...propsOption}
-      color="default"
-      variant="outlined"
-      disabled={disabled}
     >
       {getOptionLabel(option)}
     </AutocompleteTag>

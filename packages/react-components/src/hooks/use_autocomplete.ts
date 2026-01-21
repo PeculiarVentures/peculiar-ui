@@ -59,6 +59,11 @@ export interface IUseAutocompleteProps<
    */
   disableCloseOnSelect?: boolean;
   /**
+   * If `true`, the autocomplete will be disabled.
+   * @default false
+   */
+  disabled?: boolean;
+  /**
    * If `true`, `value` must be an array and the menu will support multiple selections.
    */
   multiple?: Multiple;
@@ -186,6 +191,7 @@ export function useAutocomplete<
     defaultValue = props.multiple ? [] as TAutocompleteValue<T, Multiple> : null,
     value: valueProp,
     disableCloseOnSelect = false,
+    disabled = false,
     multiple = false,
     readOnly,
     popoverProps,
@@ -618,6 +624,7 @@ export function useAutocomplete<
       id: `${id}-listbox`,
     }),
     getInputProps: () => ({
+      disabled,
       id: `${id}-input`,
       type: 'search',
       value: searchValue,
@@ -657,7 +664,7 @@ export function useAutocomplete<
       key: index,
       'data-tag-index': index,
       tabIndex: -1,
-      onDelete: readOnly ? undefined : handleTagDelete(option, index),
+      onDelete: (readOnly || disabled) ? undefined : handleTagDelete(option, index),
     }),
     getOptionLabel,
     groupedOptions,
