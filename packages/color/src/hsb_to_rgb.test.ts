@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { hsbToRgb } from './hsb_to_rgb';
 
 describe('hsbToRgb', () => {

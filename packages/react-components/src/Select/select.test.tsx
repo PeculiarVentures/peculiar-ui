@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import React, { act } from 'react';
 import {
   renderWithWrapper as render, screen, fireEvent,

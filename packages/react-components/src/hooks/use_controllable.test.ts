@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import { act, renderHook } from '../test-utils';
 import { useControllableState } from './use_controllable';
 

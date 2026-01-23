@@ -1,3 +1,4 @@
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import { renderHook } from '../test-utils';
 import { useDebounceCallback } from './use_debounce_callback';
 

@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { renderWithWrapper as render } from '../test-utils';
 import { Slider } from './index';
 

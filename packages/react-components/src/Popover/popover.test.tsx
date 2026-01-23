@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { act, renderWithWrapper as render } from '../test-utils';
 import { Popover } from './index';
 

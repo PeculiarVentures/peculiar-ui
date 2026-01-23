@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { getContrastRatio } from './get_contrast_ratio';
 
 describe('getContrastRatio', () => {

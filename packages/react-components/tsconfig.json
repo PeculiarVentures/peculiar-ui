@@ -1,9 +1,7 @@
 {
   "extends": "../../tsconfig",
   "include": [
-    "src"
-  ],
-  "compilerOptions": {
-    "types": ["vitest/globals"]
-  }
+    "src",
+    "vitest.setup.ts"
+  ]
 }

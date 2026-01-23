@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { rgbToHex } from './rgb_to_hex';
 
 describe('rgbToHex', () => {

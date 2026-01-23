@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import React from 'react';
 import { renderWithWrapper as render, screen } from '../test-utils';
 import { PlusIcon } from '../icons';

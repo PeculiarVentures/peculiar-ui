@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import deepmerge from 'deepmerge';
 import { createTheme } from './utils';
 import { defaultThemeLight, defaultThemeDark } from './default_theme';

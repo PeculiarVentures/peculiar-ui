@@ -2,8 +2,5 @@
   "extends": "../../tsconfig",
   "include": [
     "src"
-  ],
-  "compilerOptions": {
-    "types": ["vitest/globals"]
-  }
+  ]
 }

@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import { renderHook, fireEvent } from '../test-utils';
 import { useImage } from './use_image';
 

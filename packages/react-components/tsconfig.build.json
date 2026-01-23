@@ -12,7 +12,6 @@
     "src/**/*.test.ts*",
     "src/**/*.stories.ts*",
     "src/test-utils.tsx",
-    "src/**/*.snap",
-    "src/setupTests.ts"
+    "src/**/*.snap"
   ]
 }

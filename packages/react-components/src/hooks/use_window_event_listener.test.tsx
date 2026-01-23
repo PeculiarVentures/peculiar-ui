@@ -1,3 +1,4 @@
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import { renderHook } from '../test-utils';
 import { useWindowEventListener } from './use_window_event_listener';
 

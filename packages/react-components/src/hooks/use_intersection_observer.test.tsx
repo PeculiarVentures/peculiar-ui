@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import { render, renderHook } from '../test-utils';
 import { intersectionObserver } from '../utils/intersection_observer';
 import { useIntersectionObserver } from './use_intersection_observer';

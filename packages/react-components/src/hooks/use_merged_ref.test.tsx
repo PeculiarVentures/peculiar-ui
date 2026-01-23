@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import { render } from '../test-utils';
 import { useMergedRef } from './use_merged_ref';

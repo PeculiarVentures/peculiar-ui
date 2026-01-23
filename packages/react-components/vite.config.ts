@@ -6,8 +6,8 @@ import react from '@vitejs/plugin-react-swc';
 export default defineConfig({
   plugins: [react()],
   test: {
-    globals: true, // allows using describe/test/expect without import
+    globals: false,
     environment: 'jsdom', // required for React DOM tests
-    setupFiles: './src/setupTests.ts', // optional setup file
+    setupFiles: 'vitest.setup.ts', // optional setup file
   },
 });

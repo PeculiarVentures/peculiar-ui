@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import {
   renderWithWrapper as render, screen, fireEvent,
 } from '../test-utils';

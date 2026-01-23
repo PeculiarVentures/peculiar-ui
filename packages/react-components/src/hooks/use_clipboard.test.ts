@@ -1,3 +1,5 @@
+import { describe, it, expect, afterEach, vi } from 'vitest';
+
 vi.mock('../utils', () => ({
   copyToClipboard: vi.fn(),
 }));
