@@ -3,6 +3,9 @@ import { afterEach, expect, vi } from 'vitest';
 import { createSerializer } from '@emotion/jest';
 import { cleanup } from '@testing-library/react';
 
+// @ts-expect-error: Mock React ACT environment for Vitest
+global.IS_REACT_ACT_ENVIRONMENT = true;
+
 expect.addSnapshotSerializer(createSerializer({
   includeStyles: true,
 }));
