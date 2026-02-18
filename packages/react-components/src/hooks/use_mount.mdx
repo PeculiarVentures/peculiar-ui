@@ -1,0 +1,40 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import * as Stories from './use_mount.stories';
+
+<Meta title="Hooks/useMount" />
+
+## Overview
+
+React hook that runs a callback only once when the component mounts.
+
+## Usage
+
+```jsx
+import { useMount } from '@peculiar/react-components';
+
+function Child() {
+  useMount(() => {
+    alert('I have been mounted');
+  });
+
+  return <div></div>;
+}
+
+export const Demo = () => {
+  const [mounted, setMounted] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setMounted((b) => !b)}>
+        {mounted ? 'Mounted' : 'UnMounted'}
+      </button>
+
+      {mounted ? <Child /> : null}
+    </div>
+  );
+};
+```
+
+## Demo
+
+<Canvas of={Stories.DemoExample} />
