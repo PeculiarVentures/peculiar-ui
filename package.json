@@ -29,7 +29,7 @@
     "@vitejs/plugin-react-swc": "^3.8.0",
     "@vitest/coverage-v8": "^4.0.17",
     "jsdom": "27.0.0",
-    "lerna": "^9.0.1",
+    "lerna": "^9.0.4",
     "rimraf": "^6.0.1",
     "vitest": "^4.0.17"
   },
