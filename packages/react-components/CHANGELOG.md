@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.7.0...@peculiar/react-components@1.8.0) (2026-02-18)
+
+
+### Features
+
+* **react-components:** add AutocompleteTag component with tests and styles ([a8e1592](https://github.com/PeculiarVentures/peculiar-ui/commit/a8e1592e7a031ae25bbdf148f5772c2709b5a448))
+* **react-components:** add useMount hook with documentation and stories ([245fe20](https://github.com/PeculiarVentures/peculiar-ui/commit/245fe20a21433dd4dc55f768109f55c05957ce7e))
+
+
+
+
+
 # [1.7.0](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.6.1...@peculiar/react-components@1.7.0) (2025-12-22)
 
 
