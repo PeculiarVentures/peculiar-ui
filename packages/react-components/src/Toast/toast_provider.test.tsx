@@ -163,7 +163,9 @@ describe('<ToastProvider />', () => {
     const initialRemoveAllToasts = result.current.removeAllToasts;
 
     act(() => {
-      initialAddToast({ message: 'Stable toast' });
+      initialAddToast({
+        message: 'Stable toast',
+      });
     });
 
     // Verify state was updated
