@@ -153,4 +153,27 @@ describe('<ToastProvider />', () => {
 
     expect(screen.queryByText(/^Toast/)).not.toBeInTheDocument();
   });
+
+  it('should return stable callback identities across state changes', () => {
+    const { result } = renderHook(useToast, {
+      wrapper: Provider,
+    });
+    const initialAddToast = result.current.addToast;
+    const initialRemoveToast = result.current.removeToast;
+    const initialRemoveAllToasts = result.current.removeAllToasts;
+
+    act(() => {
+      initialAddToast({
+        message: 'Stable toast',
+      });
+    });
+
+    // Verify state was updated
+    expect(screen.queryByText('Stable toast')).toBeInTheDocument();
+
+    // Verify callback identities remained the same
+    expect(result.current.addToast).toBe(initialAddToast);
+    expect(result.current.removeToast).toBe(initialRemoveToast);
+    expect(result.current.removeAllToasts).toBe(initialRemoveAllToasts);
+  });
 });
