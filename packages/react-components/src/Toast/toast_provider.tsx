@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Portal } from '../Portal';
+import { useEventCallback } from '../hooks/use_event_callback';
 import {
   ToastContext,
   TToastType,
@@ -35,7 +36,7 @@ export const ToastProvider: React.FC<IBaseProps> = (props) => {
     queue: [],
   });
 
-  const addToast = (options: IBaseToastType) => {
+  const addToast = useEventCallback((options: IBaseToastType) => {
     const id = options.id || `${Date.now()}${Math.random()}`;
     const newToast: TToastType = {
       ...options,
@@ -74,9 +75,9 @@ export const ToastProvider: React.FC<IBaseProps> = (props) => {
         ],
       };
     });
-  };
+  });
 
-  const removeToast = (id: string) => {
+  const removeToast = useEventCallback((id: string) => {
     setState((prevState) => {
       const inToasts = prevState.toasts.findIndex((item: TToastType) => item.id === id);
 
@@ -110,24 +111,26 @@ export const ToastProvider: React.FC<IBaseProps> = (props) => {
 
       return prevState;
     });
-  };
+  });
 
-  const removeAllToasts = () => {
+  const removeAllToasts = useEventCallback(() => {
     setState({
       toasts: [],
       queue: [],
     });
-  };
+  });
 
   const hasToasts = Boolean(state.toasts.length);
 
+  const contextValue = React.useMemo(() => ({
+    addToast,
+    removeToast,
+    removeAllToasts,
+  }), [addToast, removeToast, removeAllToasts]);
+
   return (
     <ToastContext.Provider
-      value={{
-        addToast,
-        removeToast,
-        removeAllToasts,
-      }}
+      value={contextValue}
     >
       {children}
       {hasToasts && (
