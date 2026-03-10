@@ -1,3 +1,5 @@
 import React from 'react';
 
-export const useEnhancedEffect = typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+export const IS_SERVER = typeof window === 'undefined';
+
+export const useEnhancedEffect = IS_SERVER ? React.useEffect : React.useLayoutEffect;

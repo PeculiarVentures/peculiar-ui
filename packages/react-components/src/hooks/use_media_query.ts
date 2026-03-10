@@ -1,13 +1,5 @@
 import React from 'react';
-import { useEnhancedEffect } from './use_enhanced_effect';
-
-function getMatches(query: string): boolean {
-  if (typeof window !== 'undefined' && window.matchMedia) {
-    return window.matchMedia(query).matches;
-  }
-
-  return false;
-}
+import { IS_SERVER, useEnhancedEffect } from './use_enhanced_effect';
 
 /**
  * A hook that returns `true` if the media query matched and `false` if not. This
@@ -15,22 +7,26 @@ function getMatches(query: string): boolean {
  *
  * @param query The media query you want to match against e.g. `"only screen and (min-width: 12em)"`
  */
-export function useMediaQuery(query: string) {
-  const [matches, setMatches] = React.useState(() => getMatches(query));
+export function useMediaQuery(query: string, defaultValue = false) {
+  const [matches, setMatches] = React.useState(() => {
+    if (IS_SERVER) {
+      return defaultValue;
+    }
+
+    return window.matchMedia(query).matches;
+  });
 
   useEnhancedEffect(() => {
-    const media = window.matchMedia(query);
+    const matchMedia = window.matchMedia(query);
 
-    setMatches(media.matches);
-
-    const listener = () => {
-      setMatches(media.matches);
+    const onChange = () => {
+      setMatches(matchMedia.matches);
     };
 
-    media.addListener(listener);
+    matchMedia.addListener(onChange);
 
     return () => {
-      media.removeListener(listener);
+      matchMedia.removeListener(onChange);
     };
   }, [query]);
 
