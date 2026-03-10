@@ -1,1 +1,0 @@
-import{e as t}from"./index-C-7etoUd.js";import{u as c}from"./use_enhanced_effect-B1RabiBj.js";function o(e){const r=t.useRef(e);return c(()=>{r.current=e}),t.useCallback((...u)=>(0,r.current)(...u),[])}export{o as u};
