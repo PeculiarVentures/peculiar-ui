@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEnhancedEffect } from './use_enhanced_effect';
+import { IS_SERVER, useEnhancedEffect } from './use_enhanced_effect';
 
 /**
  * A hook that returns `true` if the media query matched and `false` if not. This
@@ -7,26 +7,35 @@ import { useEnhancedEffect } from './use_enhanced_effect';
  *
  * @param query The media query you want to match against e.g. `"only screen and (min-width: 12em)"`
  */
-export function useMediaQuery(query: string) {
-  const [matches, setMatches] = React.useState(false);
-
-  useEnhancedEffect(() => {
-    const media = window.matchMedia(query);
-
-    if (media.matches !== matches) {
-      setMatches(media.matches);
+export function useMediaQuery(query: string, defaultValue = false) {
+  const [matches, setMatches] = React.useState(() => {
+    // Prevent a React hydration mismatch when a default value is provided
+    // by not defaulting to window.matchMedia(query).matches.
+    if (defaultValue !== undefined) {
+      return defaultValue;
     }
 
-    const listener = () => {
-      setMatches(media.matches);
+    if (IS_SERVER) {
+      return false;
+    }
+
+    return window.matchMedia(query).matches;
+  });
+
+  useEnhancedEffect(() => {
+    const matchMedia = window.matchMedia(query);
+
+    const onChange = () => {
+      setMatches(matchMedia.matches);
     };
 
-    media.addListener(listener);
+    onChange();
+    matchMedia.addListener(onChange);
 
     return () => {
-      media.removeListener(listener);
+      matchMedia.removeListener(onChange);
     };
-  }, [matches, query]);
+  }, [query]);
 
   return matches;
 }
