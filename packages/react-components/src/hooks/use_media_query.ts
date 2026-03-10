@@ -9,8 +9,14 @@ import { IS_SERVER, useEnhancedEffect } from './use_enhanced_effect';
  */
 export function useMediaQuery(query: string, defaultValue = false) {
   const [matches, setMatches] = React.useState(() => {
-    if (IS_SERVER) {
+    // Prevent a React hydration mismatch when a default value is provided
+    // by not defaulting to window.matchMedia(query).matches.
+    if (defaultValue !== undefined) {
       return defaultValue;
+    }
+
+    if (IS_SERVER) {
+      return false;
     }
 
     return window.matchMedia(query).matches;
@@ -23,6 +29,7 @@ export function useMediaQuery(query: string, defaultValue = false) {
       setMatches(matchMedia.matches);
     };
 
+    onChange();
     matchMedia.addListener(onChange);
 
     return () => {
