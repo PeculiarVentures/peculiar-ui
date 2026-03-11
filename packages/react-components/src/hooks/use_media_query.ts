@@ -7,7 +7,7 @@ import { IS_SERVER, useEnhancedEffect } from './use_enhanced_effect';
  *
  * @param query The media query you want to match against e.g. `"only screen and (min-width: 12em)"`
  */
-export function useMediaQuery(query: string, defaultValue = false) {
+export function useMediaQuery(query: string, defaultValue?: boolean) {
   const [matches, setMatches] = React.useState(() => {
     // Prevent a React hydration mismatch when a default value is provided
     // by not defaulting to window.matchMedia(query).matches.
