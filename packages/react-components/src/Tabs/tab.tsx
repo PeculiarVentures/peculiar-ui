@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
-import { TColorType } from '../styles';
 import { Typography } from '../Typography';
 
 /**
@@ -22,11 +21,6 @@ export interface ITabOwnProps {
    * @default false
    */
   disabled?: boolean;
-  /**
-   * The color of the component.
-   * @default 'black'
-   */
-  color?: ('black' | 'white');
   /**
    * Callback fired when the value changes.
    */
@@ -52,8 +46,8 @@ export type TTabProps<
  * Styles.
  */
 const TabRoot = styled('button', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Required<{ color: TColorType; selected: boolean }>>(
+  shouldForwardProp: (prop) => isPropValid(prop),
+})<Required<{ selected: boolean }>>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -76,31 +70,22 @@ const TabRoot = styled('button', {
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
-    const isWhite = props.color === 'white';
-    let color: string;
-    const colorDisabled = isDark
-      ? 'var(--pv-color-gray-5)'
-      : 'var(--pv-color-gray-7)';
-    let backgroundColorHove = 'var(--pv-color-secondary-tint-5)';
+    let color = 'var(--pv-color-gray-10)';
+    let colorDisabled = 'var(--pv-color-gray-7)';
+    let backgroundColorHover = 'var(--pv-color-secondary-tint-5)';
     let backgroundColorFocus = 'var(--pv-color-secondary-tint-4)';
     let backgroundColorActive = 'var(--pv-color-secondary-tint-3)';
 
-    if (isWhite) {
-      color = 'var(--pv-color-gray-9)';
-    } else if (isDark) {
-      color = 'var(--pv-color-gray-7)';
-    } else {
-      color = 'var(--pv-color-gray-10)';
-    }
-
     if (isDark) {
-      backgroundColorHove = 'var(--pv-color-secondary-shade-4)';
+      color = 'var(--pv-color-gray-7)';
+      colorDisabled = 'var(--pv-color-gray-5)';
+      backgroundColorHover = 'var(--pv-color-secondary-shade-4)';
       backgroundColorFocus = 'var(--pv-color-secondary-shade-3)';
       backgroundColorActive = 'var(--pv-color-secondary-shade-2)';
     }
 
     if (props.selected) {
-      if (isDark || isWhite) {
+      if (isDark) {
         color = 'var(--pv-color-white)';
       } else {
         color = 'var(--pv-color-black)';
@@ -115,7 +100,7 @@ const TabRoot = styled('button', {
       '&:not(:disabled)': {
         color,
         '&:hover': {
-          backgroundColor: backgroundColorHove,
+          backgroundColor: backgroundColorHover,
         },
         '&:focus-visible': {
           backgroundColor: backgroundColorFocus,
@@ -133,7 +118,6 @@ const TabRoot = styled('button', {
 
 export const Tab = React.forwardRef<any, TTabProps>((props, ref) => {
   const {
-    color = 'black',
     component,
     id,
     disabled = false,
@@ -159,7 +143,6 @@ export const Tab = React.forwardRef<any, TTabProps>((props, ref) => {
       ref={ref}
       disabled={disabled}
       id={id}
-      color={color}
       selected={selected}
       aria-selected={Boolean(selected)}
       onClick={handleClick}
