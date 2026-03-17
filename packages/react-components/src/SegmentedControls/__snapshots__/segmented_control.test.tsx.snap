@@ -446,7 +446,7 @@ exports[`<SegmentedControl /> > should render colors > colors: "white" & selecte
 }
 
 .emotion-0:not(:disabled) {
-  color: var(--pv-color-gray-9);
+  color: var(--pv-color-gray-10);
 }
 
 .emotion-0:not(:disabled):hover {
@@ -519,8 +519,8 @@ exports[`<SegmentedControl /> > should render colors > colors: "white" & selecte
   text-decoration: none;
   background-color: var(--pv-color-white);
   box-shadow: var(--pv-shadow-light-soft);
-  background-color: var(--pv-color-gray-4);
-  border-color: var(--pv-color-gray-3);
+  background-color: var(--pv-color-gray-6);
+  border-color: var(--pv-color-gray-5);
 }
 
 .emotion-0:disabled {
