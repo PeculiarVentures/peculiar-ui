@@ -13,8 +13,11 @@ const meta: Meta<typeof SegmentedControls> = {
       <SegmentedControl key="2" id="files">
         Files
       </SegmentedControl>,
+      <SegmentedControl key="3" id="settings">
+        Settings
+      </SegmentedControl>,
       <SegmentedControl
-        key="3"
+        key="4"
         id="builds"
         disabled
       >

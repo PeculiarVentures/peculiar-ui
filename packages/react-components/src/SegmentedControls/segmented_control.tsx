@@ -72,6 +72,7 @@ const SegmentedControlRoot = styled('button', {
     ...(props.selected && ({
       backgroundColor: 'var(--pv-color-white)',
       boxShadow: 'var(--pv-shadow-light-soft)',
+      pointerEvents: 'none',
     })),
   }),
   (props) => {
@@ -120,7 +121,6 @@ const SegmentedControlRoot = styled('button', {
         '&:hover': {
           backgroundColor: backgroundColorHover,
           borderColor: borderColorHover,
-          boxShadow: 'none',
         },
         '&:focus-visible': {
           borderColor: 'var(--pv-color-secondary)',
