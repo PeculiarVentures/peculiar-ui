@@ -55,12 +55,6 @@ export const Tabs = React.forwardRef<HTMLDivElement, TTabsProps>((props, ref) =>
         return null;
       }
 
-      if (child.type.displayName !== 'Tab') {
-        console.error('Peculiar-UI: The Tabs component doesn\'t accept a Element as not a Tab.');
-
-        return null;
-      }
-
       const childValue = child.props.id;
       const selected = childValue === value;
 

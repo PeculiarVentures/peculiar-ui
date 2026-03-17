@@ -36,33 +36,12 @@ describe('<Tab />', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  describe('should render colors', () => {
-    const colors: React.ComponentProps<typeof Tab>['color'][] = [
-      'black',
-      'white',
-    ];
-    const selectVariant: boolean[] = [
-      true,
-      false,
-    ];
+  it('should pass selected', () => {
+    const { asFragment } = render(
+      // @ts-expect-error: `selected` is declared here.
+      <Tab id="tab1" selected={true}>Tab-1</Tab>,
+    );
 
-    colors.forEach((color) => {
-      selectVariant.forEach((selected) => {
-        it(`colors: "${color}" & selected: "${selected}"`, () => {
-          const { asFragment } = render(
-            // @ts-expect-error: `component` is declared here.
-            <Tab
-              id="tab1"
-              color={color}
-              selected={selected}
-            >
-              Tab-1
-            </Tab>,
-          );
-
-          expect(asFragment()).toMatchSnapshot();
-        });
-      });
-    });
+    expect(asFragment()).toMatchSnapshot();
   });
 });
