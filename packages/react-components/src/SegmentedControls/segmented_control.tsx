@@ -77,7 +77,7 @@ const SegmentedControlRoot = styled('button', {
   (props) => {
     const isDark = props.theme.mode === 'dark';
     const isWhite = props.color === 'white';
-    let color: string;
+    let color = 'var(--pv-color-gray-10)';
     const colorDisabled = isDark
       ? 'var(--pv-color-gray-5)'
       : 'var(--pv-color-gray-8)';
@@ -87,29 +87,20 @@ const SegmentedControlRoot = styled('button', {
     let borderColor = 'transparent';
     let borderColorHover = 'var(--pv-color-gray-5)';
     let borderColorActive = 'var(--pv-color-gray-6)';
-    let borderColorFocus = 'var(--pv-color-secondary)';
-
-    if (isWhite) {
-      color = 'var(--pv-color-gray-9)';
-    } else if (isDark) {
-      color = 'var(--pv-color-gray-7)';
-    } else {
-      color = 'var(--pv-color-gray-10)';
-    }
 
     if (isDark) {
-      backgroundColorHover = 'var(--pv-color-gray-5)';
-      backgroundColorActive = 'var(--pv-color-gray-6)';
-      borderColorHover = 'var(--pv-color-gray-5)';
-      borderColorActive = 'var(--pv-color-gray-6)';
-      borderColorFocus = 'var(--pv-color-secondary-shade-2)';
+      backgroundColorHover = 'var(--pv-color-gray-4)';
+      backgroundColorActive = 'var(--pv-color-gray-5)';
+      borderColorHover = 'var(--pv-color-gray-4)';
+      borderColorActive = 'var(--pv-color-gray-5)';
+      color = 'var(--pv-color-gray-8)';
     }
 
     if (props.selected) {
       if (isDark || isWhite) {
-        backgroundColor = 'var(--pv-color-gray-4)';
+        backgroundColor = 'var(--pv-color-gray-6)';
         color = 'var(--pv-color-white)';
-        borderColor = 'var(--pv-color-gray-3)';
+        borderColor = 'var(--pv-color-gray-5)';
       } else {
         backgroundColor = 'var(--pv-color-white)';
         color = 'var(--pv-color-black)';
@@ -132,7 +123,7 @@ const SegmentedControlRoot = styled('button', {
           boxShadow: 'none',
         },
         '&:focus-visible': {
-          borderColor: borderColorFocus,
+          borderColor: 'var(--pv-color-secondary)',
         },
         '&:active': {
           backgroundColor: backgroundColorActive,

@@ -47,10 +47,8 @@ const SegmentedControlsRoot = styled('div', {
   const isWhite = props.color === 'white';
   let backgroundColor = 'var(--pv-color-gray-4)';
 
-  if (isDark) {
-    backgroundColor = 'var(--pv-color-gray-2)';
-  } else if (isWhite) {
-    backgroundColor = 'var(--pv-color-gray-5)';
+  if (isDark || isWhite) {
+    backgroundColor = 'var(--pv-color-gray-3)';
   }
 
   return {
