@@ -42,7 +42,6 @@ exports[`<SegmentedControls /> > should pass className 1`] = `
   justify-content: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: var(--pv-color-white);
   box-shadow: var(--pv-shadow-light-soft);
   pointer-events: none;
   background-color: var(--pv-color-white);
@@ -210,7 +209,6 @@ exports[`<SegmentedControls /> > should render with default styles 1`] = `
   justify-content: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: var(--pv-color-white);
   box-shadow: var(--pv-shadow-light-soft);
   pointer-events: none;
   background-color: var(--pv-color-white);

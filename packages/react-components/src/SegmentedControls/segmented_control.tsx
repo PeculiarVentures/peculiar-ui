@@ -64,7 +64,6 @@ const SegmentedControlRoot = styled('button', {
     justifyContent: 'center',
     textDecoration: 'none',
     ...(props.selected && ({
-      backgroundColor: 'var(--pv-color-white)',
       boxShadow: 'var(--pv-shadow-light-soft)',
       pointerEvents: 'none',
     })),
