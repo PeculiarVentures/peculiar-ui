@@ -5,6 +5,8 @@ exports[`<SegmentedControls /> > should pass className 1`] = `
   .emotion-0 {
   white-space: nowrap;
   overflow-x: auto;
+  white-space: nowrap;
+  overflow-x: auto;
   background-color: var(--pv-color-gray-4);
   border-radius: calc(var(--pv-size-base) * 4);
   display: -webkit-inline-box;
@@ -169,6 +171,8 @@ exports[`<SegmentedControls /> > should pass className 1`] = `
 exports[`<SegmentedControls /> > should render with default styles 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  white-space: nowrap;
+  overflow-x: auto;
   white-space: nowrap;
   overflow-x: auto;
   background-color: var(--pv-color-gray-4);

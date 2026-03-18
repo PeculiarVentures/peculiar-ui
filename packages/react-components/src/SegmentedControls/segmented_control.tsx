@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
-import { TColorType } from '../styles';
 import { Typography } from '../Typography';
 
 /**
@@ -22,11 +21,6 @@ export interface ISegmentedControlOwnProps {
    * @default false
    */
   disabled?: boolean;
-  /**
-   * The color of the component.
-   * @default 'black'
-   */
-  color?: ('black' | 'white');
   /**
    * Callback fired when the value changes.
    */
@@ -52,8 +46,8 @@ export type TSegmentedControlProps<
  * Styles.
  */
 const SegmentedControlRoot = styled('button', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<Required<{ color: TColorType; selected: boolean }>>(
+  shouldForwardProp: isPropValid,
+})<Required<{ selected: boolean }>>(
   (props) => ({
     fontFamily: 'inherit',
     outline: 'none',
@@ -77,7 +71,6 @@ const SegmentedControlRoot = styled('button', {
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
-    const isWhite = props.color === 'white';
     let color = 'var(--pv-color-gray-10)';
     const colorDisabled = isDark
       ? 'var(--pv-color-gray-5)'
@@ -98,7 +91,7 @@ const SegmentedControlRoot = styled('button', {
     }
 
     if (props.selected) {
-      if (isDark || isWhite) {
+      if (isDark) {
         backgroundColor = 'var(--pv-color-gray-6)';
         color = 'var(--pv-color-white)';
         borderColor = 'var(--pv-color-gray-5)';
@@ -139,7 +132,6 @@ const SegmentedControlRoot = styled('button', {
 
 export const SegmentedControl = React.forwardRef<any, TSegmentedControlProps>((props, ref) => {
   const {
-    color = 'black',
     component,
     id,
     disabled = false,
@@ -166,7 +158,6 @@ export const SegmentedControl = React.forwardRef<any, TSegmentedControlProps>((p
       ref={ref}
       disabled={disabled}
       id={id}
-      color={color}
       selected={selected}
       aria-selected={Boolean(selected)}
       onClick={handleClick}
