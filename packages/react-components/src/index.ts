@@ -37,3 +37,4 @@ export * from './styles';
 export * from './hooks';
 export * from './OverridableComponent';
 export * from './Flex';
+export * from './SegmentedControls';
