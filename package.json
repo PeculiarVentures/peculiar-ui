@@ -27,11 +27,11 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20.19.19",
     "@vitejs/plugin-react-swc": "^3.8.0",
-    "@vitest/coverage-v8": "^4.0.17",
+    "@vitest/coverage-v8": "^4.1.1",
     "jsdom": "27.0.0",
     "lerna": "^9.0.7",
     "rimraf": "^6.0.1",
-    "vitest": "^4.0.17"
+    "vitest": "^4.1.1"
   },
   "license": "MIT",
   "devEngines": {
