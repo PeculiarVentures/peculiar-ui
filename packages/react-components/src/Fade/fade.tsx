@@ -10,6 +10,8 @@ export type TBaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   | 'onExit'
   | 'onExited'
   | 'onExiting'
+  | 'unmountOnExit'
+  | 'mountOnEnter'
 )>;
 
 interface IBaseProps {

@@ -1,21 +1,13 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
-import type { TransitionProps, TransitionStatus } from 'react-transition-group/Transition';
+import type { TransitionStatus } from 'react-transition-group/Transition';
 import { Transition } from 'react-transition-group';
+import type { TBaseTransitionProps } from '../Fade/fade';
 
 /**
  * Types.
  */
-type TCollapseTransitionProps = Pick<TransitionProps<HTMLElement>, (
-  'onEnter'
-  | 'onEntered'
-  | 'onEntering'
-  | 'onExit'
-  | 'onExited'
-  | 'onExiting'
-)>;
-
 interface ICollapseOwnProps {
   /**
    * If `true`, the component will transition in.
@@ -38,7 +30,7 @@ interface ICollapseOwnProps {
 };
 
 type TCollapseProps = ICollapseOwnProps
-  & TCollapseTransitionProps
+  & TBaseTransitionProps
   & React.HTMLAttributes<HTMLDivElement>;
 /**
  *
@@ -84,6 +76,8 @@ export const Collapse: React.FC<TCollapseProps> = (props) => {
     in: inProp,
     children,
     orientation = 'vertical',
+    unmountOnExit,
+    mountOnEnter,
     onEnter,
     onEntered,
     onEntering,
@@ -166,6 +160,8 @@ export const Collapse: React.FC<TCollapseProps> = (props) => {
   return (
     <Transition
       in={inProp}
+      unmountOnExit={unmountOnExit}
+      mountOnEnter={mountOnEnter}
       timeout={timeout}
       nodeRef={nodeRef}
       onEnter={handleEnter}

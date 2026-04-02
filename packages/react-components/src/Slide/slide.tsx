@@ -1,16 +1,7 @@
 import * as React from 'react';
-import type { TransitionProps } from 'react-transition-group/Transition';
 import { Transition } from 'react-transition-group';
 import { useMergedRef } from '../hooks';
-
-type TBaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
-  'onEnter'
-  | 'onEntered'
-  | 'onEntering'
-  | 'onExit'
-  | 'onExited'
-  | 'onExiting'
-)>;
+import type { TBaseTransitionProps } from '../Fade/fade';
 
 interface IBaseProps {
   /**
@@ -46,13 +37,15 @@ export const Slide = React.forwardRef<any, TSlideProps>((props, ref) => {
     in: inProp,
     children,
     appear = true,
+    direction = 'right',
+    unmountOnExit,
+    mountOnEnter,
     onEnter,
     onEntered,
     onEntering,
     onExit,
     onExited,
     onExiting,
-    direction = 'right',
   } = props;
   const nodeRef = React.useRef<HTMLElement>(null);
   const multiRef = useMergedRef((children as any).ref, ref, nodeRef);
@@ -105,6 +98,8 @@ export const Slide = React.forwardRef<any, TSlideProps>((props, ref) => {
       timeout={timeout}
       appear={appear}
       nodeRef={nodeRef}
+      unmountOnExit={unmountOnExit}
+      mountOnEnter={mountOnEnter}
       onEnter={handleEnter}
       onEntered={onEntered}
       onEntering={onEntering}
