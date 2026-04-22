@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.8](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.8.7...@peculiar/react-components@1.8.8) (2026-04-22)
+
+**Note:** Version bump only for package @peculiar/react-components
+
+
+
+
+
 ## [1.8.7](https://github.com/PeculiarVentures/peculiar-ui/compare/@peculiar/react-components@1.8.6...@peculiar/react-components@1.8.7) (2026-04-02)
 
 **Note:** Version bump only for package @peculiar/react-components
