@@ -8,7 +8,6 @@ exports[`<SegmentedControl /> > should pass "component" 1`] = `
   cursor: pointer;
   box-sizing: border-box;
   border: 1px solid transparent;
-  min-height: calc(var(--pv-size-base) * 5 + 1px);
   height: 100%;
   padding: 0 calc(var(--pv-size-base) * 2);
   border-radius: calc(var(--pv-size-base) * 4);
@@ -88,7 +87,6 @@ exports[`<SegmentedControl /> > should pass className 1`] = `
   cursor: pointer;
   box-sizing: border-box;
   border: 1px solid transparent;
-  min-height: calc(var(--pv-size-base) * 5 + 1px);
   height: 100%;
   padding: 0 calc(var(--pv-size-base) * 2);
   border-radius: calc(var(--pv-size-base) * 4);
@@ -168,7 +166,6 @@ exports[`<SegmentedControl /> > should pass disabled 1`] = `
   cursor: pointer;
   box-sizing: border-box;
   border: 1px solid transparent;
-  min-height: calc(var(--pv-size-base) * 5 + 1px);
   height: 100%;
   padding: 0 calc(var(--pv-size-base) * 2);
   border-radius: calc(var(--pv-size-base) * 4);
@@ -249,7 +246,6 @@ exports[`<SegmentedControl /> > should render with default styles 1`] = `
   cursor: pointer;
   box-sizing: border-box;
   border: 1px solid transparent;
-  min-height: calc(var(--pv-size-base) * 5 + 1px);
   height: 100%;
   padding: 0 calc(var(--pv-size-base) * 2);
   border-radius: calc(var(--pv-size-base) * 4);
