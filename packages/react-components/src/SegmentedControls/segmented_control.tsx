@@ -54,7 +54,7 @@ const SegmentedControlRoot = styled('button', {
     cursor: 'pointer',
     boxSizing: 'border-box',
     border: '1px solid transparent',
-    minHeight: 'calc(var(--pv-size-base) * 4 + 2px)',
+    minHeight: 'calc(var(--pv-size-base) * 5 + 1px)',
     height: '100%',
     padding: '0 calc(var(--pv-size-base) * 2)',
     borderRadius: 'calc(var(--pv-size-base) * 4)',
