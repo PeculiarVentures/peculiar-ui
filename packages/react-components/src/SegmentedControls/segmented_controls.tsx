@@ -47,7 +47,8 @@ const SegmentedControlsRoot = styled(Tabs)((props) => {
     backgroundColor,
     borderRadius: 'calc(var(--pv-size-base) * 4)',
     display: 'inline-flex',
-    padding: 'calc(var(--pv-size-base) - 1px)',
+    padding: 'calc(var(--pv-size-base) - 3px)',
+    gap: 'calc(var(--pv-size-base) - 4px)',
   };
 });
 /**
