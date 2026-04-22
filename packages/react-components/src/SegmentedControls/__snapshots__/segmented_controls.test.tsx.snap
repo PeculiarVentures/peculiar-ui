@@ -13,7 +13,10 @@ exports[`<SegmentedControls /> > should pass className 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  padding: calc(var(--pv-size-base) - 1px);
+  padding: 2px;
+  gap: 1px;
+  box-sizing: border-box;
+  height: calc(var(--pv-size-base) * 6);
 }
 
 .emotion-1 {
@@ -22,7 +25,6 @@ exports[`<SegmentedControls /> > should pass className 1`] = `
   cursor: pointer;
   box-sizing: border-box;
   border: 1px solid transparent;
-  min-height: calc(var(--pv-size-base) * 4 + 2px);
   height: 100%;
   padding: 0 calc(var(--pv-size-base) * 2);
   border-radius: calc(var(--pv-size-base) * 4);
@@ -86,7 +88,6 @@ exports[`<SegmentedControls /> > should pass className 1`] = `
   cursor: pointer;
   box-sizing: border-box;
   border: 1px solid transparent;
-  min-height: calc(var(--pv-size-base) * 4 + 2px);
   height: 100%;
   padding: 0 calc(var(--pv-size-base) * 2);
   border-radius: calc(var(--pv-size-base) * 4);
@@ -180,7 +181,10 @@ exports[`<SegmentedControls /> > should render with default styles 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  padding: calc(var(--pv-size-base) - 1px);
+  padding: 2px;
+  gap: 1px;
+  box-sizing: border-box;
+  height: calc(var(--pv-size-base) * 6);
 }
 
 .emotion-1 {
@@ -189,7 +193,6 @@ exports[`<SegmentedControls /> > should render with default styles 1`] = `
   cursor: pointer;
   box-sizing: border-box;
   border: 1px solid transparent;
-  min-height: calc(var(--pv-size-base) * 4 + 2px);
   height: 100%;
   padding: 0 calc(var(--pv-size-base) * 2);
   border-radius: calc(var(--pv-size-base) * 4);
@@ -253,7 +256,6 @@ exports[`<SegmentedControls /> > should render with default styles 1`] = `
   cursor: pointer;
   box-sizing: border-box;
   border: 1px solid transparent;
-  min-height: calc(var(--pv-size-base) * 4 + 2px);
   height: 100%;
   padding: 0 calc(var(--pv-size-base) * 2);
   border-radius: calc(var(--pv-size-base) * 4);
