@@ -107,7 +107,7 @@ const ButtonBaseRoot = styled('button', {
 
   if (props.variant === 'outlined') {
     if (props.color === 'default') {
-      borderColor = 'var(--pv-color-gray-7)';
+      borderColor = 'var(--pv-color-gray-8)';
       backgroundColorHover = 'var(--pv-color-gray-3)';
       backgroundColorFocus = 'var(--pv-color-gray-4)';
       backgroundColorActive = 'var(--pv-color-gray-5)';

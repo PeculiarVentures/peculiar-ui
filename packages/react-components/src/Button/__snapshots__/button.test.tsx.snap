@@ -497,7 +497,7 @@ exports[`<Button /> > Button render (variants & colors) > variant: "outlined" & 
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-8);
   color: var(--pv-color-black);
   border-radius: 4px;
   height: calc(var(--pv-size-base) * 7);

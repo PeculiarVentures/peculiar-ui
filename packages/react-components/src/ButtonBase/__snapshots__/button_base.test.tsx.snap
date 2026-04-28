@@ -477,7 +477,7 @@ exports[`<ButtonBase /> > ButtonBase render (variants & colors) > dark > variant
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-8);
   color: var(--pv-color-white);
 }
 
@@ -1782,7 +1782,7 @@ exports[`<ButtonBase /> > ButtonBase render (variants & colors) > light > varian
   padding: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  border-color: var(--pv-color-gray-7);
+  border-color: var(--pv-color-gray-8);
   color: var(--pv-color-black);
 }
 
