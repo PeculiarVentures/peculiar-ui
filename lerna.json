@@ -2,7 +2,7 @@
   "packages": [
     "packages/*"
   ],
-  "version": "independent",
+  "version": "1.8.9",
   "npmClient": "npm",
   "npmClientArgs": [
     "ci"

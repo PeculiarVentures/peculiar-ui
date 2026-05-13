@@ -1,7 +1,7 @@
 {
   "name": "@peculiar/color",
   "private": false,
-  "version": "0.1.10",
+  "version": "1.8.9",
   "author": "PeculiarVentures Team",
   "description": "Library for color manipulation and conversion in JavaScript.",
   "keywords": [
@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/PeculiarVentures/peculiar-ui.git",
+    "url": "https://github.com/PeculiarVentures/peculiar-ui",
     "directory": "packages/color"
   },
   "scripts": {

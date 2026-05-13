@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/PeculiarVentures/peculiar-ui.git",
+    "url": "https://github.com/PeculiarVentures/peculiar-ui",
     "directory": "packages/react-components"
   },
   "scripts": {
@@ -47,7 +47,7 @@
   "dependencies": {
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
-    "@peculiar/color": "^0.1.10",
+    "@peculiar/color": "^1.8.9",
     "@popperjs/core": "^2.11.7",
     "@types/flat": "^5.0.2",
     "@types/react-transition-group": "^4.4.5",
