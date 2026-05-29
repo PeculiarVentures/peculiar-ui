@@ -2,7 +2,7 @@ import React from 'react';
 import { createFocusTrap } from 'focus-trap';
 import { useMergedRef } from '../hooks';
 
-interface IBaseProps {
+export interface IFocusTrapOwnProps {
   /**
    * A single child content element.
    */
@@ -19,7 +19,11 @@ interface IBaseProps {
   disableAutoFocus?: boolean;
 };
 
-export const FocusTrap: React.FC<IBaseProps> = (props) => {
+/**
+ * Keeps keyboard focus within its child while `open` is true.
+ * When the trap is deactivated, focus returns to the element that had focus before activation.
+ */
+export const FocusTrap: React.FC<IFocusTrapOwnProps> = (props) => {
   const {
     children,
     open,

@@ -11,6 +11,7 @@ export * from './Dialog';
 export * from './Drawer';
 export * from './Fab';
 export * from './Fade';
+export * from './FocusTrap';
 export * from './IconButton';
 export * from './icons';
 export * from './Image';
