@@ -45,5 +45,8 @@
       "version": "11.12.1",
       "onFail": "warn"
     }
+  },
+  "dependencies": {
+    "ci": "^2.3.0"
   }
 }
