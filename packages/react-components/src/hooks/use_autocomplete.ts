@@ -564,6 +564,25 @@ export function useAutocomplete<
 
           break;
 
+        case 'Backspace':
+          if (multiple && !readOnly && !disabled && searchValue === '' && Array.isArray(value) && value.length > 0) {
+            const index = value.length - 1;
+            const newValue = value.slice();
+
+            newValue.splice(index, 1);
+
+            setValue(newValue as TAutocompleteValue<T, Multiple>);
+
+            if (onChange) {
+              onChange(event, newValue as TAutocompleteValue<T, Multiple>, {
+                option: value[index],
+                index,
+              }, 'removeOption');
+            }
+          }
+
+          break;
+
         default:
       }
     }

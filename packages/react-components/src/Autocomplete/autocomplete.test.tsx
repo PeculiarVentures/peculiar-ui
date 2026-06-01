@@ -324,5 +324,133 @@ describe('<Autocomplete />', () => {
       expect(screen.queryByText('option-1')).not.toBeInTheDocument();
       expect(screen.queryByText('option-2')).not.toBeInTheDocument();
     });
+
+    it('should remove the last selected tag on Backspace when the input is empty', () => {
+      const Test = () => {
+        const [selected, setSelected] = React.useState(['option-1', 'option-2']);
+
+        return (
+          <Autocomplete
+            id="test-id"
+            options={['option-1', 'option-2']}
+            value={selected}
+            onChange={(_event, newValue) => setSelected(newValue as string[])}
+            multiple
+          />
+        );
+      };
+
+      const { container } = render(<Test />);
+
+      const tags = () => container.querySelectorAll('[data-tag-index]');
+
+      expect(tags()).toHaveLength(2);
+
+      fireEvent.keyDown(screen.getByRole('combobox'), {
+        key: 'Backspace',
+        code: 'Backspace',
+      });
+
+      expect(tags()).toHaveLength(1);
+      expect(tags()[0]).toHaveTextContent('option-1');
+    });
+
+    it('should not remove tags on Backspace when the input has filter text', async () => {
+      render(
+        <Autocomplete
+          id="test-id"
+          options={['option-1', 'option-2']}
+          value={['option-1', 'option-2']}
+          multiple
+        />,
+      );
+
+      const input = screen.getByRole('combobox');
+
+      await act(async () => {
+        fireEvent.change(input, {
+          target: {
+            value: 'a',
+          },
+        });
+      });
+
+      fireEvent.keyDown(input, {
+        key: 'Backspace',
+        code: 'Backspace',
+      });
+
+      expect(screen.getByText('option-1')).toBeInTheDocument();
+      expect(screen.getByText('option-2')).toBeInTheDocument();
+    });
+
+    it('should not remove tags on Backspace when readOnly', () => {
+      render(
+        <Autocomplete
+          id="test-id"
+          options={['option-1', 'option-2']}
+          value={['option-1', 'option-2']}
+          multiple
+          readOnly
+        />,
+      );
+
+      fireEvent.keyDown(screen.getByRole('combobox'), {
+        key: 'Backspace',
+        code: 'Backspace',
+      });
+
+      expect(screen.getByText('option-1')).toBeInTheDocument();
+      expect(screen.getByText('option-2')).toBeInTheDocument();
+    });
+
+    it('should not remove tags on Backspace when disabled', () => {
+      render(
+        <Autocomplete
+          id="test-id"
+          options={['option-1', 'option-2']}
+          value={['option-1', 'option-2']}
+          multiple
+          disabled
+        />,
+      );
+
+      fireEvent.keyDown(screen.getByRole('combobox'), {
+        key: 'Backspace',
+        code: 'Backspace',
+      });
+
+      expect(screen.getByText('option-1')).toBeInTheDocument();
+      expect(screen.getByText('option-2')).toBeInTheDocument();
+    });
+
+    it('should call onChange with removeOption when removing a tag via Backspace', () => {
+      const handleChange = vi.fn();
+
+      render(
+        <Autocomplete
+          id="test-id"
+          options={['option-1', 'option-2']}
+          value={['option-1', 'option-2']}
+          multiple
+          onChange={handleChange}
+        />,
+      );
+
+      fireEvent.keyDown(screen.getByRole('combobox'), {
+        key: 'Backspace',
+        code: 'Backspace',
+      });
+
+      expect(handleChange).toHaveBeenCalledWith(
+        expect.any(Object),
+        ['option-1'],
+        {
+          option: 'option-2',
+          index: 1,
+        },
+        'removeOption',
+      );
+    });
   });
 });
