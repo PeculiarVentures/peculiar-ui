@@ -334,13 +334,15 @@ describe('<Autocomplete />', () => {
             id="test-id"
             options={['option-1', 'option-2']}
             value={selected}
-            onChange={(_event, newValue) => setSelected(newValue as string[])}
             multiple
+            onChange={(_event, newValue) => setSelected(newValue as string[])}
           />
         );
       };
 
-      const { container } = render(<Test />);
+      const { container } = render(
+        <Test />,
+      );
 
       const tags = () => container.querySelectorAll('[data-tag-index]');
 
