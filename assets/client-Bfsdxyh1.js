@@ -1,0 +1,1 @@
+import{r as e}from"./preload-helper-CT_b8DTk.js";import{t}from"./react-dom-BsQ0ivfr.js";var n=e((e=>{var n=t();e.createRoot=n.createRoot,e.hydrateRoot=n.hydrateRoot}));export{n as t};

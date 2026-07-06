@@ -1,0 +1,1 @@
+import{i as e,s as t}from"./preload-helper-CT_b8DTk.js";import{t as n}from"./react-BTu_umhU.js";function r(e){i.useEffect(e,[])}var i,a=e((()=>{i=t(n())}));export{r as n,a as t};
