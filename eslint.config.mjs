@@ -28,7 +28,7 @@ export default tseslint.config([
     ],
   },
   {
-    files: ['**/.storybook/**'],
+    files: ['**/.storybook/**', '**/vite.config.ts'],
     rules: {
       'import/no-unresolved': 'off',
     },
