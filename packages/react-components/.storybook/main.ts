@@ -9,12 +9,6 @@ const config: StorybookConfig = {
     disableTelemetry: true,
   },
   addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        backgrounds: false,
-      },
-    },
     'storybook-dark-mode',
   ],
   framework: {
