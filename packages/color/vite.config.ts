@@ -1,4 +1,5 @@
 /// <reference types="vitest/config" />
+// eslint-disable-next-line import/no-unresolved
 import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
