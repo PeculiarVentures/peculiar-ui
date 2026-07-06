@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Preview, Decorator } from '@storybook/react';
-import { addons } from '@storybook/preview-api';
+import { addons } from 'storybook/preview-api';
 import {
   useDarkMode,
   DARK_MODE_EVENT_NAME,
 } from 'storybook-dark-mode';
-import { DocsContainer, DocsContextProps } from '@storybook/addon-docs';
+import { DocsContainer, DocsContextProps } from '@storybook/addon-docs/blocks';
 import { ThemeProvider } from '../src';
 import { themeLight, themeDark } from './themes';
 import './global.css';
@@ -24,8 +24,8 @@ const ThemedDocsContainer: React.FC<IThemedDocsContainerProps> = (props) => {
   React.useEffect(() => {
     channel.on(DARK_MODE_EVENT_NAME, setDark);
 
-    return () => channel.removeListener(DARK_MODE_EVENT_NAME, setDark);
-  }, [channel, setDark]);
+    return () => channel.off(DARK_MODE_EVENT_NAME, setDark);
+  }, []);
 
   return (
     <ThemeProvider
@@ -58,6 +58,9 @@ const preview: Preview = {
   parameters: {
     actions: {
       argTypesRegex: '^on[A-Z].*',
+    },
+    backgrounds: {
+      disabled: true,
     },
     darkMode: {
       dark: themeDark,

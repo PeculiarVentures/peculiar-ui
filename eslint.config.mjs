@@ -27,4 +27,10 @@ export default tseslint.config([
       '**/public/*',
     ],
   },
+  {
+    files: ['**/.storybook/**'],
+    rules: {
+      'import/no-unresolved': 'off',
+    },
+  },
 ]);

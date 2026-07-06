@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming';
+import { create } from 'storybook/theming';
 import PackageInfo from './../package.json';
 
 export const themeLight = create({
