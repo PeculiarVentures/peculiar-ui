@@ -1,3 +1,0 @@
-import{i as e}from"./preload-helper-CT_b8DTk.js";import{t}from"./jsx-runtime-BCDDjCIb.js";import{Bt as n,Wt as r,zt as i}from"./iframe-DgRRKy_j.js";import{t as a}from"./mdx-react-shim-D_JpUb7A.js";import{PalettePlaygroundExample as o,t as s}from"./palette.stories-C7Cr_0LV.js";function c(e){let t={h1:`h1`,...r(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(i,{title:`Customization/Palette Playground`}),`
-`,(0,u.jsx)(t.h1,{id:`palette-playground`,children:`Palette Playground`}),`
-`,(0,u.jsx)(o,{})]})}function l(e={}){let{wrapper:t}={...r(),...e.components};return t?(0,u.jsx)(t,{...e,children:(0,u.jsx)(c,{...e})}):c(e)}var u;e((()=>{u=t(),a(),n(),s()}))();export{l as default};
