@@ -13,5 +13,6 @@ export function useEventCallback<Args extends unknown[], Return>(
     ref.current = fn;
   });
 
+  // @ts-expect-error - ref.current is not undefined
   return React.useCallback((...args: Args) => (0, ref.current!)(...args), []);
 }

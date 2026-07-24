@@ -51,9 +51,11 @@ export const Slide = React.forwardRef<any, TSlideProps>((props, ref) => {
   const multiRef = useMergedRef((children as any).ref, ref, nodeRef);
 
   const handleEnter = (isAppearing: boolean) => {
-    // reading a dimension prop will cause the browser to recalculate,
-    // which will let our animations work
-    void nodeRef.current.offsetHeight;
+    if (nodeRef.current) {
+      // reading a dimension prop will cause the browser to recalculate,
+      // which will let our animations work
+      void nodeRef.current.offsetHeight;
+    }
 
     if (onEnter) {
       onEnter(isAppearing);
