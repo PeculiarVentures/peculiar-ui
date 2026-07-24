@@ -9,9 +9,9 @@ const SV_MAX = 100;
  */
 export function rgbToHsb(r: number, g: number, b: number): [h: number, s: number, b: number] {
   // It converts [0,255] format, to [0,1]
-  r = (r === RGB_MAX) ? 1 : ((r % RGB_MAX) / RGB_MAX);
-  g = (g === RGB_MAX) ? 1 : ((g % RGB_MAX) / RGB_MAX);
-  b = (b === RGB_MAX) ? 1 : ((b % RGB_MAX) / RGB_MAX);
+  r = r === RGB_MAX ? 1 : (r % RGB_MAX) / RGB_MAX;
+  g = g === RGB_MAX ? 1 : (g % RGB_MAX) / RGB_MAX;
+  b = b === RGB_MAX ? 1 : (b % RGB_MAX) / RGB_MAX;
 
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
@@ -46,9 +46,5 @@ export function rgbToHsb(r: number, g: number, b: number): [h: number, s: number
     h /= 6;
   }
 
-  return [
-    Math.round(h * HUE_MAX),
-    Math.round(s * SV_MAX),
-    Math.round(v * SV_MAX),
-  ];
+  return [Math.round(h * HUE_MAX), Math.round(s * SV_MAX), Math.round(v * SV_MAX)];
 }

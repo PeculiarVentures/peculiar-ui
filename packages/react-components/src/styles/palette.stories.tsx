@@ -1,9 +1,9 @@
 import React from 'react';
 import { Color } from '@peculiar/color';
 import { Typography } from '../Typography';
+import { defaultThemeLight } from './default_theme';
 import { colors as colorsTheme } from './foundations';
 import { contrastThreshold } from './utils';
-import { defaultThemeLight } from './default_theme';
 
 export default {
   title: 'Palette',
@@ -16,9 +16,7 @@ export const ColorItemExample: React.FC<{ title: string; colors: Record<string, 
 
   return (
     <div className="color_item_custom">
-      <h3>
-        {title}
-      </h3>
+      <h3>{title}</h3>
       <ul className="color_item_custom-list">
         {Object.keys(colors).map((key) => (
           <li
@@ -32,9 +30,7 @@ export const ColorItemExample: React.FC<{ title: string; colors: Record<string, 
               }}
             />
             <div>
-              <Typography>
-                {key}
-              </Typography>
+              <Typography>{key}</Typography>
               <Typography
                 color="gray-9"
                 variant="b3"
@@ -53,8 +49,7 @@ export const PalettePlaygroundExample = () => {
   const [color, setColor] = React.useState<string>(colorsTheme.primary.primary);
   const palette = colorsTheme.generateColorPalette('custom', color);
 
-  const contrastColorRatio = new Color(color)
-    .getContrastRatio(defaultThemeLight.color.white);
+  const contrastColorRatio = new Color(color).getContrastRatio(defaultThemeLight.color.white);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setColor(event.target.value);
@@ -71,9 +66,10 @@ export const PalettePlaygroundExample = () => {
         />
         <h4
           style={{
-            color: contrastColorRatio > contrastThreshold
-              ? defaultThemeLight.color.white
-              : defaultThemeLight.color.black,
+            color:
+              contrastColorRatio > contrastThreshold
+                ? defaultThemeLight.color.white
+                : defaultThemeLight.color.black,
           }}
           className="color_item_custom-picker_text"
         >

@@ -13,7 +13,7 @@ body {
 }
 
 .bg-dark {
-  background-color: #1B1C1D !important;
+  background-color: #1b1c1d !important;
 }
 
 div[data-name] > * {
@@ -46,7 +46,7 @@ div[data-name] > * {
   width: 3rem;
   height: 3rem;
   margin-right: 0.75rem !important;
-  box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.06);
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 }
 
 .color_item_custom-picker {

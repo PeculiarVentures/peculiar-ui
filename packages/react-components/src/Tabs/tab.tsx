@@ -1,6 +1,6 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
+import styled from '@emotion/styled';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { Typography } from '../Typography';
 
@@ -33,11 +33,10 @@ export interface ITabTypeMap<P = object, D extends React.ElementType = 'button'>
   defaultComponent: D;
 }
 
-export type TTabProps<
-  D extends React.ElementType = ITabTypeMap['defaultComponent'],
-> = TOverrideProps<ITabTypeMap<object, D>, D> & {
-  component?: D;
-};
+export type TTabProps<D extends React.ElementType = ITabTypeMap['defaultComponent']> =
+  TOverrideProps<ITabTypeMap<object, D>, D> & {
+    component?: D;
+  };
 /**
  *
  */
@@ -64,9 +63,9 @@ const TabRoot = styled('button', {
     alignItems: 'center',
     justifyContent: 'center',
     textDecoration: 'none',
-    ...(props.selected && ({
+    ...(props.selected && {
       borderColor: 'var(--pv-color-secondary)',
-    })),
+    }),
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';

@@ -1,20 +1,21 @@
-import { describe, it, expect } from 'vitest';
 import React from 'react';
+import { describe, it, expect } from 'vitest';
 import { renderWithWrapper as render } from '../test-utils';
 import { Backdrop } from './index';
 
 describe('<Backdrop />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
-      <Backdrop open />,
-    );
+    const { asFragment } = render(<Backdrop open />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should pass className', () => {
     const { asFragment } = render(
-      <Backdrop open className="my-class-name" />,
+      <Backdrop
+        open
+        className="my-class-name"
+      />,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -30,7 +31,10 @@ describe('<Backdrop />', () => {
     variants.forEach((variant) => {
       it(`variant "${variant}"`, () => {
         const { asFragment } = render(
-          <Backdrop open variant={variant} />,
+          <Backdrop
+            open
+            variant={variant}
+          />,
         );
 
         expect(asFragment()).toMatchSnapshot();

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { TColorType } from '../styles';
-import { Typography } from '../Typography';
 import { Box } from '../Box';
 import { useImage } from '../hooks';
+import { TColorType } from '../styles';
+import { Typography } from '../Typography';
 
 /**
  * Types.
@@ -37,7 +37,7 @@ interface IAvatarOwnProps {
    * The size of the avatar.
    * @default 'medium'
    */
-  size?: ('small' | 'medium' | 'large');
+  size?: 'small' | 'medium' | 'large';
   /**
    * The color of component background.
    * @default 'gray-7'
@@ -56,7 +56,7 @@ interface IAvatarOwnProps {
    * Function to get the initials to display.
    */
   getInitials?: (name: string) => string;
-};
+}
 
 type TAvatarProps = IAvatarOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
@@ -126,9 +126,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, TAvatarProps>((props, ref
   let children = null;
 
   const defaultRenderInitials = (propsInitials: TAvatarInitialsProps) => (
-    <Typography
-      {...propsInitials}
-    />
+    <Typography {...propsInitials} />
   );
 
   const renderInitials = renderInitialsProp || defaultRenderInitials;

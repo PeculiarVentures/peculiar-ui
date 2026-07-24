@@ -26,21 +26,11 @@ export const Playground: TStory = {};
 
 export const VariantExample = () => (
   <>
-    <Typography variant="h1">
-      h1. Heading
-    </Typography>
-    <Typography variant="h2">
-      h2. Heading
-    </Typography>
-    <Typography variant="h3">
-      h3. Heading
-    </Typography>
-    <Typography variant="h4">
-      h4. Heading
-    </Typography>
-    <Typography variant="h5">
-      h5. Heading
-    </Typography>
+    <Typography variant="h1">h1. Heading</Typography>
+    <Typography variant="h2">h2. Heading</Typography>
+    <Typography variant="h3">h3. Heading</Typography>
+    <Typography variant="h4">h4. Heading</Typography>
+    <Typography variant="h5">h5. Heading</Typography>
     <Typography variant="s1">
       s1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
     </Typography>
@@ -62,27 +52,35 @@ export const VariantExample = () => (
     <Typography variant="c2">
       c2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
     </Typography>
-    <Typography variant="btn1">
-      btn1. Button text
-    </Typography>
-    <Typography variant="btn2">
-      btn2. Button text
-    </Typography>
+    <Typography variant="btn1">btn1. Button text</Typography>
+    <Typography variant="btn2">btn2. Button text</Typography>
   </>
 );
 
 export const ColorExample = () => (
   <>
-    <Typography color="primary" variant="h5">
+    <Typography
+      color="primary"
+      variant="h5"
+    >
       Heading
     </Typography>
-    <Typography color="secondary" variant="h5">
+    <Typography
+      color="secondary"
+      variant="h5"
+    >
       Heading
     </Typography>
-    <Typography color="wrong" variant="h5">
+    <Typography
+      color="wrong"
+      variant="h5"
+    >
       Heading
     </Typography>
-    <Typography color="attention" variant="h5">
+    <Typography
+      color="attention"
+      variant="h5"
+    >
       Heading
     </Typography>
   </>
@@ -90,7 +88,7 @@ export const ColorExample = () => (
 
 export const TruncateExample = () => (
   <Typography noWrap>
-    Lorem ipsum is placeholder text commonly used in the graphic, print,
-    and publishing industries for previewing layouts and visual mockups.
+    Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries
+    for previewing layouts and visual mockups.
   </Typography>
 );

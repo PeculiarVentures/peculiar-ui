@@ -1,12 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TextField } from '../TextField';
 import { Button } from '../Button';
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-} from './index';
+import { TextField } from '../TextField';
+import { Dialog, DialogTitle, DialogContent, DialogActions } from './index';
 
 const meta: Meta<typeof Dialog> = {
   title: 'Components/Dialog',
@@ -15,9 +10,7 @@ const meta: Meta<typeof Dialog> = {
   args: {
     children: (
       <>
-        <DialogTitle>
-          Sign in
-        </DialogTitle>
+        <DialogTitle>Sign in</DialogTitle>
         <DialogContent>
           <div>
             <TextField
@@ -35,10 +28,11 @@ const meta: Meta<typeof Dialog> = {
           </div>
         </DialogContent>
         <DialogActions>
-          <Button>
-            Cancel
-          </Button>
-          <Button variant="contained" color="secondary">
+          <Button>Cancel</Button>
+          <Button
+            variant="contained"
+            color="secondary"
+          >
             Send
           </Button>
         </DialogActions>

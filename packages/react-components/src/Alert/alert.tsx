@@ -1,15 +1,10 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Typography } from '../Typography';
-import { IconButton } from '../IconButton';
 import { CircularProgress } from '../CircularProgress';
 import { FlexContainer, Flex } from '../Flex';
-import {
-  CloseCircleIcon,
-  WarningIcon,
-  CheckCircleIcon,
-  CloseIcon,
-} from '../icons';
+import { IconButton } from '../IconButton';
+import { CloseCircleIcon, WarningIcon, CheckCircleIcon, CloseIcon } from '../icons';
+import { Typography } from '../Typography';
 
 /**
  * Types.
@@ -26,12 +21,7 @@ interface IAlertOwnProps {
   /**
    * The type of the component.
    */
-  variant?: (
-    'wrong'
-    | 'attention'
-    | 'success'
-    | 'pending'
-  );
+  variant?: 'wrong' | 'attention' | 'success' | 'pending';
   /**
    * If `true`, the start icon will be hidden.
    * @default true
@@ -41,7 +31,7 @@ interface IAlertOwnProps {
    * Callback fired when the component requests to be closed.
    */
   onClose?: () => void;
-};
+}
 
 export type TAlertProps = IAlertOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
@@ -87,23 +77,21 @@ const AlertRoot = styled(FlexContainer)<IAlertOwnProps>(
   },
 );
 
-const AlertIcon = styled('div')<Required<Pick<IAlertOwnProps, 'variant'>>>(
-  (props) => ({
-    width: '24px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    ...(props.variant === 'wrong' && {
-      color: 'var(--pv-color-wrong)',
-    }),
-    ...(props.variant === 'attention' && {
-      color: 'var(--pv-color-attention)',
-    }),
-    ...(props.variant === 'success' && {
-      color: 'var(--pv-color-success)',
-    }),
+const AlertIcon = styled('div')<Required<Pick<IAlertOwnProps, 'variant'>>>((props) => ({
+  width: '24px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  ...(props.variant === 'wrong' && {
+    color: 'var(--pv-color-wrong)',
   }),
-);
+  ...(props.variant === 'attention' && {
+    color: 'var(--pv-color-attention)',
+  }),
+  ...(props.variant === 'success' && {
+    color: 'var(--pv-color-success)',
+  }),
+}));
 
 const AlertMessage = styled(Flex)({
   padding: 'var(--pv-size-base) 0px',
@@ -115,37 +103,19 @@ const AlertMessage = styled(Flex)({
  */
 
 export const Alert = React.forwardRef<HTMLDivElement, TAlertProps>((props, ref) => {
-  const {
-    children,
-    variant,
-    disableIcon = true,
-    onClose,
-    ...other
-  } = props;
+  const { children, variant, disableIcon = true, onClose, ...other } = props;
 
   const renderIcon = () => {
     if (variant === 'wrong') {
-      return (
-        <CloseCircleIcon
-          aria-hidden="true"
-        />
-      );
+      return <CloseCircleIcon aria-hidden="true" />;
     }
 
     if (variant === 'attention') {
-      return (
-        <WarningIcon
-          aria-hidden="true"
-        />
-      );
+      return <WarningIcon aria-hidden="true" />;
     }
 
     if (variant === 'success') {
-      return (
-        <CheckCircleIcon
-          aria-hidden="true"
-        />
-      );
+      return <CheckCircleIcon aria-hidden="true" />;
     }
 
     if (variant === 'pending') {
@@ -168,13 +138,7 @@ export const Alert = React.forwardRef<HTMLDivElement, TAlertProps>((props, ref) 
       variant={variant}
       {...other}
     >
-      {!disableIcon && (
-        <AlertIcon
-          variant={variant}
-        >
-          {renderIcon()}
-        </AlertIcon>
-      )}
+      {!disableIcon && <AlertIcon variant={variant}>{renderIcon()}</AlertIcon>}
       <AlertMessage size="grow">
         <Typography
           variant="b3"

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
+import styled from '@emotion/styled';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { Typography } from '../Typography';
 
@@ -62,17 +62,15 @@ const SegmentedControlRoot = styled('button', {
     alignItems: 'center',
     justifyContent: 'center',
     textDecoration: 'none',
-    ...(props.selected && ({
+    ...(props.selected && {
       boxShadow: 'var(--pv-shadow-light-soft)',
       pointerEvents: 'none',
-    })),
+    }),
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
     let color = 'var(--pv-color-gray-10)';
-    const colorDisabled = isDark
-      ? 'var(--pv-color-gray-5)'
-      : 'var(--pv-color-gray-8)';
+    const colorDisabled = isDark ? 'var(--pv-color-gray-5)' : 'var(--pv-color-gray-8)';
     let backgroundColor = 'transparent';
     let backgroundColorHover = 'var(--pv-color-gray-5)';
     let backgroundColorActive = 'var(--pv-color-gray-6)';

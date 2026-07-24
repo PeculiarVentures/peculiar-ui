@@ -1,10 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
-import {
-  TColorType,
-  TTypographyType,
-} from '../styles';
+import { TColorType, TTypographyType } from '../styles';
 
 /**
  * Types.
@@ -37,11 +34,10 @@ export interface ITypographyTypeMap<P = object, D extends React.ElementType = 'p
   defaultComponent: D;
 }
 
-export type TTypographyProps<
-  D extends React.ElementType = ITypographyTypeMap['defaultComponent'],
-> = TOverrideProps<ITypographyTypeMap<object, D>, D> & {
-  component?: D;
-};
+export type TTypographyProps<D extends React.ElementType = ITypographyTypeMap['defaultComponent']> =
+  TOverrideProps<ITypographyTypeMap<object, D>, D> & {
+    component?: D;
+  };
 /**
  *
  */
@@ -70,7 +66,10 @@ const TypographyRoot = styled('p', {
  *
  */
 
-const variantMapping: Record<TTypographyType, 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'> = {
+const variantMapping: Record<
+  TTypographyType,
+  'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -88,12 +87,7 @@ const variantMapping: Record<TTypographyType, 'p' | 'span' | 'h1' | 'h2' | 'h3' 
 };
 
 export const Typography = React.forwardRef<any, TTypographyProps>((props, ref) => {
-  const {
-    variant = 'b1',
-    component,
-    color = 'black',
-    ...other
-  } = props;
+  const { variant = 'b1', component, color = 'black', ...other } = props;
 
   const Component = component || variantMapping[variant] || 'p';
 

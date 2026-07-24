@@ -3,8 +3,9 @@ import type { TransitionProps } from 'react-transition-group/Transition';
 import { Transition } from 'react-transition-group';
 import { useMergedRef } from '../hooks';
 
-export type TBaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
-  'onEnter'
+export type TBaseTransitionProps = Pick<
+  TransitionProps<HTMLElement>,
+  | 'onEnter'
   | 'onEntered'
   | 'onEntering'
   | 'onExit'
@@ -12,7 +13,7 @@ export type TBaseTransitionProps = Pick<TransitionProps<HTMLElement>, (
   | 'onExiting'
   | 'unmountOnExit'
   | 'mountOnEnter'
-)>;
+>;
 
 interface IBaseProps {
   /**
@@ -37,7 +38,7 @@ interface IBaseProps {
    * @default true
    */
   appear?: boolean;
-};
+}
 
 type TFadeProps = IBaseProps & TBaseTransitionProps;
 
@@ -83,17 +84,17 @@ export const Fade = React.forwardRef<any, TFadeProps>((props, ref) => {
       onExiting={onExiting}
       {...other}
     >
-      {(state) => (
+      {(state) =>
         React.cloneElement(children, {
           style: {
-            opacity: (state === 'entering' || state === 'entered') ? finalOpacity : 0,
+            opacity: state === 'entering' || state === 'entered' ? finalOpacity : 0,
             transition: `opacity ${timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
             visibility: state === 'exited' && !inProp ? 'hidden' : undefined,
             ...children.props.style,
           },
           ref: multiRef,
         })
-      )}
+      }
     </Transition>
   );
 });

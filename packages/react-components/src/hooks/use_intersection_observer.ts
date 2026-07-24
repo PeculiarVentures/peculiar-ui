@@ -43,24 +43,27 @@ export function useIntersectionObserver(): TIntersectionObserverHookResult {
   const nodeRef = React.useRef<TIntersectionObserverHookRefCallbackNode>(null);
   const [isIntersecting, setIntersecting] = React.useState(false);
 
-  React.useEffect(() => () => {
-    if (nodeRef.current) {
-      intersectionObserver.remove(nodeRef.current);
-    }
-  }, []);
-
-  const refCallback = React.useCallback<TIntersectionObserverHookRefCallback>(
-    (node) => {
-      if (node) {
-        intersectionObserver.init();
-        nodeRef.current = node;
-        intersectionObserver.add(node, setIntersecting);
+  React.useEffect(
+    () => () => {
+      if (nodeRef.current) {
+        intersectionObserver.remove(nodeRef.current);
       }
     },
     [],
   );
 
-  return [refCallback, {
-    isIntersecting,
-  }];
+  const refCallback = React.useCallback<TIntersectionObserverHookRefCallback>((node) => {
+    if (node) {
+      intersectionObserver.init();
+      nodeRef.current = node;
+      intersectionObserver.add(node, setIntersecting);
+    }
+  }, []);
+
+  return [
+    refCallback,
+    {
+      isIntersecting,
+    },
+  ];
 }

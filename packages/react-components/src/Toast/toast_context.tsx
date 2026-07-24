@@ -28,7 +28,7 @@ export interface IBaseToastType {
    * By default, we generate a unique `id` for each toast.
    */
   id?: string;
-};
+}
 
 export type TToastType = IBaseToastType & {
   createdAt: number;
@@ -38,7 +38,7 @@ export interface IToastContextType {
   addToast: (options: IBaseToastType) => void;
   removeToast: (id: string) => void;
   removeAllToasts: () => void;
-};
+}
 
 const stub = (): never => {
   throw new Error('You forgot to wrap your component in <ToastProvider>.');

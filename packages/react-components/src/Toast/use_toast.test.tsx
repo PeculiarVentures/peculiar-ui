@@ -1,8 +1,8 @@
-import { describe, it, expect } from 'vitest';
 import { useContext } from 'react';
+import { describe, it, expect } from 'vitest';
 import { renderHook } from '../test-utils';
-import { useToast } from './use_toast';
 import { ToastContext } from './toast_context';
+import { useToast } from './use_toast';
 
 describe('useToast()', () => {
   it('should return `ToastContext`', () => {

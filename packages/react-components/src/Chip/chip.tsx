@@ -1,9 +1,9 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
+import styled from '@emotion/styled';
+import { CloseSmallIcon } from '../icons';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { Typography } from '../Typography';
-import { CloseSmallIcon } from '../icons';
 
 /**
  * Types.
@@ -26,12 +26,12 @@ export interface IChipOwnProps {
    * The variant to use.
    * @default 'contained'
    */
-  variant?: ('contained' | 'outlined');
+  variant?: 'contained' | 'outlined';
   /**
    * The color of the component.
    * @default 'secondary'
    */
-  color?: ('secondary' | 'wrong' | 'default');
+  color?: 'secondary' | 'wrong' | 'default';
   /**
    * Element placed before the children.
    */
@@ -51,11 +51,10 @@ export interface IChipTypeMap<P = object, D extends React.ElementType = 'div'> {
   defaultComponent: D;
 }
 
-export type TChipProps<
-  D extends React.ElementType = IChipTypeMap['defaultComponent'],
-> = TOverrideProps<IChipTypeMap<object, D>, D> & {
-  component?: D;
-};
+export type TChipProps<D extends React.ElementType = IChipTypeMap['defaultComponent']> =
+  TOverrideProps<IChipTypeMap<object, D>, D> & {
+    component?: D;
+  };
 /**
  *
  */
@@ -67,139 +66,142 @@ const reactPropsRegex = /^(color|onDelete)$/;
  */
 const ChipRoot = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && !reactPropsRegex.test(prop),
-})<IChipOwnProps>((props) => ({
-  display: 'inline-flex',
-  maxWidth: '100%',
-  fontFamily: 'inherit',
-  outline: '0',
-  boxSizing: 'border-box',
-  borderRadius: 'calc(var(--pv-size-base) * 3)',
-  padding: [
-    0,
-    props.onDelete ? 'var(--pv-size-base)' : 'calc(var(--pv-size-base) * 2)',
-    0,
-    props.startContent ? 'var(--pv-size-base)' : 'calc(var(--pv-size-base) * 2)',
-  ].join(' '),
-  height: 'calc(var(--pv-size-base) * 6)',
-  backgroundColor: 'transparent',
-  transition: 'background-color 200ms, color 200ms, border-color 200ms, box-shadow 200ms',
-  margin: '0 var(--pv-size-base)',
-  cursor: 'default',
-  border: '1px solid transparent',
-  verticalAlign: 'middle',
-  justifyContent: 'center',
-  alignItems: 'center',
-  whiteSpace: 'nowrap',
-  textDecoration: 'none',
-  gap: 'var(--pv-size-base)',
-  ...(props.disabled && {
-    pointerEvents: 'none',
-  }),
-  ...(Boolean(props.onClick) && !props.disabled && {
-    cursor: 'pointer',
-    userSelect: 'none',
-    WebkitTapHighlightColor: 'transparent',
-  }),
-}), (props) => {
-  const isDark = props.theme.mode === 'dark';
-  let color: string = isDark
-    ? 'var(--pv-color-white)'
-    : 'var(--pv-color-black)';
-  let borderColor: string;
-  let backgroundColor: string;
-  let backgroundColorHover: string;
-  let backgroundColorFocus: string;
-  let backgroundColorActive: string;
-  let boxShadowActive: string;
-
-  let colorDisabled: string;
-  let backgroundColorDisabled: string;
-  let borderColorDisabled: string;
-
-  if (props.variant === 'outlined') {
-    if (props.color === 'default') {
-      borderColor = 'var(--pv-color-gray-6)';
-      backgroundColorHover = 'var(--pv-color-gray-3)';
-      backgroundColorFocus = 'var(--pv-color-gray-4)';
-      backgroundColorActive = 'var(--pv-color-gray-5)';
-    } else if (isDark) {
-      color = `var(--pv-color-${props.color})`;
-      borderColor = `var(--pv-color-${props.color}-shade-1)`;
-      backgroundColorHover = `var(--pv-color-${props.color}-shade-4)`;
-      backgroundColorFocus = `var(--pv-color-${props.color}-shade-3)`;
-      backgroundColorActive = `var(--pv-color-${props.color}-shade-2)`;
-    } else {
-      color = `var(--pv-color-${props.color})`;
-      borderColor = `var(--pv-color-${props.color}-tint-2)`;
-      backgroundColorHover = `var(--pv-color-${props.color}-tint-5)`;
-      backgroundColorFocus = `var(--pv-color-${props.color}-tint-4)`;
-      backgroundColorActive = `var(--pv-color-${props.color}-tint-3)`;
-    }
-
-    if (isDark) {
-      borderColorDisabled = 'var(--pv-color-gray-6)';
-      colorDisabled = 'var(--pv-color-gray-5)';
-    } else {
-      borderColorDisabled = 'var(--pv-color-gray-8)';
-      colorDisabled = 'var(--pv-color-gray-7)';
-    }
-  }
-
-  if (props.variant === 'contained') {
-    if (props.color === 'default') {
-      if (isDark) {
-        backgroundColor = 'var(--pv-color-gray-6)';
-        backgroundColorHover = 'var(--pv-color-gray-5)';
-        backgroundColorFocus = 'var(--pv-color-gray-4)';
-        backgroundColorActive = 'var(--pv-color-gray-3)';
-      } else {
-        backgroundColor = 'var(--pv-color-gray-4)';
-        backgroundColorHover = 'var(--pv-color-gray-7)';
-        backgroundColorFocus = 'var(--pv-color-gray-6)';
-        backgroundColorActive = 'var(--pv-color-gray-5)';
-      }
-    } else {
-      color = `var(--pv-color-${props.color}-contrast)`;
-      backgroundColor = `var(--pv-color-${props.color})`;
-      backgroundColorHover = `var(--pv-color-${props.color}-tint-1)`;
-      backgroundColorFocus = `var(--pv-color-${props.color}-tint-2)`;
-      backgroundColorActive = `var(--pv-color-${props.color}-tint-2)`;
-    }
-
-    if (isDark) {
-      boxShadowActive = 'var(--pv-shadow-dark-hight)';
-      colorDisabled = 'var(--pv-color-gray-6)';
-      backgroundColorDisabled = 'var(--pv-color-gray-5)';
-    } else {
-      boxShadowActive = 'var(--pv-shadow-light-medium)';
-      colorDisabled = 'var(--pv-color-gray-8)';
-      backgroundColorDisabled = 'var(--pv-color-gray-4)';
-    }
-  }
-
-  return {
-    borderColor,
-    backgroundColor,
-    color,
-    ...(typeof props.onClick === 'function' && !props.disabled && {
-      '&:hover': {
-        backgroundColor: backgroundColorHover,
-      },
-      '&:focus-visible': {
-        backgroundColor: backgroundColorFocus,
-      },
-      '&:active': {
-        backgroundColor: backgroundColorActive,
-        boxShadow: boxShadowActive,
-      },
-    }),
+})<IChipOwnProps>(
+  (props) => ({
+    display: 'inline-flex',
+    maxWidth: '100%',
+    fontFamily: 'inherit',
+    outline: '0',
+    boxSizing: 'border-box',
+    borderRadius: 'calc(var(--pv-size-base) * 3)',
+    padding: [
+      0,
+      props.onDelete ? 'var(--pv-size-base)' : 'calc(var(--pv-size-base) * 2)',
+      0,
+      props.startContent ? 'var(--pv-size-base)' : 'calc(var(--pv-size-base) * 2)',
+    ].join(' '),
+    height: 'calc(var(--pv-size-base) * 6)',
+    backgroundColor: 'transparent',
+    transition: 'background-color 200ms, color 200ms, border-color 200ms, box-shadow 200ms',
+    margin: '0 var(--pv-size-base)',
+    cursor: 'default',
+    border: '1px solid transparent',
+    verticalAlign: 'middle',
+    justifyContent: 'center',
+    alignItems: 'center',
+    whiteSpace: 'nowrap',
+    textDecoration: 'none',
+    gap: 'var(--pv-size-base)',
     ...(props.disabled && {
-      color: colorDisabled,
-      backgroundColor: backgroundColorDisabled,
-      borderColor: borderColorDisabled,
+      pointerEvents: 'none',
     }),
-  };
-});
+    ...(Boolean(props.onClick) &&
+      !props.disabled && {
+        cursor: 'pointer',
+        userSelect: 'none',
+        WebkitTapHighlightColor: 'transparent',
+      }),
+  }),
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
+    let color: string = isDark ? 'var(--pv-color-white)' : 'var(--pv-color-black)';
+    let borderColor: string;
+    let backgroundColor: string;
+    let backgroundColorHover: string;
+    let backgroundColorFocus: string;
+    let backgroundColorActive: string;
+    let boxShadowActive: string;
+
+    let colorDisabled: string;
+    let backgroundColorDisabled: string;
+    let borderColorDisabled: string;
+
+    if (props.variant === 'outlined') {
+      if (props.color === 'default') {
+        borderColor = 'var(--pv-color-gray-6)';
+        backgroundColorHover = 'var(--pv-color-gray-3)';
+        backgroundColorFocus = 'var(--pv-color-gray-4)';
+        backgroundColorActive = 'var(--pv-color-gray-5)';
+      } else if (isDark) {
+        color = `var(--pv-color-${props.color})`;
+        borderColor = `var(--pv-color-${props.color}-shade-1)`;
+        backgroundColorHover = `var(--pv-color-${props.color}-shade-4)`;
+        backgroundColorFocus = `var(--pv-color-${props.color}-shade-3)`;
+        backgroundColorActive = `var(--pv-color-${props.color}-shade-2)`;
+      } else {
+        color = `var(--pv-color-${props.color})`;
+        borderColor = `var(--pv-color-${props.color}-tint-2)`;
+        backgroundColorHover = `var(--pv-color-${props.color}-tint-5)`;
+        backgroundColorFocus = `var(--pv-color-${props.color}-tint-4)`;
+        backgroundColorActive = `var(--pv-color-${props.color}-tint-3)`;
+      }
+
+      if (isDark) {
+        borderColorDisabled = 'var(--pv-color-gray-6)';
+        colorDisabled = 'var(--pv-color-gray-5)';
+      } else {
+        borderColorDisabled = 'var(--pv-color-gray-8)';
+        colorDisabled = 'var(--pv-color-gray-7)';
+      }
+    }
+
+    if (props.variant === 'contained') {
+      if (props.color === 'default') {
+        if (isDark) {
+          backgroundColor = 'var(--pv-color-gray-6)';
+          backgroundColorHover = 'var(--pv-color-gray-5)';
+          backgroundColorFocus = 'var(--pv-color-gray-4)';
+          backgroundColorActive = 'var(--pv-color-gray-3)';
+        } else {
+          backgroundColor = 'var(--pv-color-gray-4)';
+          backgroundColorHover = 'var(--pv-color-gray-7)';
+          backgroundColorFocus = 'var(--pv-color-gray-6)';
+          backgroundColorActive = 'var(--pv-color-gray-5)';
+        }
+      } else {
+        color = `var(--pv-color-${props.color}-contrast)`;
+        backgroundColor = `var(--pv-color-${props.color})`;
+        backgroundColorHover = `var(--pv-color-${props.color}-tint-1)`;
+        backgroundColorFocus = `var(--pv-color-${props.color}-tint-2)`;
+        backgroundColorActive = `var(--pv-color-${props.color}-tint-2)`;
+      }
+
+      if (isDark) {
+        boxShadowActive = 'var(--pv-shadow-dark-hight)';
+        colorDisabled = 'var(--pv-color-gray-6)';
+        backgroundColorDisabled = 'var(--pv-color-gray-5)';
+      } else {
+        boxShadowActive = 'var(--pv-shadow-light-medium)';
+        colorDisabled = 'var(--pv-color-gray-8)';
+        backgroundColorDisabled = 'var(--pv-color-gray-4)';
+      }
+    }
+
+    return {
+      borderColor,
+      backgroundColor,
+      color,
+      ...(typeof props.onClick === 'function' &&
+        !props.disabled && {
+          '&:hover': {
+            backgroundColor: backgroundColorHover,
+          },
+          '&:focus-visible': {
+            backgroundColor: backgroundColorFocus,
+          },
+          '&:active': {
+            backgroundColor: backgroundColorActive,
+            boxShadow: boxShadowActive,
+          },
+        }),
+      ...(props.disabled && {
+        color: colorDisabled,
+        backgroundColor: backgroundColorDisabled,
+        borderColor: borderColorDisabled,
+      }),
+    };
+  },
+);
 
 const ChipDeleteIcon = styled('span')({
   width: '20px',
@@ -259,11 +261,7 @@ export const Chip = React.forwardRef<any, TChipProps>((props, ref) => {
     }
   };
 
-  const startContent = startContentProp && (
-    <ChipStartContent>
-      {startContentProp}
-    </ChipStartContent>
-  );
+  const startContent = startContentProp && <ChipStartContent>{startContentProp}</ChipStartContent>;
 
   const endContent = onDelete && (
     <ChipEndContent>

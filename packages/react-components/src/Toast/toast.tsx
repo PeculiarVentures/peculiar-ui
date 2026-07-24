@@ -31,20 +31,13 @@ interface IToastOwnProps {
    * Props applied to the `Alert` element.
    */
   alertProps?: Omit<TAlertProps, 'children' | 'onClose'>;
-};
+}
 /**
  *
  */
 
 export const Toast: React.FC<IToastOwnProps> = (props) => {
-  const {
-    id,
-    duration = 4000,
-    isClosable,
-    alertProps,
-    children,
-    onClose,
-  } = props;
+  const { id, duration = 4000, isClosable, alertProps, children, onClose } = props;
 
   const handleClose = () => {
     onClose(id);
@@ -52,10 +45,7 @@ export const Toast: React.FC<IToastOwnProps> = (props) => {
 
   React.useEffect(() => {
     if (duration > 0) {
-      const timeout = window.setTimeout(
-        handleClose,
-        duration,
-      );
+      const timeout = window.setTimeout(handleClose, duration);
 
       return () => {
         clearTimeout(timeout);

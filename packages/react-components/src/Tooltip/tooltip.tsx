@@ -1,11 +1,11 @@
 import React from 'react';
-import { Placement } from '@popperjs/core';
+import isPropValid from '@emotion/is-prop-valid';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import isPropValid from '@emotion/is-prop-valid';
-import { Popper } from '../Popper';
+import { Placement } from '@popperjs/core';
 import { Box } from '../Box';
 import { useMergedRef, useControllableState } from '../hooks';
+import { Popper } from '../Popper';
 import { Typography } from '../Typography';
 
 /**
@@ -56,12 +56,12 @@ export interface ITooltipOwnProps {
    * The size of the tooltip.
    * @default 'small'
    */
-  size?: ('small' | 'large');
+  size?: 'small' | 'large';
   /**
    * The color of the tooltip.
    * @default 'white'
    */
-  color?: ('black' | 'white');
+  color?: 'black' | 'white';
   /**
    * Disable the portal behavior. The children stay within it's parent DOM hierarchy.
    * @default true
@@ -88,9 +88,10 @@ export interface ITooltipOwnProps {
    * @default 15
    */
   offset?: number;
-};
+}
 
-export type TTooltipProps = ITooltipOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
+export type TTooltipProps = ITooltipOwnProps &
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'children'>;
 /**
  *
  */
@@ -250,40 +251,34 @@ export const Tooltip: React.FC<TTooltipProps> = (props) => {
   const enterTimer = React.useRef<NodeJS.Timeout>();
   const leaveTimer = React.useRef<NodeJS.Timeout>();
 
-  React.useEffect(() => () => {
-    clearTimeout(enterTimer.current);
-    clearTimeout(leaveTimer.current);
-  }, []);
+  React.useEffect(
+    () => () => {
+      clearTimeout(enterTimer.current);
+      clearTimeout(leaveTimer.current);
+    },
+    [],
+  );
 
   const handleEnter = () => {
     clearTimeout(enterTimer.current);
     clearTimeout(leaveTimer.current);
 
-    enterTimer.current = setTimeout(
-      () => {
-        setOpen(true);
-      },
-      enterDelay,
-    );
+    enterTimer.current = setTimeout(() => {
+      setOpen(true);
+    }, enterDelay);
   };
 
   const handleLeave = () => {
     clearTimeout(enterTimer.current);
     clearTimeout(leaveTimer.current);
 
-    leaveTimer.current = setTimeout(
-      () => {
-        setOpen(false);
-      },
-      leaveDelay,
-    );
+    leaveTimer.current = setTimeout(() => {
+      setOpen(false);
+    }, leaveDelay);
   };
 
   const popperProps: React.HTMLAttributes<HTMLDivElement> = {};
-  const childrenProps: React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLElement>,
-    HTMLElement
-  > = {
+  const childrenProps: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> = {
     ref: multiRef,
   };
 
@@ -352,18 +347,14 @@ export const Tooltip: React.FC<TTooltipProps> = (props) => {
             >
               {title}
             </Typography>
-            {
-              arrow
-                ? (
-                    <TooltipArrow
-                      data-popper-arrow
-                      ref={setArrowRef}
-                      style={style}
-                      color={color}
-                    />
-                  )
-                : null
-            }
+            {arrow ? (
+              <TooltipArrow
+                data-popper-arrow
+                ref={setArrowRef}
+                style={style}
+                color={color}
+              />
+            ) : null}
           </TooltipRoot>
         )}
       </TooltipPopper>

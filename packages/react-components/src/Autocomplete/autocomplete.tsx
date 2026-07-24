@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Box } from '../Box';
+import { Checkbox } from '../Checkbox';
 import {
   useAutocomplete,
   IUseAutocompleteProps,
@@ -7,12 +9,10 @@ import {
   TAutocompleteValue,
   useOutsideClick,
 } from '../hooks';
-import { Popper } from '../Popper';
-import { Typography, ITypographyOwnProps } from '../Typography';
-import { Box } from '../Box';
 import { ArrowDropDownIcon, CloseSmallIcon } from '../icons';
 import { MenuItem } from '../MenuList';
-import { Checkbox } from '../Checkbox';
+import { Popper } from '../Popper';
+import { Typography, ITypographyOwnProps } from '../Typography';
 import { AutocompleteTag } from './autocomplete_tag';
 
 /**
@@ -22,7 +22,7 @@ export interface IAutocompleteRenderGroupParams {
   key: string | number;
   group: string;
   children?: React.ReactNode;
-};
+}
 
 export type TAutocompleteOwnProps<
   T,
@@ -36,11 +36,7 @@ export type TAutocompleteOwnProps<
    * The size of the root component.
    * @default 'medium'
    */
-  size?: (
-    'small'
-    | 'medium'
-    | 'large'
-  );
+  size?: 'small' | 'medium' | 'large';
   /**
    * The short hint displayed in the `input` before the user enters a value.
    */
@@ -137,9 +133,10 @@ const reactPropsRegex = /^(as|size|disabled|isHasClearIcon)$/;
 const AutocompleteField = styled(Box, {
   shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
 })<
-  ITypographyOwnProps
-  & Required<Pick<TAutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>>
-  & { isHasClearIcon: boolean }
+  ITypographyOwnProps &
+    Required<Pick<TAutocompleteOwnProps<any, boolean>, 'size' | 'disabled'>> & {
+      isHasClearIcon: boolean;
+    }
 >(
   {
     outline: 'none',
@@ -186,9 +183,7 @@ const AutocompleteField = styled(Box, {
   },
   (props) => {
     const isDark = props.theme.mode === 'dark';
-    const color = isDark
-      ? 'var(--pv-color-white)'
-      : 'var(--pv-color-black)';
+    const color = isDark ? 'var(--pv-color-white)' : 'var(--pv-color-black)';
     let borderColor = 'var(--pv-color-gray-8)';
     let colorPlaceholder = 'var(--pv-color-gray-9)';
     const borderColorHover = 'var(--pv-color-gray-10)';
@@ -204,7 +199,7 @@ const AutocompleteField = styled(Box, {
       colorDisabled = 'var(--pv-color-gray-4)';
     }
 
-    return ({
+    return {
       borderColor,
       ...(props.disabled && {
         cursor: 'not-allowed',
@@ -239,7 +234,7 @@ const AutocompleteField = styled(Box, {
           },
         },
       }),
-    });
+    };
   },
 );
 
@@ -264,16 +259,19 @@ const AutocompleteClearButton = styled('button')({
   background: 'transparent',
 });
 
-const AutocompleteOpenButton = styled(ArrowDropDownIcon)<{ open: boolean }>({
-  color: 'var(--pv-color-gray-10)',
-  '&[aria-disabled="true"]': {
-    color: 'inherit',
+const AutocompleteOpenButton = styled(ArrowDropDownIcon)<{ open: boolean }>(
+  {
+    color: 'var(--pv-color-gray-10)',
+    '&[aria-disabled="true"]': {
+      color: 'inherit',
+    },
   },
-}, (props) => ({
-  ...(props.open && {
-    transform: 'rotate(180deg)',
+  (props) => ({
+    ...(props.open && {
+      transform: 'rotate(180deg)',
+    }),
   }),
-}));
+);
 
 export const AutocompleteNativeInput = styled('input')({
   bottom: 0,
@@ -299,14 +297,10 @@ export const AutocompleteDropdownList = styled('ul')({
   padding: '10px 0',
 });
 
-export const AutocompleteDropdownGroupName = styled(Typography)(
-  (props) => ({
-    padding: 'calc(var(--pv-size-base) * 2)',
-    color: props.theme.mode === 'dark'
-      ? 'var(--pv-color-gray-6)'
-      : 'var(--pv-color-gray-9)',
-  }),
-);
+export const AutocompleteDropdownGroupName = styled(Typography)((props) => ({
+  padding: 'calc(var(--pv-size-base) * 2)',
+  color: props.theme.mode === 'dark' ? 'var(--pv-color-gray-6)' : 'var(--pv-color-gray-9)',
+}));
 
 export const AutocompleteDropdownGroupList = styled('ul')({
   padding: 0,
@@ -341,10 +335,10 @@ const AutocompletePopover = styled(Popper)(
       boxShadow = 'var(--pv-shadow-dark-medium)';
     }
 
-    return ({
+    return {
       backgroundColor,
       boxShadow,
-    });
+    };
   },
 );
 
@@ -366,9 +360,7 @@ const AutocompleteInputField = styled(Typography)(
   },
   (props) => {
     const isDark = props.theme.mode === 'dark';
-    const color = isDark
-      ? 'var(--pv-color-white)'
-      : 'var(--pv-color-black)';
+    const color = isDark ? 'var(--pv-color-white)' : 'var(--pv-color-black)';
 
     let colorPlaceholder = 'var(--pv-color-gray-9)';
     let colorDisabled = 'var(--pv-color-gray-7)';
@@ -378,7 +370,7 @@ const AutocompleteInputField = styled(Typography)(
       colorDisabled = 'var(--pv-color-gray-4)';
     }
 
-    return ({
+    return {
       color,
       '&::placeholder': {
         color: colorPlaceholder,
@@ -387,7 +379,7 @@ const AutocompleteInputField = styled(Typography)(
         cursor: 'not-allowed',
         color: colorDisabled,
       },
-    });
+    };
   },
 );
 
@@ -404,10 +396,9 @@ export const AutocompleteLabel = styled('label')({
  *
  */
 
-export const Autocomplete = <
-  T,
-  Multiple extends boolean | undefined = false,
->(props: TAutocompleteOwnProps<T, Multiple>): React.JSX.Element => {
+export const Autocomplete = <T, Multiple extends boolean | undefined = false>(
+  props: TAutocompleteOwnProps<T, Multiple>,
+): React.JSX.Element => {
   const {
     className,
     size = 'medium',
@@ -493,22 +484,23 @@ export const Autocomplete = <
     }
   };
 
-  const defaultRenderOption: TAutocompleteOwnProps<T, Multiple>['renderOption'] = ({ key, ...propsOption }, option) => (
+  const defaultRenderOption: TAutocompleteOwnProps<T, Multiple>['renderOption'] = (
+    { key, ...propsOption },
+    option,
+  ) => (
     <AutocompleteDropdownGroupListItem
       key={key}
       {...propsOption}
       inGroup={Boolean(groupBy)}
       startIcon={
-        multiple
-          ? (
-              <Checkbox
-                checked={propsOption['aria-selected']}
-                inputProps={{
-                  readOnly: true,
-                }}
-              />
-            )
-          : undefined
+        multiple ? (
+          <Checkbox
+            checked={propsOption['aria-selected']}
+            inputProps={{
+              readOnly: true,
+            }}
+          />
+        ) : undefined
       }
     >
       {getOptionLabel(option)}
@@ -523,13 +515,14 @@ export const Autocomplete = <
       >
         {params.group}
       </AutocompleteDropdownGroupName>
-      <AutocompleteDropdownGroupList>
-        {params.children}
-      </AutocompleteDropdownGroupList>
+      <AutocompleteDropdownGroupList>{params.children}</AutocompleteDropdownGroupList>
     </li>
   );
 
-  const defaultRenderTag: TAutocompleteOwnProps<T, Multiple>['renderTag'] = ({ key, ...propsOption }, option) => (
+  const defaultRenderTag: TAutocompleteOwnProps<T, Multiple>['renderTag'] = (
+    { key, ...propsOption },
+    option,
+  ) => (
     <AutocompleteTag
       key={key}
       {...propsOption}
@@ -550,10 +543,10 @@ export const Autocomplete = <
     }
 
     if (Array.isArray(value)) {
-      const more = (value.length > limitTags && limitTags !== -1)
-        && !popoverProps.open
-        ? (value.length - limitTags)
-        : 0;
+      const more =
+        value.length > limitTags && limitTags !== -1 && !popoverProps.open
+          ? value.length - limitTags
+          : 0;
       const valueLimits = more > 0 ? value.slice(0, limitTags) : value;
 
       return (
@@ -578,11 +571,14 @@ export const Autocomplete = <
   const isValueEmpty = renderedValue === null;
   const popoverRef = useOutsideClick(popoverProps.onClose);
 
-  const defaultRenderRoot: TAutocompleteOwnProps<T, Multiple>['renderRoot'] = ({
-    // @ts-expect-error: 'ref' type may not match
-    ref,
-    ...other
-  }, valueRoot) => (
+  const defaultRenderRoot: TAutocompleteOwnProps<T, Multiple>['renderRoot'] = (
+    {
+      // @ts-expect-error: 'ref' type may not match
+      ref,
+      ...other
+    },
+    valueRoot,
+  ) => (
     <AutocompleteField
       aria-invalid={error || undefined}
       aria-placeholder={isValueEmpty || undefined}
@@ -626,21 +622,17 @@ export const Autocomplete = <
         />
       )}
       <AutocompleteActions>
-        {!isValueEmpty && !readOnly
-          ? (
-              <AutocompleteClearButton
-                type="button"
-                disabled={disabled}
-                title="Clear"
-                aria-label="Clear"
-                {...getClearProps()}
-              >
-                <CloseSmallIcon
-                  aria-hidden
-                />
-              </AutocompleteClearButton>
-            )
-          : null}
+        {!isValueEmpty && !readOnly ? (
+          <AutocompleteClearButton
+            type="button"
+            disabled={disabled}
+            title="Clear"
+            aria-label="Clear"
+            {...getClearProps()}
+          >
+            <CloseSmallIcon aria-hidden />
+          </AutocompleteClearButton>
+        ) : null}
         <AutocompleteOpenButton
           role="button"
           title="Open"
@@ -661,7 +653,7 @@ export const Autocomplete = <
         required={required}
         readOnly={readOnly}
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        onChange={() => { }}
+        onChange={() => {}}
       />
     </AutocompleteField>
   );
@@ -677,9 +669,7 @@ export const Autocomplete = <
   return (
     <div className={className}>
       {label && (
-        <AutocompleteLabel
-          {...getInputLabelProps()}
-        >
+        <AutocompleteLabel {...getInputLabelProps()}>
           <Typography
             component="span"
             variant="c2"
@@ -714,49 +704,48 @@ export const Autocomplete = <
         <div ref={popoverRef}>
           {loading && groupedOptions.length === 0 && (
             <AutocompleteDropdownStateItem>
-              {typeof loadingText === 'string'
-                ? (
-                    <Typography
-                      variant="b2"
-                      color="gray-10"
-                    >
-                      {loadingText}
-                    </Typography>
-                  )
-                : loadingText}
+              {typeof loadingText === 'string' ? (
+                <Typography
+                  variant="b2"
+                  color="gray-10"
+                >
+                  {loadingText}
+                </Typography>
+              ) : (
+                loadingText
+              )}
             </AutocompleteDropdownStateItem>
           )}
           {groupedOptions.length === 0 && !loading && (
             <AutocompleteDropdownStateItem>
-              {typeof noOptionsText === 'string'
-                ? (
-                    <Typography
-                      variant="b2"
-                      color="gray-10"
-                    >
-                      {noOptionsText}
-                    </Typography>
-                  )
-                : noOptionsText}
+              {typeof noOptionsText === 'string' ? (
+                <Typography
+                  variant="b2"
+                  color="gray-10"
+                >
+                  {noOptionsText}
+                </Typography>
+              ) : (
+                noOptionsText
+              )}
             </AutocompleteDropdownStateItem>
           )}
           {groupedOptions.length > 0 && (
             <AutocompleteDropdownList {...getListboxProps()}>
-              {groupedOptions
-                .map((option, index) => {
-                  // @ts-expect-error: 'options' may exist when grouped
-                  if (groupBy && 'options' in option) {
-                    return renderGroup({
-                      key: option.key,
-                      group: option.group,
-                      children: option.options.map((option2, index2) => (
-                        renderListOption(option2, option.index + index2)
-                      )),
-                    });
-                  }
+              {groupedOptions.map((option, index) => {
+                // @ts-expect-error: 'options' may exist when grouped
+                if (groupBy && 'options' in option) {
+                  return renderGroup({
+                    key: option.key,
+                    group: option.group,
+                    children: option.options.map((option2, index2) =>
+                      renderListOption(option2, option.index + index2),
+                    ),
+                  });
+                }
 
-                  return renderListOption(option as T, index);
-                })}
+                return renderListOption(option as T, index);
+              })}
             </AutocompleteDropdownList>
           )}
         </div>

@@ -1,7 +1,4 @@
 {
   "extends": "../../tsconfig",
-  "include": [
-    "src",
-    "vitest.setup.ts"
-  ]
+  "include": ["src", "vitest.setup.ts"]
 }

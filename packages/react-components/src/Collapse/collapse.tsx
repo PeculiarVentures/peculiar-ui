@@ -1,7 +1,7 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
-import isPropValid from '@emotion/is-prop-valid';
 import type { TransitionStatus } from 'react-transition-group/Transition';
+import isPropValid from '@emotion/is-prop-valid';
+import styled from '@emotion/styled';
 import { Transition } from 'react-transition-group';
 import type { TBaseTransitionProps } from '../Fade/fade';
 
@@ -27,11 +27,11 @@ interface ICollapseOwnProps {
    * A single child content element.
    */
   children: React.ReactNode;
-};
+}
 
-type TCollapseProps = ICollapseOwnProps
-  & TBaseTransitionProps
-  & React.HTMLAttributes<HTMLDivElement>;
+type TCollapseProps = ICollapseOwnProps &
+  TBaseTransitionProps &
+  React.HTMLAttributes<HTMLDivElement>;
 /**
  *
  */
@@ -41,7 +41,9 @@ type TCollapseProps = ICollapseOwnProps
  */
 const CollapseRoot = styled('div', {
   shouldForwardProp: (prop) => isPropValid(prop) && !['orientation', 'in'].includes(prop),
-})<Required<Pick<ICollapseOwnProps, 'orientation' | 'timeout' | 'in'> & { state: TransitionStatus }>>((props) => ({
+})<
+  Required<Pick<ICollapseOwnProps, 'orientation' | 'timeout' | 'in'> & { state: TransitionStatus }>
+>((props) => ({
   overflow: 'hidden',
   transition: `${props.orientation === 'horizontal' ? 'width' : 'height'} ${props.timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
   ...(props.orientation === 'horizontal'
@@ -62,9 +64,10 @@ const CollapseRoot = styled('div', {
           height: 'auto',
         }),
   }),
-  ...(props.state === 'exited' && !props.in && {
-    visibility: 'hidden',
-  }),
+  ...(props.state === 'exited' &&
+    !props.in && {
+      visibility: 'hidden',
+    }),
 }));
 /**
  *
@@ -91,7 +94,8 @@ export const Collapse: React.FC<TCollapseProps> = (props) => {
   const isHorizontal = orientation === 'horizontal';
   const size = isHorizontal ? 'width' : 'height';
 
-  const getWrapperSize = () => (wrapperRef.current ? wrapperRef.current[isHorizontal ? 'clientWidth' : 'clientHeight'] : 0);
+  const getWrapperSize = () =>
+    wrapperRef.current ? wrapperRef.current[isHorizontal ? 'clientWidth' : 'clientHeight'] : 0;
 
   const handleEnter = (isAppearing: boolean) => {
     if (nodeRef.current) {
@@ -180,11 +184,7 @@ export const Collapse: React.FC<TCollapseProps> = (props) => {
           ref={nodeRef}
           {...other}
         >
-          <div
-            ref={wrapperRef}
-          >
-            {children}
-          </div>
+          <div ref={wrapperRef}>{children}</div>
         </CollapseRoot>
       )}
     </Transition>

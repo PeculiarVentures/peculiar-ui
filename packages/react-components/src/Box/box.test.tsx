@@ -1,21 +1,17 @@
-import { describe, it, expect } from 'vitest';
 import React from 'react';
+import { describe, it, expect } from 'vitest';
 import { renderWithWrapper as render } from '../test-utils';
 import { Box } from './index';
 
 describe('<Box />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
-      <Box />,
-    );
+    const { asFragment } = render(<Box />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
-      <Box className="my-class-name" />,
-    );
+    const { asFragment } = render(<Box className="my-class-name" />);
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -61,13 +57,7 @@ describe('<Box />', () => {
 
     shadows.forEach((shadow) => {
       it(`shadow "${shadow}"`, () => {
-        const { asFragment } = render(
-          <Box
-            boxShadow={shadow}
-          >
-            Message
-          </Box>,
-        );
+        const { asFragment } = render(<Box boxShadow={shadow}>Message</Box>);
 
         expect(asFragment()).toMatchSnapshot();
       });

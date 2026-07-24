@@ -10,11 +10,5 @@ export default meta;
 export const DemoExample = () => {
   const isWide = useMediaQuery('(min-width: 480px)');
 
-  return (
-    <div>
-      Screen is wide:
-      {' '}
-      {isWide ? 'Yes' : 'No'}
-    </div>
-  );
+  return <div>Screen is wide: {isWide ? 'Yes' : 'No'}</div>;
 };

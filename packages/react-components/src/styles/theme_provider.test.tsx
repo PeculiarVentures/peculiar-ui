@@ -6,9 +6,7 @@ describe('<ThemeProvider />', () => {
   it('should render with light theme', () => {
     render(
       <ThemeProvider>
-        <div>
-          Application
-        </div>
+        <div>Application</div>
       </ThemeProvider>,
     );
 
@@ -18,9 +16,7 @@ describe('<ThemeProvider />', () => {
   it('should render with dark theme', () => {
     render(
       <ThemeProvider mode="dark">
-        <div>
-          Application
-        </div>
+        <div>Application</div>
       </ThemeProvider>,
     );
 

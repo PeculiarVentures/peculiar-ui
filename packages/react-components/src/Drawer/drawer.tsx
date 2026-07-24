@@ -27,13 +27,15 @@ interface IDrawerOwnProps {
   /**
    * Props applied to the `Modal` element.
    */
-  modalProps?: Partial<Omit<TModalProps, 'transitionDuration' | 'open' | 'onClose' | 'keepMounted'>>;
+  modalProps?: Partial<
+    Omit<TModalProps, 'transitionDuration' | 'open' | 'onClose' | 'keepMounted'>
+  >;
   /**
    * Callback fired when the component requests to be closed.
    */
   onClose?: () => void;
   'data-testid'?: string;
-};
+}
 
 type TDrawerProps = IDrawerOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
@@ -43,25 +45,23 @@ type TDrawerProps = IDrawerOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>,
 /**
  * Styles.
  */
-const DrawerPaper = styled('div')(
-  (props) => ({
-    width: '270px',
-    height: '100%',
-    position: 'fixed',
-    top: 0,
-    right: 0,
-    overflowY: 'auto',
-    outline: 'none',
-    boxSizing: 'border-box',
-    ...(props.theme.mode === 'dark'
-      ? {
-          backgroundColor: 'var(--pv-color-gray-2)',
-        }
-      : {
-          backgroundColor: 'var(--pv-color-white)',
-        }),
-  }),
-);
+const DrawerPaper = styled('div')((props) => ({
+  width: '270px',
+  height: '100%',
+  position: 'fixed',
+  top: 0,
+  right: 0,
+  overflowY: 'auto',
+  outline: 'none',
+  boxSizing: 'border-box',
+  ...(props.theme.mode === 'dark'
+    ? {
+        backgroundColor: 'var(--pv-color-gray-2)',
+      }
+    : {
+        backgroundColor: 'var(--pv-color-white)',
+      }),
+}));
 /**
  *
  */

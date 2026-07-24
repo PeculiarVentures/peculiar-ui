@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Collapse } from '../Collapse';
 import { Alert } from '../Alert';
+import { Collapse } from '../Collapse';
 
 /**
  * Types.
@@ -23,8 +23,10 @@ interface IDialogContentOwnProps {
    * Props applied to the scrolled element.
    */
   scrolledElementProps?: React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-};
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  >;
+}
 
 type TDialogContentProps = IDialogContentOwnProps & React.HTMLAttributes<HTMLDivElement>;
 /**
@@ -64,12 +66,7 @@ const DialogContentAlertError = styled(Alert)({
  */
 
 export const DialogContent = React.forwardRef<HTMLDivElement, TDialogContentProps>((props, ref) => {
-  const {
-    children,
-    error,
-    scrolledElementProps = {},
-    ...other
-  } = props;
+  const { children, error, scrolledElementProps = {}, ...other } = props;
 
   return (
     <DialogContentRoot
@@ -78,9 +75,7 @@ export const DialogContent = React.forwardRef<HTMLDivElement, TDialogContentProp
       {...other}
     >
       <DialogContentAlertContainer>
-        <DialogContentCollapse
-          in={Boolean(error)}
-        >
+        <DialogContentCollapse in={Boolean(error)}>
           <DialogContentAlertError
             variant="wrong"
             disableIcon
@@ -89,11 +84,7 @@ export const DialogContent = React.forwardRef<HTMLDivElement, TDialogContentProp
           </DialogContentAlertError>
         </DialogContentCollapse>
       </DialogContentAlertContainer>
-      <DialogContentContent
-        {...scrolledElementProps}
-      >
-        {children}
-      </DialogContentContent>
+      <DialogContentContent {...scrolledElementProps}>{children}</DialogContentContent>
     </DialogContentRoot>
   );
 });

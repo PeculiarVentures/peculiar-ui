@@ -8,11 +8,7 @@ const meta: Meta<typeof Menu> = {
   component: Menu,
   tags: ['autodocs'],
   args: {
-    children: (
-      <Button>
-        +
-      </Button>
-    ),
+    children: <Button>+</Button>,
     options: [
       {
         label: 'Print',

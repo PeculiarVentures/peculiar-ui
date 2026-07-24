@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {
-  usePopper, PopperProps as PopperReactProps, Modifier,
-} from 'react-popper';
+import { usePopper, PopperProps as PopperReactProps, Modifier } from 'react-popper';
 import { Portal } from '../Portal';
 
 /**
@@ -40,7 +38,7 @@ interface IBaseProps {
    * most of its features are fully encapsulated "modifiers".
    */
   modifiers?: Modifier<any>[];
-};
+}
 
 type TPopperProps = IBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
@@ -91,14 +89,10 @@ export const Popper: React.FC<TPopperProps> = (props) => {
     return baseModifiers;
   }, [allowUseSameWidth, modifiers]);
 
-  const { styles, attributes } = usePopper(
-    anchorEl,
-    popperElement,
-    {
-      placement,
-      modifiers: popperModifiers,
-    },
-  );
+  const { styles, attributes } = usePopper(anchorEl, popperElement, {
+    placement,
+    modifiers: popperModifiers,
+  });
 
   const tooltip = (
     <PopperTooltip
@@ -114,11 +108,7 @@ export const Popper: React.FC<TPopperProps> = (props) => {
 
   const render = () => {
     if (!disablePortal) {
-      return (
-        <Portal>
-          {tooltip}
-        </Portal>
-      );
+      return <Portal>{tooltip}</Portal>;
     }
 
     return tooltip;

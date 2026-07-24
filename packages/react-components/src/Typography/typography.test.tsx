@@ -1,35 +1,25 @@
-import { describe, it, expect } from 'vitest';
 import React from 'react';
+import { describe, it, expect } from 'vitest';
 import { renderWithWrapper as render } from '../test-utils';
 import { Typography } from './index';
 
 describe('<Typography />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
-      <Typography>
-        Typography message
-      </Typography>,
-    );
+    const { asFragment } = render(<Typography>Typography message</Typography>);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should pass className', () => {
     const { asFragment } = render(
-      <Typography className="my-class-name">
-        Typography message
-      </Typography>,
+      <Typography className="my-class-name">Typography message</Typography>,
     );
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should pass "component"', () => {
-    const { asFragment } = render(
-      <Typography component="div">
-        Typography message
-      </Typography>,
-    );
+    const { asFragment } = render(<Typography component="div">Typography message</Typography>);
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -59,11 +49,7 @@ describe('<Typography />', () => {
 
     colors.forEach((color) => {
       it(`color: "${color}"`, () => {
-        const { asFragment } = render(
-          <Typography color={color}>
-            Typography message
-          </Typography>,
-        );
+        const { asFragment } = render(<Typography color={color}>Typography message</Typography>);
 
         expect(asFragment()).toMatchSnapshot();
       });
@@ -91,9 +77,7 @@ describe('<Typography />', () => {
     variants.forEach((variant) => {
       it(`variant: "${variant}"`, () => {
         const { asFragment } = render(
-          <Typography variant={variant}>
-            Typography message
-          </Typography>,
+          <Typography variant={variant}>Typography message</Typography>,
         );
 
         expect(asFragment()).toMatchSnapshot();

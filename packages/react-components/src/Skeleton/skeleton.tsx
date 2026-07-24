@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Box } from '../Box';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { TColorType } from '../styles';
-import { Box } from '../Box';
 
 /**
  * Types.
@@ -25,7 +25,7 @@ export interface ISkeletonOwnProps {
    * The type of content that will be rendered.
    * @default 'text'
    */
-  variant?: ('text' | 'rect' | 'circle');
+  variant?: 'text' | 'rect' | 'circle';
   /**
    * @default 'gray-4'
    */
@@ -37,11 +37,10 @@ export interface ISkeletonTypeMap<P = object, D extends React.ElementType = 'spa
   defaultComponent: D;
 }
 
-export type TSkeletonProps<
-  D extends React.ElementType = ISkeletonTypeMap['defaultComponent'],
-> = TOverrideProps<ISkeletonTypeMap<object, D>, D> & {
-  component?: D;
-};
+export type TSkeletonProps<D extends React.ElementType = ISkeletonTypeMap['defaultComponent']> =
+  TOverrideProps<ISkeletonTypeMap<object, D>, D> & {
+    component?: D;
+  };
 /**
  *
  */
@@ -63,12 +62,9 @@ const pulseKeyframe = keyframes`
   }
 `;
 
-const SkeletonRoot = styled(
-  Box,
-  {
-    shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-  },
-)<TSkeletonProps>((props) => ({
+const SkeletonRoot = styled(Box, {
+  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
+})<TSkeletonProps>((props) => ({
   display: 'block',
   height: '1.2em',
   animation: `${pulseKeyframe} 1.5s ease-in-out 0.5s infinite`,
@@ -110,12 +106,7 @@ const SkeletonRoot = styled(
  */
 
 export const Skeleton = React.forwardRef<any, TSkeletonProps>((props, ref) => {
-  const {
-    children,
-    variant = 'text',
-    background = 'gray-4',
-    ...other
-  } = props;
+  const { children, variant = 'text', background = 'gray-4', ...other } = props;
 
   return (
     <SkeletonRoot

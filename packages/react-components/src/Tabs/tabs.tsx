@@ -22,7 +22,7 @@ interface ITabsOwnProps {
    * Callback fired when the value changes.
    */
   onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
-};
+}
 
 type TTabsProps = ITabsOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 /**
@@ -41,12 +41,7 @@ const TabsRoot = styled('div')({
  */
 
 export const Tabs = React.forwardRef<HTMLDivElement, TTabsProps>((props, ref) => {
-  const {
-    children: childrenProp,
-    value,
-    onChange,
-    ...other
-  } = props;
+  const { children: childrenProp, value, onChange, ...other } = props;
 
   const children = React.Children.map(
     childrenProp,

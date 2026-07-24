@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import type { TCircularProgressProps } from '../CircularProgress';
-import { Modal } from '../Modal';
 import { Box } from '../Box';
-import { Fade } from '../Fade';
 import { CircularProgress } from '../CircularProgress';
+import { Fade } from '../Fade';
+import { Modal } from '../Modal';
 
 /**
  * Types.
@@ -50,10 +50,7 @@ interface IDialogOwnProps {
    * The size of the dialog.
    * @default 'small'
    */
-  size?: (
-    'small'
-    | 'large'
-  );
+  size?: 'small' | 'large';
   /**
    * If `true`, the dialog will be show CircularProgress component and disable all interactions.
    */
@@ -64,7 +61,7 @@ interface IDialogOwnProps {
    */
   loadingColor?: TCircularProgressProps['color'];
   'data-testid'?: string;
-};
+}
 
 type TDialogProps = IDialogOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
@@ -76,12 +73,9 @@ const reactPropsRegex = /^(loading|fullScreen)$/;
 /**
  * Styles.
  */
-const DialogRoot = styled(
-  Box,
-  {
-    shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-  },
-)<IDialogOwnProps>(
+const DialogRoot = styled(Box, {
+  shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
+})<IDialogOwnProps>(
   (props) => ({
     width: '100%',
     display: 'flex',

@@ -10,11 +10,5 @@ export default meta;
 export const DemoExample = () => {
   const id = useId();
 
-  return (
-    <div>
-      ID is:
-      {' '}
-      {id}
-    </div>
-  );
+  return <div>ID is: {id}</div>;
 };

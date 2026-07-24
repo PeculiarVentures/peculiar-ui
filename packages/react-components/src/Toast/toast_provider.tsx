@@ -1,13 +1,9 @@
 import * as React from 'react';
-import { Portal } from '../Portal';
 import { useEventCallback } from '../hooks/use_event_callback';
-import {
-  ToastContext,
-  TToastType,
-  IBaseToastType,
-} from './toast_context';
-import { ToastContainer, TToastContainerProps } from './toast_container';
+import { Portal } from '../Portal';
 import { Toast } from './toast';
+import { ToastContainer, TToastContainerProps } from './toast_container';
+import { ToastContext, TToastType, IBaseToastType } from './toast_context';
 
 interface IBaseProps {
   /**
@@ -23,14 +19,10 @@ interface IBaseProps {
    * Props applied to the `ToastContainer` element.
    */
   toastContainerProps?: Omit<TToastContainerProps, 'children'>;
-};
+}
 
 export const ToastProvider: React.FC<IBaseProps> = (props) => {
-  const {
-    children,
-    toastContainerProps,
-    maxToasts = 1,
-  } = props;
+  const { children, toastContainerProps, maxToasts = 1 } = props;
   const [state, setState] = React.useState<{ toasts: TToastType[]; queue: TToastType[] }>({
     toasts: [],
     queue: [],
@@ -60,19 +52,13 @@ export const ToastProvider: React.FC<IBaseProps> = (props) => {
       if (prevState.toasts.length >= maxToasts) {
         return {
           toasts: prevState.toasts,
-          queue: [
-            ...prevState.queue,
-            newToast,
-          ],
+          queue: [...prevState.queue, newToast],
         };
       }
 
       return {
         queue: prevState.queue,
-        toasts: [
-          ...prevState.toasts,
-          newToast,
-        ],
+        toasts: [...prevState.toasts, newToast],
       };
     });
   });
@@ -122,16 +108,17 @@ export const ToastProvider: React.FC<IBaseProps> = (props) => {
 
   const hasToasts = Boolean(state.toasts.length);
 
-  const contextValue = React.useMemo(() => ({
-    addToast,
-    removeToast,
-    removeAllToasts,
-  }), [addToast, removeToast, removeAllToasts]);
+  const contextValue = React.useMemo(
+    () => ({
+      addToast,
+      removeToast,
+      removeAllToasts,
+    }),
+    [addToast, removeToast, removeAllToasts],
+  );
 
   return (
-    <ToastContext.Provider
-      value={contextValue}
-    >
+    <ToastContext.Provider value={contextValue}>
       {children}
       {hasToasts && (
         <Portal>

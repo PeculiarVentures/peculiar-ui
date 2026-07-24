@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Typography } from '../Typography';
 import { useId } from '../hooks/use_id';
+import { Typography } from '../Typography';
 
 /**
  * Types.
@@ -16,11 +16,7 @@ interface ITextareaFieldOwnProps {
    * The size of the input.
    * @default 'medium'
    */
-  size?: (
-    'small'
-    | 'medium'
-    | 'large'
-  );
+  size?: 'small' | 'medium' | 'large';
   /**
    * The className of the component.
    */
@@ -79,9 +75,10 @@ interface ITextareaFieldOwnProps {
    * Callback fired when the value is changed.
    */
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
-};
+}
 
-type TTextareaFieldProps = ITextareaFieldOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
+type TTextareaFieldProps = ITextareaFieldOwnProps &
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'children'>;
 /**
  *
  */
@@ -116,9 +113,7 @@ const TextareaFieldInput = styled(Typography)<TTextareaFieldProps>(
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
-    const color = isDark
-      ? 'var(--pv-color-white)'
-      : 'var(--pv-color-black)';
+    const color = isDark ? 'var(--pv-color-white)' : 'var(--pv-color-black)';
 
     let borderColor = 'var(--pv-color-gray-8)';
     let colorPlaceholder = 'var(--pv-color-gray-9)';
@@ -135,7 +130,7 @@ const TextareaFieldInput = styled(Typography)<TTextareaFieldProps>(
       colorDisabled = 'var(--pv-color-gray-4)';
     }
 
-    return ({
+    return {
       color,
       borderColor,
       '&::placeholder': {
@@ -157,7 +152,7 @@ const TextareaFieldInput = styled(Typography)<TTextareaFieldProps>(
           borderColor: borderColorFocus,
         },
       },
-    });
+    };
   },
 );
 

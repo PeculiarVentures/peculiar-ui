@@ -1,8 +1,8 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
-import { DotIcon } from '../icons';
+import styled from '@emotion/styled';
 import { useId } from '../hooks';
+import { DotIcon } from '../icons';
 import { opacity } from '../styles/foundations';
 
 /**
@@ -21,10 +21,7 @@ interface IRadioOwnProps {
    * The color of the component.
    * @default 'primary'
    */
-  color?: (
-    'primary'
-    | 'secondary'
-  );
+  color?: 'primary' | 'secondary';
   /**
    * Attributes applied to the input element.
    */
@@ -57,9 +54,10 @@ interface IRadioOwnProps {
    * Callback fired when the state is changed.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
-export type TRadioProps = IRadioOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type TRadioProps = IRadioOwnProps &
+  Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 /**
  *
  */
@@ -140,7 +138,7 @@ const RadioInput = styled('input', {
       opacityActive = opacity.dark.switch.active;
     }
 
-    return ({
+    return {
       color,
       '&:checked': {
         '+ [aria-hidden]': {
@@ -179,7 +177,7 @@ const RadioInput = styled('input', {
           color: colorDisabledChecked,
         },
       },
-    });
+    };
   },
 );
 

@@ -25,9 +25,7 @@ export const Demo = () => {
 
   return (
     <div>
-      <button onClick={() => setMounted((b) => !b)}>
-        {mounted ? 'Mounted' : 'UnMounted'}
-      </button>
+      <button onClick={() => setMounted((b) => !b)}>{mounted ? 'Mounted' : 'UnMounted'}</button>
 
       {mounted ? <Child /> : null}
     </div>

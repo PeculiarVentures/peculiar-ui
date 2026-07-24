@@ -1,10 +1,14 @@
-import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
+import { describe, it, expect, vi } from 'vitest';
 import { render } from '../test-utils';
 import { useMergedRef } from './use_merged_ref';
 
 // eslint-disable-next-line @stylistic/max-len
-const Component = ({ refs }: { refs: (React.MutableRefObject<any> | React.RefCallback<HTMLElement>)[] }) => {
+const Component = ({
+  refs,
+}: {
+  refs: (React.MutableRefObject<any> | React.RefCallback<HTMLElement>)[];
+}) => {
   const ref = React.useRef();
   const mergedRef = useMergedRef(ref, ...refs);
 
@@ -24,9 +28,7 @@ describe('useMergedRef()', () => {
       refFromCallback = nodeRef;
     };
 
-    render(
-      <Component refs={[ref, refCallback]} />,
-    );
+    render(<Component refs={[ref, refCallback]} />);
 
     expect(refFromCallback).toBeInstanceOf(HTMLDivElement);
     expect(reference.current).toBeInstanceOf(HTMLDivElement);

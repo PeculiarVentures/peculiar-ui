@@ -33,11 +33,7 @@ const ToastStatusExample = () => {
             });
           }}
         >
-          Show
-          {' '}
-          {status}
-          {' '}
-          toast
+          Show {status} toast
         </button>
       ))}
       <button

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Transition } from 'react-transition-group';
-import { useMergedRef } from '../hooks';
 import type { TBaseTransitionProps } from '../Fade/fade';
+import { useMergedRef } from '../hooks';
 
 interface IBaseProps {
   /**
@@ -21,13 +21,13 @@ interface IBaseProps {
    * Direction the child node will enter from.
    * @default 'right'
    */
-  direction?: ('right' | 'left' | 'up' | 'down');
+  direction?: 'right' | 'left' | 'up' | 'down';
   /**
    * Perform the enter transition when it first mounts if `in` is also `true`.
    * @default true
    */
   appear?: boolean;
-};
+}
 
 type TSlideProps = IBaseProps & TBaseTransitionProps;
 
@@ -107,17 +107,20 @@ export const Slide = React.forwardRef<any, TSlideProps>((props, ref) => {
       onExited={onExited}
       onExiting={onExiting}
     >
-      {(state) => (
+      {(state) =>
         React.cloneElement(children, {
           style: {
-            transform: (state === 'entering' || state === 'entered') ? getTranslateExitValue() : getTranslateEnterValue(),
+            transform:
+              state === 'entering' || state === 'entered'
+                ? getTranslateExitValue()
+                : getTranslateEnterValue(),
             transition: `transform ${timeout}ms cubic-bezier(0, 0, 0.2, 1) 0ms`,
             visibility: state === 'exited' && !inProp ? 'hidden' : undefined,
             ...children.props.style,
           },
           ref: multiRef,
         })
-      )}
+      }
     </Transition>
   );
 });

@@ -5,13 +5,6 @@
     "declarationDir": "./dist/types",
     "jsx": "react"
   },
-  "include": [
-    "src/**/*.ts*"
-  ],
-  "exclude": [
-    "src/**/*.test.ts*",
-    "src/**/*.stories.ts*",
-    "src/test-utils.tsx",
-    "src/**/*.snap"
-  ]
+  "include": ["src/**/*.ts*"],
+  "exclude": ["src/**/*.test.ts*", "src/**/*.stories.ts*", "src/test-utils.tsx", "src/**/*.snap"]
 }

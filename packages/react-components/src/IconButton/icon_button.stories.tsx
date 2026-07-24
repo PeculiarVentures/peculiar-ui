@@ -7,9 +7,7 @@ const meta: Meta<typeof IconButton> = {
   component: IconButton,
   tags: ['autodocs'],
   args: {
-    children: (
-      <CheckIcon />
-    ),
+    children: <CheckIcon />,
   },
   argTypes: {
     children: {

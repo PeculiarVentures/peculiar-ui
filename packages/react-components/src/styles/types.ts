@@ -1,6 +1,6 @@
-export type TColorType = (
+export type TColorType =
   // primary
-  'primary-tint-5'
+  | 'primary-tint-5'
   | 'primary-tint-4'
   | 'primary-tint-3'
   | 'primary-tint-2'
@@ -77,27 +77,25 @@ export type TColorType = (
   | 'white'
   // additional
   | 'extra-1'
-  | 'extra-2'
-);
+  | 'extra-2';
 
-export type TShadowType = (
-  'light-low'
+export type TShadowType =
+  | 'light-low'
   | 'light-medium'
   | 'light-hight'
   | 'light-soft'
   | 'dark-medium'
-  | 'dark-hight'
-);
+  | 'dark-hight';
 
 export interface ITypographyPropertiesType {
   weight: string;
   size: string;
   height: string;
   spacing: string;
-};
+}
 
-export type TTypographyType = (
-  'h1'
+export type TTypographyType =
+  | 'h1'
   | 'h2'
   | 'h3'
   | 'h4'
@@ -110,8 +108,7 @@ export type TTypographyType = (
   | 'btn1'
   | 'btn2'
   | 'c1'
-  | 'c2'
-);
+  | 'c2';
 
 export type TSizeType = 'base';
 
@@ -120,11 +117,11 @@ export interface IThemeType {
   shadow: Record<TShadowType, string>;
   text: Record<TTypographyType, ITypographyPropertiesType>;
   size: Record<TSizeType, string>;
-};
+}
 
 export interface IThemeOptionsType {
   color?: Partial<IThemeType['color']>;
   shadow?: Partial<IThemeType['shadow']>;
   text?: Partial<IThemeType['text']>;
   size?: number;
-};
+}

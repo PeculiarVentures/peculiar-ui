@@ -42,9 +42,10 @@ interface ISliderOwnProps {
    * Callback function that is fired when the slider's value changed.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
-export type TSliderProps = ISliderOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'defaultValue'>;
+export type TSliderProps = ISliderOwnProps &
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'defaultValue'>;
 /**
  *
  */

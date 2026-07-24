@@ -1,11 +1,8 @@
 import React from 'react';
 import type { Preview, Decorator } from '@storybook/react';
-import { addons } from 'storybook/preview-api';
-import {
-  useDarkMode,
-  DARK_MODE_EVENT_NAME,
-} from 'storybook-dark-mode';
 import { DocsContainer, DocsContextProps } from '@storybook/addon-docs/blocks';
+import { useDarkMode, DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
+import { addons } from 'storybook/preview-api';
 import { ThemeProvider } from '../src';
 import { themeLight, themeDark } from './themes';
 import './global.css';
@@ -13,7 +10,7 @@ import './global.css';
 interface IThemedDocsContainerProps {
   context: DocsContextProps;
   children?: React.ReactNode;
-};
+}
 
 const channel = addons.getChannel();
 
@@ -28,9 +25,7 @@ const ThemedDocsContainer: React.FC<IThemedDocsContainerProps> = (props) => {
   }, []);
 
   return (
-    <ThemeProvider
-      mode={isDark ? 'dark' : 'light'}
-    >
+    <ThemeProvider mode={isDark ? 'dark' : 'light'}>
       <DocsContainer
         theme={isDark ? themeDark : themeLight}
         context={context}
@@ -44,13 +39,7 @@ const ThemedDocsContainer: React.FC<IThemedDocsContainerProps> = (props) => {
 const ThemeWrapper: Decorator = (story) => {
   const isDark = useDarkMode();
 
-  return (
-    <ThemeProvider
-      mode={isDark ? 'dark' : 'light'}
-    >
-      {story()}
-    </ThemeProvider>
-  );
+  return <ThemeProvider mode={isDark ? 'dark' : 'light'}>{story()}</ThemeProvider>;
 };
 
 const preview: Preview = {

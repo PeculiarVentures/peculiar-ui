@@ -1,8 +1,8 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
-import { FocusTrap } from '../FocusTrap';
+import styled from '@emotion/styled';
 import { Backdrop, TBackdropProps } from '../Backdrop';
+import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
 
 /**
@@ -58,7 +58,7 @@ interface IModalOwnProps {
    * and replace it to the last focused element when it closes.
    */
   disableAutoFocus?: boolean;
-};
+}
 
 export type TModalProps = IModalOwnProps & React.HTMLAttributes<HTMLDivElement>;
 /**
@@ -77,9 +77,10 @@ const ModalRoot = styled('div', {
   bottom: 0,
   right: 0,
   left: 0,
-  ...(!props.open && props.exited && {
-    visibility: 'hidden',
-  }),
+  ...(!props.open &&
+    props.exited && {
+      visibility: 'hidden',
+    }),
 }));
 /**
  *

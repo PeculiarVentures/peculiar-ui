@@ -1,11 +1,6 @@
-import { describe, it, expect } from 'vitest';
 import React from 'react';
-import {
-  renderWithWrapper as render,
-  fireEvent,
-  screen,
-  act,
-} from '../test-utils';
+import { describe, it, expect } from 'vitest';
+import { renderWithWrapper as render, fireEvent, screen, act } from '../test-utils';
 import { Menu } from './index';
 
 describe('<Menu />', () => {
@@ -23,9 +18,7 @@ describe('<Menu />', () => {
 
   it('should render with default styles', () => {
     const { asFragment } = render(
-      <Menu
-        options={options}
-      >
+      <Menu options={options}>
         <button type="button">Open</button>
       </Menu>,
     );

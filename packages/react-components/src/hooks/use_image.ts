@@ -10,9 +10,9 @@ export interface IUseImageOptionsType {
    * A callback for when there was an error loading the image `src`.
    */
   onError?: (error: string | React.SyntheticEvent<HTMLImageElement, Event>) => void;
-};
+}
 
-type TStatus = ('loading' | 'failed' | 'pending' | 'loaded');
+type TStatus = 'loading' | 'failed' | 'pending' | 'loaded';
 
 /**
  * React hook that loads an image in the browser,
@@ -34,13 +34,10 @@ type TStatus = ('loading' | 'failed' | 'pending' | 'loaded');
 interface IUseImageReturnType {
   status: TStatus;
   image?: HTMLImageElement;
-};
+}
 
 export function useImage(src: string, options: IUseImageOptionsType = {}): IUseImageReturnType {
-  const {
-    onLoad,
-    onError,
-  } = options;
+  const { onLoad, onError } = options;
 
   const [status, setStatus] = React.useState<TStatus>('pending');
   const imageRef = React.useRef<IUseImageReturnType['image']>();
@@ -89,6 +86,7 @@ export function useImage(src: string, options: IUseImageOptionsType = {}): IUseI
   }, [src]);
 
   return {
-    status, image: imageRef.current,
+    status,
+    image: imageRef.current,
   };
 }

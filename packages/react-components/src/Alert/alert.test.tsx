@@ -1,25 +1,17 @@
-import { describe, it, expect } from 'vitest';
 import React from 'react';
+import { describe, it, expect } from 'vitest';
 import { renderWithWrapper as render } from '../test-utils';
 import { Alert } from './index';
 
 describe('<Alert />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
-      <Alert>
-        Alert message
-      </Alert>,
-    );
+    const { asFragment } = render(<Alert>Alert message</Alert>);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
-      <Alert className="my-class-name">
-        Alert message
-      </Alert>,
-    );
+    const { asFragment } = render(<Alert className="my-class-name">Alert message</Alert>);
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -36,7 +28,10 @@ describe('<Alert />', () => {
       describe(`variant "${variant}"`, () => {
         it('enable icon', () => {
           const { asFragment } = render(
-            <Alert variant={variant} disableIcon={false}>
+            <Alert
+              variant={variant}
+              disableIcon={false}
+            >
               Message
               {variant}
             </Alert>,
@@ -47,7 +42,10 @@ describe('<Alert />', () => {
 
         it('disable icon', () => {
           const { asFragment } = render(
-            <Alert variant={variant} disableIcon>
+            <Alert
+              variant={variant}
+              disableIcon
+            >
               Message
               {variant}
             </Alert>,

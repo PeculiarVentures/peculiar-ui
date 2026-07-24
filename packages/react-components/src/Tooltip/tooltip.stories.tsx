@@ -8,11 +8,7 @@ const meta: Meta<typeof Tooltip> = {
   tags: ['autodocs'],
   args: {
     title: 'Tooltip content',
-    children: (
-      <Button>
-        Action
-      </Button>
-    ),
+    children: <Button>Action</Button>,
   },
   argTypes: {
     children: {

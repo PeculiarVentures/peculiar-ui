@@ -25,7 +25,10 @@ describe('<Modal />', () => {
 
   it('should pass className', () => {
     const { baseElement } = render(
-      <Modal open className="my-class-name">
+      <Modal
+        open
+        className="my-class-name"
+      >
         <div>Inside</div>
       </Modal>,
     );

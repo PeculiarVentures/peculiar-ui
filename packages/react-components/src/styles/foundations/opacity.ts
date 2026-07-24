@@ -2,7 +2,7 @@ export const light = {
   switch: {
     hover: 0.18,
     focus: 0.23,
-    active: 0.30,
+    active: 0.3,
   },
 };
 

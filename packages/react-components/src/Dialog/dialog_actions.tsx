@@ -13,7 +13,7 @@ interface IDialogActionsOwnProps {
    * The className of the component.
    */
   className?: string;
-};
+}
 
 type TDialogActionsProps = IDialogActionsOwnProps & React.HTMLAttributes<HTMLDivElement>;
 /**
@@ -37,10 +37,7 @@ const DialogActionsRoot = styled('footer')({
  */
 
 export const DialogActions = React.forwardRef<HTMLDivElement, TDialogActionsProps>((props, ref) => {
-  const {
-    children,
-    ...other
-  } = props;
+  const { children, ...other } = props;
 
   return (
     <DialogActionsRoot

@@ -15,10 +15,7 @@ describe('useDebounceCallback()', () => {
 
   it('should call the callback after timeout', () => {
     const callbackMock = vi.fn();
-    const { result } = renderHook(() => useDebounceCallback(
-      callbackMock,
-      DEBOUNCE_TIMEOUT,
-    ));
+    const { result } = renderHook(() => useDebounceCallback(callbackMock, DEBOUNCE_TIMEOUT));
 
     result.current();
     expect(callbackMock).not.toHaveBeenCalled();
@@ -30,10 +27,7 @@ describe('useDebounceCallback()', () => {
   it('should clear previous timer on the next debounced function call', () => {
     const setTimeoutSpy = vi.spyOn(global, 'setTimeout');
     const callbackMock = vi.fn();
-    const { result } = renderHook(() => useDebounceCallback(
-      callbackMock,
-      DEBOUNCE_TIMEOUT,
-    ));
+    const { result } = renderHook(() => useDebounceCallback(callbackMock, DEBOUNCE_TIMEOUT));
 
     // Call timeout with callback on first call
     result.current();
@@ -51,11 +45,9 @@ describe('useDebounceCallback()', () => {
   });
 
   it('should clear timer on unmount if `cleanUp=true', () => {
-    const { result, unmount } = renderHook(() => useDebounceCallback(
-      vi.fn(),
-      DEBOUNCE_TIMEOUT,
-      true,
-    ));
+    const { result, unmount } = renderHook(() =>
+      useDebounceCallback(vi.fn(), DEBOUNCE_TIMEOUT, true),
+    );
 
     result.current();
 

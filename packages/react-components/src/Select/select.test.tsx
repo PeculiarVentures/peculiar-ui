@@ -1,8 +1,6 @@
-import { describe, it, expect } from 'vitest';
 import React, { act } from 'react';
-import {
-  renderWithWrapper as render, screen, fireEvent,
-} from '../test-utils';
+import { describe, it, expect } from 'vitest';
+import { renderWithWrapper as render, screen, fireEvent } from '../test-utils';
 import { Select } from './index';
 
 describe('<Select />', () => {
@@ -44,11 +42,7 @@ describe('<Select />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: React.ComponentProps<typeof Select>['size'][] = [
-      'small',
-      'medium',
-      'large',
-    ];
+    const sizes: React.ComponentProps<typeof Select>['size'][] = ['small', 'medium', 'large'];
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Fade, TBaseTransitionProps } from '../Fade';
 import { Box } from '../Box';
+import { Fade, TBaseTransitionProps } from '../Fade';
 
 /**
  * Types.
@@ -28,12 +28,12 @@ interface IBackdropOwnProps {
   /**
    * @default 'medium'
    */
-  variant?: ('light' | 'medium' | 'heavy');
-};
+  variant?: 'light' | 'medium' | 'heavy';
+}
 
-export type TBackdropProps = IBackdropOwnProps
-  & TBaseTransitionProps
-  & React.HTMLAttributes<HTMLDivElement>;
+export type TBackdropProps = IBackdropOwnProps &
+  TBaseTransitionProps &
+  React.HTMLAttributes<HTMLDivElement>;
 /**
  *
  */

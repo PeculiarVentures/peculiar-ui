@@ -14,8 +14,8 @@ export interface IBoxOwnProps {
   background?: TColorType;
   borderColor?: TColorType;
   borderWidth?: number;
-  borderStyle?: ('solid' | 'dashed');
-  borderPosition?: ('horizontal' | 'vertical' | 'top' | 'right' | 'bottom' | 'left');
+  borderStyle?: 'solid' | 'dashed';
+  borderPosition?: 'horizontal' | 'vertical' | 'top' | 'right' | 'bottom' | 'left';
   borderRadius?: number;
   boxShadow?: TShadowType;
 }
@@ -25,16 +25,16 @@ export interface IBoxTypeMap<P = object, D extends React.ElementType = 'div'> {
   defaultComponent: D;
 }
 
-export type TBoxProps<
-  D extends React.ElementType = IBoxTypeMap['defaultComponent'],
-> = TOverrideProps<IBoxTypeMap<object, D>, D> & {
-  component?: D;
-};
+export type TBoxProps<D extends React.ElementType = IBoxTypeMap['defaultComponent']> =
+  TOverrideProps<IBoxTypeMap<object, D>, D> & {
+    component?: D;
+  };
 /**
  *
  */
 
-const reactPropsRegex = /^(as|background|borderColor|borderWidth|borderStyle|borderPosition|borderRadius|boxShadow)$/;
+const reactPropsRegex =
+  /^(as|background|borderColor|borderWidth|borderStyle|borderPosition|borderRadius|boxShadow)$/;
 
 /**
  * Styles.
@@ -78,10 +78,7 @@ const BoxRoot = styled('div', {
  */
 
 export const Box = React.forwardRef<any, TBoxProps>((props, ref) => {
-  const {
-    component,
-    ...other
-  } = props;
+  const { component, ...other } = props;
 
   const Component = component || 'div';
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
+import styled from '@emotion/styled';
 import { Box } from '../Box';
 import { useId } from '../hooks';
 import { opacity } from '../styles/foundations';
@@ -21,10 +21,7 @@ interface ISwitchOwnProps {
    * The color of the component.
    * @default 'primary'
    */
-  color?: (
-    'primary'
-    | 'secondary'
-  );
+  color?: 'primary' | 'secondary';
   /**
    * Attributes applied to the input element.
    */
@@ -53,9 +50,10 @@ interface ISwitchOwnProps {
    * Callback fired when the state is changed.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
-export type TSwitchProps = ISwitchOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type TSwitchProps = ISwitchOwnProps &
+  Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 /**
  *
  */

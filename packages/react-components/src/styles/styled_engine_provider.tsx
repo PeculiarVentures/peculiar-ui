@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
 
 /**
  * Types.
  */
 interface IStyledEngineProviderProps {
   children: React.ReactElement;
-};
+}
 /**
  *
  */
@@ -31,9 +31,5 @@ export const StyledEngineProvider: React.FC<IStyledEngineProviderProps> = (props
     return children;
   }
 
-  return (
-    <CacheProvider value={cache}>
-      {children}
-    </CacheProvider>
-  );
+  return <CacheProvider value={cache}>{children}</CacheProvider>;
 };

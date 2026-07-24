@@ -25,9 +25,7 @@ import { Button, ThemeProvider } from '@peculiar/react-components';
 function MyComponent() {
   return (
     <ThemeProvider>
-      <Button>
-        Example usage
-      </Button>
+      <Button>Example usage</Button>
     </ThemeProvider>
   );
 }

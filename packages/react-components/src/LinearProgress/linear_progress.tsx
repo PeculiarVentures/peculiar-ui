@@ -11,19 +11,20 @@ interface ILinearProgressOwnProps {
    * The color of the component. It supports those theme colors that make sense for this component.
    * @default 'primary'
    */
-  color?: ('primary' | 'secondary');
+  color?: 'primary' | 'secondary';
   /**
    * The variant to use.
    * @default 'indeterminate'
    */
-  variant?: ('indeterminate');
+  variant?: 'indeterminate';
   /**
    * The className of the component.
    */
   className?: string;
-};
+}
 
-type TLinearProgressProps = ILinearProgressOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type TLinearProgressProps = ILinearProgressOwnProps &
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -75,9 +76,7 @@ export const LinearProgress = React.forwardRef<HTMLDivElement, TLinearProgressPr
         role="progressbar"
         {...other}
       >
-        <LinearProgressProgress
-          background={color}
-        />
+        <LinearProgressProgress background={color} />
       </LinearProgressRoot>
     );
   },

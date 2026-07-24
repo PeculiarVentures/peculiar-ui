@@ -41,44 +41,71 @@ export const TextExample = () => (
 export const ContainedExample = () => (
   <>
     <Button variant="contained">Contained</Button>
-    <Button variant="contained" disabled>Disabled</Button>
+    <Button
+      variant="contained"
+      disabled
+    >
+      Disabled
+    </Button>
   </>
 );
 
 export const OutlinedExample = () => (
   <>
     <Button variant="outlined">Outlined</Button>
-    <Button variant="outlined" disabled>Disabled</Button>
+    <Button
+      variant="outlined"
+      disabled
+    >
+      Disabled
+    </Button>
   </>
 );
 
 export const SizeExample = () => (
   <>
-    <Button variant="contained" size="small">Small</Button>
-    <Button variant="contained" size="medium">Medium</Button>
-    <Button variant="contained" size="large">Large</Button>
+    <Button
+      variant="contained"
+      size="small"
+    >
+      Small
+    </Button>
+    <Button
+      variant="contained"
+      size="medium"
+    >
+      Medium
+    </Button>
+    <Button
+      variant="contained"
+      size="large"
+    >
+      Large
+    </Button>
   </>
 );
 
 export const DefaultColorExample = () => (
   <>
     <Button>Text</Button>
-    <Button variant="contained">
-      Contained
-    </Button>
-    <Button variant="outlined">
-      Outlined
-    </Button>
+    <Button variant="contained">Contained</Button>
+    <Button variant="outlined">Outlined</Button>
   </>
 );
 
 export const PrimaryColorExample = () => (
   <>
     <Button color="primary">Text</Button>
-    <Button color="primary" variant="contained">
+    <Button
+      color="primary"
+      variant="contained"
+    >
       Contained
     </Button>
-    <Button color="primary" variant="outlined">
+    <Button
+      color="primary"
+      variant="outlined"
+    >
       Outlined
     </Button>
   </>
@@ -87,10 +114,16 @@ export const PrimaryColorExample = () => (
 export const SecondaryColorExample = () => (
   <>
     <Button color="secondary">Text</Button>
-    <Button color="secondary" variant="contained">
+    <Button
+      color="secondary"
+      variant="contained"
+    >
       Contained
     </Button>
-    <Button color="secondary" variant="outlined">
+    <Button
+      color="secondary"
+      variant="outlined"
+    >
       Outlined
     </Button>
   </>
@@ -99,10 +132,16 @@ export const SecondaryColorExample = () => (
 export const WrongColorExample = () => (
   <>
     <Button color="wrong">Text</Button>
-    <Button color="wrong" variant="contained">
+    <Button
+      color="wrong"
+      variant="contained"
+    >
       Contained
     </Button>
-    <Button color="wrong" variant="outlined">
+    <Button
+      color="wrong"
+      variant="outlined"
+    >
       Outlined
     </Button>
   </>
@@ -111,10 +150,16 @@ export const WrongColorExample = () => (
 export const WhiteColorExample = () => (
   <>
     <Button color="white">Text</Button>
-    <Button color="white" variant="contained">
+    <Button
+      color="white"
+      variant="contained"
+    >
       Contained
     </Button>
-    <Button color="white" variant="outlined">
+    <Button
+      color="white"
+      variant="outlined"
+    >
       Outlined
     </Button>
   </>

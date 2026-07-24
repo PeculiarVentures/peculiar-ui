@@ -1,23 +1,23 @@
 import React from 'react';
 import type { TPopoverProps } from '../Popover';
-import { useId } from './use_id';
 import { useControllableState } from './use_controllable';
 import { useEventCallback } from './use_event_callback';
+import { useId } from './use_id';
 
 /**
  * Types.
  */
-export type TAutocompleteHighlightChangeReason = ('auto' | 'mouse' | 'keyboard');
-export type TAutocompleteHighlightChangeDirectionType = ('next' | 'previous');
-export type TAutocompleteHighlightChangeDiffType = (number | 'reset' | 'start' | 'end');
-export type TAutocompleteChangeReason = ('selectOption' | 'removeOption');
+export type TAutocompleteHighlightChangeReason = 'auto' | 'mouse' | 'keyboard';
+export type TAutocompleteHighlightChangeDirectionType = 'next' | 'previous';
+export type TAutocompleteHighlightChangeDiffType = number | 'reset' | 'start' | 'end';
+export type TAutocompleteChangeReason = 'selectOption' | 'removeOption';
 
 export interface IAutocompleteChangeDetails<T = string> {
   option: T;
   index: number;
 }
 
-export type TAutocompleteValue<T, Multiple> = Multiple extends | undefined | false ? T | null : T[];
+export type TAutocompleteValue<T, Multiple> = Multiple extends undefined | false ? T | null : T[];
 
 export type TAutocompleteFilterOptionsType<T, Multiple> = (
   options: readonly T[],
@@ -31,12 +31,9 @@ export interface IAutocompleteGroupedOption<T> {
   index: number;
   group: string;
   options: T[];
-};
+}
 
-export interface IUseAutocompleteProps<
-  T,
-  Multiple extends boolean | undefined = undefined,
-> {
+export interface IUseAutocompleteProps<T, Multiple extends boolean | undefined = undefined> {
   /**
    * This prop is used to help implement the accessibility logic.
    * If you don't provide an id it will fall back to a randomly generated one.
@@ -89,8 +86,8 @@ export interface IUseAutocompleteProps<
    */
   getOptionKey?: (option: T) => string;
   /**
-  * A filter function that determines the options that are eligible.
-  */
+   * A filter function that determines the options that are eligible.
+   */
   filterOptions?: TAutocompleteFilterOptionsType<T, Multiple>;
   /**
    * Used to determine if the option represents the given value. Uses strict equality by default.
@@ -117,22 +114,19 @@ export interface IUseAutocompleteProps<
   /**
    * Callback fired when the input value changes.
    */
-  onInputChange?: (
-    event: React.SyntheticEvent,
-    value: string,
-  ) => void;
-};
+  onInputChange?: (event: React.SyntheticEvent, value: string) => void;
+}
 
-export interface IUseAutocompleteReturnType<
-  T,
-  Multiple extends boolean | undefined = undefined,
-> {
+export interface IUseAutocompleteReturnType<T, Multiple extends boolean | undefined = undefined> {
   groupedOptions: readonly T[] | readonly IAutocompleteGroupedOption<T>[];
   value: TAutocompleteValue<T, Multiple>;
   searchValue: string;
   popupOpen: boolean;
   id: string;
-  getOptionProps: (option: T, index: number) => {
+  getOptionProps: (
+    option: T,
+    index: number,
+  ) => {
     key: string;
     tabIndex: number;
     role: string;
@@ -149,15 +143,21 @@ export interface IUseAutocompleteReturnType<
     tabIndex: -1;
     onClick: (event: React.SyntheticEvent) => void;
   };
-  getPopoverProps: () => Pick<Required<TPopoverProps>, 'open' | 'anchorEl' | 'onClose' | 'onKeyDown'>;
-  getTagProps: (option: T, index: number) => {
+  getPopoverProps: () => Pick<
+    Required<TPopoverProps>,
+    'open' | 'anchorEl' | 'onClose' | 'onKeyDown'
+  >;
+  getTagProps: (
+    option: T,
+    index: number,
+  ) => {
     key: number;
     'data-tag-index': number;
     tabIndex: -1;
     onDelete?: (event: React.SyntheticEvent) => void;
   };
   getOptionLabel: (option: T) => string;
-};
+}
 /**
  *
  */
@@ -179,16 +179,13 @@ const defaultFilterOptions: TAutocompleteFilterOptionsType<any, false> = (
   });
 };
 
-export function useAutocomplete<
-  T,
-  Multiple extends boolean | undefined = false,
->(
+export function useAutocomplete<T, Multiple extends boolean | undefined = false>(
   props: IUseAutocompleteProps<T, Multiple>,
 ): IUseAutocompleteReturnType<T, Multiple> {
   const {
     id: idProp,
     options,
-    defaultValue = props.multiple ? [] as TAutocompleteValue<T, Multiple> : null,
+    defaultValue = props.multiple ? ([] as TAutocompleteValue<T, Multiple>) : null,
     value: valueProp,
     disableCloseOnSelect = false,
     disabled = false,
@@ -236,15 +233,15 @@ export function useAutocomplete<
     while (true) {
       // Out of range
       if (
-        (direction === 'next' && nextFocus === filteredOptions.length)
-        || (direction === 'previous' && nextFocus === -1)
+        (direction === 'next' && nextFocus === filteredOptions.length) ||
+        (direction === 'previous' && nextFocus === -1)
       ) {
         return -1;
       }
 
       const option = listboxRef.current.querySelector(`[data-option-index="${nextFocus}"]`);
 
-      if ((option && !option.hasAttribute('tabindex'))) {
+      if (option && !option.hasAttribute('tabindex')) {
         // Move to the next element.
         nextFocus += direction === 'next' ? 1 : -1;
       } else {
@@ -253,113 +250,118 @@ export function useAutocomplete<
     }
   };
 
-  const setHighlightedIndex = useEventCallback((index: number, reason: TAutocompleteHighlightChangeReason = 'auto') => {
-    highlightedIndexRef.current = index;
+  const setHighlightedIndex = useEventCallback(
+    (index: number, reason: TAutocompleteHighlightChangeReason = 'auto') => {
+      highlightedIndexRef.current = index;
 
-    const listboxNode = listboxRef.current;
+      const listboxNode = listboxRef.current;
 
-    if (!listboxNode) {
-      return;
-    }
-
-    const prevOptionNode = listboxNode.querySelector('[role="option"][data-focused="true"]');
-
-    if (prevOptionNode) {
-      prevOptionNode.setAttribute('data-focused', 'false');
-    }
-
-    if (index === -1) {
-      listboxNode.scrollTop = 0;
-
-      return;
-    }
-
-    const option = listboxNode.querySelector(`[data-option-index="${index}"]`);
-
-    if (!option) {
-      return;
-    }
-
-    option.setAttribute('data-focused', 'true');
-
-    // Scroll active descendant into view.
-    // Logic copied from https://www.w3.org/TR/wai-aria-practices/examples/listbox/js/listbox.js
-    //
-    // Consider this API instead once it has a better browser support:
-    // .scrollIntoView({ scrollMode: 'if-needed', block: 'nearest' });
-    if (listboxNode.scrollHeight > listboxNode.clientHeight && reason !== 'mouse') {
-      const element = option;
-
-      const scrollBottom = listboxNode.clientHeight + listboxNode.scrollTop;
-      const elementBottom = element.offsetTop + element.offsetHeight;
-
-      if (elementBottom > scrollBottom) {
-        listboxNode.scrollTop = elementBottom - listboxNode.clientHeight;
-      } else if (
-        element.offsetTop - element.offsetHeight * (groupBy ? 1.3 : 0) < listboxNode.scrollTop
-      ) {
-        listboxNode.scrollTop = element.offsetTop - element.offsetHeight * (groupBy ? 1.3 : 0);
-      }
-    }
-  });
-
-  const changeHighlightedIndex = useEventCallback((
-    diff: TAutocompleteHighlightChangeDiffType,
-    direction: TAutocompleteHighlightChangeDirectionType = 'next',
-    reason: TAutocompleteHighlightChangeReason = 'auto',
-  ) => {
-    if (!popupOpen) {
-      return;
-    }
-
-    const getNextIndex = () => {
-      const maxIndex = filteredOptions.length - 1;
-
-      if (diff === 'reset') {
-        return -1;
+      if (!listboxNode) {
+        return;
       }
 
-      if (diff === 'start') {
-        return 0;
+      const prevOptionNode = listboxNode.querySelector('[role="option"][data-focused="true"]');
+
+      if (prevOptionNode) {
+        prevOptionNode.setAttribute('data-focused', 'false');
       }
 
-      if (diff === 'end') {
-        return maxIndex;
+      if (index === -1) {
+        listboxNode.scrollTop = 0;
+
+        return;
       }
 
-      const newIndex = highlightedIndexRef.current + diff;
+      const option = listboxNode.querySelector(`[data-option-index="${index}"]`);
 
-      if (newIndex < 0) {
-        if (newIndex === -1) {
+      if (!option) {
+        return;
+      }
+
+      option.setAttribute('data-focused', 'true');
+
+      // Scroll active descendant into view.
+      // Logic copied from https://www.w3.org/TR/wai-aria-practices/examples/listbox/js/listbox.js
+      //
+      // Consider this API instead once it has a better browser support:
+      // .scrollIntoView({ scrollMode: 'if-needed', block: 'nearest' });
+      if (listboxNode.scrollHeight > listboxNode.clientHeight && reason !== 'mouse') {
+        const element = option;
+
+        const scrollBottom = listboxNode.clientHeight + listboxNode.scrollTop;
+        const elementBottom = element.offsetTop + element.offsetHeight;
+
+        if (elementBottom > scrollBottom) {
+          listboxNode.scrollTop = elementBottom - listboxNode.clientHeight;
+        } else if (
+          element.offsetTop - element.offsetHeight * (groupBy ? 1.3 : 0) <
+          listboxNode.scrollTop
+        ) {
+          listboxNode.scrollTop = element.offsetTop - element.offsetHeight * (groupBy ? 1.3 : 0);
+        }
+      }
+    },
+  );
+
+  const changeHighlightedIndex = useEventCallback(
+    (
+      diff: TAutocompleteHighlightChangeDiffType,
+      direction: TAutocompleteHighlightChangeDirectionType = 'next',
+      reason: TAutocompleteHighlightChangeReason = 'auto',
+    ) => {
+      if (!popupOpen) {
+        return;
+      }
+
+      const getNextIndex = () => {
+        const maxIndex = filteredOptions.length - 1;
+
+        if (diff === 'reset') {
           return -1;
         }
 
-        if ((highlightedIndexRef.current !== -1) || Math.abs(diff) > 1) {
+        if (diff === 'start') {
           return 0;
         }
 
-        return maxIndex;
-      }
-
-      if (newIndex > maxIndex) {
-        if (newIndex === maxIndex + 1) {
-          return -1;
-        }
-
-        if (Math.abs(diff) > 1) {
+        if (diff === 'end') {
           return maxIndex;
         }
 
-        return 0;
-      }
+        const newIndex = highlightedIndexRef.current + diff;
 
-      return newIndex;
-    };
+        if (newIndex < 0) {
+          if (newIndex === -1) {
+            return -1;
+          }
 
-    const nextIndex = validOptionIndex(getNextIndex(), direction);
+          if (highlightedIndexRef.current !== -1 || Math.abs(diff) > 1) {
+            return 0;
+          }
 
-    setHighlightedIndex(nextIndex, reason);
-  });
+          return maxIndex;
+        }
+
+        if (newIndex > maxIndex) {
+          if (newIndex === maxIndex + 1) {
+            return -1;
+          }
+
+          if (Math.abs(diff) > 1) {
+            return maxIndex;
+          }
+
+          return 0;
+        }
+
+        return newIndex;
+      };
+
+      const nextIndex = validOptionIndex(getNextIndex(), direction);
+
+      setHighlightedIndex(nextIndex, reason);
+    },
+  );
 
   const syncHighlightedIndex = React.useCallback(() => {
     if (!popupOpen) {
@@ -379,8 +381,9 @@ export function useAutocomplete<
     }
 
     if (valueItem != null) {
-      const itemIndex = filteredOptions
-        .findIndex((optionItem) => isOptionEqualToValue(optionItem, valueItem));
+      const itemIndex = filteredOptions.findIndex((optionItem) =>
+        isOptionEqualToValue(optionItem, valueItem),
+      );
 
       if (itemIndex === -1) {
         changeHighlightedIndex('reset');
@@ -468,8 +471,7 @@ export function useAutocomplete<
     if (multiple) {
       newValue = Array.isArray(value) ? value.slice() : [];
 
-      const itemIndex = newValue
-        .findIndex((valueItem) => isOptionEqualToValue(option, valueItem));
+      const itemIndex = newValue.findIndex((valueItem) => isOptionEqualToValue(option, valueItem));
 
       if (itemIndex === -1) {
         newValue.push(option);
@@ -486,9 +488,15 @@ export function useAutocomplete<
     }
 
     if (onChange) {
-      onChange(event, newValue as TAutocompleteValue<T, Multiple>, {
-        option, index,
-      }, reason);
+      onChange(
+        event,
+        newValue as TAutocompleteValue<T, Multiple>,
+        {
+          option,
+          index,
+        },
+        reason,
+      );
     }
   };
 
@@ -505,9 +513,15 @@ export function useAutocomplete<
     setValue(newValue);
 
     if (onChange) {
-      onChange(event, newValue, {
-        option: null, index: 0,
-      }, 'removeOption');
+      onChange(
+        event,
+        newValue,
+        {
+          option: null,
+          index: 0,
+        },
+        'removeOption',
+      );
     }
   };
 
@@ -565,7 +579,14 @@ export function useAutocomplete<
           break;
 
         case 'Backspace':
-          if (multiple && !readOnly && !disabled && searchValue === '' && Array.isArray(value) && value.length > 0) {
+          if (
+            multiple &&
+            !readOnly &&
+            !disabled &&
+            searchValue === '' &&
+            Array.isArray(value) &&
+            value.length > 0
+          ) {
             const index = value.length - 1;
             const newValue = value.slice();
 
@@ -574,10 +595,15 @@ export function useAutocomplete<
             setValue(newValue as TAutocompleteValue<T, Multiple>);
 
             if (onChange) {
-              onChange(event, newValue as TAutocompleteValue<T, Multiple>, {
-                option: value[index],
-                index,
-              }, 'removeOption');
+              onChange(
+                event,
+                newValue as TAutocompleteValue<T, Multiple>,
+                {
+                  option: value[index],
+                  index,
+                },
+                'removeOption',
+              );
             }
           }
 
@@ -683,7 +709,7 @@ export function useAutocomplete<
       key: index,
       'data-tag-index': index,
       tabIndex: -1,
-      onDelete: (readOnly || disabled) ? undefined : handleTagDelete(option, index),
+      onDelete: readOnly || disabled ? undefined : handleTagDelete(option, index),
     }),
     getOptionLabel,
     groupedOptions,

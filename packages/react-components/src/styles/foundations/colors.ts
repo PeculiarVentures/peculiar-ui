@@ -12,7 +12,7 @@ interface IColorPalletteSuffix {
   '-shade-3': string;
   '-shade-4': string;
   '-shade-5': string;
-};
+}
 
 type TRemapColorPaletteKeys<Type, Name extends string> = {
   [K in keyof Type as `${Name}${string & K}`]: Type[K];

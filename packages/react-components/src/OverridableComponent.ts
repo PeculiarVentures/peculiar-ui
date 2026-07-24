@@ -33,17 +33,13 @@ export interface IOverridableComponent<M extends IOverridableTypeMap> {
 export type TOverrideProps<
   M extends IOverridableTypeMap,
   C extends React.ElementType,
-> = (
-  & TBaseProps<M>
-  & TDistributiveOmit<React.ComponentPropsWithRef<C>, keyof TBaseProps<M>>
-);
+> = TBaseProps<M> & TDistributiveOmit<React.ComponentPropsWithRef<C>, keyof TBaseProps<M>>;
 
 /**
  * Props if `component={Component}` is NOT used.
  */
-export type TDefaultComponentProps<M extends IOverridableTypeMap>
-  = & TBaseProps<M>
-    & TDistributiveOmit<React.ComponentPropsWithRef<M['defaultComponent']>, keyof TBaseProps<M>>;
+export type TDefaultComponentProps<M extends IOverridableTypeMap> = TBaseProps<M> &
+  TDistributiveOmit<React.ComponentPropsWithRef<M['defaultComponent']>, keyof TBaseProps<M>>;
 
 /**
  * Props defined on the component.

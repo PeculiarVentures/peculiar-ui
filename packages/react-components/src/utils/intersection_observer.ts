@@ -13,17 +13,15 @@ class IntersectionObserverDirective {
   // I initialize the intersection observer parent directive.
   public init() {
     if (!this.observer) {
-      this.observer = new IntersectionObserver(
-        (entries: IntersectionObserverEntry[]) => {
-          for (const entry of entries) {
-            const callback = this.mapping.get(entry.target);
+      this.observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+        for (const entry of entries) {
+          const callback = this.mapping.get(entry.target);
 
-            if (callback) {
-              callback(entry.isIntersecting);
-            }
+          if (callback) {
+            callback(entry.isIntersecting);
           }
-        },
-      );
+        }
+      });
     }
 
     return this.observer;

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import type { Property } from 'csstype';
+import styled from '@emotion/styled';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 
 /**
@@ -55,26 +55,20 @@ const reactPropsRegex = /^(as|direction|wrap|gap|align|justify)$/;
  */
 const FlexRoot = styled('div', {
   shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<IFlexContainerOwnProps>(
-  (props) => ({
-    display: 'flex',
-    flexDirection: props.direction,
-    flexWrap: props.wrap,
-    gap: props.gap,
-    alignItems: props.align,
-    justifyContent: props.justify,
-  }),
-);
+})<IFlexContainerOwnProps>((props) => ({
+  display: 'flex',
+  flexDirection: props.direction,
+  flexWrap: props.wrap,
+  gap: props.gap,
+  alignItems: props.align,
+  justifyContent: props.justify,
+}));
 /**
  *
  */
 
 export const FlexContainer = React.forwardRef<any, TFlexContainerProps>((props, ref) => {
-  const {
-    component,
-    direction = 'row',
-    ...other
-  } = props;
+  const { component, direction = 'row', ...other } = props;
   const Component = component || 'div';
 
   return (

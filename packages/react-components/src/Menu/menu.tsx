@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { MenuList, MenuItem, SubMenuItem } from '../MenuList';
 import { Popover, TPopoverProps } from '../Popover';
-import {
-  MenuList, MenuItem, SubMenuItem,
-} from '../MenuList';
 import { TTypographyType } from '../styles';
 
 /**
@@ -26,7 +24,7 @@ interface IOptionOwnProps {
    * Element placed after the children.
    */
   endIcon?: React.ReactNode;
-};
+}
 
 type TOptionProps = IOptionOwnProps & Omit<React.AllHTMLAttributes<HTMLElement>, 'children'>;
 type TMenuOptionProps = TOptionProps & {
@@ -50,7 +48,7 @@ interface IMenuOwnProps {
    * Props applied to the `Popover` element.
    */
   popoverProps?: Partial<TPopoverProps>;
-};
+}
 
 export type TMenuProps = IMenuOwnProps;
 /**
@@ -86,12 +84,7 @@ const MenuPopover = styled(Popover)({
  */
 
 export const Menu = React.forwardRef<HTMLDivElement, TMenuProps>((props, ref) => {
-  const {
-    children,
-    options,
-    onClose,
-    popoverProps = {},
-  } = props;
+  const { children, options, onClose, popoverProps = {} } = props;
   const { modalProps = {} } = popoverProps;
   const [open, setOpen] = React.useState(false);
   const childRef = React.useRef(null);
@@ -108,17 +101,14 @@ export const Menu = React.forwardRef<HTMLDivElement, TMenuProps>((props, ref) =>
     }
   };
 
-  const handleMenuItemClick = (
-    option: TOptionProps,
-  ) => (
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => {
-    if (option.onClick) {
-      option.onClick(event);
-    }
+  const handleMenuItemClick =
+    (option: TOptionProps) => (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (option.onClick) {
+        option.onClick(event);
+      }
 
-    handlePopoverClose();
-  };
+      handlePopoverClose();
+    };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Tab') {
@@ -130,9 +120,7 @@ export const Menu = React.forwardRef<HTMLDivElement, TMenuProps>((props, ref) =>
 
   const renderOption = (option: IMenuOwnProps['options'][number], index: number) => {
     if (option === 'divider') {
-      return (
-        <Divider key={index} />
-      );
+      return <Divider key={index} />;
     }
 
     const {
@@ -204,9 +192,7 @@ export const Menu = React.forwardRef<HTMLDivElement, TMenuProps>((props, ref) =>
         onClose={handlePopoverClose}
         onKeyDown={handleKeyDown}
       >
-        <MenuList>
-          {options.map(renderOption)}
-        </MenuList>
+        <MenuList>{options.map(renderOption)}</MenuList>
       </MenuPopover>
     </>
   );

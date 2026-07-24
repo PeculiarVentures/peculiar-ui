@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { IButtonBaseOwnProps, ButtonBase } from '../ButtonBase';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 
 /**
  * Types.
@@ -11,10 +11,7 @@ export interface IFabOwnProps extends Omit<IButtonBaseOwnProps, 'size' | 'varian
    * The variant to use.
    * @default 'contained'
    */
-  variant?: (
-    'contained'
-    | 'outlined'
-  );
+  variant?: 'contained' | 'outlined';
 }
 
 export interface IFabTypeMap<P = object, D extends React.ElementType = 'button'> {
@@ -22,11 +19,10 @@ export interface IFabTypeMap<P = object, D extends React.ElementType = 'button'>
   defaultComponent: D;
 }
 
-export type TFabProps<
-  D extends React.ElementType = IFabTypeMap['defaultComponent'],
-> = TOverrideProps<IFabTypeMap<object, D>, D> & {
-  component?: D;
-};
+export type TFabProps<D extends React.ElementType = IFabTypeMap['defaultComponent']> =
+  TOverrideProps<IFabTypeMap<object, D>, D> & {
+    component?: D;
+  };
 /**
  *
  */
@@ -34,49 +30,47 @@ export type TFabProps<
 /**
  * Styles.
  */
-const FabRoot = styled(ButtonBase)<IFabOwnProps>({
-  borderRadius: '50%',
-  height: 'calc(var(--pv-size-base) * 11)',
-  width: 'calc(var(--pv-size-base) * 11)',
-  padding: 'calc(var(--pv-size-base) * 2)',
-}, (props) => {
-  const isDark = props.theme.mode === 'dark';
+const FabRoot = styled(ButtonBase)<IFabOwnProps>(
+  {
+    borderRadius: '50%',
+    height: 'calc(var(--pv-size-base) * 11)',
+    width: 'calc(var(--pv-size-base) * 11)',
+    padding: 'calc(var(--pv-size-base) * 2)',
+  },
+  (props) => {
+    const isDark = props.theme.mode === 'dark';
 
-  let colorDisabled: string;
-  let backgroundColorDisabled: string;
-  let borderColorDisabled: string;
+    let colorDisabled: string;
+    let backgroundColorDisabled: string;
+    let borderColorDisabled: string;
 
-  if (props.variant === 'outlined') {
-    if (isDark) {
-      backgroundColorDisabled = 'var(--pv-color-gray-3)';
-      colorDisabled = 'var(--pv-color-gray-4)';
-      borderColorDisabled = 'var(--pv-color-gray-4)';
-    } else {
-      colorDisabled = 'var(--pv-color-gray-8)';
-      borderColorDisabled = 'var(--pv-color-gray-2)';
-      backgroundColorDisabled = 'var(--pv-color-white)';
+    if (props.variant === 'outlined') {
+      if (isDark) {
+        backgroundColorDisabled = 'var(--pv-color-gray-3)';
+        colorDisabled = 'var(--pv-color-gray-4)';
+        borderColorDisabled = 'var(--pv-color-gray-4)';
+      } else {
+        colorDisabled = 'var(--pv-color-gray-8)';
+        borderColorDisabled = 'var(--pv-color-gray-2)';
+        backgroundColorDisabled = 'var(--pv-color-white)';
+      }
     }
-  }
 
-  return {
-    '&:disabled': {
-      color: colorDisabled,
-      borderColor: borderColorDisabled,
-      backgroundColor: backgroundColorDisabled,
-    },
-  };
-});
+    return {
+      '&:disabled': {
+        color: colorDisabled,
+        borderColor: borderColorDisabled,
+        backgroundColor: backgroundColorDisabled,
+      },
+    };
+  },
+);
 /**
  *
  */
 
 export const Fab = React.forwardRef<any, TFabProps>((props, ref) => {
-  const {
-    disabled = false,
-    variant = 'contained',
-    color = 'primary',
-    ...other
-  } = props;
+  const { disabled = false, variant = 'contained', color = 'primary', ...other } = props;
 
   return (
     <FabRoot

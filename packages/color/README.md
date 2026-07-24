@@ -24,9 +24,9 @@ import { Color } from '@peculiar/color';
 
 const color = new Color('#5EBC54');
 
-color.toHex() // => '5EBC54';
-color.toHsb() // => [114, 55, 74];
-color.toRgb() // => [94, 188, 84];
+color.toHex(); // => '5EBC54';
+color.toHsb(); // => [114, 55, 74];
+color.toRgb(); // => [94, 188, 84];
 ```
 
 ### `palette`
@@ -38,7 +38,7 @@ import { Color } from '@peculiar/color';
 
 const color = new Color('#5EBC54');
 
-color.palette() // => Record<PaletteTypes, Color>;
+color.palette(); // => Record<PaletteTypes, Color>;
 ```
 
 ## 📝 License

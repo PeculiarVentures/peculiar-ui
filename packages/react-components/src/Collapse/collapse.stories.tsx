@@ -8,9 +8,7 @@ const meta: Meta<typeof Collapse> = {
   tags: ['autodocs'],
   args: {
     children: (
-      <Typography
-        variant="h1"
-      >
+      <Typography variant="h1">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
       </Typography>
     ),

@@ -1,13 +1,16 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { Button, IButtonOwnProps } from '../Button';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { Tooltip, ITooltipOwnProps } from '../Tooltip';
 
 /**
  * Types.
  */
-export interface IIconButtonOwnProps extends Omit<IButtonOwnProps, 'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'> {
+export interface IIconButtonOwnProps extends Omit<
+  IButtonOwnProps,
+  'variant' | 'withoutPadding' | 'startIcon' | 'endIcon'
+> {
   /**
    * The text that applied to `aria-label` attribute and Tooltip content.
    */
@@ -23,11 +26,10 @@ export interface IIconButtonTypeMap<P = object, D extends React.ElementType = 'b
   defaultComponent: D;
 }
 
-export type TIconButtonProps<
-  D extends React.ElementType = IIconButtonTypeMap['defaultComponent'],
-> = TOverrideProps<IIconButtonTypeMap<object, D>, D> & {
-  component?: D;
-};
+export type TIconButtonProps<D extends React.ElementType = IIconButtonTypeMap['defaultComponent']> =
+  TOverrideProps<IIconButtonTypeMap<object, D>, D> & {
+    component?: D;
+  };
 /**
  *
  */
@@ -44,12 +46,7 @@ const IconButtonRoot = styled(Button)({
  */
 
 export const IconButton = React.forwardRef<any, TIconButtonProps>((props, ref) => {
-  const {
-    title,
-    disabled,
-    tooltipProps,
-    ...other
-  } = props;
+  const { title, disabled, tooltipProps, ...other } = props;
 
   const component = (
     <IconButtonRoot
