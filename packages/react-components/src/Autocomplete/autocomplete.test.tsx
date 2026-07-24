@@ -333,7 +333,7 @@ describe('<Autocomplete />', () => {
             options={['option-1', 'option-2']}
             value={selected}
             multiple
-            onChange={(_event, newValue) => setSelected(newValue as string[])}
+            onChange={(_event, newValue) => setSelected(newValue)}
           />
         );
       };

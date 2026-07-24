@@ -63,7 +63,7 @@ export const Fade = React.forwardRef<any, TFadeProps>((props, ref) => {
   const handleEnter = (isAppearing: boolean) => {
     // reading a dimension prop will cause the browser to recalculate,
     // which will let our animations work
-    nodeRef.current.offsetHeight; // eslint-disable-line @typescript-eslint/no-unused-expressions
+    void nodeRef.current.offsetHeight;
 
     if (onEnter) {
       onEnter(isAppearing);

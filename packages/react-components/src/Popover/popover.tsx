@@ -95,7 +95,7 @@ export const Popover = React.forwardRef<HTMLDivElement, TPopoverProps>((props, r
         state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
       },
     }),
-    [],
+    [allowUseSameWidth],
   );
   const { styles, attributes } = usePopper(anchorEl, popperElement, {
     placement,

@@ -24,7 +24,7 @@ export interface ITabOwnProps {
   /**
    * Callback fired when the value changes.
    */
-  onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
+  onChange?: (event: React.MouseEvent<HTMLButtonElement>, value: string) => void;
   onClick?: never;
 }
 
@@ -128,7 +128,7 @@ export const Tab = React.forwardRef<any, TTabProps>((props, ref) => {
   } = props;
   const Component = component || 'button';
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (!selected && onChange) {
       onChange(event, id);
     }

@@ -24,7 +24,7 @@ export interface ISegmentedControlOwnProps {
   /**
    * Callback fired when the value changes.
    */
-  onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
+  onChange?: (event: React.MouseEvent<HTMLButtonElement>, value: string) => void;
   onClick?: never;
 }
 
@@ -140,7 +140,7 @@ export const SegmentedControl = React.forwardRef<any, TSegmentedControlProps>((p
   } = props;
   const Component = component || 'button';
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (!selected && onChange) {
       onChange(event, id);
     }

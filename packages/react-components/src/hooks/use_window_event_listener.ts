@@ -16,5 +16,6 @@ export const useWindowEventListener = <T extends keyof WindowEventMap>(
     }
 
     return undefined;
-  }, deps);
+    // Caller-provided dependency list is part of this hook's public API.
+  }, deps); // oxlint-disable-line react-hooks/exhaustive-deps
 };

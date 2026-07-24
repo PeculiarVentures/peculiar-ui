@@ -3,7 +3,6 @@ import { describe, it, expect, vi } from 'vitest';
 import { render } from '../test-utils';
 import { useMergedRef } from './use_merged_ref';
 
-// eslint-disable-next-line @stylistic/max-len
 const Component = ({
   refs,
 }: {

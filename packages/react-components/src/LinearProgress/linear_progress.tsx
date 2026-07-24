@@ -62,12 +62,7 @@ const LinearProgressProgress = styled(Box)({
 
 export const LinearProgress = React.forwardRef<HTMLDivElement, TLinearProgressProps>(
   (props, ref) => {
-    const {
-      color = 'primary',
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      variant = 'indeterminate',
-      ...other
-    } = props;
+    const { color = 'primary', variant: _variant = 'indeterminate', ...other } = props;
 
     return (
       <LinearProgressRoot

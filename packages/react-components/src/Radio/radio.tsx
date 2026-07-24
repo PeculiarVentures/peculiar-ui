@@ -49,7 +49,7 @@ interface IRadioOwnProps {
   /**
    * The icon to display when the component is checked.
    */
-  checkedIcon?: React.ElementType<any>;
+  checkedIcon?: React.ElementType;
   /**
    * Callback fired when the state is changed.
    */
@@ -75,15 +75,14 @@ const RadioRoot = styled('label')(
     position: 'relative',
     flexShrink: 0,
   },
-  (props) => ({
-    ...(props.theme.mode === 'dark'
+  (props) =>
+    props.theme.mode === 'dark'
       ? {
           color: 'var(--pv-color-gray-5)',
         }
       : {
           color: 'var(--pv-color-gray-6)',
-        }),
-  }),
+        },
 );
 
 const RadioInput = styled('input', {

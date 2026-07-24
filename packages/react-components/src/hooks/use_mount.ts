@@ -5,6 +5,6 @@ import React from 'react';
  * @param callback The callback function to run on mount.
  */
 export function useMount(callback: () => void) {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // oxlint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(callback, []);
 }

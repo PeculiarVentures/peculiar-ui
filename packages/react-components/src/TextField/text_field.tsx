@@ -235,7 +235,6 @@ export const TextField = React.forwardRef<HTMLDivElement, TTextFieldProps>((prop
         placeholder={placeholder}
         readOnly={readOnly}
         ref={inputRef}
-        // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
         onChange={onChange}
       />

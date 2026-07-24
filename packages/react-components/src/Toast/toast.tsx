@@ -53,6 +53,7 @@ export const Toast: React.FC<IToastOwnProps> = (props) => {
     }
 
     return undefined;
+    // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

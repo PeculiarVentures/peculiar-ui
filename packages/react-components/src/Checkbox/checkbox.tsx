@@ -54,7 +54,7 @@ interface ICheckboxOwnProps {
   /**
    * The icon to display when the component is checked.
    */
-  checkedIcon?: React.ElementType<any>;
+  checkedIcon?: React.ElementType;
   /**
    * Callback fired when the state is changed.
    */

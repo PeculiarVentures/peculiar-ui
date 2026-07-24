@@ -43,7 +43,9 @@ describe('<ToastProvider />', () => {
 
     expect(screen.queryByText('Toast')).toBeInTheDocument();
 
-    act(() => vi.advanceTimersByTime(DURATION));
+    act(() => {
+      void vi.advanceTimersByTime(DURATION);
+    });
 
     expect(screen.queryByText('Toast')).not.toBeInTheDocument();
   });
@@ -97,12 +99,16 @@ describe('<ToastProvider />', () => {
 
     expect(screen.queryAllByText(/^Toast/)).toHaveLength(2);
 
-    act(() => vi.advanceTimersByTime(10));
+    act(() => {
+      void vi.advanceTimersByTime(10);
+    });
 
     expect(screen.queryByText('Toast-1')).toBeInTheDocument();
     expect(screen.queryByText('Toast-2')).toBeInTheDocument();
 
-    act(vi.runAllTimers);
+    act(() => {
+      void vi.runAllTimers();
+    });
   });
 
   it('should render maximum `maxToasts` toasts', () => {

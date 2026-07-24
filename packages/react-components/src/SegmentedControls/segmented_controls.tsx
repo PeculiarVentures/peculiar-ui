@@ -22,7 +22,7 @@ interface ISegmentedControlsOwnProps {
   /**
    * Callback fired when the value changes.
    */
-  onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
+  onChange?: (event: React.MouseEvent<HTMLButtonElement>, value: string) => void;
 }
 
 type TSegmentedControlsProps = ISegmentedControlsOwnProps &
@@ -58,7 +58,6 @@ const SegmentedControlsRoot = styled(Tabs)((props) => {
  *
  */
 
-// eslint-disable-next-line @stylistic/max-len
 export const SegmentedControls = React.forwardRef<HTMLDivElement, TSegmentedControlsProps>(
   (props, ref) => (
     <SegmentedControlsRoot

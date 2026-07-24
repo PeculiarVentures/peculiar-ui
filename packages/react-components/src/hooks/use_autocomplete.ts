@@ -402,8 +402,10 @@ export function useAutocomplete<T, Multiple extends boolean | undefined = false>
     }
 
     setHighlightedIndex(highlightedIndexRef.current);
+    // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, [
     filteredOptions.length,
+    // oxlint-disable-next-line react-hooks/exhaustive-deps
     multiple ? false : value,
     changeHighlightedIndex,
     setHighlightedIndex,

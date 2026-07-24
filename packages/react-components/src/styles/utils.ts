@@ -38,11 +38,11 @@ export const createTheme = (mode: 'light' | 'dark', options?: IThemeOptionsType)
     color: deepmerge.all([
       defaultTheme.color,
       {
-        ...(primary || {}),
-        ...(secondary || {}),
-        ...(wrong || {}),
-        ...(attention || {}),
-        ...(success || {}),
+        ...primary,
+        ...secondary,
+        ...wrong,
+        ...attention,
+        ...success,
         ...(primary
           ? {
               'primary-contrast': getContrastText(primary.primary),

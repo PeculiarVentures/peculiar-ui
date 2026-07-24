@@ -589,7 +589,6 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = false>(
       component="label"
       isHasClearIcon={!isValueEmpty && !readOnly}
     >
-      {/* eslint-disable-next-line @stylistic/multiline-ternary */}
       {multiple ? (
         <>
           {isValueEmpty ? null : renderedValue}
@@ -652,7 +651,6 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = false>(
         name={name}
         required={required}
         readOnly={readOnly}
-        // eslint-disable-next-line @typescript-eslint/no-empty-function
         onChange={() => {}}
       />
     </AutocompleteField>

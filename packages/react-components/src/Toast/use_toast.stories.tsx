@@ -1,4 +1,4 @@
-import { useToast, ToastProvider } from './index';
+import { useToast, ToastProvider, type IBaseToastType } from './index';
 
 const meta = {
   title: 'Hooks/useToast',
@@ -9,7 +9,7 @@ export default meta;
 
 const ToastStatusExample = () => {
   const { addToast, removeAllToasts } = useToast();
-  const statuses = ['success', 'wrong', 'attention', 'pending'];
+  const statuses: IBaseToastType['variant'][] = ['success', 'wrong', 'attention', 'pending'];
 
   return (
     <div
@@ -27,7 +27,7 @@ const ToastStatusExample = () => {
           onClick={() => {
             addToast({
               message: `${status} toast`,
-              variant: status as any,
+              variant: status,
               disableIcon: false,
               isClosable: true,
             });

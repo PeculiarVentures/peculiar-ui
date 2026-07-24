@@ -21,7 +21,7 @@ interface ITabsOwnProps {
   /**
    * Callback fired when the value changes.
    */
-  onChange?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => void;
+  onChange?: (event: React.MouseEvent<HTMLButtonElement>, value: string) => void;
 }
 
 type TTabsProps = ITabsOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;

@@ -4,27 +4,27 @@ import { Color } from './color';
 describe('Color', () => {
   const color = new Color('#5ebc54');
 
-  it('converts a color to a hex color` ', () => {
+  it('converts a color to a hex color`', () => {
     expect(color.toHex()).toEqual('5ebc54');
   });
 
-  it('converts a color to a hex string color` ', () => {
+  it('converts a color to a hex string color`', () => {
     expect(color.toHexString()).toEqual('#5ebc54');
   });
 
-  it('converts a color to a hsb color` ', () => {
+  it('converts a color to a hsb color`', () => {
     expect(color.toHsb()).toEqual([114, 55, 74]);
   });
 
-  it('converts a color to a rgb color` ', () => {
+  it('converts a color to a rgb color`', () => {
     expect(color.toRgb()).toEqual([94, 188, 84]);
   });
 
-  it('converts a color to a rgb string color` ', () => {
+  it('converts a color to a rgb string color`', () => {
     expect(color.toRgbString()).toEqual('rgb(94, 188, 84)');
   });
 
-  it('generate color palette and converts it to a hex string color` ', () => {
+  it('generate color palette and converts it to a hex string color`', () => {
     const palette = color.palette();
 
     expect(Object.keys(palette).length).toEqual(11);

@@ -85,10 +85,7 @@ describe('<Avatar />', () => {
       const { asFragment } = render(
         <Avatar
           name="First"
-          renderInitials={(props) => (
-            // eslint-disable-next-line jsx-a11y/heading-has-content
-            <h1 {...props} />
-          )}
+          renderInitials={(props) => <h1 {...props}>{props.children}</h1>}
         />,
       );
 

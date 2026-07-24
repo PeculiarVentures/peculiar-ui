@@ -52,6 +52,7 @@ export const FocusTrap: React.FC<IFocusTrapOwnProps> = (props) => {
         returnFocus: true,
       });
     };
+    // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   return React.cloneElement(children, {

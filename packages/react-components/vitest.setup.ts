@@ -13,9 +13,14 @@ expect.addSnapshotSerializer(
 );
 
 // @ts-expect-error: Mock IntersectionObserver for Vitest
-window.IntersectionObserver = vi.fn(() => ({
-  observe: vi.fn(),
-  unobserve: vi.fn(),
+window.IntersectionObserver = vi.fn<() => IntersectionObserver>(() => ({
+  observe: vi.fn<() => void>(),
+  unobserve: vi.fn<() => void>(),
+  disconnect: vi.fn<() => void>(),
+  root: null,
+  rootMargin: '',
+  thresholds: [],
+  takeRecords: vi.fn<() => IntersectionObserverEntry[]>(),
 }));
 
 afterEach(() => {

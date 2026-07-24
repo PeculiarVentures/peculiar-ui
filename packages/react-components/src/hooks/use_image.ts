@@ -5,11 +5,11 @@ export interface IUseImageOptionsType {
   /**
    * A callback for when the image `src` has been loaded.
    */
-  onLoad?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void;
+  onLoad?: (event: React.SyntheticEvent<HTMLImageElement>) => void;
   /**
    * A callback for when there was an error loading the image `src`.
    */
-  onError?: (error: string | React.SyntheticEvent<HTMLImageElement, Event>) => void;
+  onError?: (error: string | React.SyntheticEvent<HTMLImageElement>) => void;
 }
 
 type TStatus = 'loading' | 'failed' | 'pending' | 'loaded';

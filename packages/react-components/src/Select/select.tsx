@@ -174,7 +174,7 @@ const SelectField = styled(Typography)<
     ...(props.size === 'medium' && {
       height: 'calc(var(--pv-size-base) * 7)',
     }),
-    ...(props.multiple === true && {
+    ...(props.multiple && {
       display: 'inline-flex',
       alignItems: 'center',
     }),
@@ -427,7 +427,6 @@ export const Select = <T, Multiple extends boolean | undefined = false>(
         name={name}
         required={required}
         readOnly={readOnly}
-        // eslint-disable-next-line @typescript-eslint/no-empty-function
         onChange={() => {}}
       />
     </SelectField>

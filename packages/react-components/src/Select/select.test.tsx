@@ -72,7 +72,7 @@ describe('<Select />', () => {
     fireEvent.click(screen.getByRole('combobox'));
 
     // Popper update() - https://github.com/popperjs/react-popper/issues/350
-    await act(async () => await null);
+    await act(async () => null);
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -90,7 +90,7 @@ describe('<Select />', () => {
     fireEvent.click(screen.getByRole('combobox'));
 
     // Popper update() - https://github.com/popperjs/react-popper/issues/350
-    await act(async () => await null);
+    await act(async () => null);
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -106,7 +106,7 @@ describe('<Select />', () => {
     fireEvent.click(screen.getByRole('combobox'));
 
     // Popper update() - https://github.com/popperjs/react-popper/issues/350
-    await act(async () => await null);
+    await act(async () => null);
 
     expect(baseElement).toMatchSnapshot();
   });

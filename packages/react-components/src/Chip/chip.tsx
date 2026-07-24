@@ -21,7 +21,7 @@ export interface IChipOwnProps {
   /**
    * Override the default delete icon element. Shown only if `onDelete` is set.
    */
-  deleteIcon?: React.ElementType<any>;
+  deleteIcon?: React.ElementType;
   /**
    * The variant to use.
    * @default 'contained'
