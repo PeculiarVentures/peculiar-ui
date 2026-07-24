@@ -70,9 +70,5 @@ export function hsbToRgb(h: number, s: number, b: number): [r: number, g: number
       break;
   }
 
-  return [
-    Math.floor(red * 255),
-    Math.floor(green * 255),
-    Math.floor(blue * 255),
-  ];
+  return [Math.floor(red * 255), Math.floor(green * 255), Math.floor(blue * 255)];
 }

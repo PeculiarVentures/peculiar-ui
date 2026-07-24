@@ -8,15 +8,9 @@ const meta: Meta<typeof FlexContainer> = {
   args: {
     children: (
       <>
-        <Flex>
-          1
-        </Flex>
-        <Flex>
-          2
-        </Flex>
-        <Flex>
-          3
-        </Flex>
+        <Flex>1</Flex>
+        <Flex>2</Flex>
+        <Flex>3</Flex>
       </>
     ),
   },
@@ -94,7 +88,10 @@ export const VariableWidthExample = () => (
 );
 
 export const ColumnExample = () => (
-  <FlexContainer gap={10} direction="column">
+  <FlexContainer
+    gap={10}
+    direction="column"
+  >
     <Flex
       component={Box}
       background="gray-5"

@@ -14,7 +14,7 @@ interface IBaseProps {
    * so it's simply `document.body` most of the time.
    */
   container?: Element | (() => Element | null) | null;
-};
+}
 
 function getContainer(container: IBaseProps['container']) {
   return typeof container === 'function' ? container() : container;

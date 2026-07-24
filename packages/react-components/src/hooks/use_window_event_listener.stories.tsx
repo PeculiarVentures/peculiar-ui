@@ -19,8 +19,7 @@ export const DemoExample = () => {
 
   return (
     <p>
-      Click window count:
-      &nbsp;
+      Click window count: &nbsp;
       {count}
     </p>
   );

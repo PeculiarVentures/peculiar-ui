@@ -17,18 +17,14 @@ export interface IFocusTrapOwnProps {
    * and replace it to the last focused element when it closes.
    */
   disableAutoFocus?: boolean;
-};
+}
 
 /**
  * Keeps keyboard focus within its child while `open` is true.
  * When the trap is deactivated, focus returns to the element that had focus before activation.
  */
 export const FocusTrap: React.FC<IFocusTrapOwnProps> = (props) => {
-  const {
-    children,
-    open,
-    disableAutoFocus,
-  } = props;
+  const { children, open, disableAutoFocus } = props;
 
   const rootRef = React.useRef(null);
   const multiRef = useMergedRef((children as any).ref, rootRef);
@@ -56,6 +52,7 @@ export const FocusTrap: React.FC<IFocusTrapOwnProps> = (props) => {
         returnFocus: true,
       });
     };
+    // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   return React.cloneElement(children, {

@@ -31,16 +31,8 @@ export const Playground: TStory = {};
 
 export const BackgroundColorExample = () => (
   <>
-    <Box
-      background="attention"
-    >
-      Attention
-    </Box>
-    <Box
-      background="gray-6"
-    >
-      Gray 6
-    </Box>
+    <Box background="attention">Attention</Box>
+    <Box background="gray-6">Gray 6</Box>
   </>
 );
 
@@ -144,35 +136,11 @@ export const BorderPositionExample = () => (
 
 export const BoxShadowExample = () => (
   <>
-    <Box
-      boxShadow="light-low"
-    >
-      Light-low
-    </Box>
-    <Box
-      boxShadow="light-medium"
-    >
-      Light-medium
-    </Box>
-    <Box
-      boxShadow="light-hight"
-    >
-      Light-hight
-    </Box>
-    <Box
-      boxShadow="light-soft"
-    >
-      Light-soft
-    </Box>
-    <Box
-      boxShadow="dark-medium"
-    >
-      Dark-medium
-    </Box>
-    <Box
-      boxShadow="dark-hight"
-    >
-      Dark-hight
-    </Box>
+    <Box boxShadow="light-low">Light-low</Box>
+    <Box boxShadow="light-medium">Light-medium</Box>
+    <Box boxShadow="light-hight">Light-hight</Box>
+    <Box boxShadow="light-soft">Light-soft</Box>
+    <Box boxShadow="dark-medium">Dark-medium</Box>
+    <Box boxShadow="dark-hight">Dark-hight</Box>
   </>
 );

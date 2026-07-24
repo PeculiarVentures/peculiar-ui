@@ -1,10 +1,5 @@
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-} from '../Dialog';
 import { Button } from '../Button';
+import { Dialog, DialogTitle, DialogContent, DialogActions } from '../Dialog';
 import { createDialog } from './create_dialog';
 
 const meta = {
@@ -19,10 +14,7 @@ interface IConfirmDialogParams {
   onConfirm: VoidFunction;
 }
 
-const useConfirmDialog = createDialog<IConfirmDialogParams>(({
-  openParams,
-  close,
-}) => {
+const useConfirmDialog = createDialog<IConfirmDialogParams>(({ openParams, close }) => {
   const handleConfirm = () => {
     openParams.onConfirm();
     close();
@@ -33,16 +25,10 @@ const useConfirmDialog = createDialog<IConfirmDialogParams>(({
       open
       onClose={close}
     >
-      <DialogTitle>
-        Confirm Action
-      </DialogTitle>
-      <DialogContent dividers={false}>
-        {openParams.message}
-      </DialogContent>
+      <DialogTitle>Confirm Action</DialogTitle>
+      <DialogContent dividers={false}>{openParams.message}</DialogContent>
       <DialogActions>
-        <Button onClick={close}>
-          Cancel
-        </Button>
+        <Button onClick={close}>Cancel</Button>
         <Button
           variant="contained"
           color="secondary"

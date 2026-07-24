@@ -12,10 +12,7 @@ describe('useWindowEventListener()', () => {
   it('should call listener on event fire', () => {
     const listenerMock = vi.fn();
 
-    renderHook(() => useWindowEventListener(
-      'click',
-      listenerMock,
-    ));
+    renderHook(() => useWindowEventListener('click', listenerMock));
 
     window.dispatchEvent(new Event('click'));
 
@@ -24,23 +21,15 @@ describe('useWindowEventListener()', () => {
 
   it('should remove listener on unmount by default', () => {
     const listenerMock = vi.fn();
-    const { unmount } = renderHook(() => useWindowEventListener(
-      'click',
-      listenerMock,
-    ));
+    const { unmount } = renderHook(() => useWindowEventListener('click', listenerMock));
 
     unmount();
 
     expect(removeEventListenerSpy).toBeCalledWith('click', listenerMock);
   });
 
-  it('should don\'t remove listener on unmount if `removeOnUnmount=false`', () => {
-    const { unmount } = renderHook(() => useWindowEventListener(
-      'click',
-      vi.fn(),
-      [],
-      false,
-    ));
+  it("should don't remove listener on unmount if `removeOnUnmount=false`", () => {
+    const { unmount } = renderHook(() => useWindowEventListener('click', vi.fn(), [], false));
 
     unmount();
 

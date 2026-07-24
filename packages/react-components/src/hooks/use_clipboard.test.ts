@@ -42,7 +42,9 @@ describe('useClipboard()', () => {
     await act(() => result.current.copy('text_stub'));
 
     expect(result.current.isCopied).toBe(true);
-    act(() => vi.advanceTimersByTime(1500));
+    act(() => {
+      void vi.advanceTimersByTime(1500);
+    });
     rerender();
     expect(result.current.isCopied).toBe(false);
   });

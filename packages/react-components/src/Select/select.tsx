@@ -1,19 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import {
-  useAutocomplete,
-  IUseAutocompleteProps,
-  IUseAutocompleteReturnType,
-  TAutocompleteValue,
-} from '../hooks';
-import { Popover } from '../Popover';
-import { TextField } from '../TextField';
-import { Typography, ITypographyOwnProps } from '../Typography';
-import { Box } from '../Box';
-import { Button } from '../Button';
-import { ArrowDropDownIcon, PlusIcon } from '../icons';
-import { Checkbox } from '../Checkbox';
-import {
   TAutocompleteOwnProps,
   AutocompleteTagSize,
   AutocompleteNativeInput,
@@ -26,6 +13,19 @@ import {
   AutocompleteError,
 } from '../Autocomplete/autocomplete';
 import { AutocompleteTag } from '../Autocomplete/autocomplete_tag';
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { Checkbox } from '../Checkbox';
+import {
+  useAutocomplete,
+  IUseAutocompleteProps,
+  IUseAutocompleteReturnType,
+  TAutocompleteValue,
+} from '../hooks';
+import { ArrowDropDownIcon, PlusIcon } from '../icons';
+import { Popover } from '../Popover';
+import { TextField } from '../TextField';
+import { Typography, ITypographyOwnProps } from '../Typography';
 
 /**
  * Interfaces.
@@ -34,7 +34,7 @@ export interface ISelectRenderGroupParams {
   key: string | number;
   group: string;
   children?: React.ReactNode;
-};
+}
 
 export type TSelectOwnProps<
   T,
@@ -48,11 +48,7 @@ export type TSelectOwnProps<
    * The size of the root component.
    * @default 'medium'
    */
-  size?: (
-    'small'
-    | 'medium'
-    | 'large'
-  );
+  size?: 'small' | 'medium' | 'large';
   /**
    * The short hint displayed in the `input` before the user enters a value.
    */
@@ -153,7 +149,7 @@ export type TSelectOwnProps<
  * Styles.
  */
 const SelectField = styled(Typography)<
-ITypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'multiple'>>
+  ITypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'multiple'>>
 >(
   (props) => ({
     outline: 'none',
@@ -178,16 +174,14 @@ ITypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'mul
     ...(props.size === 'medium' && {
       height: 'calc(var(--pv-size-base) * 7)',
     }),
-    ...(props.multiple === true && {
+    ...(props.multiple && {
       display: 'inline-flex',
       alignItems: 'center',
     }),
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
-    const color = isDark
-      ? 'var(--pv-color-white)'
-      : 'var(--pv-color-black)';
+    const color = isDark ? 'var(--pv-color-white)' : 'var(--pv-color-black)';
     let borderColor = 'var(--pv-color-gray-8)';
     let colorPlaceholder = 'var(--pv-color-gray-9)';
     const borderColorHover = 'var(--pv-color-gray-10)';
@@ -203,7 +197,7 @@ ITypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'mul
       colorDisabled = 'var(--pv-color-gray-4)';
     }
 
-    return ({
+    return {
       borderColor,
       '&:hover': {
         borderColor: borderColorHover,
@@ -225,7 +219,7 @@ ITypographyOwnProps & Required<Pick<TSelectOwnProps<any, boolean>, 'size' | 'mul
           borderColor: borderColorFocus,
         },
       },
-    });
+    };
   },
 );
 
@@ -253,7 +247,8 @@ const SelectTagsList = styled('div')({
 });
 
 const SelectSearchInput = styled(TextField)({
-  padding: 'calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2)',
+  padding:
+    'calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 3) calc(var(--pv-size-base) * 2)',
 });
 
 const SelectCreateNewButton = styled(Button)({
@@ -266,10 +261,7 @@ const SelectCreateNewButton = styled(Button)({
  *
  */
 
-export const Select = <
-  T,
-  Multiple extends boolean | undefined = false,
->(
+export const Select = <T, Multiple extends boolean | undefined = false>(
   props: TSelectOwnProps<T, Multiple>,
 ): React.JSX.Element => {
   const {
@@ -311,10 +303,7 @@ export const Select = <
     getTagProps,
     getOptionLabel,
   } = useAutocomplete(props);
-  const {
-    onChange,
-    ...otherInputProps
-  } = getInputProps();
+  const { onChange, ...otherInputProps } = getInputProps();
 
   const popoverProps = getPopoverProps();
 
@@ -326,22 +315,23 @@ export const Select = <
     popoverProps.onClose(event);
   };
 
-  const defaultRenderOption: TSelectOwnProps<T, Multiple>['renderOption'] = ({ key, ...propsOption }, option) => (
+  const defaultRenderOption: TSelectOwnProps<T, Multiple>['renderOption'] = (
+    { key, ...propsOption },
+    option,
+  ) => (
     <AutocompleteDropdownGroupListItem
       key={key}
       {...propsOption}
       inGroup={Boolean(groupBy)}
       startIcon={
-        multiple
-          ? (
-              <Checkbox
-                checked={propsOption['aria-selected']}
-                inputProps={{
-                  readOnly: true,
-                }}
-              />
-            )
-          : undefined
+        multiple ? (
+          <Checkbox
+            checked={propsOption['aria-selected']}
+            inputProps={{
+              readOnly: true,
+            }}
+          />
+        ) : undefined
       }
     >
       {getOptionLabel(option)}
@@ -356,13 +346,14 @@ export const Select = <
       >
         {params.group}
       </AutocompleteDropdownGroupName>
-      <AutocompleteDropdownGroupList>
-        {params.children}
-      </AutocompleteDropdownGroupList>
+      <AutocompleteDropdownGroupList>{params.children}</AutocompleteDropdownGroupList>
     </li>
   );
 
-  const defaultRenderTag: TAutocompleteOwnProps<T, Multiple>['renderTag'] = ({ key, ...propsOption }, option) => (
+  const defaultRenderTag: TAutocompleteOwnProps<T, Multiple>['renderTag'] = (
+    { key, ...propsOption },
+    option,
+  ) => (
     <AutocompleteTag
       key={key}
       {...propsOption}
@@ -383,14 +374,12 @@ export const Select = <
     }
 
     if (Array.isArray(value)) {
-      const more = (value.length > limitTags) ? (value.length - limitTags) : 0;
+      const more = value.length > limitTags ? value.length - limitTags : 0;
       const valueLimits = more > 0 ? value.slice(0, limitTags) : value;
 
       return (
         <>
-          <SelectTagsList>
-            {valueLimits.map(renderListTag)}
-          </SelectTagsList>
+          <SelectTagsList>{valueLimits.map(renderListTag)}</SelectTagsList>
           {!!more && (
             <AutocompleteTagSize
               variant="c2"
@@ -438,8 +427,7 @@ export const Select = <
         name={name}
         required={required}
         readOnly={readOnly}
-        // eslint-disable-next-line @typescript-eslint/no-empty-function
-        onChange={() => { }}
+        onChange={() => {}}
       />
     </SelectField>
   );
@@ -456,9 +444,7 @@ export const Select = <
   return (
     <div className={className}>
       {label && (
-        <AutocompleteLabel
-          {...getInputLabelProps()}
-        >
+        <AutocompleteLabel {...getInputLabelProps()}>
           <Typography
             component="span"
             variant="c2"
@@ -507,52 +493,51 @@ export const Select = <
         )}
         {loading && groupedOptions.length === 0 && (
           <AutocompleteDropdownStateItem>
-            {typeof loadingText === 'string'
-              ? (
-                  <Typography
-                    variant="b2"
-                    color="gray-10"
-                  >
-                    {loadingText}
-                  </Typography>
-                )
-              : loadingText}
+            {typeof loadingText === 'string' ? (
+              <Typography
+                variant="b2"
+                color="gray-10"
+              >
+                {loadingText}
+              </Typography>
+            ) : (
+              loadingText
+            )}
           </AutocompleteDropdownStateItem>
         )}
         {groupedOptions.length === 0 && !loading && (
           <AutocompleteDropdownStateItem>
-            {typeof noOptionsText === 'string'
-              ? (
-                  <Typography
-                    variant="b2"
-                    color="gray-10"
-                  >
-                    {noOptionsText}
-                  </Typography>
-                )
-              : noOptionsText}
+            {typeof noOptionsText === 'string' ? (
+              <Typography
+                variant="b2"
+                color="gray-10"
+              >
+                {noOptionsText}
+              </Typography>
+            ) : (
+              noOptionsText
+            )}
           </AutocompleteDropdownStateItem>
         )}
         {groupedOptions.length > 0 && (
           <AutocompleteDropdownList {...getListboxProps()}>
-            {groupedOptions
-              .map((option, index) => {
-                // @ts-expect-error: 'options' may exist when grouped
-                if (groupBy && 'options' in option) {
-                  return renderGroup({
-                    key: option.key,
-                    group: option.group,
-                    children: option.options.map((option2, index2) => (
-                      renderListOption(option2, option.index + index2)
-                    )),
-                  });
-                }
+            {groupedOptions.map((option, index) => {
+              // @ts-expect-error: 'options' may exist when grouped
+              if (groupBy && 'options' in option) {
+                return renderGroup({
+                  key: option.key,
+                  group: option.group,
+                  children: option.options.map((option2, index2) =>
+                    renderListOption(option2, option.index + index2),
+                  ),
+                });
+              }
 
-                return renderListOption(option as T, index);
-              })}
+              return renderListOption(option as T, index);
+            })}
           </AutocompleteDropdownList>
         )}
-        {(allowCreateOption && searchValue.length > 0 && !loading) && (
+        {allowCreateOption && searchValue.length > 0 && !loading && (
           <Box
             borderColor="gray-3"
             borderPosition="top"

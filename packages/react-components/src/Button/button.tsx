@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { ButtonBase, IButtonBaseOwnProps } from '../ButtonBase';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 
 /**
  * Types.
@@ -27,11 +27,10 @@ export interface IButtonTypeMap<P = object, D extends React.ElementType = 'butto
   defaultComponent: D;
 }
 
-export type TButtonProps<
-  D extends React.ElementType = IButtonTypeMap['defaultComponent'],
-> = TOverrideProps<IButtonTypeMap<object, D>, D> & {
-  component?: D;
-};
+export type TButtonProps<D extends React.ElementType = IButtonTypeMap['defaultComponent']> =
+  TOverrideProps<IButtonTypeMap<object, D>, D> & {
+    component?: D;
+  };
 /**
  *
  */
@@ -95,17 +94,9 @@ export const Button = React.forwardRef<any, TButtonProps>((props, ref) => {
     ...other
   } = props;
 
-  const startIcon = startIconProp && (
-    <ButtonStartIcon>
-      {startIconProp}
-    </ButtonStartIcon>
-  );
+  const startIcon = startIconProp && <ButtonStartIcon>{startIconProp}</ButtonStartIcon>;
 
-  const endIcon = endIconProp && (
-    <ButtonEndIcon>
-      {endIconProp}
-    </ButtonEndIcon>
-  );
+  const endIcon = endIconProp && <ButtonEndIcon>{endIconProp}</ButtonEndIcon>;
 
   return (
     <ButtonRoot

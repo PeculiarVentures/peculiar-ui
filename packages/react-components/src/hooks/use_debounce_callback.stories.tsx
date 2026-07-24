@@ -14,14 +14,8 @@ export const DemoExample = () => {
 
   return (
     <>
-      <p>
-        Below state will update 300ms after last change.
-      </p>
-      <p>
-        The input&apos;s value is:
-        {' '}
-        {value}
-      </p>
+      <p>Below state will update 300ms after last change.</p>
+      <p>The input&apos;s value is: {value}</p>
       <input
         type="text"
         onChange={(event) => {

@@ -4,31 +4,19 @@ import { DialogContent } from './index';
 
 describe('<DialogContent />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
-      <DialogContent>
-        Content
-      </DialogContent>,
-    );
+    const { asFragment } = render(<DialogContent>Content</DialogContent>);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
-      <DialogContent className="my-class-name">
-        Content
-      </DialogContent>,
-    );
+    const { asFragment } = render(<DialogContent className="my-class-name">Content</DialogContent>);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render error', () => {
-    const { asFragment } = render(
-      <DialogContent error="Some API error">
-        Content
-      </DialogContent>,
-    );
+    const { asFragment } = render(<DialogContent error="Some API error">Content</DialogContent>);
 
     expect(asFragment()).toMatchSnapshot();
   });

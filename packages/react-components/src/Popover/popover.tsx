@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {
-  usePopper, PopperProps, Modifier,
-} from 'react-popper';
-import { Modal, TModalProps } from '../Modal';
+import { usePopper, PopperProps, Modifier } from 'react-popper';
 import { Fade } from '../Fade';
+import { Modal, TModalProps } from '../Modal';
 
 interface IBaseProps {
   /**
@@ -37,7 +35,7 @@ interface IBaseProps {
    * @default false
    */
   allowUseSameWidth?: boolean;
-};
+}
 
 export type TPopoverProps = IBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 
@@ -55,9 +53,7 @@ const PopoverRoot = styled('div')(
   },
   (props) => {
     const isDark = props.theme.mode === 'dark';
-    const backgroundColor: string = isDark
-      ? 'var(--pv-color-gray-3)'
-      : 'var(--pv-color-white)';
+    const backgroundColor: string = isDark ? 'var(--pv-color-gray-3)' : 'var(--pv-color-white)';
     const boxShadow: string = isDark
       ? 'var(--pv-shadow-dark-medium)'
       : 'var(--pv-shadow-light-low)';
@@ -99,16 +95,12 @@ export const Popover = React.forwardRef<HTMLDivElement, TPopoverProps>((props, r
         state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
       },
     }),
-    [],
+    [allowUseSameWidth],
   );
-  const { styles, attributes } = usePopper(
-    anchorEl,
-    popperElement,
-    {
-      placement,
-      modifiers: [sameWidthModifier],
-    },
-  );
+  const { styles, attributes } = usePopper(anchorEl, popperElement, {
+    placement,
+    modifiers: [sameWidthModifier],
+  });
 
   return (
     <Modal

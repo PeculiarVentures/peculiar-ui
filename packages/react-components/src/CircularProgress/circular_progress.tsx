@@ -1,7 +1,7 @@
 import React from 'react';
+import isPropValid from '@emotion/is-prop-valid';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import isPropValid from '@emotion/is-prop-valid';
 
 /**
  * Types.
@@ -11,11 +11,7 @@ interface ICircularProgressOwnProps {
    * The color of the component. It supports those theme colors that make sense for this component.
    * @default 'primary'
    */
-  color?: (
-    'primary'
-    | 'secondary'
-    | 'white'
-  );
+  color?: 'primary' | 'secondary' | 'white';
   /**
    * The className of the component.
    */
@@ -24,7 +20,7 @@ interface ICircularProgressOwnProps {
    * The size of the progress.
    * @default 'large'
    */
-  size?: ('small' | 'large');
+  size?: 'small' | 'large';
   /**
    * The variant to use.
    * Use indeterminate when there is no progress value.
@@ -37,9 +33,10 @@ interface ICircularProgressOwnProps {
    * @default 0
    */
   value?: number;
-};
+}
 
-export type TCircularProgressProps = ICircularProgressOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+export type TCircularProgressProps = ICircularProgressOwnProps &
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -100,7 +97,9 @@ const CircularProgressSvg = styled('svg')({
   display: 'block',
 });
 
-const CircularProgressCircle = styled('circle')<Required<Pick<ICircularProgressOwnProps, 'variant'>>>((props) => ({
+const CircularProgressCircle = styled('circle')<
+  Required<Pick<ICircularProgressOwnProps, 'variant'>>
+>((props) => ({
   stroke: 'currentcolor',
   strokeDasharray: '80px, 200px',
   strokeDashoffset: 0,
@@ -142,9 +141,7 @@ export const CircularProgress = React.forwardRef<HTMLDivElement, TCircularProgre
         color={color}
         {...other}
       >
-        <CircularProgressSvg
-          viewBox={`${SIZE / 2} ${SIZE / 2} ${SIZE} ${SIZE}`}
-        >
+        <CircularProgressSvg viewBox={`${SIZE / 2} ${SIZE / 2} ${SIZE} ${SIZE}`}>
           <CircularProgressCircle
             cx={SIZE}
             cy={SIZE}

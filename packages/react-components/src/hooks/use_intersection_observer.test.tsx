@@ -6,7 +6,7 @@ import { useIntersectionObserver } from './use_intersection_observer';
 vi.mock('../utils/intersection_observer.ts');
 
 describe('useIntersectionObserver()', () => {
-  it('should do not add a node to the observer if the node doesn\'t exist', () => {
+  it("should do not add a node to the observer if the node doesn't exist", () => {
     const { result } = renderHook(useIntersectionObserver);
     const [refCallback] = result.current;
 
@@ -19,9 +19,7 @@ describe('useIntersectionObserver()', () => {
     const { result } = renderHook(useIntersectionObserver);
     const [refCallback] = result.current;
 
-    render(
-      <div ref={refCallback} />,
-    );
+    render(<div ref={refCallback} />);
 
     expect(intersectionObserver.add).toHaveBeenCalledWith(
       expect.any(HTMLDivElement),
@@ -33,9 +31,7 @@ describe('useIntersectionObserver()', () => {
     const { result, unmount } = renderHook(useIntersectionObserver);
     const [refCallback] = result.current;
 
-    render(
-      <div ref={refCallback} />,
-    );
+    render(<div ref={refCallback} />);
 
     unmount();
 

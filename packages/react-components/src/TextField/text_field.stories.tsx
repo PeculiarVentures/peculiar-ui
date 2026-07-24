@@ -76,7 +76,10 @@ export const SizeExample = () => (
 );
 
 export const ColorExample = () => (
-  <TextField placeholder="Color" defaultValue="Secondary" />
+  <TextField
+    placeholder="Color"
+    defaultValue="Secondary"
+  />
 );
 
 export const ValidationExample = () => (

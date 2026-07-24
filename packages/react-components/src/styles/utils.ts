@@ -1,12 +1,9 @@
-import flat from 'flat';
-import deepmerge from 'deepmerge';
 import { Color } from '@peculiar/color';
-import { defaultThemeLight, defaultThemeDark } from './default_theme';
+import deepmerge from 'deepmerge';
+import flat from 'flat';
 import type { IThemeOptionsType, IThemeType } from './types';
-import {
-  colors,
-  generateSize,
-} from './foundations';
+import { defaultThemeLight, defaultThemeDark } from './default_theme';
+import { colors, generateSize } from './foundations';
 
 export const themeCSSVariablePrefix = 'pv';
 
@@ -16,12 +13,9 @@ export const createTheme = (mode: 'light' | 'dark', options?: IThemeOptionsType)
   const defaultTheme = mode === 'dark' ? defaultThemeDark : defaultThemeLight;
 
   const getContrastText = (background: string) => {
-    const contrastRatio = new Color(background)
-      .getContrastRatio(defaultTheme.color.white);
+    const contrastRatio = new Color(background).getContrastRatio(defaultTheme.color.white);
 
-    return contrastRatio > contrastThreshold
-      ? defaultTheme.color.white
-      : defaultTheme.color.black;
+    return contrastRatio > contrastThreshold ? defaultTheme.color.white : defaultTheme.color.black;
   };
 
   const primary = options?.color?.primary
@@ -44,11 +38,11 @@ export const createTheme = (mode: 'light' | 'dark', options?: IThemeOptionsType)
     color: deepmerge.all([
       defaultTheme.color,
       {
-        ...primary || {},
-        ...secondary || {},
-        ...wrong || {},
-        ...attention || {},
-        ...success || {},
+        ...primary,
+        ...secondary,
+        ...wrong,
+        ...attention,
+        ...success,
         ...(primary
           ? {
               'primary-contrast': getContrastText(primary.primary),

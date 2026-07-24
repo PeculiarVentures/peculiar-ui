@@ -1,8 +1,8 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
-import { CheckIcon, MinusIcon } from '../icons';
+import styled from '@emotion/styled';
 import { useId } from '../hooks';
+import { CheckIcon, MinusIcon } from '../icons';
 import { opacity } from '../styles/foundations';
 
 /**
@@ -21,10 +21,7 @@ interface ICheckboxOwnProps {
    * The color of the component.
    * @default 'primary'
    */
-  color?: (
-    'primary'
-    | 'secondary'
-  );
+  color?: 'primary' | 'secondary';
   /**
    * If `true`, the component appears indeterminate. This does not set the native
    * input element to indeterminate due to inconsistent behavior across browsers.
@@ -57,14 +54,15 @@ interface ICheckboxOwnProps {
   /**
    * The icon to display when the component is checked.
    */
-  checkedIcon?: React.ElementType<any>;
+  checkedIcon?: React.ElementType;
   /**
    * Callback fired when the state is changed.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
-export type TCheckboxProps = ICheckboxOwnProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
+export type TCheckboxProps = ICheckboxOwnProps &
+  Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'children' | 'htmlFor' | 'onChange'>;
 /**
  *
  */
@@ -130,7 +128,7 @@ const CheckboxInput = styled('input', {
       opacityActive = opacity.dark.switch.active;
     }
 
-    return ({
+    return {
       color,
       '&:checked, &[data-indeterminate="true"]': {
         '+ [aria-hidden]': {
@@ -174,7 +172,7 @@ const CheckboxInput = styled('input', {
           },
         },
       },
-    });
+    };
   },
 );
 

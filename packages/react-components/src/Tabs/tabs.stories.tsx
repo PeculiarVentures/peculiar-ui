@@ -7,10 +7,16 @@ const meta: Meta<typeof Tabs> = {
   tags: ['autodocs'],
   args: {
     children: [
-      <Tab key="1" id="home">
+      <Tab
+        key="1"
+        id="home"
+      >
         Home
       </Tab>,
-      <Tab key="2" id="files">
+      <Tab
+        key="2"
+        id="files"
+      >
         Files
       </Tab>,
       <Tab

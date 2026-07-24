@@ -1,10 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import {
-  render,
-  renderHook,
-  screen,
-  fireEvent,
-} from '../test-utils';
+import { render, renderHook, screen, fireEvent } from '../test-utils';
 import { useEventCallback } from './use_event_callback';
 
 describe('useEventCallback()', () => {
@@ -13,7 +8,12 @@ describe('useEventCallback()', () => {
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
     render(
-      <button type="button" onClick={result.current}>Button</button>,
+      <button
+        type="button"
+        onClick={result.current}
+      >
+        Button
+      </button>,
     );
 
     expect(callbackMock).not.toBeCalled();
@@ -24,7 +24,12 @@ describe('useEventCallback()', () => {
     const { result } = renderHook(() => useEventCallback(callbackMock));
 
     render(
-      <button type="button" onClick={result.current}>Button</button>,
+      <button
+        type="button"
+        onClick={result.current}
+      >
+        Button
+      </button>,
     );
 
     fireEvent.click(screen.getByText('Button'));

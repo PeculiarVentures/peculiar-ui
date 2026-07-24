@@ -21,7 +21,7 @@ interface IImageOwnProps {
    * The className of the component.
    */
   className?: string;
-};
+}
 
 type TImageProps = IImageOwnProps & Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'loading'>;
 /**
@@ -29,14 +29,7 @@ type TImageProps = IImageOwnProps & Omit<React.ImgHTMLAttributes<HTMLImageElemen
  */
 
 export const Image = React.forwardRef<HTMLImageElement, TImageProps>((props, ref) => {
-  const {
-    className,
-    src,
-    fallback,
-    loading,
-    alt,
-    ...other
-  } = props;
+  const { className, src, fallback, loading, alt, ...other } = props;
   const { status, image } = useImage(src);
   const hasError = status === 'failed';
   const showImage = image?.src;

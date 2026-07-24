@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
+import styled from '@emotion/styled';
 import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
-import { Typography } from '../Typography';
 import { TTypographyType } from '../styles';
+import { Typography } from '../Typography';
 
 /**
  * Types.
@@ -26,18 +26,17 @@ export interface IMenuItemOwnProps {
    * Element placed after the children.
    */
   endIcon?: React.ReactNode;
-};
+}
 
 export interface IMenuItemTypeMap<P = object, D extends React.ElementType = 'li'> {
   props: P & IMenuItemOwnProps;
   defaultComponent: D;
 }
 
-export type TMenuItemProps<
-  D extends React.ElementType = IMenuItemTypeMap['defaultComponent'],
-> = TOverrideProps<IMenuItemTypeMap<object, D>, D> & {
-  component?: D;
-};
+export type TMenuItemProps<D extends React.ElementType = IMenuItemTypeMap['defaultComponent']> =
+  TOverrideProps<IMenuItemTypeMap<object, D>, D> & {
+    component?: D;
+  };
 /**
  *
  */
@@ -65,9 +64,7 @@ const MenuItemRoot = styled('li', {
     border: 'none',
     boxSizing: 'border-box',
     gap: 'calc(var(--pv-size-base) * 2)',
-    cursor: props.disabled
-      ? 'not-allowed'
-      : 'pointer',
+    cursor: props.disabled ? 'not-allowed' : 'pointer',
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
@@ -132,11 +129,7 @@ export const MenuItem = React.forwardRef<any, TMenuItemProps>((props, ref) => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLLIElement>) => {
     // Keyboard accessibility for non interactive elements
-    if (
-      event.target === event.currentTarget
-      && event.key === 'Enter'
-      && !disabled
-    ) {
+    if (event.target === event.currentTarget && event.key === 'Enter' && !disabled) {
       event.preventDefault();
 
       if (onClick) {
@@ -157,11 +150,7 @@ export const MenuItem = React.forwardRef<any, TMenuItemProps>((props, ref) => {
       onClick={onClick}
       {...other}
     >
-      {startIcon && (
-        <MenuItemIcon>
-          {startIcon}
-        </MenuItemIcon>
-      )}
+      {startIcon && <MenuItemIcon>{startIcon}</MenuItemIcon>}
       <Typography
         component={MenuItemLabel}
         variant={textVariant}
@@ -170,11 +159,7 @@ export const MenuItem = React.forwardRef<any, TMenuItemProps>((props, ref) => {
       >
         {children}
       </Typography>
-      {endIcon && (
-        <MenuItemIcon>
-          {endIcon}
-        </MenuItemIcon>
-      )}
+      {endIcon && <MenuItemIcon>{endIcon}</MenuItemIcon>}
     </MenuItemRoot>
   );
 }) as IOverridableComponent<IMenuItemTypeMap>;

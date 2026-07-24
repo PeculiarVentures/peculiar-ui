@@ -1,17 +1,13 @@
-import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
-import {
-  act, renderHook, screen,
-} from '../test-utils';
+import { describe, it, expect, vi } from 'vitest';
+import { act, renderHook, screen } from '../test-utils';
 import { ToastProvider } from './toast_provider';
 import { useToast } from './use_toast';
 
 const DURATION = 5000;
 
 const Provider = ({ children }: { children: React.ReactNode }) => (
-  <ToastProvider maxToasts={2}>
-    {children}
-  </ToastProvider>
+  <ToastProvider maxToasts={2}>{children}</ToastProvider>
 );
 
 vi.useFakeTimers();
@@ -23,9 +19,11 @@ describe('<ToastProvider />', () => {
     });
     const { addToast } = result.current;
 
-    act(() => addToast({
-      message: 'Toast',
-    }));
+    act(() =>
+      addToast({
+        message: 'Toast',
+      }),
+    );
 
     expect(screen.queryByText('Toast')).toBeInTheDocument();
   });
@@ -36,13 +34,18 @@ describe('<ToastProvider />', () => {
     });
     const { addToast } = result.current;
 
-    act(() => addToast({
-      message: 'Toast', duration: DURATION,
-    }));
+    act(() =>
+      addToast({
+        message: 'Toast',
+        duration: DURATION,
+      }),
+    );
 
     expect(screen.queryByText('Toast')).toBeInTheDocument();
 
-    act(() => vi.advanceTimersByTime(DURATION));
+    act(() => {
+      void vi.advanceTimersByTime(DURATION);
+    });
 
     expect(screen.queryByText('Toast')).not.toBeInTheDocument();
   });
@@ -53,12 +56,18 @@ describe('<ToastProvider />', () => {
     });
     const { addToast } = result.current;
 
-    act(() => addToast({
-      id: '0', message: 'Toast-0',
-    }));
-    act(() => addToast({
-      id: '0', message: 'Toast-1',
-    }));
+    act(() =>
+      addToast({
+        id: '0',
+        message: 'Toast-0',
+      }),
+    );
+    act(() =>
+      addToast({
+        id: '0',
+        message: 'Toast-1',
+      }),
+    );
 
     expect(screen.queryByText('Toast-1')).not.toBeInTheDocument();
   });
@@ -69,24 +78,37 @@ describe('<ToastProvider />', () => {
     });
     const { addToast } = result.current;
 
-    act(() => addToast({
-      message: 'Toast-0', duration: 10,
-    }));
-    act(() => addToast({
-      message: 'Toast-1', duration: DURATION,
-    }));
-    act(() => addToast({
-      message: 'Toast-2', duration: DURATION,
-    }));
+    act(() =>
+      addToast({
+        message: 'Toast-0',
+        duration: 10,
+      }),
+    );
+    act(() =>
+      addToast({
+        message: 'Toast-1',
+        duration: DURATION,
+      }),
+    );
+    act(() =>
+      addToast({
+        message: 'Toast-2',
+        duration: DURATION,
+      }),
+    );
 
     expect(screen.queryAllByText(/^Toast/)).toHaveLength(2);
 
-    act(() => vi.advanceTimersByTime(10));
+    act(() => {
+      void vi.advanceTimersByTime(10);
+    });
 
     expect(screen.queryByText('Toast-1')).toBeInTheDocument();
     expect(screen.queryByText('Toast-2')).toBeInTheDocument();
 
-    act(vi.runAllTimers);
+    act(() => {
+      void vi.runAllTimers();
+    });
   });
 
   it('should render maximum `maxToasts` toasts', () => {
@@ -95,15 +117,21 @@ describe('<ToastProvider />', () => {
     });
     const { addToast } = result.current;
 
-    act(() => addToast({
-      message: 'Toast-0',
-    }));
-    act(() => addToast({
-      message: 'Toast-1',
-    }));
-    act(() => addToast({
-      message: 'Toast-2',
-    }));
+    act(() =>
+      addToast({
+        message: 'Toast-0',
+      }),
+    );
+    act(() =>
+      addToast({
+        message: 'Toast-1',
+      }),
+    );
+    act(() =>
+      addToast({
+        message: 'Toast-2',
+      }),
+    );
 
     expect(screen.queryByText('Toast-0')).toBeInTheDocument();
     expect(screen.queryByText('Toast-1')).toBeInTheDocument();
@@ -116,15 +144,24 @@ describe('<ToastProvider />', () => {
     });
     const { addToast, removeToast } = result.current;
 
-    act(() => addToast({
-      id: '0', message: 'Toast-0',
-    }));
-    act(() => addToast({
-      id: '1', message: 'Toast-1',
-    }));
-    act(() => addToast({
-      id: '2', message: 'Toast-2',
-    }));
+    act(() =>
+      addToast({
+        id: '0',
+        message: 'Toast-0',
+      }),
+    );
+    act(() =>
+      addToast({
+        id: '1',
+        message: 'Toast-1',
+      }),
+    );
+    act(() =>
+      addToast({
+        id: '2',
+        message: 'Toast-2',
+      }),
+    );
 
     expect(screen.queryByText('Toast-0')).toBeInTheDocument();
     expect(screen.queryByText('Toast-1')).toBeInTheDocument();
@@ -144,9 +181,11 @@ describe('<ToastProvider />', () => {
     const { addToast, removeAllToasts } = result.current;
 
     for (let i = 0; i <= 5; i += 1) {
-      act(() => addToast({
-        message: `Toast-${i}`,
-      }));
+      act(() =>
+        addToast({
+          message: `Toast-${i}`,
+        }),
+      );
     }
 
     act(removeAllToasts);

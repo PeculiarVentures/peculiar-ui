@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { useMergedRef, useEnhancedEffect } from '../hooks';
+import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { ownerDocument } from '../utils/owner_document';
 
 function nextItem(list: HTMLUListElement, item: Element) {
@@ -28,12 +28,7 @@ function previousItem(list: HTMLUListElement, item: Element) {
   return null;
 }
 
-function moveFocus(
-  list: HTMLUListElement,
-  currentFocus: Element,
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
-  traversalFunction: Function,
-) {
+function moveFocus(list: HTMLUListElement, currentFocus: Element, traversalFunction: Function) {
   let wrappedOnce = false;
   let nextFocus = traversalFunction(list, currentFocus, false);
 
@@ -48,12 +43,10 @@ function moveFocus(
     }
 
     // Same logic as useAutocomplete.js
-    const nextFocusDisabled = nextFocus.disabled || nextFocus.getAttribute('aria-disabled') === 'true';
+    const nextFocusDisabled =
+      nextFocus.disabled || nextFocus.getAttribute('aria-disabled') === 'true';
 
-    if (
-      !nextFocus.hasAttribute('tabindex')
-      || nextFocusDisabled
-    ) {
+    if (!nextFocus.hasAttribute('tabindex') || nextFocusDisabled) {
       // Move to the next element.
       nextFocus = traversalFunction(list, nextFocus);
     } else {
@@ -71,18 +64,17 @@ function moveFocus(
  */
 interface IMenuListOwnProps {
   children: React.ReactElement[];
-};
+}
 
 export interface IMenuListTypeMap<P = object, D extends React.ElementType = 'ul'> {
   props: P & IMenuListOwnProps;
   defaultComponent: D;
 }
 
-export type TMenuListProps<
-  D extends React.ElementType = IMenuListTypeMap['defaultComponent'],
-> = TOverrideProps<IMenuListTypeMap<object, D>, D> & {
-  component?: D;
-};
+export type TMenuListProps<D extends React.ElementType = IMenuListTypeMap['defaultComponent']> =
+  TOverrideProps<IMenuListTypeMap<object, D>, D> & {
+    component?: D;
+  };
 /**
  *
  */
@@ -101,11 +93,7 @@ const MenuListRoot = styled('ul')({
  */
 
 export const MenuList = React.forwardRef<any, TMenuListProps>((props, ref) => {
-  const {
-    children,
-    component,
-    ...other
-  } = props;
+  const { children, component, ...other } = props;
   const rootRef = React.useRef<HTMLUListElement>(null);
   const multiRef = useMergedRef(rootRef, ref);
   const Component = component || 'ul';

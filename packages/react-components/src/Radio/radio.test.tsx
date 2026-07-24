@@ -1,20 +1,13 @@
-import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
-import {
-  renderWithWrapper as render,
-  screen,
-  userEvent,
-  fireEvent,
-} from '../test-utils';
+import { describe, it, expect, vi } from 'vitest';
 import { PlusIcon } from '../icons';
+import { renderWithWrapper as render, screen, userEvent, fireEvent } from '../test-utils';
 import { Radio } from './index';
 
 describe('<Radio />', () => {
   describe('Radio render variants', () => {
     it('should render as default', () => {
-      const { asFragment } = render(
-        <Radio id="test-id" />,
-      );
+      const { asFragment } = render(<Radio id="test-id" />);
 
       const input = screen.getByRole('radio');
 
@@ -32,9 +25,7 @@ describe('<Radio />', () => {
     });
 
     it('should have id', () => {
-      render(
-        <Radio id="test-id" />,
-      );
+      render(<Radio id="test-id" />);
 
       const input = screen.getByRole('radio');
 
@@ -48,7 +39,10 @@ describe('<Radio />', () => {
 
     it('should be disabled', () => {
       const { asFragment } = render(
-        <Radio id="test-id" disabled />,
+        <Radio
+          id="test-id"
+          disabled
+        />,
       );
 
       expect(asFragment()).toMatchSnapshot();
@@ -56,7 +50,10 @@ describe('<Radio />', () => {
 
     it('should have required', () => {
       const { asFragment } = render(
-        <Radio id="test-id" required />,
+        <Radio
+          id="test-id"
+          required
+        />,
       );
 
       expect(asFragment()).toMatchSnapshot();
@@ -64,7 +61,10 @@ describe('<Radio />', () => {
 
     it('should have name attr', () => {
       const { asFragment } = render(
-        <Radio id="test-id" name="test-name" />,
+        <Radio
+          id="test-id"
+          name="test-name"
+        />,
       );
 
       expect(asFragment()).toMatchSnapshot();
@@ -72,7 +72,10 @@ describe('<Radio />', () => {
 
     it('should have test id', () => {
       const { asFragment } = render(
-        <Radio id="test-id" data-testid="test-id" />,
+        <Radio
+          id="test-id"
+          data-testid="test-id"
+        />,
       );
 
       expect(asFragment()).toMatchSnapshot();
@@ -80,7 +83,10 @@ describe('<Radio />', () => {
 
     it('should have className', () => {
       const { asFragment } = render(
-        <Radio id="test-id" className="test-cls" />,
+        <Radio
+          id="test-id"
+          className="test-cls"
+        />,
       );
 
       expect(asFragment()).toMatchSnapshot();
@@ -88,7 +94,10 @@ describe('<Radio />', () => {
 
     it('should have custom checked icon', () => {
       const { asFragment } = render(
-        <Radio id="test-id" checkedIcon={PlusIcon} />,
+        <Radio
+          id="test-id"
+          checkedIcon={PlusIcon}
+        />,
       );
 
       expect(asFragment()).toMatchSnapshot();
@@ -96,7 +105,10 @@ describe('<Radio />', () => {
 
     it('should be checked, defaultChecked prop', () => {
       const { asFragment } = render(
-        <Radio id="test-id" defaultChecked />,
+        <Radio
+          id="test-id"
+          defaultChecked
+        />,
       );
 
       expect(asFragment()).toMatchSnapshot();
@@ -104,7 +116,10 @@ describe('<Radio />', () => {
 
     it('should be unchecked, defaultChecked prop', () => {
       render(
-        <Radio id="test-id" defaultChecked={false} />,
+        <Radio
+          id="test-id"
+          defaultChecked={false}
+        />,
       );
 
       const input = screen.getByRole('radio');
@@ -116,7 +131,10 @@ describe('<Radio />', () => {
       const onChange = vi.fn();
 
       render(
-        <Radio checked onChange={onChange} />,
+        <Radio
+          checked
+          onChange={onChange}
+        />,
       );
 
       const input = screen.getByRole('radio');
@@ -128,7 +146,10 @@ describe('<Radio />', () => {
       const onChange = vi.fn();
 
       render(
-        <Radio checked={false} onChange={onChange} />,
+        <Radio
+          checked={false}
+          onChange={onChange}
+        />,
       );
 
       const input = screen.getByRole('radio');
@@ -139,9 +160,7 @@ describe('<Radio />', () => {
     it('should forwards ref to label element', () => {
       const ref = React.createRef<HTMLLabelElement>();
 
-      render(
-        <Radio ref={ref} />,
-      );
+      render(<Radio ref={ref} />);
 
       const input = screen.getByRole('radio');
 
@@ -150,15 +169,15 @@ describe('<Radio />', () => {
   });
 
   describe('Radio render colors', () => {
-    const colors: React.ComponentProps<typeof Radio>['color'][] = [
-      'primary',
-      'secondary',
-    ];
+    const colors: React.ComponentProps<typeof Radio>['color'][] = ['primary', 'secondary'];
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {
         const { asFragment } = render(
-          <Radio color={color} id="test-id" />,
+          <Radio
+            color={color}
+            id="test-id"
+          />,
         );
 
         expect(asFragment()).toMatchSnapshot();
@@ -168,9 +187,7 @@ describe('<Radio />', () => {
 
   describe('Radio focus behaviour', () => {
     it('should have focus', async () => {
-      render(
-        <Radio />,
-      );
+      render(<Radio />);
 
       const input = screen.getByRole('radio');
 
@@ -180,10 +197,8 @@ describe('<Radio />', () => {
       expect(input).toHaveFocus();
     });
 
-    it('shouldn\'t have focus when disabled has been passed to the component', async () => {
-      render(
-        <Radio disabled />,
-      );
+    it("shouldn't have focus when disabled has been passed to the component", async () => {
+      render(<Radio disabled />);
 
       const input = screen.getByRole('radio');
 
@@ -196,9 +211,7 @@ describe('<Radio />', () => {
 
   describe('Radio keyboard behaviour', () => {
     it('should be checked after pressed on space', async () => {
-      render(
-        <Radio />,
-      );
+      render(<Radio />);
 
       const input = screen.getByRole('radio');
 
@@ -209,9 +222,7 @@ describe('<Radio />', () => {
 
   describe('Radio click behaviour', () => {
     it('should be checked when clicked', () => {
-      render(
-        <Radio />,
-      );
+      render(<Radio />);
 
       const input = screen.getByRole('radio');
 
@@ -221,9 +232,7 @@ describe('<Radio />', () => {
     });
 
     it('should be checked when clicked and defaultChecked has been passed to the component', () => {
-      render(
-        <Radio defaultChecked />,
-      );
+      render(<Radio defaultChecked />);
 
       const input = screen.getByRole('radio');
 
@@ -235,9 +244,7 @@ describe('<Radio />', () => {
     it('should calls onClick prop when clicked', () => {
       const handleClick = vi.fn();
 
-      render(
-        <Radio onClick={handleClick} />,
-      );
+      render(<Radio onClick={handleClick} />);
       fireEvent.click(screen.getByRole('radio'));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
@@ -245,9 +252,7 @@ describe('<Radio />', () => {
     it('should calls onChange prop when clicked', () => {
       const onChange = vi.fn();
 
-      render(
-        <Radio onChange={onChange} />,
-      );
+      render(<Radio onChange={onChange} />);
       const input = screen.getByRole('radio');
 
       expect(onChange).toBeCalledTimes(0);

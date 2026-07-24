@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
 import React from 'react';
-import { renderWithWrapper as render, screen } from '../test-utils';
+import { describe, it, expect } from 'vitest';
 import { PlusIcon } from '../icons';
+import { renderWithWrapper as render, screen } from '../test-utils';
 import { Fab } from './index';
 
 describe('<Fab />', () => {
@@ -35,10 +35,7 @@ describe('<Fab />', () => {
   });
 
   describe('variants', () => {
-    const variants: React.ComponentProps<typeof Fab>['variant'][] = [
-      'contained',
-      'outlined',
-    ];
+    const variants: React.ComponentProps<typeof Fab>['variant'][] = ['contained', 'outlined'];
 
     variants.forEach((variant) => {
       it(`variant "${variant}"`, () => {

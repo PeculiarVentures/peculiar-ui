@@ -1,11 +1,11 @@
-import { hexToRgb } from './hex_to_rgb';
-import { rgbToHsb } from './rgb_to_hsb';
-import { rgbToHex } from './rgb_to_hex';
-import { hsbToRgb } from './hsb_to_rgb';
 import { getContrastRatio } from './get_contrast_ratio';
+import { hexToRgb } from './hex_to_rgb';
+import { hsbToRgb } from './hsb_to_rgb';
+import { rgbToHex } from './rgb_to_hex';
+import { rgbToHsb } from './rgb_to_hsb';
 
-type TPaletteTypes = (
-  'tint5'
+type TPaletteTypes =
+  | 'tint5'
   | 'tint4'
   | 'tint3'
   | 'tint2'
@@ -15,8 +15,7 @@ type TPaletteTypes = (
   | 'shade2'
   | 'shade3'
   | 'shade4'
-  | 'shade5'
-);
+  | 'shade5';
 
 export class Color {
   private red: number;

@@ -16,13 +16,12 @@ describe('useImage()', () => {
     const onErrorMock = vi.fn();
     const onLoadMock = vi.fn();
 
-    const { result } = renderHook(() => useImage(
-      fakeImagePath,
-      {
+    const { result } = renderHook(() =>
+      useImage(fakeImagePath, {
         onError: onErrorMock,
         onLoad: onLoadMock,
-      },
-    ));
+      }),
+    );
 
     fireEvent.load(result.current.image);
 
@@ -51,13 +50,12 @@ describe('useImage()', () => {
     const onErrorMock = vi.fn();
     const onLoadMock = vi.fn();
 
-    const { result } = renderHook(() => useImage(
-      './fake_path_to_img.png',
-      {
+    const { result } = renderHook(() =>
+      useImage('./fake_path_to_img.png', {
         onError: onErrorMock,
         onLoad: onLoadMock,
-      },
-    ));
+      }),
+    );
 
     fireEvent.error(result.current.image);
 

@@ -46,7 +46,8 @@ export const copyToClipboard = (text: string, onSuccess?: TSuccessCallback) => {
     return;
   }
 
-  navigator.clipboard.writeText(text)
+  navigator.clipboard
+    .writeText(text)
     .then(onSuccess)
     .catch(() => fallbackCopyToClipboard(text, onSuccess));
 };

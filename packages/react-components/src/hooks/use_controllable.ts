@@ -1,6 +1,7 @@
 import React from 'react';
 
-const runIfFn = (value: any, ...args: any[]) => (typeof value === 'function' ? value(...args) : value);
+const runIfFn = (value: any, ...args: any[]) =>
+  typeof value === 'function' ? value(...args) : value;
 
 export interface IUseControllableStateProps<T> {
   /**
@@ -19,19 +20,14 @@ export interface IUseControllableStateProps<T> {
    * The function that determines if the state should be updated
    */
   shouldUpdate?: (prev: T, next: T) => boolean;
-};
+}
 
 /**
  * React hook for using controlling component state.
  * @param props
  */
 export function useControllableState<T>(props: IUseControllableStateProps<T>) {
-  const {
-    value: valueProp,
-    defaultValue,
-    onChange,
-    shouldUpdate,
-  } = props;
+  const { value: valueProp, defaultValue, onChange, shouldUpdate } = props;
 
   const [valueState, setValue] = React.useState(defaultValue as T);
 

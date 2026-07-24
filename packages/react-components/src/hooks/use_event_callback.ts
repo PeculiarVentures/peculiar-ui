@@ -13,11 +13,6 @@ export function useEventCallback<Args extends unknown[], Return>(
     ref.current = fn;
   });
 
-  return React.useCallback(
-    (...args: Args) =>
-      // @ts-expect-error hide `this`
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      (0, ref.current!)(...args),
-    [],
-  );
+  // @ts-expect-error - ref.current is not undefined
+  return React.useCallback((...args: Args) => (0, ref.current!)(...args), []);
 }

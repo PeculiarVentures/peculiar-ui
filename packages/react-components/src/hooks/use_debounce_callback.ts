@@ -26,10 +26,7 @@ export function useDebounceCallback<Params extends any[]>(
   };
 
   // Clear timer when component is unmounted and `cleanUp` is `true` and cancel last function call.
-  React.useEffect(
-    () => (cleanUp ? clearTimer : undefined),
-    [cleanUp],
-  );
+  React.useEffect(() => (cleanUp ? clearTimer : undefined), [cleanUp]);
 
   return debounced;
 }

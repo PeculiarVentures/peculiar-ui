@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
+import { describe, it, expect, vi } from 'vitest';
 import {
   renderWithWrapper as render,
   screen,
@@ -49,11 +49,7 @@ describe('<Autocomplete />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: React.ComponentProps<typeof Autocomplete>['size'][] = [
-      'small',
-      'medium',
-      'large',
-    ];
+    const sizes: React.ComponentProps<typeof Autocomplete>['size'][] = ['small', 'medium', 'large'];
 
     sizes.forEach((size) => {
       it(`renders with size "${size}"`, () => {
@@ -190,7 +186,8 @@ describe('<Autocomplete />', () => {
     });
 
     fireEvent.keyDown(screen.getByRole('combobox'), {
-      key: 'Enter', code: 'Enter',
+      key: 'Enter',
+      code: 'Enter',
     });
     expect(handleCreate).toHaveBeenCalledWith(expect.any(Object), 'New Option');
   });
@@ -210,7 +207,8 @@ describe('<Autocomplete />', () => {
     expect(screen.getByRole('listbox')).toBeInTheDocument();
 
     fireEvent.keyDown(screen.getByRole('combobox'), {
-      key: 'Escape', code: 'Escape',
+      key: 'Escape',
+      code: 'Escape',
     });
 
     await waitFor(() => expect(screen.queryByRole('listbox')).not.toBeInTheDocument());
@@ -335,14 +333,12 @@ describe('<Autocomplete />', () => {
             options={['option-1', 'option-2']}
             value={selected}
             multiple
-            onChange={(_event, newValue) => setSelected(newValue as string[])}
+            onChange={(_event, newValue) => setSelected(newValue)}
           />
         );
       };
 
-      const { container } = render(
-        <Test />,
-      );
+      const { container } = render(<Test />);
 
       const tags = () => container.querySelectorAll('[data-tag-index]');
 

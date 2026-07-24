@@ -1,16 +1,13 @@
 import { describe, it, expect, vi } from 'vitest';
-import {
-  renderWithWrapper as render, screen, fireEvent,
-} from '../test-utils';
+import { renderWithWrapper as render, screen, fireEvent } from '../test-utils';
 import { Image } from './index';
 
-const src = 'https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60';
+const src =
+  'https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60';
 
 describe('<Image />', () => {
   it('should render as default', () => {
-    const { asFragment } = render(
-      <Image src={src} />,
-    );
+    const { asFragment } = render(<Image src={src} />);
 
     const img = screen.getByRole('img');
 
@@ -23,7 +20,10 @@ describe('<Image />', () => {
 
   it('should have test id', () => {
     const { asFragment } = render(
-      <Image src={src} data-testid="test-id" />,
+      <Image
+        src={src}
+        data-testid="test-id"
+      />,
     );
 
     const img = screen.getByRole('img');
@@ -35,7 +35,10 @@ describe('<Image />', () => {
 
   it('should have alt', () => {
     const { asFragment } = render(
-      <Image src={src} alt="Test alt" />,
+      <Image
+        src={src}
+        alt="Test alt"
+      />,
     );
 
     const img = screen.getByRole('img');
@@ -47,7 +50,10 @@ describe('<Image />', () => {
 
   it('should have class name', () => {
     const { asFragment } = render(
-      <Image src={src} className="test-cls" />,
+      <Image
+        src={src}
+        className="test-cls"
+      />,
     );
 
     const img = screen.getByRole('img');
@@ -61,7 +67,10 @@ describe('<Image />', () => {
     const handleErr = vi.fn();
 
     render(
-      <Image src="broken.png" onError={handleErr} />,
+      <Image
+        src="broken.png"
+        onError={handleErr}
+      />,
     );
 
     const img = screen.getByRole('img');
@@ -75,7 +84,10 @@ describe('<Image />', () => {
     const handleLoad = vi.fn();
 
     render(
-      <Image src={src} onLoad={handleLoad} />,
+      <Image
+        src={src}
+        onLoad={handleLoad}
+      />,
     );
 
     const img = screen.getByRole('img');
@@ -87,7 +99,10 @@ describe('<Image />', () => {
 
   it('should render loading component', () => {
     const { asFragment } = render(
-      <Image src={undefined} loading={<div>Loading</div>} />,
+      <Image
+        src={undefined}
+        loading={<div>Loading</div>}
+      />,
     );
 
     expect(screen.getByText(/Loading/i)).toBeInTheDocument();

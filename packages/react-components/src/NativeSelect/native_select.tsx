@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Typography } from '../Typography';
 import { ArrowDropDownIcon } from '../icons';
+import { Typography } from '../Typography';
 
 /**
  * Types.
@@ -20,11 +20,7 @@ interface INativeSelectOwnProps {
    * The size of the select.
    * @default 'medium'
    */
-  size?: (
-    'small'
-    | 'medium'
-    | 'large'
-  );
+  size?: 'small' | 'medium' | 'large';
   /**
    * The className of the component.
    */
@@ -78,9 +74,10 @@ interface INativeSelectOwnProps {
    * Callback fired when the value is changed.
    */
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
-};
+}
 
-type TNativeSelectProps = INativeSelectOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
+type TNativeSelectProps = INativeSelectOwnProps &
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 type TNativeSelectRootProps = React.HTMLAttributes<HTMLSelectElement> & {
   selectSize?: INativeSelectOwnProps['size'];
 };
@@ -122,9 +119,7 @@ const NativeSelectRoot = styled('select')<TNativeSelectRootProps>(
   }),
   (props) => {
     const isDark = props.theme.mode === 'dark';
-    const color = isDark
-      ? 'var(--pv-color-white)'
-      : 'var(--pv-color-black)';
+    const color = isDark ? 'var(--pv-color-white)' : 'var(--pv-color-black)';
     let borderColor = 'var(--pv-color-gray-8)';
     const borderColorHover = 'var(--pv-color-gray-10)';
     let borderColorDisabled = 'var(--pv-color-gray-5)';
@@ -138,7 +133,7 @@ const NativeSelectRoot = styled('select')<TNativeSelectRootProps>(
       colorDisabled = 'var(--pv-color-gray-4)';
     }
 
-    return ({
+    return {
       color,
       borderColor,
       '&:hover': {
@@ -157,7 +152,7 @@ const NativeSelectRoot = styled('select')<TNativeSelectRootProps>(
           borderColor: borderColorFocus,
         },
       },
-    });
+    };
   },
 );
 
@@ -174,19 +169,19 @@ const NativeSelectContainer = styled('div')({
   position: 'relative',
 });
 
-const NativeSelectArrowIcon = styled(
-  ArrowDropDownIcon,
-)<Required<{ disabled: boolean }>>((props) => ({
-  position: 'absolute',
-  right: '0px',
-  top: 'calc(50% - 12px)',
-  pointerEvents: 'none',
-  margin: '0px var(--pv-size-base)',
-  color: 'var(--pv-color-gray-10)',
-  ...(props.disabled && {
-    color: 'var(--pv-color-gray-7)',
+const NativeSelectArrowIcon = styled(ArrowDropDownIcon)<Required<{ disabled: boolean }>>(
+  (props) => ({
+    position: 'absolute',
+    right: '0px',
+    top: 'calc(50% - 12px)',
+    pointerEvents: 'none',
+    margin: '0px var(--pv-size-base)',
+    color: 'var(--pv-color-gray-10)',
+    ...(props.disabled && {
+      color: 'var(--pv-color-gray-7)',
+    }),
   }),
-}));
+);
 /**
  *
  */
@@ -218,9 +213,7 @@ export const NativeSelect = React.forwardRef<HTMLDivElement, TNativeSelectProps>
       {...other}
     >
       {label && (
-        <NativeSelectLabel
-          htmlFor={id}
-        >
+        <NativeSelectLabel htmlFor={id}>
           <Typography
             component="span"
             variant="c2"
@@ -240,17 +233,12 @@ export const NativeSelect = React.forwardRef<HTMLDivElement, TNativeSelectProps>
           required={required}
           name={name}
           ref={inputRef}
-          // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus={autoFocus}
           aria-invalid={error || undefined}
           onChange={onChange}
           {...inputProps}
         >
-          {placeholder && (
-            <option value="">
-              {placeholder}
-            </option>
-          )}
+          {placeholder && <option value="">{placeholder}</option>}
           {options.map((option) => (
             <option
               key={option.value}

@@ -1,5 +1,6 @@
 {
   "private": true,
+  "license": "MIT",
   "workspaces": [
     "packages/*"
   ],
@@ -12,15 +13,19 @@
     "build": "npm run build --workspaces",
     "test": "npm run test:coverage --workspaces",
     "check:types": "npm run check:types --workspaces",
-    "lint": "eslint",
+    "lint": "OXLINT_TSGOLINT_DANGEROUSLY_SUPPRESS_PROGRAM_DIAGNOSTICS=true oxlint",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "prepare": "npm run build",
     "publish:version": "lerna publish",
     "publish:canary": "lerna publish --canary"
   },
+  "dependencies": {
+    "ci": "^2.3.0"
+  },
   "devDependencies": {
     "@emotion/jest": "^11.13.0",
-    "@peculiar/eslint-config-base": "^0.2.9",
-    "@peculiar/eslint-config-react": "^0.2.9",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
@@ -30,27 +35,26 @@
     "@vitest/coverage-v8": "^4.1.1",
     "jsdom": "27.0.0",
     "lerna": "^9.0.7",
+    "oxfmt": "^0.60.0",
+    "oxlint": "^1.75.0",
+    "oxlint-tsgolint": "^7.0.2001",
     "rimraf": "^6.0.1",
     "vitest": "^4.1.1"
-  },
-  "license": "MIT",
-  "devEngines": {
-    "runtime": {
-      "name": "node",
-      "version": ">=24",
-      "onFail": "warn"
-    },
-    "packageManager": {
-      "name": "npm",
-      "version": "11.12.1",
-      "onFail": "warn"
-    }
-  },
-  "dependencies": {
-    "ci": "^2.3.0"
   },
   "overrides": {
     "react": "18.3.1",
     "react-dom": "18.3.1"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": "11.12.1",
+      "onFail": "warn"
+    },
+    "runtime": {
+      "name": "node",
+      "version": ">=24",
+      "onFail": "warn"
+    }
   }
 }

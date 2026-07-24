@@ -10,7 +10,7 @@ export interface IFlexOwnProps {
    * The content of the component.
    */
   children?: React.ReactNode;
-  size?: ('auto' | 'grow');
+  size?: 'auto' | 'grow';
 }
 
 export interface IFlexTypeMap<P = object, D extends React.ElementType = 'div'> {
@@ -18,11 +18,10 @@ export interface IFlexTypeMap<P = object, D extends React.ElementType = 'div'> {
   defaultComponent: D;
 }
 
-export type TFlexProps<
-  D extends React.ElementType = IFlexTypeMap['defaultComponent'],
-> = TOverrideProps<IFlexTypeMap<object, D>, D> & {
-  component?: D;
-};
+export type TFlexProps<D extends React.ElementType = IFlexTypeMap['defaultComponent']> =
+  TOverrideProps<IFlexTypeMap<object, D>, D> & {
+    component?: D;
+  };
 /**
  *
  */
@@ -34,34 +33,29 @@ const reactPropsRegex = /^(as|direction|wrap|gap|align|justify)$/;
  */
 const FlexRoot = styled('div', {
   shouldForwardProp: (prop) => !reactPropsRegex.test(prop),
-})<IFlexOwnProps>(
-  (props) => ({
-    minWidth: '0px',
-    ...(props.size === 'auto' && {
-      flex: '0 0 auto',
-      maxWidth: 'none',
-      width: 'auto',
-    }),
-    ...(props.size === 'grow' && {
-      flexBasis: '0px',
-      flexGrow: 1,
-      maxWidth: '100%',
-    }),
-    ...(!props.size && {
-      flexGrow: 0,
-      flexBasis: 'auto',
-    }),
+})<IFlexOwnProps>((props) => ({
+  minWidth: '0px',
+  ...(props.size === 'auto' && {
+    flex: '0 0 auto',
+    maxWidth: 'none',
+    width: 'auto',
   }),
-);
+  ...(props.size === 'grow' && {
+    flexBasis: '0px',
+    flexGrow: 1,
+    maxWidth: '100%',
+  }),
+  ...(!props.size && {
+    flexGrow: 0,
+    flexBasis: 'auto',
+  }),
+}));
 /**
  *
  */
 
 export const Flex = React.forwardRef<any, TFlexProps>((props, ref) => {
-  const {
-    component,
-    ...other
-  } = props;
+  const { component, ...other } = props;
   const Component = component || 'div';
 
   return (

@@ -25,9 +25,10 @@ const Section = (props: { title: string }) => {
         fontSize: '2rem',
       }}
     >
-      <div style={{
-        margin: 'auto',
-      }}
+      <div
+        style={{
+          margin: 'auto',
+        }}
       >
         {title}
       </div>
@@ -35,14 +36,12 @@ const Section = (props: { title: string }) => {
   );
 };
 
-export const DemoExample = () => (
+export const DemoExample = () =>
   Array.from({
     length: 5,
   }).map((_, index) => (
     <Section
-
       key={`${index + 1}`}
       title={`${index + 1}`}
     />
-  ))
-);
+  ));

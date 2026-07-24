@@ -11,19 +11,20 @@ interface ILinearProgressOwnProps {
    * The color of the component. It supports those theme colors that make sense for this component.
    * @default 'primary'
    */
-  color?: ('primary' | 'secondary');
+  color?: 'primary' | 'secondary';
   /**
    * The variant to use.
    * @default 'indeterminate'
    */
-  variant?: ('indeterminate');
+  variant?: 'indeterminate';
   /**
    * The className of the component.
    */
   className?: string;
-};
+}
 
-type TLinearProgressProps = ILinearProgressOwnProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
+type TLinearProgressProps = ILinearProgressOwnProps &
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 /**
  *
  */
@@ -61,12 +62,7 @@ const LinearProgressProgress = styled(Box)({
 
 export const LinearProgress = React.forwardRef<HTMLDivElement, TLinearProgressProps>(
   (props, ref) => {
-    const {
-      color = 'primary',
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      variant = 'indeterminate',
-      ...other
-    } = props;
+    const { color = 'primary', variant: _variant = 'indeterminate', ...other } = props;
 
     return (
       <LinearProgressRoot
@@ -75,9 +71,7 @@ export const LinearProgress = React.forwardRef<HTMLDivElement, TLinearProgressPr
         role="progressbar"
         {...other}
       >
-        <LinearProgressProgress
-          background={color}
-        />
+        <LinearProgressProgress background={color} />
       </LinearProgressRoot>
     );
   },

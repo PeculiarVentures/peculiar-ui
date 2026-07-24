@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { IOverridableComponent } from '../OverridableComponent';
-import { Popper } from '../Popper';
+import type { IMenuItemTypeMap, TMenuItemProps } from './menu_item';
 import { Box } from '../Box';
 import { useMergedRef } from '../hooks';
 import { ArrowRightIcon } from '../icons';
+import { IOverridableComponent } from '../OverridableComponent';
+import { Popper } from '../Popper';
 import { MenuItem } from './menu_item';
-import type { IMenuItemTypeMap, TMenuItemProps } from './menu_item';
 import { MenuList } from './menu_list';
 
 /**
@@ -23,31 +23,25 @@ type TSubMenuItemOwnProps = TMenuItemProps & {
 /**
  * Styles.
  */
-const SubMenuItemRoot = styled(MenuList)(
-  (props) => ({
-    minWidth: '16px',
-    minHeight: '16px',
-    ...(props.theme.mode === 'dark'
-      ? {
-          boxShadow: 'var(--pv-shadow-dark-medium)',
-          backgroundColor: 'var(--pv-color-gray-3)',
-        }
-      : {
-          boxShadow: 'var(--pv-shadow-light-low)',
-          backgroundColor: 'var(--pv-color-white)',
-        }),
-  }),
-);
+const SubMenuItemRoot = styled(MenuList)((props) => ({
+  minWidth: '16px',
+  minHeight: '16px',
+  ...(props.theme.mode === 'dark'
+    ? {
+        boxShadow: 'var(--pv-shadow-dark-medium)',
+        backgroundColor: 'var(--pv-color-gray-3)',
+      }
+    : {
+        boxShadow: 'var(--pv-shadow-light-low)',
+        backgroundColor: 'var(--pv-color-white)',
+      }),
+}));
 /**
  *
  */
 
 export const SubMenuItem = React.forwardRef<any, TSubMenuItemOwnProps>((props, ref) => {
-  const {
-    label,
-    children,
-    ...other
-  } = props;
+  const { label, children, ...other } = props;
   const [open, setOpen] = React.useState(false);
   const rootRef = React.useRef<HTMLElement>(null);
   const multiRef = useMergedRef(ref, rootRef);

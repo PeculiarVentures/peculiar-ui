@@ -1,10 +1,5 @@
+import { size, text, shadow, colors } from './foundations';
 import { IThemeType } from './types';
-import {
-  size,
-  text,
-  shadow,
-  colors,
-} from './foundations';
 
 export const defaultThemeLight: IThemeType = {
   color: {

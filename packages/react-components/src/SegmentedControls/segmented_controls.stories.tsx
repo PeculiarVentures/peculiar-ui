@@ -7,13 +7,22 @@ const meta: Meta<typeof SegmentedControls> = {
   tags: ['autodocs'],
   args: {
     children: [
-      <SegmentedControl key="1" id="home">
+      <SegmentedControl
+        key="1"
+        id="home"
+      >
         Home
       </SegmentedControl>,
-      <SegmentedControl key="2" id="files">
+      <SegmentedControl
+        key="2"
+        id="files"
+      >
         Files
       </SegmentedControl>,
-      <SegmentedControl key="3" id="settings">
+      <SegmentedControl
+        key="3"
+        id="settings"
+      >
         Settings
       </SegmentedControl>,
       <SegmentedControl

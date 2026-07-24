@@ -18,7 +18,7 @@ interface IDialogTitleOwnProps {
    * Element placed before the title.
    */
   startIcon?: React.ReactNode;
-};
+}
 
 type TDialogTitleProps = IDialogTitleOwnProps & React.HTMLAttributes<HTMLDivElement>;
 /**
@@ -42,11 +42,7 @@ const DialogTitleRoot = styled('header')({
  */
 
 export const DialogTitle = React.forwardRef<HTMLDivElement, TDialogTitleProps>((props, ref) => {
-  const {
-    children,
-    startIcon,
-    ...other
-  } = props;
+  const { children, startIcon, ...other } = props;
 
   return (
     <DialogTitleRoot

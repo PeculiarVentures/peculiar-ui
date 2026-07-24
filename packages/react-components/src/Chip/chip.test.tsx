@@ -1,46 +1,30 @@
-import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
-import { renderWithWrapper as render } from '../test-utils';
+import { describe, it, expect, vi } from 'vitest';
 import { PlusIcon } from '../icons';
+import { renderWithWrapper as render } from '../test-utils';
 import { Chip } from './index';
 
 describe('<Chip />', () => {
   it('should render with default styles', () => {
-    const { asFragment } = render(
-      <Chip>Text</Chip>,
-    );
+    const { asFragment } = render(<Chip>Text</Chip>);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should pass className', () => {
-    const { asFragment } = render(
-      <Chip className="my-class-name">
-        Text
-      </Chip>,
-    );
+    const { asFragment } = render(<Chip className="my-class-name">Text</Chip>);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should have delete icon', () => {
-    const { asFragment } = render(
-      <Chip
-        onDelete={vi.fn()}
-      >
-        Text
-      </Chip>,
-    );
+    const { asFragment } = render(<Chip onDelete={vi.fn()}>Text</Chip>);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should have start content', () => {
-    const { asFragment } = render(
-      <Chip startContent={<span>Start</span>}>
-        Text
-      </Chip>,
-    );
+    const { asFragment } = render(<Chip startContent={<span>Start</span>}>Text</Chip>);
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -59,21 +43,17 @@ describe('<Chip />', () => {
   });
 
   describe('variants & colors', () => {
-    const variants: React.ComponentProps<typeof Chip>['variant'][] = [
-      'contained',
-      'outlined',
-    ];
-    const colors: React.ComponentProps<typeof Chip>['color'][] = [
-      'default',
-      'secondary',
-      'wrong',
-    ];
+    const variants: React.ComponentProps<typeof Chip>['variant'][] = ['contained', 'outlined'];
+    const colors: React.ComponentProps<typeof Chip>['color'][] = ['default', 'secondary', 'wrong'];
 
     variants.forEach((variant) => {
       colors.forEach((color) => {
         it(`variant "${variant}, color "${color}"`, () => {
           const { asFragment } = render(
-            <Chip variant={variant} color={color}>
+            <Chip
+              variant={variant}
+              color={color}
+            >
               Text
             </Chip>,
           );

@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
 import React from 'react';
+import { describe, it, expect } from 'vitest';
 import { renderWithWrapper as render, act } from '../test-utils';
 import { Tooltip } from './index';
 
@@ -40,7 +40,7 @@ describe('<Tooltip />', () => {
     );
 
     // Popper update() - https://github.com/popperjs/react-popper/issues/350
-    await act(async () => await null);
+    await act(async () => null);
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -60,10 +60,7 @@ describe('<Tooltip />', () => {
   });
 
   describe('sizes', () => {
-    const sizes: React.ComponentProps<typeof Tooltip>['size'][] = [
-      'small',
-      'large',
-    ];
+    const sizes: React.ComponentProps<typeof Tooltip>['size'][] = ['small', 'large'];
 
     sizes.forEach((size) => {
       it(`size "${size}"`, () => {
@@ -83,10 +80,7 @@ describe('<Tooltip />', () => {
   });
 
   describe('colors', () => {
-    const colors: React.ComponentProps<typeof Tooltip>['color'][] = [
-      'black',
-      'white',
-    ];
+    const colors: React.ComponentProps<typeof Tooltip>['color'][] = ['black', 'white'];
 
     colors.forEach((color) => {
       it(`color "${color}"`, () => {

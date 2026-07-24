@@ -13,9 +13,7 @@ const meta: Meta<typeof Drawer> = {
         <Typography>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
         </Typography>
-        <Button>
-          Button
-        </Button>
+        <Button>Button</Button>
       </>
     ),
     style: {

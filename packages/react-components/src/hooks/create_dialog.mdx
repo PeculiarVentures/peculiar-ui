@@ -26,26 +26,25 @@ interface IConfirmDialogParams {
   onConfirm: VoidFunction;
 }
 
-const useConfirmDialog = createDialog<IConfirmDialogParams>(({
-  openParams,
-  close,
-}) => {
+const useConfirmDialog = createDialog<IConfirmDialogParams>(({ openParams, close }) => {
   const handleConfirm = () => {
     openParams.onConfirm();
     close();
   };
 
   return (
-    <Dialog open onClose={close}>
-      <DialogTitle>
-        Confirm Action
-      </DialogTitle>
-      <DialogContent dividers={false}>
-        {openParams.message}
-      </DialogContent>
+    <Dialog
+      open
+      onClose={close}
+    >
+      <DialogTitle>Confirm Action</DialogTitle>
+      <DialogContent dividers={false}>{openParams.message}</DialogContent>
       <DialogActions>
         <Button onClick={close}>Cancel</Button>
-        <Button variant="contained" onClick={handleConfirm}>
+        <Button
+          variant="contained"
+          onClick={handleConfirm}
+        >
           Confirm
         </Button>
       </DialogActions>

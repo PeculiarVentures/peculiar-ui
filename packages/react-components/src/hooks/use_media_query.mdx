@@ -15,13 +15,7 @@ import { useMediaQuery } from '@peculiar/react-components';
 const Demo = () => {
   const isWide = useMediaQuery('(min-width: 480px)');
 
-  return (
-    <div>
-      Screen is wide:
-      {' '}
-      {isWide ? 'Yes' : 'No'}
-    </div>
-  );
+  return <div>Screen is wide: {isWide ? 'Yes' : 'No'}</div>;
 };
 ```
 

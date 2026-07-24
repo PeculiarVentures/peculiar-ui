@@ -1,8 +1,8 @@
-import { describe, it, expect } from 'vitest';
 import deepmerge from 'deepmerge';
-import { createTheme } from './utils';
+import { describe, it, expect } from 'vitest';
 import { defaultThemeLight, defaultThemeDark } from './default_theme';
 import { colors } from './foundations';
+import { createTheme } from './utils';
 
 describe('styles utils', () => {
   describe('createTheme()', () => {
@@ -21,11 +21,13 @@ describe('styles utils', () => {
         });
         const secondaryColors = colors.generateColorPalette('secondary', '#b50ce4');
 
-        expect(theme).toEqual(deepmerge(defaultThemeLight, {
-          color: {
-            ...secondaryColors,
-          },
-        }));
+        expect(theme).toEqual(
+          deepmerge(defaultThemeLight, {
+            color: {
+              ...secondaryColors,
+            },
+          }),
+        );
       });
 
       it('expect palette override', () => {
@@ -37,12 +39,14 @@ describe('styles utils', () => {
         });
         const secondaryColors = colors.generateColorPalette('secondary', '#b50ce4');
 
-        expect(theme).toEqual(deepmerge(defaultThemeLight, {
-          color: {
-            ...secondaryColors,
-            'secondary-shade-3': '#cccccc',
-          },
-        }));
+        expect(theme).toEqual(
+          deepmerge(defaultThemeLight, {
+            color: {
+              ...secondaryColors,
+              'secondary-shade-3': '#cccccc',
+            },
+          }),
+        );
       });
     });
 
@@ -61,11 +65,13 @@ describe('styles utils', () => {
         });
         const secondaryColors = colors.generateColorPalette('secondary', '#b50ce4');
 
-        expect(theme).toEqual(deepmerge(defaultThemeDark, {
-          color: {
-            ...secondaryColors,
-          },
-        }));
+        expect(theme).toEqual(
+          deepmerge(defaultThemeDark, {
+            color: {
+              ...secondaryColors,
+            },
+          }),
+        );
       });
 
       it('expect palette override', () => {
@@ -77,12 +83,14 @@ describe('styles utils', () => {
         });
         const secondaryColors = colors.generateColorPalette('secondary', '#b50ce4');
 
-        expect(theme).toEqual(deepmerge(defaultThemeDark, {
-          color: {
-            ...secondaryColors,
-            'secondary-shade-3': '#cccccc',
-          },
-        }));
+        expect(theme).toEqual(
+          deepmerge(defaultThemeDark, {
+            color: {
+              ...secondaryColors,
+              'secondary-shade-3': '#cccccc',
+            },
+          }),
+        );
       });
     });
   });

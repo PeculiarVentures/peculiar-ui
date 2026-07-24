@@ -16,7 +16,10 @@ describe('<SegmentedControls />', () => {
 
   it('should pass className', () => {
     const { asFragment } = render(
-      <SegmentedControls value="segmented_control_1" className="my-class-name">
+      <SegmentedControls
+        value="segmented_control_1"
+        className="my-class-name"
+      >
         <SegmentedControl id="segmented_control_1">Tab-1</SegmentedControl>
         <SegmentedControl id="segmented_control_2">Tab-2</SegmentedControl>
       </SegmentedControls>,

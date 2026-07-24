@@ -20,9 +20,7 @@ export const DemoExample = () => {
       >
         +
       </button>
-      <span>
-        {value}
-      </span>
+      <span>{value}</span>
       <button
         type="button"
         onClick={() => setValue(value - 1)}

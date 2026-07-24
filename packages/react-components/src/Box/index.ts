@@ -1,5 +1,2 @@
 export { Box } from './box';
-export type {
-  IBoxOwnProps,
-  TBoxProps,
-} from './box';
+export type { IBoxOwnProps, TBoxProps } from './box';

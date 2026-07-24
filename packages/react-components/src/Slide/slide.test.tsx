@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
 import React from 'react';
+import { describe, it, expect } from 'vitest';
 import { renderWithWrapper as render } from '../test-utils';
 import { Slide } from './index';
 
@@ -36,7 +36,10 @@ describe('<Slide />', () => {
 
         it('after animation', () => {
           const { asFragment } = render(
-            <Slide in direction={direction}>
+            <Slide
+              in
+              direction={direction}
+            >
               <div>Inside</div>
             </Slide>,
           );
