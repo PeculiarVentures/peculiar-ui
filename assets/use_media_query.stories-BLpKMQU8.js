@@ -1,8 +1,0 @@
-import{i as e}from"./preload-helper-CT_b8DTk.js";import{t}from"./jsx-runtime-BCDDjCIb.js";import{T as n,t as r}from"./hooks-C4HDdmR9.js";var i,a,o,s,c=e((()=>{r(),i=t(),a={title:`Hooks/useMediaQuery`,component:n},o=()=>(0,i.jsxs)(`div`,{children:[`Screen is wide:`,` `,n(`(min-width: 480px)`)?`Yes`:`No`]}),o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`() => {
-  const isWide = useMediaQuery('(min-width: 480px)');
-  return <div>
-      Screen is wide:
-      {' '}
-      {isWide ? 'Yes' : 'No'}
-    </div>;
-}`,...o.parameters?.docs?.source}}},s=[`DemoExample`]}));c();export{o as DemoExample,s as __namedExportsOrder,a as default,c as t};
