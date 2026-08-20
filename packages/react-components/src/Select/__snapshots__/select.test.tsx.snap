@@ -362,7 +362,9 @@ exports[`<Select /> > should pass error 1`] = `
   letter-spacing: var(--pv-text-b2-spacing);
 }
 
-<body>
+<body
+  style="overflow: hidden;"
+>
   <div>
     <div>
       <button
@@ -682,7 +684,9 @@ exports[`<Select /> > should pass loading 1`] = `
   letter-spacing: var(--pv-text-b2-spacing);
 }
 
-<body>
+<body
+  style="overflow: hidden;"
+>
   <div>
     <div>
       <button
@@ -1057,7 +1061,9 @@ exports[`<Select /> > should pass options 1`] = `
   text-overflow: ellipsis;
 }
 
-<body>
+<body
+  style="overflow: hidden;"
+>
   <div>
     <div>
       <button

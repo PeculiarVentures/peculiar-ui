@@ -90,7 +90,9 @@ exports[`<Drawer /> > should render with default open styles 1`] = `
   background-color: var(--pv-color-white);
 }
 
-<body>
+<body
+  style="overflow: hidden;"
+>
   <div />
   <div
     aria-hidden="false"

@@ -3,7 +3,9 @@ import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
 import { Backdrop, TBackdropProps } from '../Backdrop';
 import { FocusTrap } from '../FocusTrap';
+import { useEnhancedEffect } from '../hooks';
 import { Portal } from '../Portal';
+import { modalManager } from './modal_manager';
 
 /**
  * Types.
@@ -58,6 +60,11 @@ interface IModalOwnProps {
    * and replace it to the last focused element when it closes.
    */
   disableAutoFocus?: boolean;
+  /**
+   * Disable the document scroll lock while the modal is open.
+   * @default false
+   */
+  disableScrollLock?: boolean;
 }
 
 export type TModalProps = IModalOwnProps & React.HTMLAttributes<HTMLDivElement>;
@@ -97,10 +104,29 @@ export const Modal = React.forwardRef<HTMLDivElement, TModalProps>((props, ref) 
     backdropProps,
     disableEnforceFocus = false,
     disableAutoFocus,
+    disableScrollLock = false,
     onClose,
     ...other
   } = props;
   const [exited, setExited] = React.useState(true);
+  const modal = React.useRef({});
+
+  useEnhancedEffect(() => {
+    if (!open) {
+      modalManager.remove(modal.current);
+
+      return undefined;
+    }
+
+    modalManager.add(modal.current, document.body);
+    modalManager.mount(modal.current, {
+      disableScrollLock,
+    });
+
+    return () => {
+      modalManager.remove(modal.current);
+    };
+  }, [open, disableScrollLock]);
 
   if (!keepMounted && !open) {
     return null;

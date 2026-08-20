@@ -120,7 +120,9 @@ exports[`<Menu /> > should pass className 1`] = `
   text-overflow: ellipsis;
 }
 
-<body>
+<body
+  style="overflow: hidden;"
+>
   <div>
     <button
       aria-expanded="true"

@@ -21,7 +21,9 @@ exports[`<Modal /> > should pass className 1`] = `
   -webkit-tap-highlight-color: transparent;
 }
 
-<body>
+<body
+  style="overflow: hidden;"
+>
   <div />
   <div
     aria-hidden="false"
@@ -61,7 +63,9 @@ exports[`<Modal /> > should render with default open styles 1`] = `
   -webkit-tap-highlight-color: transparent;
 }
 
-<body>
+<body
+  style="overflow: hidden;"
+>
   <div />
   <div
     aria-hidden="false"

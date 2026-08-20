@@ -43,6 +43,11 @@ interface IDialogOwnProps {
    */
   disableEscapeKeyDown?: boolean;
   /**
+   * Disable the document scroll lock while the dialog is open.
+   * @default false
+   */
+  disableScrollLock?: boolean;
+  /**
    * Callback fired when the component requests to be closed.
    */
   onClose?: (event: React.SyntheticEvent) => void;
@@ -151,6 +156,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, TDialogProps>((props, ref
     transitionDuration = 225,
     disableBackdropClick = false,
     disableEscapeKeyDown = false,
+    disableScrollLock = false,
     loading,
     loadingColor = 'secondary',
     onClose,
@@ -167,6 +173,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, TDialogProps>((props, ref
       data-testid={dataTestId}
       disableBackdropClick={loading || disableBackdropClick}
       disableEscapeKeyDown={loading || disableEscapeKeyDown}
+      disableScrollLock={disableScrollLock}
       backdropProps={{
         invisible: fullScreen,
       }}
