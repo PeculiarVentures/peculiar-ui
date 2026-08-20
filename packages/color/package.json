@@ -1,6 +1,6 @@
 {
   "name": "@peculiar/color",
-  "version": "1.8.10",
+  "version": "1.9.0",
   "private": false,
   "description": "Library for color manipulation and conversion in JavaScript.",
   "keywords": [
