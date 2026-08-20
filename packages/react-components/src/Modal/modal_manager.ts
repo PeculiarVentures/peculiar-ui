@@ -88,7 +88,8 @@ function handleContainer(containerInfo: IContainerInfo, props: IManagedModalProp
 
     if (isOverflowing(scrollContainer)) {
       // Compute the size before applying overflow hidden to avoid any scroll jumps.
-      const scrollbarSize = ownerWindow(scrollContainer).innerWidth - document.documentElement.clientWidth;
+      const scrollbarSize =
+        ownerWindow(scrollContainer).innerWidth - document.documentElement.clientWidth;
 
       restoreStyle.push({
         value: scrollContainer.style.paddingRight,
