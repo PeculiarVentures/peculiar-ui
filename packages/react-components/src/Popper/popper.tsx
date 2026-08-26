@@ -70,7 +70,7 @@ export const Popper: React.FC<TPopperProps> = (props) => {
     role = 'tooltip',
     ...other
   } = props;
-  const [popperElement, setPopperElement] = React.useState<null>(null);
+  const [popperElement, setPopperElement] = React.useState(null);
   const popperModifiers: Modifier<any>[] = React.useMemo(() => {
     let baseModifiers: Modifier<any>[] = [
       {
