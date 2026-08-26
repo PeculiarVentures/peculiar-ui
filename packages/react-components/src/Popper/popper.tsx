@@ -38,6 +38,11 @@ interface IBaseProps {
    * most of its features are fully encapsulated "modifiers".
    */
   modifiers?: Modifier<any>[];
+  /**
+   * The ARIA role applied to the popper element.
+   * @default 'tooltip'
+   */
+  role?: React.AriaRole;
 }
 
 type TPopperProps = IBaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
@@ -62,9 +67,10 @@ export const Popper: React.FC<TPopperProps> = (props) => {
     disablePortal,
     allowUseSameWidth = false,
     modifiers,
+    role = 'tooltip',
     ...other
   } = props;
-  const [popperElement, setPopperElement] = React.useState(null);
+  const [popperElement, setPopperElement] = React.useState<null>(null);
   const popperModifiers: Modifier<any>[] = React.useMemo(() => {
     let baseModifiers: Modifier<any>[] = [
       {
@@ -99,7 +105,7 @@ export const Popper: React.FC<TPopperProps> = (props) => {
       {...other}
       ref={setPopperElement}
       style={styles.popper}
-      role="tooltip"
+      role={role}
       {...attributes.popper}
     >
       {typeof children === 'function' ? children(styles.arrow) : children}
