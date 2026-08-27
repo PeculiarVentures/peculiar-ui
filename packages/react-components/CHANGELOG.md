@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.11](https://github.com/PeculiarVentures/peculiar-ui/compare/v1.8.10...v1.8.11) (2026-08-27)
+
+### Bug Fixes
+
+* **lint:** ensure onChange handler is correctly applied in Autocomplete test ([0f72862](https://github.com/PeculiarVentures/peculiar-ui/commit/0f72862db22f6e025152c22452b5f20c46a09b3d))
+
+### Features
+
+* **react-components:** implement Backspace functionality for tag removal in multiple selection mode ([f1f43c6](https://github.com/PeculiarVentures/peculiar-ui/commit/f1f43c69ddc4fcd95d799fe08d790b607c420585))
+
+
 ## 1.8.10 (2026-05-29)
 
 
