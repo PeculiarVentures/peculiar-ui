@@ -696,6 +696,7 @@ export const Autocomplete = <T, Multiple extends boolean | undefined = false>(
       <AutocompletePopover
         placement="bottom-start"
         allowUseSameWidth
+        role="presentation"
         {...popoverProps}
         tabIndex={-1}
       >
