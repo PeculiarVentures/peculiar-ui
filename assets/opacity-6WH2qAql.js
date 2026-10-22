@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";var t,n;function r(){return(r=e((()=>{t={switch:{hover:.18,focus:.23,active:.3}},n={switch:{hover:.35,focus:.45,active:.55}}})))()}export{r as n,t as r,n as t};
