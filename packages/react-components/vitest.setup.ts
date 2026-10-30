@@ -19,6 +19,7 @@ window.IntersectionObserver = vi.fn<() => IntersectionObserver>(() => ({
   disconnect: vi.fn<() => void>(),
   root: null,
   rootMargin: '',
+  scrollMargin: '',
   thresholds: [],
   takeRecords: vi.fn<() => IntersectionObserverEntry[]>(),
 }));
