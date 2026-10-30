@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{t}from"./react-pByjoP3I.js";var n;function r(){return(r=e((()=>{t(),n=(...e)=>t=>e.forEach(e=>{typeof e==`function`?e(t):e&&typeof e==`object`&&(e.current=t)})})))()}export{n,r as t};
