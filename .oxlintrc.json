@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["typescript", "import", "unicorn", "oxc", "react", "jsx-a11y", "vitest"],
-  "ignorePatterns": ["public/**", "dist/**", "coverage/**"],
+  "ignorePatterns": ["public/**", "**/build/**", "coverage/**"],
   "options": {
     "typeAware": true
   },
@@ -48,7 +48,9 @@
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/prefer-tag-over-role": "off",
     "jsx-a11y/no-autofocus": "off",
-    "vitest/require-mock-type-parameters": "off"
+    "vitest/require-mock-type-parameters": "off",
+    "typescript/no-unnecessary-boolean-literal-compare": "off",
+    "typescript/no-useless-default-assignment": "off"
   },
   "overrides": [
     {

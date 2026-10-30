@@ -15,28 +15,25 @@
     "directory": "packages/react-components"
   },
   "files": [
-    "dist/"
+    "build/",
+    "README.md",
+    "LICENSE"
   ],
+  "type": "module",
   "sideEffects": false,
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "typings": "dist/types/index.d.ts",
-  "esnext": "dist/esnext/index.js",
+  "main": "./build/index.js",
+  "module": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": "./build/index.js",
+    "./package.json": "./package.json"
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "dev": "storybook dev -p 3000",
-    "prebuild": "npm run clean",
-    "build": "npm run build:esm && npm run build:cjs && npm run build:esnext",
-    "build:esm": "tsc -p tsconfig.build.json",
-    "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/cjs",
-    "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
-    "build:storybook": "storybook build -o public",
-    "clean": "rimraf public dist themes",
-    "test": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "typecheck": "tsc --noEmit -p tsconfig.build.json"
+    "build:storybook": "storybook build -o public"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -62,7 +59,6 @@
     "react-dom": "^18.2.0",
     "storybook": "^10.6.5",
     "storybook-dark-mode": "^5.0.0",
-    "typescript": "5.9.3",
     "vite": "^8.3.5"
   },
   "peerDependencies": {
@@ -76,6 +72,6 @@
     }
   },
   "engines": {
-    "node": ">=18.x"
+    "node": "^20.19.0 || >=22.12.0"
   }
 }

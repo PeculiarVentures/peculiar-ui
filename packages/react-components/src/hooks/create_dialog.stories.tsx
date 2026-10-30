@@ -26,7 +26,7 @@ const useConfirmDialog = createDialog<IConfirmDialogParams>(({ openParams, close
       onClose={close}
     >
       <DialogTitle>Confirm Action</DialogTitle>
-      <DialogContent dividers={false}>{openParams.message}</DialogContent>
+      <DialogContent>{openParams.message}</DialogContent>
       <DialogActions>
         <Button onClick={close}>Cancel</Button>
         <Button

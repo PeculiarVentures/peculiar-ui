@@ -7,7 +7,7 @@ vi.useFakeTimers();
 const DEBOUNCE_TIMEOUT = 500;
 
 describe('useDebounceCallback()', () => {
-  const clearTimeoutSpy = vi.spyOn(global, 'clearTimeout');
+  const clearTimeoutSpy = vi.spyOn(globalThis, 'clearTimeout');
 
   afterEach(() => {
     clearTimeoutSpy.mockClear();
@@ -25,7 +25,7 @@ describe('useDebounceCallback()', () => {
   });
 
   it('should clear previous timer on the next debounced function call', () => {
-    const setTimeoutSpy = vi.spyOn(global, 'setTimeout');
+    const setTimeoutSpy = vi.spyOn(globalThis, 'setTimeout');
     const callbackMock = vi.fn();
     const { result } = renderHook(() => useDebounceCallback(callbackMock, DEBOUNCE_TIMEOUT));
 

@@ -1,4 +1,0 @@
-{
-  "extends": "../../tsconfig",
-  "include": ["src", "vitest.setup.ts"]
-}

@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig",
-  "compilerOptions": {
-    "outDir": "./dist/esm",
-    "declarationDir": "./dist/types"
-  },
-  "include": ["src/**/*.ts*"],
-  "exclude": ["src/**/*.test.ts*", "src/**/*.stories.ts*"]
-}

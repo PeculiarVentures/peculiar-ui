@@ -248,8 +248,8 @@ export const Tooltip: React.FC<TTooltipProps> = (props) => {
   const nodeRef = React.useRef(null);
   const multiRef = useMergedRef((children as any).ref, nodeRef);
   const [arrowRef, setArrowRef] = React.useState(null);
-  const enterTimer = React.useRef<NodeJS.Timeout>();
-  const leaveTimer = React.useRef<NodeJS.Timeout>();
+  const enterTimer = React.useRef<ReturnType<typeof setTimeout>>();
+  const leaveTimer = React.useRef<ReturnType<typeof setTimeout>>();
 
   React.useEffect(
     () => () => {

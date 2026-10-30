@@ -3,7 +3,7 @@
   "printWidth": 100,
   "singleQuote": true,
   "semi": true,
-  "ignorePatterns": ["public/**", "dist/**", "coverage/**"],
+  "ignorePatterns": ["public/**", "**/build/**", "coverage/**"],
   "insertFinalNewline": true,
   "jsxSingleQuote": false,
   "objectWrap": "preserve",

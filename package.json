@@ -6,32 +6,34 @@
   "workspaces": [
     "packages/*"
   ],
+  "type": "module",
   "scripts": {
     "dev": "npm run --workspace @peculiar/react-components dev",
-    "build": "npm run build --workspaces",
-    "test": "npm run test:coverage --workspaces",
-    "typecheck": "npm run typecheck --workspaces",
-    "clean": "npm run clean --workspaces --if-present",
-    "lint": "OXLINT_TSGOLINT_DANGEROUSLY_SUPPRESS_PROGRAM_DIAGNOSTICS=true oxlint",
+    "build": "tsdown",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "typecheck": "tsc",
+    "lint": "oxlint",
     "lint:fix": "npm run lint -- --fix",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "prepare": "npm run build"
   },
   "devDependencies": {
+    "@arethetypeswrong/core": "^0.18.5",
     "@emotion/jest": "^11.13.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^20.19.19",
     "@vitejs/plugin-react-swc": "^4.3.1",
     "@vitest/coverage-v8": "^4.1.1",
     "jsdom": "27.0.0",
     "oxfmt": "^0.72.0",
     "oxlint": "^1.75.0",
     "oxlint-tsgolint": "^7.0.2001",
-    "rimraf": "^6.0.1",
+    "tsdown": "^0.23.4",
+    "typescript": "^5.9.3",
     "vitest": "^4.1.1"
   },
   "overrides": {
