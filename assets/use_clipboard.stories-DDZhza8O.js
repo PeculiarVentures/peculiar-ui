@@ -1,9 +1,0 @@
-import{a as e,n as t,r as n}from"./rolldown-runtime-sJBDdmOt.js";import{t as r}from"./react-pByjoP3I.js";import{t as i}from"./jsx-runtime-BG4KOiPz.js";var a,o;function s(){return(s=t((()=>{a=(e,t)=>{let n=document.createElement(`textarea`);if(n.value=e,document.body.appendChild(n),navigator.userAgent.match(/iPhone|iPad|iPod/i)){let t=document.createRange();n.setAttribute(`contentEditable`,`true`),n.setAttribute(`readOnly`,`true`),t.selectNodeContents(n);let r=window.getSelection();r&&(r.removeAllRanges(),r.addRange(t)),n.setSelectionRange(0,e.length)}else n.select();try{document.execCommand(`copy`),t&&t()}catch(e){console.error(`Fallback copy error:`,e)}document.body.removeChild(n)},o=(e,t)=>{navigator.clipboard?navigator.clipboard.writeText(e).then(t).catch(()=>a(e,t)):a(e,t)}})))()}function c(){let[e,t]=l.useState(!1),n=l.useRef(),r=l.useRef(!1);return l.useEffect(()=>(r.current=!0,()=>{r.current=!1}),[]),{copy:async e=>{try{t(!0),clearTimeout(n.current),n.current=setTimeout(()=>{r&&t(!1)},1500),o(e)}catch{}},isCopied:e}}var l;function u(){return(u=t((()=>{l=e(r()),s()})))()}var d=n({DemoExample:()=>m,__namedExportsOrder:()=>h,default:()=>p}),f,p,m,h;function g(){return(g=t((()=>{u(),f=i(),p={title:`Hooks/useClipboard`,component:c},m=()=>{let{copy:e,isCopied:t}=c();return(0,f.jsx)(`button`,{type:`button`,onClick:()=>e(`Text to copy`),children:t?`Copied`:`Click to copy`})},m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`() => {
-  const {
-    copy,
-    isCopied
-  } = useClipboard();
-  return <button type="button" onClick={() => copy('Text to copy')}>
-      {isCopied ? 'Copied' : 'Click to copy'}
-    </button>;
-}`,...m.parameters?.docs?.source}}},h=[`DemoExample`]})))()}export{g as n,d as r,m as t};
