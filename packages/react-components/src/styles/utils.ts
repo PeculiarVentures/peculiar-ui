@@ -1,6 +1,6 @@
 import { Color } from '@peculiar/color';
 import deepmerge from 'deepmerge';
-import flat from 'flat';
+import { flatten } from 'flat';
 import type { IThemeOptionsType, IThemeType } from './types';
 import { defaultThemeLight, defaultThemeDark } from './default_theme';
 import { colors, generateSize } from './foundations';
@@ -68,7 +68,7 @@ export const createTheme = (mode: 'light' | 'dark', options?: IThemeOptionsType)
 };
 
 export const createThemeCSSVariablesFromObject = (object: Record<string, any>) => {
-  const flatted = flat<typeof object, Record<string, string>>(
+  const flatted = flatten<typeof object, Record<string, string>>(
     {
       [`--${themeCSSVariablePrefix}`]: object,
     },
