@@ -32,6 +32,11 @@ export default defineConfig({
     // @__PURE__ annotations so bundlers can tree-shake.
     comments: { legal: true, annotation: true, jsdoc: false },
   },
+  // The unbundled output keeps each module's 'use client' directive, so rolldown's
+  // warning that bundling may drop it doesn't apply.
+  checks: {
+    moduleLevelDirective: false,
+  },
   outDir: 'build',
   // The root tsconfig: its paths resolve @peculiar/color imports to the sibling sources.
   tsconfig: '../../tsconfig.json',

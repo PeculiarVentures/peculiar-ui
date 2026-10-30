@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import type { PopperProps, Modifier } from 'react-popper';
 import styled from '@emotion/styled';

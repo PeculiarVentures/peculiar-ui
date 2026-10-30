@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import type { TransitionStatus } from 'react-transition-group';
 import isPropValid from '@emotion/is-prop-valid';

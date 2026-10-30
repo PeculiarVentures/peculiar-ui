@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import type { Placement } from '@popperjs/core';
 import isPropValid from '@emotion/is-prop-valid';

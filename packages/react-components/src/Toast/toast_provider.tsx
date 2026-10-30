@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import type { TToastContainerProps } from './toast_container';
 import type { TToastType, IBaseToastType } from './toast_context';
