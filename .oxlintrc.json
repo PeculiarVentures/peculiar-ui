@@ -50,7 +50,8 @@
     "jsx-a11y/no-autofocus": "off",
     "vitest/require-mock-type-parameters": "off",
     "typescript/no-unnecessary-boolean-literal-compare": "off",
-    "typescript/no-useless-default-assignment": "off"
+    "typescript/no-useless-default-assignment": "off",
+    "react/refs": "off"
   },
   "overrides": [
     {
