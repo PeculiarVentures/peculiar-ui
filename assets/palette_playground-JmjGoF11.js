@@ -1,0 +1,3 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{d as t,u as n}from"./blocks-BkbI2scT.js";import{t as r}from"./jsx-runtime-BG4KOiPz.js";import{i,r as a}from"./react-Bg8UoiFE.js";import{n as o,r as s}from"./palette.stories-dxOE_nGT.js";function c(e){let t={h1:`h1`,...i(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(n,{title:`Customization/Palette Playground`}),`
+`,(0,u.jsx)(t.h1,{id:`palette-playground`,children:`Palette Playground`}),`
+`,(0,u.jsx)(o,{})]})}function l(e={}){let{wrapper:t}={...i(),...e.components};return t?(0,u.jsx)(t,{...e,children:(0,u.jsx)(c,{...e})}):c(e)}var u;function d(){return(d=e((()=>{u=r(),a(),t(),s()})))()}d();export{l as default};
