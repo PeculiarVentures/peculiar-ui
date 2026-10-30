@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import type { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { useMergedRef, useEnhancedEffect } from '../hooks';
-import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { ownerDocument } from '../utils/owner_document';
 
 function nextItem(list: HTMLUListElement, item: Element) {

@@ -1,6 +1,7 @@
 import React from 'react';
+import type { DocsContextProps } from '@storybook/addon-docs/blocks';
 import type { Preview, Decorator } from '@storybook/react';
-import { DocsContainer, DocsContextProps } from '@storybook/addon-docs/blocks';
+import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { useDarkMode, DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 import { addons } from 'storybook/preview-api';
 import { ThemeProvider } from '../src';

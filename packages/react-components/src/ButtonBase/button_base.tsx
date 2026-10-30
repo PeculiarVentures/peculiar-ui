@@ -1,8 +1,8 @@
 import * as React from 'react';
 import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
-import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
-import { TTypographyType } from '../styles';
+import type { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import type { TTypographyType } from '../styles';
 import { Typography } from '../Typography';
 
 /**

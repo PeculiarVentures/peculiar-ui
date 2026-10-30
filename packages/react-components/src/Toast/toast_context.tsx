@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TAlertProps } from '../Alert';
+import type { TAlertProps } from '../Alert';
 
 export interface IBaseToastType {
   /**

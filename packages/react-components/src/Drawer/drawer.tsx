@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Modal, TModalProps } from '../Modal';
+import type { TModalProps } from '../Modal';
+import { Modal } from '../Modal';
 import { Slide } from '../Slide';
 
 /**

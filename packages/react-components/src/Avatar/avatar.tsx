@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import type { TColorType } from '../styles';
 import { Box } from '../Box';
 import { useImage } from '../hooks';
-import { TColorType } from '../styles';
 import { Typography } from '../Typography';
 
 /**

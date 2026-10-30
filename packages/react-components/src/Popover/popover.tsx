@@ -1,8 +1,10 @@
 import React from 'react';
+import type { PopperProps, Modifier } from 'react-popper';
 import styled from '@emotion/styled';
-import { usePopper, PopperProps, Modifier } from 'react-popper';
+import { usePopper } from 'react-popper';
+import type { TModalProps } from '../Modal';
 import { Fade } from '../Fade';
-import { Modal, TModalProps } from '../Modal';
+import { Modal } from '../Modal';
 
 interface IBaseProps {
   /**

@@ -1,7 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import type { TAutocompleteOwnProps } from '../Autocomplete/autocomplete';
+import type {
+  IUseAutocompleteProps,
+  IUseAutocompleteReturnType,
+  TAutocompleteValue,
+} from '../hooks';
+import type { ITypographyOwnProps } from '../Typography';
 import {
-  TAutocompleteOwnProps,
   AutocompleteTagSize,
   AutocompleteNativeInput,
   AutocompleteDropdownStateItem,
@@ -16,16 +22,11 @@ import { AutocompleteTag } from '../Autocomplete/autocomplete_tag';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { Checkbox } from '../Checkbox';
-import {
-  useAutocomplete,
-  IUseAutocompleteProps,
-  IUseAutocompleteReturnType,
-  TAutocompleteValue,
-} from '../hooks';
+import { useAutocomplete } from '../hooks';
 import { ArrowDropDownIcon, PlusIcon } from '../icons';
 import { Popover } from '../Popover';
 import { TextField } from '../TextField';
-import { Typography, ITypographyOwnProps } from '../Typography';
+import { Typography } from '../Typography';
 
 /**
  * Interfaces.

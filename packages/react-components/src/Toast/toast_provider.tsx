@@ -1,9 +1,11 @@
 import * as React from 'react';
+import type { TToastContainerProps } from './toast_container';
+import type { TToastType, IBaseToastType } from './toast_context';
 import { useEventCallback } from '../hooks/use_event_callback';
 import { Portal } from '../Portal';
 import { Toast } from './toast';
-import { ToastContainer, TToastContainerProps } from './toast_container';
-import { ToastContext, TToastType, IBaseToastType } from './toast_context';
+import { ToastContainer } from './toast_container';
+import { ToastContext } from './toast_context';
 
 interface IBaseProps {
   /**

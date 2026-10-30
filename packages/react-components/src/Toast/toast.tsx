@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Alert, TAlertProps } from '../Alert';
+import type { TAlertProps } from '../Alert';
+import { Alert } from '../Alert';
 import { Fade } from '../Fade';
 
 /**

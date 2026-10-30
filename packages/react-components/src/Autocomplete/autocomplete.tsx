@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Box } from '../Box';
-import { Checkbox } from '../Checkbox';
-import {
-  useAutocomplete,
+import type {
   IUseAutocompleteProps,
   IUseAutocompleteReturnType,
   TAutocompleteValue,
-  useOutsideClick,
 } from '../hooks';
+import type { ITypographyOwnProps } from '../Typography';
+import { Box } from '../Box';
+import { Checkbox } from '../Checkbox';
+import { useAutocomplete, useOutsideClick } from '../hooks';
 import { ArrowDropDownIcon, CloseSmallIcon } from '../icons';
 import { MenuItem } from '../MenuList';
 import { Popper } from '../Popper';
-import { Typography, ITypographyOwnProps } from '../Typography';
+import { Typography } from '../Typography';
 import { AutocompleteTag } from './autocomplete_tag';
 
 /**

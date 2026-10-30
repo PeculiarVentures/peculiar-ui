@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
-import { ThemeProvider } from '../styles';
+import type { ThemeProvider } from '../styles';
 import { fireEvent, userEvent, renderWithWrapper as render, screen } from '../test-utils';
 import { ButtonBase } from './index';
 
