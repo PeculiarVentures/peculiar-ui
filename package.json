@@ -1,4 +1,6 @@
 {
+  "name": "peculiar-ui-monorepo",
+  "version": "1.8.11",
   "private": true,
   "license": "MIT",
   "workspaces": [
@@ -6,20 +8,15 @@
   ],
   "scripts": {
     "dev": "npm run --workspace @peculiar/react-components dev",
-    "bootstrap": "npm install",
-    "bootstrap:undo": "lerna clean --yes",
-    "bootstrap:upgrade": "npm upgrade-interactive --latest",
-    "clean": "lerna run --parallel clean",
     "build": "npm run build --workspaces",
     "test": "npm run test:coverage --workspaces",
-    "check:types": "npm run check:types --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "clean": "npm run clean --workspaces --if-present",
     "lint": "OXLINT_TSGOLINT_DANGEROUSLY_SUPPRESS_PROGRAM_DIAGNOSTICS=true oxlint",
     "lint:fix": "npm run lint -- --fix",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "prepare": "npm run build",
-    "publish:version": "lerna publish",
-    "publish:canary": "lerna publish --canary"
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "@emotion/jest": "^11.13.0",
@@ -31,7 +28,6 @@
     "@vitejs/plugin-react-swc": "^4.3.1",
     "@vitest/coverage-v8": "^4.1.1",
     "jsdom": "27.0.0",
-    "lerna": "^10.0.0",
     "oxfmt": "^0.72.0",
     "oxlint": "^1.75.0",
     "oxlint-tsgolint": "^7.0.2001",

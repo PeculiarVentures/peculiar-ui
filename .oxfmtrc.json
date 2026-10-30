@@ -3,7 +3,7 @@
   "printWidth": 100,
   "singleQuote": true,
   "semi": true,
-  "ignorePatterns": ["public/**", "dist/**", "coverage/**", "CHANGELOG.md", "lerna.json"],
+  "ignorePatterns": ["public/**", "dist/**", "coverage/**"],
   "insertFinalNewline": true,
   "jsxSingleQuote": false,
   "objectWrap": "preserve",
