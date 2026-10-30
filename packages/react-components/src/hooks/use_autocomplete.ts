@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import type { TPopoverProps } from '../Popover';
 import { useControllableState } from './use_controllable';

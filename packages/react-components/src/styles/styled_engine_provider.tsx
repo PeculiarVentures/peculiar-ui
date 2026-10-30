@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';

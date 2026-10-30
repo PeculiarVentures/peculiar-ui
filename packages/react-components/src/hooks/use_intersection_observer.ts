@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { intersectionObserver } from '../utils/intersection_observer';
 

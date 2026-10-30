@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { IS_SERVER, useEnhancedEffect } from './use_enhanced_effect';
 

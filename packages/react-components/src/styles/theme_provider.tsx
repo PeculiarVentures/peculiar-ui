@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { Global, ThemeProvider as ThemeProviderEmotion } from '@emotion/react';
 import type { IThemeOptionsType } from './types';

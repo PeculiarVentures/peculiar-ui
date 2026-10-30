@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import type { IToastContextType } from './toast_context';
 import { ToastContext } from './toast_context';
