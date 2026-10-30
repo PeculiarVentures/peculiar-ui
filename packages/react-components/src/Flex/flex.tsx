@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import type { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 
 /**
  * Types.

@@ -1,6 +1,7 @@
 import React from 'react';
+import type { PopperProps as PopperReactProps, Modifier } from 'react-popper';
 import styled from '@emotion/styled';
-import { usePopper, PopperProps as PopperReactProps, Modifier } from 'react-popper';
+import { usePopper } from 'react-popper';
 import { Portal } from '../Portal';
 
 /**

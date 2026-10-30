@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import type { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import type { TColorType } from '../styles';
 import { Box } from '../Box';
-import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
-import { TColorType } from '../styles';
 
 /**
  * Types.

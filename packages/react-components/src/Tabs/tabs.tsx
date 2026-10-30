@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Tab, TTabProps } from './tab';
+import type { Tab, TTabProps } from './tab';
 
 /**
  * Types.

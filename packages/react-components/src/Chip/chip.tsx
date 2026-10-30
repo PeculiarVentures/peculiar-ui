@@ -1,8 +1,8 @@
 import * as React from 'react';
 import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
+import type { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { CloseSmallIcon } from '../icons';
-import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
 import { Typography } from '../Typography';
 
 /**

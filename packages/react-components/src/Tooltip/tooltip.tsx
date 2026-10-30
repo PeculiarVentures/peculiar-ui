@@ -1,8 +1,8 @@
 import React from 'react';
+import type { Placement } from '@popperjs/core';
 import isPropValid from '@emotion/is-prop-valid';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Placement } from '@popperjs/core';
 import { Box } from '../Box';
 import { useMergedRef, useControllableState } from '../hooks';
 import { Popper } from '../Popper';

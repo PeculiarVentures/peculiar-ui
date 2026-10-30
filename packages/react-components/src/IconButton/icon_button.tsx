@@ -1,8 +1,10 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Button, IButtonOwnProps } from '../Button';
-import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
-import { Tooltip, ITooltipOwnProps } from '../Tooltip';
+import type { IButtonOwnProps } from '../Button';
+import type { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import type { ITooltipOwnProps } from '../Tooltip';
+import { Button } from '../Button';
+import { Tooltip } from '../Tooltip';
 
 /**
  * Types.

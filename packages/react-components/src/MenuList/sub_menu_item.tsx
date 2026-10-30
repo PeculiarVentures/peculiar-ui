@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import type { IOverridableComponent } from '../OverridableComponent';
 import type { IMenuItemTypeMap, TMenuItemProps } from './menu_item';
 import { Box } from '../Box';
 import { useMergedRef } from '../hooks';
 import { ArrowRightIcon } from '../icons';
-import { IOverridableComponent } from '../OverridableComponent';
 import { Popper } from '../Popper';
 import { MenuItem } from './menu_item';
 import { MenuList } from './menu_list';

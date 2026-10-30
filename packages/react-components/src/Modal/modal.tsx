@@ -1,7 +1,8 @@
 import * as React from 'react';
 import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
-import { Backdrop, TBackdropProps } from '../Backdrop';
+import type { TBackdropProps } from '../Backdrop';
+import { Backdrop } from '../Backdrop';
 import { FocusTrap } from '../FocusTrap';
 import { Portal } from '../Portal';
 

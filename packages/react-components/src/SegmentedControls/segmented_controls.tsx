@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import type { SegmentedControl, TSegmentedControlProps } from './segmented_control';
 import { Tabs } from '../Tabs';
-import { SegmentedControl, TSegmentedControlProps } from './segmented_control';
 
 /**
  * Types.

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { IButtonBaseOwnProps, ButtonBase } from '../ButtonBase';
-import { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import type { IButtonBaseOwnProps } from '../ButtonBase';
+import type { IOverridableComponent, TOverrideProps } from '../OverridableComponent';
+import { ButtonBase } from '../ButtonBase';
 
 /**
  * Types.

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import type { TBaseTransitionProps } from '../Fade';
 import { Box } from '../Box';
-import { Fade, TBaseTransitionProps } from '../Fade';
+import { Fade } from '../Fade';
 
 /**
  * Types.
