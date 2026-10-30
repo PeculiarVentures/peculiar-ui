@@ -1,6 +1,7 @@
 import React from 'react';
 import { createFocusTrap } from 'focus-trap';
 import { useMergedRef } from '../hooks';
+import { getElementRef } from '../utils/get_element_ref';
 
 export interface IFocusTrapOwnProps {
   /**
@@ -27,7 +28,7 @@ export const FocusTrap: React.FC<IFocusTrapOwnProps> = (props) => {
   const { children, open, disableAutoFocus } = props;
 
   const rootRef = React.useRef(null);
-  const multiRef = useMergedRef((children as any).ref, rootRef);
+  const multiRef = useMergedRef(getElementRef(children), rootRef);
 
   React.useEffect(() => {
     // We might render an empty child.
@@ -55,7 +56,7 @@ export const FocusTrap: React.FC<IFocusTrapOwnProps> = (props) => {
     // oxlint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
-  return React.cloneElement(children, {
+  return React.cloneElement(children as React.ReactElement<{ ref?: React.Ref<unknown> }>, {
     ref: multiRef,
   });
 };

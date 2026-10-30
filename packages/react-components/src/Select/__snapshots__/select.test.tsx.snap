@@ -122,7 +122,6 @@ exports[`<Select /> > should pass className 1`] = `
         id="test-id"
         tabindex="-1"
         type="text"
-        value=""
       />
     </button>
   </div>
@@ -398,7 +397,6 @@ exports[`<Select /> > should pass error 1`] = `
           id="test-id"
           tabindex="-1"
           type="text"
-          value=""
         />
       </button>
       <p
@@ -441,7 +439,6 @@ exports[`<Select /> > should pass error 1`] = `
             placeholder="Search"
             spellcheck="false"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -717,7 +714,6 @@ exports[`<Select /> > should pass loading 1`] = `
           id="test-id"
           tabindex="-1"
           type="text"
-          value=""
         />
       </button>
     </div>
@@ -756,7 +752,6 @@ exports[`<Select /> > should pass loading 1`] = `
             placeholder="Search"
             spellcheck="false"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -1092,7 +1087,6 @@ exports[`<Select /> > should pass options 1`] = `
           id="test-id"
           tabindex="-1"
           type="text"
-          value=""
         />
       </button>
     </div>
@@ -1130,7 +1124,6 @@ exports[`<Select /> > should pass options 1`] = `
             placeholder="Search"
             spellcheck="false"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -1302,7 +1295,6 @@ exports[`<Select /> > should render with default multiple styles 1`] = `
         id="test-id"
         tabindex="-1"
         type="text"
-        value=""
       />
     </button>
   </div>
@@ -1429,7 +1421,6 @@ exports[`<Select /> > should render with default styles 1`] = `
         id="test-id"
         tabindex="-1"
         type="text"
-        value=""
       />
     </button>
   </div>
@@ -1556,7 +1547,6 @@ exports[`<Select /> > sizes > size "large" 1`] = `
         id="test-id"
         tabindex="-1"
         type="text"
-        value=""
       />
     </button>
   </div>
@@ -1683,7 +1673,6 @@ exports[`<Select /> > sizes > size "medium" 1`] = `
         id="test-id"
         tabindex="-1"
         type="text"
-        value=""
       />
     </button>
   </div>
@@ -1810,7 +1799,6 @@ exports[`<Select /> > sizes > size "small" 1`] = `
         id="test-id"
         tabindex="-1"
         type="text"
-        value=""
       />
     </button>
   </div>

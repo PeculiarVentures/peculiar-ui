@@ -86,7 +86,6 @@ exports[`<Slider /> > should pass className 1`] = `
       min="0"
       step="1"
       type="range"
-      value=""
     />
   </div>
 </DocumentFragment>
@@ -178,7 +177,6 @@ exports[`<Slider /> > should render with default styles 1`] = `
       min="0"
       step="1"
       type="range"
-      value=""
     />
   </div>
 </DocumentFragment>

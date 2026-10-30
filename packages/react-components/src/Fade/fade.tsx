@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Transition } from 'react-transition-group';
 import { useMergedRef } from '../hooks';
+import { getElementRef } from '../utils/get_element_ref';
 
 // The props of Transition<HTMLElement> (TransitionProps), taken from the package root:
 // ESM declarations can't import the extensionless react-transition-group/Transition
@@ -60,7 +61,12 @@ export const Fade = React.forwardRef<any, TFadeProps>((props, ref) => {
     ...other
   } = props;
   const nodeRef = React.useRef<HTMLElement>(null);
-  const multiRef = useMergedRef((children as any).ref, ref, nodeRef);
+  // The child receives the transition styles and the merged ref.
+  const child = children as React.ReactElement<{
+    style?: React.CSSProperties;
+    ref?: React.Ref<HTMLElement>;
+  }>;
+  const multiRef = useMergedRef(getElementRef<HTMLElement>(children), ref, nodeRef);
 
   const handleEnter = (isAppearing: boolean) => {
     if (nodeRef.current) {
@@ -89,12 +95,12 @@ export const Fade = React.forwardRef<any, TFadeProps>((props, ref) => {
       {...other}
     >
       {(state) =>
-        React.cloneElement(children, {
+        React.cloneElement(child, {
           style: {
             opacity: state === 'entering' || state === 'entered' ? finalOpacity : 0,
             transition: `opacity ${timeout}ms cubic-bezier(0.4, 0, 0.2, 1) 0ms`,
             visibility: state === 'exited' && !inProp ? 'hidden' : undefined,
-            ...children.props.style,
+            ...child.props.style,
           },
           ref: multiRef,
         })

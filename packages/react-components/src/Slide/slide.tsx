@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Transition } from 'react-transition-group';
 import type { TBaseTransitionProps } from '../Fade/fade';
 import { useMergedRef } from '../hooks';
+import { getElementRef } from '../utils/get_element_ref';
 
 interface IBaseProps {
   /**
@@ -48,7 +49,12 @@ export const Slide = React.forwardRef<any, TSlideProps>((props, ref) => {
     onExiting,
   } = props;
   const nodeRef = React.useRef<HTMLElement>(null);
-  const multiRef = useMergedRef((children as any).ref, ref, nodeRef);
+  // The child receives the transition styles and the merged ref.
+  const child = children as React.ReactElement<{
+    style?: React.CSSProperties;
+    ref?: React.Ref<HTMLElement>;
+  }>;
+  const multiRef = useMergedRef(getElementRef<HTMLElement>(children), ref, nodeRef);
 
   const handleEnter = (isAppearing: boolean) => {
     if (nodeRef.current) {
@@ -110,7 +116,7 @@ export const Slide = React.forwardRef<any, TSlideProps>((props, ref) => {
       onExiting={onExiting}
     >
       {(state) =>
-        React.cloneElement(children, {
+        React.cloneElement(child, {
           style: {
             transform:
               state === 'entering' || state === 'entered'
@@ -118,7 +124,7 @@ export const Slide = React.forwardRef<any, TSlideProps>((props, ref) => {
                 : getTranslateEnterValue(),
             transition: `transform ${timeout}ms cubic-bezier(0, 0, 0.2, 1) 0ms`,
             visibility: state === 'exited' && !inProp ? 'hidden' : undefined,
-            ...children.props.style,
+            ...child.props.style,
           },
           ref: multiRef,
         })

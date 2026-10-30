@@ -7,6 +7,7 @@ import { Box } from '../Box';
 import { useMergedRef, useControllableState } from '../hooks';
 import { Popper } from '../Popper';
 import { Typography } from '../Typography';
+import { getElementRef } from '../utils/get_element_ref';
 
 /**
  * Types.
@@ -246,10 +247,10 @@ export const Tooltip: React.FC<TTooltipProps> = (props) => {
     defaultValue: false,
   });
   const nodeRef = React.useRef(null);
-  const multiRef = useMergedRef((children as any).ref, nodeRef);
+  const multiRef = useMergedRef(getElementRef(children), nodeRef);
   const [arrowRef, setArrowRef] = React.useState(null);
-  const enterTimer = React.useRef<ReturnType<typeof setTimeout>>();
-  const leaveTimer = React.useRef<ReturnType<typeof setTimeout>>();
+  const enterTimer = React.useRef<ReturnType<typeof setTimeout>>(undefined);
+  const leaveTimer = React.useRef<ReturnType<typeof setTimeout>>(undefined);
 
   React.useEffect(
     () => () => {

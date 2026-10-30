@@ -8,7 +8,7 @@ const Component = ({
 }: {
   refs: (React.MutableRefObject<any> | React.RefCallback<HTMLElement>)[];
 }) => {
-  const ref = React.useRef();
+  const ref = React.useRef(undefined);
   const mergedRef = useMergedRef(ref, ...refs);
 
   return <div ref={mergedRef} />;

@@ -176,7 +176,6 @@ exports[`<Autocomplete /> > should render with default styles 1`] = `
         role="combobox"
         spellcheck="false"
         type="text"
-        value=""
       />
       <div
         class="emotion-2"
@@ -206,7 +205,6 @@ exports[`<Autocomplete /> > should render with default styles 1`] = `
         id="test-id"
         tabindex="-1"
         type="text"
-        value=""
       />
     </label>
   </div>
@@ -389,7 +387,6 @@ exports[`<Autocomplete /> > should render with multiple selection enabled 1`] = 
         role="combobox"
         spellcheck="false"
         type="text"
-        value=""
       />
       <div
         class="emotion-2"
@@ -419,7 +416,6 @@ exports[`<Autocomplete /> > should render with multiple selection enabled 1`] = 
         id="test-id"
         tabindex="-1"
         type="text"
-        value=""
       />
     </label>
   </div>
@@ -602,7 +598,6 @@ exports[`<Autocomplete /> > sizes > renders with size "large" 1`] = `
         role="combobox"
         spellcheck="false"
         type="text"
-        value=""
       />
       <div
         class="emotion-2"
@@ -632,7 +627,6 @@ exports[`<Autocomplete /> > sizes > renders with size "large" 1`] = `
         id="test-id"
         tabindex="-1"
         type="text"
-        value=""
       />
     </label>
   </div>
@@ -815,7 +809,6 @@ exports[`<Autocomplete /> > sizes > renders with size "medium" 1`] = `
         role="combobox"
         spellcheck="false"
         type="text"
-        value=""
       />
       <div
         class="emotion-2"
@@ -845,7 +838,6 @@ exports[`<Autocomplete /> > sizes > renders with size "medium" 1`] = `
         id="test-id"
         tabindex="-1"
         type="text"
-        value=""
       />
     </label>
   </div>
@@ -1028,7 +1020,6 @@ exports[`<Autocomplete /> > sizes > renders with size "small" 1`] = `
         role="combobox"
         spellcheck="false"
         type="text"
-        value=""
       />
       <div
         class="emotion-2"
@@ -1058,7 +1049,6 @@ exports[`<Autocomplete /> > sizes > renders with size "small" 1`] = `
         id="test-id"
         tabindex="-1"
         type="text"
-        value=""
       />
     </label>
   </div>

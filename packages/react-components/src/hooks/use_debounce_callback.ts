@@ -5,7 +5,7 @@ export function useDebounceCallback<Params extends any[]>(
   delay = 300,
   cleanUp = false,
 ) {
-  const timeoutRef = React.useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = React.useRef<ReturnType<typeof setTimeout>>(undefined);
 
   // Clear timer.
   const clearTimer = () => {

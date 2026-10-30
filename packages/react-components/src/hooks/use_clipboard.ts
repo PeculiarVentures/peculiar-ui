@@ -6,7 +6,7 @@ import { copyToClipboard } from '../utils';
  */
 export function useClipboard() {
   const [isCopied, setIsCopied] = React.useState(false);
-  const timeout = React.useRef<ReturnType<typeof setTimeout>>();
+  const timeout = React.useRef<ReturnType<typeof setTimeout>>(undefined);
   const mounted = React.useRef(false);
 
   React.useEffect(() => {
