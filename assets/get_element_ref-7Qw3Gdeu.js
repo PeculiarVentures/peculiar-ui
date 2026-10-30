@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{t}from"./react-pByjoP3I.js";function n(e){return Number.parseInt(`18.3.1`,10)>=19?e.props.ref:e.ref}function r(){return(r=e((()=>{t()})))()}export{r as n,n as t};
