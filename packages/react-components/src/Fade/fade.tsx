@@ -1,10 +1,12 @@
 import * as React from 'react';
-import type { TransitionProps } from 'react-transition-group/Transition';
 import { Transition } from 'react-transition-group';
 import { useMergedRef } from '../hooks';
 
+// The props of Transition<HTMLElement> (TransitionProps), taken from the package root:
+// ESM declarations can't import the extensionless react-transition-group/Transition
+// subpath under node16/nodenext resolution.
 export type TBaseTransitionProps = Pick<
-  TransitionProps<HTMLElement>,
+  React.ComponentProps<typeof Transition<HTMLElement>>,
   | 'onEnter'
   | 'onEntered'
   | 'onEntering'

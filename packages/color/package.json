@@ -18,31 +18,23 @@
     "directory": "packages/color"
   },
   "files": [
-    "dist/"
+    "build/",
+    "README.md",
+    "LICENSE"
   ],
+  "type": "module",
   "sideEffects": false,
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "typings": "dist/types/index.d.ts",
-  "esnext": "dist/esnext/index.js",
+  "main": "./build/index.js",
+  "module": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": "./build/index.js",
+    "./package.json": "./package.json"
+  },
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "prebuild": "npm run clean",
-    "build": "npm run build:esm && npm run build:cjs && npm run build:esnext",
-    "build:esm": "tsc -p tsconfig.build.json",
-    "build:cjs": "tsc -p tsconfig.build.json -m commonjs --outDir dist/cjs",
-    "build:esnext": "tsc -p tsconfig.build.json -t esnext --outDir dist/esnext",
-    "clean": "rimraf public dist",
-    "test": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "typecheck": "tsc --noEmit -p tsconfig.build.json"
-  },
-  "devDependencies": {
-    "typescript": "5.9.3"
-  },
   "engines": {
-    "node": ">=18.x"
+    "node": "^20.19.0 || >=22.12.0"
   }
 }

@@ -1,24 +1,28 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
+    "target": "es2023",
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "module": "preserve",
+    "moduleResolution": "bundler",
     "jsx": "react-jsx",
-    "lib": ["dom", "es2017"],
-    "module": "es2015",
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
+    "types": [],
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "strict": false,
     "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "pretty": true,
-    "removeComments": false,
-    "sourceMap": true,
-    "stripInternal": true,
-    "target": "es5",
-    "strictBindCallApply": true
+    "strictBindCallApply": true,
+    "skipLibCheck": true,
+    "noImplicitOverride": true,
+    "noErrorTruncation": true,
+    "noEmit": true,
+    "paths": {
+      "@peculiar/color": ["./packages/color/src"]
+    }
   },
-  "exclude": ["node_modules"]
+  "include": [
+    "packages/*/src",
+    "packages/react-components/.storybook",
+    "packages/react-components/vitest.setup.ts",
+    "*.config.ts"
+  ]
 }

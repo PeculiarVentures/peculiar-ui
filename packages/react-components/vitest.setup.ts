@@ -4,7 +4,7 @@ import { cleanup } from '@testing-library/react';
 import { afterEach, expect, vi } from 'vitest';
 
 // @ts-expect-error: Mock React ACT environment for Vitest
-global.IS_REACT_ACT_ENVIRONMENT = true;
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 expect.addSnapshotSerializer(
   createSerializer({
@@ -12,7 +12,7 @@ expect.addSnapshotSerializer(
   }),
 );
 
-// @ts-expect-error: Mock IntersectionObserver for Vitest
+// Mock IntersectionObserver for Vitest
 window.IntersectionObserver = vi.fn<() => IntersectionObserver>(() => ({
   observe: vi.fn<() => void>(),
   unobserve: vi.fn<() => void>(),

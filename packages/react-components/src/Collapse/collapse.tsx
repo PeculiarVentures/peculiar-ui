@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { TransitionStatus } from 'react-transition-group/Transition';
+import type { TransitionStatus } from 'react-transition-group';
 import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
 import { Transition } from 'react-transition-group';
