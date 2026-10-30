@@ -1,4 +1,0 @@
-import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{t as n}from"./jsx-runtime-BG4KOiPz.js";import{n as r,t as i}from"./use_id-Cy2eWmIW.js";var a=t({DemoExample:()=>c,__namedExportsOrder:()=>l,default:()=>s}),o,s,c,l;function u(){return(u=e((()=>{i(),o=n(),s={title:`Hooks/useId`,component:r},c=()=>{let e=r();return(0,o.jsxs)(`div`,{children:[`ID is: `,e]})},l=[`DemoExample`],c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`() => {
-  const id = useId();
-  return <div>ID is: {id}</div>;
-}`,...c.parameters?.docs?.source}}}})))()}export{u as n,a as r,c as t};

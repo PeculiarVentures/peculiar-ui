@@ -1,1 +1,0 @@
-import{t as e}from"./iframe-BTA5LFF2.js";e();
