@@ -12,6 +12,18 @@ expect.addSnapshotSerializer(
   }),
 );
 
+// React 18 mirrors an empty controlled value into a value="" attribute and React 19
+// doesn't. Drop it so the same snapshots pass on both versions.
+expect.addSnapshotSerializer({
+  test: (val: unknown) =>
+    val instanceof HTMLElement && val.getAttribute('value') === '' && 'value' in val,
+  serialize: (val: HTMLElement, config, indentation, depth, refs, printer) => {
+    val.removeAttribute('value');
+
+    return printer(val, config, indentation, depth, refs);
+  },
+});
+
 // Mock IntersectionObserver for Vitest
 window.IntersectionObserver = vi.fn<() => IntersectionObserver>(() => ({
   observe: vi.fn<() => void>(),

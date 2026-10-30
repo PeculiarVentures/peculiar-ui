@@ -40,7 +40,7 @@ export function useImage(src: string, options: IUseImageOptionsType = {}): IUseI
   const { onLoad, onError } = options;
 
   const [status, setStatus] = React.useState<TStatus>('pending');
-  const imageRef = React.useRef<IUseImageReturnType['image']>();
+  const imageRef = React.useRef<IUseImageReturnType['image']>(undefined);
 
   useEnhancedEffect(() => {
     if (!src) {

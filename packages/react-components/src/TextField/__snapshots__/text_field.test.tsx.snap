@@ -88,7 +88,6 @@ exports[`<TextField /> > TextField render sizes > size "large" 1`] = `
       class="emotion-0"
       id="test-id"
       type="text"
-      value=""
     />
   </div>
 </DocumentFragment>
@@ -182,7 +181,6 @@ exports[`<TextField /> > TextField render sizes > size "medium" 1`] = `
       class="emotion-0"
       id="test-id"
       type="text"
-      value=""
     />
   </div>
 </DocumentFragment>
@@ -276,7 +274,6 @@ exports[`<TextField /> > TextField render sizes > size "small" 1`] = `
       class="emotion-0"
       id="test-id"
       type="text"
-      value=""
     />
   </div>
 </DocumentFragment>
@@ -371,7 +368,6 @@ exports[`<TextField /> > TextField render variants > should be disabled 1`] = `
       disabled=""
       id="test-id"
       type="text"
-      value=""
     />
   </div>
 </DocumentFragment>
@@ -467,7 +463,6 @@ exports[`<TextField /> > TextField render variants > should have className 1`] =
       class="input-cls emotion-0"
       id="test-id"
       type="text"
-      value=""
     />
   </div>
 </DocumentFragment>
@@ -666,7 +661,6 @@ exports[`<TextField /> > TextField render variants > should have error alert 1`]
       class="emotion-0"
       id="test-id"
       type="text"
-      value=""
     />
     <p
       class="emotion-1"
@@ -790,7 +784,6 @@ exports[`<TextField /> > TextField render variants > should have label 1`] = `
       class="emotion-2"
       id="test-id"
       type="text"
-      value=""
     />
   </div>
 </DocumentFragment>
@@ -885,7 +878,6 @@ exports[`<TextField /> > TextField render variants > should have name attr 1`] =
       id="test-id"
       name="test-name"
       type="text"
-      value=""
     />
   </div>
 </DocumentFragment>
@@ -980,7 +972,6 @@ exports[`<TextField /> > TextField render variants > should have placeholder 1`]
       id="test-id"
       placeholder="test-placeholder"
       type="text"
-      value=""
     />
   </div>
 </DocumentFragment>
@@ -1075,7 +1066,6 @@ exports[`<TextField /> > TextField render variants > should have required 1`] = 
       id="test-id"
       required=""
       type="text"
-      value=""
     />
   </div>
 </DocumentFragment>
@@ -1263,7 +1253,6 @@ exports[`<TextField /> > TextField render variants > should render as default 1`
       class="emotion-0"
       id="test-id"
       type="text"
-      value=""
     />
   </div>
 </DocumentFragment>
